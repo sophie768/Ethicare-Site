@@ -1,0 +1,36 @@
+/* ETHICARE RESOURCING — STACKED DESTINATION HERO
+   --------------------------------------------------------------------------
+   Photograph above, copy on solid deep teal below. Load LAST in <head> so it
+   standardises whatever hero geometry a page already carries inline.
+
+   Why stacked and not overlaid: contrast stops depending on the photograph,
+   so any image can be swapped in and can never break AA — and with no scrim
+   the photograph reads at full brightness instead of being darkened exactly
+   where the text sits. Same reasoning as site/guide-cover.css.
+
+   Tiering: a destination HUB (.hero.hub) gets a taller photo band than its
+   chapters, so the hub still reads as the bigger page inside one pattern.
+   Country landing pages (/australia, /new-zealand) keep the immersive
+   overlay hero and must NOT link this sheet.
+
+   Self-contained: literal values only, so it works on any page regardless of
+   which token block that page declares. */
+
+.hero{position:relative;display:block;min-height:0!important;height:auto;overflow:hidden;background:#02615D}
+.hero .photo{position:relative!important;inset:auto!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;width:auto!important;height:clamp(190px,26vh,290px)!important;background-size:cover!important;background-repeat:no-repeat!important;transform:none!important;filter:none!important}
+.hero.hub .photo{height:clamp(250px,38vh,400px)!important}
+.hero .scrim{display:none!important}
+/* shell.css puts the site-wide overlay scrim on .hero .photo::after; stacked
+   pages don't want it, and some pages carry their own on .hero itself. */
+.hero .photo::after,.hero .photo::before,.hero::before,.hero::after{display:none!important}
+/* Destinations with no photography yet (Southland, Gisborne) mark the hero
+   .no-photo. A blank gradient strip says nothing, so those pages fall back to
+   a flat deep-teal cover rather than a fake band. */
+.hero.no-photo .photo{display:none!important}
+.hero.no-photo .inner{padding-top:clamp(56px,6vw,84px)!important}
+.hero .inner{position:relative;z-index:2;padding-top:clamp(38px,4.6vw,58px)!important;padding-bottom:clamp(36px,4.2vw,50px)!important}
+.hero h1{text-shadow:none!important}
+/* long breadcrumbs wrapped mid-label once the crumb sat on the solid band */
+.hero .wf-crumb a,.hero .wf-crumb .here,.hero .crumb a,.hero .crumb .here{white-space:nowrap}
+@media(max-width:700px){.hero .photo{height:clamp(150px,22vh,205px)!important}.hero.hub .photo{height:clamp(190px,30vh,265px)!important}}
+@media print{.hero{height:auto!important}.hero .photo{height:52mm!important}}

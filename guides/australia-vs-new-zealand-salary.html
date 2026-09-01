@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Australia vs NZ salaries compared | Ethicare Resourcing</title>
+<meta name="description" content="A clear-eyed look at healthcare pay across Australia and New Zealand: super, KiwiSaver, housing, family costs and relocation assistance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   ETHICARE RESOURCING — CROSS-COUNTRY GUIDE
+   Australia or New Zealand? — a decision guide
+   ================================================================ */
+:root{
+  --teal:#02615D; --green:#02615D; --sage:#72A471; --lime:#A6C84A;
+  --nz:#72A471; --au:#D9A084;
+  --mint:#C9DED3; --soft:#E6F1ED; --soft-green:#E6F1ED; --warm:#FCFBF8;
+  --white:#FFFFFF; --text:#333333; --muted:#555555;
+  --display:'Work Sans',sans-serif; --body:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+body{font-family:var(--body);font-size:16px;line-height:1.72;color:var(--text);background:var(--warm);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,.btn:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 7px rgba(167,201,87,.55)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.18;color:var(--teal)}
+h1{font-size:clamp(40px,6vw,56px);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+h2{font-size:clamp(30px,4vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin-bottom:24px}
+h3{font-size:18px;margin-bottom:8px}
+p{margin-bottom:16px}
+strong{color:var(--green)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.reading{max-width:1180px}.reading>*{max-width:760px}
+.section{padding:var(--sp-major,clamp(60px,8vw,96px)) 0;position:relative}
+.eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:16px}
+.lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:50ch}
+
+/* breadcrumb */
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:13px;color:var(--muted);margin-bottom:24px}
+.crumb a:hover{color:var(--teal)}
+.crumb .sep{opacity:.85}
+.crumb .here{color:var(--teal)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-family:var(--display);font-weight:600;font-size:16px;padding:13px 26px;border-radius:12px;transition:transform .15s ease,background .15s ease;color:var(--teal);cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#014E4B}
+.btn-secondary{background:#fff;border:1.5px solid var(--sage);color:var(--teal)}.btn-secondary:hover{background:var(--soft-green)}
+.btn-ghost{background:transparent;border:1.5px solid var(--sage);color:var(--teal)}.btn-ghost:hover{background:var(--soft-green)}
+.btn-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+
+/* ---------------- HERO ---------------- */
+.hero{background:var(--teal);position:relative;overflow:hidden;min-height:calc(88svh - 78px);display:grid;align-content:center}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 46%,rgba(169,101,79,.55) 46% 54%,rgba(95,143,120,.55) 54%);opacity:.5;pointer-events:none}
+.hero .wrap{position:relative;z-index:1;padding-top:clamp(46px,6vw,72px);padding-bottom:clamp(46px,6vw,72px)}
+.hero-copy{max-width:760px}
+.hero h1{color:#fff;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:#A34438}
+.hero .eyebrow{color:#C6E084}
+.hero .crumb{color:rgba(255,255,255,.9)}
+.hero .crumb a:hover,.hero .crumb .here{color:#fff}
+.hero .btn-primary{background:#fff;color:var(--teal)}
+.hero .btn-primary:hover{background:var(--warm)}
+.hero .btn-ghost{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5);color:#fff}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.2)}
+.hero-sub{font-size:clamp(16.5px,2vw,20px);line-height:1.6;color:rgba(255,255,255,.88);max-width:50ch;margin-bottom:8px}
+
+/* page at a glance */
+.glance-wrap{background:var(--warm);padding:clamp(34px,5vw,50px) 0 0}
+.glance{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:26px 30px}
+.glance .gl-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.glance .gl-top .eyebrow{margin-bottom:0}
+.glance .gl-top .note{font-size:13.5px;color:var(--muted)}
+.glance ol{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 24px}
+.glance li{counter-increment:g;border-top:1px solid var(--mint)}
+.glance a{display:flex;align-items:baseline;gap:8px;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);padding:11px 4px;transition:color .15s ease}
+.glance a::before{content:counter(g,decimal-leading-zero);font-size:11.5px;font-weight:600;color:#A34438;flex-shrink:0}
+.glance a:hover{color:var(--teal)}
+@media (max-width:760px){.glance ol{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.glance ol{grid-template-columns:1fr}}
+
+/* intro reassurance */
+.reassure{background:var(--soft-green);border:1px solid var(--mint);border-radius:14px;padding:24px 26px;margin:24px 0 0}
+.reassure p{margin:0;font-size:16.5px}
+
+/* duo mirror cards */
+.section .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.section .duo .cc{background:#fff;border:1px solid var(--mint);border-radius:20px;padding:30px 30px;transition:transform .15s ease,box-shadow .15s ease}
+.section .duo .cc:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(1,49,47,.09)}
+.section .duo .cc.au{border-top:5px solid var(--au)}
+.section .duo .cc.nz{border-top:5px solid var(--nz)}
+.section .duo .cc .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.section .duo .cc.au .k{color:var(--au-text,#A34438)} .duo .cc.nz .k{color:#2F5E49}
+.section .duo .cc h3{color:var(--green);font-size:20px;margin-bottom:8px}
+.section .duo .cc p{font-size:15px;color:var(--muted);margin:0 0 8px}
+.section .duo .cc p:last-child{margin-bottom:0}
+
+/* comparison table */
+.cmp-wrap{margin-top:40px;overflow-x:auto;border:1px solid var(--mint);border-radius:20px}
+.cmp{width:100%;border-collapse:collapse;font-size:15px;min-width:640px;background:#fff}
+.cmp thead th{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.13em;text-transform:uppercase;text-align:left;padding:18px 22px 14px;color:#2F5E49;background:none}
+.cmp thead th:first-child{width:18%}
+.cmp thead th.au{color:#A34438;box-shadow:inset 0 3px 0 #D9A084} .cmp thead th.nz{color:#2F5E49;box-shadow:inset 0 3px 0 #72A471}
+.cmp tbody th{font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);text-align:left;padding:18px 22px;background:var(--soft);vertical-align:top;width:18%;border-top:1px solid var(--mint)}
+.cmp td{padding:18px 22px;color:var(--text);vertical-align:top;border-top:1px solid var(--mint);line-height:1.6}
+.cmp td.au{background:rgba(169,101,79,.05)}
+.cmp td.nz{background:rgba(95,143,120,.05)}
+
+/* registration two-up + ticks */
+.reg-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.reg-col{background:#fff;border:1px solid var(--mint);border-radius:20px;padding:30px 30px}
+.reg-col.au{border-top:5px solid var(--au)} .reg-col.nz{border-top:5px solid var(--nz)}
+.reg-col .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.reg-col.au .k{color:var(--au-text,#A34438)} .reg-col.nz .k{color:#2F5E49}
+.reg-col h3{color:var(--green);font-size:19px;margin-bottom:8px}
+.reg-col p{font-size:14.5px;color:var(--muted)}
+ul.ticks{list-style:none;display:grid;gap:8px;margin:16px 0 0}
+ul.ticks li{position:relative;padding-left:28px;font-size:14.5px;color:var(--text)}
+ul.ticks li::before{content:"";position:absolute;left:0;top:8px;width:15px;height:15px;border-radius:6px;background:var(--soft-green);border:1px solid var(--mint)}
+ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;height:9px;border:2px solid var(--teal);border-top:0;border-left:0;transform:rotate(45deg)}
+
+/* insight callout */
+.insight{margin-top:40px;background:var(--soft-green);border:1px solid var(--mint);border-radius:14px;padding:26px 30px;max-width:920px}
+.insight .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px}
+.insight p{font-size:16px;color:var(--text);margin:0}
+
+.pullquote{margin:40px 0 0;padding:8px 0 8px 26px;border-left:4px solid #72A471;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(20px,2.6vw,26px);line-height:1.45;color:var(--teal);max-width:50ch}
+
+/* decide grid */
+.decide{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.decide .card{border:1px solid var(--mint);border-radius:20px;padding:30px 30px;background:#fff}
+.decide .card.au{border-top:5px solid var(--au)} .decide .card.nz{border-top:5px solid var(--nz)}
+.decide .card .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.decide .card.au .k{color:var(--au-text,#A34438)} .decide .card.nz .k{color:#2F5E49}
+.decide .card ul{list-style:none;display:grid;gap:8px}
+.decide .card li{position:relative;padding-left:24px;font-size:15px;color:var(--text)}
+.decide .card li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%}
+.decide .card.au li::before{background:var(--au)} .decide .card.nz li::before{background:var(--nz)}
+
+/* Sophie insight */
+.sophie{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:clamp(28px,4vw,40px);display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:start;max-width:920px}
+.sophie .photo{width:120px;height:140px;border-radius:14px;overflow:hidden;border:1px solid var(--mint);background:linear-gradient(150deg,var(--mint),var(--soft-green))}
+.sophie .photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.sophie .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A34438;margin-bottom:8px}
+.sophie p{font-size:16.5px;color:var(--text);margin-bottom:0}
+.sophie .sign{font-family:var(--display);font-style:italic;font-weight:600;font-size:18px;color:var(--teal);margin-top:16px}
+.sophie .sign span{display:block;font-style:normal;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* FAQ */
+.faq{margin-top:40px;max-width:920px}
+.faq details{background:#fff;border:1px solid var(--mint);border-radius:14px;margin-bottom:16px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--teal);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;font-weight:400;color:#A34438;transition:transform .2s ease;line-height:1}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .ans{padding:0 24px 22px;font-size:15.5px;color:var(--muted)}
+.faq .ans p{margin-bottom:8px}.faq .ans p:last-child{margin-bottom:0}
+
+/* related */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.rel{position:relative;background:#fff;border:1px solid var(--mint);border-left:5px solid var(--sage);border-radius:14px;padding:24px 24px;transition:background .15s ease,transform .15s ease}
+.rel:hover{background:var(--soft-green);transform:translateY(-2px)}
+.rel .k{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#A34438;margin-bottom:8px;display:block}
+.rel h3{font-size:16.5px;color:var(--green);margin-bottom:4px}
+.rel p{font-size:13.5px;color:var(--muted);margin:0}
+.rel .go{margin-top:16px;font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--teal);display:inline-flex;align-items:center;gap:8px}
+.rel .go::after{content:"\2192";color:#A34438}
+
+/* final CTA */
+.final{background:var(--teal);border-radius:24px;padding:clamp(34px,5vw,52px);text-align:left;color:#fff}
+.final .eyebrow{color:#C6E084}
+.final h2{margin-bottom:16px;color:#fff}
+.final p{max-width:64ch;color:rgba(255,255,255,.85);font-size:17px}
+.final .btn-row{justify-content:flex-start}
+.final .btn-light{background:#fff;color:var(--teal)}.final .btn-light:hover{background:var(--warm)}
+.final .btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff}.final .btn-outline:hover{background:rgba(255,255,255,.12)}
+.final .small{margin-top:16px;font-size:13.5px;color:rgba(255,255,255,.7)}
+
+@media (max-width:880px){
+  .duo,.reg-cols,.decide,.related-grid{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .section{padding:54px 0}
+  .sophie{grid-template-columns:1fr;gap:24px}
+  .sophie .photo{margin:0 auto}
+  .btn{width:100%}
+}
+</style>
+<link rel="stylesheet" href="../shell.css">
+<style>/* playfair-hero */ .hero-sub{font-family:'Playfair Display',Georgia,serif;font-weight:500}</style>
+<link rel="stylesheet" href="../guide-mobile.css">
+<link rel="canonical" href="https://ethicareresourcing.com/guides/australia-vs-new-zealand-salary">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Australia vs NZ: where does salary go further? | Ethicare Resourcing">
+<meta property="og:description" content="A clear-eyed look at healthcare pay across Australia and New Zealand: super, KiwiSaver, housing, family costs and relocation assistance.">
+<meta property="og:url" content="https://ethicareresourcing.com/guides/australia-vs-new-zealand-salary">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Australia vs NZ: where does salary go further? | Ethicare Resourcing">
+<meta name="twitter:description" content="A clear-eyed look at healthcare pay across Australia and New Zealand: super, KiwiSaver, housing, family costs and relocation assistance.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="au-orange-accent">.hero .eyebrow{color:#C6E084}.hero .eyebrow::before{background:#A6C84A}.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style id="au-palette-tune">:root{--teal:#02615D;--green:#02615D;--sage:#72A471}h1,h2,h3{color:#02615D}</style>
+<style id="nz-fern-accent">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style id="au-hero-teal"></style>
+<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}
+/* country badge in the comparison table heading — the mark carries the country,
+   so the header needs no fill. Ring + wattle/fern already match the brand. */
+.cmp thead th.au,.cmp thead th.nz{white-space:nowrap}
+.k .cflag,.cmp thead th .cflag{display:inline-block;vertical-align:middle;width:24px;height:24px;margin:0 9px 4px 0;border-radius:50%}
+@media(max-width:700px){.k .cflag,.cmp thead th .cflag{width:20px;height:20px;margin-right:7px}}
+@media print{.cmp thead th .cflag{width:22px;height:22px}}
+</style>
+<link rel="stylesheet" href="../hero.css">
+<link rel="stylesheet" href="../guide-cover.css">
+<link rel="stylesheet" href="../guide-print.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does Australia always pay more?","acceptedAnswer":{"@type":"Answer","text":"Generally yes on the headline figure, and sometimes substantially — particularly for senior medical specialists, GPs and clinicians in the private sector. But Australia is many employment markets rather than one, and a Sydney salary isn’t an Adelaide, Hobart or regional Queensland salary. What you keep depends far more on where you live than on which country you choose."}},{"@type":"Question","name":"What does “plus super” actually mean?","acceptedAnswer":{"@type":"Answer","text":"That the employer’s compulsory retirement contribution sits on top of the quoted salary rather than inside it. “$130,000 + super” and “$130,000 including super” are materially different offers. Always establish which convention an advert or offer is using before comparing it with anything else."}},{"@type":"Question","name":"How much does KiwiSaver add?","acceptedAnswer":{"@type":"Answer","text":"The default employee and matching employer rate rose to 3.5% from 1 April 2026, and is scheduled to reach 4% from 1 April 2028. Eligibility matters for new arrivals: joining generally requires the right to live in New Zealand indefinitely, so on a temporary work visa you may not be able to join immediately. Confirm your position with a provider or Inland Revenue."}},{"@type":"Question","name":"Should I take a lower salary with relocation support?","acceptedAnswer":{"@type":"Answer","text":"Often it’s the better first-year proposition — flights, shipping, temporary accommodation, registration and immigration costs add up fast for a family. Just establish what’s included, whether there are repayment conditions, and what happens if you leave sooner than planned."}},{"@type":"Question","name":"Why won’t you just tell me which country pays more for my role?","acceptedAnswer":{"@type":"Answer","text":"Because the answer changes with your profession, your seniority, public or private, the state or region, and your household. We’d rather work through your actual numbers than hand you an average that fits nobody. Tell us your profession and where you’re considering, and we’ll do it properly."}},{"@type":"Question","name":"I’m not from the UK — does this still apply to me?","acceptedAnswer":{"@type":"Answer","text":"Yes. We support clinicians trained across the UK, Ireland, South Africa, the UAE and beyond. The currency you’re converting from changes, but the structure of the comparison — package, housing, commute, household — doesn’t."}}]}</script>
+<link rel="stylesheet" href="../disclose.css">
+<link rel="stylesheet" href="../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia" aria-current="page">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<!-- ============ HERO ============ -->
+<section class="cover">
+  <div class="cov-bg" aria-hidden="true"><img decoding="async" src="../assets/nz-life/lake-from-high-track.jpg" alt="A lake and mountain range seen from a high walking track" fetchpriority="high"><img decoding="async" src="../assets/nsw/reloc/cover-opera-house.jpg" alt="The Opera House forecourt and the Harbour Bridge on a busy afternoon" fetchpriority="high"></div>
+  <div class="cov-top"><span class="cov-ct"><i class="nz"></i>New Zealand</span><span class="cov-ct">Australia<i class="au"></i></span></div>
+  <div class="cov-in">
+    <div class="cov-eb"><i></i>The money guide</div>
+    <h1>Where will your salary <em>go&nbsp;further?</em></h1>
+    <p class="cov-sub">Higher pay is not the same as more money</p>
+    <p class="cov-lead">Australia generally pays healthcare professionals more than New Zealand. That sounds as though it should make the financial decision straightforward. It doesn&rsquo;t.</p>
+    <div class="cov-btns"><a class="cov-a" href="#headline">Work through it <span aria-hidden="true">&rarr;</span></a><a class="cov-b" href="/contact">Talk it through with us</a></div>
+    <div class="cov-meta"><span>12 sections</span><span>Updated August 2026</span><span>Free &middot; no sign-up</span></div>
+  </div>
+</section>
+<nav class="guidebar" aria-label="Guide">
+  <div class="gb-in">
+    <span class="gb-t">Where will your salary go further?</span>
+    <div class="gb-l"><a class="gb" href="/resources">All guides</a><a class="gb" href="/new-zealand">Careers in New Zealand</a><a class="gb" href="/australia">Careers in Australia</a><a class="gb" href="/jobs/">Current roles</a><a class="gb" href="/contact">Contact</a></div>
+  </div>
+</nav>
+
+<!-- ============ PAGE AT A GLANCE ============ -->
+<section class="glance-wrap">
+  <div class="wrap">
+    <nav class="glance" id="glance" aria-label="On this page">
+      <div class="gl-top">
+        <span class="eyebrow">Page at a glance</span>
+        <span class="note">Jump to any part, read the whole thing, or just what matters to you.</span>
+      </div>
+      <ol>
+        <li><a href="#headline">The headline salary</a></li>
+        <li><a href="#retirement">Super &amp; KiwiSaver</a></li>
+        <li><a href="#housing">Housing changes everything</a></li>
+        <li><a href="#commute">Then there&rsquo;s the commute</a></li>
+        <li><a href="#children">Moving with children</a></li>
+        <li><a href="#everyday">Everyday costs</a></li>
+        <li><a href="#profession">Your profession matters</a></li>
+        <li><a href="#stage">Your career stage matters</a></li>
+        <li><a href="#relocation">Relocation &amp; year one</a></li>
+        <li><a href="#decide">So where does it go further?</a></li>
+        <li><a href="#faq">Common questions</a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="section">
+  <div class="wrap reading">
+    <span class="eyebrow">The wrong question</span>
+    <h2>A higher salary is not the same as more money</h2>
+    <p class="lead">Two clinicians earning similar amounts can have completely different standards of living, depending on where they live, whether they have children, how they commute and what is actually included in their employment package.</p>
+    <p>So if you&rsquo;re weighing Australia against New Zealand, the useful question isn&rsquo;t <em>where will I earn more?</em></p>
+    <p class="pullquote">It&rsquo;s: where will my salary give me the life I want?</p>
+    <p>This guide works through the things that actually decide that. Retirement contributions, housing, commuting, children, everyday costs, your profession, your career stage and the first-year costs nobody budgets for.</p>
+  </div>
+</section>
+
+<!-- ============ 01 HEADLINE SALARY ============ -->
+<section class="section" id="headline" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 01 &middot; The headline</span>
+    <h2>Australia generally wins on headline salary</h2>
+    <p class="lead">Across many healthcare professions, Australian salaries tend to be higher than the equivalent New Zealand salaries. The gap can become particularly significant for some senior medical specialists, GPs and clinicians working within Australia&rsquo;s private sector.</p>
+    <div class="duo">
+      <div class="cc au">
+        <div class="k"><img loading="lazy" decoding="async" class="cflag" src="../assets/guide-badges/kangaroo-icon.png" alt="" width="24" height="24">Australia</div>
+        <h3>Higher, but not one market</h3>
+        <p>There are substantial opportunities across diagnostic imaging and allied health too, particularly where employers are struggling to recruit experienced clinicians.</p>
+        <p>But Australia is an enormous and varied employment market. A salary in Sydney shouldn&rsquo;t be treated as equivalent to the same salary in Adelaide, Hobart, Bunbury or a regional Queensland city.</p>
+      </div>
+      <div class="cc nz">
+        <div class="k"><img loading="lazy" decoding="async" class="cflag" src="../assets/guide-badges/kiwi-icon.png" alt="" width="24" height="24">New Zealand</div>
+        <h3>Lower, and more transparent</h3>
+        <p>For many professions the equivalent New Zealand salary will be lower. That doesn&rsquo;t automatically make it a worse financial move.</p>
+        <p>The market is smaller, and many roles, particularly in the public system, sit within established salary scales or collective agreements. That makes remuneration relatively transparent, often with additional payments for overtime, weekends, nights or on-call.</p>
+      </div>
+    </div>
+    <div class="insight">
+      <div class="k">The point</div>
+      <p>The number on the offer letter is only the beginning of the comparison. Everything below is the rest of it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 RETIREMENT ============ -->
+<section class="section" id="retirement" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 02 &middot; Retirement contributions</span>
+    <h2>Superannuation &amp; KiwiSaver</h2>
+    <p class="lead">Both countries add employer-funded retirement savings on top of your pay. In Australia, how that&rsquo;s worded in an offer can change the figure by thousands.</p>
+    <div class="reg-cols">
+      <div class="reg-col au">
+        <div class="k"><img loading="lazy" decoding="async" class="cflag" src="../assets/guide-badges/kangaroo-icon.png" alt="" width="24" height="24">Australia</div>
+        <h3>Check whether it&rsquo;s <em>plus</em> super</h3>
+        <p>Superannuation is Australia&rsquo;s retirement savings system, and employers generally make compulsory contributions for eligible employees. That makes the wording of an offer important:</p>
+        <ul class="ticks">
+          <li><strong>A$130,000 + super</strong> is not the same offer as&hellip;</li>
+          <li><strong>A$130,000 including super.</strong></li>
+        </ul>
+        <p>When comparing two Australian jobs, or an Australian job against a New Zealand one. Establish exactly what the quoted figure represents before you do any arithmetic.</p>
+      </div>
+      <div class="reg-col nz">
+        <div class="k"><img loading="lazy" decoding="async" class="cflag" src="../assets/guide-badges/kiwi-icon.png" alt="" width="24" height="24">New Zealand</div>
+        <h3>KiwiSaver, now at 3.5%</h3>
+        <p>KiwiSaver is New Zealand&rsquo;s workplace retirement savings scheme. From <strong>1 April 2026</strong>, the default employee and matching employer contribution rate rose from 3% to <strong>3.5%</strong>, subject to eligibility and your specific employment arrangement.</p>
+        <ul class="ticks">
+          <li>The default rate is scheduled to rise again to 4% from 1 April 2028.</li>
+          <li>Members who need to can apply to Inland Revenue for a temporary reduction back to 3%.</li>
+          <li>Eligibility matters for new arrivals. Joining generally requires the right to live in New Zealand indefinitely, so on a temporary work visa you may not be able to join yet.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="insight">
+      <div class="k">Look wider than the base</div>
+      <p>Also look for relocation assistance, professional registration costs, CPD funding, salary packaging, overtime and on-call payments. A good package is much more than its base salary, and two offers with the same headline can be thousands apart once these are counted.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 HOUSING ============ -->
+<section class="section" id="housing" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 03 &middot; Housing</span>
+    <h2>Housing can completely change the calculation</h2>
+    <p class="lead">For most relocating healthcare professionals, housing is the largest household expense, and it&rsquo;s where broad country comparisons become unreliable.</p>
+    <p class="pullquote">Sydney is not Australia. Auckland is not New Zealand.</p>
+    <div class="duo">
+      <div class="cc au">
+        <div class="k"><img loading="lazy" decoding="async" class="cflag" src="../assets/guide-badges/kangaroo-icon.png" alt="" width="24" height="24">Australia</div>
+        <h3>The difference can vanish into rent</h3>
+        <p>A clinician earning considerably more in a major Australian city may spend much of that difference on housing. Conversely, a role in a regional centre can pair a strong salary with more affordable housing than some capital-city markets.</p>
+      </div>
+      <div class="cc nz">
+        <div class="k"><img loading="lazy" decoding="async" class="cflag" src="../assets/guide-badges/kiwi-icon.png" alt="" width="24" height="24">New Zealand</div>
+        <h3>Same principle, different map</h3>
+        <p>Auckland&rsquo;s housing costs can be challenging, whereas a role in Palmerston North, Christchurch or another regional centre may produce a completely different household budget on a similar salary.</p>
+      </div>
+    </div>
+    <div class="insight">
+      <div class="k">How to compare properly</div>
+      <p>Compare <strong>job plus location</strong>, not Australia plus New Zealand. The country is far too blunt a unit for a decision this specific.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 COMMUTE ============ -->
+<section class="section" id="commute" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 04 &middot; The commute</span>
+    <h2>Then there&rsquo;s the commute</h2>
+    <p class="lead">This is easy to overlook when you&rsquo;re comparing employment contracts from thousands of miles away. How are you actually going to get to work?</p>
+    <ul class="ticks">
+      <li>Will you need two cars?</li>
+      <li>Will you pay for parking?</li>
+      <li>Could you live ten minutes from the hospital or clinic?</li>
+      <li>Or are you likely to spend an hour each way?</li>
+    </ul>
+    <p>A shorter commute has financial value. It also has something harder to quantify: <strong>time</strong>. Saving an hour every working day means hundreds of additional hours with your family over a year.</p>
+    <p>For a great many clinicians, that turns out to be the single biggest improvement after relocating, bigger than the salary.</p>
+  </div>
+</section>
+
+<!-- ============ 05 CHILDREN ============ -->
+<section class="section" id="children" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 05 &middot; Family</span>
+    <h2>Moving with children changes everything</h2>
+    <p class="lead">A single healthcare professional and a family with three children can reach completely different conclusions about exactly the same salary.</p>
+    <p style="max-width:64ch">Families need to weigh housing size, school location, childcare, after-school care, transport and activities, and schooling often decides where you live rather than the other way round.</p>
+    <div class="duo">
+      <div class="cc au">
+        <div class="k"><img loading="lazy" decoding="async" class="cflag" src="../assets/guide-badges/kangaroo-icon.png" alt="" width="24" height="24">Australia</div>
+        <h3>Varies by state and system</h3>
+        <p>Arrangements differ between states and between school systems, so the relationship between where you live and where your children can enrol needs checking locally rather than nationally.</p>
+      </div>
+      <div class="cc nz">
+        <div class="k"><img loading="lazy" decoding="async" class="cflag" src="../assets/guide-badges/kiwi-icon.png" alt="" width="24" height="24">New Zealand</div>
+        <h3>Enrolment zones matter</h3>
+        <p>School enrolment zones can make the link between your address and your children&rsquo;s schooling particularly direct, worth understanding before you sign a tenancy, not after.</p>
+      </div>
+    </div>
+    <div class="insight">
+      <div class="k">Look at the household, not the house</div>
+      <p>The cheapest house isn&rsquo;t necessarily the cheapest solution, if it creates additional transport, childcare or commuting costs. Add it up across the whole household.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 EVERYDAY COSTS ============ -->
+<section class="section" id="everyday" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 06 &middot; Everyday costs</span>
+    <h2>Two misconceptions worth losing</h2>
+    <p class="lead">People relocating often focus heavily on property prices, but everyday costs matter too, and the intuitions people arrive with about each country tend to be wrong in opposite directions.</p>
+    <div class="reg-cols">
+      <div class="reg-col au">
+        <div class="k">Misconception one</div>
+        <h3>&ldquo;Higher Australian salary means higher Australian costs&rdquo;</h3>
+        <p>It isn&rsquo;t that simple. Australia&rsquo;s cost of living varies substantially by location, and while housing remains an important contributor to household cost pressures, those pressures are not identical across cities or household types.</p>
+        <p>A regional healthcare position can therefore be attractive: a strong salary, a shorter commute and potentially lower housing costs than one of the most expensive metropolitan markets. <strong>&ldquo;Regional&rdquo; doesn&rsquo;t automatically mean remote.</strong></p>
+      </div>
+      <div class="reg-col nz">
+        <div class="k">Misconception two</div>
+        <h3>&ldquo;New Zealand must be cheap&rdquo;</h3>
+        <p>Smaller cities and a relaxed lifestyle create an impression that living there must be inexpensive. That isn&rsquo;t necessarily so. Housing in some areas is expensive, groceries can be costly and imported goods may cost more than new arrivals expect.</p>
+        <p>Choose New Zealand because the <strong>overall proposition</strong> works for you, not because you assume everything will be cheaper.</p>
+      </div>
+    </div>
+    <p style="margin-top:24px;max-width:64ch">On groceries specifically: food can feel expensive in both countries, particularly at first, when you instinctively convert every price back into pounds. Over time most people stop shopping as though they&rsquo;re still in Britain, different supermarkets, different brands, seasonal buying, local markets and suppliers. But food belongs in your initial relocation budget all the same.</p>
+  </div>
+</section>
+
+<!-- ============ 07 PROFESSION ============ -->
+<section class="section" id="profession" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 07 &middot; Your profession</span>
+    <h2>There isn&rsquo;t one answer for &ldquo;healthcare professionals&rdquo;</h2>
+    <p class="lead">The financial comparison changes completely depending on what you do, because the pay structures themselves are different.</p>
+    <ul class="ticks">
+      <li>An experienced radiologist considering Australian private practice is making a very different calculation from a radiation therapist comparing two public-sector positions.</li>
+      <li>A GP considering an Australian percentage-of-billings arrangement cannot sensibly compare the headline number with a salaried New Zealand GP position.</li>
+      <li>A sonographer in an area of significant workforce shortage may be able to command a different package again.</li>
+      <li>Radiographers, psychologists, physiotherapists, anaesthetic technicians and others all have their own salary structures and employment markets.</li>
+    </ul>
+    <p>Which is why profession-specific advice beats country-level advice every time. Our <a href="/jobs/">profession guides</a> go through each one, and the <a href="/guides/gp-australia-vs-new-zealand">GP</a> and <a href="/guides/radiologist-australia-vs-new-zealand">radiologist</a> comparisons go deeper still.</p>
+  </div>
+</section>
+
+<!-- ============ 08 CAREER STAGE ============ -->
+<section class="section" id="stage" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 08 &middot; Career stage</span>
+    <h2>Your career stage matters too</h2>
+    <p class="lead">Moving overseas isn&rsquo;t always about maximising your income immediately.</p>
+    <div class="duo">
+      <div class="cc au">
+        <div class="k">Earlier in your career</div>
+        <h3>What the role builds</h3>
+        <p>An opportunity might offer experience in a new modality, greater autonomy, leadership responsibility or access to a specialist area that strengthens your career over the next decade. That can be worth more than the difference in salary.</p>
+      </div>
+      <div class="cc nz">
+        <div class="k">Later in your career</div>
+        <h3>What the role costs you</h3>
+        <p>The priority may reverse: willingly exchanging some earning potential for fewer sessions, predictable hours, a shorter commute or more time with your family.</p>
+      </div>
+    </div>
+    <p class="pullquote">Money matters. But so does what you&rsquo;re being paid to do.</p>
+  </div>
+</section>
+
+<!-- ============ 09 RELOCATION & YEAR ONE ============ -->
+<section class="section" id="relocation" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 09 &middot; The first year</span>
+    <h2>Relocation assistance, and why year one isn&rsquo;t year five</h2>
+    <p class="lead">Two things that reshape the financial picture and rarely appear in a salary comparison.</p>
+    <div class="reg-cols">
+      <div class="reg-col au">
+        <div class="k">Relocation support</div>
+        <h3>It has real, countable value</h3>
+        <p>Depending on the employer and profession, a package may contribute towards flights, temporary accommodation, shipping, registration, immigration expenses or other relocation costs. For a family moving halfway around the world, that can be thousands of dollars.</p>
+        <p>An employer offering a slightly lower salary but meaningful relocation assistance may well be the better financial proposition in your first year.</p>
+        <ul class="ticks">
+          <li>Establish exactly what is included.</li>
+          <li>Ask whether there are repayment conditions.</li>
+          <li>Ask what happens if you leave the role earlier than expected.</li>
+        </ul>
+      </div>
+      <div class="reg-col nz">
+        <div class="k">Year one</div>
+        <h3>Relocating is expensive</h3>
+        <p>You may initially pay for temporary accommodation, rental bonds, furniture, a car, registration, immigration costs and flights. You may also arrive before your partner starts working.</p>
+        <p>Your first six months can therefore feel considerably tighter than your eventual lifestyle suggests, and that doesn&rsquo;t tell you whether the move was financially worthwhile. Once you&rsquo;re established, household finances can look very different.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 DECIDE ============ -->
+<section class="section" id="decide" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 10 &middot; The verdict</span>
+    <h2>So, where does your salary go further?</h2>
+    <p class="lead">There isn&rsquo;t a universal winner, but there is usually a clear answer for a specific person considering a specific job.</p>
+    <div class="decide">
+      <div class="card au">
+        <div class="k">Australia often comes out ahead if&hellip;</div>
+        <ul>
+          <li>Maximising earning potential is your priority</li>
+          <li>You&rsquo;re in a profession or sector where private earnings are substantially higher</li>
+          <li>You&rsquo;re open to regional as well as metropolitan roles</li>
+          <li>You&rsquo;d rather have the higher number and manage the costs</li>
+        </ul>
+      </div>
+      <div class="card nz">
+        <div class="k">New Zealand can still win if&hellip;</div>
+        <ul>
+          <li>A manageable commute and a smaller city appeal</li>
+          <li>Predictable, transparent pay matters more than the ceiling</li>
+          <li>You want to reduce the costs, and stresses, of a major city</li>
+          <li>What you moved for isn&rsquo;t primarily the money</li>
+        </ul>
+      </div>
+    </div>
+    <div class="insight">
+      <div class="k">The honest summary</div>
+      <p>A high income in an expensive metropolitan area can disappear surprisingly quickly. For some people Australia will leave substantially more money in the bank. For others, New Zealand will provide more of what they actually moved for.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT TO WRITE DOWN ============ -->
+<section class="section" id="compare">
+  <div class="wrap reading">
+    <span class="eyebrow">Before you accept anything</span>
+    <h2>Compare the life, not just the salary</h2>
+    <p class="lead">When you&rsquo;re weighing an offer, write down more than the salary: expected take-home pay, retirement contributions, housing, transport, childcare, working hours, annual leave, relocation assistance and likely household income.</p>
+    <p>Then write down something else entirely.</p>
+    <p class="pullquote">What does an ordinary Tuesday look like?</p>
+    <ul class="ticks">
+      <li>What time will you leave home?</li>
+      <li>How long will it take to get to work?</li>
+      <li>What time will you finish?</li>
+      <li>How far away is your child&rsquo;s school?</li>
+      <li>Can you afford the kind of home you want?</li>
+      <li>And what will you be able to do when the working day is finished?</li>
+    </ul>
+    <p>Those questions won&rsquo;t appear on an employment contract. They may tell you far more about whether Australia or New Zealand offers the better deal.</p>
+  </div>
+</section>
+
+<!-- ============ SOPHIE'S INSIGHT ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sophie">
+      <div class="photo"><img loading="lazy" decoding="async" src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing"></div>
+      <div>
+        <span class="k">Sophie&rsquo;s insight</span>
+        <p>People are often slightly embarrassed to ask about money, as though wanting to be paid properly sits awkwardly beside wanting to do good work. It doesn&rsquo;t. Earning more is important. What I&rsquo;d rather you didn&rsquo;t do is make a decision this big from one number on one offer letter, because I&rsquo;ve watched people arrive on a higher salary and feel poorer, and I&rsquo;ve watched people take less and feel like they&rsquo;d been handed their life back. Tell me what your household actually needs, and we&rsquo;ll work through the whole picture together. The role, the package, the location and the cost of the life around it.</p>
+        <p class="sign">Sophie<span>Founder, Ethicare Resourcing</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <span class="eyebrow">Common questions</span>
+    <h2>The money questions we&rsquo;re asked most</h2>
+    <div class="faq">
+      <details open>
+        <summary>Does Australia always pay more?</summary>
+        <div class="ans"><p>Generally yes on the headline figure, and sometimes substantially, particularly for senior medical specialists, GPs and clinicians in the private sector. But Australia is many employment markets rather than one, and a Sydney salary isn&rsquo;t an Adelaide, Hobart or regional Queensland salary. What you keep depends far more on where you live than on which country you choose.</p></div>
+      </details>
+      <details>
+        <summary>What does &ldquo;plus super&rdquo; actually mean?</summary>
+        <div class="ans"><p>That the employer&rsquo;s compulsory retirement contribution sits <em>on top</em> of the quoted salary rather than inside it. &ldquo;$130,000 + super&rdquo; and &ldquo;$130,000 including super&rdquo; are materially different offers. Always establish which convention an advert or offer is using before comparing it with anything else.</p></div>
+      </details>
+      <details>
+        <summary>How much does KiwiSaver add?</summary>
+        <div class="ans"><p>The default employee and matching employer rate rose to 3.5% from 1 April 2026, and is scheduled to reach 4% from 1 April 2028. Eligibility matters for new arrivals: joining generally requires the right to live in New Zealand indefinitely, so on a temporary work visa you may not be able to join immediately. Confirm your position with a provider or Inland Revenue.</p></div>
+      </details>
+      <details>
+        <summary>Should I take a lower salary with relocation support?</summary>
+        <div class="ans"><p>Often it&rsquo;s the better first-year proposition. Flights, shipping, temporary accommodation, registration and immigration costs add up fast for a family. Just establish what&rsquo;s included, whether there are repayment conditions, and what happens if you leave sooner than planned.</p></div>
+      </details>
+      <details>
+        <summary>Why won&rsquo;t you just tell me which country pays more for my role?</summary>
+        <div class="ans"><p>Because the answer changes with your profession, your seniority, public or private, the state or region, and your household. We&rsquo;d rather work through your actual numbers than hand you an average that fits nobody. Tell us your profession and where you&rsquo;re considering, and we&rsquo;ll do it properly.</p></div>
+      </details>
+      <details>
+        <summary>I&rsquo;m not from the UK, does this still apply to me?</summary>
+        <div class="ans"><p>Yes. We support clinicians trained across the UK, Ireland, South Africa, the UAE and beyond. The currency you&rsquo;re converting from changes, but the structure of the comparison, package, housing, commute, household, doesn&rsquo;t.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA + RELATED ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="final">
+      <span class="eyebrow">No pressure, just a conversation</span>
+      <h2>Let&rsquo;s work through your actual numbers</h2>
+      <p>We help healthcare professionals look beyond the headline salary and understand the complete opportunity, role, remuneration, registration, location and relocation. Because earning more is important, but the real goal is a life in which your career and your salary work for you.</p>
+      <div class="btn-row">
+        <a href="/contact" class="btn btn-light">Ask us to compare</a>
+        <a href="/apply" class="btn btn-outline">Browse current opportunities</a>
+      </div>
+      <p class="small">Ethicare Resourcing, healthcare careers across Australia &amp; New Zealand.</p>
+    </div>
+
+    <div style="margin-top:40px;">
+      <span class="eyebrow">Explore further</span>
+      <h2 style="font-size:clamp(22px,3vw,28px);">Read a little deeper</h2>
+      <div class="related-grid">
+        <a href="/guides/australia-salary" class="rel">
+          <span class="k">Reference &middot; Australia</span>
+          <h3>Salary &amp; pay in Australia</h3>
+          <p>How Australian healthcare pay is actually built: the national award floor, state agreements and what sits above.</p>
+          <span class="go">Read the guide</span>
+        </a>
+        <a href="/guides/new-zealand-salary" class="rel">
+          <span class="k">Reference &middot; New Zealand</span>
+          <h3>Salary &amp; pay in New Zealand</h3>
+          <p>National collective agreements, the steps that set your pay, tax and take-home, and what sits on top.</p>
+          <span class="go">Read the guide</span>
+        </a>
+        <a href="/guides/australia-vs-new-zealand" class="rel">
+          <span class="k">Decision guide</span>
+          <h3>Australia or New Zealand?</h3>
+          <p>The wider comparison, health systems, registration, visas, lifestyle and family.</p>
+          <span class="go">Compare the two</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="../site.js"></script>
+
+<!-- ============================================================
+     INTERNAL LINK MAP
+     ============================================================
+  HEADER (site-wide) — brand → Home (/) · Home (/) · Australia (/australia) + journey ×6 + AU professions ×5 + /destinations/australia ·
+   New Zealand (/new-zealand) + journey ×6 + NZ professions ×9 · Jobs (/jobs) · Guides & Resources (/resources) ·
+   Employers (/employers · /insights · /insights/international-recruitment-toolkit · /submit-a-vacancy · /contact) ·
+   About (/about-ethicare) · Contact (/contact)
+  HERO — Breadcrumb → Guides & Resources (/resources) · this page ·
+   Work through it → #glance (same page) · Talk it through with us → Contact (/contact)
+  PAGE AT A GLANCE (same-page anchors) → #headline · #retirement · #housing · #commute ·
+   #children · #everyday · #profession · #stage · #relocation · #decide · #faq
+  YOUR PROFESSION (#profession) — profession guides → Jobs (/jobs) ·
+   GP comparison → /guides/gp-australia-vs-new-zealand ·
+   Radiologist comparison → /guides/radiologist-australia-vs-new-zealand
+  FINAL CTA — Ask us to compare → Contact (/contact) · Browse current opportunities → Apply (/apply)
+  READ A LITTLE DEEPER — Salary & pay in Australia → /guides/australia-salary ·
+   Salary & pay in New Zealand → /guides/new-zealand-salary ·
+   Australia or New Zealand? → /guides/australia-vs-new-zealand
+  FOOTER (site-wide) — /new-zealand · /australia · /destinations · /destinations/australia ·
+   /jobs · /resources · /insights · /apply · /about-ethicare · /employers · /submit-a-vacancy ·
+   /contact · Privacy Policy (/privacy-policy)
+     ============================================================ -->
+<!-- ============================================================
+     SEO
+     ============================================================
+   Page Title:       Australia vs NZ: where does salary go further? | Ethicare Resourcing
+   URL Slug:         /guides/australia-vs-new-zealand-salary
+   SEO Title:        Australia vs New Zealand: Where Does a Healthcare Salary Go Further? | Ethicare
+   Meta Description: Australia usually pays more — but a higher salary isn't more money. Super and
+                     KiwiSaver, housing, commuting, family costs, relocation support and why the
+                     same salary buys very different lives in each country.
+     ============================================================ -->
+<script src="../nav.js" defer></script>
+<script src="../journey-nav.js" defer></script>
+</body>
+</html>

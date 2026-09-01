@@ -1,0 +1,78 @@
+/* Profession-family ECOSYSTEM pattern (/jobs/<family>-<country>).
+   Extracted from the mental-health NZ hub so the pattern is one sheet rather than
+   twelve page-level <style> blocks — per CLAUDE.md, a per-page patch beats every
+   linked sheet and is how 48 pages ended up with a raw-fern eyebrow.
+   Load AFTER family.css and BEFORE prose-links.css.
+
+   Country theming rides on the body class, same as family.css. --fern-text is
+   already remapped to Clay on body.au there, so every rule below that uses it is
+   country-agnostic. These three add the accent/edge the pattern needs. */
+body.nz{--fam-accent:#72A471;--fam-edge:#C9DED3}
+body.au{--fam-accent:#D9A084;--fam-edge:#EBDFD3}
+body.global{--fam-accent:#72A471;--fam-edge:#C9DED3}
+
+/* the professions in this family, as columns — read before the routing list, so it
+   reads as one team rather than a menu of unrelated titles */
+.famgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0 clamp(16px,2vw,32px);margin-top:clamp(30px,3.6vw,44px)}
+.famgrid .c{padding:20px 0 14px;border-top:2px solid var(--fam-accent)}
+.famgrid .k{display:block;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--fern-text);margin-bottom:9px}
+.famgrid p{font-size:15px;line-height:1.55;color:var(--muted);margin:0}
+
+/* the one thing a candidate could not have known before landing here */
+.fampanel{max-width:860px;background:var(--warm);border:1px solid var(--fam-edge);border-top:3px solid var(--fam-accent);border-radius:18px;padding:clamp(24px,3vw,34px);margin-top:clamp(30px,3.6vw,44px)}
+.fampanel .k{display:block;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--fern-text);margin-bottom:10px}
+.fampanel p{font-size:15.5px;line-height:1.62;color:var(--text);margin:0 0 12px}
+.fampanel p:last-child{margin:0}
+
+/* where the work actually happens — jump chips + setting cards.
+   Chip edges use --rule-tint, not a pale hairline: the pill boundary IS the hit
+   affordance, and #C9DED3 on white measures ~1.2:1. */
+.setchips{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 clamp(26px,3vw,36px)}
+.setchips a{font-family:var(--display);font-weight:600;font-size:13px;color:var(--teal);background:#fff;border:1px solid var(--rule-tint);border-radius:999px;padding:8px 15px;transition:background .15s ease,border-color .15s ease}
+.setchips a:hover{border-color:var(--fam-accent);background:var(--soft)}
+.setgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px}
+/* Cards must read on BOTH a tinted .band and a plain cream section — #settings is a
+   band on the mental-health pages and cream on the imaging/medicine/practice ones.
+   So: white fill on a --rule-tint edge (6.06:1), never a --fam-edge hairline (1.36:1)
+   and never --warm, which is the cream section colour itself (1.00). Same reasoning
+   as .trio/.scen in family-practice.css. */
+.set{background:#fff;border:1px solid var(--rule-tint);border-radius:16px;padding:20px 22px}
+.set h3{font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--teal);margin:0 0 8px}
+.set p{font-size:14.5px;line-height:1.58;color:var(--muted);margin:0}
+.set .team{display:block;margin-top:10px;font-family:var(--display);font-weight:600;font-size:12px;line-height:1.5;color:var(--fern-text)}
+/* the lead setting. Full width plus the accent top rule carries the emphasis; the fill
+   stays white so the card cannot vanish into a cream section. */
+.set.wide{grid-column:1/-1;border-top:3px solid var(--fam-accent)}
+.set.wide p{color:var(--text);font-size:15px;max-width:78ch}
+
+/* public vs private / funded vs independent — the same title, a different job */
+.pubpriv{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px;margin-top:clamp(26px,3vw,36px)}
+.pubpriv .p{background:var(--warm);border:1px solid var(--fam-edge);border-radius:16px;padding:22px 24px}
+.pubpriv h3{font-family:var(--display);font-weight:600;font-size:17px;color:var(--teal);margin:0 0 8px}
+.pubpriv p{font-size:14.5px;line-height:1.6;color:var(--muted);margin:0}
+
+/* the ecosystem diagram — person at the centre, clinical team around them, the
+   wider system around that. Plain nested boxes: it has to survive 375px. */
+.eco{background:var(--soft);border:1px solid var(--fam-edge);border-radius:24px;padding:clamp(18px,2.6vw,30px);margin-top:clamp(28px,3.4vw,40px)}
+.eco-lbl{display:block;text-align:center;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--fern-text);margin-bottom:14px}
+.eco-mid{background:#fff;border:1px solid var(--fam-edge);border-radius:20px;padding:clamp(18px,2.4vw,28px);text-align:center;max-width:640px;margin:0 auto}
+.eco-core{display:inline-block;background:var(--teal);color:#fff;border-radius:16px;padding:16px 26px;margin-bottom:16px}
+.eco-core b{display:block;font-family:var(--display);font-weight:600;font-size:17px}
+.eco-core span{display:block;font-size:13px;color:#C6E084;margin-top:3px}
+.eco-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.eco-chips span{font-family:var(--display);font-weight:600;font-size:12.5px;color:var(--teal);background:var(--soft);border-radius:999px;padding:7px 13px}
+.eco-ring{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:12px;margin-top:16px}
+.eco-ring .r{background:var(--warm);border:1px solid var(--fam-edge);border-radius:14px;padding:16px 18px}
+.eco-ring .rk{display:block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--fern-text);margin-bottom:7px}
+.eco-ring p{font-size:13.5px;line-height:1.55;color:var(--muted);margin:0}
+
+/* a linear journey rather than a ring — imaging, theatre, levels of care.
+   auto-fit, never a fixed column count: it has to collapse without a breakpoint. */
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(185px,100%),1fr));gap:12px;margin-top:clamp(28px,3.4vw,40px);counter-reset:step}
+.flow .s{background:#fff;border:1px solid var(--fam-edge);border-top:3px solid var(--fam-accent);border-radius:16px;padding:18px 20px 20px;position:relative}
+.flow .s::before{counter-increment:step;content:counter(step);display:block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.1em;color:var(--fern-text);margin-bottom:8px}
+.flow .s h3{font-family:var(--display);font-weight:600;font-size:16px;color:var(--teal);margin:0 0 7px}
+.flow .s p{font-size:14px;line-height:1.55;color:var(--muted);margin:0}
+.flow .s .team{display:block;margin-top:10px;font-family:var(--display);font-weight:600;font-size:11.5px;line-height:1.5;color:var(--fern-text)}
+
+.famquote{font-family:var(--display);font-weight:500;font-size:clamp(20px,2.2vw,26px);line-height:1.4;letter-spacing:-.01em;color:var(--teal);max-width:30ch;margin:clamp(30px,3.6vw,44px) 0 0;padding-left:18px;border-left:3px solid #A6C84A}

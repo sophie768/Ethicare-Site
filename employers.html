@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>For Employers | Recruit, Relocate, Retain | Ethicare Resourcing</title>
+<meta name="description" content="International recruitment doesn't finish at appointment. Specialist search, relocation preparation and retention support for AU & NZ healthcare employers — including clinicians you recruit yourselves.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+/* ================================================================
+   EMPLOYERS — editorial, not a recruitment marketplace.
+   Fewer cards, more whitespace, three type moments, four photographs.
+   Widths deliberately vary: full-bleed / wide / editorial measure.
+   ================================================================ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+body{font-family:var(--body);font-size:var(--t-body);line-height:var(--lh-body);color:var(--text);background:var(--warm);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:var(--sh-focus)}
+h1,h2,h3{font-family:var(--display);color:var(--teal);text-wrap:balance}
+p{text-wrap:pretty}
+
+/* --- containers: three widths, used deliberately --- */
+.ewrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.emeasure{max-width:760px}
+.eband{padding:var(--sp-section) 0}
+.eband.major{padding:var(--sp-editorial) 0}
+.mint{background:var(--soft)}
+.dark{background:var(--teal);color:#fff}
+.dark h2,.dark h3{color:#fff}
+
+/* --- eyebrow: the 28px lime rule, on every section --- */
+.eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:var(--t-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:16px}
+.eyebrow::before{content:"";display:block;width:28px;height:3px;background:#A6C84A;margin-bottom:14px}
+.dark .eyebrow{color:#C6E084}
+.ehero .eyebrow{color:#C6E084}
+
+/* --- type moments: hero, the problem statement, the final CTA --- */
+.moment{font-weight:300;font-size:var(--t-display);line-height:var(--lh-display);letter-spacing:var(--ls-display)}
+h2{font-weight:600;font-size:var(--t-h2);line-height:var(--lh-head);letter-spacing:var(--ls-head)}
+h3{font-weight:600;font-size:var(--t-h3);line-height:1.25}
+.lead{font-size:var(--t-lead);line-height:var(--lh-lead);color:var(--muted);max-width:50ch}
+.dark .lead{color:rgba(255,255,255,.84)}
+
+/* --- buttons: one primary, one quiet text link --- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;font-family:var(--display);font-weight:600;font-size:16px;padding:14px 28px;border-radius:var(--r-sm);transition:background var(--ease),transform var(--ease)}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#014E4B}
+.btn-light{background:#fff;color:var(--teal)}.btn-light:hover{background:var(--warm)}
+.tlink{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:16px;color:var(--teal);border-bottom:1px solid var(--rule-tint);padding-bottom:3px}
+.tlink .ar{transition:transform var(--ease)}
+.tlink:hover .ar{transform:translateX(3px)}
+.dark .tlink{color:#C6E084;border-color:rgba(198,224,132,.5)}
+
+/* ---------------- 1 · HERO — 45/55, image bleeds right ---------------- */
+.ehero{background:var(--teal);color:#fff;overflow:hidden}
+.ehero .grid{display:grid;grid-template-columns:45fr 55fr;align-items:stretch;min-height:min(82svh,720px)}
+.ehero .copy{display:flex;flex-direction:column;justify-content:center;padding:var(--sp-hero) clamp(28px,4vw,64px) var(--sp-hero) max(24px,calc((100vw - 1180px)/2 + 24px))}
+.ehero h1{color:#fff;max-width:19ch;margin-bottom:24px}
+.ehero .sub{font-size:var(--t-lead);line-height:var(--lh-lead);color:rgba(255,255,255,.86);max-width:44ch;margin-bottom:40px}
+.ehero .acts{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+.ehero .shot{position:relative;min-height:340px}
+.ehero .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 26%}
+.ehero .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,97,93,.62) 0%,rgba(2,97,93,.12) 34%,rgba(2,97,93,0) 62%)}
+@media (max-width:900px){
+  .ehero .grid{grid-template-columns:1fr;min-height:0}
+  .ehero .copy{order:2;padding:clamp(44px,8vw,64px) 24px}
+  .ehero .shot{order:1;min-height:56svh}
+  .ehero .shot::after{background:linear-gradient(180deg,rgba(2,97,93,.34) 0%,rgba(2,97,93,.1) 40%,rgba(2,97,93,.5) 100%)}
+}
+
+/* ---------------- 2 · PROOF — three numbers, no cards ---------------- */
+.proof{border-bottom:1px solid var(--rule-tint)}
+.proof .set{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,5vw,72px)}
+.proof .p{display:flex;flex-direction:column;gap:10px}
+.proof .n{font-family:var(--display);font-weight:300;font-size:clamp(46px,6vw,76px);line-height:1;letter-spacing:-.03em;color:var(--teal)}
+.proof .l{font-size:var(--t-meta);color:var(--muted);max-width:22ch;line-height:1.5}
+.proof .fn{margin-top:clamp(32px,4vw,48px);font-size:var(--t-meta);color:var(--muted);max-width:62ch}
+@media (max-width:760px){.proof .set{grid-template-columns:1fr;gap:32px}.proof .n{font-size:52px}}
+
+/* ---------------- 3 · THE PROBLEM — asymmetric editorial ---------------- */
+.prob .grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(40px,6vw,88px);align-items:start}
+.prob .moment{max-width:15ch}
+.prob p{margin-bottom:22px;font-size:var(--t-body)}
+.prob p:last-child{margin-bottom:0}
+.prob .cost{margin-top:32px;padding-top:26px;border-top:1px solid var(--rule-tint);font-family:var(--display);font-weight:600;font-size:var(--t-h3);line-height:1.35;color:var(--teal)}
+@media (max-width:860px){.prob .grid{grid-template-columns:1fr;gap:32px}}
+
+/* ---------------- 4 · THREE PILLARS — thin rules, no icons ---------------- */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:clamp(40px,5vw,64px)}
+.pillar{padding:0 clamp(24px,3vw,44px);border-left:1px solid var(--rule-tint)}
+.pillar:first-child{padding-left:0;border-left:none}
+.pillar:last-child{padding-right:0}
+.pillar h3{margin-bottom:14px}
+.pillar p{font-size:var(--t-body);color:var(--muted);line-height:1.62}
+@media (max-width:860px){
+  .pillars{grid-template-columns:1fr;gap:32px}
+  .pillar{padding:32px 0 0;border-left:none;border-top:1px solid var(--rule-tint)}
+  .pillar:first-child{padding-top:0;border-top:none}
+}
+
+/* ---------------- 5 · BUILT FROM HEALTHCARE — founder feature ---------------- */
+.founder .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.62fr);gap:clamp(40px,6vw,80px);align-items:center}
+.founder .moment{max-width:16ch;margin-bottom:28px}
+.founder p{margin-bottom:20px;color:var(--text)}
+.founder .pull{margin:32px 0 0;padding-left:26px;border-left:3px solid var(--sage);font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(21px,2.4vw,27px);line-height:1.42;color:var(--teal)}
+.founder .attr{display:block;margin-top:16px;font-family:var(--display);font-style:normal;font-weight:600;font-size:var(--t-meta);letter-spacing:.04em;text-transform:uppercase;color:#2F5E49}
+.founder figure{margin:0}
+.founder img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 18%;border-radius:var(--r-lg)}
+.founder figcaption{margin-top:14px;font-size:var(--t-meta);color:var(--muted)}
+@media (max-width:860px){.founder .grid{grid-template-columns:1fr}.founder figure{order:-1;max-width:340px}}
+
+/* ---------------- 6 · PROCESS — linear, one sentence each ---------------- */
+.proc{margin-top:clamp(40px,5vw,64px);display:grid;grid-template-columns:repeat(6,1fr);gap:0}
+.pstep{padding:26px clamp(14px,1.6vw,22px) 0;border-top:2px solid var(--teal)}
+.pstep:nth-child(n+4){border-top-color:var(--sage)}
+.pstep .k{display:block;font-family:var(--display);font-weight:700;font-size:var(--t-meta);letter-spacing:.08em;color:#2F5E49;margin-bottom:10px}
+.pstep h3{font-size:17px;margin-bottom:8px;line-height:1.28}
+.pstep p{font-size:var(--t-meta);color:var(--muted);line-height:1.5}
+@media (max-width:1000px){.proc{grid-template-columns:repeat(3,1fr);gap:32px 24px}}
+@media (max-width:620px){.proc{grid-template-columns:1fr;gap:0}.pstep{padding:22px 0;border-top:1px solid var(--rule-tint)}.pstep:first-child{border-top:2px solid var(--teal)}}
+
+/* ---------------- 7 · BEFORE THE CV — editorial statement + factors ---------------- */
+.before .moment{max-width:17ch;margin-bottom:32px}
+.before .fset{display:grid;grid-template-columns:repeat(4,1fr);gap:0 clamp(16px,2vw,32px);margin:clamp(36px,4vw,52px) 0 0}
+.before .f{font-family:var(--display);font-weight:600;font-size:clamp(18px,1.9vw,23px);color:var(--teal);padding:18px 0;border-top:1px solid var(--rule-tint)}
+.before .precise{margin-top:clamp(32px,4vw,48px);padding:26px 28px;background:#fff;border:1px solid var(--mint);border-radius:var(--r-md)}
+.before .precise h3{font-size:17px;margin-bottom:10px}
+.before .precise p{font-size:var(--t-meta);color:var(--muted);line-height:1.6;margin:0}
+@media (max-width:700px){.before .fset{grid-template-columns:1fr 1fr}}
+
+/* ---------------- 8 · CASE STUDY — image + story ---------------- */
+.case .grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,5vw,72px);align-items:center}
+.case img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-lg)}
+.case h2{margin-bottom:32px;max-width:22ch}
+.case .stage{padding:22px 0;border-top:1px solid var(--rule-tint)}
+.case .stage:first-of-type{border-top:none;padding-top:0}
+.case .sk{display:block;font-family:var(--display);font-weight:700;font-size:var(--t-eyebrow);letter-spacing:.13em;text-transform:uppercase;color:#2F5E49;margin-bottom:10px}
+.case .stage p{font-size:var(--t-body);color:var(--text);line-height:1.62;margin:0}
+.case blockquote{margin:32px 0 0;padding:28px 30px;background:var(--soft);border-radius:var(--r-md)}
+.case blockquote p{font-family:var(--display);font-weight:500;font-size:clamp(18px,2vw,21px);line-height:1.48;color:var(--teal);margin:0 0 16px}
+.case blockquote .who{font-family:var(--display);font-weight:600;font-size:var(--t-meta);color:#2F5E49;line-height:1.45}
+.case blockquote .who span{display:block;font-weight:500;color:var(--muted);margin-top:3px}
+@media (max-width:880px){.case .grid{grid-template-columns:1fr}.case img{aspect-ratio:16/10}}
+
+/* ---------------- 9 · REGIONAL — stacked: photograph, then copy on cream.
+   Overlaid text was tried and abandoned: a bright regional sky needs a scrim heavy
+   enough to obscure the photograph exactly where it is brightest. Stacking makes
+   contrast independent of the image, so either photo can be swapped safely. ------- */
+.region>figure{margin:0;position:relative}
+.region img{width:100%;height:clamp(300px,42vw,480px);object-fit:cover;object-position:center 62%}
+.region .ewrap{padding-top:clamp(44px,5vw,64px)}
+.region .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.region h2{max-width:20ch}
+.region p{font-size:var(--t-body);color:var(--muted);line-height:1.62;margin-bottom:24px}
+@media (max-width:860px){.region .grid{grid-template-columns:1fr;gap:24px}}
+
+/* ---------------- 10 · ECOSYSTEM — one line, not four cards ---------------- */
+.eco .flow{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(12px,1.6vw,22px);margin:clamp(36px,4vw,52px) 0 28px}
+.eco .n{font-family:var(--display);font-weight:600;font-size:clamp(17px,1.9vw,22px);color:var(--teal)}
+.eco .ar{color:var(--sage);font-size:clamp(16px,1.8vw,20px)}
+.eco .under{font-size:var(--t-lead);line-height:var(--lh-lead);color:var(--text);max-width:56ch}
+.eco .tools{margin-top:28px;display:flex;flex-wrap:wrap;gap:24px}
+
+/* ---------------- 11 · BOTH WAYS — dark band ---------------- */
+.both .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,88px);align-items:start}
+.both h2{max-width:20ch}
+.both .asks{display:grid;gap:0}
+.both .ask{padding:20px 0;border-top:1px solid rgba(255,255,255,.22);font-family:var(--display);font-weight:600;font-size:clamp(19px,2.1vw,24px);color:#fff}
+.both .ask:last-child{border-bottom:1px solid rgba(255,255,255,.22)}
+.both .fit{margin-top:32px;font-size:var(--t-body);line-height:1.62;color:rgba(255,255,255,.84);max-width:46ch}
+@media (max-width:860px){.both .grid{grid-template-columns:1fr;gap:32px}}
+
+/* ---------------- 12 · WHO WE RECRUIT — two clean columns ---------------- */
+.who .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);margin-top:clamp(36px,4vw,52px)}
+.who .col h3{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--rule-tint);margin-bottom:8px}
+.who .reg{font-family:var(--body);font-weight:500;font-size:var(--t-meta);color:var(--muted);letter-spacing:0}
+.who ul{list-style:none}
+.who li{padding:13px 0;border-bottom:1px solid var(--mint);font-family:var(--display);font-weight:600;font-size:var(--t-body);color:var(--teal)}
+.who li span{display:block;font-family:var(--body);font-weight:400;font-size:var(--t-meta);color:var(--muted);margin-top:3px}
+.who .note{margin-top:28px;font-size:var(--t-meta);color:var(--muted);max-width:60ch}
+@media (max-width:700px){.who .grid{grid-template-columns:1fr}}
+
+/* ---------------- 13 · PEOPLE — quiet credibility ---------------- */
+.people .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,44px);margin-top:clamp(36px,4vw,52px);padding-top:32px;border-top:1px solid var(--rule-tint)}
+.people .pp{display:flex;gap:18px;align-items:center}
+.people .pp img{width:64px;height:64px;flex:none;border-radius:50%;object-fit:cover;object-position:center top;border:1px solid var(--mint)}
+.people .nm{display:block;font-family:var(--display);font-weight:600;font-size:var(--t-body);color:var(--teal);line-height:1.3}
+.people .rl{display:block;font-size:var(--t-meta);color:var(--muted);line-height:1.45;margin-top:4px}
+@media (max-width:820px){.people .strip{grid-template-columns:1fr;gap:24px}}
+
+/* ---------------- 14 · FINAL CTA + short form ---------------- */
+.final .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.9fr);gap:clamp(40px,6vw,88px);align-items:start}
+.final .moment{color:#fff;max-width:15ch;margin-bottom:24px}
+.final .sub{font-size:var(--t-lead);line-height:var(--lh-lead);color:rgba(255,255,255,.86);max-width:44ch;margin-bottom:32px}
+.final .alt{font-size:var(--t-meta);color:rgba(255,255,255,.72);margin-top:28px;max-width:44ch}
+.efm{background:#fff;border-radius:var(--r-lg);padding:clamp(26px,3vw,36px);box-shadow:var(--sh-lg)}
+.efm .fh{font-family:var(--display);font-weight:600;font-size:var(--t-h3);color:var(--teal);margin-bottom:6px}
+.efm .fs{font-size:var(--t-meta);color:var(--muted);margin-bottom:24px}
+.efm .rows{display:grid;gap:16px}
+.efm .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.efm label{display:block;font-family:var(--display);font-weight:600;font-size:var(--t-meta);color:var(--teal);margin-bottom:7px}
+.efm input,.efm textarea{width:100%;font-family:var(--body);font-size:16px;color:var(--text);background:#fff;border:1px solid var(--mint);border-radius:var(--r-sm);padding:13px 15px;transition:border-color var(--ease)}
+.efm input:hover,.efm textarea:hover{border-color:var(--sage)}
+.efm textarea{min-height:96px;resize:vertical}
+.efm .btn{width:100%;margin-top:8px}
+.efm .fn{margin-top:16px;font-size:13.5px;line-height:1.55;color:var(--muted)}
+.efm .fn a{color:var(--teal);border-bottom:1px solid var(--rule-tint)}
+@media (max-width:900px){.final .grid{grid-template-columns:1fr}}
+@media (max-width:520px){.efm .two{grid-template-columns:1fr}}
+
+/* ---------------- link map + SEO (internal audit blocks) ---------------- */
+.audit{background:#F3F7F4;border-top:1px solid var(--rule-tint);font-size:var(--t-meta)}
+.audit h2{font-size:var(--t-h3);margin-bottom:16px}
+.audit .cols{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.audit ul{list-style:none}
+.audit li{padding:7px 0;border-bottom:1px solid var(--mint);color:var(--muted)}
+.audit li b{color:var(--teal);font-weight:600}
+.audit dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px}
+.audit dt{font-family:var(--display);font-weight:600;color:var(--teal)}
+.audit dd{color:var(--muted)}
+@media (max-width:760px){.audit .cols{grid-template-columns:1fr}.audit dl{grid-template-columns:1fr;gap:2px}.audit dd{margin-bottom:10px}}
+
+.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:var(--display);font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;transition:top .15s ease}
+.skip-link:focus{top:0}
+#main-content{outline:none}
+</style>
+<link rel="canonical" href="https://ethicareresourcing.com/employers">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="For Employers | Recruit, Relocate, Retain | Ethicare Resourcing">
+<meta property="og:description" content="International recruitment doesn't finish at appointment. Specialist search, relocation preparation and retention support — including for clinicians you recruit yourselves.">
+<meta property="og:url" content="https://ethicareresourcing.com/employers">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-employers.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="For Employers | International Healthcare Recruitment | Ethicare Resourcing">
+<meta name="twitter:description" content="International recruitment built around who stays. Specialist search, properly prepared candidates and retention beyond arrival.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-employers.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"For employers"}]}</script>
+<link rel="stylesheet" href="prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers" aria-current="page">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<!-- ============ 1 · HERO ============ -->
+<header class="ehero" data-screen-label="Employers · hero">
+  <div class="grid">
+    <div class="copy">
+      <span class="eyebrow">For employers</span>
+      <h1 class="moment">International recruitment doesn&rsquo;t finish at appointment.</h1>
+      <p class="sub">Finding the clinician is one part of the journey. Registration, relocation, family decisions and settling in decide whether the move succeeds &mdash; so we help with all of it, including for the clinicians you recruit yourselves.</p>
+      <div class="acts">
+        <a href="#enquiry" class="btn btn-light">Talk to us about your workforce</a>
+        <a href="#how" class="tlink">See how we work <span class="ar">&rarr;</span></a>
+      </div>
+    </div>
+    <div class="shot"><img src="assets/nz-life/clinician-theatre-portrait.jpg" alt="A theatre clinician in scrubs and surgical cap, smiling" fetchpriority="high"></div>
+  </div>
+</header>
+
+<!-- ============ 2 · PROOF ============ -->
+<section class="eband proof" data-screen-label="Employers · proof">
+  <div class="ewrap">
+    <div class="set">
+      <div class="p"><span class="n">50+</span><span class="l">international placements made</span></div>
+      <div class="p"><span class="n">100%</span><span class="l">retention to date</span></div>
+      <div class="p"><span class="n">AU + NZ</span><span class="l">the only two markets we work in</span></div>
+    </div>
+    <p class="fn">Retention measured across every international placement we have made: each clinician is still in post. We are deliberately small, fifty-odd placements, not thousands. That is what makes the number possible.</p>
+  </div>
+</section>
+
+<!-- ============ 2b · RECRUIT / RELOCATE / RETAIN ============ -->
+<section class="eband rrr3" id="ways" data-screen-label="Employers · recruit relocate retain">
+  <div class="ewrap">
+    <span class="eyebrow">How employers use Ethicare</span>
+    <h2 style="max-width:22ch">Recruit. Relocate. Retain.</h2>
+    <p class="lead">Three ways in, used together or separately. You don&rsquo;t have to recruit through Ethicare for your people to use any of it.</p>
+    <div class="pillars" style="margin-top:clamp(32px,4vw,48px)">
+      <div class="pillar">
+        <h3>Recruit</h3>
+        <p>Specialist international sourcing where your own reach needs extending. A short, honest shortlist with the hard conversations already had &mdash; never volume.</p>
+        <p style="margin-top:14px"><a class="tlink" href="#how">How we search <span class="ar">&rarr;</span></a></p>
+      </div>
+      <div class="pillar">
+        <h3>Relocate</h3>
+        <p>Give directly appointed international hires access to Ethicare Move and the guide library &mdash; registration to settling in, free to them, wherever the role came from.</p>
+        <p style="margin-top:14px"><a class="tlink" href="#ecosystem">What candidates get <span class="ar">&rarr;</span></a></p>
+      </div>
+      <div class="pillar">
+        <h3>Retain</h3>
+        <p>Preparation is retention. When people feel prepared, supported and that they belong, they are more likely to stay &mdash; and we stay in contact through the first year.</p>
+        <p style="margin-top:14px"><a class="tlink" href="#enquiry">Talk about retention <span class="ar">&rarr;</span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 · THE PROBLEM ============ -->
+<section class="eband major prob" data-screen-label="Employers · the problem">
+  <div class="ewrap">
+    <div class="grid">
+      <div>
+        <h2 class="moment">Filling the vacancy is only the beginning.</h2>
+      </div>
+      <div>
+        <p>International recruitment fails quietly, and rarely at the shortlist. It fails when a candidate accepts and then withdraws. When registration turns out to be longer or harder than anyone said. When a partner was never really part of the conversation. When someone is recruited to a region they only ever saw as a line in a job description.</p>
+        <p>And it fails most expensively when a clinician arrives underprepared, works unhappily for a year, and leaves, taking the vacancy, the supervision time and the team&rsquo;s goodwill with them.</p>
+        <p class="cost">Every one of those outcomes costs more than taking longer to make the right placement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 · THREE PILLARS ============ -->
+<section class="eband mint" id="how" data-screen-label="Employers · why Ethicare">
+  <div class="ewrap">
+    <h2 style="max-width:24ch">Three things we do differently, and nothing else</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <h3>Specialist search</h3>
+        <p>We recruit inside a defined set of professions and two countries. We know the registration routes, the scopes of practice and what good looks like. So the people you meet are relevant, and there are not many of them.</p>
+      </div>
+      <div class="pillar">
+        <h3>Properly prepared candidates</h3>
+        <p>Registration, relocation, pay, family and destination are discussed honestly before a placement, not after an offer. By the time a CV reaches you, the hard conversations have already happened.</p>
+      </div>
+      <div class="pillar">
+        <h3>Retention beyond arrival</h3>
+        <p>The objective is not an accepted offer. It is a move that works, for the clinician, their family and your service, two years later, when the novelty has worn off.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 · BUILT FROM HEALTHCARE ============ -->
+<section class="eband major founder" data-screen-label="Employers · founder credibility">
+  <div class="ewrap">
+    <div class="grid">
+      <div>
+        <h2 class="moment">Built from healthcare, not recruitment.</h2>
+        <p>Ethicare was founded by Sophie Careem, previously a Senior Service Improvement and Transformation Manager at the Royal Free London NHS Foundation Trust. The work there was workforce transformation: understanding why a service could not fill a role, what happened to teams carrying long-term gaps, and which changes actually held.</p>
+        <p>That background is the reason this company exists in the shape it does. It is why we talk about vacancy pressure, supervision capacity and team stability rather than talent pipelines, and why we would rather slow a search down than hand you a placement that unravels in a year.</p>
+        <blockquote class="pull">International recruitment works when it is treated as workforce transformation, not a transaction.<span class="attr">Sophie Careem &middot; Founder</span></blockquote>
+      </div>
+      <figure>
+        <img src="assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing" loading="lazy" decoding="async">
+        <figcaption>Sophie Careem, founder. Previously NHS service improvement and workforce transformation at the Royal Free London; she lived and worked in New Zealand for several years before founding Ethicare.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 · PROCESS ============ -->
+<section class="eband mint" data-screen-label="Employers · process">
+  <div class="ewrap">
+    <h2 style="max-width:22ch">Six stages, one person accountable throughout</h2>
+    <div class="proc">
+      <div class="pstep"><span class="k">01</span><h3>Understand the service</h3><p>Your team, your constraints, the supervision you can offer and what the role needs.</p></div>
+      <div class="pstep"><span class="k">02</span><h3>Search &amp; qualify</h3><p>A targeted search, then the long conversations that decide whether someone is genuinely a candidate.</p></div>
+      <div class="pstep"><span class="k">03</span><h3>Registration &amp; relocation readiness</h3><p>Where they actually stand with the board, the visa and the practicalities of moving a household.</p></div>
+      <div class="pstep"><span class="k">04</span><h3>Employer interview</h3><p>A short, relevant shortlist, prepared for your process rather than coached through it.</p></div>
+      <div class="pstep"><span class="k">05</span><h3>Offer &amp; mobilisation</h3><p>Offer, registration, visa and the move run in parallel, with the threads held in one place.</p></div>
+      <div class="pstep"><span class="k">06</span><h3>Aftercare</h3><p>We stay in contact after arrival, because the first year is where retention is won or lost.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 · BEFORE THE CV ============ -->
+<section class="eband major before" data-screen-label="Employers · before the CV">
+  <div class="ewrap">
+    <span class="eyebrow">What qualifying actually means</span>
+    <h2 class="moment">The work starts before we send you a CV.</h2>
+    <div class="emeasure">
+      <p style="font-size:var(--t-lead);line-height:var(--lh-lead);color:var(--muted)">Screening a CV takes minutes. Establishing whether someone will still be in your department in two years takes considerably longer, and it is the part that decides whether the placement holds. Before anyone is put forward, we have worked through:</p>
+    </div>
+    <div class="fset">
+      <span class="f">Registration</span><span class="f">Motivation</span><span class="f">Salary</span><span class="f">Family</span><span class="f">Location</span><span class="f">Timeline</span><span class="f">Relocation</span>
+    </div>
+    <div class="emeasure" style="margin-top:clamp(32px,4vw,48px)">
+      <p>Sometimes that work ends with us advising a clinician not to move yet, because registration is not ready, because a partner is not ready, or because the honest answer is that this is not the right year. We would rather lose that placement than pass you the risk.</p>
+    </div>
+    <div class="precise emeasure">
+      <h3>To be precise about what we check</h3>
+      <p>We take up professional references and confirm current good standing, and we coordinate the registration and visa process so nothing stalls. Qualifications and eligibility are verified by the professional boards. Identity, police and health checks sit with the boards and the immigration authority. We do not claim those as our own checks, and we will tell you exactly which stage anything is at.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8 · CASE STUDY ============ -->
+<!-- CASE STUDY: written so that every sentence is defensible without invented specifics.
+     Sophie — to strengthen this, replace the three stage paragraphs with one real anonymised
+     placement: the service (type + region, no name), what had been tried, what the search
+     turned on, and where that clinician is now. Keep employer unnamed; Health New Zealand
+     is the only employer we may name anywhere on the site. No pay figures. -->
+<section class="eband case" data-screen-label="Employers · case study">
+  <div class="ewrap">
+    <div class="grid">
+      <figure style="margin:0"><img src="assets/nz-life/nz-life-nurse-arriving.jpg" alt="A newly arrived clinician outside their new home in New Zealand" loading="lazy" decoding="async"></figure>
+      <div>
+        <span class="eyebrow">A placement, anonymised</span>
+        <h2>What it takes to fill a role that has stayed open</h2>
+        <div class="stage">
+          <span class="sk">The challenge</span>
+          <p>A regional allied health service with a role that had been open long enough for the gap to feel normal. Local recruitment had not moved it, and the location was never going to sell itself from a job description alone.</p>
+        </div>
+        <div class="stage">
+          <span class="sk">The search</span>
+          <p>A small, targeted search rather than a volume campaign. The decisive conversations were not about the role at all: where the candidate stood with the board, what their partner would do, what the town would actually be like on a wet Tuesday in July, and whether the timeline was realistic for a family.</p>
+        </div>
+        <div class="stage">
+          <span class="sk">The outcome</span>
+          <p>Registered, relocated and still in post. The service filled a role it had stopped expecting to fill, and did not have to run the process again twelve months later.</p>
+        </div>
+        <blockquote>
+          <p>Sophie always puts candidate care first, and has invested heavily in preparing candidates for a successful move, ensuring they have as much support as possible when relocating to a new country.</p>
+          <span class="who">Maree Loynes<span>Former Allied Health Recruitment Specialist, Health New Zealand MidCentral</span></span>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9 · REGIONAL ============ -->
+<section class="region" data-screen-label="Employers · regional recruitment">
+  <figure><img src="assets/nz-life/heritage-cottages.jpg" alt="A residential street in a regional New Zealand town" loading="lazy" decoding="async"></figure>
+  <div class="ewrap eband">
+    <div class="grid">
+      <div>
+        <span class="eyebrow">Regional &amp; hard-to-fill</span>
+        <h2>Recruiting to a place someone has never been</h2>
+      </div>
+      <div>
+        <p>Selling an unfamiliar location takes more than sending a job description. A clinician weighing up a regional move wants to know about housing, schools, what their partner could do, how far the nearest airport is and what an ordinary weekend looks like.</p>
+        <p>We can answer all of that in detail, for every region we recruit into, because we have already written it down.</p>
+        <a href="/destinations/" class="tlink">See the destination guides <span class="ar">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 · ECOSYSTEM ============ -->
+<section class="eband eco" id="ecosystem" data-screen-label="Employers · candidate ecosystem">
+  <div class="ewrap">
+    <span class="eyebrow">Relocate</span>
+    <h2 style="max-width:24ch">The support runs the whole length of the move</h2>
+    <div class="flow">
+      <span class="n">Registration</span><span class="ar">&rarr;</span>
+      <span class="n">Career preparation</span><span class="ar">&rarr;</span>
+      <span class="n">Relocation planning</span><span class="ar">&rarr;</span>
+      <span class="n">Arrival</span><span class="ar">&rarr;</span>
+      <span class="n">Settling in</span>
+    </div>
+    <p class="under">Candidates do not just receive a job description. They have registration pathway guidance, cost-of-moving tools, CV support, interview preparation and several hundred pages of destination detail, before they ever speak to you.</p>
+    <p class="under" style="margin-top:18px">And none of it is gated on the placement coming from us. Your international recruitment team can appoint someone directly and send them to <strong>Ethicare Move</strong> &mdash; they arrive with the same preparation, and your service keeps the workforce outcome.</p>
+    <div class="tools">
+      <a href="/move" class="tlink">Ethicare Move <span class="ar">&rarr;</span></a>
+      <a href="/resources" class="tlink">Guides &amp; tools <span class="ar">&rarr;</span></a>
+      <a href="/insights/international-recruitment-toolkit" class="tlink">The international recruitment toolkit <span class="ar">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11 · BOTH WAYS ============ -->
+<section class="eband major dark both" data-screen-label="Employers · what we ask">
+  <div class="ewrap">
+    <div class="grid">
+      <div>
+        <h2>Good international recruitment works both ways</h2>
+        <p class="fit">We work best with organisations that treat international recruitment as a long-term workforce strategy rather than a quick supply of CVs. Where that is not the brief, we will say so early. It saves everyone a year.</p>
+      </div>
+      <div class="asks">
+        <div class="ask">Clear salary information</div>
+        <div class="ask">Realistic timelines</div>
+        <div class="ask">Responsive interview feedback</div>
+        <div class="ask">Transparent relocation support</div>
+        <div class="ask">A genuine onboarding plan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12 · WHO WE RECRUIT ============ -->
+<section class="eband who" data-screen-label="Employers · who we recruit">
+  <div class="ewrap">
+    <span class="eyebrow">Who we recruit</span>
+    <h2 style="max-width:22ch">A short list, kept honest</h2>
+    <p class="lead">We would rather tell you we are not the right partner than take a brief we cannot serve. If your need sits alongside these, ask. We will give you a straight answer.</p>
+    <div class="grid">
+      <div class="col">
+        <h3>New Zealand <span class="reg">Profession-specific boards</span></h3>
+        <ul>
+          <li>Sonographers <span>General and cardiac scopes</span></li>
+          <li>Radiographers &amp; medical imaging technologists</li>
+          <li>Radiation therapists</li>
+          <li>Consultant radiologists</li>
+          <li>Physiotherapists</li>
+          <li>Occupational therapists</li>
+          <li>Psychologists</li>
+          <li>Anaesthetic technicians</li>
+          <li>General practitioners</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Australia <span class="reg">National registration, Ahpra</span></h3>
+        <ul>
+          <li>Sonographers</li>
+          <li>Radiographers</li>
+          <li>Radiation therapists</li>
+          <li>Consultant radiologists</li>
+          <li>Nuclear medicine technologists</li>
+        </ul>
+        <p class="note">Australia is the newer of the two markets for us, medical imaging and radiation therapy first, and we say so rather than implying national coverage across every profession.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13 · PEOPLE ============ -->
+<section class="eband mint people" data-screen-label="Employers · people">
+  <div class="ewrap">
+    <h2 style="max-width:26ch">Small enough that you deal with the people who know the candidates</h2>
+    <p class="lead">There is no account layer between you and the search. Ethicare is deliberately boutique: fewer briefs, taken further, with senior involvement in every one. Clinical governance sits with two senior clinicians.</p>
+    <div class="strip">
+      <div class="pp"><img src="assets/photo-sophie.jpg" alt="" loading="lazy" decoding="async"><span><span class="nm">Sophie Careem</span><span class="rl">Founder. Former NHS service improvement &amp; workforce transformation, Royal Free London.</span></span></div>
+      <div class="pp"><img src="assets/about/alastair-sutcliffe.png" alt="" loading="lazy" decoding="async"><span><span class="nm">Prof Alastair Sutcliffe</span><span class="rl">Paediatrics, UCL &amp; Great Ormond Street Hospital.</span></span></div>
+      <div class="pp"><img src="assets/about/jude-oben.png" alt="" loading="lazy" decoding="async"><span><span class="nm">Dr Jude A. Oben</span><span class="rl">Hepatology, King&rsquo;s College London.</span></span></div>
+    </div>
+    <div style="margin-top:32px"><a href="/about-ethicare#leaders" class="tlink">Meet Ethicare <span class="ar">&rarr;</span></a></div>
+  </div>
+</section>
+
+<!-- ============ 14 · FINAL CTA ============ -->
+<section class="eband major dark final" id="enquiry" data-screen-label="Employers · enquiry">
+  <div class="ewrap">
+    <div class="grid">
+      <div>
+        <h2 class="moment">Tell us what you&rsquo;re trying to solve.</h2>
+        <p class="sub">One difficult vacancy, a specialist search or a workforce gap you can see coming. We will tell you honestly whether we can help, and how long it would realistically take.</p>
+        <a href="/submit-a-vacancy" class="tlink">Or send us a fully specified vacancy <span class="ar">&rarr;</span></a>
+        <p class="alt">Candidate enquiries go somewhere else entirely. If you are a clinician looking for a role, start at <a href="/jobs/" style="color:#C6E084;border-bottom:1px solid rgba(198,224,132,.5)">current opportunities</a>.</p>
+      </div>
+      <div class="efm">
+        <div class="fh">Employer enquiry</div>
+        <p class="fs">Five fields. We reply personally, usually within a working day.</p>
+        <!-- Netlify Forms: submissions appear in the Netlify dashboard (Forms tab). Set the
+             notification email there. Matches the mechanism used by /submit-a-vacancy. -->
+        <form class="rows" name="employer-enquiry" method="POST" action="/thank-you" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="employer-enquiry">
+          <input type="hidden" name="_subject" value="Employer enquiry — Ethicare website">
+          <input type="hidden" name="enquiry_type" value="Employer — workforce conversation">
+          <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+          <div class="two">
+            <div><label for="ef-name">Your name</label><input id="ef-name" name="name" type="text" autocomplete="name" required></div>
+            <div><label for="ef-org">Organisation</label><input id="ef-org" name="organisation" type="text" autocomplete="organization" required></div>
+          </div>
+          <div class="two">
+            <div><label for="ef-email">Work email</label><input id="ef-email" name="email" type="email" autocomplete="email" required></div>
+            <div><label for="ef-role">Profession or role</label><input id="ef-role" name="role" type="text" placeholder="e.g. Sonographer" autocomplete="organization-title"></div>
+          </div>
+          <div><label for="ef-loc">Location</label><input id="ef-loc" name="location" type="text" placeholder="City or region"></div>
+          <div><label for="ef-need">Tell us what you need</label><textarea id="ef-need" name="message" rows="4" placeholder="The role, the service, or the workforce problem behind it."></textarea></div>
+          <button type="submit" class="btn btn-primary">Send enquiry</button>
+          <p class="fn">Your details are used only to discuss your hiring or workforce needs, and held in confidence. See our <a href="/privacy-policy">privacy policy</a>.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERNAL LINK MAP (internal audit block) ============ -->
+
+
+</main>
+<!-- INTERNAL LINK MAP & SEO — employers page. Was rendering as a visible
+     .audit section inside <main> until 24 Aug 2026; moved into this comment so the
+     IA stays auditable without publishing it. Do not re-add as markup.
+Internal link map 
+ 
+ Talk to us about your workforce (hero) &rarr; on-page enquiry form ( #enquiry ) 
+ See how we work (hero) &rarr; Why Ethicare section ( #how ) 
+ Recruit / Relocate / Retain (#ways) &rarr; #how · #ecosystem · #enquiry 
+ Ethicare Move &rarr; Ethicare Move ( /move ) 
+ See the destination guides &rarr; Destinations index ( /destinations/ ) 
+ Guides &amp; tools &rarr; Resources hub ( /resources ) 
+ The international recruitment toolkit &rarr; Toolkit ( /insights/international-recruitment-toolkit ) 
+ Meet Ethicare &rarr; About, leadership &amp; board ( /about-ethicare#leaders ) 
+ Or send us a fully specified vacancy &rarr; Submit a vacancy ( /submit-a-vacancy ) 
+ Current opportunities (candidate diversion) &rarr; Jobs index ( /jobs/ ) 
+ Employer enquiry form &rarr; POST to Netlify Forms, then Thank you ( /thank-you ) 
+ Privacy policy &rarr; /privacy-policy 
+ 
+ 
+ 
+ SEO 
+ 
+ Page Title For Employers | Recruit, Relocate, Retain | Ethicare Resourcing 
+ URL Slug /employers 
+ SEO Title International Recruitment, Relocation & Retention for AU & NZ Healthcare Employers | Ethicare 
+ Meta Description International recruitment doesn't finish at appointment. Specialist search, relocation preparation and retention support for AU & NZ healthcare employers — including clinicians you recruit yourselves.
+-->
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="site.js"></script>
+<script src="nav.js" defer></script>
+</body>
+</html>

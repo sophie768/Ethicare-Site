@@ -1,0 +1,76 @@
+/* ==========================================================================
+   ETHICARE RESOURCING — PRINT KIT FOR /insights/
+   --------------------------------------------------------------------------
+   The destination chapters and /guides/ already print well; this gives the
+   insight library the same care — managers print toolkit chapters (the
+   "dip in and out" format exists for exactly that). Load LAST in <head>.
+
+   Written against the REAL markup of the three insight families:
+   A. Insight articles (8) — header.art-hero (solid teal) > .art-crumb /
+      .art-cat / h1 / .art-meta, then article.article with .stat-band,
+      .figure, .three>.col, .vs, .pull, .cycle, .refs, closing .art-cta
+      + nav.art-next.
+   B. Toolkit chapters (10) — same art-hero, plus nav.chrail (chapter rail),
+      .onpage anchor nav, .bp best-practice callout, .recs, .reflection,
+      .services, .closing, .srcs sources block, .prevnext + .back-link.
+   C. Toolkit overview + case studies — header.art-hero.tk with .hbtns,
+      .tk-trust, .tk-rows, the .tk-lc lifecycle diagram, .tk-dl, .tk-next;
+      .story recommendation cards.
+   ========================================================================== */
+
+@page{size:A4;margin:14mm}
+
+@media print{
+*{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+html,body{background:#fff !important;font-size:10.5pt !important}
+
+/* --- chrome that must not print ----------------------------------------- */
+.site-header,.site-footer,.skip-link,.nav-toggle,.site-nav,.backtop,
+.nextstep-band,.art-cta,.art-next,.prevnext,.back-link,.chrail,.onpage,
+.hbtns,.tk-next,.tk-dl,.btn-row{display:none !important}
+
+/* --- structure: let the article use the full sheet ---------------------- */
+.shell,article.article,.wrap{display:block !important;max-width:none !important;width:auto !important;padding-left:0 !important;padding-right:0 !important;margin-left:0 !important;margin-right:0 !important}
+
+/* --- the solid-teal hero becomes a plain title block --------------------
+   Children carry explicit white, so every descendant is recoloured.       */
+.art-hero{background:#fff !important;min-height:0 !important;padding:0 0 8mm !important}
+.art-hero,.art-hero *{color:#02615D !important;text-shadow:none !important}
+.art-hero::before,.art-hero::after{display:none !important}
+.art-hero .eyebrow::before,.art-hero .art-cat::before{background:#A6C84A !important}
+.art-hero h1{margin-top:2mm !important}
+
+/* --- sections: tighter vertical rhythm on paper ------------------------- */
+article.article section,article.article>div{margin-top:0}
+h1{font-size:24pt !important;line-height:1.1 !important}
+h2{font-size:15pt !important;line-height:1.15 !important}
+h3{font-size:11.5pt !important}
+h1,h2,h3,h4{break-after:avoid !important}
+article h2,article h3{color:#02615D !important}
+p,li{orphans:3;widows:3}
+.lead{font-size:11.5pt !important}
+
+/* --- blocks that must never split across a page ------------------------- */
+figure,.figure,table,.stat-band,.stat-band .s,.pull,.vs,.side,.three>.col,
+.cycle,.refs,.q,.stats,.bp,.recs,.reflection,.services,.closing,.srcs,
+.tk-trust,.tk-row,.lc-node,.lc-step,.lc-circle,.lc-timeline,.story,
+blockquote{break-inside:avoid !important}
+
+/* --- imagery ------------------------------------------------------------- */
+article img,.figure img,figure img{max-width:100% !important;height:auto !important;max-height:105mm !important;display:block}
+figcaption{font-size:8.5pt !important;color:#555555 !important}
+
+/* --- links: show the destination, since a reader can't click ------------ */
+article a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#555555;word-break:break-all}
+article a{color:#02615D !important;text-decoration:none !important}
+
+/* --- tables -------------------------------------------------------------- */
+table{width:100% !important;border-collapse:collapse !important;font-size:9.5pt !important}
+th,td{border:0.5pt solid #C9DED3 !important;padding:4pt 6pt !important}
+thead{display:table-header-group}
+
+/* --- nothing may print blank or collapsed -------------------------------- */
+.rv,[data-reveal],.om-h{opacity:1 !important;transform:none !important}
+details>*{display:block !important}
+details>summary{list-style:none;font-weight:600}
+}

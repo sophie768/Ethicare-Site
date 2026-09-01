@@ -1,0 +1,76 @@
+/* PRACTICE HUB — /guides/{country}-practice.
+   The clinical orientation layer: how to practise well here, as distinct from how to
+   register (registration guide) and what the job is (profession pages).
+
+   This page FRAMES and ROUTES. It does not re-explain Te Tiriti, Te Whare Tapa Whā,
+   te reo or the health system — those have owners (/guides/te-ao-maori-at-work,
+   /guides/about-new-zealand, /guides/{country}-healthcare, /guides/australia-community)
+   and get one honest paragraph plus a link. What it OWNS is the synthesis: the system
+   priorities a clinician is expected to work to, what feels different across every
+   profession, and what to do before arriving.
+
+   Loads after family.css (page kit + country tokens) and family-eco.css (--fam-accent,
+   --fam-edge, .fampanel), before prose-links.css. */
+
+/* system at a glance — four facts, rules not cards */
+.glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:clamp(18px,2.2vw,28px);margin-top:clamp(30px,3.6vw,44px)}
+.glance .g{padding-top:18px;border-top:2px solid var(--fam-accent)}
+.glance .gk{display:block;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--fern-text);margin-bottom:9px}
+.glance h3{font-family:var(--display);font-weight:600;font-size:17px;color:var(--teal);margin:0 0 8px;line-height:1.2}
+.glance p{font-size:14.5px;line-height:1.58;color:var(--muted);margin:0}
+
+/* what matters here — the owned core. Numbered so it reads as a set of expectations
+   rather than a list of values. */
+.matters{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px;margin-top:clamp(30px,3.6vw,44px);counter-reset:m}
+/* --rule-tint, not --fam-edge: these sit on cream, where the pale hairline measures
+   1.36:1 and the six numbered cards read as one slab. Matches .trio .t below. */
+.matters .m{background:#fff;border:1px solid var(--rule-tint);border-radius:16px;padding:22px 24px}
+.matters .m::before{counter-increment:m;content:counter(m,decimal-leading-zero);display:block;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.1em;color:var(--fern-text);margin-bottom:10px}
+.matters h3{font-family:var(--display);font-weight:600;font-size:17.5px;color:var(--teal);margin:0 0 9px;line-height:1.22}
+.matters p{font-size:14.5px;line-height:1.6;color:var(--muted);margin:0}
+.matters .ex{display:block;margin-top:12px;padding-top:12px;border-top:1px solid var(--rule-tint);font-size:14px;line-height:1.55;color:var(--text)}
+.matters .ex b{display:block;font-family:var(--display);font-weight:700;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--fern-text);margin-bottom:5px}
+
+/* social and emotional wellbeing — the AU counterpart to Te Whare Tapa Whā.
+   Seven connections around one self, so it is a ring of equals rather than a
+   hierarchy: self sits first and full width, the connections follow. */
+.domains{margin-top:clamp(30px,3.6vw,44px);max-width:1000px}
+.domains-self{background:var(--teal);color:#fff;border-radius:16px;padding:18px 24px;margin-bottom:12px}
+.domains-self .dk{display:block;font-family:var(--display);font-weight:700;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#EFC3AA;margin-bottom:6px}
+.domains-self p{font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.9);margin:0;max-width:74ch}
+.domains-self b{display:block;font-family:var(--display);font-weight:600;font-size:17px;color:#fff;margin-bottom:5px}
+.domains-ring{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:12px}
+.domains-ring .d{background:#fff;border:1px solid var(--rule-tint);border-top:3px solid var(--fam-accent);border-radius:14px;padding:16px 18px}
+.domains-ring .dk{display:block;font-family:var(--display);font-weight:600;font-size:15.5px;color:var(--teal);margin-bottom:6px}
+.domains-ring p{font-size:13.5px;line-height:1.55;color:var(--muted);margin:0}
+.domains-note{font-size:14px;line-height:1.6;color:var(--muted);margin-top:14px;max-width:66ch}
+
+/* three blocks with a practical example and a route to the owner */
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px;margin-top:clamp(30px,3.6vw,44px)}
+.trio .t{background:#fff;border:1px solid var(--rule-tint);border-top:3px solid var(--fam-accent);border-radius:16px;padding:22px 24px}
+.trio h3{font-family:var(--display);font-weight:600;font-size:18px;color:var(--teal);margin:0 0 8px}
+.trio p{font-size:14.5px;line-height:1.6;color:var(--muted);margin:0 0 10px}
+.trio p:last-child{margin-bottom:0}
+.trio .go{display:block;margin-top:12px;padding-top:12px;border-top:1px solid var(--rule-tint);font-family:var(--display);font-weight:600;font-size:13.5px}
+.trio .go a{color:var(--fern-text);border-bottom:1px solid var(--rule-tint)}
+.trio .go a:hover{border-bottom-color:var(--fern-text)}
+
+/* before you arrive — numbered preparations, deliberately short */
+.prep{margin-top:clamp(30px,3.6vw,44px);max-width:860px;counter-reset:pp}
+.prep .p{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;padding:clamp(18px,2vw,24px) 0;border-top:1px solid var(--rule-tint)}
+.prep .p:first-child{border-top:0}
+.prep .p::before{counter-increment:pp;content:counter(pp);grid-row:1/3;align-self:start;font-family:var(--display);font-weight:700;font-size:13px;color:var(--fern-text);min-width:22px;padding-top:3px}
+.prep h3{font-family:var(--display);font-weight:600;font-size:17px;color:var(--teal);margin:0}
+.prep p{font-size:14.5px;line-height:1.6;color:var(--muted);margin:0;max-width:62ch}
+
+/* an inline photograph in #place, where distance IS the content. Caption carries the
+   information; no text sits over the image, so there is no scrim or contrast question. */
+.placeshot{margin:clamp(26px,3vw,36px) 0 0}
+.placeshot img{display:block;width:100%;aspect-ratio:2.5/1;object-fit:cover;border-radius:18px}
+.placeshot figcaption{margin-top:12px;font-size:14px;line-height:1.58;color:var(--muted);max-width:66ch}
+.placeshot figcaption b{display:block;font-family:var(--display);font-weight:700;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--fern-text);margin-bottom:5px}
+
+/* the honest close on scope — what we do and do not advise on */
+.scope{margin-top:clamp(30px,3.6vw,44px);max-width:62ch;padding-left:20px;border-left:3px solid #A6C84A}
+.scope p{font-size:15px;line-height:1.62;color:var(--muted);margin:0}
+.scope p+p{margin-top:10px}

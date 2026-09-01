@@ -1,0 +1,92 @@
+/* Profession-family gateway pages (/jobs/<family>-<country>).
+   Deliberately lean: these pages route to the individual profession guides and
+   carry only what is genuinely common to the family. Everything national lives
+   in the master guides and is linked, never re-explained. */
+/* Country scope: NZ pages sit on Soft Sage, AU pages on Pale Eucalyptus.
+   Declared here rather than in a per-page :root so the token never forks. */
+body.nz{--soft:#E3ECE5;--band:#E3ECE5}
+/* --fern-text is "the colour small text takes on a light surface", not a hue name.
+   On AU pages that colour is Clay; remapping it here keeps every rule below
+   country-agnostic instead of forking .eyebrow/.plist/.facts/.onward five times. */
+body.au{--soft:#F3F7F4;--band:#F3F7F4;--fern-text:#A34438}
+body.global{--soft:#E6F1ED;--band:#E6F1ED}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+body{font-family:var(--body);font-size:var(--t-body);line-height:var(--lh-body);color:var(--text);background:var(--warm);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--display);font-weight:600;color:var(--teal);letter-spacing:-.02em;line-height:1.12}
+h1{font-size:var(--t-h1)}h2{font-size:var(--t-h2)}h3{font-size:var(--t-h3)}
+p{text-wrap:pretty}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+.section{padding:var(--sp-major,clamp(56px,7vw,92px)) 0}
+.readcol{max-width:660px}
+.lead{font-size:var(--t-lead);line-height:1.5;color:var(--muted)}
+.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--fern-text);margin-bottom:16px}
+.eyebrow::before{content:"";width:28px;height:3px;border-radius:3px;background:#A6C84A;flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;font-family:var(--display);font-weight:600;font-size:16px;padding:14px 26px;border-radius:11px;transition:background .15s ease,transform .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#014E4B}
+.btn-ghost{background:transparent;border:2px solid var(--teal);color:var(--teal)}.btn-ghost:hover{background:rgba(2,97,93,.08)}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:clamp(22px,2.4vw,30px)}
+@media (max-width:600px){.btn{width:100%}}
+
+/* hero — deep teal on every country page, per the brand rule */
+.fhero{background:var(--teal);color:#fff;padding:clamp(52px,6.4vw,92px) 0 clamp(46px,5.6vw,78px)}
+.fhero h1{color:#fff;font-size:var(--t-display);margin-bottom:18px}
+.fhero .eyebrow{color:#C6E084}
+.fhero .sub{font-size:var(--t-lead);line-height:1.5;color:rgba(255,255,255,.86);max-width:52ch}
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:9px;font-family:var(--display);font-weight:600;font-size:13px;color:rgba(255,255,255,.82);margin-bottom:24px}
+.crumb a,.crumb .here{white-space:nowrap}
+.crumb a:hover{color:#fff}.crumb .sep{opacity:.85}.crumb .here{color:#fff}
+
+/* the professions in this family — the page's primary job */
+.plist{list-style:none;margin:clamp(30px,3.6vw,46px) 0 0;padding:0;max-width:820px}
+.plist li{border-top:1px solid var(--rule-tint)}
+.plist li:first-child{border-top:0}
+.plist a{display:grid;grid-template-columns:1fr auto;gap:8px 20px;align-items:baseline;padding:clamp(20px,2.3vw,27px) 0}
+.plist .pt{font-family:var(--display);font-weight:600;font-size:var(--t-h3);color:var(--teal);transition:color .15s ease}
+.plist a:hover .pt{color:var(--fern-text)}
+.plist .pd{grid-column:1/-1;font-size:var(--t-meta);color:var(--muted);margin:0;max-width:58ch}
+.plist .ar{color:var(--fern-text);font-family:var(--display);font-weight:600;transition:transform .2s ease}
+.plist a:hover .ar{transform:translateX(4px)}
+/* modality routes that are NOT a separate registration — mammography, CT, MRI all
+   sit inside the radiographer scope. Named here because that is how people search,
+   labelled so the page never implies a second qualification. */
+.mods{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 10px;padding:0 0 clamp(20px,2.3vw,27px)}
+.mods .mk{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.mods a{font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--fern-text);padding:5px 12px;border:1px solid var(--rule-tint);border-radius:999px;transition:background .15s ease,color .15s ease}
+.mods a:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+
+/* what applies across the family */
+.band{background:var(--soft)}
+.facts{margin-top:clamp(30px,3.4vw,44px);max-width:820px}
+.facts details{border-top:1px solid var(--rule-tint)}
+.facts summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:clamp(19px,2.1vw,25px) 0;font-family:var(--display);font-weight:600;font-size:17px;color:var(--teal)}
+.facts summary::-webkit-details-marker{display:none}
+.facts summary::after{content:"+";font-family:var(--display);font-weight:400;font-size:25px;line-height:1;color:var(--fern-text);transition:transform .2s ease;flex:none}
+.facts details[open] summary::after{transform:rotate(45deg)}
+.facts .ans{padding:0 0 clamp(20px,2.2vw,26px);font-size:var(--t-meta);color:var(--muted);max-width:62ch}
+.facts .ans p+p{margin-top:12px}
+.facts .ans a{font-family:var(--display);font-weight:600;color:var(--fern-text);border-bottom:1px solid var(--rule-tint)}
+.facts .ans a:hover{border-bottom-color:var(--fern-text)}
+
+.note{margin-top:clamp(30px,3.4vw,44px);max-width:660px;padding-left:20px;border-left:3px solid #A6C84A}
+.note h3{margin-bottom:8px}
+.note p{font-size:var(--t-meta);color:var(--muted)}
+.final{background:var(--soft);border-radius:24px;padding:clamp(34px,5vw,52px)}
+.final p{max-width:52ch;color:var(--muted);font-size:var(--t-lead);margin-top:14px}
+.onward{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:clamp(30px,3.4vw,42px);font-family:var(--display);font-weight:600;font-size:14px}
+.onward a{color:var(--fern-text);border-bottom:1px solid var(--rule-tint)}
+.onward a:hover{border-bottom-color:var(--fern-text)}
+.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;transition:top .15s ease}
+.skip-link:focus{top:0}
+#main-content{outline:none}
+
+/* plist anchors are classless children of li, so prose-links.css’s :is(p,li,dd)>a:not([class])
+   (0,1,2) was underlining the whole routing row — title, arrow and description — on every family
+   page that loads it. This selector wins at (0,1,3); prose links in real running text are
+   unaffected. Per CLAUDE.md: a page styling its own prose links must win on specificity. */
+ul.plist > li > a:not([class]){color:inherit;text-decoration:none}
+ul.plist > li > a:not([class]):hover{color:inherit;text-decoration:none}

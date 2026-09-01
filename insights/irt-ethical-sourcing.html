@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Ethical & responsible sourcing | Ethicare Toolkit</title>
+<meta name="description" content="What ethical recruitment looks like in practice: fair assessment, trusting professional registration, honest information and support through the whole journey.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
+<style>
+h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
+.art-hero{background:var(--teal);color:#fff}
+.art-hero .shell{max-width:760px;padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(40px,6vw,72px)}
+.art-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:13px;color:rgba(255,255,255,.7);margin-bottom:24px}
+.art-crumb a:hover{color:#fff}.art-crumb .sep{opacity:.5}
+.art-cat{display:inline-block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C9DED3;margin-bottom:16px}
+.art-hero h1{font-family:var(--display);font-weight:600;font-size:clamp(32px,5vw,48px);line-height:1.12;letter-spacing:-.02em;color:#fff;margin-bottom:24px;max-width:18ch}
+.art-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.art-meta .au{display:flex;flex-direction:column;line-height:1.3}
+.art-meta .au b{font-family:var(--display);font-weight:600;font-size:14.5px;color:#fff}
+.art-meta .au span{font-size:12.5px;color:rgba(255,255,255,.7)}
+.art-meta .rt{font-family:var(--display);font-weight:600;font-size:12.5px;color:#fff;background:rgba(255,255,255,.14);border-radius:999px;padding:5px 13px}
+.article{max-width:760px;margin:0 auto;padding:clamp(44px,6vw,72px) 24px}
+.article .lead-para{font-size:21px;line-height:1.6;color:var(--text);margin-bottom:24px}
+.article h2{font-family:var(--display);font-weight:600;font-size:clamp(24px,3.2vw,30px);color:var(--teal);letter-spacing:-.02em;line-height:1.18;margin:40px 0 16px}
+.article p{font-size:18px;line-height:1.75;color:var(--text);margin-bottom:24px}
+.article ul{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:8px}
+.article li{position:relative;padding-left:30px;font-size:17.5px;line-height:1.6;color:var(--text)}
+.article li::before{content:"";position:absolute;left:0;top:9px;width:16px;height:16px;border-radius:6px;background:var(--soft-green);border:1px solid var(--mint)}
+.article li::after{content:"";position:absolute;left:5px;top:12px;width:5px;height:9px;border:2px solid var(--teal);border-top:0;border-left:0;transform:rotate(45deg)}
+.pull{font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(21px,2.8vw,27px);line-height:1.4;color:var(--teal);border-left:4px solid #72A471;padding:8px 0 8px 26px;margin:40px 0}
+.art-cta{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:clamp(28px,4vw,40px);margin-top:40px}
+.art-cta h3{font-family:var(--display);font-weight:600;font-size:22px;color:var(--teal);margin-bottom:8px;letter-spacing:-.01em}
+.art-cta p{font-size:16px;color:var(--muted);margin-bottom:24px;max-width:50ch}
+.art-cta .btn-row{display:flex;gap:16px;flex-wrap:wrap}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--teal);margin-top:40px}
+.back-link::before{content:"←";color:#72A471}
+.article .sub-deck{font-size:19px;color:var(--muted);line-height:1.55;margin:-8px 0 24px}
+.article h3{font-family:var(--display);font-weight:600;font-size:20px;color:var(--green);margin:24px 0 8px}
+.article a.cite{color:var(--green);text-decoration:underline;text-decoration-color:var(--sage);text-underline-offset:2px}
+.article a.cite:hover{color:var(--teal)}
+.stat-band{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:40px 0}
+.stat-band .s{background:var(--soft-green);border:1px solid var(--mint);border-radius:14px;padding:24px 22px}
+.stat-band .s .n{font-family:var(--display);font-weight:700;font-size:clamp(25px,4vw,34px);color:var(--teal);line-height:1.05;letter-spacing:-.02em;margin-bottom:8px}
+.stat-band .s p{font-size:13.5px;line-height:1.5;color:var(--muted);margin:0}
+.stat-band .s cite{display:block;font-style:normal;font-size:11px;color:var(--sage);margin-top:8px;font-weight:600}
+@media(max-width:600px){.stat-band{grid-template-columns:1fr}}
+.figure{margin:40px 0;border:1px solid var(--mint);border-radius:20px;overflow:hidden}
+.figure .fh{background:var(--teal);color:#fff;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;padding:14px 22px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--mint)}
+.three .col{background:#fff;padding:22px 20px}
+.three .col :is(h2,h3,h4){font-family:var(--display);font-weight:600;font-size:15px;color:var(--green);margin:0 0 8px}
+.three .col ul{margin:0;display:grid;gap:8px}
+.three .col li{font-size:14px;line-height:1.45;padding-left:22px}
+.three .col li::before{top:6px;width:13px;height:13px}.three .col li::after{top:8px;left:4px;width:4px;height:7px}
+@media(max-width:640px){.three{grid-template-columns:1fr}}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--mint)}
+.vs .side{background:#fff;padding:24px 22px}
+.vs .side.feel{background:var(--soft-green)}
+.vs .side :is(h2,h3,h4){font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#72A471;margin:0 0 8px}
+.vs .side .row{font-family:var(--display);font-weight:600;font-size:15px;color:var(--teal);padding:9px 0;border-bottom:1px solid var(--mint)}
+.vs .side .row:last-child{border-bottom:none}
+@media(max-width:600px){.vs{grid-template-columns:1fr}}
+.ripple{padding:26px 22px;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.ripple .st{font-family:var(--display);font-weight:600;font-size:16px;color:var(--teal)}
+.ripple .st.warn{color:#A34438}
+.ripple .arr{color:#72A471;font-size:17px;line-height:1}
+.cycle{display:flex;flex-wrap:wrap;gap:8px;padding:24px 22px;align-items:center}
+.cycle .c{background:var(--soft-green);border:1px solid var(--mint);border-radius:12px;padding:11px 16px;font-family:var(--display);font-weight:600;font-size:14px;color:var(--green)}
+.cycle .a{color:#72A471;font-weight:600;font-size:16px}
+.refs{margin-top:40px;padding-top:24px;border-top:1px solid var(--mint)}
+.refs h3{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#72A471;margin:0 0 16px}
+.refs ol{margin:0;padding-left:20px;display:grid;gap:8px}
+.refs li{font-size:13.5px;line-height:1.5;color:var(--muted)}
+.refs a{color:var(--green)}
+@media (max-width:600px){.btn{width:100%}}
+
+.tk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:40px 0}
+.tk-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--mint);border-radius:20px;padding:30px 28px;box-shadow:0 16px 38px rgba(1,49,47,.09);transition:transform .2s,box-shadow .2s;text-decoration:none}
+.tk-card:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.12)}
+.tk-card .cnum{width:40px;height:40px;border-radius:12px;background:var(--soft-green);color:var(--green);font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.tk-card h3{font-family:'Work Sans',sans-serif;font-weight:600;font-size:19px;color:var(--green);margin:0 0 8px;line-height:1.25}
+.tk-card p{font-size:14.5px;color:var(--muted);line-height:1.6;margin:0 0 16px}
+.tk-card .go{margin-top:auto;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13.5px;color:var(--green)}
+.tk-card .go::after{content:" →";color:var(--sage)}
+@media(max-width:860px){.tk-grid{grid-template-columns:1fr}}
+.chrail{display:flex;flex-wrap:wrap;gap:8px;margin:0 auto;max-width:760px;padding:22px 24px 0}
+.chrail a{font-family:'Work Sans',sans-serif;font-weight:500;font-size:12.5px;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:999px;background:var(--soft-green);white-space:nowrap}
+.chrail a.here{background:var(--green);color:#fff}
+.prevnext{display:flex;justify-content:space-between;gap:16px;margin-top:40px;border-top:1px solid var(--mint);padding-top:28px}
+.prevnext a{font-family:'Work Sans',sans-serif;font-weight:600;font-size:14.5px;color:var(--green);text-decoration:none;max-width:46%}
+.prevnext a .lab{display:block;font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#72A471;margin-bottom:4px}
+.prevnext a.nx{text-align:right;margin-left:auto}
+</style>
+<style>/* playfair-hero */ .hero-sub,.hero .kicker,.h-hero .pf{font-family:'Playfair Display',Georgia,serif;font-weight:500}</style>
+<link rel="canonical" href="https://ethicareresourcing.com/insights/irt-ethical-sourcing">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Ethical & responsible recruitment | Ethicare Resourcing">
+<meta property="og:description" content="What ethical recruitment looks like in practice: where you recruit, how you treat candidates, and why ethics is what makes a workforce sustainable. Chapter 2 of Ethicare’s international recruitment toolkit.">
+<meta property="og:url" content="https://ethicareresourcing.com/insights/irt-ethical-sourcing">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ethical & responsible recruitment | Ethicare Resourcing">
+<meta name="twitter:description" content="What ethical recruitment looks like in practice: where you recruit, how you treat candidates, and why ethics is what makes a workforce sustainable. Chapter 2 of Ethicare’s international recruitment toolkit.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="mint-eyebrow">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style>
+.secnum{display:block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#72A471;margin:40px 0 -4px}
+.purpose{font-size:18px;line-height:1.7;color:var(--text);margin:0 0 16px}
+.qbox{background:var(--soft-green);border:1px solid var(--mint);border-radius:14px;padding:24px 26px;margin:24px 0}
+.qbox :is(h2,h3,h4){font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--green);margin:0 0 16px}
+.qbox ul{margin:0}
+.figbody{background:#fff;padding:24px 26px}
+.figbody p{font-size:16.5px;line-height:1.7;margin:0 0 16px}.figbody p:last-child{margin:0}
+.principles{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+.principles .pr{background:#fff;border:1px solid var(--mint);border-radius:14px;padding:22px 24px}
+.principles .pr .pn{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:12px;background:var(--soft-green);color:var(--green);font-family:var(--display);font-weight:600;font-size:14px;margin-bottom:8px}
+.principles .pr :is(h2,h3,h4){font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--teal);margin:0 0 8px;line-height:1.25}
+.principles .pr p{font-size:14.5px;line-height:1.6;color:var(--muted);margin:0}
+@media(max-width:600px){.principles{grid-template-columns:1fr}}
+.reflection{background:var(--teal);color:#fff;border-radius:20px;padding:clamp(28px,4vw,40px);margin:40px 0;display:grid;grid-template-columns:92px 1fr;gap:24px;align-items:start}
+.reflection img{width:92px;height:92px;border-radius:50%;object-fit:cover}
+.reflection .lab{display:block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C9DED3;margin-bottom:8px}
+.reflection p{font-size:17px;line-height:1.62;color:#fff;margin:0 0 16px}
+.reflection .by{font-family:var(--display);font-weight:600;font-size:14.5px;color:#fff}
+.reflection .by span{display:block;font-weight:500;font-size:12.5px;color:rgba(255,255,255,.72);margin-top:4px}
+@media(max-width:600px){.reflection{grid-template-columns:1fr;text-align:left}.reflection img{width:76px;height:76px}}
+</style>
+<style>/*irt-data*/
+.barfig{background:#fff;border:1px solid var(--mint);border-radius:14px;padding:24px 26px;margin:24px 0}
+.barfig .bt{font-family:var(--display);font-weight:600;font-size:16px;color:var(--teal);margin-bottom:4px}
+.barfig .bcap{font-size:13px;color:var(--muted);margin-bottom:16px}
+.barfig .row{display:grid;grid-template-columns:120px 1fr 46px;align-items:center;gap:8px;margin:8px 0}
+.barfig .rl{font-size:13.5px;font-weight:600;color:var(--text)}
+.barfig .track{background:var(--soft-green);border-radius:6px;height:16px;overflow:hidden}
+.barfig .fill{height:100%;background:var(--sage);border-radius:6px}
+.barfig .row.hl .fill{background:var(--teal)}
+.barfig .rv{font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--teal);text-align:right}
+@media(max-width:600px){.barfig .row{grid-template-columns:92px 1fr 40px}}
+.srcs{margin:40px 0 0;border-top:1px solid var(--mint);padding-top:18px}
+.srcs :is(h2,h3,h4){font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.srcs ol{margin:0;padding-left:18px}.srcs li{font-size:12.5px;line-height:1.55;color:var(--muted);margin-bottom:4px}.srcs a{color:var(--green)}
+</style>
+<style>/*aq*/.aq{margin:40px 0;background:var(--soft-green);border:1px solid var(--mint);border-left:4px solid #72A471;border-radius:0 14px 14px 0;padding:24px 26px}.aq p{font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(18px,2.3vw,21px);line-height:1.48;color:var(--teal);margin:0 0 16px}.aq .who{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.aq .who .nm{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--green);border-radius:999px;padding:5px 12px}.aq .who .ctx{font-size:13px;color:var(--muted)}</style>
+<style>/*onpage+bp*/.onpage{background:var(--soft-green);border:1px solid var(--mint);border-radius:14px;padding:18px 22px;margin:24px 0}.onpage :is(h2,h3,h4){font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#72A471;margin:0 0 8px}.onpage .jl{display:flex;flex-wrap:wrap;gap:8px}.onpage a{font-family:var(--display);font-weight:600;font-size:13px;color:var(--green);text-decoration:none;background:#fff;border:1px solid var(--mint);border-radius:999px;padding:6px 13px}.onpage a:hover{background:var(--green);color:#fff}.bp{margin:24px 0;border:1px solid var(--mint);border-radius:14px;overflow:hidden}.bp .bph{background:var(--green);color:#fff;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 22px}.bp .bpb{background:#fff;padding:22px 24px}.bp .bpb p{font-size:15px;color:var(--muted);margin:0 0 16px}.bp .bpb ul{margin:0}</style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}</style>
+<link rel="stylesheet" href="../next-step.css">
+<link rel="stylesheet" href="../insight-print.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"IR toolkit","item":"https://ethicareresourcing.com/insights/international-recruitment-toolkit"}]}</script>
+<link rel="stylesheet" href="../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare" aria-current="page">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<header class="art-hero"><div class="shell">
+    <nav class="art-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/insights/international-recruitment-toolkit">IR toolkit</a><span class="sep">›</span><span>Ethical &amp; responsible sourcing</span></nav>
+    <span class="art-cat">Chapter 02</span>
+    <h1>Ethical &amp; responsible sourcing</h1>
+    <div class="art-meta"><div class="au"><b>Sophie Careem</b><span>Founder, Ethicare Resourcing &middot; former NHS change leader</span></div><span class="rt">Toolkit · 02 of 08</span></div>
+  </div></header>
+  <nav class="chrail" aria-label="Toolkit chapters"><a href="/insights/international-recruitment-toolkit">Overview</a><a href="/insights/irt-workforce-challenge">The workforce challenge</a><a href="/insights/irt-why-international">Why it matters</a><a href="/insights/irt-sustainable-workforce">01 · Building a sustainable workforce</a><a href="/insights/irt-ethical-sourcing" class="here">02 · Ethical & responsible sourcing</a><a href="/insights/irt-planning-preparation">03 · Planning & preparation</a><a href="/insights/irt-registration-credentialing">04 · Creating a recruitment programme</a><a href="/insights/irt-relocation-pastoral">05 · Relocation & family integration</a><a href="/insights/irt-induction-integration">06 · Induction & belonging</a><a href="/insights/irt-retention-belonging">07 · Retention & belonging</a><a href="/insights/irt-measuring-success">08 · Measuring success</a></nav>
+  <article class="article">
+    <p class="sub-deck">Recruiting a clinician from overseas is easy. Doing it so that everyone is better off, the clinician included, is the actual job.</p>
+    <p class="lead-para">I named the company Ethicare for a reason. The more both countries lean on internationally trained clinicians, the more it matters where those clinicians come from, what they were promised, and how they are treated once they land. Get that wrong and no amount of process rescues the programme. Get it right and recruitment quietly compounds: people stay, and they tell their friends.</p>
+  <div class="onpage"><h2>On this page</h2><div class="jl"><a href="#why">Why ethics matter</a><a href="#where">Where to recruit</a><a href="#fair">Fair recruitment</a><a href="#people">People, not placements</a><a href="#trust">Building trust</a><a href="#shared">Shared responsibility</a><a href="#checklist">Checklist</a></div></div>
+    <p>Ethical recruitment is a wider lens than the vacancy in front of you. It asks two extra questions: what does this hire do to the country someone leaves behind, and is the person themselves genuinely better off at the end of it?</p>
+    <p>Done well, it strengthens the health system and changes a family&rsquo;s life. Done badly, it burns trust and people leave. This chapter won&rsquo;t recite the codes. It shows what ethical recruitment looks like in the decisions you actually make.</p>
+    <div class="pull">Ethics isn&rsquo;t separate from recruitment. It&rsquo;s what makes recruitment sustainable.</div>
+    <div class="barfig">
+      <div class="bt">A workforce built on migration</div>
+      <div class="bcap">Foreign-trained doctors as a share of the medical workforce, 2023.</div>
+      <div class="row hl"><span class="rl">Ireland</span><span class="track"><span class="fill" style="width:86%"></span></span><span class="rv">43%</span></div>
+      <div class="row hl"><span class="rl">New Zealand</span><span class="track"><span class="fill" style="width:84%"></span></span><span class="rv">42%</span></div>
+      <div class="row hl"><span class="rl">United Kingdom</span><span class="track"><span class="fill" style="width:72%"></span></span><span class="rv">36%</span></div>
+      <div class="row hl"><span class="rl">Australia</span><span class="track"><span class="fill" style="width:62%"></span></span><span class="rv">31%</span></div>
+      <div class="row"><span class="rl">OECD average</span><span class="track"><span class="fill" style="width:40%"></span></span><span class="rv">20%</span></div>
+    </div>
+    <p>The reliance is just as clear in nursing: a third of New Zealand&rsquo;s nurses (33%) and almost a fifth of Australia&rsquo;s (18%) trained overseas, against an OECD average of 9%. When a health system leans this heavily on international professionals, how they are recruited is not a side issue. It is a question of the system&rsquo;s integrity.</p>
+
+    <span class="secnum">Part 01</span>
+    <h2 id="why">Why ethics matter</h2>
+    <p class="purpose">Ethics aren&rsquo;t a compliance add-on at the end of the process. They&rsquo;re central to whether a workforce lasts.</p>
+    <div class="qbox"><h3>What ethics protects</h3><ul>
+      <li>Recruitment as a partnership, not a transaction</li>
+      <li>The health systems of source countries</li>
+      <li>Sustainable workforce development at home and abroad</li>
+      <li>Trust with the candidates who place their future in your hands</li>
+      <li>Your organisation&rsquo;s reputation and standing</li>
+      <li>Long-term retention, which begins with how people are recruited</li>
+    </ul></div>
+
+  <div class="aq"><p>No OECD country relies on overseas-trained nurses more than New Zealand, where a third of nurses and 42% of doctors qualified abroad. Australia is close behind, at 18% and 31%.</p><div class="who"><span class="nm">OECD</span><span class="ctx">International Migration Outlook 2025, OECD Publishing (2023 data)</span></div></div>
+    <span class="secnum">Part 02</span>
+    <h2 id="where">Choosing where to recruit</h2>
+    <p class="purpose">Responsible sourcing starts with a simple discipline about where and who you recruit.</p>
+    <p>The <a class="cite" href="https://www.who.int/publications/i/item/9789240103733" target="_blank" rel="noopener">WHO Global Code of Practice</a> and the UK&rsquo;s <a class="cite" href="https://www.gov.uk/government/publications/code-of-practice-for-the-international-recruitment-of-health-and-social-care-personnel" target="_blank" rel="noopener">Code of Practice for International Recruitment</a> exist so that solving one country&rsquo;s shortage never deepens another&rsquo;s. They set the floor we build on. Our own test is three questions, in order: not just <em>can</em> we recruit, but <em>should</em> we, and <em>how</em> do we do it responsibly?</p>
+    <div class="figure"><div class="fh">Responsible sourcing in practice</div><div class="three">
+      <div class="col"><h3>Respect the safeguards</h3><ul><li>No active recruitment from safeguarded countries</li><li>Government-to-government agreements only</li><li>Transparency on source countries</li></ul></div>
+      <div class="col"><h3>Fair treatment</h3><ul><li>No recruitment fees to candidates</li><li>Clear, honest contracts</li><li>No debt or tie-in traps</li></ul></div>
+      <div class="col"><h3>Mutual benefit</h3><ul><li>Skills and remittances flow back</li><li>Circular, not extractive</li><li>Long-term relationships</li></ul></div>
+    </div></div>
+    <div class="figure"><div class="fh">A useful distinction</div><div class="figbody">
+      <p>Not every healthcare professional living in a country trained there. Many experienced clinicians are already working internationally (in the UAE, in Singapore, across the Gulf), often having qualified elsewhere years earlier.</p>
+      <p>Recruiting these already-mobile professionals lets you build a workforce ethically while minimising the impact on any one country&rsquo;s domestic health system. Individual circumstances matter, and they reward looking at each person&rsquo;s story rather than their passport.</p>
+    </div></div>
+
+    <span class="secnum">Part 03</span>
+    <h2 id="fair">Fair and transparent recruitment</h2>
+    <p class="purpose">Someone moving countries is often making one of the biggest decisions of their life. They deserve the full picture from the very first conversation.</p>
+    <p>Honest information (the opportunities and the challenges, not just the brochure) means people arrive with realistic expectations and are far more likely to stay. That covers salary, registration requirements, immigration advice, costs, timeframes and any conditions, communicated respectfully and kept up to date.</p>
+    <div class="figure"><div class="fh">What honesty looks like</div><div class="three">
+      <div class="col"><h3>The path</h3><ul><li>Registration &amp; timelines</li><li>Immigration requirements</li><li>Supervision requirements</li></ul></div>
+      <div class="col"><h3>The offer</h3><ul><li>Employment conditions</li><li>Salary &amp; benefits</li><li>Relocation costs</li></ul></div>
+      <div class="col"><h3>The life</h3><ul><li>Career development</li><li>The realities of the role</li><li>Living in a new country</li></ul></div>
+    </div></div>
+    <div class="qbox"><h3>Every candidate should understand</h3><ul>
+      <li>What is expected of them</li>
+      <li>What support is available</li>
+      <li>What challenges they may face</li>
+      <li>What success looks like</li>
+    </ul></div>
+
+    <span class="secnum">Part 04</span>
+    <h2>Removing barriers</h2>
+    <p>Every professional deserves to be assessed on what they know and what they can do, not on assumptions about where they trained, their nationality or their accent. Unconscious bias is usually unintentional, but it quietly shapes shortlisting and interviews in ways that overlook genuinely capable clinicians.</p>
+    <p>It&rsquo;s easy to treat training from a familiar or &ldquo;comparable&rdquo; system as a proxy for quality. But once a candidate has been assessed and registered by the relevant professional board, their competence has already been independently verified against the standards of the country they&rsquo;ll practise in. Some of the most capable people I worked alongside in the NHS trained in the Philippines, in parts of Africa, in India and beyond. They met the same bar, and became the backbone of their teams.</p>
+    <div class="pull">Registration by the board is the proof of competence. Where a clinician trained is not a measure of how good they are.</div>
+    <div class="qbox"><h3>Widening opportunity, not narrowing it</h3><ul>
+      <li>Recognise transferable experience and equivalent systems</li>
+      <li>Look past country stereotypes</li>
+      <li>Support people through registration and English-language requirements</li>
+      <li>Guide candidates through complex processes</li>
+      <li>Provide workplace readiness before day one</li>
+    </ul></div>
+    <p>International recruitment should widen opportunity, not create unnecessary barriers.</p>
+
+    <span class="secnum">Part 05</span>
+    <h2 id="people">Supporting people, not placements</h2>
+    <p>People don&rsquo;t relocate alone. A clinician arrives with a partner, perhaps children, often extended family, and a whole life to rebuild alongside a new job. Ethical recruitment treats the journey as a human one: long, sometimes anxious, and far better for regular, honest communication.</p>
+    <div class="pull">Every healthcare professional arrives with a story, a family and aspirations that extend well beyond their first day at work. Ethical recruitment recognises the person behind the profession.</div>
+    <div class="figure"><div class="fh">The person behind the profession</div><div class="three">
+      <div class="col"><h3>Family</h3><ul><li>Partners &amp; children</li><li>Schooling &amp; childcare</li><li>A partner&rsquo;s own career</li></ul></div>
+      <div class="col"><h3>Wellbeing</h3><ul><li>Culture &amp; belonging</li><li>Mental health</li><li>Community connection</li></ul></div>
+      <div class="col"><h3>The journey</h3><ul><li>Long recruitment timelines</li><li>Regular communication</li><li>Pastoral support throughout</li></ul></div>
+    </div></div>
+
+  <div class="bp"><div class="bph">Best practice &middot; An ethical sourcing test</div><div class="bpb"><p>Four checks before any campaign starts:</p><ul><li>Check the WHO Safeguards List before choosing where to recruit.</li><li>Ask <em>should</em> we recruit here, not just <em>can</em> we.</li><li>Give candidates the full picture: costs, timelines and conditions included.</li><li>Assess people on capability and values, never on accent or where they trained.</li></ul></div></div>
+    <span class="secnum">Part 06</span>
+    <h2 id="trust">Building trust</h2>
+    <p>Ethical recruitment compounds. Do it well and you earn long-term relationships, candidate referrals, employer partnerships and a professional reputation that quietly does your recruiting for you. Transparency and continuous communication are what turn a single placement into a lasting one, and a good experience into the next three candidates.</p>
+    <div class="figure"><div class="fh">Who ethical recruitment works with</div><div class="three">
+      <div class="col"><h3>Regulators</h3><ul><li>Work collaboratively, not around them</li><li>Respect the standards they set</li></ul></div>
+      <div class="col"><h3>Reputable partners</h3><ul><li>Shared ethical principles</li><li>No fees ever charged to candidates</li></ul></div>
+      <div class="col"><h3>The long term</h3><ul><li>Universities &amp; employers</li><li>Relationships, not transactions</li></ul></div>
+    </div></div>
+    <div class="pull">Ethical recruiters end up with something better than filled vacancies: a reputation that quietly recruits for them.</div>
+
+    <h2 id="shared">Ethical recruitment is a shared responsibility</h2>
+    <p>Too much of this gets left at the recruitment partner&rsquo;s door. It only works when everyone involved holds the same line, from the employer signing the offer to the regulator setting the standard.</p>
+    <div class="qbox"><h3>Ethical recruitment is shared across</h3><ul>
+      <li>Employers</li>
+      <li>Workforce planners</li>
+      <li>Regulators</li>
+      <li>Immigration services</li>
+      <li>Professional bodies</li>
+      <li>Recruitment partners</li>
+    </ul></div>
+    <p>When everyone works to the same standard, nobody has to choose between filling a rota and doing right by the person who fills it.</p>
+
+<h2 id="checklist">An ethical recruitment checklist</h2>
+    <div class="figure"><div class="fh">Before you launch a campaign</div><div class="figbody">
+      <ul>
+        <li>Is international recruitment genuinely needed?</li>
+        <li>Have domestic workforce options been explored first?</li>
+        <li>Are we recruiting in line with international ethical guidance?</li>
+        <li>Are candidates receiving clear, accurate information?</li>
+        <li>Have we been transparent about costs, registration and timelines?</li>
+        <li>Is pastoral support available throughout the journey?</li>
+        <li>Are hiring managers prepared to support internationally trained professionals?</li>
+        <li>Are we measuring success through retention, not recruitment alone?</li>
+      </ul>
+    </div></div>
+      <div class="srcs"><h3>Sources</h3><ol>
+    <li>OECD, International Migration Outlook 2025 (2023 data).</li>
+    <li>WHO Global Code of Practice on the International Recruitment of Health Personnel.</li>
+    <li>WHO Health Workforce Support and Safeguards List, 2023.</li>
+  </ol></div>
+  <div class="art-cta"><h3>Building your international workforce?</h3><p>We run international recruitment to this standard: ethical, prepared, supported and measured on retention. Let&rsquo;s talk about doing it well.</p><div class="btn-row"><a href="/submit-a-vacancy" class="btn btn-primary">Submit a vacancy</a><a href="/employers" class="btn btn-secondary">Why Ethicare for employers</a></div></div>
+    <div class="prevnext"><a href="/insights/irt-sustainable-workforce"><span class="lab">Previous</span>Building a sustainable workforce</a><a class="nx" href="/insights/irt-planning-preparation"><span class="lab">Next</span>Planning &amp; preparation</a></div>
+    <a href="/insights/international-recruitment-toolkit" class="back-link">Back to the toolkit</a>
+  </article>
+  <section class="nextstep-band" aria-label="Next step">
+  <div class="ns-in">
+    <div class="ns-copy">
+      <p class="ns-k">Ethicare Resourcing</p>
+      <h2>We help healthcare services recruit internationally, and make it stick</h2>
+      <p>Specialist recruitment across New Zealand and Australia &mdash; sourcing, screening, registration and relocation, with support that continues well past the offer.</p>
+    </div>
+    <div class="ns-acts">
+      <a class="ns-a solid" href="/employers">For employers <span aria-hidden="true">&rarr;</span></a>
+      <a class="ns-a ghost" href="/contact">Talk to us</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+
+<script src="../site.js"></script>
+<script src="../nav.js" defer></script>
+<script src="../journey-nav.js" defer></script>
+
+<!-- INTERNAL LINK MAP — /insights/irt-ethical-sourcing (generated 29 Aug 2026 from the rendered markup)
+  HEADER NAV + FOOTER — site-wide (see /site/_header.html and the shared footer)
+  MAIN CONTENT:
+  Home → /
+  IR toolkit → /insights/international-recruitment-toolkit
+  Overview → /insights/international-recruitment-toolkit
+  The workforce challenge → /insights/irt-workforce-challenge
+  Why it matters → /insights/irt-why-international
+  01 · Building a sustainable workforce → /insights/irt-sustainable-workforce
+  02 · Ethical & responsible sourcing → /insights/irt-ethical-sourcing
+  03 · Planning & preparation → /insights/irt-planning-preparation
+  04 · Creating a recruitment programme → /insights/irt-registration-credentialing
+  05 · Relocation & family integration → /insights/irt-relocation-pastoral
+  06 · Induction & belonging → /insights/irt-induction-integration
+  07 · Retention & belonging → /insights/irt-retention-belonging
+  08 · Measuring success → /insights/irt-measuring-success
+  Why ethics matter → #why
+  Where to recruit → #where
+  Fair recruitment → #fair
+  People, not placements → #people
+  Building trust → #trust
+  Shared responsibility → #shared
+  Checklist → #checklist
+  WHO Global Code of Practice → https://www.who.int/publications/i/item/9789240103733
+  Code of Practice for International Recruitment → https://www.gov.uk/government/publications/code-of-practice-for-the-international-recruitment-of-health-and-social-care-personnel
+  Submit a vacancy → /submit-a-vacancy
+  Why Ethicare for employers → /employers
+  Previous Building a sustainable workforce → /insights/irt-sustainable-workforce
+  Next Planning & preparation → /insights/irt-planning-preparation
+  Back to the toolkit → /insights/international-recruitment-toolkit
+  For employers → → /employers
+  Talk to us → /contact
+-->
+<!-- SEO
+  Page Title: Ethical & responsible sourcing
+  URL Slug: /insights/irt-ethical-sourcing
+  SEO Title: Ethical & responsible sourcing | Ethicare Toolkit
+  Meta Description: What ethical recruitment looks like in practice: fair assessment, trusting professional registration, honest information and support through the whole journey.
+-->
+</body>
+</html>

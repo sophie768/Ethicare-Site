@@ -1,0 +1,18 @@
+/* Ethicare — closing next step. For pages someone can land on cold from Google:
+   who we are, and the one thing to do next. Deliberately quiet — no large buttons. */
+.nextstep-band{background:#02615D;color:#fff;margin-top:clamp(48px,6vw,74px)}
+.nextstep-band .ns-in{max-width:1180px;margin:0 auto;padding:clamp(38px,5vw,58px) 32px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 40px}
+.nextstep-band .ns-copy{flex:1 1 420px;min-width:min(320px,100%)}
+.nextstep-band .ns-k{display:flex;align-items:center;gap:16px;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:500;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#C6E084;margin:0 0 16px}
+.nextstep-band .ns-k::before{content:"";display:block;width:28px;height:2px;background:#A6C84A;flex:none}
+.nextstep-band h2{font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:300;font-size:clamp(24px,3.2vw,34px);line-height:1.14;letter-spacing:-.02em;color:#fff;margin:0 0 16px;max-width:26ch}
+.nextstep-band p{font-family:'Manrope',ui-sans-serif,sans-serif;font-size:16px;line-height:1.62;color:rgba(255,255,255,.88);margin:0;max-width:50ch}
+.nextstep-band .ns-acts{flex:0 0 auto;display:flex;flex-wrap:wrap;gap:8px}
+.nextstep-band .ns-a{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:13px 24px;border-radius:var(--r-sm,12px);font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;font-size:15.5px;text-decoration:none;white-space:nowrap;transition:background .15s ease,transform .15s ease}
+.nextstep-band .ns-a.solid{background:#FCFBF8;color:#02615D}
+.nextstep-band .ns-a.solid:hover{background:#fff;transform:translateY(-1px)}
+.nextstep-band .ns-a.ghost{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.5);color:#fff}
+.nextstep-band .ns-a.ghost:hover{background:rgba(255,255,255,.2);transform:translateY(-1px)}
+.nextstep-band .ns-a span{transition:transform .18s ease}
+.nextstep-band .ns-a:hover span{transform:translateX(3px)}
+@media(max-width:760px){.nextstep-band .ns-in{padding:32px 20px;flex-direction:column;align-items:stretch}.nextstep-band .ns-acts{width:100%}.nextstep-band .ns-a{flex:1 1 auto;justify-content:center}}

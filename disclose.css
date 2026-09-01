@@ -1,0 +1,75 @@
+/* ==========================================================================
+   disclose.css — progressive-disclosure components
+   Premium accordions, quick-answer facts, and reading measure.
+   Loaded AFTER the page's own styles so it supersedes the older boxed
+   accordion. Tokens come from site.css / shell.css — never redeclare :root.
+   ========================================================================== */
+
+/* --- Accordion -----------------------------------------------------------
+   Editorial, not software: no card, no border box, no coloured fill.
+   A hairline divider, generous padding, and a quiet + / − marker. */
+.faq{margin-top:clamp(28px,3.2vw,40px);border-top:1px solid var(--rule-tint)}
+.faq details{background:none;border:0;border-bottom:1px solid var(--rule-tint);border-radius:0;margin:0;overflow:visible}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;justify-content:space-between;gap:clamp(20px,4vw,56px);padding:clamp(20px,2.3vw,26px) 0;font-family:var(--display);font-weight:600;font-size:var(--t-accordion,17.5px);line-height:1.35;color:var(--teal);letter-spacing:-.008em;text-wrap:pretty;transition:color .16s ease}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:0 0 auto;font-family:var(--display);font-weight:400;font-size:21px;line-height:1;color:#2F5E49;transition:transform .22s ease,color .16s ease}
+.faq details[open]>summary::after{content:"\2212"}
+.faq summary:hover{color:#013F3C}
+.faq summary:hover::after{color:var(--teal)}
+.faq summary:focus-visible{outline:3px solid var(--lime);outline-offset:4px;border-radius:3px}
+.faq .ans{padding:0 0 clamp(22px,2.4vw,28px);max-width:var(--w-read,68ch)}
+.faq .ans p{font-size:var(--t-body,16.5px);line-height:1.78;color:var(--muted);margin:0 0 14px}
+.faq .ans p:last-child{margin-bottom:0}
+.faq .ans ul{margin:4px 0 14px;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.faq .ans li{position:relative;padding-left:24px;font-size:var(--t-body,16.5px);line-height:1.7;color:var(--muted)}
+.faq .ans li::before{content:"";position:absolute;left:2px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--lime)}
+.faq details[open]>.ans{animation:disclose .26s ease both}
+@keyframes disclose{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.faq details[open]>.ans{animation:none}.faq summary::after{transition:none}}
+
+/* --- Accordion, second markup pattern -------------------------------------
+   Some guides use .acc > details > .body instead of .faq > details > .ans.
+   Same component, same rules — kept in one place rather than restyled twice. */
+.acc{margin-top:clamp(28px,3.2vw,40px);border-top:1px solid var(--rule-tint)}
+.acc details{background:none;border:0;border-bottom:1px solid var(--rule-tint);border-radius:0;margin:0;overflow:visible}
+.acc summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;justify-content:space-between;gap:clamp(20px,4vw,56px);padding:clamp(20px,2.3vw,26px) 0;font-family:var(--display);font-weight:600;font-size:var(--t-accordion,17.5px);line-height:1.35;color:var(--teal);letter-spacing:-.008em;text-wrap:pretty;transition:color .16s ease}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";flex:0 0 auto;font-family:var(--display);font-weight:400;font-size:21px;line-height:1;color:#2F5E49;transition:transform .22s ease,color .16s ease}
+.acc details[open]>summary::after{content:"\2212"}
+.acc summary:hover{color:#013F3C}
+.acc summary:hover::after{color:var(--teal)}
+.acc summary:focus-visible{outline:3px solid var(--lime);outline-offset:4px;border-radius:3px}
+.acc .body{padding:0 0 clamp(22px,2.4vw,28px);max-width:var(--w-read,68ch)}
+.acc .body p{font-size:var(--t-body,16.5px);line-height:1.78;color:var(--muted);margin:0 0 14px}
+.acc .body p:last-child{margin-bottom:0}
+.acc details[open]>.body{animation:disclose .26s ease both}
+@media (prefers-reduced-motion:reduce){.acc details[open]>.body{animation:none}.acc summary::after{transition:none}}
+
+/* --- Quick answers -------------------------------------------------------
+   The orienting strip near the top of a profession page. Editorial, not a
+   dashboard: type and rules only, no cards, no shadows, no icons. */
+.qfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0;margin-top:clamp(26px,3vw,36px);border-top:1px solid var(--rule-tint)}
+.qfact{padding:clamp(18px,2vw,24px) clamp(20px,2.4vw,30px) clamp(20px,2.2vw,26px) 0;border-bottom:1px solid var(--rule-tint)}
+.qfact .k{display:block;font-family:var(--display);font-weight:600;font-size:var(--t-eyebrow,13px);letter-spacing:.1em;text-transform:uppercase;color:#2F5E49;margin-bottom:9px}
+.qfact .v{display:block;font-family:var(--display);font-weight:600;font-size:clamp(17px,1.7vw,20px);line-height:1.3;color:var(--teal);letter-spacing:-.01em}
+.qfact .n{display:block;margin-top:7px;font-size:var(--t-meta,15px);line-height:1.55;color:var(--muted);max-width:32ch}
+.qfact a{color:inherit;border-bottom:1px solid rgba(2,97,93,.35)}
+.qfact a:hover{border-bottom-color:currentColor}
+.au .qfact .k,.au .qfact .n{color:#A34438}
+.au .faq summary::after,.au .acc summary::after{color:#A34438}
+
+/* --- Reading measure -----------------------------------------------------
+   Long-form copy sits in a controlled column; editorial headings stay wide. */
+.wrap.reading>p,.wrap.reading>ul,.wrap.reading>ol{max-width:var(--w-read,68ch)}
+.wrap.reading>p.lead{max-width:56ch}
+
+/* --- Q&A accordion: answer visible in the closed state; note behind the toggle --- */
+.qa summary{padding:clamp(16px,2vw,22px) 0}
+.qa .qw{display:block;min-width:0;flex:1 1 auto}
+.qa .k{display:block;font-family:var(--display);font-weight:600;font-size:var(--t-eyebrow,12.5px);letter-spacing:.1em;text-transform:uppercase;color:#2F5E49;margin-bottom:7px}
+.qa.au .k{color:#A34438}
+.qa .v{display:block;font-family:var(--display);font-weight:600;font-size:clamp(17px,1.7vw,20px);line-height:1.3;color:var(--teal);letter-spacing:-.01em}
+.qa .ans{max-width:56ch}
+.qa .ans a{color:#2F5E49;border-bottom:1px solid currentColor}
+.qa.au .ans a{color:#A34438}
+.qa .ans a:hover{color:var(--teal)}

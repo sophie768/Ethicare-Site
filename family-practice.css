@@ -1,0 +1,40 @@
+/* Profession-family PRACTICE layer — the profession-specific slice of "how to
+   practise well here". Loaded only by family pages that carry it. After family.css,
+   before prose-links.css.
+
+   Golden Rule: the NATIONAL canon lives in the guides and is only ever linked from
+   a family page — the system in /guides/{country}-healthcare, the cultural side in
+   /guides/te-ao-maori-at-work (NZ) and /guides/about-australia + australia-community
+   (AU). What belongs HERE is only what changes profession by profession: the
+   comparison of how the work differs, and scenarios that only make sense for this
+   discipline. If a row or scenario would read identically on another family's page,
+   it is national and it moves to the guide.
+
+   Country theming rides on the body class (family.css remaps --fern-text to Clay on
+   body.au); --fam-accent / --fam-edge come from family-eco.css, loaded first. */
+
+/* "what might feel different" — two labelled halves per row. Column labels repeat
+   inside each half so they survive the stack at narrow widths. */
+.diff{margin-top:clamp(30px,3.6vw,44px);max-width:1000px}
+.diff .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:0 clamp(20px,2.6vw,38px);padding:clamp(20px,2.2vw,26px) 0;border-top:1px solid var(--rule-tint)}
+.diff .row:first-of-type{border-top:0}
+.diff .topic{grid-column:1/-1;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--fern-text);margin-bottom:12px}
+.diff .half .hk{display:block;font-family:var(--display);font-weight:600;font-size:12.5px;color:var(--muted);margin-bottom:6px}
+.diff .half p{font-size:15px;line-height:1.58;color:var(--text);margin:0}
+.diff .half.now .hk{color:var(--fern-text)}
+@media (min-width:660px){.diff .half.now{padding-left:clamp(16px,2vw,26px);border-left:1px solid var(--rule-tint)}}
+@media (max-width:659px){.diff .half.now{margin-top:14px;padding-top:14px;border-top:1px dashed var(--rule-tint)}}
+
+/* short scenarios — situations, not policy. White fill on a --rule-tint edge so the
+   card reads on cream AND on a tinted band; a pale hairline measures ~1.2:1 on --soft. */
+.scen{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px;margin-top:clamp(30px,3.6vw,44px)}
+.scen .s{background:#fff;border:1px solid var(--rule-tint);border-radius:16px;padding:22px 24px}
+.scen h3{font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--teal);margin:0 0 9px;line-height:1.25}
+.scen p{font-size:14.5px;line-height:1.58;color:var(--muted);margin:0}
+.scen .good{display:block;margin-top:13px;padding-top:13px;border-top:1px solid var(--rule-tint);font-size:14px;line-height:1.55;color:var(--text)}
+.scen .good b{font-family:var(--display);font-weight:700;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--fern-text);display:block;margin-bottom:5px}
+
+/* the reassurance close — deliberately not a card, so it reads as a voice */
+.reassure{margin-top:clamp(30px,3.6vw,44px);max-width:56ch;padding-left:20px;border-left:3px solid #A6C84A}
+.reassure p{font-family:var(--display);font-weight:500;font-size:clamp(18px,1.9vw,22px);line-height:1.42;letter-spacing:-.01em;color:var(--teal);margin:0}
+.reassure p+p{margin-top:12px;font-family:var(--body);font-weight:400;font-size:15.5px;line-height:1.6;letter-spacing:0;color:var(--muted)}

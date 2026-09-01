@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Emergency Medicine in New Zealand · Ethicare Resourcing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+doc-page:not(:defined){visibility:hidden}
+:root{--teal:#02615D;--deep:#01312F;--fern:#72A471;--fernink:#2F5E49;--lime:#A6C84A;--limelight:#C6E084;--cream:#FCFBF8;--sage:#E3ECE5;--ink:#333333;--muted:#555555;--rule:rgba(2,97,93,.65)}
+.page{background:var(--cream);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:11.2pt;line-height:1.72;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.pad{padding:19mm 20mm;display:flex;flex-direction:column;height:100%}
+h1,h2,h3{font-family:'Work Sans',sans-serif;text-wrap:balance}
+p{text-wrap:pretty;margin:0 0 3.4mm}
+p:last-child{margin-bottom:0}
+.eyebrow{display:flex;align-items:center;gap:4mm;font-family:'Work Sans',sans-serif;font-weight:700;font-size:7.6pt;letter-spacing:.18em;text-transform:uppercase;color:var(--fernink);margin:0 0 6mm}
+.eyebrow::before{content:"";width:9mm;height:1.1mm;border-radius:1mm;background:var(--lime);flex:none}
+.eyebrow.on-dark{color:var(--limelight)}
+h2{font-weight:300;font-size:26pt;line-height:1.1;letter-spacing:-.022em;color:var(--teal);margin:0 0 6mm;max-width:26ch}
+h2 em{font-style:normal;font-family:'Playfair Display',Georgia,serif;font-weight:400}
+.lede{font-family:'Playfair Display',Georgia,serif;font-size:14pt;line-height:1.44;color:var(--teal);margin:0 0 7mm;max-width:44ch}
+.body{max-width:78ch;column-count:2;column-gap:9mm}
+.body p{margin:0 0 3.4mm}
+.drop::first-letter{float:left;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:40pt;line-height:.8;color:var(--teal);padding:1.5mm 2.2mm 0 0}
+.quote{border-top:1.1mm solid var(--lime);padding-top:5mm;margin:8mm 0 0;max-width:52ch}
+.quote p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:15pt;line-height:1.36;color:var(--teal);margin:0}
+.quote cite{display:block;font-family:'Work Sans',sans-serif;font-style:normal;font-weight:600;font-size:8pt;letter-spacing:.1em;text-transform:uppercase;color:var(--fernink);margin-top:4mm}
+.foot{margin-top:auto;padding-top:6mm;border-top:.35mm solid var(--rule);display:flex;justify-content:space-between;align-items:baseline;font-family:'Work Sans',sans-serif;font-size:7.6pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--fernink)}
+.num{list-style:none;margin:0;padding:0;display:grid;gap:5mm}
+.num li{display:grid;grid-template-columns:11mm 1fr;gap:0 4mm;align-items:start}
+.num .n{font-family:'Work Sans',sans-serif;font-weight:300;font-size:20pt;line-height:.9;color:var(--fern)}
+.num h3{font-weight:600;font-size:12pt;line-height:1.25;color:var(--teal);margin:0 0 1.6mm}
+.num p{font-size:10.4pt;line-height:1.62;color:var(--muted);margin:0}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:8mm 1fr;gap:0 5mm;padding:4.6mm 0;border-top:.35mm solid var(--rule)}
+.steps li:last-child{border-bottom:.35mm solid var(--rule)}
+.steps .n{font-family:'Work Sans',sans-serif;font-weight:600;font-size:8.4pt;letter-spacing:.1em;color:var(--fernink);padding-top:1mm}
+.steps h3{font-weight:600;font-size:11.5pt;line-height:1.28;color:var(--teal);margin:0 0 1.4mm}
+.steps p{font-size:10.2pt;line-height:1.6;color:var(--muted);margin:0}
+.bleed{position:absolute;inset:0}
+.bleed img{width:100%;height:100%;object-fit:cover;display:block}
+.scrim{position:absolute;inset:0;background:linear-gradient(160deg,rgba(1,49,47,.30) 0%,rgba(1,49,47,.52) 46%,rgba(1,49,47,.82) 100%)}
+.on-img{position:relative;color:#fff;margin-top:auto}
+.on-img h2,.on-img .lede{color:#fff}
+.on-img p{color:rgba(255,255,255,.92)}
+.cap{position:relative;margin-top:8mm;font-family:'Work Sans',sans-serif;font-size:7.6pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+.cover{justify-content:flex-end}
+.cover h1{font-weight:200;font-size:44pt;line-height:1.02;letter-spacing:-.035em;color:#fff;margin:0 0 6mm;max-width:20ch}
+.cover .sub{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:16pt;line-height:1.34;color:var(--limelight);margin:0 0 9mm;max-width:30ch}
+.cover .mark{position:relative;font-family:'Work Sans',sans-serif;font-weight:600;font-size:9pt;letter-spacing:.24em;text-transform:uppercase;color:#fff;margin-bottom:auto}
+.cover .step{position:relative;padding-top:6mm;border-top:.35mm solid rgba(255,255,255,.34);font-family:'Work Sans',sans-serif;font-size:8pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.close{background:var(--teal);color:#fff;justify-content:center}
+.close h2{color:#fff;font-size:30pt;max-width:22ch}
+.close .lede{color:var(--limelight)}
+.close p{color:rgba(255,255,255,.9);max-width:52ch}
+.close .det{margin-top:10mm;padding-top:6mm;border-top:.35mm solid rgba(255,255,255,.3);display:grid;gap:2.2mm;font-size:10.4pt;color:rgba(255,255,255,.92)}
+.close .det b{font-family:'Work Sans',sans-serif;font-weight:600;color:#fff}
+.close .fine{margin-top:9mm;font-size:8.4pt;line-height:1.6;color:rgba(255,255,255,.68);max-width:60ch}
+a{color:inherit;text-decoration:none}
+.close a{color:var(--limelight);text-decoration:underline;text-underline-offset:2px}
+</style>
+</head>
+<body>
+<doc-page size="a4">
+
+<section class="page cover" id="p1">
+  <div class="bleed"><img src="../nz-life/queenstown-dusk.jpg" alt="Queenstown at dusk, lights along the lakefront beneath the Remarkables"><div class="scrim"></div></div>
+  <div class="pad">
+    <div class="mark">Ethicare Resourcing</div>
+    <div class="on-img">
+      <p class="eyebrow on-dark">Emergency medicine &middot; New Zealand</p>
+      <h1>A department that knows your name</h1>
+      <p class="sub">Emergency medicine in a country small enough that the retrieval crew, the ICU registrar and the person you refer to are people you actually know.</p>
+      <div class="step">An honest guide for overseas-trained specialists</div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="p2">
+  <div class="pad">
+    <p class="eyebrow">The honest opening</p>
+    <h2>Emergency medicine is the same everywhere. Working in it <em>is not</em></h2>
+    <p class="lede">The resus is the resus. What changes when you move here is everything around it &mdash; the size of the system, how far the nearest tertiary centre is, and who you can get on the phone at three in the morning.</p>
+    <div class="body">
+      <p class="drop">New Zealand is a country of five million people with a single national health service. That one fact shapes more of the job than any list of benefits could. Pathways are national rather than negotiated hospital by hospital. The person you are referring to has probably trained with someone you know. And the distances are real: on a bad night, definitive care can be a helicopter away rather than a lift ride.</p>
+      <p>For some clinicians that is precisely the appeal. A broader case mix, more procedural ownership, and decisions that stay yours rather than being deferred up a chain. For others it is the hardest adjustment of the move, and it is better to know which you are before you accept anything.</p>
+      <p>What consistently surprises people is the culture rather than the medicine. Departments here tend to be flatter. Consultants are on the floor. First names are normal, including yours. Nobody is impressed by working through a break, and being visibly exhausted is treated as a rota problem rather than a badge.</p>
+      <p>None of that makes the work easy. Winter is busy, crowding is real, and the same access-block conversations happen here as anywhere. But the scale means you are closer to the people who can change something about it.</p>
+    </div>
+    <div class="quote">
+      <p>The question is not whether you can do emergency medicine here. It is whether this particular version of it is the one you want for the next ten years.</p>
+    </div>
+    <div class="foot"><span>Emergency medicine</span><span>02</span></div>
+  </div>
+</section>
+
+<section class="page" id="p3">
+  <div class="bleed"><img src="../nz-life/nz-life-clinician-portrait.jpg" alt="A clinician in scrubs at work in a New Zealand hospital"><div class="scrim"></div></div>
+  <div class="pad">
+    <div class="on-img">
+      <p class="eyebrow on-dark">On the floor</p>
+      <h2 style="max-width:22ch">Flatter teams, closer calls</h2>
+      <p class="lede" style="max-width:42ch">Consultants on the floor, first names as standard, and a professional circle small enough that the person on the other end of the referral is someone you have met.</p>
+    </div>
+    <div class="cap">Health New Zealand &middot; Te Whatu Ora</div>
+  </div>
+</section>
+
+<section class="page" id="p4">
+  <div class="pad">
+    <p class="eyebrow">Where the work actually is</p>
+    <h2>Four quite different jobs, all called emergency medicine</h2>
+    <p class="lede">The title travels. The day does not. It is worth being specific with yourself about which of these you are actually after.</p>
+    <ul class="num">
+      <li><span class="n">01</span><div><h3>A tertiary department in a main centre</h3><p>Full specialty support on site, high volumes, trauma, and the subspecialty interests and research time that come with a large department. Closest to what most overseas specialists are leaving, and the easiest transition.</p></div></li>
+      <li><span class="n">02</span><div><h3>A regional or base hospital</h3><p>Broader case mix, more procedural autonomy, and a genuine role in deciding what stays and what transfers. Fewer colleagues, more responsibility, and the single biggest jump in scope for most people.</p></div></li>
+      <li><span class="n">03</span><div><h3>Retrieval and pre-hospital</h3><p>Road and air, often alongside a departmental role rather than instead of one. Geography makes this a real part of the system here rather than a niche interest.</p></div></li>
+      <li><span class="n">04</span><div><h3>Teaching, simulation and clinical governance</h3><p>A smaller system means these roles are reachable earlier in a career than many people expect. If you want to shape how a department works, that is more available here than the size of the country suggests.</p></div></li>
+    </ul>
+    <div class="foot"><span>Emergency medicine</span><span>04</span></div>
+  </div>
+</section>
+
+<section class="page" id="p5">
+  <div class="pad">
+    <p class="eyebrow">Registration, plainly</p>
+    <h2>The route to practising as a specialist</h2>
+    <p class="lede">Five steps, and the order matters more than the paperwork. Only the Medical Council can confirm your own route &mdash; nothing here is a decision.</p>
+    <ol class="steps">
+      <li><span class="n">01</span><div><h3>Your college assesses your training</h3><p>Specialist registration in New Zealand is vocational registration, and the specialist college compares your training against the New Zealand programme in your specialty. The college&rsquo;s view is what the Council acts on.</p></div></li>
+      <li><span class="n">02</span><div><h3>Check your qualification against the published list</h3><p>The Council publishes the qualifications it accepts for each specialty. UK, Irish and Australasian qualifications are commonly on those lists; others are looked at case by case. Confirm yours before you plan around it.</p></div></li>
+      <li><span class="n">03</span><div><h3>Recent practice matters more than total years</h3><p>A significant recent gap usually means the college wants to see a supervised period first. That is a route, not a refusal.</p></div></li>
+      <li><span class="n">04</span><div><h3>The job and the registration run together</h3><p>Most specialist registration is attached to a specific post, so you cannot complete it in the abstract. Everyone new to the country gets a period of oversight while they settle &mdash; it is not a judgement on your practice.</p></div></li>
+      <li><span class="n">05</span><div><h3>Documents are the slow part, every time</h3><p>Verified qualifications, EPIC verification, and certificates of good standing from every regulator you have held. Most expire around three months after issue, so sequence them rather than collecting them early.</p></div></li>
+    </ol>
+    <div class="foot"><span>Emergency medicine</span><span>05</span></div>
+  </div>
+</section>
+
+<section class="page" id="p6">
+  <div class="bleed"><img src="../nz-life/remarkables-chairlift.jpg" alt="A chairlift rising over snow at the Remarkables ski field near Queenstown"><div class="scrim"></div></div>
+  <div class="pad">
+    <div class="on-img">
+      <p class="eyebrow on-dark">After the shift</p>
+      <h2 style="max-width:20ch">The commute is the real benefit</h2>
+      <p class="lede" style="max-width:42ch">Not the ski field, though it is there. The thing people mention a year in is a twenty-minute drive home, and what that gives back to every single evening.</p>
+    </div>
+    <div class="cap">The Remarkables &middot; forty minutes from a base hospital</div>
+  </div>
+</section>
+
+<section class="page" id="p7">
+  <div class="pad">
+    <p class="eyebrow">The part a recruiter usually leaves out</p>
+    <h2>The trade-offs worth knowing now</h2>
+    <p class="lede">None of these are reasons not to come. Knowing them before you accept is how you avoid discovering them in your second winter.</p>
+    <ul class="num">
+      <li><span class="n">01</span><div><h3>A smaller system means fewer posts</h3><p>Fewer departments, fewer employers, and a smaller professional circle. If your next decade depends on a particular subspecialty niche, check it exists here before anything else.</p></div></li>
+      <li><span class="n">02</span><div><h3>Pay is set by an agreement, not negotiated</h3><p>Senior medical pay in the public system sits on the collective agreement scale rather than being agreed case by case. That means transparency, and it also means less room to negotiate than you may be used to.</p></div></li>
+      <li><span class="n">03</span><div><h3>Distance is the thing families feel</h3><p>Flights home are long and expensive. This is consistently the hardest part of the move, and it is worth talking about honestly before you commit rather than after.</p></div></li>
+      <li><span class="n">04</span><div><h3>Crowding did not stay behind</h3><p>Winter is busy, access block is real, and the same pressures exist here. The difference is scale, not immunity.</p></div></li>
+    </ul>
+    <div class="quote">
+      <p>If a pack about working somewhere has no page like this one, ask what it left out.</p>
+    </div>
+    <div class="foot"><span>Emergency medicine</span><span>07</span></div>
+  </div>
+</section>
+
+<section class="page close" id="p8">
+  <div class="pad" style="justify-content:center">
+    <p class="eyebrow on-dark">What happens next</p>
+    <h2>Ready, or nowhere near ready.</h2>
+    <p class="lede">Both are a perfectly normal place to begin, and neither one gets a sales pitch.</p>
+    <p>If it would help, we will put you in touch with an emergency physician who has already made this move &mdash; not a case study, an actual conversation, including the parts they found hard.</p>
+    <p>And if you would rather work it out on your own first, everything we publish is free to read: the registration pathway finder, the six-step move guides, and a destination guide for every region with what a week there actually costs.</p>
+    <div class="det">
+      <span><b>Registration pathway finder</b> &middot; <a href="https://ethicareresourcing.com/pathway-checker">ethicareresourcing.com/pathway-checker</a></span>
+      <span><b>Guides and tools</b> &middot; <a href="https://ethicareresourcing.com/resources">ethicareresourcing.com/resources</a></span>
+      <span><b>Email</b> &middot; <a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+      <span><b>Telephone</b> &middot; +44 20 4626 6580</span>
+    </div>
+    <p class="fine">Everything Ethicare publishes is free to use, whether you find your role through us, apply directly to an employer, or work with another agency entirely. Pay, registration requirements and visa settings change: confirm pay against the relevant collective agreement, your route with the Medical Council of New Zealand, and visa settings with Immigration New Zealand. Ethicare Resourcing Ltd, Company No 14646354, Office 1, One Coldbath Square, London EC1R 5HL.</p>
+  </div>
+</section>
+
+</doc-page>
+<script src="./doc-page.js"></script>
+</body>
+</html>

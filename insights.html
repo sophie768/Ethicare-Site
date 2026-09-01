@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Insights — things we&rsquo;ve picked up along the way | Ethicare Resourcing</title>
+<meta name="description" content="Honest, practical answers to the big questions about moving your healthcare career to Australia or New Zealand: pay, pensions, cost of living and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
+.intro-band{min-height:calc(100svh - 78px);display:grid;align-content:center}
+.ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:4px}
+.ins-card{position:relative;background:#fff;border:1px solid var(--mint);border-radius:14px;padding:26px 26px 22px;display:flex;flex-direction:column;min-height:228px;transition:transform .2s ease-out,box-shadow .2s ease-out,border-color .25s ease}
+.ins-card:hover{transform:translateY(-4px);box-shadow:0 26px 54px rgba(1,49,47,.12);border-color:#2F5E49}
+.ins-card h3{font-family:var(--display);font-weight:600;font-size:20px;color:var(--teal);line-height:1.24;margin-bottom:8px;letter-spacing:-.01em}
+.ins-card p{font-size:14.5px;color:var(--muted);line-height:1.6;margin:0}
+.ins-card .cardfoot{margin-top:auto;padding-top:20px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ins-card .rt{font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.02em;color:var(--sage-text)}
+.ins-card .go{font-family:var(--display);font-weight:600;font-size:13px;color:var(--teal);display:inline-flex;align-items:center;gap:4px;transition:gap .2s ease}
+.ins-card .go svg{width:15px;height:15px;transition:transform .2s ease}
+.ins-card:hover .go{gap:8px}
+.ins-card:hover .go svg{transform:translateX(3px)}
+/* coming-soon cards sit quieter so live pieces lead the eye */
+.ins-card.soon{background:var(--soft);border-style:dashed}
+.ins-card.soon:hover{transform:none;box-shadow:none;border-color:var(--mint)}
+.ins-card.soon h3{color:var(--sage-text)}
+.ins-card.soon .rt{color:var(--muted)}
+.tag-soon{font-family:var(--display);font-weight:700;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-text);background:#fff;border:1px solid var(--mint);border-radius:999px;padding:4px 11px;white-space:nowrap}
+@media (max-width:860px){.ins-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.ins-grid{grid-template-columns:1fr}}
+.ins-byline{font-family:var(--display);font-weight:600;font-size:13.5px;color:#2F5E49;margin-top:24px;display:flex;align-items:center;gap:8px}
+.ins-byline::before{content:"";width:24px;height:2px;background:#72A471;border-radius:2px}
+
+/* why insights matter */
+.why-ins{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:clamp(30px,4vw,44px)}
+.why-ins .lead{max-width:64ch}
+.why-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.why-chips span{font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--green);background:#fff;border:1px solid var(--mint);border-radius:999px;padding:8px 16px}
+
+/* featured insight */
+.feat{position:relative;overflow:hidden;background:var(--teal);color:#fff;border-radius:24px;display:grid;grid-template-columns:1.15fr .85fr;gap:0;border:1px solid var(--mint)}
+.feat .ftext{padding:clamp(32px,4vw,52px)}
+.feat .flabel{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C9DED3;margin-bottom:16px;display:block}
+.feat h2{color:#fff;font-size:clamp(26px,3.4vw,38px);font-weight:600;line-height:1.12;letter-spacing:-.02em;margin-bottom:16px;max-width:18ch}
+.feat p{font-size:16.5px;color:rgba(255,255,255,.86);line-height:1.65;max-width:50ch;margin-bottom:24px}
+.feat .fmeta{display:flex;align-items:center;gap:8px}
+.feat .fmeta .au b{display:block;font-family:var(--display);font-weight:600;font-size:14px;color:#fff}
+.feat .fmeta .au span{font-size:12px;color:rgba(255,255,255,.7)}
+.feat .fkettle{display:flex;align-items:center;gap:12px;margin:18px 0 0;font-family:var(--body),Manrope,system-ui,sans-serif;font-weight:400;font-size:15px;line-height:1.5;color:#C6E084}
+/* The mid-green kettle is 1.1:1 on deep teal and needed a cream plate to read at all. Now it
+   uses the CREAM variant instead, so the object sits straight on the band with no plate.
+   Rule for this asset class: cream variant on deep teal and fern, sage variant on cream and
+   soft sage, original mid-green only on a white card. */
+.feat .fkettle img{flex:0 0 auto;width:52px;height:auto}
+.feat .fmeta .rt{margin-left:6px;font-family:var(--display);font-weight:600;font-size:12px;color:#fff;background:rgba(255,255,255,.14);border-radius:999px;padding:5px 12px}
+.feat .fimg{position:relative;min-height:280px}
+.feat .fimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:760px){.feat{grid-template-columns:1fr}.feat .fimg{min-height:200px;order:-1}}
+
+/* category groups */
+.catgroup{margin-top:64px}
+.catgroup .cathead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--mint);padding-bottom:14px;margin-bottom:24px}
+.catgroup .cathead h2{font-size:clamp(22px,2.8vw,28px);font-weight:600;letter-spacing:-.02em;margin:0}
+.catgroup .cathead .ct{font-family:var(--display);font-weight:600;font-size:13px;color:var(--muted)}
+
+/* closing */
+.close-ins{background:var(--teal);color:#fff;border-radius:24px;padding:clamp(40px,5vw,68px);text-align:left}
+.close-ins .eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#C9DED3;margin-bottom:16px}
+.close-ins p{font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(20px,2.6vw,26px);line-height:1.45;color:#fff;max-width:50ch;margin:0 0 24px}
+.close-ins .btn-row{justify-content:flex-start}
+.close-ins .btn-primary{background:#fff;color:var(--teal)}.close-ins .btn-primary:hover{background:var(--warm)}
+.close-ins .btn-secondary{background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff}.close-ins .btn-secondary:hover{background:rgba(255,255,255,.12)}
+</style>
+<style>/* playfair-hero */ .hero-sub,.hero .kicker,.h-hero .pf{font-family:'Playfair Display',Georgia,serif;font-weight:500}
+/* closing CTAs — left aligned */
+.final,.complete,.close-ins{text-align:left}
+.final p,.complete p,.close-ins p{margin-left:0;margin-right:0}
+.final .btn-row,.complete .btn-row,.close-ins .btn-row{justify-content:flex-start}
+.final .eyebrow,.complete .eyebrow,.close-ins .eyebrow{text-align:left}
+</style>
+<link rel="canonical" href="https://ethicareresourcing.com/insights">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Insights | Ethicare Resourcing">
+<meta property="og:description" content="Honest, practical answers to the big questions about moving your healthcare career to Australia or New Zealand: pay, pensions, cost of living and more.">
+<meta property="og:url" content="https://ethicareresourcing.com/insights">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Insights | Ethicare Resourcing">
+<meta name="twitter:description" content="Honest, practical answers to the big questions about moving your healthcare career to Australia or New Zealand: pay, pensions, cost of living and more.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="mint-eyebrow">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Insights"}]}</script>
+<link rel="stylesheet" href="./prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare" aria-current="page">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<section class="intro-band">
+  <div class="formwrap" style="max-width:920px;padding-bottom:0">
+    <span class="eyebrow">Insights</span>
+    <h1>Things we&rsquo;ve picked up along the way</h1>
+    <p class="lead">Registration, relocation, careers and life on the other side of the world &mdash; field notes from the NHS, New Zealand and Australia.</p>
+    <p class="ins-byline">Written by Sophie Careem, founder of Ethicare and former NHS change leader, with the Ethicare team</p>
+  </div>
+</section>
+
+<section>
+  <div class="formwrap" style="max-width:1180px;padding-top:clamp(34px,5vw,52px)">
+
+    <!-- WHY THESE INSIGHTS MATTER -->
+    <div class="why-ins">
+      <span class="eyebrow">Why these insights matter</span>
+      <h2 style="font-size:clamp(24px,3vw,32px);font-weight:600;letter-spacing:-.02em;margin-bottom:14px">The hardest workforce questions look the same in every country</h2>
+      <p class="lead">Recruitment, retention, shortages, candidate experience, staff wellbeing, leadership. We see the same challenges whether we&rsquo;re talking to an NHS trust, a New Zealand DHB or an Australian provider. These pieces explore ideas and approaches that may help employers and healthcare professionals think about them a little differently.</p>
+      <div class="why-chips">
+        <span>Recruitment</span><span>Retention</span><span>Workforce shortages</span><span>Candidate experience</span><span>Staff wellbeing</span><span>Leadership</span>
+      </div>
+    </div>
+
+    <!-- EMPLOYER TOOLKIT -->
+    <div style="margin-top:64px;background:var(--teal);border-radius:20px;padding:clamp(28px,4vw,46px);color:#fff;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,4vw,48px);align-items:center">
+      <div>
+        <span class="eyebrow" style="color:#C9DED3">For employers &middot; the flagship</span>
+        <h2 style="color:#fff;font-size:clamp(24px,3vw,32px);font-weight:600;letter-spacing:-.02em;margin-bottom:12px">The international recruitment toolkit</h2>
+        <p style="color:rgba(255,255,255,.88);font-size:16.5px;line-height:1.6;max-width:50ch;margin:0">Our complete playbook for building an international workforce that lasts: two data primers and eight practical chapters, grounded in NZ and Australian evidence with sourced data from the OECD, Ahpra, Health NZ and more.</p>
+      </div>
+      <div style="justify-self:start"><a href="/insights/international-recruitment-toolkit" style="display:inline-flex;align-items:center;font-family:var(--display);font-weight:600;font-size:15px;background:#72A471;color:#fff;padding:13px 26px;border-radius:12px;text-decoration:none">Open the toolkit &rarr;</a></div>
+    </div>
+
+    <!-- FEATURED INSIGHT -->
+    <span class="eyebrow" style="margin-top:56px">Featured insight</span>
+    <a class="feat" href="/insights/supervision-and-international-recruitment">
+      <div class="ftext">
+        <span class="flabel">Flagship insight</span>
+        <h2>Supervision should not be the reason international recruitment fails</h2>
+        <p>Done well, supervision is one of the strongest predictors of long-term success. A four-part discussion for clinical leaders on planning, the candidate experience, a practical framework, and how regions might work together.</p>
+        <div class="fmeta">
+          <div class="au"><b>Sophie Careem</b><span>Founder, Ethicare Resourcing</span></div>
+          <span class="rt">16 min read &middot; in four parts</span>
+        </div>
+        <p class="fkettle"><img src="assets/kettle-52-cream.png" alt="" width="170" height="192" loading="lazy" decoding="async">Kettle on. This one&rsquo;s a longer read.</p>
+      </div>
+      <div class="fimg"><img loading="lazy" decoding="async" src="assets/illus-consultation.jpg" alt="A healthcare professional in conversation"></div>
+    </a>
+
+    <!-- FROM THE PEOPLE WHO MOVED -->
+    <div class="catgroup">
+      <div class="cathead"><h2>From the people who moved</h2><span class="ct">In their own words</span></div>
+      <div class="ins-grid">
+        <a class="ins-card" href="/insights/manchester-to-the-sunshine-coast">
+          <h3>&ldquo;I never planned to leave the NHS&rdquo;</h3>
+          <p>Megan Barnes was a radiographer in Manchester and wasn&rsquo;t looking to emigrate. The LinkedIn message, the million questions, the terror, and the afternoon she finished work and swam.</p>
+          <div class="cardfoot"><span class="rt">6 min read &middot; Radiography, Australia</span><span class="go">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- WORKFORCE STRATEGY -->
+    <div class="catgroup">
+      <div class="cathead"><h2>Workforce strategy</h2><span class="ct">For healthcare employers &amp; leaders</span></div>
+      <div class="ins-grid">
+        <a class="ins-card" href="/insights/the-real-cost-of-an-unfilled-vacancy">
+          <h3>The real cost of an unfilled vacancy</h3>
+          <p>Beyond the locum bill: the wellbeing, retention and continuity costs of a role left open, and why long-term planning matters more.</p>
+          <div class="cardfoot"><span class="rt">9 min read</span><span class="go">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+        <a class="ins-card" href="/insights/reducing-agency-spend-starts-with-retention">
+          <h3>Why reducing agency spend starts with retention</h3>
+          <p>Agency cost is usually a symptom, not the cause: why sustainable reductions begin with workforce stability.</p>
+          <div class="cardfoot"><span class="rt">8 min read</span><span class="go">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- PEOPLE & CULTURE -->
+    <div class="catgroup">
+      <div class="cathead"><h2>People &amp; culture</h2><span class="ct">Why people stay, and thrive</span></div>
+      <div class="ins-grid">
+        <a class="ins-card" href="/insights/what-your-workforce-is-telling-you">
+          <h3>What your workforce is already telling you</h3>
+          <p>Exit interviews, stay interviews and staff surveys may be your most underused workforce-planning tools.</p>
+          <div class="cardfoot"><span class="rt">7 min read</span><span class="go">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+        <a class="ins-card" href="/insights/onboarding-and-thriving-after-arrival">
+          <h3>Onboarding is where a move succeeds or fails</h3>
+          <p>The best international recruitment doesn&rsquo;t end at arrival. What great onboarding looks like, why cultural transition matters, and how people are helped to thrive.</p>
+          <div class="cardfoot"><span class="rt">7 min read</span><span class="go">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- INTERNATIONAL RECRUITMENT -->
+    <div class="catgroup">
+      <div class="cathead"><h2>International recruitment</h2><span class="ct">Moving people, and lives, across borders</span></div>
+      <div class="ins-grid">
+        <a class="ins-card" href="/insights/system-familiarity-and-great-talent">
+          <h3>Are we missing great talent by focusing too much on system familiarity?</h3>
+          <p>Why an over-reliance on local-system experience may be quietly screening out excellent clinicians.</p>
+          <div class="cardfoot"><span class="rt">6 min read</span><span class="go">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+        <a class="ins-card" href="/insights/speaking-up-and-the-international-workforce">
+          <h3>Speaking up, patient safety and the international workforce</h3>
+          <p>Are we preparing internationally trained professionals for the culture of speaking up that modern healthcare expects?</p>
+          <div class="cardfoot"><span class="rt">7 min read</span><span class="go">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+        <a class="ins-card" href="/insights/is-an-agency-worth-the-cost">
+          <h3>Is using an agency worth the cost for international recruitment?</h3>
+          <p>A balanced, honest look at when a specialist partner adds value, and when recruiting directly is the better choice.</p>
+          <div class="cardfoot"><span class="rt">6 min read</span><span class="go">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+        <a class="ins-card" href="/insights/what-good-international-recruitment-looks-like">
+          <h3>What good international recruitment actually looks like</h3>
+          <p>Far more than a job offer and a visa: the year either side of a move that makes it last.</p>
+          <div class="cardfoot"><span class="rt">7 min read</span></div>
+        </a>
+        <a class="ins-card" href="/insights/case-studies">
+          <h3>Case studies: international recruitment that lasted</h3>
+          <p>Real workforce examples: a rebuilt Anaesthetic Technician team in Palmerston North, and the lives that took root around the move.</p>
+          <div class="cardfoot"><span class="rt">Case studies</span><span class="go">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="catgroup" style="margin-top:clamp(56px,6vw,88px)">
+  <div style="max-width:760px">
+    <span style="display:flex;align-items:center;gap:10px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:14px"><span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span>Coming next</span>
+    <p style="font-size:15.5px;line-height:1.65;color:#2F5E49;margin:0 0 8px;max-width:60ch">Being written now. We would rather publish four pieces properly than eight in a hurry &mdash; so these are listed rather than linked until they are ready.</p>
+    <ul style="list-style:none;margin:16px 0 0;padding:0;border-top:1px solid rgba(2,97,93,.28)">
+      <li style="padding:16px 0;border-bottom:1px solid rgba(2,97,93,.28)"><span style="display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;color:#02615D;margin-bottom:4px">Why good workforce planning is about more than recruitment</span><span style="display:block;font-size:14.5px;line-height:1.55;color:#2F5E49">Recruitment is one lever among many. A look at the wider system that keeps services staffed and stable.</span></li>
+      <li style="padding:16px 0;border-bottom:1px solid rgba(2,97,93,.28)"><span style="display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;color:#02615D;margin-bottom:4px">Building teams that last</span><span style="display:block;font-size:14.5px;line-height:1.55;color:#2F5E49">What turns a group of individuals into a team people don&rsquo;t want to leave, from the recruitment side.</span></li>
+      <li style="padding:16px 0;border-bottom:1px solid rgba(2,97,93,.28)"><span style="display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;color:#02615D;margin-bottom:4px">Lessons from supporting healthcare professionals across three countries</span><span style="display:block;font-size:14.5px;line-height:1.55;color:#2F5E49">What working across the NHS, New Zealand and Australia has taught us about a move that holds.</span></li>
+      <li style="padding:16px 0;border-bottom:1px solid rgba(2,97,93,.28)"><span style="display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;color:#02615D;margin-bottom:4px">Registration sets the tone</span><span style="display:block;font-size:14.5px;line-height:1.55;color:#2F5E49">Why how you support someone through registration shapes whether they arrive ready, and stay.</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- CLOSING -->
+    <div class="close-ins" style="margin-top:64px">
+      <span class="eyebrow">A closing thought</span>
+      <p>We don&rsquo;t claim to have all the answers. But working with healthcare professionals and employers across three systems has taught us that the best ideas usually come from being willing to learn from one another.</p>
+      <div class="btn-row">
+        <a href="/contact" class="btn btn-primary">Contact Ethicare</a>
+        <a href="/insights/international-recruitment-toolkit" class="btn btn-secondary">Explore the recruitment toolkit</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script src="nav.js" defer></script>
+
+<!-- INTERNAL LINK MAP — /insights (generated 29 Aug 2026 from the rendered markup)
+  HEADER NAV + FOOTER — site-wide (see /site/_header.html and the shared footer)
+  MAIN CONTENT:
+  Open the toolkit → → /insights/international-recruitment-toolkit
+  Flagship insight Supervision should not be the reason int… → /insights/supervision-and-international-recruitment
+  The real cost of an unfilled vacancy Beyond the locum bil… → /insights/the-real-cost-of-an-unfilled-vacancy
+  Why reducing agency spend starts with retention Agency co… → /insights/reducing-agency-spend-starts-with-retention
+  What your workforce is already telling you Exit interview… → /insights/what-your-workforce-is-telling-you
+  Onboarding is where a move succeeds or fails The best int… → /insights/onboarding-and-thriving-after-arrival
+  Are we missing great talent by focusing too much on syste… → /insights/system-familiarity-and-great-talent
+  Speaking up, patient safety and the international workfor… → /insights/speaking-up-and-the-international-workforce
+  Is using an agency worth the cost for international recru… → /insights/is-an-agency-worth-the-cost
+  What good international recruitment actually looks like F… → /insights/what-good-international-recruitment-looks-like
+  Case studies: international recruitment that lasted Real … → /insights/case-studies
+  Contact Ethicare → /contact
+  Explore the recruitment toolkit → /insights/international-recruitment-toolkit
+-->
+<!-- SEO
+  Page Title: Insights — things we&rsquo;ve picked up along the way
+  URL Slug: /insights
+  SEO Title: Insights — things we&rsquo;ve picked up along the way | Ethicare Resourcing
+  Meta Description: Honest, practical answers to the big questions about moving your healthcare career to Australia or New Zealand: pay, pensions, cost of living and more.
+-->
+</body>
+</html>

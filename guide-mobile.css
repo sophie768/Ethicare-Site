@@ -1,0 +1,83 @@
+/* ================================================================
+   ETHICARE — GUIDE MOBILE SCANNABILITY
+   Shared rule for long-form guide pages. Linked LAST in <head> so it
+   wins over each page's inline styles. Five adaptations:
+   1) sticky compact "jump to" bar   2) tighter mobile type & rhythm
+   3) lead-with-the-point cards       4) collapsible prose sections
+   5) single-column card grids
+   Desktop is untouched — everything is gated behind max-width:600px,
+   except the collapse scaffolding which stays open on desktop.
+   ================================================================ */
+
+/* ---- collapsible sections: scaffolding (added by site.js) ---- */
+.mc-toggle{display:none}
+.mc-panel{display:block}
+.mc-toggle{
+  -webkit-appearance:none;appearance:none;cursor:pointer;
+  width:100%;margin-top:16px;align-items:center;justify-content:space-between;gap:16px;
+  font-family:'Work Sans',sans-serif;font-weight:600;font-size:14.5px;color:#02615D;
+  background:#fff;border:1px solid #C9DED3;border-radius:var(--r-sm);padding:14px 18px;min-height:48px;
+  transition:background .15s ease;
+}
+.mc-toggle:hover{background:#E6F1ED}
+.mc-toggle .mc-ico{flex:none;width:22px;height:22px;border-radius:50%;background:#E6F1ED;color:#02615D;display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1;transition:transform .2s ease}
+.mc-toggle[aria-expanded="true"] .mc-ico{transform:rotate(45deg)}
+.mc-toggle:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:var(--sh-focus)}
+
+@media (max-width:600px){
+
+  /* ---- 1 · sticky compact jump bar ---- */
+  .glance-wrap{
+    position:sticky;top:78px;z-index:30;padding:0;margin:0;
+    background:rgba(252,251,248,.97);backdrop-filter:blur(8px);
+    border-bottom:1px solid #C9DED3;
+  }
+  .glance{border:0;border-radius:0;padding:9px 0;background:transparent}
+  .glance .gl-top{display:none}
+  .glance ol{
+    display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;
+    grid-template-columns:none;padding:2px 16px;margin:0;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  }
+  .glance ol::-webkit-scrollbar{display:none}
+  .glance li{border:0;flex:0 0 auto;counter-increment:g}
+  .glance a{
+    white-space:nowrap;background:#E6F1ED;border:1px solid #C9DED3;border-radius:var(--r-pill);
+    padding:8px 14px;font-size:13px;min-height:0;
+  }
+  .glance a::before{content:counter(g) " · ";color:#2F5E49;font-weight:600}
+
+  /* keep anchored headings clear of the sticky header + jump bar */
+  [id]{scroll-margin-top:140px}
+
+  /* ---- 2 · tighter type & rhythm ---- */
+  h1{font-size:clamp(29px,8.4vw,38px);line-height:1.12}
+  h2{font-size:clamp(23px,6.4vw,28px);line-height:1.16;margin-bottom:16px}
+  .lead{font-size:15.5px;line-height:1.62}
+  p{margin-bottom:16px}
+  .section{padding:40px 0}
+  .reassure,.note-box{padding:18px 18px}
+  .reassure p,.note-box p{font-size:15px}
+
+  /* ---- 3 · lead with the point ---- */
+  .how h3,.fcard h3,.rung h3,.pitem h3,.story h3{font-size:16px}
+  .how p,.fcard p,.rung p,.pitem p,.dir .sub{font-size:13.5px;color:#2F5E49;line-height:1.55}
+  .how .k,.rel .k{font-size:11px}
+  .how{padding:22px 20px}
+  .fcard{padding:22px 20px}
+
+  /* ---- 4 · collapsible prose sections ---- */
+  .mc-toggle{display:flex}
+  .mc-panel{display:none}
+  .mc-panel.is-open{display:block;animation:mcIn .22s ease}
+  @keyframes mcIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+
+  /* ---- 5 · single-column grids (reinforce) ---- */
+  .how-grid,.family-grid,.related-grid,.dir-grid,.story-grid,.feature .pts{grid-template-columns:1fr!important}
+  .ladder .rung{grid-template-columns:44px 1fr}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .mc-panel.is-open{animation:none}
+  .mc-toggle .mc-ico{transition:none}
+}

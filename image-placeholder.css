@@ -1,0 +1,20 @@
+/* Ethicare image placeholder — for slots where the photograph or artwork does not exist yet.
+   Reads as a deliberate empty frame rather than a broken image. Deep teal keeps cream text at
+   7.32:1, so the label is legible and the block is not decorative-only. Two sizes: .ethph--hero
+   for a hero band, default for an in-body figure. Aspect ratio, never a fixed height, so it
+   cannot overflow a narrow viewport. */
+.ethph{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:clamp(22px,3vw,34px);border-radius:var(--r-lg,18px);overflow:hidden;background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 14px,rgba(255,255,255,0) 14px 28px),linear-gradient(150deg,#02615D,#01423F);color:#FCFBF8;aspect-ratio:3/2;width:100%}
+.ethph svg{width:34px;height:34px;opacity:.9;flex:none}
+.ethph .ph-t{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(14px,1.4vw,16px);line-height:1.4;max-width:34ch;text-wrap:pretty}
+.ethph .ph-s{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#C6E084}
+.ethph::after{content:"";position:absolute;inset:0;border-radius:inherit;border:1px solid rgba(255,255,255,.14);pointer-events:none}
+.ethph--hero{aspect-ratio:auto;height:100%;min-height:clamp(200px,32vw,360px);border-radius:0}
+.ethph--hero svg{width:40px;height:40px}
+/* In a hero the placeholder replaces .bg, so it fills that box exactly — min-height off, or it
+   grows past the band the hero sets at narrow widths and the stripes run on below the fade. */
+.hero .bg .ethph--hero{height:100%;min-height:0}
+/* .hero .bg::after is a cream fade that exists to blend a PHOTOGRAPH into the page. Over a flat
+   teal block it only muddies it, so suppress it where the band holds a placeholder. */
+/* profession-redesign sets .hero .bg::after{display:block!important}, so this needs the same
+   weight or the cream fade stays and washes the placeholder out at the bottom. */
+.hero .bg:has(.ethph)::after{display:none!important}

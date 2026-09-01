@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Your Moving Checklist | Ethicare Resourcing</title>
+<meta name="description" content="Build a relocation checklist for your circumstances. Answer two questions about your move to Australia or New Zealand and get the practical steps that actually apply to you.">
+<link rel="canonical" href="https://ethicareresourcing.com/moving-checklist">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<link rel="icon" href="assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Your moving checklist">
+<meta property="og:description" content="Moving alone raises different questions from relocating with children. Answer two questions and get the checklist that fits your move.">
+<style>
+h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
+.eyebrow{display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none}
+.eyebrow.light{color:#C6E084}
+/* ---------- shell ---------- */
+.mc-wrap{background:var(--warm);padding:clamp(46px,6vw,76px) 20px clamp(56px,7vw,88px);display:flex;justify-content:center}
+#mc-app{width:100%;max-width:1180px}
+/* ---------- questions ---------- */
+.mc-intro{max-width:62ch;margin-bottom:clamp(36px,4.6vw,56px)}
+.mc-intro h1{font-weight:600;font-size:clamp(36px,5.2vw,56px);line-height:1.08;letter-spacing:-.02em;color:var(--teal);margin:var(--sp-s) 0 14px}
+.mc-said{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(20px,2.5vw,26px);line-height:1.35;color:var(--text);margin-bottom:16px}
+.mc-lede{font-size:18px;line-height:1.7;color:var(--muted);margin-bottom:14px}
+.mc-meta{font-size:14.5px;line-height:1.6;color:var(--sage-text);border-top:1px solid var(--rule-tint,rgba(2,97,93,.65));padding-top:14px;max-width:56ch}
+.mc-qhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;margin-bottom:var(--sp-xs)}
+.mc-stepn{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--sage-text)}
+.mc-qhead h2{font-weight:600;font-size:clamp(24px,3.2vw,32px);color:var(--teal);letter-spacing:-.015em;line-height:1.2;outline-offset:4px}
+.mc-qhead h2:focus-visible,.mc-summary h1:focus-visible{outline:3px solid var(--teal)}
+.mc-sub{font-size:16px;color:var(--muted);line-height:1.6;margin-bottom:24px;max-width:56ch}
+.mc-grid{display:grid;gap:14px;margin-top:20px}
+.mc-grid.dest{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.mc-grid.who{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.mc-dest,.mc-who{text-align:left;background:#fff;border:1px solid #D6E1DA;border-radius:var(--r-lg);padding:20px 22px;cursor:pointer;transition:border-color .15s ease,background .15s ease,box-shadow .15s ease;display:flex;flex-direction:column;gap:5px}
+.mc-dest:hover,.mc-who:hover{border-color:#C9DED3;box-shadow:var(--sh-sm)}
+.mc-dest.is-sel,.mc-who.is-sel{border:2px solid var(--teal);background:rgba(2,97,93,.05);padding:19px 21px}
+.mc-tile{display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;min-width:46px;height:34px;padding:0 9px;border-radius:var(--r-sm);font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.04em;margin-bottom:8px}
+.mc-tile.au{background:#F7F4EE;color:#A34438;border:1px solid #EBDFD3}
+.mc-tile.nz{background:#E3ECE5;color:var(--sage-text)}
+.mc-tile.both{background:var(--soft);color:var(--teal)}
+.mc-dl,.mc-wl{font-family:var(--display);font-weight:600;font-size:17px;color:var(--teal);line-height:1.3}
+.mc-dd,.mc-wd{font-size:13.5px;color:var(--muted);line-height:1.5}
+.mc-extras{display:flex;flex-wrap:wrap;gap:32px 56px;margin-top:34px}
+.mc-q{font-family:var(--display);font-weight:600;font-size:14px;color:var(--text);margin-bottom:9px}
+.mc-hint{font-size:13px;color:var(--muted);line-height:1.5;margin:-4px 0 10px;max-width:46ch}
+.mc-row{display:flex;gap:9px}
+.mc-row.wrap{flex-wrap:wrap}
+.mc-pill{display:inline-flex;align-items:center;justify-content:center;min-height:46px;font-family:var(--display);font-weight:600;font-size:14px;color:var(--text);background:#fff;border:1px solid #D6E1DA;border-radius:var(--r-pill);padding:0 23px;cursor:pointer;transition:border-color .15s ease,background .15s ease}
+.mc-pill:hover{background:#F7F8F6;border-color:#C9DED3}
+.mc-pill.is-sel{border:2px solid var(--teal);background:rgba(2,97,93,.06);padding:0 22px}
+.mc-back{display:inline-flex;align-items:center;min-height:44px;gap:7px;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--teal);background:none;border:none;padding:0;margin-bottom:14px;cursor:pointer}
+.mc-back:hover{text-decoration:underline;text-underline-offset:3px}
+.mc-back svg{width:15px;height:15px}
+.mc-nav{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-s);margin-top:36px;padding-top:24px;border-top:1px solid #D6E1DA}
+.mc-next{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:600;font-size:15.5px;color:#fff;background:var(--teal);padding:15px 30px;border-radius:var(--r-sm);border:none;cursor:pointer;box-shadow:0 2px 8px rgba(2,97,93,.18);transition:filter .15s ease,transform .15s ease}
+.mc-next:hover{filter:brightness(.93);transform:translateY(-1px)}
+.mc-next svg{width:16px;height:16px}
+.mc-err{font-size:13px;color:#A34438;line-height:1.45;max-width:44ch}
+/* ---------- summary ---------- */
+.mc-summary{background:var(--soft);border-radius:var(--r-lg);padding:clamp(24px,3.2vw,34px);display:flex;flex-wrap:wrap;gap:28px 44px;align-items:flex-end;justify-content:space-between}
+.mc-sumleft{flex:1 1 340px;min-width:280px}
+.mc-summary h1{font-weight:600;font-size:clamp(25px,3.4vw,33px);line-height:1.15;letter-spacing:-.015em;color:var(--teal);margin:var(--sp-xs) 0 6px;outline-offset:4px}
+.mc-sumline{font-size:14.5px;color:var(--sage-text);line-height:1.55;margin-bottom:18px}
+.mc-sumacts{display:flex;flex-wrap:wrap;gap:10px}
+.mc-sumright{flex:1 1 320px;min-width:280px}
+.mc-prohead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 14px;margin-bottom:9px}
+.mc-prolabel{font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--teal)}
+.mc-prostatus{font-size:13px;color:var(--sage-text)}
+.mc-pro{height:10px;border-radius:var(--r-pill);background:rgba(2,97,93,.14);overflow:hidden}
+.mc-pro i{display:block;height:100%;border-radius:var(--r-pill);background:#72A471;transition:width .3s cubic-bezier(.4,0,.2,1)}
+.mc-pronote{font-size:13px;color:var(--sage-text);line-height:1.55;margin-top:11px;max-width:44ch}
+.mc-pronote strong{font-family:var(--display);font-weight:600}
+.mc-b2,.mc-b3{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-weight:600;font-size:13.5px;border-radius:var(--r-sm);cursor:pointer;text-decoration:none}
+.mc-b2{display:inline-flex;align-items:center;justify-content:center;min-height:44px;background:#fff;color:var(--teal);border:1.5px solid #72A471;padding:0 18px}
+.mc-b2:hover{background:var(--soft)}
+.mc-b3{display:inline-flex;align-items:center;justify-content:center;min-height:44px;background:none;border:none;color:var(--muted);padding:0 8px;text-decoration:underline;text-underline-offset:3px}
+.mc-b3:hover{color:var(--teal)}
+/* ---------- two-column body ---------- */
+.mc-cols{display:flex;flex-wrap:wrap;gap:clamp(32px,4vw,56px);margin-top:clamp(36px,4.4vw,52px);align-items:flex-start}
+.mc-nav-sec{flex:1 1 220px;max-width:270px;position:sticky;top:92px}
+.mc-navk{display:block;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--sage-text);margin-bottom:12px}
+.mc-nav-sec a{display:flex;align-items:baseline;gap:10px;min-height:44px;padding:12px 0;border-bottom:1px solid var(--rule-tint,rgba(2,97,93,.65));text-decoration:none}
+.mc-nav-sec a:hover .t{color:#014E4B;text-decoration:underline;text-underline-offset:3px}
+.mc-nav-sec .n{font-family:var(--display);font-weight:700;font-size:11.5px;color:#72A471;min-width:18px}
+.mc-nav-sec .t{flex:1;font-family:var(--display);font-weight:500;font-size:14.5px;color:var(--teal);line-height:1.35}
+.mc-nav-sec .c{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.mc-main{flex:3 1 540px;min-width:min(540px,100%);display:grid;gap:clamp(40px,5vw,60px)}
+.mc-sec{scroll-margin-top:140px}
+.mc-sec h2{font-weight:600;font-size:clamp(23px,2.9vw,30px);line-height:1.2;letter-spacing:-.015em;color:var(--teal);margin:var(--sp-xs) 0 8px}
+.mc-sintro{font-size:16.5px;line-height:1.7;color:var(--muted);margin-bottom:20px;max-width:58ch}
+.mc-items{display:grid;gap:12px}
+/* ---------- an item ---------- */
+.mc-item{background:#fff;border:1px solid var(--mint);border-radius:var(--r-md);padding:20px 22px;transition:opacity .15s ease,border-color .15s ease}
+.mc-item.s-done{opacity:.78}
+.mc-item.s-revisit{border-color:#72A471}
+.mc-itop{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:flex-start;justify-content:space-between}
+.mc-ibody{display:flex;gap:13px;align-items:flex-start;flex:1 1 320px;min-width:0}
+.mc-dot{display:flex;align-items:center;justify-content:center;flex:none;width:22px;height:22px;border-radius:var(--r-pill);margin-top:2px;border:1.5px solid #C9DED3;background:#fff;color:#fff}
+.mc-dot svg{width:12px;height:12px}
+.mc-dot.done{background:var(--teal);border-color:var(--teal)}
+.mc-dot.revisit{background:var(--soft);border-color:#72A471}
+.mc-it{font-family:var(--display);font-weight:600;font-size:16.5px;line-height:1.4;color:var(--teal)}
+.mc-in{font-size:14.5px;line-height:1.6;color:var(--muted);margin-top:7px;max-width:56ch}
+.mc-im{font-size:13.5px;line-height:1.6;color:var(--sage-text);margin-top:7px}
+.mc-status{display:flex;gap:7px;flex-wrap:wrap}
+.mc-st{display:inline-flex;align-items:center;justify-content:center;min-height:44px;font-family:var(--display);font-weight:600;font-size:13px;padding:0 17px;border-radius:var(--r-pill);border:1px solid #D6E1DA;background:none;color:var(--muted);cursor:pointer;transition:all .15s ease}
+.mc-st:hover{border-color:#C9DED3;background:#F7F8F6}
+.mc-st.on.done{background:var(--teal);color:#FCFBF8;border-color:var(--teal)}
+.mc-st.on.todo{background:#F7F4EE;color:#A34438;border-color:#EBDFD3}
+.mc-st.on.revisit{background:var(--soft);color:var(--sage-text);border-color:#72A471}
+.mc-ctas{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;padding-left:35px}
+.mc-notewrap{margin-top:0;padding-left:35px}
+.mc-notetoggle{display:inline-flex;align-items:center;min-height:44px;font-family:var(--display);font-weight:600;font-size:13px;color:var(--muted);background:none;border:none;padding:0 2px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.mc-notetoggle:hover{color:var(--teal)}
+.mc-note{display:block;width:100%;max-width:560px;margin-top:2px;padding:12px 14px;font-family:var(--body);font-size:15px;line-height:1.55;color:var(--text);background:var(--warm);border:1px solid #D6E1DA;border-radius:var(--r-sm);resize:vertical;outline:none}
+.mc-note:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(2,97,93,.12)}
+/* ---------- completion ---------- */
+.mc-done{background:var(--teal);border-radius:var(--r-lg);padding:clamp(30px,3.8vw,42px)}
+.mc-done h2{color:#FCFBF8;margin:var(--sp-xs) 0 12px}
+.mc-done p{font-size:16.5px;line-height:1.7;color:rgba(252,251,248,.86);max-width:60ch;margin-bottom:24px}
+.mc-nextgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.mc-nextgrid a{display:block;background:rgba(252,251,248,.08);border:1px solid rgba(252,251,248,.18);border-radius:var(--r-md);padding:18px 20px;text-decoration:none;transition:background .15s ease}
+.mc-nextgrid a:hover{background:rgba(252,251,248,.15)}
+.mc-nextgrid .t{display:block;font-family:var(--display);font-weight:600;font-size:15.5px;color:#FCFBF8;margin-bottom:5px;line-height:1.35}
+.mc-nextgrid .l{display:block;font-family:var(--display);font-weight:600;font-size:13.5px;color:#C6E084}
+/* ---------- sibling tools ---------- */
+.mc-tools{background:#fff;border-top:1px solid var(--soft);padding:var(--sp-section) 24px}
+.mc-tools .in{max-width:1180px;margin:0 auto}
+.mc-tools h2{font-weight:600;font-size:clamp(25px,3.2vw,34px);color:var(--teal);letter-spacing:-.015em;line-height:1.2;margin:14px 0 12px;max-width:26ch}
+.mc-tools .lede{font-size:16.5px;line-height:1.7;color:var(--muted);max-width:62ch;margin-bottom:32px}
+.mc-toolgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+.mc-toolgrid a{display:flex;flex-direction:column;gap:8px;background:var(--warm);border:1px solid var(--mint);border-radius:var(--r-lg);padding:26px 28px;text-decoration:none;transition:border-color .15s ease,box-shadow .15s ease}
+.mc-toolgrid a:hover{border-color:#72A471;box-shadow:var(--sh-sm)}
+.mc-toolgrid .k{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--sage-text)}
+.mc-toolgrid h3{font-weight:600;font-size:19px;color:var(--teal);line-height:1.3}
+.mc-toolgrid p{font-size:14.5px;line-height:1.6;color:var(--muted)}
+.mc-toolgrid .go{font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--teal);margin-top:auto;padding-top:8px}
+/* ---------- print: the checklist IS the document ---------- */
+@media print{
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+  html,body{background:#fff !important}
+  .site-header,.site-footer,.skip-link,.mc-tools,.mc-nav-sec,.mc-sumacts,.mc-status,.mc-notetoggle,.nav-toggle,.site-nav,.mc-done .mc-nextgrid{display:none !important}
+  .mc-wrap{padding:0 !important;background:#fff !important}
+  .mc-summary{background:#fff !important;border:1px solid #C9DED3;border-radius:0 !important;padding:0 0 14px !important}
+  .mc-cols{margin-top:18px;display:block}
+  .mc-main{display:block}
+  .mc-sec{break-inside:avoid;page-break-inside:avoid;margin-bottom:22px}
+  .mc-item{border:1px solid #C9DED3;border-radius:0 !important;break-inside:avoid;page-break-inside:avoid;opacity:1 !important;margin-bottom:8px}
+  /* the three states must survive print — the summary tells people to rely on "revisit" */
+  .mc-item.s-done{border-left:4px solid #02615D}
+  .mc-item.s-revisit{border-left:4px solid #2F5E49}
+  .mc-item.s-todo{border-left:4px solid #A34438}
+  .mc-item.s-done::before,.mc-item.s-revisit::before,.mc-item.s-todo::before{display:block;font-family:'Work Sans',sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+  .mc-item.s-done::before{content:"Done";color:#02615D}
+  .mc-item.s-revisit::before{content:"To revisit";color:#2F5E49}
+  .mc-item.s-todo::before{content:"To do";color:#A34438}
+  .mc-note{background:#fff !important;border:1px solid #C9DED3 !important}
+  .mc-ctas a::after{content:" (" attr(href) ")";font-size:10px;color:#555555;word-break:break-all}
+  .mc-done{background:#fff !important;border:2px solid #02615D;border-radius:0 !important}
+  .mc-done h2,.mc-done p{color:#02615D !important}
+  #mc-app::after{content:"Your moving checklist \2014 ethicareresourcing.com/moving-checklist";display:block;margin-top:12px;font-size:10.5px;color:#555555}
+}
+@media (max-width:900px){.mc-nav-sec{position:static;max-width:none;flex-basis:100%}}
+@media (max-width:600px){.mc-extras{gap:26px}.mc-status{width:100%}.mc-ctas,.mc-notewrap{padding-left:0}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Your moving checklist"}]}</script>
+<meta property="og:url" content="https://ethicareresourcing.com/moving-checklist"><meta property="og:image" content="https://ethicareresourcing.com/assets/og-toolkit.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Your moving checklist"><meta name="twitter:description" content="Moving alone raises different questions from relocating with children. Answer two questions and get the checklist that fits your move."><meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-toolkit.jpg">
+<link rel="stylesheet" href="prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="mc-wrap" data-screen-label="Checklist">
+    <div id="mc-app">
+      <noscript>
+        <div class="mc-intro">
+          <span class="eyebrow">Plan your move</span>
+          <h1>Your moving checklist</h1>
+          <p class="mc-lede">This checklist builds itself around your answers, which needs JavaScript. In the meantime, the relocation guides cover the same ground in full: <a href="/guides/moving-to-new-zealand">moving to New Zealand</a> and <a href="/guides/moving-to-australia">moving to Australia</a>. New Zealand also has a <a href="/guides/new-zealand-checklist">month-by-month relocation checklist</a>.</p>
+        </div>
+      </noscript>
+    </div>
+  </section>
+
+  <section class="mc-tools" data-screen-label="Three tools">
+    <div class="in">
+      <span class="eyebrow">Keep going</span>
+      <h2>Three tools, three different questions</h2>
+      <p class="lede">This one tells you what to plan for. The other two answer whether you can register professionally, and what the move is likely to cost &mdash; and New Zealand has a month-by-month version of the practical errands.</p>
+      <div class="mc-toolgrid">
+        <a href="/pathway-checker">
+          <span class="k">Can I register?</span>
+          <h3>Registration pathway checker</h3>
+          <p>Your profession, where you trained and where you practise &mdash; then the official Australian and New Zealand routes that may apply.</p>
+          <span class="go">Check my pathway &rarr;</span>
+        </a>
+        <a href="/cost-calculator">
+          <span class="k">What will it cost?</span>
+          <h3>Cost of moving calculator</h3>
+          <p>Registration, visas, flights, shipping, temporary accommodation and the rental bond &mdash; built into a budget you can print, from official fees and your own figures.</p>
+          <span class="go">Work out my costs &rarr;</span>
+        </a>
+        <a href="/guides/new-zealand-checklist">
+          <span class="k">When do I do it?</span>
+          <h3>The New Zealand relocation timeline</h3>
+          <p>Around forty practical errands across six months, from three months before you fly to three months after you land.</p>
+          <span class="go">See the timeline &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script src="moving-checklist-data.js"></script>
+<script src="moving-checklist.js"></script>
+
+<!-- NOTE ON THE SPLICED HEADER
+  The header and footer here were copied from site/resources.html, which marks its OWN nav item
+  with aria-current="page". That marker was stripped: this is a root-level tool, not a page inside
+  Guides & Resources, and neither tool has a matching top-level nav item. If you build another page
+  by copying this header, strip it again — otherwise the wrong nav item lights up and assistive
+  tech announces the wrong current page.
+-->
+<!-- INTERNAL LINK MAP — /moving-checklist
+  Header: Ethicare logo → Home (/) · Home → / · Australia → /australia (mega: AU journey guides /guides/*, AU professions /jobs/*-australia,
+    /destinations/australia, "Check your registration pathway" → /pathway-checker) · New Zealand → /new-zealand (same pattern)
+    · About → /about-ethicare · Insights → /insights · Contact → /contact · Register your interest → /apply
+  Step 1 / Step 2: no outbound links (choices only)
+  Checklist — section CTAs, generated from moving-checklist-data.js and resolved by destination:
+    The move itself → /destinations · /pathway-checker · /guides/{country}-visa · official immigration site (immi.homeaffairs.gov.au / immigration.govt.nz, new tab)
+    Money → /guides/{country}-salary · /guides/cost-of-relocating · /guides/negotiating-your-offer
+    Housing → /guides/nz/renting-in-new-zealand (NZ-only) or /guides/moving-to-australia
+    Healthcare → /guides/{country}-healthcare
+    Practical preparation → /guides/nz/money-tax-and-banking (NZ-only) or /guides/moving-to-australia
+    Moving on your own (solo) → /destinations · /guides/{country}-community
+    Your partner (couple / family / moving first) → official immigration site · /pathway-checker · /guides/living-in-{country}
+    Moving with children (school age) → /guides/australia-school-fees (AU) and/or /guides/new-zealand-education · /guides/{country}-education
+    Childcare (under 5) → /guides/{country}-family · official immigration site
+    Managing it as the only adult → /guides/cost-of-relocating · /guides/living-in-{country}
+    Moving before your family → official immigration site · /guides/cost-of-relocating
+    Bringing your pet → /guides/nz/bringing-pets-and-belongings (NZ) or /guides/australia-pets
+    Building a life once you land → /guides/{country}-community · /guides/nz/your-first-month (NZ) or /guides/australia-relocation
+  Completion band (all items considered): /pathway-checker · /guides/cost-of-relocating · /destinations · /jobs
+  Three tools: /pathway-checker · /cost-calculator · /guides/nz/relocation-checklist
+  No-JS fallback: /guides/moving-to-new-zealand · /guides/moving-to-australia · /guides/nz/relocation-checklist
+  Footer: Destinations → /new-zealand, /australia, /destinations, /destinations/australia · Candidates → /jobs, /resources, /pathway-checker, /insights, /apply
+    · Company → /about-ethicare, /employers, /submit-a-vacancy, /contact · /privacy-policy
+  Entry points elsewhere: /resources (Tools row) · /guides/moving-to-australia + /guides/moving-to-new-zealand · both country hubs
+    · ?destination=au|nz|both preselects step 1, so any country page can deep-link
+
+  ARCHITECTURE — this page owns NO topic.
+  It is a roadmap, like the Six Steps: it says what applies to you, then links to the guide that
+  explains each topic once. Two boundaries are deliberate:
+   · School fees: /guides/australia-school-fees is the master and deliberately publishes NO fee
+     figures ("a stale number is worse than no number"). This page states the question and links out.
+   · /guides/nz/relocation-checklist is a TIMELINE of errands (chapter 13 of the NZ guide). This is a
+     DECISION checklist personalised by household. They cross-link and must not merge.
+-->
+
+<!-- SEO
+  Page Title: Your moving checklist
+  URL Slug: /moving-checklist
+  SEO Title: Your Moving Checklist for Australia or New Zealand | Ethicare Resourcing
+  Meta Description: Build a relocation checklist for your circumstances. Answer two questions about your move to Australia or New Zealand and get the practical steps that actually apply to you.
+  Search intent served: "relocation checklist Australia", "moving to New Zealand checklist", "moving abroad with children checklist",
+    "relocating with a partner who has no job", "moving overseas alone checklist" — all answered by one personalised tool
+    rather than separate thin pages.
+-->
+<script src="nav.js" defer></script>
+</body>
+</html>

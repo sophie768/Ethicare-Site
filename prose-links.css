@@ -1,0 +1,68 @@
+/* ==========================================================================
+   ETHICARE RESOURCING — PROSE LINKS
+   --------------------------------------------------------------------------
+   site.css, shell.css and guide-au.css all set `a{color:inherit;text-decoration:none}`
+   as a reset, and then style anchors ONLY inside navs, buttons and card grids.
+   The consequence: an <a> written inside running text renders as plain body
+   copy with no underline and no hover — invisible. On a page whose only prose
+   links route to the guide that owns a topic, that silently breaks the routing.
+
+   Load LAST in <head>, after whichever base sheet the page uses.
+
+   SELECTOR DESIGN — by exclusion, not by container list.
+   An earlier version listed guide-specific containers (.reading, .panel, .how,
+   .weigh, .fcard, .ans …). That worked on guides and matched NOTHING on the rest
+   of the site, because other page types use a different class vocabulary — so the
+   rollout could not reach the pages that were actually broken.
+   This version targets the shape of a prose link instead: an anchor that is a
+   direct child of a paragraph, list item or definition, and that carries NO class.
+   A prose link in running text is almost never classed; a card, button, tile or
+   nav link almost always is. That single condition does the exclusion work, and
+   any page that already styles its own prose links wins on specificity.
+
+   Palette comes from two tokens read as var() FALLBACKS — never a :root block
+   here. This sheet loads last, so a :root declaration would beat guide-au.css and
+   every Australian page would silently render teal instead of clay.
+     --link-ink   the link colour      (fallback deep teal, AA on every brand surface)
+     --link-rule  the underline colour (fallback fern; guide-au.css → apricot)
+   ========================================================================== */
+
+:where(main,article,.content,.wrap) :is(p,li,dd) > a:not([class]),
+.reassure a:not([class]),.warn a:not([class]),.src a:not([class]){
+  color:var(--link-ink,#02615D);
+  font-weight:600;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  text-decoration-thickness:1px;
+  text-decoration-color:var(--link-rule,#72A471);
+  transition:color .15s ease,text-decoration-color .15s ease;
+}
+
+:where(main,article,.content,.wrap) :is(p,li,dd) > a:not([class]):hover,
+.reassure a:not([class]):hover,.warn a:not([class]):hover,.src a:not([class]):hover{
+  color:#02615D;
+  text-decoration-color:#02615D;
+}
+
+:where(main,article,.content,.wrap) :is(p,li,dd) > a:not([class]):focus-visible{
+  outline:2px solid #02615D;
+  outline-offset:2px;
+  border-radius:2px;
+}
+
+/* Dark bands — the light tokens would fail contrast here, so lighten instead.
+   These come after the generic rule so an equal-specificity tie resolves this way. */
+.ourview :is(p,li) > a,.notyet :is(p,li) > a,.close :is(p,li) > a,
+.feature :is(p,li) > a,.ctapanel :is(p,li) > a,.final.dark :is(p,li) > a{
+  color:#C6E084;
+  text-decoration-color:rgba(198,224,132,.55);
+  font-weight:600;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  text-decoration-thickness:1px;
+}
+.ourview :is(p,li) > a:hover,.notyet :is(p,li) > a:hover,.close :is(p,li) > a:hover,
+.feature :is(p,li) > a:hover,.ctapanel :is(p,li) > a:hover,.final.dark :is(p,li) > a:hover{
+  color:#fff;
+  text-decoration-color:#fff;
+}

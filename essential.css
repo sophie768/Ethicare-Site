@@ -1,0 +1,41 @@
+/* Essential / Dig deeper — shared progressive-disclosure pattern (agreed 30 Aug 2026).
+   Rules + rollout list: Content Architecture.md. Load before prose-links.css.
+   Tokens fall back to NZ palette; AU pages get their colours via body.au remaps in family.css
+   or a page-level --acc/--fern-text override. */
+.essgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:16px;margin-top:clamp(30px,3.6vw,44px)}
+.essq{display:flex;flex-direction:column;gap:9px;background:#fff;border:1px solid var(--mint,#C9DED3);border-top:4px solid var(--acc,#72A471);border-radius:16px;padding:24px 24px 22px}
+.essq .q{font-family:var(--display,'Work Sans',sans-serif);font-weight:700;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--fern-text,#2F5E49)}
+.essq .k{font-family:var(--display,'Work Sans',sans-serif);font-weight:600;font-size:18.5px;line-height:1.25;letter-spacing:-.01em;color:var(--teal,#02615D)}
+.essq .a{font-size:14.5px;line-height:1.62;color:var(--muted,#555555);margin:0;flex:1;text-wrap:pretty}
+.essq .a strong{color:var(--teal,#02615D)}
+.essq .go{margin-top:4px;font-family:var(--display,'Work Sans',sans-serif);font-weight:600;font-size:14.5px;color:var(--fern-text,#2F5E49)}
+.essq .go:hover{color:var(--teal,#02615D)}
+.essq.act{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px 28px;background:var(--teal,#02615D);border-color:var(--teal,#02615D)}
+.essq.act .q{color:#C6E084}
+.essq.act .hd{display:flex;flex-direction:column;gap:7px;flex:1 1 30ch}
+.essq.act .a{color:rgba(255,255,255,.9);flex:none}
+.essq.act .btn-row{margin:0;gap:12px}
+.essq.act .btn-primary{background:#fff;color:var(--teal,#02615D)}
+.essq.act .btn-primary:hover{background:#E6F1ED}
+.essq.act .btn-secondary{background:transparent;border:1.5px solid rgba(255,255,255,.55);color:#fff}
+.essq.act .btn-secondary:hover{background:rgba(255,255,255,.14)}
+/* dig-deeper shell — native details; essential.js opens it for in-page anchors */
+details.ddwrap{border:0;display:block}
+details.ddwrap>summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;max-width:1200px;margin:0 auto;padding:26px 22px;border-top:1px solid var(--rule-tint,rgba(2,97,93,.65));border-bottom:1px solid var(--rule-tint,rgba(2,97,93,.65))}
+details.ddwrap>summary::-webkit-details-marker{display:none}
+details.ddwrap>summary:hover .t{color:#014E4B}
+details.ddwrap>summary:focus-visible{outline:3px solid #02615D;outline-offset:3px;box-shadow:0 0 0 2px #FCFBF8}
+details.ddwrap>summary .t{font-family:var(--display,'Work Sans',sans-serif);font-weight:600;font-size:clamp(19px,2.2vw,24px);letter-spacing:-.01em;color:var(--teal,#02615D)}
+details.ddwrap>summary .s{font-size:14.5px;line-height:1.55;color:var(--muted,#555555);flex:1 1 32ch;text-wrap:pretty}
+details.ddwrap>summary .pm{margin-left:auto;width:44px;height:44px;flex:none;border-radius:50%;border:2px solid var(--teal,#02615D);color:var(--teal,#02615D);display:flex;align-items:center;justify-content:center;font-family:var(--display,'Work Sans',sans-serif);font-weight:600;font-size:20px}
+details.ddwrap>summary .pm::before{content:"\2193"}
+details.ddwrap[open]>summary .pm::before{content:"\2191"}
+details.ddwrap[open]>summary{border-bottom-style:dashed}
+details.ddwrap.slim>summary{border-top:0;padding:20px 0}
+/* revealed link grid (homepage journey) */
+.ddgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px 30px;padding:26px 0 8px}
+.ddg{display:flex;flex-direction:column;gap:6px}
+.ddg h3{font-family:var(--display,'Work Sans',sans-serif);font-weight:600;font-size:15.5px;color:var(--teal,#02615D);margin:0 0 4px}
+.ddg a{font-family:var(--display,'Work Sans',sans-serif);font-weight:600;font-size:14.5px;color:var(--fern-text,#2F5E49)}
+.ddg a:hover{color:var(--teal,#02615D)}
+@media (max-width:640px){details.ddwrap>summary .pm{display:none}.essq.act{flex-direction:column;align-items:flex-start}}

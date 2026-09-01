@@ -1,0 +1,84 @@
+/* ==========================================================================
+   ETHICARE RESOURCING — PRINT KIT FOR /jobs/
+   --------------------------------------------------------------------------
+   Candidates print a profession guide to read and annotate, and print a
+   vacancy to discuss at home. Same care as guide-print.css. Load LAST in
+   <head> on profession pages and vacancy pages (not the JS job board).
+
+   Written against the REAL markup of the two families:
+   A. Profession pages (14) — header.hero (full-viewport teal, photo .bg)
+      + .hero-rail facts strip (JS-fed) + section.glance-wrap anchor nav,
+      then .section blocks: .gcard/.pcard cards, .ctabox, .doccard grid,
+      .terms/.term, table.cmp comparison, .roster .rrow, .journey .jstep,
+      .sophie, .figrow, .photoband, .faq (JS-toggled .ans), nav.wf-onward,
+      closing .final.
+   B. Vacancy pages (24+) — header.v-hero (solid teal) > .crumb / h1 /
+      .chips, then .v-body > .v-grid = .v-main + sticky aside.v-side
+      (.srow key facts + .acts buttons), section.v-more related roles.
+   ========================================================================== */
+
+@page{size:A4;margin:14mm}
+
+@media print{
+*{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+html,body{background:#fff !important;font-size:10.5pt !important}
+
+/* --- chrome that must not print ----------------------------------------- */
+.site-header,.site-footer,.skip-link,.nav-toggle,.site-nav,.backtop,
+.nextstep-band,.hero-rail,.glance-wrap,.wf-onward,.final,.ctabox,
+.photoband,.btn-row,.v-more,.v-side .acts,.v-side .gl,.jb-cta{display:none !important}
+
+/* --- structure: let the page use the full sheet -------------------------- */
+.shell,.wrap,.reading{display:block !important;max-width:none !important;width:auto !important;padding-left:0 !important;padding-right:0 !important;margin-left:0 !important;margin-right:0 !important}
+
+/* --- A: the full-viewport teal hero becomes a plain title block ---------- */
+.hero{background:#fff !important;min-height:0 !important;height:auto !important;padding:0 0 8mm !important;display:block !important}
+.hero,.hero *{color:#02615D !important;text-shadow:none !important}
+.hero .bg,.hero::before,.hero::after{display:none !important}
+.hero .eyebrow::before{background:#A6C84A !important}
+.hero h1{margin-top:2mm !important}
+.hero .hero-sub{font-size:10.5pt !important}
+
+/* --- B: the vacancy hero, same treatment; key-facts card kept ------------ */
+.v-hero{background:#fff !important;padding:0 0 6mm !important}
+.v-hero,.v-hero *{color:#02615D !important;text-shadow:none !important}
+.v-hero::before,.v-hero::after{display:none !important}
+.v-hero .chips>*{border:0.5pt solid #C9DED3 !important;color:#02615D !important;background:#fff !important}
+.v-grid{display:block !important}
+.v-side{position:static !important;box-shadow:none !important;border:0.5pt solid #C9DED3 !important;margin-top:8mm !important;break-inside:avoid !important}
+
+/* --- sections: tighter vertical rhythm on paper -------------------------- */
+.section,section.band{padding:7mm 0 !important;border-bottom:0.5pt solid #C9DED3 !important}
+.section:last-child{border-bottom:0 !important}
+h1{font-size:24pt !important;line-height:1.1 !important}
+h2{font-size:15pt !important;line-height:1.15 !important}
+h3{font-size:11.5pt !important}
+h1,h2,h3,h4{break-after:avoid !important}
+.section h2,.section h3,.v-main h2,.v-main h3{color:#02615D !important}
+p,li{orphans:3;widows:3}
+.lead{font-size:11.5pt !important}
+
+/* --- blocks that must never split across a page -------------------------- */
+figure,table,.gcard,.pcard,.doccard,.term,.rrow,.jstep,.sophie,.figrow,
+.pullquote,.cards>*,.two>*,.why4>*,.srow,ul.ticks li,.faq details,
+.faq .qa,.stat,.big{break-inside:avoid !important}
+
+/* --- FAQ answers print expanded — a reader cannot click ------------------ */
+.faq .ans{display:block !important;max-height:none !important;height:auto !important;opacity:1 !important}
+details>*{display:block !important}
+details>summary{list-style:none;font-weight:600}
+
+/* --- imagery -------------------------------------------------------------- */
+.section img,figure img,.figrow img,.sophie .photo img{max-width:100% !important;height:auto !important;max-height:105mm !important;display:block}
+figcaption{font-size:8.5pt !important;color:#555555 !important}
+
+/* --- links + tables -------------------------------------------------------- */
+.section a[href^="http"]::after,.v-main a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#555555;word-break:break-all}
+.section a,.v-main a{color:#02615D !important;text-decoration:none !important}
+table,table.cmp{width:100% !important;border-collapse:collapse !important;font-size:9.5pt !important}
+th,td{border:0.5pt solid #C9DED3 !important;padding:4pt 6pt !important}
+thead{display:table-header-group}
+
+/* --- nothing may print blank or collapsed --------------------------------- */
+.rv,[data-reveal],.om-h{opacity:1 !important;transform:none !important}
+}

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Healthcare in New Zealand explained | Ethicare Resourcing</title>
+<meta name="description" content="A clear guide to how the New Zealand health system works: Te Whatu Ora, the no-fault ACC scheme, GPs, costs, and where you'll fit in.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   ETHICARE RESOURCING — NEW ZEALAND · REFERENCE GUIDE
+   Understanding healthcare in New Zealand
+   Wix HTML-embed page. Hero illustration: ../assets/guides/healthcare-nz.png
+   ================================================================ */
+:root{
+  --teal:#02615D; --green:#02615D; --sage:#72A471; --lime:#A6C84A;
+  --mint:#C9DED3; --soft:#E3ECE5; --soft-green:#E3ECE5; --warm:#FCFBF8;
+  --white:#FFFFFF; --text:#333333; --muted:#555555;
+  --display:'Work Sans',sans-serif; --body:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+body{font-family:var(--body);font-size:16px;line-height:1.72;color:var(--text);background:var(--warm);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,.btn:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 7px rgba(167,201,87,.55)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.18;color:var(--teal)}
+h1{font-size:clamp(40px,6vw,56px);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+h2{font-size:clamp(30px,4vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin-bottom:24px}
+h3{font-size:18px;margin-bottom:8px}
+p{margin-bottom:16px}
+strong{color:var(--green)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.reading{max-width:1180px}.reading>*{max-width:760px}
+.section{padding:var(--sp-major,clamp(60px,8vw,96px)) 0;position:relative}
+.eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:16px}
+
+.lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:50ch}
+
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:13px;color:var(--muted);margin-bottom:24px}
+.crumb a:hover{color:var(--teal)}.crumb .sep{opacity:.85}.crumb .here{color:var(--teal)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-family:var(--display);font-weight:600;font-size:16px;padding:13px 26px;border-radius:12px;transition:transform .15s ease,background .15s ease;color:var(--teal);cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#014E4B}
+.btn-secondary{background:#fff;border:1.5px solid var(--sage);color:var(--teal)}.btn-secondary:hover{background:var(--soft-green)}
+.btn-ghost{background:transparent;border:1.5px solid var(--sage);color:var(--teal)}.btn-ghost:hover{background:var(--soft-green)}
+.btn-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+
+/* hero */
+.hero{background:var(--teal);position:relative;overflow:hidden;min-height:calc(100svh - 78px);display:grid;align-content:center}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;padding-top:clamp(46px,6vw,68px);padding-bottom:clamp(46px,6vw,68px)}
+.hero h1{color:#fff;margin-bottom:16px}
+.hero .eyebrow{color:#fff}
+.hero .crumb{color:rgba(255,255,255,.9)}
+.hero .crumb a:hover,.hero .crumb .here{color:#fff}
+.hero .btn-primary{background:#fff;color:var(--teal)}
+.hero .btn-primary:hover{background:var(--warm)}
+.hero .btn-ghost{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5);color:#fff}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.2)}
+.hero-sub{font-size:clamp(16.5px,2vw,19px);line-height:1.62;color:rgba(255,255,255,.85);max-width:50ch;margin-bottom:8px}
+.hero-art{position:relative;display:flex;justify-content:flex-start;align-self:start;margin-top:40px}
+.hero-art img{width:100%;max-width:510px;aspect-ratio:4/3.2;object-fit:cover;object-position:center 42%;border-radius:24px;border:7px solid #fff;box-shadow:0 16px 38px rgba(0,0,0,.22);background:#fff}
+
+/* page at a glance */
+.glance-wrap{background:var(--warm);padding:clamp(34px,5vw,50px) 0 0}
+.glance{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:26px 30px}
+.glance .gl-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.glance .gl-top .eyebrow{margin-bottom:0}
+.glance .gl-top .note{font-size:13.5px;color:var(--muted)}
+.glance ol{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 24px}
+.glance li{counter-increment:g;border-top:1px solid var(--mint)}
+.glance a{display:flex;align-items:baseline;gap:8px;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);padding:11px 4px;transition:color .15s ease}
+.glance a::before{content:counter(g,decimal-leading-zero);font-size:11.5px;font-weight:600;color:#2F5E49;flex-shrink:0}
+.glance a:hover{color:var(--teal)}
+@media (max-width:760px){.glance ol{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.glance ol{grid-template-columns:1fr}}
+
+/* reassurance */
+.reassure{background:var(--soft-green);border:1px solid var(--mint);border-left:5px solid #72A471;border-radius:14px;padding:24px 26px;margin:24px 0 0}
+.reassure p{margin:0;font-size:16.5px}
+
+/* three-up / structure cards */
+.how-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
+.how{background:#fff;border:1px solid var(--mint);border-radius:14px;padding:30px 28px;border-top:4px solid var(--sage);transition:transform .15s ease,box-shadow .15s ease}
+.how:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(1,49,47,.09)}
+.how .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:#2F5E49;display:block;margin-bottom:8px}
+.how h3{color:var(--green);margin-bottom:8px;font-size:19px}
+.how p{font-size:14.5px;color:var(--muted);margin:0}
+
+/* ACC feature */
+.feature{background:var(--teal);border-radius:24px;padding:clamp(32px,4.5vw,52px);color:#fff;margin-top:4px}
+.feature .eyebrow.eyebrow{color:#C9DED3}
+.feature h2{color:#fff}
+.feature .lead{color:rgba(255,255,255,.86);max-width:64ch}
+.feature .pts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.fpt{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:24px 24px}
+.fpt h3{color:#fff;font-size:16.5px;margin-bottom:4px}
+.fpt p{font-size:13.5px;color:rgba(255,255,255,.82);margin:0}
+@media (max-width:760px){.feature .pts{grid-template-columns:1fr}}
+
+/* primary care list */
+.plist{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 24px;margin-top:40px;max-width:920px}
+.pitem{display:flex;gap:16px;align-items:flex-start}
+.pitem .pk{flex-shrink:0;width:28px;height:28px;border-radius:6px;background:var(--soft-green);display:flex;align-items:center;justify-content:center;margin-top:4px}
+.pitem .pk svg{width:16px;height:16px;stroke:var(--teal);fill:none;stroke-width:2}
+.pitem h3{font-size:16px;color:var(--green);margin-bottom:4px}
+.pitem p{font-size:14px;color:var(--muted);margin:0;line-height:1.6}
+@media (max-width:760px){.plist{grid-template-columns:1fr}}
+
+/* cost table */
+.costs{margin-top:40px;border:1px solid var(--mint);border-radius:20px;overflow:hidden;max-width:920px}
+.crow{display:grid;grid-template-columns:230px 1fr;gap:0;border-bottom:1px solid var(--mint);background:#fff}
+.crow:last-child{border-bottom:none}
+.crow .ct{padding:20px 24px;font-family:var(--display);font-weight:600;font-size:15px;color:var(--teal);background:var(--soft);border-right:1px solid var(--mint)}
+.crow .cd{padding:20px 24px;font-size:14.5px;color:var(--muted)}
+@media (max-width:620px){.crow{grid-template-columns:1fr}.crow .ct{border-right:none;border-bottom:1px solid var(--mint)}}
+
+/* Sophie insight */
+.sophie{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:clamp(28px,4vw,40px);display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:start;max-width:920px}
+.sophie .photo{width:120px;height:120px;border-radius:50%;overflow:hidden;background:var(--mint);border:1px solid var(--mint);flex:none}
+.sophie .photo img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block}
+.sophie .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px}
+.sophie p{font-size:16.5px;color:var(--text);margin-bottom:0}
+.sophie .sign{font-family:var(--display);font-style:italic;font-weight:600;font-size:18px;color:var(--teal);margin-top:16px}
+.sophie .sign span{display:block;font-style:normal;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* official links directory */
+.dir-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px 40px;margin-top:40px}
+.dir h3{font-size:16px;color:var(--green);margin-bottom:4px}
+.dir .sub{font-size:13.5px;color:var(--muted);margin-bottom:8px}
+.link-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 2px;border-bottom:1px solid var(--mint);font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);min-height:48px;transition:color .15s ease}
+.dir .link-row:first-of-type{border-top:1px solid var(--mint)}
+.link-row:hover{color:#2F5E49}
+.link-row::after{content:"\2197";color:#2F5E49;font-size:17px;flex-shrink:0}
+.dir-note{font-size:13px;color:var(--muted);max-width:64ch;margin-top:24px;padding-top:16px;border-top:1px solid var(--mint)}
+
+/* FAQ */
+.faq{margin-top:40px;max-width:760px}
+.faq details{background:#fff;border:1px solid var(--mint);border-radius:14px;margin-bottom:16px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--teal);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;font-weight:400;color:#2F5E49;transition:transform .2s ease;line-height:1}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .ans{padding:0 24px 22px;font-size:15.5px;color:var(--muted)}
+.faq .ans p{margin-bottom:8px}.faq .ans p:last-child{margin-bottom:0}
+
+/* related + final */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.rel{position:relative;background:#fff;border:1px solid var(--mint);border-left:5px solid var(--sage);border-radius:14px;padding:24px 24px;transition:background .15s ease,transform .15s ease}
+.rel:hover{background:var(--soft-green);transform:translateY(-2px)}
+.rel .k{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px;display:block}
+.rel h3{font-size:16.5px;color:var(--green);margin-bottom:4px}.rel p{font-size:13.5px;color:var(--muted);margin:0}
+.rel .go{margin-top:16px;font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--teal);display:inline-flex;align-items:center;gap:8px}
+.rel .go::after{content:"\2192";color:#2F5E49}
+.final{background:var(--soft-green);border-radius:24px;padding:clamp(34px,5vw,52px);text-align:left}
+.final h2{margin-bottom:16px}.final p{max-width:64ch;color:var(--muted);font-size:17px}
+.final .btn-row{justify-content:flex-start}.final .small{margin-top:16px;font-size:13.5px;color:var(--muted)}
+
+/* journey band */
+.journey-band{background:var(--warm);border-top:1px solid var(--mint);border-bottom:1px solid var(--mint)}
+.journey-band .wrap{padding-top:26px;padding-bottom:26px}
+.jb-title{font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#2F5E49;text-align:left;margin:0 0 24px}
+.jb-title b{color:var(--teal)}
+.timeline{display:flex;list-style:none;margin:0;padding:0}
+.tl{flex:1;position:relative;text-align:left;min-width:0}
+.tl a{display:flex;flex-direction:column;align-items:flex-start;gap:8px;text-decoration:none}
+.tl i{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:14px;background:#fff;border:2px solid var(--mint);color:#2F5E49;position:relative;z-index:1;transition:all .15s ease}
+.tl .lab{font-family:var(--display);font-size:12px;font-weight:600;color:var(--muted);line-height:1.3;max-width:15ch;padding:0 4px}
+.tl::before{content:"";position:absolute;top:18px;left:calc(-100% + 18px);width:100%;height:2px;background:var(--mint);z-index:0}
+.tl:first-child::before{display:none}
+.tl a:hover i{border-color:#2F5E49}
+@media (max-width:640px){.tl .lab{display:none}.tl i{width:30px;height:30px;font-size:12.5px}.tl::before{top:15px}}
+
+@media (max-width:880px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px}
+  .hero-art{order:-1}
+  .how-grid,.related-grid,.dir-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .section{padding:54px 0}
+  .how-grid,.related-grid,.dir-grid{grid-template-columns:1fr}
+  .sophie{grid-template-columns:1fr;gap:24px;text-align:left}.sophie .photo{margin:0 auto}
+  .btn{width:100%}
+}
+</style>
+<link rel="stylesheet" href="../shell.css">
+<style>/* playfair-hero */ .hero-sub,.hero .kicker,.h-hero .pf{font-family:'Playfair Display',Georgia,serif;font-weight:500}
+/* closing CTAs — left aligned */
+.final,.complete,.close-ins{text-align:left}
+.final p,.complete p,.close-ins p{margin-left:0;margin-right:0}
+.final .btn-row,.complete .btn-row,.close-ins .btn-row{justify-content:flex-start}
+.final .eyebrow,.complete .eyebrow,.close-ins .eyebrow{text-align:left}
+</style>
+<link rel="stylesheet" href="../guide-mobile.css">
+<link rel="canonical" href="https://ethicareresourcing.com/guides/new-zealand-healthcare">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Understanding healthcare in New Zealand | Ethicare Resourcing">
+<meta property="og:description" content="A clear guide to how the New Zealand health system works: Te Whatu Ora, the no-fault ACC scheme, GPs, costs, and where you'll fit in.">
+<meta property="og:url" content="https://ethicareresourcing.com/guides/new-zealand-healthcare">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Understanding healthcare in New Zealand | Ethicare Resourcing">
+<meta name="twitter:description" content="A clear guide to how the New Zealand health system works: Te Whatu Ora, the no-fault ACC scheme, GPs, costs, and where you'll fit in.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="nz-fern-accent">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<link rel="stylesheet" href="../hero.css">
+<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
+<style id="ch-rail">.ch-rail{background:var(--soft-green,#F1F6F2);border-bottom:1px solid color-mix(in srgb,var(--teal,#02615D) 12%,transparent)}.ch-rail .in{max-width:1180px;margin:0 auto;padding:13px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px}.ch-rail .lb{font-family:var(--display,'Work Sans',sans-serif);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal,#02615D)}.ch-rail .lb b{font-weight:600;opacity:.68}.ch-rail a{font-family:var(--display,'Work Sans',sans-serif);font-size:13.5px;font-weight:500;color:var(--teal,#02615D);text-decoration:none}.ch-rail a:hover{text-decoration:underline}
+.ch-foot{max-width:1180px;margin:0 auto;padding:44px 28px 64px;display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;border-top:1px solid color-mix(in srgb,var(--teal,#02615D) 14%,transparent)}.ch-foot a{font-family:var(--display,'Work Sans',sans-serif);text-decoration:none;color:var(--teal,#02615D);font-size:16px;font-weight:500;line-height:1.35}.ch-foot a span{display:block;font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--muted,#555);margin-bottom:4px}.ch-foot .next{text-align:right}.ch-foot .up{font-size:13px;color:var(--muted,#555);white-space:nowrap}.ch-foot a:hover{color:var(--sage,#72A471)}
+@media(max-width:720px){.ch-foot{grid-template-columns:1fr;gap:24px}.ch-foot .next{text-align:left}.ch-rail .in{padding:12px 20px}}</style>
+<link rel="stylesheet" href="../guide-print.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"New Zealand","item":"https://ethicareresourcing.com/new-zealand"},{"@type":"ListItem","position":2,"name":"Guides & references","item":"https://ethicareresourcing.com/new-zealand#guides"},{"@type":"ListItem","position":3,"name":"Understanding healthcare"}]}</script>
+<link rel="stylesheet" href="../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand" aria-current="page">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+
+
+<!-- ============ HERO ============ -->
+<header class="hero cream">
+  <div class="wrap">
+    <div class="hero-copy">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="/new-zealand">New Zealand</a><span class="sep">›</span>
+        <a href="/new-zealand#guides">Guides &amp; references</a><span class="sep">›</span>
+        <span class="here">Understanding healthcare</span>
+      </nav>
+      <span class="eyebrow">Guides &amp; references</span>
+      <h1>Understanding healthcare in New Zealand</h1>
+      <p class="hero-sub">A clear, honest picture of how New Zealand healthcare works for your own family&rsquo;s care, public, private and ACC.</p>
+      <div class="btn-row">
+        <a href="/contact" class="btn btn-primary">Ask us about healthcare</a>
+        <a href="/new-zealand" class="btn btn-ghost">Back to New Zealand</a>
+      </div>
+    </div>
+    <div class="hero-badge"><img loading="lazy" decoding="async" src="../assets/guide-badges/kiwi-icon.png" alt="Ethicare New Zealand kiwi mark"></div>
+  </div>
+</header>
+<nav class="ch-rail" aria-label="Guide position"><div class="in"><span class="lb">Moving to New Zealand <b>&middot; Chapter 03 of 15</b></span><a href="/destinations/new-zealand-relocation-guide">All 15 chapters &rarr;</a></div></nav>
+
+
+<!-- ============ JOURNEY BAND ============ -->
+<nav class="journey-band" aria-label="The six-step New Zealand journey">
+  <div class="wrap">
+    <p class="jb-title">Your New Zealand journey · <b>jump in anywhere</b></p>
+    <ol class="timeline">
+      <li class="tl"><a href="/guides/moving-to-new-zealand"><i>1</i><span class="lab">Is it right for me?</span></a></li>
+      <li class="tl"><a href="/guides/new-zealand-registration"><i>2</i><span class="lab">Can I work here?</span></a></li>
+      <li class="tl"><a href="/guides/new-zealand-interview"><i>3</i><span class="lab">CV &amp; interview</span></a></li>
+      <li class="tl"><a href="/guides/new-zealand-visa"><i>4</i><span class="lab">Immigration &amp; visas</span></a></li>
+      <li class="tl"><a href="/guides/new-zealand-relocation"><i>5</i><span class="lab">Preparing to move</span></a></li>
+      <li class="tl"><a href="/guides/living-in-new-zealand"><i>6</i><span class="lab">Living &amp; thriving</span></a></li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ============ PAGE AT A GLANCE ============ -->
+<section class="glance-wrap">
+  <div class="wrap">
+    <nav class="glance" aria-label="On this page">
+      <div class="gl-top">
+        <span class="eyebrow">Page at a glance</span>
+        <span class="note">Jump to any part. This guide is made to return to.</span>
+      </div>
+      <ol>
+        <li><a href="#structure">How the system is structured</a></li>
+        <li><a href="#acc">ACC, the no-fault scheme</a></li>
+        <li><a href="#primary">Everyday healthcare &amp; GPs</a></li>
+        <li><a href="#costs">What care costs</a></li>
+        <li><a href="#dental">Dental &amp; private insurance</a></li>
+        <li><a href="#links">Official links</a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="section">
+  <div class="wrap reading">
+    <span class="eyebrow">The big picture</span>
+    <h2>A publicly funded system, built on care for everyone</h2>
+    <p class="lead">New Zealand has a largely public health system, funded through taxation, that provides free or low-cost care to residents and citizens, and to many people here on longer work visas. The principle behind it is simple and deeply held: good healthcare shouldn&rsquo;t depend on your bank balance.</p>
+    <p>For you, this matters in two ways. As a new resident, it shapes how you and your family will access care. And as a healthcare professional, it shapes the system you&rsquo;ll practise within: its values, its structure and its priorities. A little orientation now makes both feel far less unfamiliar.</p>
+    <div class="reassure">
+      <p>One reassurance up front: the fundamentals will feel recognisable to anyone from a comparable system. <strong>The differences are mostly in the details</strong>, a no-fault accident scheme, the way primary care works, and a strong, explicit commitment to equity.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STRUCTURE ============ -->
+<section class="section" id="structure" data-mobile-collapse style="background:var(--soft);">
+  <div class="wrap">
+    <span class="eyebrow">How it&rsquo;s structured</span>
+    <h2>The parts that make up the system</h2>
+    <p class="lead">A handful of pieces fit together to deliver care. Understanding who does what makes the whole thing much easier to navigate, for your family and in your work.</p>
+    <div class="how-grid">
+      <div class="how">
+        <span class="k">The public system</span>
+        <h3>Health New Zealand | Te Whatu Ora</h3>
+        <p>The national organisation that runs publicly funded health services, hospitals, specialist and community care, across the country. Recent reforms brought services under one national body to make care more consistent wherever you live.</p>
+      </div>
+      <div class="how">
+        <span class="k">Primary care</span>
+        <h3>GPs &amp; community services</h3>
+        <p>General practitioners are the front door to most healthcare. You enrol with a local practice, and your GP handles everyday care and referrals onward to hospital or specialist services when needed.</p>
+      </div>
+      <div class="how">
+        <span class="k">Accident cover</span>
+        <h3>ACC, the no-fault scheme</h3>
+        <p>A uniquely New Zealand feature: a national scheme that covers treatment for injuries from accidents, for everyone, regardless of fault, including visitors. More on this below.</p>
+      </div>
+      <div class="how">
+        <span class="k">The private system</span>
+        <h3>Private hospitals &amp; insurance</h3>
+        <p>A private sector runs alongside the public one. Many people hold private health insurance for faster access to elective procedures and more choice, while relying on the public system for emergencies and complex care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACC ============ -->
+<section class="section" id="acc">
+  <div class="wrap">
+    <div class="feature">
+      <span class="eyebrow">The one that surprises people</span>
+      <h2>ACC: accident cover for everyone</h2>
+      <p class="lead">The Accident Compensation Corporation (ACC) is a no-fault scheme that covers the cost of treatment and rehabilitation for injuries caused by accidents, for residents and visitors alike. In return, you generally can&rsquo;t sue for personal injury. It&rsquo;s one of the things newcomers find most unfamiliar, and most reassuring.</p>
+      <div class="pts">
+        <div class="fpt"><h3>No-fault</h3><p>If you&rsquo;re injured in an accident, you&rsquo;re covered regardless of who was to blame, at work, on the road, on the ski field or at home.</p></div>
+        <div class="fpt"><h3>For everyone</h3><p>Cover extends to everyone in New Zealand, including international visitors and people on any visa, not only residents.</p></div>
+        <div class="fpt"><h3>Treatment &amp; recovery</h3><p>It helps with treatment costs, and can contribute to rehabilitation and lost income while you recover from a covered injury.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIMARY CARE ============ -->
+<section class="section" id="primary" data-mobile-collapse style="background:var(--soft);">
+  <div class="wrap">
+    <span class="eyebrow">Everyday healthcare</span>
+    <h2>Getting care, day to day</h2>
+    <p class="lead">For most things, your journey starts with your GP. Here&rsquo;s how the everyday side works, the practical bits you&rsquo;ll want sorted in your first weeks.</p>
+    <div class="plist">
+      <div class="pitem">
+        <span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span>
+        <div><h3>Enrol with a GP practice</h3><p>One of the first things to do on arrival. Enrolling makes everyday visits cheaper and gives you a regular doctor who knows your family&rsquo;s history.</p></div>
+      </div>
+      <div class="pitem">
+        <span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span>
+        <div><h3>GP visits carry a part-charge</h3><p>Primary care is subsidised rather than free for adults, so you pay a part-charge per visit. Care for children is heavily subsidised, and often free.</p></div>
+      </div>
+      <div class="pitem">
+        <span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span>
+        <div><h3>Prescriptions are subsidised</h3><p>Pharmac, a government agency, decides which medicines are publicly funded, keeping the cost of most prescriptions low at the pharmacy counter.</p></div>
+      </div>
+      <div class="pitem">
+        <span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span>
+        <div><h3>Hospital &amp; emergency care</h3><p>Public hospital and emergency treatment is free for eligible residents. In a genuine emergency, call <strong>111</strong> for an ambulance.</p></div>
+      </div>
+      <div class="pitem">
+        <span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span>
+        <div><h3>Healthline, any time</h3><p>A free 24/7 phone line staffed by nurses for health advice when you&rsquo;re unsure whether to see a doctor, useful in the early days before you have a regular GP.</p></div>
+      </div>
+      <div class="pitem">
+        <span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span>
+        <div><h3>After-hours &amp; urgent care</h3><p>Urgent care clinics handle the things that can&rsquo;t wait for a GP appointment but aren&rsquo;t emergencies, handy to know where your nearest one is.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COSTS ============ -->
+<section class="section" id="costs" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Told straight</span>
+    <h2>What healthcare costs</h2>
+    <p class="lead">The honest summary: the big, frightening costs are covered, while everyday primary care carries modest charges. Here&rsquo;s the shape of it for an eligible resident.</p>
+  </div>
+  <div class="wrap">
+    <div class="costs">
+      <div class="crow"><div class="ct">Public hospital &amp; emergency</div><div class="cd">Free for eligible residents and citizens, including surgery, specialist and emergency care.</div></div>
+      <div class="crow"><div class="ct">Accident-related treatment</div><div class="cd">Largely covered by ACC for everyone, including visitors, with some part-charges depending on the care.</div></div>
+      <div class="crow"><div class="ct">GP visits</div><div class="cd">A subsidised part-charge per visit for adults; care for children is heavily subsidised and frequently free.</div></div>
+      <div class="crow"><div class="ct">Prescriptions</div><div class="cd">Low cost for funded medicines, thanks to Pharmac subsidies at the pharmacy.</div></div>
+      <div class="crow"><div class="ct">Dental &amp; optical (adults)</div><div class="cd">Mostly private and paid for out of pocket, though dental care is free for children and teenagers.</div></div>
+      <div class="crow"><div class="ct">Private healthcare</div><div class="cd">Optional: private insurance buys faster access to elective procedures and more choice, on top of public cover.</div></div>
+    </div>
+    <p class="dir-note" style="max-width:none">Exact charges vary by practice, region and your eligibility, and the rules can change. Always confirm current detail with the practice or the official sources below. Ethicare are recruitment specialists, not a health authority.</p>
+  </div>
+</section>
+
+<!-- ============ DENTAL & INSURANCE ============ -->
+<section class="section" id="dental" data-mobile-collapse style="background:var(--soft);">
+  <div class="wrap reading">
+    <span class="eyebrow">Two questions everyone asks</span>
+    <h2>Dental care, and whether you need private insurance</h2>
+    <p class="lead">Two of the most common questions from people moving here, because they work differently to what many are used to. The short version: dental is mostly private for adults, and private health insurance is a choice, not a must.</p>
+  </div>
+  <div class="wrap">
+    <div class="how-grid">
+      <div class="how">
+        <span class="k">Dental &middot; children</span>
+        <h3>Free for under-18s</h3>
+        <p>Basic dental care is free for children and teenagers up to their 18th birthday, through school dental services and enrolled community providers. It&rsquo;s one of the quieter things families appreciate here.</p>
+      </div>
+      <div class="how">
+        <span class="k">Dental &middot; adults</span>
+        <h3>Mostly private &amp; out of pocket</h3>
+        <p>Adult dental isn&rsquo;t generally publicly funded, so you pay privately, check-ups, fillings and the rest. Costs vary between practices, so it&rsquo;s worth comparing and booking a first check-up once you&rsquo;ve settled.</p>
+      </div>
+      <div class="how">
+        <span class="k">Dental &middot; the exceptions</span>
+        <h3>Accidents, emergencies &amp; hardship</h3>
+        <p>Dental treatment for an accidental injury is covered by ACC, public hospitals handle some acute and emergency dental, and limited grants exist for people on low incomes. Outside those, plan for adult dental as a private cost.</p>
+      </div>
+      <div class="how">
+        <span class="k">Private insurance</span>
+        <h3>Optional, not a necessity</h3>
+        <p>You don&rsquo;t need private health insurance to be cared for: the public system covers emergency, hospital and essential care for eligible residents, and ACC covers accidents for everyone. Many people still take out cover for faster elective surgery, more choice of specialist, and sometimes dental and optical extras, and some employers offer it as a benefit. It sits on top of the public system, it doesn&rsquo;t replace it.</p>
+      </div>
+    </div>
+    <p class="dir-note" style="max-width:none">Eligibility, funding and grants change over time and depend on your visa and circumstances, confirm the current detail with a practice or the official sources below. Ethicare are recruitment specialists, not a health authority.</p>
+  </div>
+  <div class="wrap reading" id="insurance-baseline">
+    <h3 style="margin-top:clamp(44px,5vw,64px)">&ldquo;Optional&rdquo; depends on what you are used to</h3>
+    <p>Everything above is written as though not holding cover were the obvious default. For a clinician arriving from the UK or Ireland, it is. For a great many of the people we place, it is not, and this is the part worth saying plainly.</p>
+    <p>If you are coming from <strong>South Africa</strong>, a medical aid scheme is not a luxury upgrade at home. It is close to how a professional household gets care at all, the premium is a fixed and substantial line in the monthly budget, and stopping it would be unthinkable. The same is broadly true arriving from the <strong>United States</strong>, and from parts of the <strong>Gulf</strong> and <strong>Asia</strong> where employer-provided cover is the mechanism rather than a benefit.</p>
+    <p>So we watch people arrive here and immediately buy a comprehensive family policy, because that is what a responsible parent does where they come from. Often they did not need to, and nobody told them.</p>
+    <p>The reason it is different here is not that New Zealand insurance is better. It is that the two things insurance protects you against elsewhere are already covered: <strong>acute and emergency hospital care</strong> is provided by the public system for eligible residents, and <strong>anything caused by an accident</strong> is covered by ACC for everyone in the country, including visitors and people on any visa. The catastrophic scenarios. The crash, the sudden admission, the injury on a ski field, are the ones you are already covered for.</p>
+    <div class="reassure">
+      <p><strong>And one difference from Australia that matters if you are weighing both countries.</strong> Australia gives higher earners a tax reason to hold private hospital cover; New Zealand gives none. <a href="/guides/australia-healthcare">How the Australian system works</a> sets out that mechanism, and <a href="/guides/australia-vs-new-zealand">Australia versus New Zealand</a> compares the two properly.</p>
+      <p>The practical consequence is this: advice that is sound in Sydney is wrong in Wellington. Here the decision is purely about what you want, not about what you will otherwise be charged.</p>
+    </div>
+    <p style="margin-top:26px">None of which makes cover pointless. Waiting times for <em>elective</em> procedures in the public system are real and can be long, and that is precisely what a policy buys you, a knee done in weeks rather than months, your choice of specialist, a private room. It buys time and choice. It does not buy safety, because you already have that.</p>
+    <p>Our honest suggestion: arrive, register with a GP, and give it three months before you decide. You will be in a far better position to judge what you actually want to insure once you have used the system rather than imagined it. If your employer offers cover as a benefit, take it. That is different, and it is free.</p>
+  </div>
+</section>
+
+<!-- ============ SOPHIE'S INSIGHT ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sophie">
+      <div class="photo"><img src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing" loading="lazy" decoding="async"></div>
+      <div>
+        <span class="k">Sophie&rsquo;s insight</span>
+        <p>The clinicians we place often tell me the system here lets them practise the way they always wanted to, with time to actually know their patients and a team that pulls together. The bits that feel foreign at first, like ACC or enrolling with a GP, become second nature within weeks. My advice is to get your family enrolled with a local practice early, and to come curious about the emphasis on equity and Māori health. It&rsquo;s one of the things that makes practising here feel meaningful.</p>
+        <p class="sign">Sophie<span>CEO &amp; Founder, Ethicare Resourcing</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OFFICIAL LINKS ============ -->
+<section class="section" id="links" style="background:var(--soft);">
+  <div class="wrap">
+    <span class="eyebrow">Official sources</span>
+    <h2>Check it at the source</h2>
+    <p class="lead">The system evolves, and the official sites carry the current detail. These are the ones worth bookmarking, for your family&rsquo;s care and your own professional context.</p>
+    <div class="dir-grid">
+      <div class="dir">
+        <h3>The public system</h3>
+        <p class="sub">How care is run &amp; delivered</p>
+        <a href="https://www.tewhatuora.govt.nz" target="_blank" rel="noopener" class="link-row">Health New Zealand | Te Whatu Ora</a>
+        <a href="https://info.health.nz" target="_blank" rel="noopener" class="link-row">Health information &amp; services</a>
+        <a href="https://healthify.nz" target="_blank" rel="noopener" class="link-row">Healthify · health topics A–Z</a>
+      </div>
+      <div class="dir">
+        <h3>Accidents &amp; medicines</h3>
+        <p class="sub">ACC &amp; subsidised medicines</p>
+        <a href="https://www.acc.co.nz" target="_blank" rel="noopener" class="link-row">ACC · accident cover</a>
+        <a href="https://pharmac.govt.nz" target="_blank" rel="noopener" class="link-row">Pharmac, funded medicines</a>
+        <a href="https://www.healthpoint.co.nz" target="_blank" rel="noopener" class="link-row">Healthpoint · find a service</a>
+      </div>
+      <div class="dir">
+        <h3>Everyday &amp; urgent</h3>
+        <p class="sub">When you need help</p>
+        <a href="https://www.healthline.govt.nz" target="_blank" rel="noopener" class="link-row">Healthline · free nurse advice</a>
+        <a href="https://www.tewhatuora.govt.nz/health-services/emergency-care" target="_blank" rel="noopener" class="link-row">Emergencies · dial 111</a>
+        <a href="https://www.healthpoint.co.nz/urgent-care/" target="_blank" rel="noopener" class="link-row">Find urgent &amp; after-hours care</a>
+      </div>
+    </div>
+    <p class="dir-note">Eligibility for publicly funded care depends on your residency and visa status. Confirm yours with Te Whatu Ora. Rules and charges change over time, so always check the current position at the source.</p>
+  </div>
+</section>
+
+<!-- ============ RELATED + FINAL ============ -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">Keep exploring</span>
+    <h2 style="font-size:clamp(22px,3vw,28px);">Related guides</h2>
+    <div class="related-grid">
+      <a href="/guides/new-zealand-registration" class="rel">
+        <span class="k">Step 2</span>
+        <h3>Can I work in New Zealand?</h3>
+        <p>Registration and licensing for your profession, board by board.</p>
+        <span class="go">Read step 2</span>
+      </a>
+      <a href="/guides/about-new-zealand" class="rel">
+        <span class="k">Reference</span>
+        <h3>About New Zealand</h3>
+        <p>The land, history and culture, including Te Tiriti and te reo.</p>
+        <span class="go">Read guide</span>
+      </a>
+      <a href="/guides/new-zealand-contacts" class="rel">
+        <span class="k">Reference</span>
+        <h3>Useful contacts &amp; links</h3>
+        <p>Official websites and the everyday contacts you&rsquo;ll want close by.</p>
+        <span class="go">Open directory</span>
+      </a>
+    </div>
+
+    <div class="final" style="margin-top:40px;">
+      <span class="eyebrow">No pressure, just a conversation</span>
+      <h2>Questions about practising here?</h2>
+      <p>Whether it&rsquo;s how the system works for your family or where your profession fits within it, we&rsquo;re glad to talk it through, honestly, and with the experience of having guided many clinicians before you.</p>
+      <div class="btn-row">
+        <a href="/contact" class="btn btn-primary">Ask us about healthcare</a>
+        <a href="/apply" class="btn btn-secondary">Browse current opportunities</a>
+      </div>
+      <p class="small">Ethicare Resourcing · your guide to a life and career in New Zealand.</p>
+    </div>
+  </div>
+</section>
+
+<nav class="ch-foot" aria-label="Chapter navigation"><a class="prev" href="/destinations/"><span>Previous</span>Choosing where to live</a><a class="up" href="/destinations/new-zealand-relocation-guide">All chapters</a><a class="next" href="/guides/te-ao-maori-at-work"><span>Next</span>Te ao Māori at work</a></nav>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="../site.js"></script>
+<script src="../nav.js" defer></script>
+<script src="../journey-nav.js" defer></script>
+
+<!-- ============================================================
+  INTERNAL LINK MAP — /guides/new-zealand-healthcare
+
+  Added 24 Aug 2026. The page pre-dated the link-map + SEO convention and had neither;
+  generated from the links actually present in <main> rather than written by hand.
+
+  HEADER NAV / FOOTER — standard site header and footer.
+  Breadcrumb: Home (/) > New Zealand (/new-zealand) > Guides & references > Understanding healthcare
+
+  ON-PAGE SECTIONS
+    structure · acc · primary · costs · dental · links
+  GLANCE-NAV ANCHORS
+    #structure · #acc · #primary · #costs · #dental · #links
+    #insurance-baseline is an h3 inside the dental/insurance section (added 24 Aug 2026,
+    see below). It is reached by reading, not by the glance nav, which already lists
+    "Dental & private insurance".
+
+  IN-BODY INTERNAL LINKS
+    /apply
+    /contact
+    /destinations/
+    /destinations/new-zealand-relocation-guide
+    /guides/about-new-zealand
+    /guides/australia-healthcare
+    /guides/australia-vs-new-zealand
+    /guides/living-in-new-zealand
+    /guides/moving-to-new-zealand
+    /guides/new-zealand-contacts
+    /guides/new-zealand-interview
+    /guides/new-zealand-registration
+    /guides/new-zealand-relocation
+    /guides/new-zealand-visa
+    /guides/te-ao-maori-at-work
+    /new-zealand
+    /new-zealand#guides
+
+  EXTERNAL · official sources (all target=_blank rel=noopener)
+    healthify.nz
+    info.health.nz
+    pharmac.govt.nz
+    acc.co.nz
+    healthline.govt.nz
+    healthpoint.co.nz
+    healthpoint.co.nz/urgent-care/
+    tewhatuora.govt.nz
+    tewhatuora.govt.nz/health-services/emergency-care
+
+  THE "OPTIONAL DEPENDS ON WHAT YOU ARE USED TO" SECTION (added 24 Aug 2026)
+    Why it exists: the rest of the page treats not holding private cover as the obvious
+    default, which reads as reassurance to a UK or Irish arrival and as advice-to-ignore to a
+    clinician from South Africa, the US or parts of the Gulf and Asia, where cover is how a
+    professional household gets care at all. The section names that starting point directly.
+    ONE TOPIC, ONE SOURCE: it must NOT explain Australia’s Medicare levy surcharge. That
+    topic is owned by /guides/australia-healthcare and /guides/australia-money#medicare.
+    State the NZ-side claim (no tax reason to hold cover here) in one sentence and LINK.
+    An earlier draft re-explained the surcharge mechanism and was cut to a claim plus links.
+
+  RULES OBSERVED
+    EMPLOYER RULE — no employer, hospital, trust or private provider named.
+    COST RULE — no dollar figures. Costs are described as shape ("a subsidised part-charge",
+      "low cost for funded medicines"), never amounts.
+    NOT A HEALTH AUTHORITY — the page says so explicitly and routes to official sources.
+    INTERNATIONAL — written for arrivals from the UK, Ireland, South Africa, the US, the Gulf
+      and Asia; the insurance section is built on that premise rather than a UK-only default.
+
+  SEO
+  Page Title: Healthcare in New Zealand explained | Ethicare Resourcing
+  URL Slug: /guides/new-zealand-healthcare
+  SEO Title: Healthcare in New Zealand explained — public, private and ACC
+  Meta Description: A clear guide to how the New Zealand health system works: Te Whatu Ora, the no-fault ACC scheme, GPs, costs, and where you'll fit in.
+  ============================================================ -->
+</body>
+</html>

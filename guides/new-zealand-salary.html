@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Salary &amp; pay in New Zealand healthcare | Ethicare Resourcing</title>
+<meta name="description" content="How pay really works in New Zealand healthcare: collective agreements, what sits on top of base salary, tax, take-home and your exact rate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shell.css">
+<style>
+/* ================================================================
+   ETHICARE RESOURCING — NEW ZEALAND · REFERENCE GUIDE
+   Salary & pay  ·  qualitative — figures confirmed against the
+   relevant APEX / collective agreement before publishing.
+   ================================================================ */
+:root{
+  --teal:#02615D; --green:#02615D; --sage:#72A471; --lime:#A6C84A;
+  --mint:#C9DED3; --soft:#E3ECE5; --soft-green:#E3ECE5; --warm:#FCFBF8;
+  --white:#FFFFFF; --text:#333333; --muted:#555555;
+  --display:'Work Sans',sans-serif; --body:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+body{font-family:var(--body);font-size:16px;line-height:1.72;color:var(--text);background:var(--warm);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,.btn:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 7px rgba(167,201,87,.55)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.18;color:var(--teal)}
+h1{font-size:clamp(40px,6vw,56px);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+h2{font-size:clamp(30px,4vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin-bottom:24px}
+h3{font-size:18px;margin-bottom:8px}
+p{margin-bottom:16px}
+strong{color:var(--green)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.reading{max-width:1180px}.reading>*{max-width:760px}
+.section{padding:var(--sp-major,clamp(60px,8vw,96px)) 0;position:relative}
+.eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:16px}
+.lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:50ch}
+
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:13px;color:var(--muted);margin-bottom:24px}
+.crumb a:hover{color:var(--teal)}.crumb .sep{opacity:.85}.crumb .here{color:var(--teal)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-family:var(--display);font-weight:600;font-size:16px;padding:13px 26px;border-radius:12px;transition:transform .15s ease,background .15s ease;color:var(--teal);cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#014E4B}
+.btn-secondary{background:#fff;border:1.5px solid var(--sage);color:var(--teal)}.btn-secondary:hover{background:var(--soft-green)}
+.btn-ghost{background:transparent;border:1.5px solid var(--sage);color:var(--teal)}.btn-ghost:hover{background:var(--soft-green)}
+.btn-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+
+/* hero */
+.hero{background:var(--teal);position:relative;overflow:hidden;min-height:calc(100svh - 78px);display:grid;align-content:center}
+.hero .wrap{position:relative;z-index:2;padding-top:clamp(48px,6vw,86px);padding-bottom:clamp(48px,6vw,86px)}
+.hero-copy{max-width:520px;padding-right:28px}
+.hero h1{color:#fff;margin-bottom:16px}
+.hero .eyebrow{color:#fff}
+.hero .crumb{color:rgba(255,255,255,.9)}
+.hero .crumb a:hover,.hero .crumb .here{color:#fff}
+.hero .btn-primary{background:#fff;color:var(--teal)}
+.hero .btn-primary:hover{background:var(--warm)}
+.hero .btn-ghost{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5);color:#fff}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.2)}
+.hero-sub{font-size:clamp(16.5px,2vw,19px);line-height:1.62;color:rgba(255,255,255,.85);max-width:50ch;margin-bottom:8px}
+.hero-art{position:absolute;top:0;right:0;bottom:0;width:46%;z-index:1}
+.hero-art img{width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block}
+.hero-art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--teal) 0%,rgba(2,97,93,.6) 14%,rgba(2,97,93,0) 42%);pointer-events:none}
+
+/* page at a glance */
+.glance-wrap{background:var(--warm);padding:clamp(34px,5vw,50px) 0 0}
+.glance{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:26px 30px}
+.glance .gl-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.glance .gl-top .eyebrow{margin-bottom:0}
+.glance .gl-top .note{font-size:13.5px;color:var(--muted)}
+.glance ol{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 24px}
+.glance li{counter-increment:g;border-top:1px solid var(--mint)}
+.glance a{display:flex;align-items:baseline;gap:8px;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);padding:11px 4px;transition:color .15s ease}
+.glance a::before{content:counter(g,decimal-leading-zero);font-size:11.5px;font-weight:600;color:#2F5E49;flex-shrink:0}
+.glance a:hover{color:var(--teal)}
+@media (max-width:760px){.glance ol{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.glance ol{grid-template-columns:1fr}}
+
+/* reassurance / honesty note */
+.reassure{background:var(--soft-green);border:1px solid var(--mint);border-left:5px solid #72A471;border-radius:14px;padding:24px 26px;margin:24px 0 0}
+.reassure p{margin:0;font-size:16.5px}
+.note-box{background:#fff;border:1px solid var(--mint);border-left:5px solid var(--sage);border-radius:14px;padding:22px 26px;margin-top:24px;max-width:760px}
+.note-box .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:#2F5E49;display:block;margin-bottom:8px}
+.note-box p{margin:0;font-size:15px;color:var(--muted)}
+
+/* cards grid */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.how{background:#fff;border:1px solid var(--mint);border-radius:14px;padding:28px 26px;border-top:4px solid var(--sage);transition:transform .15s ease,box-shadow .15s ease}
+.how:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(1,49,47,.09)}
+.how .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:#2F5E49;display:block;margin-bottom:8px}
+.how h3{color:var(--green);margin-bottom:8px;font-size:18px}
+.how p{font-size:14.5px;color:var(--muted);margin:0}
+
+/* checklist */
+.plist{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 24px;margin-top:40px;max-width:920px}
+.pitem{display:flex;gap:16px;align-items:flex-start}
+.pitem .pk{flex-shrink:0;width:28px;height:28px;border-radius:6px;background:var(--soft-green);display:flex;align-items:center;justify-content:center;margin-top:4px}
+.pitem .pk svg{width:16px;height:16px;stroke:var(--teal);fill:none;stroke-width:2}
+.pitem h3{font-size:16px;color:var(--green);margin-bottom:4px}
+.pitem p{font-size:14px;color:var(--muted);margin:0;line-height:1.6}
+@media (max-width:760px){.plist{grid-template-columns:1fr}}
+
+/* pay-step ladder */
+.ladder{margin-top:40px;display:grid;gap:8px;max-width:920px}
+.rung{display:grid;grid-template-columns:44px 1fr;gap:24px;align-items:center;background:#fff;border:1px solid var(--mint);border-radius:14px;padding:18px 24px;position:relative}
+.rung .lv{width:44px;height:44px;border-radius:12px;background:var(--soft-green);color:var(--teal);font-family:var(--display);font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center}
+.rung.top .lv{background:#2F5E49;color:#FFFFFF}
+.rung h3{font-size:16.5px;color:var(--green);margin-bottom:4px}
+.rung p{font-size:14px;color:var(--muted);margin:0}
+.rung .bar{position:absolute;left:0;top:0;bottom:0;width:5px;border-radius:14px 0 0 14px;background:var(--mint)}
+.rung:nth-child(1) .bar{background:var(--mint)}
+.rung:nth-child(2) .bar{background:#A8CBB9}
+.rung:nth-child(3) .bar{background:#72A471}
+.rung:nth-child(4) .bar{background:var(--sage)}
+
+/* feature (total package) */
+.feature{background:var(--teal);border-radius:24px;padding:clamp(32px,4.5vw,52px);color:#fff;margin-top:4px}
+.feature .eyebrow.eyebrow{color:#C9DED3}
+.feature h2{color:#fff}
+.feature .lead{color:rgba(255,255,255,.86);max-width:64ch}
+.feature .pts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.fpt{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:24px 24px}
+.fpt h3{color:#fff;font-size:16.5px;margin-bottom:4px}
+.fpt p{font-size:13.5px;color:rgba(255,255,255,.82);margin:0}
+@media (max-width:760px){.feature .pts{grid-template-columns:1fr}}
+
+/* comparison table (structural, no figures) */
+.cmp{margin-top:40px;border:1px solid var(--mint);border-radius:14px;overflow:hidden;background:#fff}
+.cmp table{width:100%;border-collapse:collapse}
+.cmp th,.cmp td{text-align:left;padding:16px 20px;border-bottom:1px solid var(--mint);font-size:14.5px;vertical-align:top}
+.cmp thead th{background:var(--soft-green);font-family:var(--display);font-weight:600;font-size:12.5px;letter-spacing:.04em;color:var(--teal)}
+.cmp tbody th{font-family:var(--display);font-weight:600;color:var(--green);font-size:14px;width:24%}
+.cmp td{color:var(--muted)}
+.cmp tr:last-child th,.cmp tr:last-child td{border-bottom:none}
+.cmp .nz{color:var(--teal);font-weight:600;font-family:var(--display)}
+@media (max-width:720px){.cmp{overflow-x:auto}.cmp table{min-width:640px}}
+
+/* family / context cards */
+.family-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.fcard{background:var(--soft);border:1px solid var(--mint);border-radius:14px;padding:28px 26px}
+.fcard h3{color:var(--green);font-size:17px;margin-bottom:8px}
+.fcard p{font-size:14.5px;color:var(--muted);margin:0}
+
+/* Sophie insight */
+.sophie{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:clamp(28px,4vw,40px);display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:start;max-width:920px}
+.sophie .photo{width:120px;height:140px;border-radius:14px;overflow:hidden;border:1px solid var(--mint);background:var(--soft-green)}
+.sophie .photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.sophie .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px}
+.sophie p{font-size:16.5px;color:var(--text);margin-bottom:0}
+.sophie .sign{font-family:var(--display);font-style:italic;font-weight:600;font-size:18px;color:var(--teal);margin-top:16px}
+.sophie .sign span{display:block;font-style:normal;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* FAQ */
+.faq{margin-top:40px;max-width:760px}
+.faq details{background:#fff;border:1px solid var(--mint);border-radius:14px;margin-bottom:16px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--teal);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;font-weight:400;color:#2F5E49;transition:transform .2s ease;line-height:1}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .ans{padding:0 24px 22px;font-size:15.5px;color:var(--muted)}
+.faq .ans p{margin-bottom:8px}.faq .ans p:last-child{margin-bottom:0}
+
+/* related + final */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.rel{position:relative;background:#fff;border:1px solid var(--mint);border-left:5px solid var(--sage);border-radius:14px;padding:24px 24px;transition:background .15s ease,transform .15s ease}
+.rel:hover{background:var(--soft-green);transform:translateY(-2px)}
+.rel .k{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px;display:block}
+.rel h3{font-size:16.5px;color:var(--green);margin-bottom:4px}.rel p{font-size:13.5px;color:var(--muted);margin:0}
+.rel .go{margin-top:16px;font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--teal);display:inline-flex;align-items:center;gap:8px}
+.rel .go::after{content:"\2192";color:#2F5E49}
+.final{background:var(--soft-green);border-radius:24px;padding:clamp(34px,5vw,52px);text-align:left}
+.final h2{margin-bottom:16px}.final p{max-width:64ch;color:var(--muted);font-size:17px}
+.final .btn-row{justify-content:flex-start}.final .small{margin-top:16px;font-size:13.5px;color:var(--muted)}
+
+/* journey band */
+.journey-band{background:var(--warm);border-top:1px solid var(--mint);border-bottom:1px solid var(--mint)}
+.journey-band .wrap{padding-top:26px;padding-bottom:26px}
+.jb-title{font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#2F5E49;text-align:left;margin:0 0 24px}
+.jb-title b{color:var(--teal)}
+.timeline{display:flex;list-style:none;margin:0;padding:0}
+.tl{flex:1;position:relative;text-align:left;min-width:0}
+.tl a{display:flex;flex-direction:column;align-items:flex-start;gap:8px;text-decoration:none}
+.tl i{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:14px;background:#fff;border:2px solid var(--mint);color:#2F5E49;position:relative;z-index:1;transition:all .15s ease}
+.tl .lab{font-family:var(--display);font-size:12px;font-weight:600;color:var(--muted);line-height:1.3;max-width:15ch;padding:0 4px}
+.tl::before{content:"";position:absolute;top:18px;left:calc(-100% + 18px);width:100%;height:2px;background:var(--mint);z-index:0}
+.tl:first-child::before{display:none}
+.tl a:hover i{border-color:#2F5E49}
+@media (max-width:640px){.tl .lab{display:none}.tl i{width:30px;height:30px;font-size:12.5px}.tl::before{top:15px}}
+
+@media (max-width:1040px){
+  .hero-art{position:relative;width:100%;height:clamp(200px,46vw,300px)}
+  .hero-art::after{background:linear-gradient(180deg,rgba(2,97,93,0) 55%,var(--teal) 100%)}
+  .hero-copy{max-width:none;padding-right:0}
+}
+@media (max-width:880px){
+  .how-grid,.family-grid,.related-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .section{padding:54px 0}
+  .how-grid,.family-grid,.related-grid{grid-template-columns:1fr}
+  .sophie{grid-template-columns:1fr;gap:24px;text-align:left}.sophie .photo{margin:0 auto}
+  .rung{grid-template-columns:1fr;gap:8px}
+  .btn{width:100%}
+}
+</style>
+<style>/* playfair-hero */ .hero-sub,.hero .kicker,.h-hero .pf{font-family:'Playfair Display',Georgia,serif;font-weight:500}
+.final,.complete,.close-ins{text-align:left}
+.final p,.complete p,.close-ins p{margin-left:0;margin-right:0}
+.final .btn-row,.complete .btn-row,.close-ins .btn-row{justify-content:flex-start}
+.final .eyebrow,.complete .eyebrow,.close-ins .eyebrow{text-align:left}
+</style>
+<link rel="stylesheet" href="../guide-mobile.css">
+<link rel="canonical" href="https://ethicareresourcing.com/guides/new-zealand-salary">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Salary &amp; pay in New Zealand healthcare | Ethicare Resourcing">
+<meta property="og:description" content="How pay really works in New Zealand healthcare: collective agreements, what sits on top of base salary, tax, take-home and your exact rate.">
+<meta property="og:url" content="https://ethicareresourcing.com/guides/new-zealand-salary">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Salary &amp; pay in New Zealand healthcare | Ethicare Resourcing">
+<meta name="twitter:description" content="How pay really works in New Zealand healthcare: collective agreements, what sits on top of base salary, tax, take-home and your exact rate.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="nz-fern-accent">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
+<link rel="stylesheet" href="../guide-print.css">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"New Zealand","item":"https://ethicareresourcing.com/new-zealand"},{"@type":"ListItem","position":2,"name":"Guides & references","item":"https://ethicareresourcing.com/resources"},{"@type":"ListItem","position":3,"name":"Salary & pay"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why don't you list salary figures on this page?","acceptedAnswer":{"@type":"Answer","text":"Because the honest figure depends on your exact role, step and hours, and because the agreements are renegotiated over time. Rather than publish a number that could be out of date or misleading for your situation, we confirm the current, correct rate for your specific role against the relevant collective agreement when we talk."}},{"@type":"Question","name":"Can I negotiate my salary?","acceptedAnswer":{"@type":"Answer","text":"In the public system, base pay follows a published scale rather than individual negotiation, which protects you as much as anything. What does matter, and where good representation pays off, is making sure you're placed on the correct step for your experience and qualifications. That's something we actively help you get right."}},{"@type":"Question","name":"Will my overseas experience count?","acceptedAnswer":{"@type":"Answer","text":"Generally yes. Relevant experience earned abroad is usually recognised towards your step. The key is documenting it clearly so it's properly credited. We'll help you present your history so nothing is overlooked."}},{"@type":"Question","name":"How does take-home compare to where I am now?","acceptedAnswer":{"@type":"Answer","text":"It depends on your current country's tax and cost of living, so a raw comparison can mislead. We'll help you think in terms of monthly take-home against local costs, and factor in the things that don't show on a payslip, like shorter commutes, strong leave and the lifestyle on offer."}},{"@type":"Question","name":"What's KiwiSaver, and do I have to join?","acceptedAnswer":{"@type":"Answer","text":"KiwiSaver is New Zealand's workplace savings scheme, with contributions from you and your employer. If you're eligible, new employees are usually enrolled automatically with the option to opt out, and you can choose your contribution level. We'll point you to the basics so you can make an informed choice in your first weeks."}},{"@type":"Question","name":"Can I pay into KiwiSaver or a pension on the AEWV?","acceptedAnswer":{"@type":"Answer","text":"Usually not straight away. Joining KiwiSaver generally requires you to be entitled to live in New Zealand indefinitely — so on a temporary work visa such as the Accredited Employer Work Visa (AEWV) you typically can't join yet, and you wouldn't receive the employer or government contributions until you gain residence. Many people save another way in the meantime and join KiwiSaver once they're residents. The rules matter here, so confirm your eligibility with a KiwiSaver provider or Inland Revenue."}}]}]</script>
+<link rel="stylesheet" href="../disclose.css">
+<link rel="stylesheet" href="../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand" aria-current="page">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<!-- ============ HERO ============ -->
+<header class="hero cream">
+  <div class="wrap">
+    <div class="hero-copy">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="/new-zealand">New Zealand</a><span class="sep">›</span>
+        <a href="/resources">Guides &amp; references</a><span class="sep">›</span>
+        <span class="here">Salary &amp; pay</span>
+      </nav>
+      <span class="eyebrow">Guides &amp; references</span>
+      <h1>Salary &amp; pay, explained honestly</h1>
+      <p class="hero-sub">What you earn as a healthcare professional in New Zealand isn&rsquo;t negotiated case by case, it&rsquo;s set by national agreements that everyone can read.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/contact">Ask us about your pay</a>
+        <a class="btn btn-ghost" href="/new-zealand">Back to New Zealand</a>
+      </div>
+    </div>
+    <div class="hero-badge"><img loading="lazy" decoding="async" src="../assets/guide-badges/kiwi-icon.png" alt="Ethicare New Zealand kiwi mark"></div>
+  </div>
+</header>
+
+<!-- ============ JOURNEY BAND ============ -->
+<nav class="journey-band" aria-label="The six-step New Zealand journey">
+  <div class="wrap">
+    <p class="jb-title">Your New Zealand journey · <b>jump in anywhere</b></p>
+    <ol class="timeline">
+      <li class="tl"><a href="/guides/moving-to-new-zealand"><i>1</i><span class="lab">Is it right for me?</span></a></li>
+      <li class="tl"><a href="/guides/new-zealand-registration"><i>2</i><span class="lab">Can I work here?</span></a></li>
+      <li class="tl"><a href="/guides/new-zealand-interview"><i>3</i><span class="lab">CV &amp; interview</span></a></li>
+      <li class="tl"><a href="/guides/new-zealand-visa"><i>4</i><span class="lab">Immigration &amp; visas</span></a></li>
+      <li class="tl"><a href="/guides/new-zealand-relocation"><i>5</i><span class="lab">Preparing to move</span></a></li>
+      <li class="tl"><a href="/guides/living-in-new-zealand"><i>6</i><span class="lab">Living &amp; thriving</span></a></li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ============ PAGE AT A GLANCE ============ -->
+<section class="glance-wrap">
+  <div class="wrap">
+    <nav class="glance" aria-label="On this page">
+      <div class="gl-top">
+        <span class="eyebrow">Page at a glance</span>
+        <span class="note">Jump to any part. This guide is made to return to.</span>
+      </div>
+      <ol>
+        <li><a href="#how-pay-works">How pay is set</a></li>
+        <li><a href="#your-step">What sets your step</a></li>
+        <li><a href="#package">Beyond base salary</a></li>
+        <li><a href="#unions">Unions &amp; bodies</a></li>
+        <li><a href="#tax">Tax &amp; take-home</a></li>
+        <li><a href="#insurance">Insurance &amp; ACC</a></li>
+        <li><a href="#context">Pay in context</a></li>
+        <li><a href="#confirm">Knowing your exact rate</a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="section">
+  <div class="wrap reading">
+    <span class="eyebrow">The honest starting point</span>
+    <h2>Pay here is transparent, and that&rsquo;s a good thing</h2>
+    <p class="lead">Coming from the UK, South Africa, the Gulf or elsewhere, one of the first things you&rsquo;ll want to understand is what you&rsquo;ll actually earn, and whether it stretches far enough to build the life you&rsquo;re moving for. The reassuring answer is that, in New Zealand&rsquo;s public health system, pay is openly structured rather than privately bargained.</p>
+    <p>Most healthcare roles are covered by <strong>national collective employment agreements</strong>: negotiated between Health New Zealand / Te Whatu Ora and the relevant union or professional association (for many allied health and medical-imaging roles, that&rsquo;s the agreements negotiated through <strong>APEX</strong>). Your pay sits on a published <strong>step or grade</strong> within that agreement, based on your experience and qualifications. There&rsquo;s no haggling, and no wondering whether the person beside you is on more for the same work.</p>
+    <div class="reassure">
+      <p>Think of it as a ladder, not a negotiation. <strong>The rungs are public, the same for everyone, and reviewed regularly</strong>: your job is to land on the right one for your experience. That&rsquo;s the part we help you get right.</p>
+    </div>
+    <div class="note-box">
+      <span class="k">A note on figures</span>
+      <p>We deliberately don&rsquo;t publish specific salary numbers on this page. Pay rates change as agreements are renegotiated, and the right figure depends on your exact role, step and hours. Rather than risk an out-of-date number, we&rsquo;ll confirm the current, correct rate for your role directly against the relevant collective agreement before you make any decision.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW PAY IS SET ============ -->
+<section class="section" id="how-pay-works" style="background:var(--soft);">
+  <div class="wrap">
+    <span class="eyebrow">The system behind the number</span>
+    <h2>How your pay is set</h2>
+    <p class="lead">Three things shape what you&rsquo;re paid in the public system, and all of them are written down. Understanding them means you&rsquo;ll always know where your number comes from.</p>
+    <div class="how-grid">
+      <div class="how">
+        <span class="k">The framework</span>
+        <h3>National agreements</h3>
+        <p>Most roles are covered by a national collective agreement negotiated between Health New Zealand / Te Whatu Ora and the relevant union or professional body. It sets the pay scale, hours, leave and conditions for everyone in that profession.</p>
+      </div>
+      <div class="how">
+        <span class="k">The scale</span>
+        <h3>Steps &amp; grades</h3>
+        <p>Within each agreement is a series of steps. You&rsquo;re placed on a step that reflects your years of relevant experience and your qualifications, and you typically progress up a step at a time as you accrue service.</p>
+      </div>
+      <div class="how">
+        <span class="k">The review</span>
+        <h3>Regular updates</h3>
+        <p>Agreements are renegotiated periodically, which is when the scales are updated. Because it&rsquo;s collective, increases apply across the board rather than depending on an individual conversation with a manager.</p>
+      </div>
+    </div>
+    <div class="note-box" style="background:var(--warm)">
+      <span class="k">Outside the public system</span>
+      <p>Some private and community providers set pay differently, and senior or specialist roles can have their own arrangements. The same principle still applies: we&rsquo;ll always tell you exactly how a particular role&rsquo;s pay is structured before you consider it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT SETS YOUR STEP ============ -->
+<section class="section" id="your-step" data-mobile-collapse data-mc-label="See what sets your step">
+  <div class="wrap">
+    <span class="eyebrow">Landing on the right rung</span>
+    <h2>What decides your step</h2>
+    <p class="lead">Two clinicians doing the same role can sit on different steps, and that&rsquo;s by design. These are the things that determine where you start, and getting them recognised properly is one of the most valuable parts of being well represented.</p>
+    <div class="ladder">
+      <div class="rung"><span class="bar"></span><div class="lv">A</div><div><h3>Relevant experience</h3><p>Years spent working in your profession, including experience earned overseas, are recognised and usually count towards your starting step. Getting your full history credited matters.</p></div></div>
+      <div class="rung"><span class="bar"></span><div class="lv">B</div><div><h3>Qualifications &amp; scope</h3><p>Your registration, post-graduate qualifications and any specialist scope of practice can affect where you sit and which roles you&rsquo;re eligible for.</p></div></div>
+      <div class="rung"><span class="bar"></span><div class="lv">C</div><div><h3>Role &amp; responsibility</h3><p>Senior, charge or team-lead positions sit higher on the scale, with added responsibility allowances in many agreements.</p></div></div>
+      <div class="rung top"><span class="bar"></span><div class="lv">D</div><div><h3>Progression over time</h3><p>You move up steps as you accumulate service, so your pay grows steadily without you having to renegotiate each year.</p></div></div>
+    </div>
+    <div class="plist">
+      <div class="pitem"><span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><div><h3>Document your experience</h3><p>Keep clear evidence of your years of practice and prior roles, it&rsquo;s the basis for the step you&rsquo;re placed on, so gaps or vagueness can cost you.</p></div></div>
+      <div class="pitem"><span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><div><h3>Get your qualifications recognised</h3><p>Make sure post-graduate study and specialist training are reflected in your application, they can lift both your step and your options.</p></div></div>
+      <div class="pitem"><span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><div><h3>Understand the hours</h3><p>Whether a role is full-time, part-time or includes on-call changes your total earnings, not just the headline rate. We&rsquo;ll spell this out for any role.</p></div></div>
+      <div class="pitem"><span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><div><h3>Ask about starting placement</h3><p>It&rsquo;s reasonable to ask exactly which step an offer places you on and why. A good employer, and a good recruiter, will explain it plainly.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEYOND BASE SALARY ============ -->
+<section class="section" id="package" style="background:var(--soft);" data-mobile-collapse data-mc-label="See the full package">
+  <div class="wrap">
+    <div class="feature">
+      <span class="eyebrow">The whole picture</span>
+      <h2>Beyond the base salary</h2>
+      <p class="lead">The number at the top of an offer is rarely the whole story. In New Zealand, a fair amount sits on top of base pay, and it can make a meaningful difference to what actually lands in your account and how good life feels.</p>
+      <div class="pts">
+        <div class="fpt"><h3>Penal &amp; overtime rates</h3><p>Many agreements pay enhanced rates for weekends, nights, public holidays and overtime, so shift patterns can lift earnings well above base.</p></div>
+        <div class="fpt"><h3>Allowances &amp; on-call</h3><p>Depending on the role, there may be allowances for on-call, recall, qualifications or specific responsibilities, all defined in the agreement.</p></div>
+        <div class="fpt"><h3>KiwiSaver</h3><p>New Zealand&rsquo;s workplace savings scheme includes employer contributions on top of your pay, a quiet but real part of the package.</p></div>
+        <div class="fpt"><h3>Generous leave</h3><p>Annual leave, public holidays, sick leave and, in many agreements, extra service-related leave: time that&rsquo;s yours.</p></div>
+        <div class="fpt"><h3>Professional development</h3><p>Funded training days, CPD support and continuing-education allowances feature in many agreements, helping your career keep growing.</p></div>
+        <div class="fpt"><h3>Relocation support</h3><p>Some roles include relocation assistance for international hires. Where it exists, we&rsquo;ll make sure you know what&rsquo;s on offer.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UNIONS & PROFESSIONAL ASSOCIATIONS ============ -->
+<section class="section" id="unions" data-mobile-collapse data-mc-label="See unions &amp; bodies">
+  <div class="wrap">
+    <span class="eyebrow">Who has your back</span>
+    <h2>Unions &amp; professional associations</h2>
+    <p class="lead">Because pay is set collectively, unions and professional associations play a real role in your working life. They negotiate the agreements your pay sits within, and they&rsquo;re there if you ever need representation. Joining is your choice, but most clinicians do.</p>
+    <div class="how-grid">
+      <div class="how">
+        <span class="k">Who negotiates your pay</span>
+        <h3>The right body for your role</h3>
+        <p>Which union covers you depends on your profession. For example, APEX represents many allied health, scientific and medical-imaging roles; the NZ Nurses Organisation covers nursing; and senior and resident doctors have their own associations. We&rsquo;ll tell you which agreement and body apply to your role.</p>
+      </div>
+      <div class="how">
+        <span class="k">What they do</span>
+        <h3>More than pay talks</h3>
+        <p>They negotiate the national pay scales and conditions, but also support members with workplace questions, professional development and representation if an issue ever arises, a reassuring backstop when you&rsquo;re new to a system.</p>
+      </div>
+      <div class="how">
+        <span class="k">Your choice</span>
+        <h3>Joining is optional</h3>
+        <p>Membership is voluntary, and you&rsquo;re generally covered by your agreement&rsquo;s terms either way. Many people join for the representation and support, particularly in their first years finding their feet here.</p>
+      </div>
+    </div>
+    <div class="note-box" style="background:var(--soft-green)">
+      <span class="k">Good to know</span>
+      <p>You don&rsquo;t need to work any of this out alone. When we talk through a role, we&rsquo;ll tell you exactly which collective agreement covers it and which union or association represents your profession, so you know who to turn to before you even arrive.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAX & TAKE-HOME ============ -->
+<section class="section" id="tax" data-mobile-collapse data-mc-label="Read the tax detail">
+  <div class="wrap reading">
+    <span class="eyebrow">What actually lands in your account</span>
+    <h2>Tax &amp; take-home pay</h2>
+    <p class="lead">Headline salaries are quoted before tax, so the figure you live on is your take-home, and New Zealand&rsquo;s system is refreshingly simple compared with many places clinicians move from.</p>
+    <p>Income tax (<strong>PAYE</strong>) is deducted automatically from your pay by your employer, so most people never file a complicated return. You&rsquo;ll need an <strong>IRD number</strong> (your tax identification number) soon after you arrive, and giving it to your employer ensures you&rsquo;re taxed at the right rate from the start rather than an emergency one. There&rsquo;s also a small <strong>ACC levy</strong> that funds New Zealand&rsquo;s no-fault accident cover, which means you and your family are covered for injury from day one.</p>
+    <p>Crucially, there&rsquo;s <strong>no separate National Insurance-style contribution</strong> as in the UK, and GST (the sales tax) is already included in displayed prices, so what you see on a shelf is what you pay. We&rsquo;ll always talk in terms that help you picture your real monthly take-home, not just the gross figure.</p>
+    <div class="reassure">
+      <p>The practical upshot: once your IRD number and KiwiSaver choice are sorted in your first weeks, your pay runs smoothly and predictably. <strong>Our <a href="/guides/living-in-new-zealand" style="color:var(--teal);font-weight:600">living &amp; thriving guide</a> covers setting up the everyday money side</strong>, bank account, IRD, KiwiSaver, step by step.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSURANCE, ACC & PROTECTION ============ -->
+<section class="section" id="insurance" style="background:var(--soft);" data-mobile-collapse data-mc-label="See insurance &amp; ACC">
+  <div class="wrap">
+    <span class="eyebrow">Your safety net</span>
+    <h2>Insurance, ACC &amp; protection</h2>
+    <p class="lead">New Zealand&rsquo;s safety net works a little differently from what you may be used to. Some things are covered for everyone automatically; others are worth adding for peace of mind, especially with a mortgage or a family.</p>
+    <div class="family-grid">
+      <div class="fcard"><h3>ACC, accident cover for all</h3><p>New Zealand&rsquo;s no-fault accident scheme covers treatment and a portion of lost income if you or your family are injured in an accident, from your first day, funded through levies. It&rsquo;s one of the reassuring things about life here.</p></div>
+      <div class="fcard"><h3>Public healthcare</h3><p>Residents and many work-visa holders can access the public health system. Our <a href="/guides/living-in-new-zealand" style="color:var(--teal);font-weight:600">living &amp; thriving guide</a> covers who&rsquo;s eligible and how it works.</p></div>
+      <div class="fcard"><h3>Private health insurance</h3><p>Optional, but popular. Many take it out for faster elective treatment and more choice of specialist. Some roles include it as a benefit, which we&rsquo;ll always flag.</p></div>
+      <div class="fcard"><h3>Income &amp; life protection</h3><p>Income protection, life and trauma cover are worth considering, particularly once you&rsquo;ve a mortgage or dependents. A local adviser can tailor this to your situation.</p></div>
+      <div class="fcard"><h3>Home, contents &amp; car</h3><p>The everyday insurances. Car insurance isn&rsquo;t legally compulsory here, but it&rsquo;s strongly recommended, and contents cover is well worth it while you&rsquo;re renting.</p></div>
+      <div class="fcard"><h3>Professional indemnity</h3><p>In the public system you&rsquo;re generally covered by your employer, and ACC changes how treatment-injury claims work compared with many countries. Some scopes or private work may need your own cover, confirm what&rsquo;s required with your regulator and employer.</p></div>
+    </div>
+    <div class="note-box" style="background:var(--warm)">
+      <span class="k">A note on advice</span>
+      <p>Insurance and ACC rules depend on your circumstances and visa, and they change, so always confirm the current position at the source. Ethicare are recruitment specialists, not financial advisers, but we&rsquo;re glad to introduce you to advisers we trust.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAY IN CONTEXT ============ -->
+<section class="section" id="context" style="background:var(--soft);" data-mobile-collapse data-mc-label="See pay in context">
+  <div class="wrap">
+    <span class="eyebrow">Earning, against living</span>
+    <h2>Pay in the context of life here</h2>
+    <p class="lead">A salary only means something against what it costs to live, and what it buys you beyond the bank balance. The honest view: New Zealand pay is structured to support a comfortable, balanced life, and the lifestyle that comes with it is a real part of the return.</p>
+    <div class="family-grid">
+      <div class="fcard"><h3>Cost of living, told straight</h3><p>Housing and groceries are the costs that surprise most newcomers, and they vary a lot by region, a smaller city or town can stretch the same salary much further than a major centre. We&rsquo;ll talk through the real numbers for where you&rsquo;re considering.</p></div>
+      <div class="fcard"><h3>The lifestyle dividend</h3><p>Shorter commutes, the outdoors on your doorstep and a genuine respect for time off mean many clinicians feel better off here even where the headline figure is comparable to home.</p></div>
+      <div class="fcard"><h3>Region matters</h3><p>Because base pay is national, the same role pays the same across the country, so your money goes noticeably further in more affordable regions. Our <a href="/destinations/" style="color:var(--teal);font-weight:600">destination guides</a> help you weigh this up.</p></div>
+    </div>
+
+    <h2 style="font-size:clamp(22px,3vw,28px);margin-top:60px">How pay is structured: New Zealand, Australia &amp; the UK</h2>
+    <p class="lead">A structural comparison: how the systems work, not specific figures. It&rsquo;s the shape of pay that tends to differ most.</p>
+    <div class="cmp">
+      <table>
+        <thead>
+          <tr><th scope="col">&nbsp;</th><th scope="col">New Zealand</th><th scope="col">Australia</th><th scope="col">United Kingdom</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">How pay is set</th><td class="nz">National collective agreements; published steps</td><td>State/territory awards &amp; enterprise agreements</td><td>National pay bands (e.g. Agenda for Change)</td></tr>
+          <tr><th scope="row">Negotiation</th><td class="nz">Collective, not individual</td><td>Mostly collective, some individual</td><td>Collective banding</td></tr>
+          <tr><th scope="row">On top of base</th><td class="nz">Penal rates, allowances, KiwiSaver</td><td>Penalty rates, superannuation</td><td>Unsocial-hours pay, NHS pension</td></tr>
+          <tr><th scope="row">Tax admin</th><td class="nz">Simple PAYE; no NI; small ACC levy</td><td>PAYG; Medicare levy</td><td>PAYE plus National Insurance</td></tr>
+          <tr><th scope="row">Variation by location</th><td class="nz">Base is national; cost of living varies</td><td>Varies by state</td><td>Limited (London weighting)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-box" style="background:var(--warm)">
+      <span class="k">Why no numbers here</span>
+      <p>Exchange rates, tax differences and cost of living make raw salary comparisons misleading. The more useful question is take-home against local costs and lifestyle, which is exactly the conversation we&rsquo;ll have with you for your specific role.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KNOWING YOUR EXACT RATE ============ -->
+<section class="section" id="confirm" data-mobile-collapse data-mc-label="How we confirm your rate">
+  <div class="wrap reading">
+    <span class="eyebrow">No surprises</span>
+    <h2>Knowing your exact rate, before you decide</h2>
+    <p class="lead">You should never have to accept a role on a vague sense of the pay. By the time you&rsquo;re weighing an offer, you&rsquo;ll know precisely what you&rsquo;ll earn and why.</p>
+    <p>For any role we discuss, we&rsquo;ll confirm the <strong>current rate against the relevant collective agreement</strong>, tell you the <strong>step you&rsquo;d be placed on</strong> and the reasoning, and walk through the <strong>full package</strong>: base, penal rates, allowances, KiwiSaver and leave, so the picture is complete. Where pay sits outside a standard agreement, we&rsquo;ll say so plainly and explain how it&rsquo;s set instead.</p>
+    <div class="reassure">
+      <p>This is the heart of how we work: <strong>calm, honest, no pressure.</strong> A move this big deserves real numbers and straight answers, and the time to think them over.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOPHIE'S INSIGHT ============ -->
+<section class="section" style="background:var(--soft);">
+  <div class="wrap">
+    <div class="sophie">
+      <div class="photo"><img loading="lazy" decoding="async" src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing"></div>
+      <div>
+        <span class="k">Sophie&rsquo;s insight</span>
+        <p>Money is rarely the first reason people move, but it has to add up, and it&rsquo;s one of the things clinicians feel most awkward asking about. I&rsquo;d rather you ask us everything. Because pay here is set by published agreements, I can show you exactly where a role sits and why, with nothing hidden. My promise is simple: you&rsquo;ll know your real take-home, against the real cost of living where you&rsquo;re headed, long before you have to make any decision. That clarity is what lets people move with confidence instead of crossed fingers.</p>
+        <p class="sign">Sophie<span>CEO &amp; Founder, Ethicare Resourcing</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section">
+  <div class="wrap reading">
+    <span class="eyebrow">Common questions</span>
+    <h2>The questions we&rsquo;re asked about pay</h2>
+    <div class="faq">
+      <details>
+        <summary>Why don&rsquo;t you list salary figures on this page?</summary>
+        <div class="ans"><p>Because the honest figure depends on your exact role, step and hours, and because the agreements are renegotiated over time. Rather than publish a number that could be out of date or misleading for your situation, we confirm the current, correct rate for your specific role against the relevant collective agreement when we talk.</p></div>
+      </details>
+      <details>
+        <summary>Can I negotiate my salary?</summary>
+        <div class="ans"><p>In the public system, base pay follows a published scale rather than individual negotiation, which protects you as much as anything. What does matter, and where good representation pays off, is making sure you&rsquo;re placed on the correct step for your experience and qualifications. That&rsquo;s something we actively help you get right.</p></div>
+      </details>
+      <details>
+        <summary>Will my overseas experience count?</summary>
+        <div class="ans"><p>Generally yes. Relevant experience earned abroad is usually recognised towards your step. The key is documenting it clearly so it&rsquo;s properly credited. We&rsquo;ll help you present your history so nothing is overlooked.</p></div>
+      </details>
+      <details>
+        <summary>How does take-home compare to where I am now?</summary>
+        <div class="ans"><p>It depends on your current country&rsquo;s tax and cost of living, so a raw comparison can mislead. We&rsquo;ll help you think in terms of monthly take-home against local costs, and factor in the things that don&rsquo;t show on a payslip, like shorter commutes, strong leave and the lifestyle on offer.</p></div>
+      </details>
+      <details>
+        <summary>What&rsquo;s KiwiSaver, and do I have to join?</summary>
+        <div class="ans"><p>KiwiSaver is New Zealand&rsquo;s workplace savings scheme, with contributions from you and your employer. If you&rsquo;re eligible, new employees are usually enrolled automatically with the option to opt out, and you can choose your contribution level. We&rsquo;ll point you to the basics so you can make an informed choice in your first weeks.</p></div>
+      </details>
+      <details>
+        <summary>Can I pay into KiwiSaver or a pension on the AEWV?</summary>
+        <div class="ans"><p>Usually not straight away. Joining KiwiSaver generally requires you to be entitled to live in New Zealand indefinitely, so on a temporary work visa such as the Accredited Employer Work Visa (AEWV) you typically can&rsquo;t join yet, and you wouldn&rsquo;t receive the employer or government contributions until you gain residence. Many people save another way in the meantime and join KiwiSaver once they&rsquo;re residents. The rules matter here, so confirm your eligibility with a KiwiSaver provider or Inland Revenue.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RELATED + FINAL ============ -->
+<section class="section" style="background:var(--soft);">
+  <div class="wrap">
+    <span class="eyebrow">Keep exploring</span>
+    <h2 style="font-size:clamp(22px,3vw,28px);">Related guides</h2>
+    <div class="related-grid">
+      <a class="rel" href="/guides/new-zealand-pay-agreements">
+        <span class="k">Reference</span>
+        <h3>Which agreement sets your pay</h3>
+        <p>Every collective agreement covering New Zealand healthcare, whether it is current, and where to read it.</p>
+        <span class="go">See the register</span>
+      </a>
+      <a class="rel" href="/guides/new-zealand-registration">
+        <span class="k">Step 2</span>
+        <h3>Registration &amp; licensing</h3>
+        <p>Your scope and registration shape your role, and where you sit on the pay scale.</p>
+        <span class="go">Read step 2</span>
+      </a>
+      <a class="rel" href="/guides/living-in-new-zealand">
+        <span class="k">Step 6</span>
+        <h3>Living &amp; thriving</h3>
+        <p>Setting up the everyday money side: bank account, IRD number and KiwiSaver.</p>
+        <span class="go">Read step 6</span>
+      </a>
+      <a class="rel" href="/jobs/">
+        <span class="k">Professions</span>
+        <h3>Roles we place</h3>
+        <p>Profession-by-profession detail on registration, pay structure and what to expect.</p>
+        <span class="go">Browse professions</span>
+      </a>
+    </div>
+
+    <div class="final" style="margin-top:40px;">
+      <span class="eyebrow">No pressure, just a conversation</span>
+      <h2>Want the real number for your role?</h2>
+      <p>Tell us your profession and experience, and we&rsquo;ll confirm exactly where you&rsquo;d sit on the relevant agreement, what the full package looks like, and what it means for your take-home where you&rsquo;re thinking of living.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/contact">Ask us about your pay</a>
+        <a class="btn btn-secondary" href="/apply">Browse current opportunities</a>
+      </div>
+      <p class="small">Ethicare Resourcing · your guide to a life and career in New Zealand.</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="../site.js"></script>
+<script src="../nav.js" defer></script>
+<script src="../journey-nav.js" defer></script>
+
+<!-- INTERNAL LINK MAP — /guides/new-zealand-salary (generated 29 Aug 2026 from the rendered markup)
+  HEADER NAV + FOOTER — site-wide (see /site/_header.html and the shared footer)
+  MAIN CONTENT:
+  New Zealand → /new-zealand
+  Guides & references → /resources
+  Ask us about your pay → /contact
+  Back to New Zealand → /new-zealand
+  1 Is it right for me? → /guides/moving-to-new-zealand
+  2 Can I work here? → /guides/new-zealand-registration
+  3 CV & interview → /guides/new-zealand-interview
+  4 Immigration & visas → /guides/new-zealand-visa
+  5 Preparing to move → /guides/new-zealand-relocation
+  6 Living & thriving → /guides/living-in-new-zealand
+  How pay is set → #how-pay-works
+  What sets your step → #your-step
+  Beyond base salary → #package
+  Unions & bodies → #unions
+  Tax & take-home → #tax
+  Insurance & ACC → #insurance
+  Pay in context → #context
+  Knowing your exact rate → #confirm
+  living & thriving guide → /guides/living-in-new-zealand
+  destination guides → /destinations/
+  Reference Which agreement sets your pay Every collective … → /guides/new-zealand-pay-agreements
+  Step 2 Registration & licensing Your scope and registrati… → /guides/new-zealand-registration
+  Step 6 Living & thriving Setting up the everyday money si… → /guides/living-in-new-zealand
+  Professions Roles we place Profession-by-profession detai… → /jobs/
+  Browse current opportunities → /apply
+-->
+<!-- SEO
+  Page Title: Salary &amp; pay in New Zealand healthcare
+  URL Slug: /guides/new-zealand-salary
+  SEO Title: Salary &amp; pay in New Zealand healthcare | Ethicare Resourcing
+  Meta Description: How pay really works in New Zealand healthcare: collective agreements, what sits on top of base salary, tax, take-home and your exact rate.
+-->
+</body>
+</html>

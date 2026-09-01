@@ -1,0 +1,216 @@
+/* Family hub — the richer gateway layout (mental-health NZ is the reference page).
+   Loaded AFTER family.css / family-eco.css, BEFORE prose-links.css.
+   Palette comes entirely from the site.css token block; no colours are invented here.
+
+   HERO GEOMETRY — a third contrast-safe variant alongside the two in CLAUDE.md.
+   The photograph occupies the right side and fades out HORIZONTALLY into the cream
+   before the text column begins, so type never sits over the image. That is the same
+   property that made the stacked cover safe (contrast independent of the photo), just
+   rotated 90deg — so any portrait or landscape asset can be swapped in without
+   re-checking AA. It is NOT the tier-1 immersive overlay: there is no scrim over text. */
+.hsplit{position:relative;overflow:hidden;background:var(--warm)}
+.hsplit .art{position:absolute;top:0;right:0;bottom:0;width:54%;z-index:0}
+.hsplit .art img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.hsplit .art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#FCFBF8 0,rgba(252,251,248,.98) 40px,rgba(252,251,248,.82) 120px,rgba(252,251,248,.36) 210px,rgba(252,251,248,0) 300px)}
+.hsplit .in{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:52px 22px 44px}
+.hsplit .copy{max-width:min(50%,600px)}
+.hsplit h1{font-family:var(--display);font-weight:600;font-size:clamp(36px,4.4vw,54px);line-height:1.06;letter-spacing:-.02em;color:var(--teal);margin:0 0 18px}
+.hsplit .sub{font-size:clamp(18px,2.1vw,22px);line-height:1.55;color:var(--text);max-width:44ch;margin:0}
+.hsplit .btn-row{margin-top:30px}
+
+/* the fact rail under the hero — the three things worth knowing before scrolling */
+.hrail{position:relative;z-index:3;background:var(--teal);color:#fff}
+.hrail .in{max-width:1200px;margin:0 auto;padding:18px 22px 20px;display:grid;grid-template-columns:repeat(3,1fr)}
+.hrail .c{display:flex;flex-direction:column;gap:5px;min-width:0}
+.hrail .c+.c{padding-left:clamp(18px,3vw,38px);border-left:1px solid rgba(255,255,255,.24)}
+.hrail .k{font-family:var(--display);font-weight:700;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:#C6E084}
+.hrail .v{font-family:var(--display);font-weight:600;font-size:15.5px;line-height:1.3}
+.hrail a.v{color:#fff;display:inline-flex;align-items:center;gap:8px}
+.hrail a.v:hover{color:#C6E084}
+
+/* the five disciplines as columns under one rule — read as a team, not a menu */
+.disc{border-top:3px solid var(--teal);display:grid;grid-template-columns:repeat(5,1fr)}
+.disc .d{padding:0 22px 26px 0}
+.disc .tick{display:block;width:2px;height:16px;background:#A6C84A}
+.disc h3{font-family:var(--display);font-weight:600;font-size:17px;line-height:1.25;color:var(--teal);margin:14px 0 8px}
+.disc p{font-size:14.5px;line-height:1.65;color:var(--text);margin:0}
+
+/* setting groups: a label column, then the cards that belong to it */
+.gband{display:grid;grid-template-columns:236px 1fr;gap:40px;padding:34px 0;border-top:1px solid var(--rule-tint)}
+.gband .lbl .k{display:block;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fern-text);margin-bottom:10px}
+.gband .lbl h3{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.25;color:var(--teal);margin:0 0 10px}
+.gband .lbl p{font-size:15px;line-height:1.65;color:var(--muted);margin:0}
+.gband .items{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:16px}
+.scard{background:#fff;border-radius:14px;padding:22px 22px 24px;box-shadow:var(--sh-card,0 4px 20px rgba(1,49,47,.07));display:flex;flex-direction:column;gap:9px;transition:box-shadow .2s cubic-bezier(.4,0,.2,1),transform .2s cubic-bezier(.4,0,.2,1)}
+.scard:hover{box-shadow:0 8px 30px rgba(1,49,47,.12);transform:translateY(-3px)}
+.scard h4{font-family:var(--display);font-weight:600;font-size:16px;line-height:1.3;color:var(--teal);margin:0}
+.scard p{font-size:14.5px;line-height:1.65;color:var(--text);margin:0;flex:1}
+.scard .team{font-family:var(--display);font-weight:600;font-size:12px;line-height:1.5;color:var(--fern-text);border-top:1px solid var(--rule-tint);padding-top:10px}
+
+/* public vs private, as one split panel */
+.split{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--sh-card,0 4px 20px rgba(1,49,47,.07))}
+.split .h{padding:32px 34px 34px}
+.split .h.a{background:var(--soft)}
+.split .h.b{border-left:1px solid var(--rule-tint)}
+.split .k{display:block;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fern-text);margin-bottom:12px}
+.split h3{font-family:var(--display);font-weight:600;font-size:20px;line-height:1.25;color:var(--teal);margin:0 0 12px}
+.split p{font-size:16px;line-height:1.7;color:var(--text);margin:0}
+
+/* THE ECOSYSTEM RING — person at the centre, clinical team on the circle, the wider
+   system in cards either side. Chip positions live here rather than inline so a
+   media query can flatten the whole thing without fighting inline specificity. */
+.ecogrid{display:grid;grid-template-columns:1fr minmax(320px,480px) 1fr;gap:34px;align-items:center}
+.ecocol{display:flex;flex-direction:column;gap:18px}
+.ecocard{background:#fff;border-radius:14px;padding:22px 24px;box-shadow:var(--sh-card,0 4px 20px rgba(1,49,47,.07));border-left:3px solid #A6C84A}
+.ecocard .k{display:block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--fern-text);margin-bottom:8px}
+.ecocard p{font-size:15px;line-height:1.6;color:var(--text);margin:0}
+.ring{position:relative;width:100%;aspect-ratio:1;max-width:480px;margin:0 auto 34px}
+.ring .halo{position:absolute;inset:0;border-radius:50%;border:1.5px dashed var(--rule-tint)}
+.ring .disc2{position:absolute;inset:11%;border-radius:50%;background:var(--soft)}
+.ring .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:41%;aspect-ratio:1;border-radius:50%;background:var(--teal);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px}
+.ring .core b{font-family:var(--display);font-weight:600;font-size:17px;line-height:1.2}
+.ring .core span{font-size:13.5px;line-height:1.4;color:#C6E084;margin-top:4px}
+.ring .chip{position:absolute;transform:translate(-50%,-50%);background:#fff;border-radius:999px;padding:8px 15px;box-shadow:0 3px 12px rgba(1,49,47,.13);font-family:var(--display);font-weight:600;font-size:13px;line-height:1.25;color:var(--teal);text-align:center}
+.ring .c1{left:50%;top:16%;white-space:nowrap}
+.ring .c2{left:79%;top:33%;white-space:nowrap}
+.ring .c3{left:79%;top:67%;white-space:nowrap}
+.ring .c4{left:50%;top:84%}
+.ring .c5{left:21%;top:67%;white-space:nowrap}
+.ring .c6{left:21%;top:33%}
+.ring .cap{position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--fern-text);white-space:nowrap}
+
+/* the five-profession scenario strip */
+.scen5{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.scen5 .s{background:var(--soft);border-radius:14px;padding:22px 22px 24px}
+.scen5 .who{display:block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--fern-text);margin-bottom:10px}
+.scen5 p{font-size:15px;line-height:1.65;color:var(--text);margin:0}
+
+/* profession cards, with the photography we actually own */
+.pcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:22px}
+.pcard{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--sh-card,0 4px 20px rgba(1,49,47,.07));display:flex;flex-direction:column;transition:box-shadow .2s cubic-bezier(.4,0,.2,1),transform .2s cubic-bezier(.4,0,.2,1)}
+.pcard:hover{box-shadow:0 8px 30px rgba(1,49,47,.12);transform:translateY(-3px)}
+.pcard .ph{height:172px;background:var(--soft)}
+.pcard .ph img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block}
+.pcard .body{padding:24px 24px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.pcard .top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.pcard h3{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.25;color:var(--teal);margin:0}
+.pcard .arw{font-family:var(--display);font-weight:600;font-size:18px;color:var(--fern-text)}
+.pcard p{font-size:15px;line-height:1.65;color:var(--text);margin:0;flex:1}
+.pcard .reg{font-family:var(--display);font-weight:600;font-size:12.5px;color:var(--fern-text);border-top:1px solid var(--rule-tint);padding-top:11px}
+
+/* what applies across the family, as disclosure pairs */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.faq details{background:#fff;border-radius:16px;padding:26px 28px;box-shadow:var(--sh-card,0 4px 20px rgba(1,49,47,.07))}
+.faq summary{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.35;color:var(--teal);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{color:var(--fern-text);font-size:20px;line-height:1;flex:none}
+.faq details[open] summary .pm{transform:rotate(45deg)}
+/* disclose.css injects its own summary::after "+" — with the authored .pm span that doubled
+   the marker on every hub FAQ. The span carries it; the stylesheet marker is suppressed. */
+.faq summary::after,.faq details[open]>summary::after{content:none}
+.faq .ans{margin-top:14px;display:grid;gap:12px}
+.faq .ans p{font-size:15.5px;line-height:1.75;color:var(--text);margin:0}
+.faq .ans p+p{color:var(--muted)}
+
+/* closing panel */
+.ctapanel{background:var(--teal);color:#fff;border-radius:22px;padding:60px 44px 64px;text-align:center}
+.ctapanel h2{font-family:var(--display);font-weight:600;font-size:clamp(27px,3.2vw,38px);line-height:1.15;letter-spacing:-.015em;margin:0 0 16px;color:#fff}
+.ctapanel p{font-size:17.5px;line-height:1.7;color:rgba(255,255,255,.88);max-width:56ch;margin:0 auto 32px}
+.ctapanel .btn-row{justify-content:center}
+.ctapanel .btn-lime{background:#A6C84A;color:#01312F;border:0}
+.ctapanel .btn-lime:hover{filter:brightness(.93)}
+.ctapanel .btn-out{background:transparent;border:2px solid rgba(255,255,255,.62);color:#fff}
+.ctapanel .btn-out:hover{background:rgba(255,255,255,.1)}
+
+/* On the cream hero the eyebrow, breadcrumb and rule must invert from the dark-hero
+   defaults in family.css — lime on cream fails AA, so small text goes to --fern-text
+   and only the 28px rule itself stays brand lime (a rule is not text). */
+.hsplit .eyebrow{color:var(--fern-text)}
+.hsplit .eyebrow::before{background:#A6C84A}
+.hsplit .crumb,.hsplit .crumb a{color:var(--muted)}
+.hsplit .crumb a:hover{color:var(--teal)}
+.hsplit .crumb .here{color:var(--teal)}
+.hsplit .crumb .sep{opacity:.55}
+/* images off for now: the copy column takes the full width and the art area is absent */
+.hsplit.nophoto .copy{max-width:min(72ch,100%)}
+.hsplit.nophoto .in{padding-bottom:48px}
+
+/* the five-stage perioperative relay — lime nodes sitting on the teal rule. The node
+   ring is painted in the BAND colour so it reads as a break in the rule; if this
+   component is ever used on cream, override --tl-ring. */
+.tline{display:grid;grid-template-columns:repeat(5,1fr);border-top:3px solid var(--teal)}
+.tline .s{padding:0 20px 30px 0;position:relative}
+.tline .s::before{content:"";position:absolute;top:-10px;left:0;width:17px;height:17px;border-radius:50%;background:#A6C84A;border:3px solid var(--tl-ring,var(--soft))}
+.tline .n{display:block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--fern-text);margin:22px 0 8px}
+.tline h3{font-family:var(--display);font-weight:600;font-size:17.5px;line-height:1.28;color:var(--teal);margin:0 0 8px}
+.tline p{font-size:14.5px;line-height:1.65;color:var(--text);margin:0 0 12px}
+.tline .team{display:block;font-size:13px;line-height:1.55;color:var(--muted);border-top:1px solid var(--rule-tint);padding-top:10px}
+
+/* narrower variants where a family has only two of something */
+.pcards.two{grid-template-columns:1fr 1fr;max-width:980px}
+.split.narrow{max-width:980px}
+
+/* the onward bar, with the cross-country link pushed to the end */
+.onwardbar{display:flex;gap:18px 26px;flex-wrap:wrap;font-family:var(--display);font-weight:600;font-size:14.5px}
+.onwardbar a{color:var(--muted)}
+.onwardbar a:hover{color:var(--teal)}
+.onwardbar a.lead{color:var(--teal)}
+.onwardbar a.lead:hover{text-decoration:underline}
+.onwardbar a.end{color:var(--teal);margin-left:auto}
+.onwardbar a.end:hover{text-decoration:underline}
+
+/* a callout band: copy on the left, one action on the right */
+.cband{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;background:var(--soft);border-radius:18px;padding:34px 36px}
+.cband .k{display:block;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fern-text);margin-bottom:12px}
+.cband h2{font-family:var(--display);font-weight:600;font-size:24px;line-height:1.25;color:var(--teal);margin:0 0 12px}
+.cband p{font-size:16.5px;line-height:1.7;color:var(--text);margin:0 0 10px;max-width:60ch}
+.cband p:last-of-type{font-size:15.5px;margin:0}
+.cband .btn{justify-self:end;white-space:nowrap}
+
+/* the note that closes a timeline back on itself */
+.loopnote{display:flex;align-items:center;gap:14px;margin-top:6px}
+.loopnote span.r{flex:1;height:1px;background:repeating-linear-gradient(90deg,var(--rule-tint) 0 8px,transparent 8px 15px)}
+.loopnote span.t{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--fern-text);white-space:nowrap}
+
+/* a white panel for the one thing worth saying at length */
+.wpanel{background:#fff;border-radius:18px;padding:34px 36px 36px;max-width:900px;box-shadow:var(--sh-card,0 4px 20px rgba(1,49,47,.07))}
+.wpanel .k{display:block;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fern-text);margin-bottom:14px}
+.wpanel p{font-size:16.5px;line-height:1.75;color:var(--text);margin:0 0 14px}
+.wpanel p:last-child{font-size:16px;margin:0}
+
+/* main column plus a standing sidebar card */
+.withside{display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start}
+.sidecard{background:#fff;border-radius:18px;padding:28px 28px 32px;box-shadow:var(--sh-card,0 4px 20px rgba(1,49,47,.07))}
+.sidecard img{width:100%;height:auto;display:block;margin-bottom:22px}
+.sidecard h3{font-family:var(--display);font-weight:600;font-size:17.5px;line-height:1.3;color:var(--teal);margin:0 0 12px}
+.sidecard p{font-size:15px;line-height:1.7;color:var(--text);margin:0 0 16px}
+.sidecard a{font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--teal)}
+.sidecard a:hover{text-decoration:underline}
+
+@media(max-width:1000px){
+.hsplit .art{position:relative;width:100%;height:250px}
+.hsplit .art::after{background:linear-gradient(0deg,#FCFBF8 0,rgba(252,251,248,.7) 36px,rgba(252,251,248,0) 62%)}
+.hsplit .copy{max-width:100%}
+.hrail .in{grid-template-columns:1fr}
+.hrail .c+.c{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.24);padding-top:14px;margin-top:14px}
+.ecogrid{grid-template-columns:1fr;gap:26px}
+.ecocol{flex-direction:row;flex-wrap:wrap}
+.ecocol>*{flex:1 1 240px}
+.gband{grid-template-columns:1fr;gap:18px}
+.split{grid-template-columns:1fr}
+.split .h.b{border-left:0;border-top:1px solid var(--rule-tint)}
+.disc{grid-template-columns:repeat(3,1fr)}
+.tline{grid-template-columns:1fr 1fr}
+.pcards.two{grid-template-columns:1fr}
+.onwardbar a.end{margin-left:0}
+.cband{grid-template-columns:1fr;gap:18px}
+.cband .btn{justify-self:start}
+.loopnote{display:none}
+.withside{grid-template-columns:1fr;gap:34px}
+}
+@media(max-width:760px){
+.disc{grid-template-columns:repeat(2,1fr)}
+.scen5{grid-template-columns:1fr}
+.faq{grid-template-columns:1fr}
+.tline{grid-template-columns:1fr}
+}

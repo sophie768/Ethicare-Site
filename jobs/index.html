@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Healthcare jobs in New Zealand &amp; Australia | Ethicare</title>
+<meta name="description" content="Healthcare vacancies across New Zealand and Australia for internationally trained clinicians: radiology, anaesthetic technology and more. Search by profession, region and job type, and apply through Ethicare.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shell.css">
+<style>
+:root{--teal:#02615D;--green:#02615D;--sage:#72A471;--sage-text:#2F5E49;--lime:#A6C84A;--mint:#C9DED3;--soft:#E6F1ED;--soft-green:#E6F1ED;--warm:#FCFBF8;--white:#FFFFFF;--text:#333;--muted:#555;--display:'Work Sans',sans-serif;--body:'Manrope',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+body{font-family:var(--body);font-size:16px;line-height:1.72;color:var(--text);background:var(--warm);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,.btn:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 7px rgba(167,201,87,.55)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;color:var(--teal);letter-spacing:-.02em;line-height:1.18}
+strong{color:var(--green)}
+.eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:16px}
+.lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:50ch}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-family:var(--display);font-weight:600;font-size:16px;padding:13px 26px;border-radius:12px;transition:transform .15s ease,background .15s ease;color:var(--teal);cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#014E4B}
+.btn-ghost{background:transparent;border:1.5px solid var(--sage);color:var(--teal)}.btn-ghost:hover{background:var(--soft-green)}
+
+/* hero (matches country pages) */
+.jb-hero{position:relative;background:var(--teal);overflow:hidden;display:flex;align-items:center;min-height:min(540px,68vh);color:#fff}
+.jb-hero .bg{position:absolute;inset:0;z-index:0}
+.jb-hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 52%}
+.jb-hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,53,51,.95) 0%,rgba(1,53,51,.8) 42%,rgba(1,53,51,.46) 74%,rgba(1,53,51,.25) 100%)}
+.jb-hero .wrap{position:relative;z-index:1;width:100%;padding:clamp(48px,7vw,84px) 24px}
+.jb-hero .copy{max-width:760px}
+.jb-hero .eyebrow{color:#fff}
+.jb-hero h1{color:#fff;font-size:clamp(40px,6vw,56px);font-weight:600;line-height:1.1;letter-spacing:-.02em;max-width:18ch;margin-bottom:16px}
+.jb-hero p.hero-sub{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(16.5px,2vw,19.5px);line-height:1.6;color:rgba(255,255,255,.9);max-width:50ch}
+.jb-hero .crumb{display:flex;gap:8px;font-family:var(--display);font-weight:600;font-size:13px;color:rgba(255,255,255,.72);margin-bottom:24px}
+.jb-hero .crumb a:hover{color:#fff}.jb-hero .crumb .sep{opacity:.85}.jb-hero .crumb .here{color:#fff}
+
+/* filter bar */
+.board{padding:clamp(34px,5vw,54px) 0 clamp(60px,8vw,96px);background:var(--warm)}
+.filters{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:16px;align-items:end;background:#fff;border:1px solid var(--mint);border-radius:20px;padding:20px 22px;box-shadow:0 26px 54px rgba(1,49,47,.12);margin-bottom:16px}
+.filters .fld{display:flex;flex-direction:column;gap:8px;min-width:0}
+.filters label{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--sage-text)}
+.filters input,.filters select{font-family:var(--body);font-size:15px;color:var(--text);background:#fff;border:1.5px solid var(--mint);border-radius:12px;padding:12px 14px;transition:border-color .15s,box-shadow .15s}
+.filters input:focus,.filters select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 7px rgba(167,201,87,.55)}
+.filters select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231F5E4E' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
+.fbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin:4px 2px 24px}
+.fcount{font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--muted)}
+.fcount b{color:var(--teal)}
+.fclear{font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--teal);background:none;border:none;cursor:pointer;padding:6px 2px;border-bottom:2px solid transparent}
+.fclear:hover{border-color:#2F5E49}
+
+/* cards */
+.jobgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.jobcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--mint);border-top:4px solid var(--teal);border-radius:20px;padding:28px 28px 24px;transition:transform .15s,box-shadow .15s}
+.jobcard:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.12)}
+.jobcard .prof{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sage-text);margin-bottom:8px}
+.jobcard h3{font-size:22px;line-height:1.2;margin-bottom:8px}
+.jobcard h3 a{color:var(--teal)}.jobcard h3 a:hover{color:#013D3B}
+.jobcard .loc{font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--muted);display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.jobcard .loc svg{width:14px;height:14px;flex:none;color:#2F5E49}
+.jobcard .life{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:15.5px;line-height:1.5;color:var(--teal);padding:14px 0 16px;margin-bottom:16px;border-top:1px solid var(--mint);border-bottom:1px solid var(--mint)}
+.jobcard .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.jobcard .chip{font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.02em;color:var(--green);background:var(--soft);border-radius:999px;padding:5px 12px}
+.jobcard .sum{font-size:14.5px;line-height:1.6;color:var(--muted);margin-bottom:16px}
+/* Facets report a CONFIRMED employer commitment. Positive on Soft Sage with fern text
+   (4.9:1+), negative in Clay on a warm tint (5.45:1). An unconfirmed facet is a sentence,
+   not a chip: a grey chip would read as a soft no. */
+.jobcard .facs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.jobcard .fac{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-weight:600;font-size:12.5px;border-radius:999px;padding:6px 13px}
+.jobcard .fac i{font-style:normal;font-size:13px;line-height:1}
+.jobcard .fac.y{color:#2F5E49;background:#E3ECE5}
+.jobcard .fac.n{color:#A34438;background:#FAF0ED}
+.jobcard .facask{font-size:13px;line-height:1.55;color:var(--muted);margin-bottom:16px;padding-left:12px;border-left:2px solid #C9DED3}
+.boardnote{max-width:74ch;margin:0 0 clamp(20px,2.4vw,28px);font-size:14.5px;line-height:1.6;color:var(--muted)}
+.jobcard .foot{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-top:16px;border-top:1px solid var(--mint)}
+.jobcard .closes{font-family:var(--display);font-weight:600;font-size:12.5px;color:var(--muted)}
+.jobcard .closes.soon{color:#A34438}
+.jobcard .view{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:14.5px;color:#fff;background:var(--teal);padding:10px 18px;border-radius:12px;transition:background .15s}
+.jobcard .view:hover{background:#013D3B}
+.jobcard .view svg{width:15px;height:15px}
+
+.empty{text-align:center;padding:60px 20px;color:var(--muted);font-size:17px;display:none}
+.empty.show{display:block}
+
+/* cant find CTA */
+.jb-cta{margin-top:24px;background:var(--teal);border-radius:24px;padding:clamp(30px,4vw,44px);color:#fff;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+.jb-cta h2{color:#fff;font-size:clamp(22px,3vw,28px);margin-bottom:8px}
+.jb-cta p{color:rgba(255,255,255,.86);max-width:50ch;font-size:15.5px;line-height:1.6}
+.jb-cta .btn-lime{background:#2F5E49;color:#FFFFFF}.jb-cta .btn-lime:hover{background:#72A471}
+.jb-cta .btn-ghost{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.5);color:#fff}.jb-cta .btn-ghost:hover{background:rgba(255,255,255,.2)}
+.jb-cta .acts{display:flex;gap:8px;flex-wrap:wrap}
+
+@media (max-width:900px){.filters{grid-template-columns:1fr 1fr}.jobgrid{grid-template-columns:1fr}}
+@media (max-width:560px){.filters{grid-template-columns:1fr}}
+</style>
+<link rel="canonical" href="https://ethicareresourcing.com/jobs/">
+<link rel="icon" href="../assets/logo-mark.png">
+<link rel="apple-touch-icon" href="../assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Healthcare jobs in New Zealand & Australia | Vacancies | Ethicare Resourcing">
+<meta property="og:description" content="Healthcare vacancies across New Zealand and Australia for internationally trained clinicians: radiology, anaesthetic technology and more. Search by profession, region and job type, and apply through Ethicare.">
+<meta property="og:url" content="https://ethicareresourcing.com/jobs/">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Healthcare jobs in New Zealand & Australia | Vacancies | Ethicare Resourcing">
+<meta name="twitter:description" content="Healthcare vacancies across New Zealand and Australia for internationally trained clinicians: radiology, anaesthetic technology and more. Search by profession, region and job type, and apply through Ethicare.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="mint-eyebrow">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}</style>
+<style id="pwcta">.pwcta{display:flex;flex-wrap:wrap;align-items:center;gap:24px 40px;background:var(--soft);border:1px solid var(--mint);border-radius:var(--r-lg);padding:clamp(26px,3.4vw,40px)}.pwcta>div{flex:1 1 360px}.pwcta h2{font-family:var(--display);font-weight:600;font-size:clamp(22px,2.8vw,30px);color:var(--teal);letter-spacing:-.015em;margin:0 0 8px}.pwcta h3{font-family:var(--display);font-weight:600;font-size:21px;color:var(--teal);letter-spacing:-.01em;margin:0 0 8px}.pwcta p{font-size:16px;line-height:1.7;color:var(--muted);max-width:56ch;margin:0}.pwcta .btn{flex:0 0 auto}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Jobs"}]}</script>
+<link rel="stylesheet" href="../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<!-- @shared-header current="/jobs/" · generated from /site/_header.html — do not hand-edit -->
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/" aria-current="page">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          <a href="/move">Your plan</a>
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<!-- /@shared-header -->
+<main id="main-content" tabindex="-1">
+
+<header class="jb-hero" data-screen-label="Jobs · hero">
+  <div class="bg"><img decoding="async" src="../assets/photo-lake-jetty.jpg" alt="A woman sitting on a lake jetty looking out at New Zealand mountains" fetchpriority="high"></div>
+  <div class="wrap">
+    <div class="copy">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">›</span>
+        <span class="here">Jobs</span>
+      </nav>
+      <span class="eyebrow">Vacancies · New Zealand &amp; Australia</span>
+      <h1>Roles in places worth moving for</h1>
+      <p class="hero-sub">Current openings for internationally trained clinicians across New Zealand and Australia, each one in a place you could genuinely love living.</p>
+    </div>
+  </div>
+</header>
+
+<!-- PATHWAY CHECKER ENTRY -->
+<section class="section" style="padding:clamp(28px,3.6vw,44px) 0 0">
+  <div class="wrap">
+    <div class="pwcta">
+      <div>
+        <span class="eyebrow">Before you apply</span>
+        <h2>Not sure you can register yet?</h2>
+        <p>You don&rsquo;t need registration in place to talk to us &mdash; but it helps to know the route. Check the official pathways that may apply to your profession and qualification.</p>
+      </div>
+      <a class="btn btn-secondary" href="/pathway-checker">Check my registration pathway <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="board">
+  <div class="wrap">
+    <div class="filters">
+      <div class="fld">
+        <label for="q">Search</label>
+        <input id="q" type="search" placeholder="Role, specialty or keyword" autocomplete="off">
+      </div>
+      <div class="fld">
+        <label for="f-prof">Profession</label>
+        <select id="f-prof"><option value="">All professions</option></select>
+      </div>
+      <div class="fld">
+        <label for="f-region">Region</label>
+        <select id="f-region"><option value="">All regions</option></select>
+      </div>
+      <div class="fld">
+        <label for="f-type">Job type</label>
+        <select id="f-type"><option value="">All types</option></select>
+      </div>
+    </div>
+    <div class="fbar">
+      <div class="fcount" id="count"><b>24</b> roles</div>
+      <button class="fclear" id="clear" type="button">Clear filters</button>
+    </div>
+    <p class="boardnote">Sponsorship, relocation support and what a role means for a family are the employer&rsquo;s to offer, not ours to promise. We confirm all three in writing for any role you are serious about, and where one is already confirmed it is marked on the card.</p>
+
+    <!-- #grid below is server-rendered from jobs-data.js as a no-JS/SEO fallback; the inline script re-renders it on load. When jobs-data.js changes, regenerate these static cards to match. -->
+    <div class="jobgrid" id="grid"><article class="jobcard"><div class="prof">Consultant Radiologist</div><h3><a href="/jobs/vacancy/msk-radiologist-bunbury">Musculoskeletal Radiologist</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Bunbury, Western Australia &middot; Private sector</div><p class="life">A South West coastal city two hours south of Perth: beaches, good schools and settled neighbourhoods, with national parks, wineries and Margaret River on the doorstep.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Lead the MSK imaging work of an established private provider across MRI, CT, ultrasound and image-guided procedures, with scope to build the role around your subspecialty.</p><div class="foot"><span class="closes">Competitive</span><a class="view" href="/jobs/vacancy/msk-radiologist-bunbury">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">General Practitioner</div><h3><a href="/jobs/vacancy/gp-wellington">General Practitioner</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Wellington, New Zealand &middot; Primary care</div><p class="life">A compact capital wrapped around harbour, coastline and hills &mdash; beaches, walking trails and real neighbourhoods all within easy reach of the city.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">8 sessions per week</span></div><p class="sum">An eight-session week in a supportive, multidisciplinary primary care team in the Wellington region. Attractive for GPs leaving long weeks and heavy out-of-hours behind.</p><div class="foot"><span class="closes">Competitive</span><a class="view" href="/jobs/vacancy/gp-wellington">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">General Practitioner</div><h3><a href="/jobs/vacancy/gp-auckland">General Practitioner</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Auckland, New Zealand &middot; Primary care</div><p class="life">A major international city with beaches, regional parks and islands on the doorstep &mdash; plus a wide choice of neighbourhoods, schools and established international communities for families.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span><span class="chip">Part-time</span></div><p class="sum">Join a supportive, multidisciplinary primary care team providing comprehensive care to diverse communities across Auckland. Open to New Zealand-based and internationally trained doctors.</p><div class="foot"><span class="closes">Primary care</span><a class="view" href="/jobs/vacancy/gp-auckland">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Occupational Therapist</div><h3><a href="/jobs/vacancy/occupational-therapist-gisborne">Occupational Therapist</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Gisborne, New Zealand &middot; Private sector</div><p class="life">Sunny East Coast living: empty beaches minutes from work, the world&rsquo;s first sunrise from the East Cape, an affordable, friendly community and year-round surf.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Join a private rehabilitation clinic&rsquo;s allied health team as an Occupational Therapist across neuro, social, vocational and pain rehabilitation, with real scope to specialise and lead.</p><div class="foot"><span class="closes">Private sector</span><a class="view" href="/jobs/vacancy/occupational-therapist-gisborne">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Occupational Therapist</div><h3><a href="/jobs/vacancy/occupational-therapist-palmerston-north">Occupational Therapist</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Palmerston North, New Zealand &middot; Private sector</div><p class="life">An easy university city in the lower North Island: short commutes, parks and river trails, a good cafe scene, and mountains, coast and the capital all within reach.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Join a busy private rehabilitation clinic as an Occupational Therapist across social, vocational and pain rehabilitation, with room to grow and lead.</p><div class="foot"><span class="closes">Private sector</span><a class="view" href="/jobs/vacancy/occupational-therapist-palmerston-north">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Hand Therapist</div><h3><a href="/jobs/vacancy/hand-therapist-palmerston-north">Hand Therapist</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Palmerston North, New Zealand &middot; Private sector</div><p class="life">An easy university city in the lower North Island: short commutes, parks and river trails, a good cafe scene, and mountains, coast and the capital all within reach.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">A Registered Hand Therapist role with a private rehabilitation provider, delivering upper-limb rehabilitation and mentoring associates towards their own registration.</p><div class="foot"><span class="closes">Private sector</span><a class="view" href="/jobs/vacancy/hand-therapist-palmerston-north">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Nuclear Medicine Technologist</div><h3><a href="/jobs/vacancy/nuclear-medicine-technologist-auckland">Nuclear Medicine Technologist</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Auckland, New Zealand &middot; Public sector</div><p class="life">New Zealand&rsquo;s biggest, most diverse city: harbours and islands, black-sand surf beaches, and the widest range of specialist roles in the country.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Join a leading public radiology team as a Nuclear Medicine Technologist, performing a wide range of procedures and contributing to a national radionuclide therapy service.</p><div class="foot"><span class="closes">Public sector</span><a class="view" href="/jobs/vacancy/nuclear-medicine-technologist-auckland">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Radiographer</div><h3><a href="/jobs/vacancy/radiographer-frankston">Radiographer</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Frankston, Victoria, Australia &middot; Private sector</div><p class="life">Bayside Melbourne living: beaches along Port Phillip Bay, the Mornington Peninsula&rsquo;s wineries and hot springs nearby, and the city an easy train ride away.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span><span class="chip">Part-time</span></div><p class="sum">Perform CT and general X-ray imaging with a large private radiology network at its Frankston clinic, with variety, rotation to nearby sites and strong professional development.</p><div class="foot"><span class="closes">Private sector</span><a class="view" href="/jobs/vacancy/radiographer-frankston">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Sonographer</div><h3><a href="/jobs/vacancy/sonographer-sunshine">Sonographer</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Sunshine, Melbourne, Victoria, Australia &middot; Private sector</div><p class="life">Melbourne&rsquo;s multicultural west, minutes from the CBD by train, in one of the world&rsquo;s most liveable cities.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span><span class="chip">Part-time</span></div><p class="sum">Scan a broad ultrasound caseload (MSK, obstetric, vascular, general and interventional) with a large private radiology network in Melbourne&rsquo;s west.</p><div class="foot"><span class="closes">Private sector</span><a class="view" href="/jobs/vacancy/sonographer-sunshine">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Nuclear Medicine Technologist</div><h3><a href="/jobs/vacancy/nuclear-medicine-technologist-bunbury">Nuclear Medicine Technologist</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Bunbury, Western Australia, Australia &middot; Private sector</div><p class="life">Coastal South-West WA, two hours south of Perth: beaches, cafes, forests and wineries, with affordable housing and a welcoming community.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Perform general nuclear medicine and PET-CT imaging with a leading WA private provider in Bunbury, the only PET service in the South-West, across two modern sites.</p><div class="foot"><span class="closes">Private sector</span><a class="view" href="/jobs/vacancy/nuclear-medicine-technologist-bunbury">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Radiographer</div><h3><a href="/jobs/vacancy/radiographer-mandurah">Radiographer</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Mandurah, Western Australia, Australia &middot; Private sector</div><p class="life">A relaxed waterside city on the Peel coast, under an hour south of Perth: canals, estuary, beaches and an easy outdoor lifestyle.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span><span class="chip">Part-time</span></div><p class="sum">Perform a wide range of general radiography with a leading WA private imaging provider in coastal Mandurah, with modern technology and strong development support.</p><div class="foot"><span class="closes">Private sector</span><a class="view" href="/jobs/vacancy/radiographer-mandurah">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Occupational Therapist</div><h3><a href="/jobs/vacancy/occupational-therapist-hawkes-bay">Occupational Therapist</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Hastings, Hawke&rsquo;s Bay, New Zealand &middot; Public sector</div><p class="life">Sunny Hawke&rsquo;s Bay: east-coast wine country, the Art Deco streets of Napier and Hastings, beaches and an easy outdoor lifestyle, one of New Zealand&rsquo;s most enjoyable regions for work-life balance.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Join a supportive inpatient Allied Health team as an experienced Occupational Therapist, focused on acute medical care and frailty, complex discharge planning, and mentoring rotational OTs.</p><div class="foot"><span class="closes">Public sector</span><a class="view" href="/jobs/vacancy/occupational-therapist-hawkes-bay">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Mammographer</div><h3><a href="/jobs/vacancy/mammographer-bundaberg">Mammographer</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Bundaberg, Queensland, Australia &middot; Private sector</div><p class="life">A relaxed Queensland coastal city: warm climate, beautiful beaches, the Southern Great Barrier Reef and national parks nearby, with affordable housing and a welcoming community.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Perform high-quality screening and diagnostic mammography within an experienced multidisciplinary imaging team at a values-led private provider, with modern technology and genuine support for your development.</p><div class="foot"><span class="closes">Private sector</span><a class="view" href="/jobs/vacancy/mammographer-bundaberg">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Sonographer</div><h3><a href="/jobs/vacancy/sonographer-tasmania">Sonographer</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Hobart or Launceston, Tasmania, Australia &middot; Private sector</div><p class="life">One of Australia&rsquo;s most scenic states: spectacular coastlines and wilderness national parks, a celebrated food, wine and arts scene, shorter commutes and a strong sense of community.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Perform a broad range of general ultrasound examinations with a well-established private imaging provider, with roles in both Hobart and Launceston, modern equipment and an outstanding work-life balance.</p><div class="foot"><span class="closes">Private sector</span><a class="view" href="/jobs/vacancy/sonographer-tasmania">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Radiographer</div><h3><a href="/jobs/vacancy/diagnostic-radiographer-bunbury">Diagnostic Radiographer</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Bunbury, Western Australia, Australia &middot; Private sector</div><p class="life">A desirable coastal city two hours south of Perth: beaches and cafe culture, excellent schools, affordable housing and easy access to WA&rsquo;s coastline, forests and wineries.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Perform a broad range of general radiography examinations with a leading private imaging provider in coastal Bunbury, using modern equipment in a supportive, development-focused team.</p><div class="foot"><span class="closes">Private sector</span><a class="view" href="/jobs/vacancy/diagnostic-radiographer-bunbury">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Psychologist</div><h3><a href="/jobs/vacancy/psychologist-adult-rehab-auckland">Psychologist · Adult Rehabilitation & Older People</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Auckland, New Zealand &middot; Public sector</div><p class="life">New Zealand&rsquo;s biggest and most diverse city: harbours and islands on the doorstep, black-sand surf beaches to the west, and the widest range of specialist roles in the country.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span><span class="chip">Part-time</span></div><p class="sum">Provide psychological assessment and rehabilitation for adult and older-adult inpatients, and community stroke patients, within a specialist rehabilitation service and a supportive interdisciplinary team.</p><div class="foot"><span class="closes">Public sector</span><a class="view" href="/jobs/vacancy/psychologist-adult-rehab-auckland">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Psychologist</div><h3><a href="/jobs/vacancy/clinical-psychologist-camhs-kapiti">Clinical Psychologist · Child & Adolescent Mental Health</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Kāpiti Coast, New Zealand &middot; Public sector</div><p class="life">Sunny Kāpiti on the Wellington coast: beaches and Kapiti Island at your door, an easy train into the capital, and a relaxed community feel for families.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Provide mental health assessment, intervention and education to infants, children, youth and their whānau, as part of a small, supportive multidisciplinary team using the Choice and Partnership Approach (CAPA).</p><div class="foot"><span class="closes">Public sector</span><a class="view" href="/jobs/vacancy/clinical-psychologist-camhs-kapiti">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Psychologist</div><h3><a href="/jobs/vacancy/clinical-psychologist-porirua">Clinical Psychologist · Community Mental Health</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Porirua, New Zealand &middot; Public sector</div><p class="life">Porirua on Wellington&rsquo;s edge: harbour and coast, a proud Māori and Pasifika community, and the capital a short train ride away.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span><span class="chip">Part-time</span></div><p class="sum">Join a supportive, multidisciplinary community mental health team providing a range of psychological interventions, with genuine autonomy and ongoing training and development.</p><div class="foot"><span class="closes">Public sector</span><a class="view" href="/jobs/vacancy/clinical-psychologist-porirua">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Anaesthetic Technician</div><h3><a href="/jobs/vacancy/anaesthetic-technician-gisborne">Anaesthetic Technician</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Gisborne, New Zealand &middot; Public sector</div><p class="life">Live where others come on holiday: the first place on earth to see the sun, surf beaches, Chardonnay country and an unhurried East Coast pace.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Join a small, committed anaesthetic technician team in a regional hospital: acute and elective lists, ED trauma calls, and cover across ICU and Radiology.</p><div class="foot"><span class="closes">Public sector</span><a class="view" href="/jobs/vacancy/anaesthetic-technician-gisborne">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Consultant Radiologist</div><h3><a href="/jobs/vacancy/consultant-radiologist-dunedin">Consultant Radiologist</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Dunedin, New Zealand &middot; Public sector</div><p class="life">A walkable, affordable university city with Scottish bones. A wildlife coastline of albatross, penguins and sea lions, with the Catlins and Central Otago at the door.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">A generalist role in a public tertiary hospital’s MDT, with a strong emphasis on emergency and inpatient imaging, modern RIS/PACS and the full range of modalities.</p><div class="foot"><span class="closes">Public sector</span><a class="view" href="/jobs/vacancy/consultant-radiologist-dunedin">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Consultant Radiologist</div><h3><a href="/jobs/vacancy/interventional-radiologist-dunedin">Consultant Radiologist · Interventional</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Dunedin, New Zealand &middot; Public sector</div><p class="life">A walkable, affordable university city with Scottish bones. A wildlife coastline of albatross, penguins and sea lions, with the Catlins and Central Otago at the door.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Join a close team of ten as an interventional radiologist: a wide range of vascular and non-vascular techniques, with a strong MDT culture and the support of a smaller hospital.</p><div class="foot"><span class="closes">Public sector</span><a class="view" href="/jobs/vacancy/interventional-radiologist-dunedin">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Consultant Radiologist</div><h3><a href="/jobs/vacancy/paediatric-radiologist-dunedin">Consultant Paediatric Radiologist</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Dunedin, New Zealand &middot; Public sector</div><p class="life">A walkable, affordable university city with Scottish bones. A wildlife coastline of albatross, penguins and sea lions, with the Catlins and Central Otago at the door.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Expert paediatric imaging across X-ray, ultrasound, CT, MRI and nuclear medicine for neonates to adolescents, within a fully integrated public-hospital team.</p><div class="foot"><span class="closes">Public sector</span><a class="view" href="/jobs/vacancy/paediatric-radiologist-dunedin">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Consultant Radiologist</div><h3><a href="/jobs/vacancy/consultant-radiologist-southland">Consultant Radiologist · Southland</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Invercargill, New Zealand &middot; Public sector</div><p class="life">The deep south: big skies and wide-open space, Bluff oysters in season, and the gateway to Fiordland and Stewart Island on your weekends.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">A general radiologist for a close-knit team in the deep south, with the full range of modalities and the collegial feel of a smaller hospital.</p><div class="foot"><span class="closes">Public sector</span><a class="view" href="/jobs/vacancy/consultant-radiologist-southland">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Consultant Radiologist</div><h3><a href="/jobs/vacancy/consultant-radiologist-queenstown">Consultant Radiologist · Queenstown</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Queenstown, New Zealand &middot; Public sector</div><p class="life">The ski fields of Coronet Peak and The Remarkables, Lake Wakatipu and Central Otago wine on the doorstep. Some of the most stunning scenery in New Zealand, all year round.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Be the on-site radiologist at a growing district hospital in a spectacular setting, well supported by regional teams, with regular work at a nearby centre.</p><div class="foot"><span class="closes">Public sector</span><a class="view" href="/jobs/vacancy/consultant-radiologist-queenstown">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Consultant Radiologist</div><h3><a href="/jobs/vacancy/radiologist-whanganui">Consultant Radiologist</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Whanganui, New Zealand &middot; Public sector</div><p class="life">A heritage river city with a thriving arts scene and character villas you can actually afford, with the Whanganui River and Mt Ruapehu both within easy reach.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">A general radiologist for a modern regional hospital, with a varied caseload and a genuine 70/30 clinical to non-clinical balance.</p><div class="foot"><span class="closes">Public sector</span><a class="view" href="/jobs/vacancy/radiologist-whanganui">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Radiation Therapist</div><h3><a href="/jobs/vacancy/radiation-therapist-palmerston-north">Radiation Therapist</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Palmerston North, New Zealand &middot; Public sector</div><p class="life">A green, easygoing city in the heart of the lower North Island: central to mountains, coast and the capital, with a young, friendly feel.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">Join a growing regional cancer treatment service running one of New Zealand’s newest linac fleets, with outreach work and real scope to develop.</p><div class="foot"><span class="closes">Public sector</span><a class="view" href="/jobs/vacancy/radiation-therapist-palmerston-north">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article><article class="jobcard"><div class="prof">Consultant Radiologist</div><h3><a href="/jobs/vacancy/breast-radiologist-waikato">Consultant Radiologist · Breast Imaging</a></h3><div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>Hamilton, New Zealand &middot; Public sector</div><p class="life">City amenities on the Waikato River with world-famous gardens, and an easy drive to Raglan&rsquo;s surf and the Coromandel when the weekend comes.</p><div class="chips"><span class="chip">Permanent</span><span class="chip">Full-time</span></div><p class="sum">An experienced breast radiologist for a tertiary teaching hospital: screening assessment clinics, weekly MDMs, and a broad mix of general and acute imaging.</p><div class="foot"><span class="closes">Public sector</span><a class="view" href="/jobs/vacancy/breast-radiologist-waikato">View role<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article></div>
+    <div class="empty" id="empty">No roles match those filters right now. Try widening your search, or <a href="/apply" style="color:var(--teal);font-weight:600">send us your CV</a> and we&rsquo;ll be in touch when something fits.</div>
+
+    <div class="jb-cta">
+      <div>
+        <h2>Can&rsquo;t see your role?</h2>
+        <p>New vacancies come in every week, and many never make it online. Tell us where you trained and what you&rsquo;re looking for, and we&rsquo;ll match you to the right opportunity.</p>
+      </div>
+      <div class="acts">
+        <a href="/apply" class="btn btn-lime">Register your interest</a>
+        <a href="/contact" class="btn btn-ghost">Talk to the team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/move">Ethicare Move</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+
+<script src="jobs-data.js"></script>
+<script src="../site.js"></script>
+<script>
+(function(){
+  var jobs = (window.ETHICARE_JOBS || []).slice();
+  var grid = document.getElementById('grid');
+  var empty = document.getElementById('empty');
+  var countEl = document.getElementById('count');
+  var q = document.getElementById('q');
+  var fProf = document.getElementById('f-prof');
+  var fRegion = document.getElementById('f-region');
+  var fType = document.getElementById('f-type');
+
+  function uniq(arr){ return arr.filter(function(v,i){ return arr.indexOf(v)===i; }).sort(); }
+  function fillSelect(sel, values){ values.forEach(function(v){ var o=document.createElement('option'); o.value=v; o.textContent=v; sel.appendChild(o); }); }
+  fillSelect(fProf, uniq(jobs.map(function(j){return j.profession;})));
+  fillSelect(fRegion, uniq(jobs.map(function(j){return j.region;})));
+  fillSelect(fType, uniq(jobs.reduce(function(a,j){return a.concat(j.types);},[])));
+
+  var PIN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>';
+  var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+  function fmtClose(iso){
+    var d = new Date(iso+'T00:00:00');
+    var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear();
+  }
+  function daysLeft(iso){ return Math.ceil((new Date(iso+'T00:00:00') - new Date())/86400000); }
+
+  /* Sponsorship, relocation and family support are the employer's commitments, so they are
+     reported, never claimed. A confirmed yes/no shows as a chip; anything unconfirmed says so
+     in one line rather than rendering blank (which reads as "no") or three "we'll confirm"
+     chips (which is noise, not information). */
+  var FACETS = [
+    { k:'sponsorship', yes:'Visa sponsorship', no:'No sponsorship' },
+    { k:'relocation',  yes:'Relocation support', no:'No relocation package' },
+    { k:'family',      yes:'Family friendly', no:'Not suited to families' }
+  ];
+  function facets(j){
+    var set = FACETS.filter(function(f){ return j[f.k]==='yes' || j[f.k]==='no'; });
+    var unset = FACETS.filter(function(f){ return j[f.k]!=='yes' && j[f.k]!=='no'; });
+    var out = '';
+    if(set.length){
+      out += '<div class="facs">'+set.map(function(f){
+        var y = j[f.k]==='yes';
+        return '<span class="fac '+(y?'y':'n')+'">'+(y?'<i aria-hidden="true">&#10003;</i>':'<i aria-hidden="true">&times;</i>')+(y?f.yes:f.no)+'</span>';
+      }).join('')+'</div>';
+    }
+    /* Only worth saying per-card when SOME facets are confirmed and others are not. With none
+       confirmed the same sentence would repeat on every card, so the board-level note carries
+       it once instead. */
+    if(set.length && unset.length){
+      var names = unset.map(function(f){ return f.k==='family' ? 'family support' : f.k; });
+      var list = names.length===1 ? names[0] : names.slice(0,-1).join(', ')+' and '+names[names.length-1];
+      out += '<p class="facask">Still to confirm: '+list+'.</p>';
+    }
+    return out;
+  }
+  function card(j){
+    var chips = j.types.map(function(t){return '<span class="chip">'+t+'</span>';}).join('');
+    var life = j.lifestyle ? '<p class="life">'+j.lifestyle+'</p>' : '';
+    return '<article class="jobcard">'+
+      '<div class="prof">'+j.profession+'</div>'+
+      '<h3><a href="'+j.detail+'">'+j.title+'</a></h3>'+
+      '<div class="loc">'+PIN+j.location+' &middot; '+j.sector+'</div>'+
+      life+
+      '<div class="chips">'+chips+'</div>'+
+      facets(j)+
+      '<p class="sum">'+j.summary+'</p>'+
+      '<div class="foot"><span class="closes">'+j.sector+'</span>'+
+      '<a class="view" href="'+j.detail+'">View role'+ARROW+'</a></div>'+
+    '</article>';
+  }
+
+  function matches(j){
+    var term = q.value.trim().toLowerCase();
+    if(term){
+      var hay = (j.title+' '+j.profession+' '+j.location+' '+j.region+' '+j.summary+' '+(j.lifestyle||'')).toLowerCase();
+      if(hay.indexOf(term)===-1) return false;
+    }
+    if(fProf.value && j.profession!==fProf.value) return false;
+    if(fRegion.value && j.region!==fRegion.value) return false;
+    if(fType.value && j.types.indexOf(fType.value)===-1) return false;
+    return true;
+  }
+
+  function render(){
+    var list = jobs.filter(matches);
+    grid.innerHTML = list.map(card).join('');
+    empty.classList.toggle('show', list.length===0);
+    var total = jobs.length;
+    countEl.innerHTML = list.length===total ?
+      ('<b>'+total+'</b> role'+(total===1?'':'s')) :
+      ('<b>'+list.length+'</b> of '+total+' roles');
+  }
+
+  [q,fProf,fRegion,fType].forEach(function(el){ el.addEventListener('input', render); });
+  document.getElementById('clear').addEventListener('click', function(){
+    q.value=''; fProf.value=''; fRegion.value=''; fType.value=''; render();
+  });
+  render();
+})();
+</script>
+
+<!-- ============================================================
+     INTERNAL LINK MAP — jobs/index.html (Job board)
+  Before you apply: "Check my registration pathway" → Registration pathway checker (/pathway-checker)
+     - Logo / brand → Home (/)
+     - Nav: Home (/), Australia (/australia), New Zealand (/new-zealand),
+       Jobs (/jobs — this page), Guides & Resources (/resources),
+       Insights (/insights), About (/about-ethicare), Contact (/contact)
+     - Each job card title + "View role" → vacancy detail (/jobs/vacancy/{slug})
+     - "Register your interest" → Apply (/apply)
+     - "Talk to the team" / empty-state CV link → Contact (/contact) & Apply (/apply)
+     - Footer → New Zealand, Australia, Employers, About, Contact, Apply
+     ============================================================ -->
+
+<!-- ============================================================
+     SEO
+     Page Title: Healthcare jobs in New Zealand & Australia | Vacancies
+     URL Slug: /jobs
+     SEO Title: Healthcare Jobs in New Zealand & Australia | Live Vacancies | Ethicare
+     Meta Description: Browse live healthcare vacancies across New Zealand and Australia for
+       internationally trained clinicians — radiology, anaesthetic technology
+       and more. Filter by profession, region and job type, and apply through Ethicare.
+     ============================================================ -->
+<script src="../nav.js" defer></script>
+<script src="../journey-nav.js" defer></script>
+</body>
+</html>

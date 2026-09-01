@@ -1,0 +1,167 @@
+/* ==========================================================================
+   ETHICARE RESOURCING — CANONICAL PAGE HERO
+   --------------------------------------------------------------------------
+   Single source of truth for the hero on every guide, profession and
+   six-step journey page. Modelled on /guides/moving-to-australia.
+
+   Load this LAST in <head> (immediately before </head>) so it standardises
+   whatever hero styling a page already carries inline. Higher-specificity
+   ".hero .x" selectors also win regardless of order.
+
+   Country tint comes straight from --teal:
+     Australia   #02615D      New Zealand   #02615D
+   so professions automatically drop their old one-off teals and match the
+   guides for their country. One framed-illustration treatment; the card
+   flexes to each image's natural shape and nothing is ever cropped.
+   ========================================================================== */
+
+/* fallback for pages that don't define it locally (referenced by .hero.cream crumb) */
+:root{--sage-text:#2F5E49}
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  min-height:clamp(480px,72svh,660px);
+  display:grid;
+  align-content:center;
+  background:var(--teal);
+}
+/* neutralise diagonal / photo overlays used by non-standard hero variants */
+.hero::after{display:none;}
+
+.hero .wrap{
+  display:grid;
+  grid-template-columns:1.18fr .82fr;
+  gap:clamp(28px,4vw,56px);
+  align-items:center;
+  padding-top:clamp(46px,6vw,68px);
+  padding-bottom:clamp(46px,6vw,68px);
+  position:relative;
+  z-index:2;
+}
+
+/* --- copy column ---------------------------------------------------------- */
+.hero .hero-copy{order:1;max-width:none;padding-right:0;min-width:0;}
+.hero h1{color:#fff;margin-bottom:16px;}
+.hero .crumb{color:rgba(255,255,255,.9);}
+.hero .crumb a:hover,
+.hero .crumb .here{color:#fff;}
+.hero .hero-sub{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:500;
+  font-size:clamp(16.5px,2vw,19px);
+  line-height:1.62;
+  color:rgba(255,255,255,.85);
+  max-width:50ch;
+  margin-bottom:8px;
+}
+.hero .btn-primary{background:#fff;color:var(--teal);}
+.hero .btn-primary:hover{background:var(--warm,#FCFBF8);}
+.hero .btn-ghost{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);color:#fff;}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.2);}
+
+/* --- framed illustration -------------------------------------------------- */
+/* one treatment; flexes between portrait (journey steps) and wide (professions,
+   guides). height:auto + aspect-ratio:auto guarantees the whole image shows. */
+.hero .hero-art{
+  order:2;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-self:center;
+  width:auto;
+  max-width:none;
+  min-width:0;
+  top:auto;right:auto;bottom:auto;left:auto;
+  transform:none;
+  margin:0;
+  padding:0;
+  height:auto;
+  z-index:2;
+}
+.hero .hero-art::after{display:none;}
+.hero .hero-art img{
+  width:auto;
+  max-width:100%;
+  max-height:clamp(230px,32vh,320px);
+  height:auto;
+  aspect-ratio:auto;
+  object-fit:contain;
+  object-position:center;
+  border-radius:var(--r-lg);
+  border:5px solid #fff;
+  box-shadow:var(--sh-photo);
+  background:#fff;
+  display:block;
+}
+
+/* --- responsive ----------------------------------------------------------- */
+@media (max-width:880px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px;}
+  .hero .hero-art{order:-1;justify-content:flex-start;}
+  .hero .hero-art img{max-height:250px;}
+}
+@media (max-width:600px){
+  .hero .hero-art img{max-height:210px;}
+}
+
+/* ==========================================================================
+   CREAM HERO — journey steps + reference guides (.hero.cream)
+   Text-forward on warm cream; the scene illustration is dropped from the hero
+   (it stays in the step content), replaced by the country brand mark.
+   Accent divider colour comes from --hero-rule (NZ fern / AU terracotta).
+   ========================================================================== */
+.hero.cream{background:#F7F4EE;min-height:auto;}
+.hero.cream .wrap{grid-template-columns:1.2fr .8fr;padding-top:clamp(48px,6vw,86px);padding-bottom:clamp(48px,6vw,86px);}
+.hero.cream h1{color:var(--teal);}
+.hero.cream .crumb,.hero.cream .crumb a{color:var(--sage-text);}
+.hero.cream .crumb a:hover,.hero.cream .crumb .here{color:var(--teal);}
+.hero.cream .hero-sub{color:#333333;}
+.hero.cream .hero-sub::after{content:"";display:block;width:44px;height:3px;border-radius:2px;background:var(--hero-rule,#72A471);margin:24px 0 4px;}
+.hero.cream .eyebrow{color:#2F5E49;}
+.hero.cream .eyebrow::before{background:#72A471;}
+.hero.cream .btn-primary{background:var(--teal);color:#fff;}
+.hero.cream .btn-primary:hover{background:#014E4B;}
+.hero.cream .btn-ghost{background:transparent;border:2px solid var(--teal);color:var(--teal);}
+.hero.cream .btn-ghost:hover{background:rgba(2,97,93,.08);}
+.hero.cream .hero-badge{order:2;display:flex;justify-content:center;align-items:center;min-width:0;}
+.hero.cream .hero-badge img{width:100%;max-width:clamp(184px,20vw,272px);height:auto;display:block;filter:drop-shadow(0 16px 32px rgba(2,49,47,.16));}
+@media (max-width:880px){
+  .hero.cream .wrap{grid-template-columns:1fr;gap:24px;}
+  .hero.cream .hero-badge{justify-content:flex-start;}
+  .hero.cream .hero-badge img{max-width:150px;}
+}
+/* Australia accent — terracotta divider + eyebrow on the cream hero */
+.hero.cream.au{--hero-rule:#D9A084;}
+.hero.cream.au .eyebrow{color:#A34438;}
+.hero.cream.au .eyebrow::before{background:#D9A084;}
+
+/* ==========================================================================
+   DUO HERO — dual-country comparison pages (.hero.duo)
+   Split photograph: NZ left, AU right, under a LIGHT deep-teal scrim so the
+   imagery stays clearly visible. Country chips carry fern / apricot accents.
+   ========================================================================== */
+.hero.duo{background:#01413E;}
+.hero.duo .duo-bg{position:absolute;inset:0;z-index:0;display:grid;grid-template-columns:1fr 1fr;gap:4px;background:#01312F;}
+.hero.duo .duo-bg img{width:100%;height:100%;object-fit:cover;display:block;}
+.hero.duo::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(105deg,rgba(1,49,47,.80) 0%,rgba(1,49,47,.68) 46%,rgba(1,49,47,.54) 74%,rgba(1,49,47,.46) 100%);}
+.hero.duo .wrap{position:relative;z-index:2;grid-template-columns:1.35fr .65fr;}
+.hero.duo .crumb{display:flex;flex-wrap:wrap;align-items:center;column-gap:8px;row-gap:4px;line-height:1.5;margin-bottom:16px;}
+.hero.duo h1{text-wrap:balance;}
+.hero.duo h1,.hero.duo h1 em{color:#fff;}
+.hero.duo .eyebrow{color:#EFC3AA;}
+.hero.duo .hero-sub{color:rgba(255,255,255,.88);}
+.hero.duo .crumb,.hero.duo .crumb a{color:rgba(255,255,255,.85);}
+.hero.duo .crumb a:hover,.hero.duo .crumb .here{color:#fff;}
+.hero.duo .btn-primary{background:#fff;color:#02615D;}
+.hero.duo .btn-primary:hover{background:#FCFBF8;}
+.hero.duo .btn-ghost{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);color:#fff;}
+.hero.duo .duo-tags{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:24px 0 4px;}
+.hero.duo .duo-tags .t{display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.30);border-radius:var(--r-pill);padding:8px 16px;}
+.hero.duo .duo-tags i{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.hero.duo .duo-tags i.nz{background:#72A471;}
+.hero.duo .duo-tags i.au{background:#D9A084;}
+.hero.duo .duo-tags .orsep{color:rgba(255,255,255,.78);font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:15px;}
+@media (max-width:880px){
+  .hero.duo::before{background:linear-gradient(180deg,rgba(1,49,47,.80) 0%,rgba(1,49,47,.58) 100%);}
+}

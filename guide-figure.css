@@ -1,0 +1,10 @@
+/* Ethicare — the single guide-figure component. One name, one size.
+   Sits at the prose measure so it never protrudes past the copy it belongs to. */
+.gfig{margin:24px 0 24px;max-width:760px}
+.gfig img{width:100%;height:auto;aspect-ratio:1600/1067;object-fit:cover;border-radius:var(--r-lg,20px);display:block}
+.gfig figcaption{margin-top:16px;font-family:'Work Sans',ui-sans-serif,sans-serif;font-size:13.5px;font-weight:500;line-height:1.55;color:var(--fern-text,#2F5E49);max-width:64ch;padding-left:16px;border-left:2px solid #A6C84A}
+
+/* ratio modifiers — the component keeps one measure; only the crop changes */
+.gfig.native img{aspect-ratio:auto}
+.gfig.tall{max-width:520px}
+.gfig.tall img{aspect-ratio:3/4}

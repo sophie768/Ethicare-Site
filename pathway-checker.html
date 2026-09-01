@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Registration Pathway Checker | Ethicare Resourcing</title>
+<meta name="description" content="International healthcare professional? Check the registration pathways that may apply to your profession and qualification in Australia and New Zealand.">
+<link rel="canonical" href="https://ethicareresourcing.com/pathway-checker">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<link rel="icon" href="assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Could I work in Australia or New Zealand?">
+<meta property="og:description" content="Check the registration pathways that may apply to your profession and qualification — with links straight to the official regulators.">
+<style>
+h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
+/* the 28px lime eyebrow rule — every page carries it */
+.eyebrow{display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none}
+/* ---------- hero ---------- */
+.pw-hero{background:var(--warm);padding:clamp(52px,7vw,88px) 24px clamp(30px,4vw,44px)}
+.pw-hero .in{max-width:1180px;margin:0 auto}
+.pw-hero h1{font-weight:600;font-size:clamp(36px,5.2vw,54px);line-height:1.1;letter-spacing:-.02em;color:var(--teal);max-width:17ch;margin-bottom:var(--sp-s)}
+.pw-hero .said{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(21px,2.6vw,27px);line-height:1.35;color:var(--text);margin-bottom:20px}
+.pw-hero .lede{font-size:18px;line-height:1.7;color:var(--muted);max-width:58ch;margin-bottom:22px}
+.pw-ticks{display:flex;flex-wrap:wrap;gap:10px 26px;margin-bottom:22px}
+.pw-ticks span{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--sage-text)}
+.pw-ticks svg{width:15px;height:15px;flex:none}
+.pw-legal{font-size:13.5px;line-height:1.6;color:var(--muted);max-width:70ch;border-top:1px solid var(--rule-tint,#C9DED3);padding-top:14px}
+.pw-start{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.pw-start .go{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:15px 30px;background:var(--teal);color:#FCFBF8;font-family:var(--display);font-weight:600;font-size:16.5px;border-radius:var(--r-pill);text-decoration:none;transition:background .18s ease,transform .18s ease}
+.pw-start .go:hover{background:#014E4B;transform:translateY(-1px)}
+.pw-start .go svg{width:17px;height:17px;flex:none}
+.pw-start .qs{font-family:var(--display);font-weight:600;font-size:15px;color:#2F5E49;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;min-height:24px;display:inline-flex;align-items:center}
+.pw-start .qs:hover{color:var(--teal)}
+/* ---------- checker shell ---------- */
+.pw-wrap{background:var(--warm);padding:8px 20px clamp(56px,7vw,88px);display:flex;justify-content:center}
+.pw-card{width:100%;max-width:1060px;background:#fff;border-radius:var(--r-xl);box-shadow:var(--sh-lg);overflow:hidden;display:flex;flex-wrap:wrap}
+.pw-card.solo{display:block;padding:clamp(28px,4vw,48px)}
+.pw-aside{flex:1 1 300px;min-width:280px;max-width:400px;background:var(--teal);color:#FCFBF8;padding:clamp(30px,3vw,40px) clamp(26px,2.4vw,34px);position:relative;overflow:hidden;display:flex;flex-direction:column}
+.pw-koru{position:absolute;right:-24px;bottom:-18px;width:162px;opacity:.1;filter:brightness(0) invert(1);pointer-events:none}
+.pw-akick{position:relative;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#C9DED3;margin-bottom:14px}
+.pw-aside h2{position:relative;font-weight:600;font-size:25px;line-height:1.25;color:#FCFBF8;letter-spacing:-.01em;margin-bottom:12px}
+.pw-alede{position:relative;font-size:14.5px;line-height:1.6;color:rgba(252,251,248,.78);max-width:36ch;margin-bottom:var(--sp-m)}
+.pw-prog{position:relative;height:5px;border-radius:var(--r-pill);background:rgba(252,251,248,.16);margin-bottom:var(--sp-m);overflow:hidden}
+.pw-prog i{position:absolute;left:0;top:0;bottom:0;border-radius:var(--r-pill);background:#72A471;transition:width .35s cubic-bezier(.4,0,.2,1)}
+.pw-asteps{position:relative;display:flex;flex-direction:column;margin-bottom:18px}
+.pw-arow{display:flex;gap:14px;align-items:stretch}
+.pw-acol{display:flex;flex-direction:column;align-items:center}
+/* small text on the teal aside stays at or above #C9DED3 (5.18:1) — alpha whites below .8 fail AA here */
+.pw-bub{width:30px;height:30px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--display);font-weight:700;font-size:13px;color:#C9DED3;border:1.5px solid rgba(252,251,248,.3)}
+.pw-bub svg{width:14px;height:14px}
+.pw-bub.done{background:#72A471;color:var(--teal);border:2px solid #72A471}
+.pw-bub.now{background:#FCFBF8;color:var(--teal);border:2px solid #72A471}
+.pw-con{width:2px;flex:1;min-height:14px;margin:3px 0;border-radius:2px;background:rgba(252,251,248,.22)}
+.pw-con.done{background:#72A471}
+.pw-albl{padding:5px 0 15px;font-family:var(--display);font-size:14.5px;line-height:1.3;color:#C9DED3;font-weight:500}
+.pw-albl.on{color:#FCFBF8;font-weight:600}
+.pw-aspacer{flex:1;min-height:12px}
+.pw-why{position:relative;background:#D6E1DA;border-radius:var(--r-lg);padding:18px 20px;margin-bottom:18px}
+.pw-whyk{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--sage-text);margin-bottom:var(--sp-xs)}
+.pw-why p{font-size:14px;line-height:1.55;color:var(--teal)}
+.pw-afoot{position:relative;font-size:12px;line-height:1.55;color:rgba(252,251,248,.8)}
+.pw-main{flex:999 1 480px;min-width:min(480px,100%);padding:clamp(28px,3.4vw,44px) clamp(22px,3vw,46px);display:flex;flex-direction:column;background:#fff}
+/* focus lands on the step heading after each step change (a11y) — give it the brand
+   ring, never the UA default: black is not in the palette */
+.pw-main h3:focus-visible,.pw-resulth h2:focus-visible{outline:3px solid #02615D;outline-offset:4px;border-radius:var(--r-xs)}
+/* ---------- step heads + fields ---------- */
+.pw-head{display:flex;align-items:center;gap:14px;margin-bottom:4px}
+.pw-icon{width:46px;height:46px;border-radius:var(--r-md);background:var(--soft);display:flex;align-items:center;justify-content:center;flex:none}
+.pw-icon svg{width:22px;height:22px}
+.pw-eyebrow-s{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-text)}
+.pw-head h3{font-weight:600;font-size:23px;color:var(--teal);letter-spacing:-.01em;margin-top:2px}
+.pw-sub{font-size:15px;color:var(--muted);line-height:1.55;margin:6px 0 22px}
+.pw-group{margin-bottom:20px}
+.pw-gk{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-text);margin-bottom:10px}
+.pw-grid{display:grid;gap:10px}
+.pw-grid.prof{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.pw-grid.dest{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.pw-grid.tight{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:9px}
+.pw-row{display:flex;gap:9px}
+.pw-row.wrap{flex-wrap:wrap}
+.pw-pick{min-height:46px;font-family:var(--display);font-weight:600;font-size:13.5px;line-height:1.35;color:var(--text);background:#fff;border:1px solid #D6E1DA;border-radius:var(--r-sm);padding:13px 12px;cursor:pointer;text-align:center;transition:border-color .15s ease,background .15s ease}
+.pw-pick.prof{text-align:left;font-size:14px;padding:13px 16px}
+.pw-pick.flex{flex:1;font-size:14px}
+.pw-pick.wide{padding:12px 20px;font-size:14px}
+.pw-pick:hover,.pw-dest:hover,.pw-radio:hover,.pw-chip:hover{background:#F7F8F6;border-color:#C9DED3}
+.pw-pick.is-sel,.pw-dest.is-sel,.pw-radio.is-sel,.pw-chip.is-sel{border:2px solid var(--teal);background:rgba(2,97,93,.05)}
+.pw-dest{text-align:left;background:#fff;border:1px solid #D6E1DA;border-radius:var(--r-lg);padding:18px;cursor:pointer;transition:border-color .15s ease,background .15s ease}
+.pw-tile{display:flex;align-items:center;justify-content:center;min-width:44px;height:34px;padding:0 8px;border-radius:var(--r-sm);font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.04em;margin-bottom:12px}
+.pw-tile.au{background:#F7F4EE;color:#A34438;border:1px solid #EBDFD3}
+.pw-tile.nz{background:#E3ECE5;color:var(--sage-text)}
+.pw-tile.both{background:var(--soft);color:var(--teal)}
+.pw-tile.un{background:#F3F7F4;color:var(--muted)}
+.pw-dl{display:block;font-family:var(--display);font-weight:600;font-size:16px;color:var(--teal)}
+.pw-dd{display:block;font-size:13px;color:var(--muted);margin-top:3px;line-height:1.5}
+.pw-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.pw-f{min-width:0}
+.pw-f.wide{grid-column:1/-1}
+.pw-f label{display:block;font-family:var(--display);font-weight:600;font-size:13px;color:var(--text);margin-bottom:7px}
+.pw-req{color:#A34438}
+.pw-opt-note{color:var(--muted);font-weight:500}
+.pw-f input,.pw-f textarea,.pw-sel select{width:100%;font-family:var(--body);font-size:15.5px;color:var(--text);background:#fff;border:1px solid #D6E1DA;border-radius:var(--r-sm);padding:13px 15px;outline:none;transition:border-color .15s ease,box-shadow .15s ease}
+.pw-f textarea{resize:vertical;line-height:1.6}
+.pw-sel{position:relative}
+.pw-sel select{appearance:none;-webkit-appearance:none;padding-right:42px;cursor:pointer}
+.pw-sel svg{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;pointer-events:none}
+.pw-f input:focus,.pw-f textarea:focus,.pw-sel select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(2,97,93,.12)}
+.pw-f input::placeholder,.pw-f textarea::placeholder{color:#8A9691}
+.pw-hint{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.5}
+.pw-q{font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--text);margin:22px 0 10px}
+.pw-radios{display:flex;flex-direction:column;gap:10px}
+.pw-radio{display:flex;gap:13px;align-items:flex-start;text-align:left;background:#fff;border:1px solid #D6E1DA;border-radius:var(--r-md);padding:14px 16px;cursor:pointer;transition:border-color .15s ease,background .15s ease}
+.pw-radio i{width:21px;height:21px;border-radius:var(--r-pill);border:1.8px solid #C9DED3;flex:none;margin-top:1px}
+.pw-radio.is-sel i{border-color:var(--teal);background:var(--teal);box-shadow:inset 0 0 0 4.5px #fff}
+.pw-radio span{font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--text);line-height:1.4}
+.pw-inset{margin:12px 0 4px;padding:16px 18px;background:var(--soft);border-radius:var(--r-md);display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.pw-inset.block{display:block;margin-top:22px;padding:18px 20px}
+.pw-inset .pw-q:first-child,.pw-inset.block .pw-q{margin-top:0}
+.pw-insetk{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-text);margin-bottom:12px}
+.pw-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+/* ---------- nav ---------- */
+.pw-nav{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-s);margin-top:30px;padding-top:20px;border-top:1px solid #D6E1DA}
+.pw-back{display:inline-flex;align-items:center;min-height:46px;gap:7px;font-family:var(--display);font-weight:600;font-size:15px;color:var(--teal);padding:0 14px;border-radius:var(--r-sm);background:none;border:none;cursor:pointer}
+.pw-back:hover{background:var(--soft)}
+.pw-back svg{width:16px;height:16px}
+.pw-navr{display:flex;flex-direction:column;align-items:flex-end;gap:var(--sp-xs)}
+.pw-next{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:600;font-size:15px;color:#fff;background:var(--teal);padding:15px 30px;border-radius:var(--r-sm);border:none;cursor:pointer;box-shadow:0 2px 8px rgba(2,97,93,.18);transition:filter .15s ease,transform .15s ease}
+.pw-next:hover{filter:brightness(.93);transform:translateY(-1px)}
+.pw-next svg{width:16px;height:16px}
+.pw-err{font-size:12.5px;color:#A34438;text-align:right;max-width:40ch;line-height:1.4}
+/* ---------- result ---------- */
+.pw-resulth{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:var(--sp-s);margin-bottom:var(--sp-xs)}
+.pw-resulth h2{font-weight:600;font-size:clamp(24px,3.2vw,32px);color:var(--teal);letter-spacing:-.01em;line-height:1.2}
+.pw-rsum{font-size:14.5px;color:var(--muted);margin-top:var(--sp-xs)}
+.pw-resacts{display:flex;gap:10px;flex-wrap:wrap}
+.pw-b1,.pw-b2,.pw-b3{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:14px;border-radius:var(--r-sm);cursor:pointer;text-decoration:none}
+.pw-b1{min-height:46px;justify-content:center;background:var(--teal);color:#FCFBF8;border:none;padding:0 24px}
+.pw-b1:hover{filter:brightness(.93)}
+.pw-b2{min-height:44px;justify-content:center;background:#fff;color:var(--teal);border:1.5px solid #72A471;padding:0 19px}
+.pw-b2:hover{background:var(--soft)}
+.pw-b3{min-height:44px;justify-content:center;background:none;border:none;color:var(--muted);padding:0 9px;text-decoration:underline;text-underline-offset:3px}
+.pw-b3:hover{color:var(--teal)}
+.pw-rintro{font-size:15px;color:var(--muted);margin-bottom:var(--sp-xs)}
+.pw-resgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:20px;margin-top:20px}
+.pw-res{border:1px solid #D6E1DA;border-radius:var(--r-lg);background:#fff;padding:clamp(20px,2.6vw,28px);display:flex;flex-direction:column}
+.pw-res.au{border-top:4px solid #D9A084}
+.pw-res.nz{border-top:4px solid #72A471}
+.pw-res.both{border-top:4px solid #A6C84A}
+.pw-resh{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.pw-resh .pw-tile{margin-bottom:0}
+.pw-resc{font-family:var(--display);font-weight:600;font-size:17px;color:var(--teal)}
+.pw-pill{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.07em;text-transform:uppercase;padding:6px 12px;border-radius:var(--r-pill)}
+.pw-reg{font-size:12.5px;color:var(--muted);margin-bottom:12px;line-height:1.5}
+.pw-reg strong{font-family:var(--display);font-weight:600;color:var(--text)}
+.pw-res h3{font-weight:600;font-size:20px;line-height:1.3;color:var(--teal);letter-spacing:-.01em;margin-bottom:12px}
+.pw-rp{font-size:14.5px;line-height:1.65;color:var(--muted);margin-bottom:10px}
+.pw-outlook{border:1px solid #D6E1DA;border-radius:var(--r-md);background:var(--warm);padding:16px 18px;margin:4px 0 12px}
+.pw-oh{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 12px;margin-bottom:11px}
+.pw-ok{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--sage-text)}
+.pw-ob{font-family:var(--display);font-weight:600;font-size:11.5px;color:var(--muted)}
+.pw-oi{font-size:12.5px;line-height:1.55;color:var(--muted);margin-bottom:11px}
+.pw-segs{display:flex;gap:5px;margin-bottom:10px}
+.pw-segs span{flex:1;text-align:center;font-family:var(--display);font-weight:600;font-size:11.5px;line-height:1.25;padding:8px 6px;border-radius:var(--r-xs)}
+.pw-ol{font-family:var(--display);font-weight:600;font-size:14px;color:var(--teal);margin-bottom:5px}
+.pw-ow{font-size:13.5px;line-height:1.55;color:var(--muted)}
+.pw-od{font-size:11.5px;line-height:1.5;color:var(--muted);margin-top:9px;padding-top:var(--sp-xs);border-top:1px solid var(--soft)}
+.pw-btns{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:4px 0 16px}
+.pw-btns.end{margin:auto 0 0;padding-top:var(--sp-s)}
+.pw-note{border-radius:var(--r-sm);padding:13px 16px;margin:6px 0;background:var(--soft)}
+.pw-note.sand{background:#F7F4EE;border:1px solid #EBDFD3}
+.pw-notek{font-family:var(--display);font-weight:600;font-size:13px;color:var(--sage-text);margin-bottom:3px}
+.pw-note p{font-size:13.5px;line-height:1.55;color:var(--text)}
+.pw-note a{display:inline-flex;align-items:center;min-height:44px;font-family:var(--display);font-weight:600;font-size:13px;color:var(--sage-text);text-decoration:underline;text-underline-offset:3px}
+.pw-nextk{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-text);margin:14px 0 10px}
+.pw-steps{display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
+.pw-stepr{display:flex;gap:11px;align-items:flex-start}
+.pw-stepr span:first-child{width:22px;height:22px;border-radius:var(--r-pill);background:var(--soft);color:var(--teal);display:flex;align-items:center;justify-content:center;flex:none;font-family:var(--display);font-weight:700;font-size:11.5px;margin-top:1px}
+.pw-stepr span:last-child{font-size:14px;color:var(--muted);line-height:1.5}
+.pw-checked{font-size:12px;color:var(--muted);margin-top:var(--sp-s);padding-top:12px;border-top:1px solid var(--soft)}
+.pw-disc{font-size:13px;line-height:1.6;color:var(--muted);margin-top:18px;max-width:80ch}
+/* ---------- lead ---------- */
+.pw-lead{margin-top:32px;border-top:1px solid #D6E1DA;padding-top:30px}
+.pw-lead h3{font-weight:600;font-size:23px;color:var(--teal);letter-spacing:-.01em;margin-bottom:var(--sp-xs)}
+.pw-leadp{font-size:15px;color:var(--muted);line-height:1.6;max-width:64ch;margin-bottom:22px}
+.pw-chip{display:inline-flex;align-items:center;justify-content:center;min-height:44px;gap:7px;border:1px solid #D6E1DA;background:#fff;color:var(--text);border-radius:var(--r-pill);padding:0 18px;font-family:var(--display);font-weight:600;font-size:13.5px;line-height:1;cursor:pointer}
+.pw-consent{display:flex;gap:13px;align-items:flex-start;min-height:44px;margin-top:var(--sp-m);cursor:pointer;background:none;border:none;text-align:left;padding:10px 0}
+.pw-consent i{width:22px;height:22px;border-radius:var(--r-xs);border:1.5px solid #C9DED3;background:#fff;flex:none;margin-top:1px;display:flex;align-items:center;justify-content:center}
+.pw-consent i svg{width:13px;height:13px}
+.pw-consent.is-sel i{border-color:var(--teal);background:var(--teal)}
+.pw-consent span{font-family:var(--body);font-size:13.5px;color:var(--muted);line-height:1.55}
+.pw-consent a{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+.pw-leadbtns{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:var(--sp-m)}
+.pw-done{margin-top:32px;border-top:1px solid #D6E1DA;padding-top:30px;display:flex;gap:var(--sp-s);align-items:flex-start}
+.pw-donei{width:44px;height:44px;border-radius:var(--r-pill);background:var(--teal);display:flex;align-items:center;justify-content:center;flex:none}
+.pw-donei svg{width:20px;height:20px}
+.pw-done h3{font-weight:600;font-size:20px;color:var(--teal);margin-bottom:6px}
+.pw-done p{font-size:14.5px;color:var(--muted);line-height:1.6;max-width:60ch}
+.pw-done a{font-weight:600;color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+/* ---------- static bands ---------- */
+.pw-how{background:#fff;border-top:1px solid var(--soft);padding:var(--sp-section) 24px}
+.pw-how .in,.pw-faq .in{max-width:1180px;margin:0 auto}
+.pw-how h2,.pw-faq h2{font-weight:600;font-size:clamp(26px,3.4vw,36px);color:var(--teal);letter-spacing:-.015em;line-height:1.2;max-width:24ch;margin-bottom:14px}
+.pw-how .lede{font-size:17px;color:var(--muted);line-height:1.7;max-width:62ch;margin-bottom:clamp(24px,2.8vw,30px)}
+.pw-how .pw-legal{border-top:0;padding-top:0}
+.pw-faq{background:var(--soft);padding:var(--sp-section) 24px}
+.pw-faq .in{max-width:820px}
+.pw-faq h2{margin-bottom:clamp(20px,2.4vw,26px)}
+.pw-faqlist{border-top:1px solid var(--rule-tint,rgba(2,97,93,.65))}
+.pw-faq summary{display:flex;justify-content:space-between;align-items:baseline;gap:20px;font-family:var(--display);font-weight:600;font-size:17px;line-height:1.4;color:var(--teal);cursor:pointer;list-style:none;padding:20px 0}
+.pw-faq summary::-webkit-details-marker{display:none}
+.pw-faq summary:hover{color:#014E4B}
+.pw-q1{border-bottom:1px solid rgba(2,97,93,.28)}
+.pw-faq .cv{font-family:var(--display);font-weight:400;font-size:24px;color:#2F5E49;transition:transform .2s ease;line-height:1;flex:none}
+.pw-faq details[open]>summary .cv{transform:rotate(45deg)}
+.pw-a{padding:0 0 22px;max-width:68ch}
+.pw-a p{font-size:15.5px;color:var(--muted);line-height:1.75}
+.pw-faq a{font-weight:600;color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+.pw-faqall>summary{font-size:16px;padding:16px 26px;justify-content:center;background:#fff;border:1px solid var(--mint);border-radius:var(--r-pill);gap:12px;min-height:52px;align-items:center}
+.pw-faqall>summary:hover{background:#F3F7F4}
+.pw-faqall[open]>summary{margin-bottom:clamp(18px,2.4vw,26px)}
+.pw-prov{margin-top:14px;padding:14px 16px;border-radius:var(--r-md,10px);font-size:14px;line-height:1.6;background:#F7F4EE;color:#333333;border-left:3px solid #A34438}
+.pw-prov.changing{border-left-color:#02615D}
+.pw-prov.retired{background:#FCEDEA}
+.pw-next{margin-top:clamp(30px,3.6vw,42px);padding-top:clamp(26px,3vw,34px);border-top:1px solid var(--rule-tint,rgba(2,97,93,.65))}
+.pw-next h3{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.4vw,25px);color:var(--teal);letter-spacing:-.01em;margin-bottom:18px}
+.pw-nextgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.pw-nextc{display:flex;flex-direction:column;gap:7px;padding:22px;background:var(--warm);border:1px solid var(--mint);border-radius:var(--r-lg);text-decoration:none;transition:border-color .18s ease,transform .18s ease}
+.pw-nextc:hover{border-color:#72A471;transform:translateY(-2px)}
+.pw-nextc .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#2F5E49}
+.pw-nextc .t{font-family:var(--display);font-weight:600;font-size:17px;line-height:1.3;color:var(--teal)}
+.pw-nextc .n{font-size:14px;line-height:1.6;color:var(--muted)}
+.pw-nextc .go{font-family:var(--display);font-size:18px;color:#2F5E49;margin-top:2px}
+.pw-searched{margin-top:clamp(32px,4vw,48px);padding-top:24px;border-top:1px solid rgba(2,97,93,.28)}
+.pw-searchedrow{display:flex;flex-wrap:wrap;gap:10px 12px;margin-top:12px}
+.pw-searchedrow a{font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--teal);background:#fff;border:1px solid var(--mint);border-radius:var(--r-pill);padding:9px 16px;text-decoration:none}
+.pw-searchedrow a:hover{background:#fff;border-color:#2F5E49}
+/* result: why you're seeing this */
+.pw-whyres{border-left:3px solid #72A471;padding:2px 0 2px 16px;margin:6px 0 14px}
+.pw-whyres p{font-size:14px;line-height:1.65;color:var(--text);margin-top:4px}
+.pw-res.au .pw-whyres{border-left-color:#D9A084}
+/* step 3: why we ask */
+.pw-inlinewhy{margin-top:0}
+.pw-inlinewhy summary{display:inline-flex;align-items:center;min-height:44px;font-family:var(--display);font-weight:600;font-size:12.5px;color:var(--sage-text);cursor:pointer;list-style:none;text-decoration:underline;text-underline-offset:3px}
+.pw-inlinewhy summary::-webkit-details-marker{display:none}
+.pw-inlinewhy p{font-size:12.5px;line-height:1.55;color:var(--muted);margin-top:8px;padding-left:12px;border-left:2px solid var(--mint)}
+
+/* ---------- print / save as PDF: the result IS the document ---------- */
+@media print{
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+  html,body{background:#fff !important}
+  .site-header,.site-footer,.skip-link,.pw-hero,.pw-how,.pw-faq,.pw-aside,.pw-nav,.pw-resacts,.pw-lead,.pw-done,.nav-toggle,.site-nav{display:none !important}
+  .pw-wrap{padding:0 !important;background:#fff !important}
+  .pw-card{box-shadow:none !important;border-radius:0 !important;max-width:none !important;padding:0 !important;display:block !important}
+  .pw-resulth{border-bottom:1px solid #C9DED3;padding-bottom:12px}
+  .pw-resgrid{display:block !important}
+  .pw-res{border:1px solid #C9DED3 !important;border-radius:0 !important;break-inside:avoid;page-break-inside:avoid;margin-bottom:14px}
+  .pw-res.au,.pw-res.nz,.pw-res.both{border-top-width:3px !important}
+  .pw-btns a{text-decoration:underline}
+  .pw-btns a::after{content:" (" attr(href) ")";font-size:10px;color:#555555;word-break:break-all}
+  .pw-outlook,.pw-whyres,.pw-note{break-inside:avoid}
+  .pw-checked{font-size:10.5px}
+  #pw-app::after{content:"Guidance only \2014 registration decisions rest with the relevant Australian or New Zealand regulator. ethicareresourcing.com/pathway-checker";display:block;margin-top:10px;font-size:10.5px;color:#555555}
+}
+@media (max-width:860px){.pw-aside{max-width:none;flex-basis:100%}}
+@media (max-width:600px){.pw-card{border-radius:var(--r-lg)}.pw-fields{grid-template-columns:1fr}.pw-resacts{width:100%}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Registration pathway checker"}]}</script>
+<meta property="og:url" content="https://ethicareresourcing.com/pathway-checker"><meta property="og:image" content="https://ethicareresourcing.com/assets/og-toolkit.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Could I work in Australia or New Zealand?"><meta name="twitter:description" content="Check the registration pathways that may apply to your profession and qualification — with links straight to the official regulators."><meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-toolkit.jpg">
+<style id="pw-redesign">
+.pw-wrap{background:var(--warm)}
+.pw-card{display:block;background:var(--warm);border:0;border-radius:0;box-shadow:none;max-width:760px;margin:0 auto;padding:clamp(30px,4vw,52px) 0 clamp(34px,4vw,54px)}
+.pw-card.solo{max-width:1080px}
+.pw-main{background:none;padding:0}
+.pw-top{margin-bottom:clamp(30px,4vw,46px)}
+.pw-topline{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+.pw-src{font-size:13.5px;line-height:1.5;color:#5C6B68}
+.pw-count{font-family:var(--display);font-size:13.5px;font-weight:600;color:#5C6B68;letter-spacing:.08em;white-space:nowrap}
+.pw-count b{font-weight:700;color:var(--teal)}
+.pw-bar{height:2px;background:rgba(2,97,93,.18);overflow:hidden}
+.pw-bar i{display:block;height:100%;background:var(--teal);transition:width .4s cubic-bezier(.4,0,.2,1)}
+.pw-main h3.pw-ask:focus,.pw-main h3.pw-ask:focus-visible,.pw-resulth h2:focus,.pw-resulth h2:focus-visible{outline:none}
+.pw-ask{font-family:var(--display);font-weight:300;font-size:clamp(28px,4.2vw,46px);line-height:1.1;letter-spacing:-.028em;color:var(--teal);margin:0 0 14px;max-width:26ch;text-wrap:pretty}
+.pw-wrap .pw-sub{font-size:16.5px;line-height:1.66;color:#555;max-width:60ch;margin:0 0 clamp(24px,3vw,34px);text-wrap:pretty}
+.pw-q2{font-family:var(--display);font-weight:600;font-size:clamp(17px,2vw,20px);line-height:1.3;color:var(--teal);margin:clamp(28px,3.4vw,40px) 0 14px;max-width:44ch}
+.pw-q2.flush{margin-top:0}
+.pw-opts{display:grid;gap:10px;max-width:620px}
+.pw-opts.row{grid-template-columns:repeat(auto-fit,minmax(190px,1fr));max-width:760px}
+.pw-opt{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;min-height:60px;padding:15px 18px;text-align:left;font-family:var(--body);font-size:16px;line-height:1.45;color:var(--text);background:#fff;border:1.5px solid #DCE6E0;border-radius:10px;cursor:pointer;transition:border-color .15s ease,background .15s ease}
+.pw-opt:hover{border-color:#72A471;background:#fbfdfb}
+.pw-opt .pw-tick{width:20px;height:20px;flex:0 0 auto;opacity:0;color:var(--teal);transition:opacity .15s ease}
+.pw-opt.is-sel{border-color:var(--teal);border-width:2px;background:#EDF4EF;color:var(--teal);font-weight:600;padding:14px 17px}
+.pw-opt.is-sel .pw-tick{opacity:1}
+.pw-opt:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.pw-follow{margin-top:16px;padding:20px 22px;background:#EDF4EF;border-radius:10px;max-width:620px}
+.pw-followk{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#2F5E49;margin-bottom:12px}
+.pw-wrap .pw-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px 24px;max-width:700px}
+.pw-wrap .pw-fields .pw-f.wide{grid-column:1/-1}
+.pw-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 18px;margin-top:clamp(32px,4vw,46px);padding-top:22px;border-top:1px solid var(--rule-tint)}
+.pw-navr{display:flex;flex-wrap:wrap;align-items:center;gap:14px 16px}
+.pw-back{min-height:48px;padding:12px 4px;background:none;border:0;font-family:var(--display);font-size:15px;font-weight:600;color:#5C6B68;cursor:pointer}
+.pw-back:hover{color:var(--teal)}
+.pw-next{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:15px 30px;background:var(--teal);border:0;border-radius:10px;font-family:var(--display);font-size:16px;font-weight:600;color:#fff;cursor:pointer;transition:background .15s ease}
+.pw-next:hover{background:#014A47}
+/* Full card width, left-aligned, above the buttons — and deliberately the same clay rule and
+   warm tint as [data-unanswered], so the summary and the marked questions read as one state. */
+.pw-err{display:block;max-width:none;margin:0 0 20px;padding:13px 16px;background:#FAF7F3;border-left:3px solid #A34438;border-radius:0 8px 8px 0;font-size:15px;line-height:1.5;color:#A34438;text-align:left}
+/* An unanswered question used to look identical to an answered one — the only signal was a
+   sentence beside Continue. Clay rule + tinted ground marks the question itself. Clay #A34438
+   measures 5.56:1 on this tint, and the rule is 3px so it is not carrying meaning on colour
+   alone: the error sentence names the question too (SC 1.4.1). */
+/* The marked containers are grids (.pw-opts, .pw-grid), so an in-flow ::before became a grid
+   ITEM and displaced the first option. Absolutely positioned it is out of flow, so it labels
+   the group without joining it. No negative margin either — that pulled the block outside the
+   card's padding. */
+[data-unanswered]{position:relative;padding:36px 16px 14px;border-left:3px solid #A34438;border-radius:0 10px 10px 0;background:#FAF7F3}
+[data-unanswered]::before{content:"Still to answer";position:absolute;top:13px;left:16px;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#A34438}
+.pw-priv{margin:26px 0 0;font-family:var(--display);font-size:14px;font-weight:600;color:#2F5E49;text-align:center}
+/* ---------- result: a personalised briefing, not a dashboard ---------- */
+.pw-briefs{display:grid;gap:clamp(40px,5vw,64px)}
+.pw-brief{max-width:760px}
+.pw-bhd{margin-bottom:6px}
+.pw-bcc{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2F5E49}
+.pw-bsec{padding:clamp(24px,3vw,32px) 0;border-bottom:1px solid var(--rule-tint)}
+.pw-bsec:last-of-type{border-bottom:0}
+.pw-bk{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#5C6B68;margin:0 0 12px}
+.pw-bfact{font-family:var(--display);font-weight:600;font-size:clamp(21px,2.6vw,28px);line-height:1.2;letter-spacing:-.015em;color:var(--teal);margin:0 0 10px;text-wrap:pretty}
+.pw-bfact.sm{font-size:clamp(18px,2.1vw,22px);margin-bottom:12px}
+.pw-bhead{font-family:var(--display);font-weight:300;font-size:clamp(24px,3.4vw,38px);line-height:1.14;letter-spacing:-.025em;color:var(--teal);margin:0 0 10px;text-wrap:pretty}
+.pw-bhead.sm{font-weight:600;font-size:clamp(18px,2.1vw,22px);letter-spacing:-.01em}
+.pw-bmeta{font-family:var(--display);font-size:13.5px;font-weight:600;color:#2F5E49;margin:0}
+.pw-bnote{font-size:15px;line-height:1.6;color:#5C6B68;margin:0;max-width:62ch;text-wrap:pretty}
+.pw-bp{font-size:16.5px;line-height:1.68;color:var(--text);margin:0 0 12px;max-width:66ch;text-wrap:pretty}
+.pw-bp:last-child{margin-bottom:0}
+.pw-bbasis{font-family:var(--display);font-size:13.5px;font-weight:600;color:#5C6B68;margin:10px 0 0}
+.pw-route{list-style:none;margin:0;padding:0;display:grid;gap:2px;counter-reset:none}
+.pw-route li{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:baseline;padding:15px 0;border-top:1px solid rgba(2,97,93,.28)}
+.pw-route li:first-child{border-top:0;padding-top:4px}
+.pw-rn{font-family:var(--display);font-weight:300;font-size:26px;line-height:1;color:#72A471;letter-spacing:-.02em}
+.pw-rt{font-size:16.5px;line-height:1.6;color:var(--text);text-wrap:pretty}
+.pw-may{padding:16px 0 0}
+.pw-may+.pw-may{margin-top:14px;border-top:1px solid rgba(2,97,93,.28)}
+.pw-mayk{font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--teal);margin:0 0 6px}
+.pw-may a{font-family:var(--display);font-weight:600;font-size:15px;color:#2F5E49;display:inline-block;margin-top:8px}
+.pw-official{background:#EDF4EF;border-bottom:0!important;border-radius:12px;padding:clamp(26px,3.2vw,36px)!important;margin-top:clamp(24px,3vw,32px)}
+.pw-offlink{display:inline-flex;align-items:center;min-height:48px;padding:13px 24px;background:var(--teal);border-radius:10px;font-family:var(--display);font-size:15.5px;font-weight:600;color:#fff;text-decoration:none;margin-bottom:16px}
+.pw-offlink:hover{background:#014A47;color:#fff}
+.pw-offlink.sm{min-height:44px;padding:10px 18px;font-size:14.5px;margin:10px 0 0}
+.pw-checked{font-size:13.5px;line-height:1.55;color:#5C6B68;margin:14px 0 0}
+/* two destinations: compare first, in two editorial columns */
+.pw-compare{margin-bottom:clamp(40px,5vw,60px)}
+.pw-comph{font-family:var(--display);font-weight:300;font-size:clamp(25px,3.4vw,38px);line-height:1.14;letter-spacing:-.025em;color:var(--teal);margin:0 0 clamp(20px,2.6vw,30px)}
+.pw-cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(24px,3vw,44px)}
+.pw-ccol h4{font-family:var(--display);font-weight:600;font-size:19px;color:var(--teal);margin:0 0 4px;padding-bottom:12px;border-bottom:2px solid var(--teal)}
+.pw-crow{display:grid;gap:3px;padding:14px 0;border-bottom:1px solid var(--rule-tint)}
+.pw-ck{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5C6B68}
+.pw-cv{font-size:16px;line-height:1.55;color:var(--text);text-wrap:pretty}
+.pw-stands{margin-top:clamp(26px,3.2vw,38px);padding-top:22px;border-top:1px solid var(--rule-tint)}
+.pw-stands h4{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#5C6B68;margin:0 0 10px}
+.pw-stands p{font-size:16.5px;line-height:1.68;color:var(--text);margin:0;max-width:70ch;text-wrap:pretty}
+@media (max-width:640px){
+.pw-bsec{padding:20px 0}
+.pw-bhead{font-size:clamp(21px,6vw,26px)}
+.pw-route li{gap:12px;padding:13px 0}
+.pw-rn{font-size:21px}
+}
+@media (prefers-reduced-motion:no-preference){.pw-main{animation:pwIn .28s cubic-bezier(.4,0,.2,1) both}}
+@keyframes pwIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (max-width:640px){
+.pw-card{padding:22px 0 30px}
+.pw-ask{font-size:clamp(25px,7vw,32px)}
+.pw-opts.row{grid-template-columns:1fr}
+.pw-nav{margin-top:30px}
+.pw-next{flex:1 1 auto}
+}
+.pw-confirm{margin:24px 0 0;padding:22px 24px;border-radius:14px;background:#E3ECE5;border:1px solid rgba(2,97,93,.14)}
+.pw-confirmk{font-family:'Work Sans',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.pw-confirmk::before{content:"";width:28px;height:3px;border-radius:3px;background:#A6C84A;flex:none}
+.pw-confirmb{margin:0 0 16px;color:#333;max-width:64ch;text-wrap:pretty}
+.pw-cb{display:inline-flex;align-items:center;gap:6px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;padding:12px 22px;border-radius:999px;background:#02615D;color:#FCFBF8;text-decoration:none;border:1px solid #02615D}
+.pw-cb:hover{background:#014f4c;color:#FCFBF8}
+.pw-cb:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 2px #FCFBF8}
+@media (max-width:600px){.pw-confirm{padding:18px}}
+.pw-resulth{flex-wrap:wrap;row-gap:18px;align-items:flex-start}
+.pw-resulth>div:first-child{min-width:min(100%,320px)}
+.pw-rsum{margin-bottom:0}
+.pw-resacts{flex-wrap:wrap;row-gap:10px}
+</style>
+<link rel="stylesheet" href="prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="pw-hero" data-screen-label="Hero">
+    <div class="in">
+      <span class="eyebrow">Registration pathway checker</span>
+      <h1>Can I work in Australia or New Zealand?</h1>
+      <p class="lede">Registration requirements vary depending on your profession, where you trained and your experience. Answer a few questions and we&rsquo;ll help you understand the pathway that may apply to you, with links back to the relevant regulator.</p>
+      <div class="pw-ticks">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="#2F5E49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>About two minutes</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="#2F5E49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Your result first, no contact details needed</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="#2F5E49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Official regulator links only</span>
+      </div>
+      <p class="pw-start"><a class="go" href="#checker">Check my pathway<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></a><a class="qs" href="#registration-questions">Questions about registration?</a></p>
+    </div>
+  </section>
+
+  <section id="checker" class="pw-wrap" data-screen-label="Checker">
+    <div id="pw-app">
+      <noscript>
+        <div class="pw-card solo">
+          <h2>Check your registration starting point</h2>
+          <p class="pw-rsum">This checker needs JavaScript. In the meantime, our registration guides cover every pathway in full: <a href="/guides/australia-registration">registering in Australia</a> and <a href="/guides/new-zealand-registration">registering in New Zealand</a>. You can also <a href="/contact">talk to our team</a>.</p>
+        </div>
+      </noscript>
+    </div>
+  </section>
+
+  <!-- The pitch moved into the hero: this section was making the same case with a second CTA
+       to the same anchor. What is left is the one thing that has to sit somewhere visible. -->
+  <section class="pw-how" data-screen-label="Disclaimer">
+    <div class="in">
+      <p class="pw-legal">This tool provides general guidance only and is not a registration assessment. Final decisions about eligibility and registration are made by the relevant Australian or New Zealand professional regulator.</p>
+    </div>
+  </section>
+
+  <section class="pw-faq" id="registration-questions" data-screen-label="FAQ">
+    <div class="in">
+      <h2>Questions about registration?</h2>
+      <details class="pw-faqall">
+      <summary>View common questions<span class="cv" aria-hidden="true">+</span></summary>
+      <div class="pw-faqlist">
+        <details class="pw-q1"><summary>Is my overseas qualification automatically recognised?<span class="cv" aria-hidden="true">+</span></summary><div class="pw-a"><p>Not necessarily. Australia and New Zealand run separate registration systems, and requirements differ considerably between professions. Some regulators have recognised, streamlined or express pathways for particular qualifications or countries; others assess every overseas qualification individually. This checker points you to the starting pathway that may be relevant to you — only the relevant regulator can decide whether your qualification meets its registration requirements.</p></div></details>
+        <details class="pw-q1"><summary>I have a diploma rather than a bachelor’s degree. Does that mean I can’t register?<span class="cv" aria-hidden="true">+</span></summary><div class="pw-a"><p>No — don’t assume a diploma rules you out. Requirements vary between professions and regulators, and many consider the content and duration of your programme, your clinical training, your registration and your relevant experience as part of the assessment. There is no “diploma = not eligible” rule here; the checker looks at your exact profession and qualification.</p></div></details>
+        <details class="pw-q1"><summary>Will I need to sit an exam?<span class="cv" aria-hidden="true">+</span></summary><div class="pw-a"><p>Possibly, but not everyone does. Depending on the profession and the outcome of the regulator’s assessment, you may be asked to complete an examination, a competence assessment, supervised practice, additional education or further documentary evidence. Others reach a recognised or streamlined pathway that doesn’t involve the same process. Where the official pathway doesn’t make the position unambiguous, we say additional assessment may be required rather than promising you either way.</p></div></details>
+        <details class="pw-q1"><summary>Do I need IELTS or OET?<span class="cv" aria-hidden="true">+</span></summary><div class="pw-a"><p>Not necessarily. English-language requirements depend on the profession, the regulator, and your education and professional background. Some applicants meet an accepted education or professional pathway without sitting a test; others need results from an approved test. Check the current standard for your own regulator before booking anything — requirements change, and Australian minimum test scores changed in April 2026.</p></div></details>
+        <details class="pw-q1"><summary>Do I need registration before I start applying for jobs?<span class="cv" aria-hidden="true">+</span></summary><div class="pw-a"><p>Not always. Many employers in Australia and New Zealand are happy to talk to you while registration is underway — though they will usually want to see that you have researched the right pathway, that a realistic route to registration exists, and that you have started gathering documents or submitted your application. You will normally need the appropriate registration in place before you can actually practise. <a href="/jobs/">See the roles we are working on →</a></p></div></details>
+        <details class="pw-q1"><summary>How long does international registration take?<span class="cv" aria-hidden="true">+</span></summary><div class="pw-a"><p>There is no single reliable timeframe. It depends on the profession, regulator, pathway and qualification, whether your documents are complete, third-party verification, whether further information is requested, and whether an examination, competence assessment or supervised practice is required. Express or streamlined pathways can be considerably quicker than an individual qualification assessment. Where a regulator publishes a current processing time for a pathway, we show it — we won’t offer a generic “six to eight weeks”.</p></div></details>
+            <details class="pw-q1"><summary>Are qualifications from some countries more easily recognised?<span class="cv" aria-hidden="true">+</span></summary><div class="pw-a"><p>Sometimes — but there is no single list of countries whose healthcare qualifications are recognised across Australia and New Zealand. Recognition is profession-specific, and regulators use different terms for it: recognised qualifications, comparable health systems, competent authority, express pathways, streamlined pathways. They are not interchangeable. The Physiotherapy Board of New Zealand, for example, currently runs an International Express Pathway for eligible physiotherapists with relevant qualifications and/or unrestricted registration from the UK, Ireland, Canada and South Africa. A radiographer or psychologist from the same country follows entirely different rules — which is why we hold country conditions against a specific profession, regulator and pathway rather than as one global list.</p></div></details>
+            <details class="pw-q1"><summary>Does my professional experience count?<span class="cv" aria-hidden="true">+</span></summary><div class="pw-a"><p>It can. Some regulators weigh relevant clinical or professional experience alongside an overseas qualification; other professions are more prescriptive about the qualification itself. Your experience may form part of the regulator’s assessment, depending on your profession and registration pathway — but it is not a substitute for an appropriate professional qualification.</p></div></details>
+            <details class="pw-q1"><summary>Why does the country where I qualified matter?<span class="cv" aria-hidden="true">+</span></summary><div class="pw-a"><p>Regulators assess the education and training that led to your professional qualification. Depending on the profession, they may consider your country of training, the exact qualification, the education provider, the curriculum, clinical education, professional registration, supervised practice, post-qualification experience and recent practice. That is why the checker asks where you qualified rather than your nationality — and why a country outside a streamlined pathway means a different assessment route, not a closed door.</p></div></details>
+            <details class="pw-q1"><summary>My colleague qualified in the same country and got registered. Does that mean I will too?<span class="cv" aria-hidden="true">+</span></summary><div class="pw-a"><p>Not necessarily. Two professionals from the same country can follow different pathways: qualification, university, year of training, clinical education, professional registration and experience all bear on an application, and some professions have streamlined routes where others assess every applicant individually. Your colleague’s experience is useful context — it is not a guarantee of the same outcome.</p></div></details>
+            <details class="pw-q1"><summary>Is Australia harder to register in than New Zealand?<span class="cv" aria-hidden="true">+</span></summary><div class="pw-a"><p>Not necessarily — it depends on the profession, the qualification and your own circumstances. One profession may have a straightforward New Zealand route and need additional assessment in Australia; for another, the reverse is true. Compare the requirements for your particular profession and background rather than assuming either country is easier. If you chose both in the checker, <a href="#checker">your two starting points sit side by side</a>.</p></div></details>
+            <details class="pw-q1"><summary>What documents should I start gathering?<span class="cv" aria-hidden="true">+</span></summary><div class="pw-a"><p>Requirements differ between regulators, but internationally qualified applicants are commonly asked for some combination of: proof of identity; your professional qualification certificate; an academic transcript; evidence of clinical training; curriculum or course information; current or previous professional registration; a certificate of good standing; employment history; a CV; and English-language evidence where required. Some regulators need documents verified or supplied directly by your university or professional body — check the current official list before paying for certification or verification.</p></div></details>
+            <details class="pw-q1"><summary>How much will registration cost?<span class="cv" aria-hidden="true">+</span></summary><div class="pw-a"><p>Costs vary considerably between professions and pathways, and there is usually more to budget for than one application fee: qualification assessment, application and registration fees, an annual practising certificate or annual registration, examination or competence assessment, document verification, certificates of good standing, English-language testing, and police or background checks. We only show amounts that carry a currency, source and last-checked date in our data — otherwise we link you straight to the regulator’s current fee schedule.</p></div></details>
+            <details class="pw-q1"><summary>Does using this checker mean Ethicare has assessed my eligibility?<span class="cv" aria-hidden="true">+</span></summary><div class="pw-a"><p>No. The Registration Pathway Checker is designed to help you understand which official registration pathway may be relevant to you. It is not a professional registration assessment, and Ethicare does not determine eligibility for registration — that decision is always made by the relevant Australian or New Zealand regulator.</p></div></details>
+      </div>
+      </details>
+      <div class="pw-searchedrow">
+          <a href="/jobs/radiographer-australia">Radiographers &amp; MITs in Australia</a>
+          <a href="/jobs/anaesthetic-technician-new-zealand">UK ODPs in New Zealand</a>
+          <a href="/jobs/physiotherapist-new-zealand">Physiotherapists in New Zealand</a>
+          <a href="/guides/new-zealand-registration">Doctors registering in New Zealand</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<form id="pw-netlify-form" name="pathway-checker-lead" method="POST" action="/pathway-checker.html?submitted=1" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="pathway-checker-lead">
+  <input type="hidden" name="_subject" value="Pathway checker enquiry — Ethicare website">
+  <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+  <input type="hidden" name="name" value=""><input type="hidden" name="email" value=""><input type="hidden" name="phone" value=""><input type="hidden" name="country" value=""><input type="hidden" name="dest" value=""><input type="hidden" name="timeframe" value=""><input type="hidden" name="priorities" value=""><input type="hidden" name="party" value=""><input type="hidden" name="consent" value=""><input type="hidden" name="result_summary" value=""><input type="hidden" name="email_copy" value=""><input type="hidden" name="profession" value=""><input type="hidden" name="destination" value=""><input type="hidden" name="qualCountry" value=""><input type="hidden" name="qualLevel" value=""><input type="hidden" name="recentCountry" value=""><input type="hidden" name="registered" value=""><input type="hidden" name="regCountry" value=""><input type="hidden" name="practising" value=""><input type="hidden" name="lastPractised" value=""><input type="hidden" name="regProgress" value=""><input type="hidden" name="english" value=""><input type="hidden" name="doctorSpecialist" value=""><input type="hidden" name="doctorSpecQual" value=""><input type="hidden" name="odpExp" value=""><input type="hidden" name="odpStanding" value="">
+</form>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is my overseas qualification automatically recognised?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. Australia and New Zealand run separate registration systems, and requirements differ considerably between professions. Some regulators have recognised, streamlined or express pathways for particular qualifications or countries; others assess every overseas qualification individually. This checker points you to the starting pathway that may be relevant to you — only the relevant regulator can decide whether your qualification meets its registration requirements."}},{"@type":"Question","name":"Are qualifications from some countries more easily recognised?","acceptedAnswer":{"@type":"Answer","text":"Sometimes — but there is no single list of countries whose healthcare qualifications are recognised across Australia and New Zealand. Recognition is profession-specific, and regulators use different terms for it: recognised qualifications, comparable health systems, competent authority, express pathways, streamlined pathways. They are not interchangeable. The Physiotherapy Board of New Zealand, for example, currently runs an International Express Pathway for eligible physiotherapists with relevant qualifications and/or unrestricted registration from the UK, Ireland, Canada and South Africa. A radiographer or psychologist from the same country follows entirely different rules — which is why we hold country conditions against a specific profession, regulator and pathway rather than as one global list."}},{"@type":"Question","name":"I have a diploma rather than a bachelor's degree. Does that mean I can't register?","acceptedAnswer":{"@type":"Answer","text":"No — don't assume a diploma rules you out. Requirements vary between professions and regulators, and many consider the content and duration of your programme, your clinical training, your registration and your relevant experience as part of the assessment. There is no “diploma = not eligible” rule here; the checker looks at your exact profession and qualification."}},{"@type":"Question","name":"Will I need to sit an exam?","acceptedAnswer":{"@type":"Answer","text":"Possibly, but not everyone does. Depending on the profession and the outcome of the regulator's assessment, you may be asked to complete an examination, a competence assessment, supervised practice, additional education or further documentary evidence. Others reach a recognised or streamlined pathway that doesn't involve the same process. Where the official pathway doesn't make the position unambiguous, we say additional assessment may be required rather than promising you either way."}},{"@type":"Question","name":"Does my professional experience count?","acceptedAnswer":{"@type":"Answer","text":"It can. Some regulators weigh relevant clinical or professional experience alongside an overseas qualification; other professions are more prescriptive about the qualification itself. Your experience may form part of the regulator's assessment, depending on your profession and registration pathway — but it is not a substitute for an appropriate professional qualification."}},{"@type":"Question","name":"Do I need IELTS or OET?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. English-language requirements depend on the profession, the regulator, and your education and professional background. Some applicants meet an accepted education or professional pathway without sitting a test; others need results from an approved test. Check the current standard for your own regulator before booking anything — requirements change, and Australian minimum test scores changed in April 2026."}},{"@type":"Question","name":"Do I need registration before I start applying for jobs?","acceptedAnswer":{"@type":"Answer","text":"Not always. Many employers in Australia and New Zealand are happy to talk to you while registration is underway — though they will usually want to see that you have researched the right pathway, that a realistic route to registration exists, and that you have started gathering documents or submitted your application. You will normally need the appropriate registration in place before you can actually practise. See the roles we are working on →"}},{"@type":"Question","name":"Why does the country where I qualified matter?","acceptedAnswer":{"@type":"Answer","text":"Regulators assess the education and training that led to your professional qualification. Depending on the profession, they may consider your country of training, the exact qualification, the education provider, the curriculum, clinical education, professional registration, supervised practice, post-qualification experience and recent practice. That is why the checker asks where you qualified rather than your nationality — and why a country outside a streamlined pathway means a different assessment route, not a closed door."}},{"@type":"Question","name":"My colleague qualified in the same country and got registered. Does that mean I will too?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. Two professionals from the same country can follow different pathways: qualification, university, year of training, clinical education, professional registration and experience all bear on an application, and some professions have streamlined routes where others assess every applicant individually. Your colleague's experience is useful context — it is not a guarantee of the same outcome."}},{"@type":"Question","name":"Is Australia harder to register in than New Zealand?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily — it depends on the profession, the qualification and your own circumstances. One profession may have a straightforward New Zealand route and need additional assessment in Australia; for another, the reverse is true. Compare the requirements for your particular profession and background rather than assuming either country is easier. If you chose both in the checker, your two starting points sit side by side."}},{"@type":"Question","name":"What documents should I start gathering?","acceptedAnswer":{"@type":"Answer","text":"Requirements differ between regulators, but internationally qualified applicants are commonly asked for some combination of: proof of identity; your professional qualification certificate; an academic transcript; evidence of clinical training; curriculum or course information; current or previous professional registration; a certificate of good standing; employment history; a CV; and English-language evidence where required. Some regulators need documents verified or supplied directly by your university or professional body — check the current official list before paying for certification or verification."}},{"@type":"Question","name":"How long does international registration take?","acceptedAnswer":{"@type":"Answer","text":"There is no single reliable timeframe. It depends on the profession, regulator, pathway and qualification, whether your documents are complete, third-party verification, whether further information is requested, and whether an examination, competence assessment or supervised practice is required. Express or streamlined pathways can be considerably quicker than an individual qualification assessment. Where a regulator publishes a current processing time for a pathway, we show it — we won't offer a generic “six to eight weeks”."}},{"@type":"Question","name":"How much will registration cost?","acceptedAnswer":{"@type":"Answer","text":"Costs vary considerably between professions and pathways, and there is usually more to budget for than one application fee: qualification assessment, application and registration fees, an annual practising certificate or annual registration, examination or competence assessment, document verification, certificates of good standing, English-language testing, and police or background checks. We only show amounts that carry a currency, source and last-checked date in our data — otherwise we link you straight to the regulator's current fee schedule."}},{"@type":"Question","name":"Does using this checker mean Ethicare has assessed my eligibility?","acceptedAnswer":{"@type":"Answer","text":"No. The Registration Pathway Checker is designed to help you understand which official registration pathway may be relevant to you. It is not a professional registration assessment, and Ethicare does not determine eligibility for registration — that decision is always made by the relevant Australian or New Zealand regulator."}}]}
+</script>
+<script src="site.js"></script>
+<script src="pathway-checker-data.js"></script>
+<script src="pathway-registry.js"></script>
+<script src="pathway-checker.js"></script>
+
+
+<!-- NOTE ON THE SPLICED HEADER
+  The header and footer here were copied from site/resources.html, which marks its OWN nav item
+  with aria-current="page". That marker was stripped: this is a root-level tool, not a page inside
+  Guides & Resources, and neither tool has a matching top-level nav item. If you build another page
+  by copying this header, strip it again — otherwise the wrong nav item lights up and assistive
+  tech announces the wrong current page.
+-->
+<!-- INTERNAL LINK MAP — /pathway-checker
+  Header: Ethicare logo → Home (/) · Home → / · Australia → /australia (mega: AU journey guides /guides/*, AU professions /jobs/*-australia, /destinations/australia)
+    · New Zealand → /new-zealand (mega: NZ journey guides /guides/*, NZ professions /jobs/*-new-zealand, /destinations)
+    · About → /about-ethicare · Insights → /insights · Contact → /contact · Register your interest → /apply
+  Hero: no links (disclaimer only)
+  Checker — result cards (generated from pathway-checker-data.js):
+    Official pathway button → the regulator's own page (external, new tab: Ahpra/Medical Radiation Practice Board, ASAR, Physiotherapy Board of NZ, Australian Physiotherapy Council,
+      Medical Sciences Council of NZ, Nursing Council of NZ, MCNZ, Psychology Board of Australia, OTBNZ etc.)
+    "Read the registration guide" → /guides/australia-registration or /guides/new-zealand-registration (master national topic — one source)
+    "See {profession} roles" → /jobs/{role}-{country}, falling back to /jobs
+    ODP Australia result → /contact
+    Note links (English standard, FLYR/Express FLYR country lists) → official regulator pages (external)
+  Checker — lead panel: "Register fully & send your CV" → /apply · consent copy → /privacy-policy
+  Checker — after submit: /guides/australia-registration · /guides/new-zealand-registration
+  No-JS fallback: /guides/australia-registration · /guides/new-zealand-registration · /contact
+  HERO — Check my pathway → #checker (same page) · Questions about registration? → #registration-questions (same page)
+  HERO CTA — Check my pathway → #checker (same page)
+  FAQ (#registration-questions, "Questions about registration?" — all 14 behind one "View common questions" disclosure):
+    Q on job applications "See the roles we are working on" → /jobs · Q on AU vs NZ "your two starting points sit side by side" → #checker (same page)
+  Looking for a specific combination? → /jobs/radiographer-australia · /jobs/anaesthetic-technician-new-zealand
+    · /jobs/physiotherapist-new-zealand · /guides/new-zealand-registration
+    (these carry the country+profession search intent — "can a South African radiographer work in Australia", "can a UK ODP
+     work in New Zealand" — deliberately as links to existing pages, never as thin per-combination pages)
+  Footer: Destinations → /new-zealand, /australia, /destinations, /destinations/australia · Candidates → /jobs, /resources, /insights, /apply
+    · Company → /about-ethicare, /employers, /submit-a-vacancy, /contact · /privacy-policy
+  Entry points elsewhere on the site: /resources (Tools row) · profession pages may deep-link /pathway-checker?profession={id} to preselect
+-->
+
+<!-- SEO
+  Page Title: Registration pathway checker
+  URL Slug: /pathway-checker
+  SEO Title: Could I Work in Australia or New Zealand as a Healthcare Professional?
+  Meta Description: International healthcare professional? Check the registration pathways that may apply to your profession and qualification in Australia and New Zealand.
+  Structured data: FAQPage JSON-LD, generated from the same 14 Q&As the page renders (no drift).
+  Search-intent topics kept on the site, not as their own pages: "can a South African radiographer work in Australia",
+    "can a UK ODP work in New Zealand", "can a South African physiotherapist work in New Zealand",
+    "how can an overseas doctor register in New Zealand" — owned by the profession pages and the two registration guides.
+-->
+<script src="nav.js" defer></script>
+</body>
+</html>

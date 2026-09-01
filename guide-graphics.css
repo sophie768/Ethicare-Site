@@ -1,0 +1,118 @@
+/* Ethicare guide graphics — information devices for chapter pages.
+   Drives off each page's own custom properties, so NZ (fern) and AU (apricot) inherit automatically.
+   Lime is a marker only, never a fill. */
+.gx{margin:40px 0;padding:0;break-inside:avoid;--g1:var(--primary);--g2:color-mix(in oklab,var(--primary) 72%,#fff);--g3:color-mix(in oklab,var(--primary) 44%,#fff);--g4:var(--secondary);--g5:color-mix(in oklab,var(--secondary) 60%,#fff);--g6:color-mix(in oklab,var(--secondary) 34%,#fff);--g7:color-mix(in oklab,var(--secondary) 18%,#fff)}
+.gx-t{font-family:'Work Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--primary);margin:0 0 8px;display:flex;align-items:center;gap:8px}
+.gx-t::before{content:"";width:26px;height:2px;background:var(--highlight);flex:none}
+.gx-sub{font-size:15.5px;color:var(--text2);margin:0 0 24px;max-width:64ch;line-height:1.6}
+.gx-note{font-size:12.5px;line-height:1.55;color:var(--text2);margin:16px 0 0;max-width:64ch}
+.gx-frame{background:var(--white);border:1px solid var(--divider);border-radius:var(--r-lg);padding:30px 32px}
+
+/* --- stacked bar: where a total goes --- */
+.gx-bar{display:flex;height:52px;border-radius:var(--r-sm);overflow:hidden;background:var(--sage)}
+.gx-bar span{display:block;height:100%}
+.gx-legend{display:flex;flex-direction:column;margin-top:24px}
+.gx-legend div{display:grid;grid-template-columns:11px minmax(0,1fr) auto;gap:8px;align-items:baseline;font-size:14.5px;padding:11px 0;border-bottom:1px solid var(--divider)}
+.gx-legend div:last-child{border-bottom:none}
+.gx-legend i{width:11px;height:11px;border-radius:2px;position:relative;top:1px}
+.gx-legend b{font-family:'Work Sans',sans-serif;font-weight:500;color:var(--primary)}
+.gx-legend em{font-style:normal;color:var(--text2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.gx-total{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-top:24px;padding-top:17px;border-top:2px solid var(--primary)}
+.gx-total .l{font-family:'Work Sans',sans-serif;font-size:15px;font-weight:500;color:var(--primary);white-space:nowrap}
+.gx-total .n{font-family:'Work Sans',sans-serif;font-size:clamp(24px,3vw,32px);font-weight:500;letter-spacing:-.02em;color:var(--primary);font-variant-numeric:tabular-nums}
+
+/* --- swing: two magnitudes against each other --- */
+.gx-swing{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(14px,3vw,44px);align-items:stretch}
+.gx-sw{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;text-align:center}
+.gx-sw .v{font-family:'Work Sans',sans-serif;font-weight:500;font-size:clamp(18px,2.2vw,25px);color:var(--primary);letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.gx-sw .col{width:100%;max-width:158px;border-radius:var(--r-sm) var(--r-sm) 0 0;background:var(--g6)}
+.gx-sw.peak .col{background:var(--primary)}
+.gx-sw .k{font-family:'Work Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);padding-top:13px;border-top:1px solid var(--divider);width:100%}
+.gx-delta{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;padding-bottom:44px}
+.gx-delta .x{font-family:'Work Sans',sans-serif;font-size:clamp(26px,3.4vw,38px);font-weight:300;color:var(--primary);letter-spacing:-.03em;line-height:1}
+.gx-delta .xl{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);max-width:9ch;line-height:1.35}
+
+/* --- bars: values at true relative scale, ranges float --- */
+.gx-bars{display:flex;flex-direction:column}
+.gx-row{display:grid;grid-template-columns:minmax(150px,1.15fr) minmax(0,2.6fr) auto;gap:8px 24px;align-items:center;padding:17px 0;border-bottom:1px solid var(--divider)}
+.gx-row:last-child{border-bottom:none}
+.gx-k{font-family:'Work Sans',sans-serif;font-size:15.5px;font-weight:500;color:var(--primary);line-height:1.35}
+.gx-k small{display:block;font-family:'Manrope',sans-serif;font-size:13.5px;font-weight:400;color:var(--text2);line-height:1.5;margin-top:4px}
+.gx-track{height:13px;border-radius:var(--r-pill);background:var(--sage)}
+.gx-fill{display:block;height:100%;border-radius:var(--r-pill);background:var(--secondary)}
+.gx-row.peak .gx-fill{background:var(--primary)}
+.gx-v{font-family:'Work Sans',sans-serif;font-size:15px;font-weight:500;color:var(--primary);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+
+/* --- split: two honest columns, hairlines not boxes --- */
+.gx-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,54px)}
+.gx-split h4{font-family:'Work Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--primary);margin:0 0 4px;padding-bottom:12px;border-bottom:2px solid var(--primary)}
+.gx-split.warn h4{color:var(--text2);border-bottom-color:var(--divider)}
+.gx-split ul{list-style:none;margin:0;padding:0}
+.gx-split li{padding:15px 0;border-bottom:1px solid var(--divider);font-size:15.5px;line-height:1.6}
+.gx-split li b{font-family:'Work Sans',sans-serif;font-weight:600;color:var(--primary);display:block;font-size:15px;margin-bottom:4px}
+
+/* --- defs: a definition rail, no boxes --- */
+.gx-defs{display:flex;flex-direction:column;margin:0}
+.gx-def{display:grid;grid-template-columns:minmax(140px,.85fr) minmax(0,2.5fr);gap:4px 24px;padding:21px 0;border-bottom:1px solid var(--divider)}
+.gx-def:first-child{border-top:1px solid var(--divider)}
+.gx-def dt{font-family:'Work Sans',sans-serif;font-size:17px;font-weight:500;color:var(--primary);line-height:1.32}
+.gx-def dd{margin:0;font-size:15.5px;line-height:1.7;color:var(--text)}
+
+/* --- rail: a line schematic built from named stops --- */
+.gx-line{padding:26px 0;border-bottom:1px solid var(--divider)}
+.gx-line:first-child{border-top:1px solid var(--divider)}
+.gx-line:last-child{border-bottom:none}
+.gx-lh{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 16px}
+.gx-lh b{font-family:'Work Sans',sans-serif;font-size:17px;font-weight:600;color:var(--primary);flex:none}
+.gx-lh span{font-size:14.5px;line-height:1.6;color:var(--text2);flex:1 1 auto;min-width:0}
+.gx-stops{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;margin-top:24px}
+.gx-stops::before{content:"";position:absolute;left:6px;right:calc(100% / var(--n,3) - 6px);top:5px;height:3px;border-radius:2px;background:var(--secondary)}
+.gx-stop{position:relative;padding:22px 10px 0 0;font-size:13px;line-height:1.35;color:var(--text2)}
+.gx-stop::before{content:"";position:absolute;left:0;top:0;width:13px;height:13px;border-radius:50%;background:var(--white);border:3px solid var(--secondary);box-sizing:border-box}
+.gx-stop:first-child{font-family:'Work Sans',sans-serif;font-weight:600;color:var(--primary)}
+.gx-stop:first-child::before{background:var(--primary);border-color:var(--primary)}
+
+/* --- big: one dominant number --- */
+.gx-big{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center;background:var(--sage);border-radius:var(--r-lg);padding:34px 38px}
+.gx-big .n{font-family:'Work Sans',sans-serif;font-size:clamp(58px,9vw,104px);font-weight:300;line-height:.84;color:var(--primary);letter-spacing:-.04em;font-variant-numeric:tabular-nums;text-align:center}
+.gx-big .n u{display:block;text-decoration:none;font-size:.155em;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--text2);margin-top:16px;line-height:1.4}
+.gx-big p{margin:0;font-size:16.5px;line-height:1.72;color:var(--text);max-width:50ch}
+
+/* --- seasons: four columns, rules not boxes --- */
+.gx-seasons{display:grid;grid-template-columns:repeat(4,1fr);gap:0 24px}
+.gx-season{padding:20px 0 4px;border-top:3px solid var(--g4)}
+.gx-season:nth-child(1){border-top-color:var(--g1)}
+.gx-season:nth-child(2){border-top-color:var(--g2)}
+.gx-season:nth-child(3){border-top-color:var(--g3)}
+.gx-season b{display:block;font-family:'Work Sans',sans-serif;font-size:16.5px;font-weight:600;color:var(--primary)}
+.gx-season .m{display:block;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);margin:4px 0 16px}
+.gx-season p{margin:0;font-size:14.5px;line-height:1.68;color:var(--text2);max-width:none}
+
+@media(max-width:900px){
+  .gx-seasons{grid-template-columns:1fr 1fr;gap:0 24px}
+  .gx-season{padding-bottom:20px}
+}
+@media(max-width:760px){
+  .gx-row{grid-template-columns:1fr auto;gap:8px 16px}
+  .gx-k{grid-column:1/-1}
+  .gx-swing{gap:8px}
+  .gx-sw .col{max-width:none}
+  .gx-delta{padding-bottom:38px}
+  .gx-split{grid-template-columns:1fr;gap:24px}
+  .gx-frame{padding:24px 20px}
+  .gx-def{grid-template-columns:1fr;gap:4px}
+  .gx-stops{grid-auto-flow:row;grid-auto-columns:auto;margin-top:16px}
+  .gx-stops::before{left:5px;right:auto;top:6px;bottom:calc(100% / var(--n,3) - 6px);width:3px;height:auto}
+  .gx-stop{padding:0 0 15px 26px}
+  .gx-stop:last-child{padding-bottom:0}
+  .gx-big{grid-template-columns:1fr;gap:24px;padding:28px 24px;text-align:left}
+  .gx-big .n{text-align:left}
+  .gx-seasons{grid-template-columns:1fr}
+  .gx-legend{grid-template-columns:1fr}
+  .gx-legend div{grid-template-columns:11px minmax(0,1fr) auto;gap:8px}
+}
+@media print{
+  .gx{break-inside:avoid}
+  .gx-frame{border:1px solid #C3D2C7;background:#fff}
+  .gx-bar,.gx-fill,.gx-sw .col{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}

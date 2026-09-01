@@ -1,0 +1,30 @@
+/* ==========================================================================
+   ETHICARE RESOURCING — GUIDE SPLIT HERO  (agreed layout: option B)
+   Copy on warm cream at left; the photograph takes the right ~47% and bleeds
+   to the top, bottom and right edges with a REAL crop and a clean vertical
+   edge — no feather. The crop is ours, so a subject survives at any aspect.
+   Load LAST in <head>, after hero.css.
+   MARKUP: .hero-art must be a DIRECT child of .hero, OUTSIDE .wrap —
+   .hero.cream > (.hero-art > img) + (.wrap > .hero-copy)
+   ========================================================================== */
+.hero.cream{background:#F7F4EE;position:relative;overflow:hidden;min-height:clamp(420px,44vw,540px);display:flex;align-items:center}
+.hero.cream .wrap{position:relative;z-index:2;display:block;grid-template-columns:none;gap:0;width:100%;max-width:1180px;margin:0 auto;padding-top:clamp(44px,5vw,70px);padding-bottom:clamp(44px,5vw,70px)}
+/* copy column — hard-capped so nothing can run under the photograph */
+.hero.cream .hero-copy{position:relative;z-index:2;width:min(46%,540px);max-width:min(46%,540px);padding-right:clamp(20px,2.4vw,36px)}
+.hero.cream .hero-copy h1,.hero.cream .hero-copy .hero-sub,.hero.cream .hero-copy p{max-width:none}
+.hero.cream .hero-copy .crumb{margin-bottom:16px}
+/* the photograph — full height, bleeding off the right edge, cropped to fill */
+.hero.cream .hero-art{position:absolute;top:0;right:0;bottom:0;left:auto;width:47%;height:100%;align-self:stretch;margin:0;padding:0;display:block;z-index:0;border:0;border-radius:0;box-shadow:none;background:none;overflow:hidden}
+.hero.cream .hero-art::before{display:none}
+.hero.cream .hero-art img{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;object-position:center 45%;display:block;border:0;border-radius:0;box-shadow:none;aspect-ratio:auto;filter:none}
+/* clean vertical edge — the photograph is a photograph, not a wash */
+.hero.cream .hero-art::after{display:none!important}
+/* short accent rule between the standfirst and the buttons (fern; AU pages override to apricot) */
+.hero.cream .hero-sub::after{content:"";display:block;width:44px;height:3px;border-radius:2px;background:#72A471;margin:24px 0 4px}
+/* Narrow: the photograph takes its own band above the copy rather than sitting behind it */
+@media (max-width:1040px){
+  .hero.cream{display:block;min-height:auto}
+  .hero.cream .hero-art{position:relative;top:auto;right:auto;bottom:auto;width:100%;height:clamp(230px,38vw,320px)}
+  .hero.cream .hero-copy{width:auto;max-width:none;padding-right:0}
+  .hero.cream .wrap{padding-top:clamp(26px,5vw,40px)}
+}

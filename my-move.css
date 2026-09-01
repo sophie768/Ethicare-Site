@@ -1,0 +1,124 @@
+/* My Move planner styles. Extracted from my-move.html when /my-move was folded into
+   /move as its second view (31 Aug 2026) — two pages needed the same 11KB, so it stopped
+   being a page-level <style> block. Owns the .mv-* vocabulary only; page chrome, tokens
+   and the focus ring come from site.css. */
+.mv-wrap{max-width:1240px;margin:0 auto;padding:clamp(34px,5vw,60px) clamp(18px,4vw,40px) clamp(60px,8vw,100px)}
+.mv-wrap.narrow{max-width:720px}
+.mv-app h1{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(30px,4.4vw,46px);line-height:1.1;letter-spacing:-.02em;color:#02615D;margin:10px 0 0}
+.mv-app h2{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(23px,2.6vw,30px);letter-spacing:-.015em;color:#02615D;margin:0}
+.mv-app h3{font-family:'Work Sans',sans-serif;font-weight:600;font-size:19px;letter-spacing:-.01em;color:#02615D;margin:2px 0 0}
+.mv-app h4{font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;color:#02615D;margin:0}
+.mv-lead{font-size:16.5px;line-height:1.62;color:#555;max-width:66ch;margin:12px 0 0;text-wrap:pretty}
+.mv-p{font-size:14.5px;line-height:1.62;color:#555;margin:6px 0 0;text-wrap:pretty}
+.mv-p a,.mv-note a{color:#2F5E49;border-bottom:1px solid #72A471}
+.mv-p a:hover,.mv-note a:hover{color:#02615D}
+.mv-note{font-size:13.5px;line-height:1.55;color:#555;margin:10px 0 0;max-width:62ch}
+.mv-q{margin-top:clamp(24px,3vw,34px)}
+.mv-ql{display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;color:#02615D}
+.mv-qh{display:block;font-size:13.5px;color:#555;margin-top:4px;max-width:56ch}
+.mv-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.mv-chip{white-space:nowrap;appearance:none;cursor:pointer;background:#fff;border:1px solid #C9DED3;border-radius:999px;min-height:44px;padding:10px 18px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14.5px;color:#2F5E49;transition:.15s}
+.mv-chip:hover{border-color:#72A471;background:#F3F8F5}
+.mv-chip.on{background:#02615D;border-color:#02615D;color:#fff}
+.mv-in{width:100%;max-width:520px;margin-top:12px;background:#fff;border:1px solid #C9DED3;border-radius:12px;min-height:48px;padding:12px 14px;font-family:'Manrope',sans-serif;font-size:15.5px;color:#333}
+.mv-in:hover{border-color:#72A471}
+.mv-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 22px}
+.mv-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-top:clamp(28px,3.4vw,40px)}
+.mv-actions .mv-note{margin:0}
+.mv-app .btn{min-height:48px}
+.mv-app button[disabled]{opacity:.45;cursor:not-allowed}
+.mv-proto{display:inline-block;margin-left:8px;background:rgba(255,255,255,.22);border-radius:999px;padding:2px 9px;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase}
+.mv-grid{display:grid;gap:18px;margin-top:clamp(26px,3.2vw,38px)}
+.mv-grid.two{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.mv-grid.three{grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
+.mv-card{background:#fff;border:1px solid #C9DED3;border-top:4px solid #72A471;border-radius:16px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:4px}
+.mv-card .k,.mv-doc .k,.mv-flag .k,.mv-unsaved .k,.mv-prof .k,.mv-tl .k,.mv-save .k{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#2F5E49}
+.mv-ul{margin:10px 0 0;padding:0 0 0 18px;font-size:14.5px;line-height:1.7;color:#555}
+.mv-go{display:inline-block;margin-top:auto;padding-top:12px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14.5px;color:#2F5E49}
+.mv-go:hover{color:#02615D}
+.mv-go.asbtn{appearance:none;background:none;border:0;cursor:pointer;text-align:left;padding:12px 0 0}
+.mv-tl{margin-top:clamp(26px,3.2vw,38px);background:#E6F1ED;border-radius:16px;padding:22px 24px}
+.mv-tl ol{list-style:none;display:flex;flex-wrap:wrap;gap:10px 26px;margin:14px 0 0;padding:0}
+.mv-tl li{display:flex;align-items:center;gap:9px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D}
+.mv-tl .n{width:26px;height:26px;flex:none;border-radius:50%;background:#02615D;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
+.mv-save{margin-top:clamp(30px,3.6vw,44px);background:#02615D;border-radius:18px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 30px}
+.mv-save h3,.mv-save .mv-p{color:#fff}
+.mv-save .k{color:#C6E084}
+.mv-save .mv-p{opacity:.92;max-width:52ch}
+.mv-save>div:first-child{flex:1 1 34ch}
+.mv-saveacts{display:flex;flex-wrap:wrap;gap:12px}
+.mv-save .btn-primary{background:#fff;color:#02615D}
+.mv-save .btn-primary:hover{background:#E6F1ED}
+.mv-save .btn-secondary{background:transparent;border:1.5px solid rgba(255,255,255,.55);color:#fff}
+.mv-save .btn-secondary:hover{background:rgba(255,255,255,.14)}
+.mv-consent{margin-top:clamp(28px,3.4vw,40px);background:#E6F1ED;border-radius:16px;padding:24px 26px}
+.mv-consent h2{font-size:20px}
+.mv-check{display:flex;align-items:flex-start;gap:12px;margin-top:16px;padding:12px 0;min-height:44px;cursor:pointer;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;color:#02615D}
+.mv-check input{width:24px;height:24px;flex:none;accent-color:#02615D;margin-top:1px}
+.mv-dhead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 30px}
+.mv-unsaved{background:#fff;border:1px solid #C9DED3;border-left:4px solid #72A471;border-radius:14px;padding:16px 18px;max-width:330px}
+.mv-dash{display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(22px,3vw,40px);margin-top:clamp(26px,3.4vw,40px);align-items:start}
+.mv-rail{display:flex;flex-direction:column;gap:2px;position:sticky;top:18px}
+.mv-navb{appearance:none;cursor:pointer;background:none;border:0;border-left:3px solid transparent;text-align:left;min-height:44px;padding:11px 14px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#2F5E49;border-radius:0 10px 10px 0}
+.mv-navb:hover{background:#EDF4F0;color:#02615D}
+.mv-navb.on{background:#fff;border-left-color:#72A471;color:#02615D;box-shadow:0 1px 3px rgba(1,49,47,.07)}
+.mv-tasks{display:flex;flex-direction:column;gap:12px;margin-top:clamp(22px,2.8vw,32px)}
+.mv-task{background:#fff;border:1px solid #C9DED3;border-radius:14px;padding:18px 20px;display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:12px 20px}
+.mv-task>div:first-child{flex:1 1 30ch}
+.mv-task.done{background:#F3F8F5;border-color:#D6E1DA}
+.mv-task.done h4{text-decoration:line-through;text-decoration-color:#72A471}
+.mv-task.na{opacity:.6}
+.mv-st select,.mv-cell{background:#fff;border:1px solid #C9DED3;border-radius:10px;min-height:44px;padding:9px 11px;font-family:'Manrope',sans-serif;font-size:14.5px;color:#333}
+.mv-wallet{margin-top:clamp(22px,2.8vw,32px);background:#fff;border:1px solid #C9DED3;border-radius:18px;padding:24px 26px}
+.mv-alw{display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D}
+.mv-alw .mv-in{max-width:220px}
+.mv-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:22px}
+.mv-fig{background:#E6F1ED;border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:5px}
+.mv-fig.good{background:#E3ECE5}
+.mv-fig.warn{background:#FAF0E7}
+.mv-fig .k{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#2F5E49}
+.mv-fig .v{font-family:'Work Sans',sans-serif;font-weight:600;font-size:23px;letter-spacing:-.015em;color:#02615D}
+.mv-bar2{height:10px;border-radius:999px;background:#E6F1ED;overflow:hidden;margin-top:18px}
+.mv-bar2 span{display:block;height:100%;background:#72A471;border-radius:999px;transition:width .3s}
+.mv-tablewrap{overflow-x:auto;margin-top:clamp(20px,2.6vw,30px)}
+.mv-table{width:100%;border-collapse:collapse;min-width:820px}
+.mv-table th{text-align:left;font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#2F5E49;padding:0 10px 10px 0}
+.mv-table td{padding:6px 10px 6px 0;border-top:1px solid rgba(2,97,93,.65)}
+.mv-cell{width:100%}
+.mv-cell.num{max-width:110px}
+.mv-attach{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;cursor:pointer;background:#E6F1ED;border-radius:10px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#2F5E49;white-space:nowrap}
+.mv-attach:hover{background:#DCEAE4}
+.mv-attach input{position:absolute;width:1px;height:1px;opacity:0}
+.mv-rec{font-size:13.5px;color:#2F5E49;white-space:nowrap}
+.mv-prof{margin-top:clamp(26px,3.2vw,38px);background:#E3ECE5;border-radius:16px;padding:22px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 28px}
+.mv-prof>div:first-child{flex:1 1 30ch}
+.mv-profacts{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.mv-skip{appearance:none;background:none;border:0;cursor:pointer;min-height:44px;padding:10px 4px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#2F5E49;text-decoration:underline}
+.mv-prefs{display:flex;flex-direction:column;gap:12px;margin:clamp(22px,2.8vw,32px) 0}
+.mv-pref{background:#fff;border:1px solid #C9DED3;border-radius:14px;padding:18px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px}
+.mv-pref>div{flex:1 1 34ch}
+.mv-toggle{appearance:none;cursor:pointer;background:#EDF4F0;border:1px solid #C9DED3;border-radius:999px;min-height:44px;padding:8px 16px 8px 10px;display:inline-flex;align-items:center;gap:10px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#2F5E49}
+.mv-toggle .dot{width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid #72A471}
+.mv-toggle.on{background:#02615D;border-color:#02615D;color:#fff}
+.mv-toggle.on .dot{background:#C6E084;border-color:#C6E084}
+.mv-docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:clamp(22px,2.8vw,32px)}
+.mv-doc{background:#fff;border:1px solid #C9DED3;border-radius:14px;padding:18px 20px}
+.mv-flag{margin-top:clamp(24px,3vw,34px);background:#E6F1ED;border-radius:16px;padding:22px 24px;max-width:72ch}
+.mv-protobar{position:fixed;left:0;right:0;bottom:0;z-index:900;background:#01312F;color:#fff;display:flex;align-items:center;justify-content:center;gap:16px;padding:9px 16px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:12.5px}
+.mv-protobar button{appearance:none;background:rgba(255,255,255,.16);border:0;border-radius:999px;cursor:pointer;color:#fff;font:inherit;min-height:32px;padding:6px 14px}
+.mv-protobar button:hover{background:rgba(255,255,255,.28)}
+.mv-app :is(button,a,select,input,label):focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 2px #FCFBF8}
+@media (max-width:880px){.mv-dash{grid-template-columns:1fr}.mv-rail{position:static;flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:4px}.mv-navb{border-left:0;border-bottom:3px solid transparent;border-radius:10px;white-space:nowrap}.mv-navb.on{border-left:0;border-bottom-color:#72A471}}
+@media (max-width:640px){.mv-unsaved{max-width:none}.mv-protobar{font-size:11.5px}}
+
+/* Official sources on a task — deliberately quieter than our own guide link. */
+.mv-res{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(2,97,93,.28)}
+.mv-res>span{font-family:'Work Sans',system-ui,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2F5E49;white-space:nowrap}
+.mv-res>a{font-size:13.5px;color:#2F5E49;text-decoration:none;border-bottom:1px solid rgba(114,164,113,.55)}
+.mv-res>a:hover{color:#02615D;border-bottom-color:#02615D}
+
+/* Visually hidden — the select's accessible name. Deliberately NOT called .vh: apply.html
+   already uses .vh for a visible flex header row, so a shared name would collapse that
+   panel's heading to 1px. There was no rule at all before, so "Status for <task>" printed
+   as body text above all 25 dropdowns. */
+.mv-vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}

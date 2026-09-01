@@ -1,0 +1,480 @@
+/* Ethicare — self-contained site shell (header + footer). Literal brand values so it
+   renders correctly on any page regardless of that page's own variables/fonts. */
+:root{
+  /* content widths + reading measures (Ethicare Design System, part 4) */
+  --w-prose:760px; --w-wide:920px; --w-shell:1180px;
+  --m-prose:64ch; --m-lead:50ch;
+
+  /* muted sage for quiet small-caps labels; defined here so it resolves on every page that loads the shell */
+  --sage-text:#2F5E49;
+  /* colour + font tokens, mirroring site.css. These were missing here, so any page
+     that loaded ONLY the shell fell back to serif on a transparent background and
+     had to redeclare its own :root — which is how token drift started. */
+  --teal:#02615D; --green:#02615D; --sage:#72A471; --lime:#A6C84A;
+  --nz:#72A471; --au:#D9A084; --au-text:#A34438;
+  --mint:#C9DED3; --soft:#E6F1ED; --soft-green:#E6F1ED; --warm:#FCFBF8;
+  --white:#fff; --text:#333333; --muted:#555555;
+  --display:'Work Sans',sans-serif; --body:'Manrope',sans-serif;
+/* rhythm scale (part 5) — between-element and between-section spacing */
+  --sp-2xs:4px; --sp-xs:8px; --sp-s:16px; --sp-m:24px; --sp-l:40px; --sp-xl:64px;
+  --sp-section:clamp(56px,7vw,78px);
+  /* --sp-major is an alias of --sp-section (375 live declarations reference it) — never redefine
+     it independently, or section rhythm forks again. --sp-hero is the one band deliberately larger
+     than a section gap; --sp-minor is the fluid form of --sp-xl; --sp-card is card interior. */
+  --sp-major:var(--sp-section); --sp-hero:clamp(72px,10vw,120px); --sp-minor:clamp(44px,6vw,64px);
+  --sp-card:clamp(28px,3.4vw,40px); --pad:24px; --gap:24px;
+  --r-xs:6px; --r-sm:12px; --r-md:14px; --r-lg:20px; --r-xl:24px; --r-pill:999px;
+  /* structural rules on tinted/dark-adjacent surfaces — measured 3.0:1+ on every brand
+     surface. Pale hairlines (--mint) are for card edges only; they vanish on a tint. */
+  --rule-tint:rgba(2,97,93,.65);
+  /* the colour carrying nearly all small text on light surfaces — used 905x site-wide
+     with no name until now, which is why it kept being retyped. AA on cream/sage/sand. */
+  --fern-text:#2F5E49;
+  --sh-sm:0 1px 3px rgba(1,49,47,.05); --sh-md:0 16px 38px rgba(1,49,47,.09); --sh-lg:0 26px 54px rgba(1,49,47,.12);
+  --sh-focus:0 0 0 7px rgba(167,201,87,.55); --sh-photo:0 16px 38px rgba(0,0,0,.22);
+  --lime-light:#C6E084; /* the ONLY accessible lime on dark teal */
+  /* ---- editorial type scale (refinement pass, Aug 2026) — mirrors site.css ----
+     One ladder, deliberate gaps. Declare sizes with these names, never a literal. */
+  --t-display:clamp(38px,5.6vw,64px); --t-h1:clamp(36px,4.8vw,56px);
+  --t-h2:clamp(30px,3.4vw,42px); --t-h3:clamp(21px,1.9vw,26px);
+  --t-lead:clamp(18px,1.55vw,20px); --t-body:17px; --t-meta:15px; --t-eyebrow:13px;
+  /* added by the global type pass, 22 Aug 2026 — sizes the brief needs that the
+     ladder had no name for. Accordion titles sit deliberately below --t-h2 so they
+     read as interactive, not as another section heading. */
+  --t-h4:19px;
+  --t-button:15.5px;
+  --t-accordion:clamp(17px,1.3vw,19px);
+  /* sequence numerals (01/02/03) — deliberately between H3 and H2 so a step reads as
+     a step, not as a heading and not as display type */
+  --t-numeral:clamp(26px,2.6vw,32px);
+  /* reading measures. Page width is not reading width: prose stops at --w-read
+     even when its container is --w-shell. --w-prose stays for legacy callers. */
+  --w-read:640px;
+  --w-lead:700px;
+
+  --lh-display:1.04; --lh-head:1.12; --lh-lead:1.5; --lh-body:1.6;
+  --ls-display:-.026em; --ls-head:-.018em;
+  --sp-editorial:clamp(84px,9vw,132px);
+  --ease:.25s ease;
+/* ---- ALIASES, mirrored from site.css ------------------------------------
+   The destination guides and chapter pages use this more explicit vocabulary.
+   They were missing here, so any page loading ONLY the shell resolved them to
+   nothing — --surface-warm silently rendered two cream panels transparent on
+   the Christchurch hub. Same class of gap as the .eyebrow one: when a token
+   exists in site.css it must exist here too. */
+  --font-heading:var(--display); --font-body:var(--body);
+  --ethicare-teal:var(--teal); --accent-lime:var(--lime); --accent-fern:var(--nz); --accent-apricot:var(--au);
+  --surface-white:var(--white); --surface-sage:var(--soft); --surface-warm:var(--warm); --nz-highlight:var(--soft-green);
+  --text-muted:var(--muted); --rule:var(--mint);
+
+}
+.shell{max-width:920px;margin:0 auto;padding:0 24px}
+/* link reset — mirrors site.css so shell.css-only pages don't leak UA blue (e.g. .v-hero .crumb a) */
+a{color:inherit;text-decoration:none}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:50;background:#FCFBF8;border-bottom:1px solid #C9DED3;font-family:'Work Sans','DM Sans',ui-sans-serif,system-ui,sans-serif}
+.site-header .shell{display:flex;align-items:center;gap:24px;height:74px}
+.site-header .brand{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.site-header .brand img{width:42px;height:42px;object-fit:contain}
+.site-header .brand span{font-weight:600;font-size:19px;color:#02615D;letter-spacing:-.02em;white-space:nowrap}
+.site-header .brand span strong{font-weight:500;color:#02615D}
+.site-nav{display:flex;align-items:center;gap:4px;margin-left:auto}
+.site-nav a{position:relative;font-weight:600;font-size:14px;color:#02615D;padding:8px 12px;border-radius:var(--r-sm);transition:background .15s ease,color .15s ease;text-decoration:none}
+.site-nav a:hover{background:#E4E9E5;color:#02615D}
+.site-nav .navitem>a[aria-current="page"],.site-nav>a[aria-current="page"]{color:#02615D}
+/* active underline accent */
+.site-nav .navitem>a[aria-current="page"]::after,.site-nav>a[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:2px;border-radius:2px;background:#A6C84A}
+.site-nav a.muted{color:#555555}
+/* slim divider before the CTA */
+.site-nav .nav-cta{position:relative;background:#02615D;color:#fff;margin-left:14px;padding:10px 20px;font-weight:600;border-radius:var(--r-pill);box-shadow:var(--sh-sm)}
+.site-nav .nav-cta::before{content:"";position:absolute;left:-14px;top:50%;transform:translateY(-50%);width:1px;height:22px;background:#C9DED3}
+.site-nav .nav-cta:hover{background:#014E4B;color:#fff;box-shadow:var(--sh-sm)}
+.nav-toggle{display:none;margin-left:auto;width:44px;height:44px;border:1px solid #C9DED3;border-radius:var(--r-sm);background:#fff;cursor:pointer;flex-direction:column;gap:4px;align-items:center;justify-content:center}
+.nav-toggle span{width:20px;height:2px;background:#02615D;border-radius:2px;transition:.2s}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:980px){
+  .nav-toggle{display:flex}
+  .site-nav{position:fixed;inset:78px 0 auto 0;flex-direction:column;align-items:stretch;gap:4px;background:#FCFBF8;border-bottom:1px solid #C9DED3;padding:14px 24px 22px;margin:0;transform:translateY(-130%);transition:transform .25s ease;box-shadow:var(--sh-md);max-height:calc(100svh - 78px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  body.nav-open{overflow:hidden}
+  .site-nav.open{transform:translateY(0)}
+  .site-nav a{padding:13px 12px;font-size:16px}
+  .site-nav .nav-cta{margin:8px 0 0;text-align:center}
+}
+
+/* footer */
+/* footer — a step deeper than the deep teal (#02615D) used for content bands, so a page that
+   ends on a teal CTA doesn't merge into the footer. Darker also lifts every footer text
+   contrast: .82 white goes 5.8:1 → 8.4:1, .72 white 4.6:1 → 6.7:1. */
+.site-footer{background:#013F3C;color:rgba(255,255,255,.82);font-family:'Work Sans','DM Sans',ui-sans-serif,system-ui,sans-serif}
+.site-footer .shell{padding-top:54px;padding-bottom:30px}
+.site-footer .brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.site-footer .brand img{width:44px;height:44px;object-fit:contain}
+.site-footer .brand span{font-weight:600;font-size:18px;color:#fff}
+/* WCAG exemption: logotype. Lime here is the brand mark, not communication —
+   contrast rules do not apply and colour sweeps must skip this rule. */
+.site-footer .brand span strong{font-weight:600;color:#A6C84A}
+.f-cols{display:grid;grid-template-columns:1.5fr .9fr .9fr .9fr;gap:40px}
+.f-contact{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.f-contact a,.f-contact span{font-family:'Manrope',ui-sans-serif,system-ui,sans-serif;font-weight:500;color:rgba(255,255,255,.82);text-decoration:none;font-size:14px;line-height:1.5}
+.f-contact a:hover{color:#fff}
+.f-contact .f-k{display:block;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C9DED3;margin-bottom:4px}
+.f-brand p{font-family:'Manrope',ui-sans-serif,system-ui,sans-serif;font-size:14px;line-height:1.55;color:rgba(255,255,255,.78);max-width:42ch;margin-top:16px}
+.f-col :is(h2,h4){font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#C9DED3;margin-bottom:16px}
+.f-col a{display:block;font-weight:600;font-size:14.5px;color:rgba(255,255,255,.82);padding:6px 0;transition:color .15s ease;text-decoration:none}
+.f-col a:hover{color:#fff}
+.f-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.16);font-weight:600;font-size:12.5px;color:rgba(255,255,255,.82)}
+@media (max-width:980px){.f-cols{grid-template-columns:1fr 1fr;gap:24px}.f-brand{grid-column:1/-1}}
+@media (max-width:600px){.f-cols{grid-template-columns:1fr}}
+
+/* scroll reveal is handled entirely by site.js (om-h / om-show classes),
+   which injects its own styles so content stays visible if JS never runs. */
+
+
+/* nav dropdowns */
+.site-nav .navitem{position:relative;display:flex;align-items:center}
+.site-nav .navitem>a{display:inline-flex;align-items:center;gap:4px}
+.site-nav .cv{font-size:9px;opacity:.82;transition:transform .18s ease,opacity .15s ease}
+.site-nav .navitem:hover .cv{opacity:.9;transform:translateY(1px)}
+.subnav{position:absolute;top:100%;left:0;min-width:236px;background:#fff;border:1px solid #C9DED3;border-radius:var(--r-sm);box-shadow:var(--sh-md);padding:8px;display:none;flex-direction:column;gap:4px;z-index:60}
+.site-nav .navitem:hover .subnav,.site-nav .navitem:focus-within .subnav,.site-nav .navitem.open .subnav{display:flex}
+.subnav a{padding:10px 14px;border-radius:var(--r-sm);font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;font-size:14px;color:#333333;text-decoration:none}
+.subnav a:hover{background:#E4E9E5;color:#02615D}
+@media (max-width:980px){
+  .site-nav .navitem{flex-direction:column;align-items:stretch}
+  .subnav{position:static;display:none;box-shadow:none;border:none;border-radius:0;padding:0 0 6px 12px;min-width:0;background:transparent}
+  .site-nav .navitem.open .subnav{display:flex}
+  .subnav a{font-size:15px;color:#555555;padding:11px 12px}
+}
+
+/* nav mega (professions) */
+.subnav.mega{flex-direction:row;gap:8px 24px;min-width:430px;padding:14px 16px}
+.site-nav .navitem:hover .subnav.mega,.site-nav .navitem:focus-within .subnav.mega,.site-nav .navitem.open .subnav.mega{display:flex}
+.megacol{display:flex;flex-direction:column;min-width:180px}
+.megah{font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;padding:6px 14px 8px}
+@media (max-width:980px){
+  .subnav.mega{flex-direction:column;min-width:0;padding:0 0 6px 12px;gap:0}
+  .megacol{min-width:0}
+  .megah{padding:10px 12px 4px;color:#02615D}
+}
+
+/* premium header */
+.site-header .shell{height:78px}
+.site-header{border-bottom-color:#E4E9E5}
+.site-nav a{letter-spacing:.01em}
+.site-nav .nav-cta{letter-spacing:.02em}
+
+/* nav subheads + steps */
+.subnav .subhead{display:block;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;padding:11px 14px 4px}
+.subnav a.step{padding-top:7px;padding-bottom:7px;padding-left:22px;font-size:13.5px;color:#02615D}
+
+/* professions mega 3-group */
+.subnav.mega3{min-width:600px}
+.subnav.mega3 .megacol{min-width:178px}
+@media (max-width:980px){.subnav.mega3{min-width:0}}
+.f-base a{color:rgba(255,255,255,.72);text-decoration:none;transition:color .15s ease}
+.f-base a:hover{color:#fff;text-decoration:underline}
+.f-base .f-sep{margin:0 9px;opacity:.9}
+
+/* region mega-menu — full-width panel under the header (journey + professions) */
+.regionmega .mega-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.regionmega .megah{padding:0 0 14px}
+.regionmega .rj{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px}
+.regionmega .rj a{display:flex;gap:8px;align-items:baseline;padding:7px 0;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;font-size:14px;color:#333333;text-decoration:none}
+.regionmega .rj .n{font-weight:700;font-size:11px;flex:none;opacity:.92}
+.regionmega .subhead{display:block;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;padding:12px 0 6px}
+.regionmega .pg{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}
+.regionmega .pg a{padding:5px 0;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;font-size:13.5px;color:#333333;text-decoration:none}
+/* the pathway checker lives in both country megas (beside "Explore …") and in the footer
+   Candidates column on every page — it is a routing tool, not a nav section of its own */
+.regionmega .explore.tool{margin-right:20px}
+.regionmega .explore{display:inline-block;margin-top:16px;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;font-size:13.5px;white-space:nowrap}
+.nzmega .megah,.nzmega .rj .n,.nzmega .explore{color:#2F5E49}
+.nzmega .rj a:hover,.nzmega .pg a:hover{color:#2F5E49}
+.aumega .megah,.aumega .rj .n,.aumega .explore{color:#A34438}
+.aumega .rj a:hover,.aumega .pg a:hover{color:#A34438}
+@media(min-width:981px){
+  /* stretch nav items to full header height so hover bridges to the panel with no gap */
+  .site-nav .navitem{align-self:stretch}
+  .subnav.regionmega{position:fixed;left:0;right:0;top:78px;min-width:0;padding:34px 0;background:#fff;border:none;border-top:1px solid #E4E9E5;border-bottom:1px solid #C9DED3;border-radius:0;box-shadow:var(--sh-lg)}
+  .regionmega .mega-inner{max-width:920px;margin:0 auto;padding:0 24px}
+}
+@media(max-width:980px){
+  .subnav.regionmega{min-width:0;padding:0 0 6px 12px}
+  .regionmega .mega-inner{display:block}
+  .regionmega .rj,.regionmega .pg{grid-template-columns:1fr}
+  .regionmega .megah{padding:10px 0 4px}
+}
+
+/* a11y: visible keyboard focus (dual ring works on light + teal) */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,details:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 2px #FCFBF8,var(--sh-focus)}
+
+/* selection + widow control */
+::selection{background:#D9E4C9;color:#02615D}
+h1,h2,h3,h4,blockquote{text-wrap:balance}
+p,li,figcaption,dd,summary{text-wrap:pretty}
+
+@media(max-width:980px){.site-nav .cv{font-size:13px}/* the pathway checker lives in both country megas (beside "Explore …") and in the footer
+   Candidates column on every page — it is a routing tool, not a nav section of its own */
+.regionmega .explore.tool{margin-right:20px}
+.regionmega .explore{margin:8px 0 8px}}
+
+
+/* ---------- WAYFINDING (shared): hero breadcrumb + onward prev/next strip ---------- */
+.wf-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;font-size:13px;letter-spacing:.01em;margin-bottom:16px;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+.wf-crumb a{color:#fff;font-weight:500;text-decoration:none;transition:color .15s ease}
+.wf-crumb a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.wf-crumb .sep{color:#fff;font-size:12px}
+.wf-crumb .here{color:#fff;font-weight:600}
+.wf-crumb.on-light{text-shadow:none}
+.wf-crumb.on-light a{color:#555555}
+.wf-crumb.on-light a:hover{color:#02615D}
+.wf-crumb.on-light .sep{color:#555555}
+.wf-crumb.on-light .here{color:#02615D}
+
+.wf-onward{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;font-family:'Work Sans',ui-sans-serif,sans-serif}
+.wf-onward.wf-start{grid-template-columns:auto 1fr}
+.wf-onward.wf-end{grid-template-columns:1fr auto}
+.wf-onward .wf-step,.wf-onward .wf-hub{display:flex;flex-direction:column;justify-content:center;gap:8px;min-height:96px;padding:20px 24px;border:1px solid #E4E9E5;border-radius:var(--r-lg);background:#fff;box-shadow:var(--sh-sm);text-decoration:none;transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease,background .18s ease}
+.wf-onward .wf-step:hover{border-color:#C9DED3;box-shadow:var(--sh-md);transform:translateY(-2px)}
+.wf-onward .wf-lbl{display:flex;align-items:center;gap:8px;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49}
+.wf-onward .wf-ttl{font-weight:600;font-size:17.5px;line-height:1.25;letter-spacing:-.01em;color:#02615D}
+.wf-onward .arw{font-size:15px;line-height:1;color:#2F5E49;transition:transform .18s ease}
+.wf-onward.au .arw{color:#D9A084}
+.wf-onward .wf-prev:hover .arw{transform:translateX(-3px)}
+.wf-onward .wf-next{text-align:right;align-items:flex-end}
+.wf-onward .wf-next .wf-lbl{justify-content:flex-end}
+.wf-onward .wf-next:hover .arw{transform:translateX(3px)}
+.wf-onward .wf-hub{align-items:center;text-align:center;gap:4px;background:#F3F7F4;min-width:236px}
+.wf-onward.nz .wf-hub{background:#E3ECE5}
+.wf-onward .wf-hub:hover{background:#E4E9E5}
+.wf-onward .wf-hub .wf-ht{font-weight:600;font-size:14px;letter-spacing:-.005em;color:#02615D;white-space:nowrap}
+.wf-onward .wf-hub .wf-hs{font-weight:500;font-size:12.5px;color:#2F5E49;white-space:nowrap}
+@media(max-width:980px){
+  .wf-onward{grid-template-columns:1fr;gap:8px}
+  .wf-onward .wf-next{text-align:left;align-items:flex-start}
+  .wf-onward .wf-next .wf-lbl{justify-content:flex-start}
+  .wf-onward,.wf-onward.wf-start,.wf-onward.wf-end{grid-template-columns:1fr}
+  .wf-onward .wf-hub{min-width:0;order:3}
+}
+
+/* mid-width compressed nav (901-1250px) so the full menu stays across */
+@media(min-width:981px) and (max-width:1250px){.site-header .brand span{font-size:15px}.site-header .brand img{width:28px}.site-nav a{font-size:12px;padding:8px 6px;white-space:nowrap}.site-nav .navitem>a{gap:4px}.site-nav .nav-cta{padding:9px 12px;margin-left:6px}.site-nav .nav-cta::before{left:-6px}}
+
+/* ==========================================================================
+   DESTINATION HERO SCRIM — one measured value for all destination chapters.
+   Applied as ::after so it CANNOT be overridden by the per-page inline
+   background on .photo (which carries only the photograph). Text in .inner is
+   bottom-anchored and starts ~27% down, so the wash must be strong THERE, not
+   only at the base. Measured against a pure-white photo pixel (worst case):
+     alpha .46 -> 2.76:1   .60 -> 4.05:1   .65 -> 4.77:1   .80 -> 7.64:1
+   13px white text needs 4.5:1, so alpha must reach .65 before the breadcrumb.
+   Range stays inside the brand .46-.80 ceiling; the top quarter stays light so
+   the photograph reads.
+   ========================================================================== */
+.hero .photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(1,49,47,.46) 0%,rgba(1,49,47,.66) 27%,rgba(1,49,47,.74) 62%,rgba(1,49,47,.80) 100%)}
+
+/* ==========================================================================
+   CHAPTER NAV — Previous / All chapters / Next, closing a guide chapter.
+   Lived only inline in destination pages, so chapters that don't link those
+   styles rendered it unstyled. Canonical values, no page-token dependency.
+   ========================================================================== */
+.ch-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-top:40px;padding-top:26px;border-top:1px solid rgba(2,97,93,.65)}
+.ch-nav a{font-family:'Work Sans',ui-sans-serif,sans-serif;font-size:15px;font-weight:500;color:#02615D;text-decoration:none}
+.ch-nav a:hover{color:#014E4B}
+.ch-nav a span{display:block;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#2F5E49;margin-bottom:4px}
+.ch-nav .next{text-align:right}
+.ch-nav .up{font-size:13px;color:#2F5E49;white-space:nowrap}
+.ch-print{margin-top:16px;text-align:center}
+.ch-print a{font-family:'Work Sans',ui-sans-serif,sans-serif;font-size:13.5px;font-weight:500;color:#2F5E49;text-decoration:none}
+.ch-print a:hover{color:#02615D}
+@media(max-width:640px){.ch-nav{grid-template-columns:1fr;gap:16px}.ch-nav .next{text-align:left}}
+
+/* ==========================================================================
+   PULL-QUOTE — figure.voice: blockquote + attribution. Used in guide chapters
+   that link only shell.css, where it previously had no rules at all.
+   ========================================================================== */
+figure.voice{margin:40px 0;padding:0;border:0;max-width:760px}
+figure.voice blockquote{margin:0;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(19px,2.3vw,25px);line-height:1.42;color:#02615D;text-wrap:pretty}
+figure.voice figcaption{margin-top:16px;font-family:'Work Sans',ui-sans-serif,sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#2F5E49}
+
+/* ==========================================================================
+   HEADER & FOOTER TAP TARGETS — 44px floor (Aug 2026)
+   Both site-wide furniture blocks were under the 44px minimum: header brand
+   42px, top-level nav links ~33px, CTA ~37px, and the dropdowns were worse
+   than the header row (.pg links measured ~27px, explore links ~18px);
+   footer column links 37px, contact links 20px, Privacy Policy 15px.
+   Type sizes, padding and colour are untouched — only the hit box grows, so
+   nothing moves except the header hover pill and the footer column rhythm.
+   Keep this block LAST: it must win over the compressed-nav padding above.
+   ========================================================================== */
+.site-header .brand{min-height:44px}
+.site-nav>a,.site-nav .navitem>a{display:inline-flex;align-items:center;min-height:44px}
+.site-nav .nav-cta{min-height:44px}
+.subnav a{display:flex;align-items:center;min-height:44px}
+.regionmega .rj a{align-items:center;min-height:44px}
+.regionmega .pg a{display:flex;align-items:center;min-height:44px}
+.regionmega .explore{display:inline-flex;align-items:center;min-height:44px}
+.site-footer .f-col a{display:flex;align-items:center;min-height:44px}
+.site-footer .f-contact a{display:inline-flex;align-items:center;min-height:44px}
+.site-footer .f-base a{display:inline-flex;align-items:center;min-height:44px;white-space:nowrap}
+
+/* mobile: wide data tables scroll rather than squash (added 19 Aug) */
+.tblscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media (max-width:720px){.tblscroll table{min-width:560px}}
+
+
+/* ── Header nav spacing, 22 Aug 2026 (rev 2) ───────────────────────────────
+   Seven direct links replaced eight items plus two mega-menus, so the old
+   gap:4px is no longer necessary. Spacing comes from GAP; padding stays real so
+   the hover pill, the active marker and the click target keep their size.
+   Upper breakpoint aligned to the pre-existing 1250px boundary rather than
+   introducing a competing 1199/1200 edge. */
+@media (min-width:1251px){
+  .site-nav{gap:24px}
+  .site-nav>a{padding:10px 12px;font-size:14.5px}
+  .site-nav>a[aria-current="page"]::after{left:12px;right:12px}
+  .site-nav .nav-cta{margin-left:28px;padding:11px 22px}
+  .site-nav .nav-cta::before{left:-28px;height:24px}
+}
+@media (min-width:981px) and (max-width:1250px){
+  .site-nav{gap:10px}
+  .site-nav>a{padding:8px 8px;font-size:13px;white-space:nowrap}
+  .site-nav>a[aria-current="page"]::after{left:8px;right:8px}
+  .site-nav .nav-cta{margin-left:16px;padding:10px 16px}
+  .site-nav .nav-cta::before{left:-16px}
+}
+
+
+/* ── Global type system application, 22 Aug 2026 ───────────────────────────
+   Baseline binding of the ladder to elements, so a page gets the system without
+   declaring anything. Page-level rules still win (later in the cascade), so this
+   is a floor rather than a straitjacket — the page-by-page pass removes the
+   per-page literals that currently override it.
+   Spacing uses the EXISTING --sp scale rather than adding new tokens:
+     eyebrow→heading --sp-xs · heading→lead --sp-m · para→para --sp-s
+     copy→CTA --sp-m/l · intro→content --sp-l · h3→body --sp-s */
+h1{font-size:var(--t-h1);line-height:var(--lh-head);letter-spacing:var(--ls-head)}
+h2{font-size:var(--t-h2);line-height:var(--lh-head);letter-spacing:var(--ls-head)}
+h3{font-size:var(--t-h3);line-height:1.25}
+h4{font-size:var(--t-h4);line-height:1.28}
+.lead{font-size:var(--t-lead);line-height:var(--lh-lead)}
+.btn,button.btn,a.btn{font-size:var(--t-button)}
+.faq summary,details>summary{font-size:var(--t-accordion);line-height:1.3}
+/* prose stops at a reading measure; headings, photography and tools do not */
+.reading>p,.reading>ul,.reading>ol,.wrap.reading>p{max-width:var(--w-read)}
+.reading>.lead,.wrap.reading>.lead{max-width:var(--w-lead)}
+
+
+body{font-size:var(--t-body);line-height:var(--lh-body)}
+
+/* ── Internal spacing relationships, 22 Aug 2026 ───────────────────────────
+   Brief §15. Mapped onto the existing --sp scale rather than adding tokens:
+     eyebrow→heading 12px  (xs + 2xs, top of the 8–12 band)
+     H1/H2→lead      --sp-m  24px   (band 20–28)
+     para→para       --sp-s  16px   (band 16–20)
+     copy→CTA        --sp-m  24px   (band 24–32)
+     intro→content   --sp-l  40px   (band 32–48)
+     H3→body         --sp-s  16px   (band 12–16)
+   §16 matters as much as §14: elements of one thought stay connected, so these
+   are deliberately small next to the section band. */
+.eyebrow{margin-bottom:calc(var(--sp-xs) + var(--sp-2xs))}
+h1,h2{margin-bottom:var(--sp-m)}
+h3,h4{margin-bottom:var(--sp-s)}
+p{margin-bottom:var(--sp-s)}
+p:last-child{margin-bottom:0}
+.lead{margin-bottom:var(--sp-m)}
+.btn-row{margin-top:var(--sp-m)}
+.intro{margin-bottom:var(--sp-l)}
+
+/* Print: the site footer is navigation, and navigation is meaningless on paper.
+   Relocation and destination guides are print-first documents (they carry a Download PDF
+   button and hide their own toolbar in print) — the footer added ~1.16 A4 pages to every
+   export. Hidden globally: no page benefits from printing its own nav. */
+@media print{.site-footer{display:none!important}}
+
+.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}
+.skip-link:focus{top:0}
+
+
+/* ==========================================================================
+   PROMO BAR — time-limited announcement above the sticky header.
+   Markup is injected by site.js (one place to edit, one place to delete).
+   Auto-hides after its event date, so it cannot go stale. Dismissal is
+   remembered per visitor. Lime here is #C6E084, not the brand #A6C84A:
+   on deep teal the brand lime measures ~3.8:1 and fails AA at this size.
+   ========================================================================== */
+.promo-bar{position:relative;z-index:60;background:#02615D;color:#fff;font-family:'Work Sans','DM Sans',ui-sans-serif,system-ui,sans-serif}
+.promo-bar .pb-in{max-width:1180px;margin:0 auto;padding:11px clamp(16px,3vw,40px);display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.promo-bar .pb-tag{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#C6E084;flex:none}
+.promo-bar .pb-tag::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none}
+.promo-bar .pb-txt{font-weight:500;font-size:14.5px;line-height:1.45;color:rgba(255,255,255,.94)}
+.promo-bar .pb-txt b{font-weight:600;color:#fff}
+.promo-bar .pb-cta{margin-left:auto;display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:9px 18px;border-radius:999px;background:#FCFBF8;color:#02615D;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap;transition:transform .15s ease,background .15s ease}
+.promo-bar .pb-cta:hover{background:#fff;transform:translateY(-1px);color:#02615D}
+.promo-bar .pb-x{flex:none;width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;background:none;border:none;color:rgba(255,255,255,.72);font-size:20px;line-height:1;cursor:pointer;border-radius:50%}
+.promo-bar .pb-x:hover{color:#fff;background:rgba(1,49,47,.42)}
+@media(max-width:860px){
+  .promo-bar .pb-in{padding:10px 16px;gap:10px}
+  .promo-bar .pb-cta{margin-left:0;width:100%;justify-content:center;min-height:44px}
+  .promo-bar .pb-x{position:absolute;top:6px;right:6px}
+  .promo-bar .pb-txt{padding-right:34px}
+}
+@media print{.promo-bar{display:none!important}}
+
+
+/* footer social — community links, one row under the contact block */
+.f-social{display:flex;align-items:center;gap:10px;margin-top:18px;flex-wrap:wrap}
+.f-social a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:9px 15px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:rgba(255,255,255,.88);font-family:'Work Sans',sans-serif;font-weight:600;font-size:13.5px;text-decoration:none;transition:background .15s ease,border-color .15s ease,color .15s ease}
+.f-social a:hover{background:rgba(255,255,255,.10);border-color:#A6C84A;color:#fff}
+.f-social svg{width:16px;height:16px;flex:none;fill:currentColor}
+@media(max-width:600px){.f-social a{font-size:13px;padding:9px 13px}}
+
+/* ==========================================================================
+   REDUCED MOTION (WCAG 2.3.3 / 2.2.2)
+   One global honour of the OS setting, so no page needs its own copy.
+   Transitions and animations are cut to a near-zero duration rather than 0s:
+   a true 0s can cancel transitionend/animationend handlers that scripts wait
+   on, which breaks the nav and disclosure widgets instead of calming them.
+   Smooth scrolling is also disabled — it is a common trigger for vestibular
+   discomfort and is never load-bearing here.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  html{scroll-behavior:auto!important}
+}
+
+/* ---- a11y contrast corrections (WCAG 2.2 AA pass, 25 Aug 2026) ----
+   Seasonal cards set #fff over the light accents: apricot measured 2.26:1 and
+   fern 2.89:1, and the .85-opacity labels fell to 2.02. Text on the LIGHT fills
+   goes to #01312F (apricot 6.28, fern 4.90); the deep-teal winter card keeps
+   #fff (7.32). Selected on the inline fill so no chapter markup changes. */
+.season:is([style*="#D9A084"],[style*="#d9a084"],[style*="#72A471"],[style*="#72a471"],[style*="#A6C84A"],[style*="#a6c84a"]){color:#01312F}
+.season:is([style*="#D9A084"],[style*="#d9a084"],[style*="#72A471"],[style*="#72a471"],[style*="#A6C84A"],[style*="#a6c84a"]) :is(.m,.tl){opacity:1}
+
+/* 2.5.8 Target Size (Minimum): breadcrumb and chapter-nav links measured 21px
+   tall. Both parents are flex/grid with align-items:center, so a min-height
+   raises the hit area without touching inline flow or type size. */
+nav.wf-crumb a,nav.ch-nav a,nav.crumb a{min-height:24px;display:flex;align-items:center}
+
+/* The .side-cta panel is currently display:none on the chapter pages. Its pill
+   was lime with deep-teal text (3.83:1, and lime is never a fill per the brand
+   standard), so re-enabling it would have shipped an AA failure. Cream on the
+   dark panel instead: 7.07:1, and it matches the light-pill-on-dark idiom.
+   Needs the attribute selector + !important to beat the page-level rule. */
+.side-cta a[href]{background:#FCFBF8!important;color:#02615D!important}
+
+/* .eyebrow was defined in site.css but NOT here, so every page loading only the
+   shell had to declare its own — which is how 48 pages ended up patching the
+   colour back to raw fern (2.37:1). Mirrored from site.css. Page-level rules
+   still win on order, so this only reaches pages that had no rule at all. */
+.eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:16px}
+
+.navitem .ar{font-size:.78em;font-weight:600;margin-left:.18em;vertical-align:.08em}

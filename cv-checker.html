@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>CV Checker | Ethicare Resourcing</title>
+<meta name="description" content="Paste the clinical CV you already have and see what a hiring manager in New Zealand or Australia would notice first. Ten checks, in your browser, nothing uploaded.">
+<link rel="canonical" href="https://ethicareresourcing.com/cv-checker">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<link rel="icon" href="assets/logo-mark.png">
+<link rel="apple-touch-icon" href="assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="CV Checker | Ethicare Resourcing">
+<meta property="og:description" content="Paste the clinical CV you already have and see what a hiring manager in New Zealand or Australia would notice first. Nothing is uploaded.">
+<meta property="og:url" content="https://ethicareresourcing.com/cv-checker">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-toolkit.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CV Checker | Ethicare Resourcing">
+<meta name="twitter:description" content="Paste the clinical CV you already have and see what a hiring manager in New Zealand or Australia would notice first. Nothing is uploaded.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-toolkit.jpg">
+<style>.rvb{--e:var(--mint);--line:rgba(2,97,93,.65)}
+.rvb .shell{max-width:var(--w-shell);margin:0 auto;padding:0 clamp(20px,4vw,32px)}
+.rv-hero{background:var(--teal);padding:clamp(48px,6vw,78px) 0 clamp(34px,4.4vw,48px)}
+.rv-hero .eyebrow{color:#C6E084}
+.rv-hero h1{font-family:var(--display);font-weight:300;font-size:clamp(34px,5.2vw,56px);line-height:1.07;letter-spacing:-.02em;color:#fff;margin-bottom:20px;max-width:20ch;text-wrap:pretty}
+.rv-hero p{font-size:clamp(16.5px,1.6vw,18.5px);line-height:1.68;color:rgba(255,255,255,.87);max-width:62ch;text-wrap:pretty}
+.rv-hero p.fine{font-size:15px;color:rgba(255,255,255,.75);margin-top:14px;max-width:58ch}
+.rv-setup{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:flex-end;margin-top:32px;padding-top:26px;border-top:1px solid rgba(255,255,255,.18)}
+.rv-setup label{display:block;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C6E084;margin-bottom:8px}
+.rv-setup select{min-height:48px;padding:12px 14px;border:1px solid rgba(255,255,255,.3);border-radius:12px;background:rgba(1,49,47,.42);color:#fff;font-family:var(--body);font-size:15px;cursor:pointer}
+.rv-setup select:focus{outline:none;border-color:#C6E084}
+.rv-setup p{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.7);max-width:44ch;margin:0}
+.rv-paste{background:var(--warm);padding:clamp(46px,6vw,72px) 0}
+.rv-paste h2{font-family:var(--display);font-size:clamp(28px,3.4vw,42px);font-weight:600;line-height:1.14;letter-spacing:-.015em;color:var(--teal);margin-bottom:14px;max-width:22ch}
+.rv-paste .lead{font-size:17px;line-height:1.66;color:var(--text);max-width:60ch;text-wrap:pretty}
+.rv-box{margin-top:30px;max-width:900px}
+.rv-box label{display:block;font-family:var(--display);font-size:14px;font-weight:600;color:var(--teal);margin-bottom:8px}
+.rv-box textarea{width:100%;box-sizing:border-box;min-height:280px;padding:18px 20px;border:1.5px solid var(--e);border-radius:var(--r-lg,16px);background:#fff;font-family:var(--body);font-size:15px;line-height:1.7;color:var(--text);resize:vertical}
+.rv-box textarea:focus{outline:none;border-color:var(--teal)}
+.rv-meter{font-family:var(--display);font-size:13.5px;font-weight:600;color:#2F5E49;margin-top:12px}
+.rv-acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.rv-btn{font-family:var(--display);font-size:15px;font-weight:600;min-height:48px;padding:13px 26px;border-radius:12px;border:0;background:var(--teal);color:#fff;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;transition:background .15s ease}
+.rv-btn:hover{background:#014A47}
+.rv-btn.ghost{background:none;border:2px solid var(--teal);color:var(--teal)}
+.rv-btn.ghost:hover{background:var(--soft)}
+.rv-btn.quiet{background:#fff;border:1.5px solid var(--e);color:var(--text)}
+.rv-btn.quiet:hover{border-color:#2F5E49;background:#fff}
+.rv-btn.light{background:#fff;color:var(--teal)}
+.rv-btn.light:hover{background:#EAF2EC}
+.rv-btn.onteal{background:none;border:2px solid rgba(255,255,255,.36);color:#fff}
+.rv-btn.onteal:hover{background:rgba(1,49,47,.42);border-color:#C6E084}
+.rv-fine{font-size:14.5px;line-height:1.65;color:var(--muted);max-width:64ch;margin-top:22px;text-wrap:pretty}
+.rv-res{background:var(--soft);padding:clamp(52px,7vw,80px) 0}
+.rv-res h2{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);font-weight:600;line-height:1.16;letter-spacing:-.015em;color:var(--teal);margin-bottom:14px;max-width:24ch;text-wrap:pretty}
+.rv-res h2:focus{outline:none}
+.rv-res .lead{font-size:16.5px;line-height:1.66;color:var(--text);max-width:62ch;text-wrap:pretty}
+.rv-list-wrap{display:grid;gap:12px;margin-top:32px;max-width:900px}
+.rv-card{background:#fff;border-radius:var(--r-lg,16px);padding:24px clamp(20px,2.4vw,28px);border-left:0}
+.rv-top{display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px;margin-bottom:10px}
+.rv-top h3{font-family:var(--display);font-size:clamp(17px,2vw,19.5px);font-weight:600;line-height:1.3;color:var(--teal);margin:0;text-wrap:pretty}
+.rv-pill{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap}
+.rv-pill.good{background:#DCE9DF;color:#1F5E4E}
+.rv-pill.watch{background:#F0F2EF;color:#5F6E66}
+.rv-pill.fix{background:#F5E4D8;color:#9E4A22}
+.rv-card p{font-size:15.5px;line-height:1.66;color:var(--text);max-width:70ch;margin:0;text-wrap:pretty}
+.rv-card.good p{color:var(--muted)}
+.rv-list{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.rv-list li{font-size:14.5px;line-height:1.6;color:var(--text);padding:10px 14px;background:var(--warm);border-radius:10px;text-wrap:pretty}
+.rv-flow{background:#fff;padding:clamp(52px,7vw,78px) 0;border-top:1px solid var(--e)}
+.rv-flow h2{font-family:var(--display);font-size:clamp(26px,3.2vw,36px);font-weight:600;line-height:1.18;letter-spacing:-.015em;color:var(--teal);margin-bottom:14px;max-width:26ch}
+.rv-flow .lead{font-size:16.5px;line-height:1.66;color:var(--text);max-width:64ch;text-wrap:pretty}
+.rv-steps{list-style:none;margin:34px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.rv-step{background:var(--warm);border:1px solid var(--e);border-radius:var(--r-lg,16px);padding:24px 22px 22px;display:flex;flex-direction:column;gap:9px}
+.rv-step.here{background:var(--soft);border-color:var(--line)}
+.rv-sn{font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.04em;color:#9DB0A6}
+.rv-step.here .rv-sn{color:#2F5E49}
+.rv-step h3{font-family:var(--display);font-size:18px;font-weight:600;line-height:1.28;color:var(--teal);margin:0}
+.rv-step p{font-size:14.5px;line-height:1.62;color:var(--muted);margin:0;text-wrap:pretty}
+.rv-step a{font-family:var(--display);font-size:14.5px;font-weight:600;color:#2F5E49;margin-top:auto;padding-top:6px;text-decoration:none}
+.rv-step a:hover{color:var(--teal);text-decoration:underline}
+.rv-here{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#2F5E49;margin-top:auto;padding-top:6px}
+.rv-end{background:var(--teal);padding:clamp(52px,7vw,80px) 0}
+.rv-end h2{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);font-weight:600;line-height:1.18;color:#fff;margin-bottom:16px;max-width:24ch}
+.rv-end p{font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.84);max-width:64ch;margin-bottom:30px;text-wrap:pretty}
+.rv-end .fine{font-size:14px;color:rgba(255,255,255,.55);margin:28px 0 0;max-width:60ch}
+.rv-end .rv-acts{margin-top:0}
+@media (max-width:640px){.rv-box textarea{min-height:220px;padding:14px 15px}}
+.eyebrow{display:flex;align-items:center;gap:16px}.eyebrow::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:0 0 auto}
+a{color:#2F5E49}a:hover{color:var(--teal)}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"CV checker"}]}</script>
+<link rel="stylesheet" href="./prose-links.css">
+</head>
+<body class="rvb">
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content">
+
+<section class="rv-hero">
+  <div class="shell">
+    <p class="eyebrow">CV checker</p>
+    <h1>Check the CV you already have</h1>
+    <p>Most clinicians find out their CV does not read well in New Zealand or Australia after they have been turned down, and nobody tells them why. This tells you first. Paste it in and you will see what a hiring manager here would notice, in the order they would notice it.</p>
+    <p class="fine">Ten checks, and none of them is a score. It is your CV, and you are welcome to disagree with any of it.</p>
+    <div class="rv-setup">
+      <div>
+        <label for="rvDest">Applying to</label>
+        <select id="rvDest"><option value="nz">New Zealand</option><option value="au">Australia</option></select>
+      </div>
+      <p>A few of the checks change with the destination, because the regulators and the vocabulary do.</p>
+    </div>
+  </div>
+</section>
+
+<section class="rv-paste">
+  <div class="shell">
+    <p class="eyebrow">Your CV</p>
+    <h2>Paste the whole thing</h2>
+    <p class="lead">Open your CV, select all of it, copy, and paste it below. Formatting does not matter and headings are welcome &mdash; several of the checks go looking for them.</p>
+    <div class="rv-box">
+      <label for="rvText">Your CV text</label>
+      <textarea id="rvText" data-cv rows="14" placeholder="Paste your CV here. Nothing leaves your browser."></textarea>
+      <p class="rv-meter" data-meter>Nothing pasted yet.</p>
+      <div class="rv-acts">
+        <button class="rv-btn" type="button" data-run>Check it</button>
+        <button class="rv-btn quiet" type="button" data-clear>Clear the text</button>
+      </div>
+      <p class="rv-fine"><strong>Nothing is uploaded and nothing is saved.</strong> The text is read in this browser tab and is gone the moment you close it or clear the box. We never see it, so nothing you paste here reaches a recruiter until you decide to send it.</p>
+      <p class="rv-fine">One thing pasted text cannot show us is a photograph. If your CV has one, take it off: neither country expects one, and it is the quickest way to look unfamiliar with local convention.</p>
+    </div>
+  </div>
+</section>
+
+<section class="rv-res" id="results" data-resultwrap hidden>
+  <div class="shell">
+    <p class="eyebrow">What a reader would notice</p>
+    <h2 data-headline>Your results</h2>
+    <p class="lead">Ordered the way a hiring manager reads: what stops them first, then what they would query, then what already works. Nothing here is a score.</p>
+    <div class="rv-list-wrap" data-results></div>
+  </div>
+</section>
+
+<section class="rv-flow">
+  <div class="shell">
+    <p class="eyebrow">How these fit together</p>
+    <h2>Three separate things, in this order</h2>
+    <p class="lead">People often ask whether checking a CV, building one and registering with us are the same step. They are not, and you do not need all three &mdash; the first two are yours to keep, and only the third involves us.</p>
+    <ol class="rv-steps">
+      <li class="rv-step here">
+        <span class="rv-sn">01</span>
+        <h3>Check the CV you have</h3>
+        <p>Two minutes, if you already have a CV. It tells you what a reader here would notice and leaves you to decide what to change.</p>
+        <span class="rv-here">You are here</span>
+      </li>
+      <li class="rv-step">
+        <span class="rv-sn">02</span>
+        <h3>Or write it properly, once</h3>
+        <p>About twenty minutes. Nine sections in the order a reader wants them, building an A4 page as you type, and a Word file at the end that you keep editing for every application.</p>
+        <a href="/build-your-cv">Open the CV builder &rarr;</a>
+      </li>
+      <li class="rv-step">
+        <span class="rv-sn">03</span>
+        <h3>Then register with us</h3>
+        <p>A separate step, and about three minutes. Tell us where you are up to and attach the CV file. Neither tool sends anything to us on its own, so registering is the only way we see it.</p>
+        <a href="/apply">Register and send your CV &rarr;</a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="rv-end">
+  <div class="shell">
+    <h2>Then the parts a CV cannot do</h2>
+    <p>A good CV gets you the interview, not the job. Registration is its own process and starts earlier than most people expect, and the interview is where the claims on the page get tested.</p>
+    <div class="rv-acts">
+      <a class="rv-btn light" href="/build-your-cv">Rewrite it in the builder</a>
+      <a class="rv-btn onteal" href="/pathway-checker">Check your registration pathway</a>
+      <a class="rv-btn onteal" href="/interview-prep">Prepare for the interview</a>
+    </div>
+    <p class="fine">Written for clinicians applying to New Zealand and Australia from anywhere &mdash; the UK, South Africa, Ireland, the UAE, India and beyond.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script src="cv-checker.js"></script>
+
+<!-- ================= INTERNAL LINK MAP =================
+  Header / footer navigation is the shared site shell (see build-your-cv.html).
+
+  IN-PAGE
+  Applying to: New Zealand / Australia  -> re-runs the checks with destination wording, no navigation
+  Check it / Clear the text             -> runs the checks in the browser, clears the textarea. Nothing is sent or stored.
+  Skip to content                       -> #main-content
+
+  OUTBOUND LINKS
+  Open the CV builder                   -> Build Your CV (/build-your-cv)          [flow step 02]
+  Rewrite it in the builder             -> Build Your CV (/build-your-cv)          [closing band]
+  Register and send your CV             -> Apply / candidate registration (/apply)  [flow step 03]
+  Check your registration pathway       -> Registration pathway checker (/pathway-checker)
+  Prepare for the interview             -> Interview & application prep (/interview-prep)
+===================================================== -->
+
+<!-- ================= SEO =================
+  Page Title: CV Checker
+  URL Slug: /cv-checker
+  SEO Title: CV checker for New Zealand & Australia | Ethicare Resourcing
+  Meta Description: Paste the clinical CV you already have and see what a hiring manager in New Zealand or Australia would notice first. Ten checks, in your browser, nothing uploaded.
+======================================== -->
+<script src="nav.js" defer></script>
+</body>
+</html>

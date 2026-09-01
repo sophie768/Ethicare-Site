@@ -1,0 +1,45 @@
+# Ethicare Resourcing — Netlify configuration
+
+[build]
+  publish = "."
+
+# Ask Ethicare's server-side LLM proxy lives here. Without this block Netlify
+# never bundles it and /.netlify/functions/ask-ethicare returns 404.
+[functions]
+  directory = "netlify/functions"
+
+# Canonical host: redirect www → apex (301)
+[[redirects]]
+  from = "https://www.ethicareresourcing.com/*"
+  to = "https://ethicareresourcing.com/:splat"
+  status = 301
+  force = true
+
+# Retired root comparison page → canonical guides URL (301)
+[[redirects]]
+  from = "/australia-vs-new-zealand"
+  to = "/guides/australia-vs-new-zealand"
+  status = 301
+  force = true
+
+# Retired dual-country pets guide → NZ pet chapter (301)
+# Split into /guides/nz/bringing-pets-and-belongings (NZ) + /guides/australia-pets (AU).
+[[redirects]]
+  from = "/guides/moving-with-pets"
+  to = "/guides/nz/bringing-pets-and-belongings"
+  status = 301
+  force = true
+
+# Security + caching headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

@@ -1,0 +1,94 @@
+/* ==========================================================================
+   ETHICARE RESOURCING — PRINT KIT FOR /guides/
+   --------------------------------------------------------------------------
+   The destination chapters already print well; this gives the guide library
+   the same care. Load LAST in <head> on any page under /guides/.
+
+   Written against the REAL markup of the three guide families:
+
+   A. /guides/nz/*.html — national chapter guides (9)
+        .hero > .photo + .inner > nav.wf-crumb / .eyebrow / h1 / .sub
+        .shell > aside.sidebar (.otp) + .content
+   B. /guides/*.html — journey steps + reference guides (30)
+        header.hero(.cream) > .hero-art + .wrap > .hero-copy >
+          nav.crumb / .eyebrow / h1 / p.hero-sub / .btn-row
+        .shell / .wrap.reading / .section
+   C. /guides/*.html — dual-country comparison guides (7)
+        section.cover > .cov-bg + .cov-top + .cov-in, plus .guidebar
+        This cover is a DESIGNED stacked cover (photo above, copy on solid
+        deep teal) from site/guide-cover.css. We do not restyle its colours
+        or structure — we only cap it and break the page after it.
+   ========================================================================== */
+
+@page{size:A4;margin:14mm}
+
+@media print{
+*{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+html,body{background:#fff !important;font-size:10.5pt !important}
+
+/* --- chrome that must not print ----------------------------------------- */
+.site-header,.site-footer,.backtop,.nav-toggle,.site-nav,.skip-link,
+.guidebar,.sidebar,.otp,.ck-btns,.ch-nav,.nextstep,.nextstep-band,
+.final,.side-cta,.ns-acts,.btn-row,.explore,.related-grid,.seealso,
+.journey-band,.wf-onward,.ch-print,.cov-btns{display:none !important}
+
+/* --- structure: let the page use the full sheet ------------------------- */
+.shell{display:block !important;max-width:none !important;width:auto !important;padding:0 !important;margin:0 !important}
+.wrap,.content,.reading,.inner,.hero-copy{max-width:none !important;width:auto !important;padding-left:0 !important;padding-right:0 !important;margin-left:0 !important;margin-right:0 !important}
+
+/* --- A + B: the photographic/cream hero becomes a plain title block ----
+   Every descendant is recoloured, not an enumerated list: these heroes carry
+   explicit white on individual children (.wf-crumb a, .sep, .here, .sub),
+   so recolouring the parent alone would leave them white on white.
+   Scoped to .hero, which deliberately excludes family C's .cover.          */
+.hero{position:relative !important;min-height:0 !important;height:auto !important;padding:0 0 8mm !important;background:#fff !important;display:block !important}
+.hero,.hero *{color:#02615D !important;text-shadow:none !important}
+.hero .photo,.hero .hero-art,.hero .hero-badge,.hero .duo-bg{display:none !important}
+.hero::before,.hero::after{display:none !important}
+.hero .eyebrow::before{background:#A6C84A !important}
+.hero h1{margin-top:2mm !important}
+.hero .sub,.hero .hero-sub{font-size:10.5pt !important}
+
+/* --- C: keep the designed cover, cap it, start the guide on a new page -- */
+.cover{break-after:page !important;min-height:0 !important}
+.cov-bg{max-height:80mm !important}
+.cov-bg img{max-height:80mm !important}
+
+/* --- sections: tighter vertical rhythm on paper ------------------------- */
+.section,.content section,section.band{padding:7mm 0 !important;border-bottom:0.5pt solid #C9DED3 !important}
+.content section:last-child,.section:last-child{border-bottom:0 !important}
+
+/* --- headings ----------------------------------------------------------- */
+h1{font-size:24pt !important;line-height:1.1 !important}
+h2{font-size:15pt !important;line-height:1.15 !important}
+h3{font-size:11.5pt !important}
+h1,h2,h3,h4{break-after:avoid !important}
+.content h2,.content h3,.section h2,.section h3{color:#02615D !important}
+p,li{orphans:3;widows:3}
+.lead{font-size:11.5pt !important}
+
+/* --- blocks that must never split across a page ------------------------ */
+figure,table,.fact,.panel,.takeaway,.sophie,.stat,.glance,.gcard,.tf-item,
+.timeline li,.tl,.regstep,.step,.eng-card,.linkgrid a,.linkcard,.faq details,
+.ck-item,.note,.rev-note,.trade,.tradeoffs>*,.how,.cols>*,.reassure,
+.board,.boards,.term,.ticks li,.seealso,.mrow{break-inside:avoid !important}
+
+/* --- imagery (content only — chrome logos are already hidden) ---------- */
+.content img,.section img,figure img,.shot img,.feat img{max-width:100% !important;height:auto !important;max-height:105mm !important;display:block}
+figcaption{font-size:8.5pt !important;color:#555555 !important}
+
+/* --- links: show the destination, since a reader can't click ----------- */
+.content a[href^="http"]::after,.section a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#555555;word-break:break-all}
+.content a,.section a{color:#02615D !important;text-decoration:none !important}
+
+/* --- tables ------------------------------------------------------------- */
+table{width:100% !important;border-collapse:collapse !important;font-size:9.5pt !important}
+th,td{border:0.5pt solid #C9DED3 !important;padding:4pt 6pt !important}
+thead{display:table-header-group}
+
+/* --- nothing may print blank or collapsed ------------------------------- */
+.rv,[data-reveal],.om-h{opacity:1 !important;transform:none !important}
+/* FAQ and disclosure content prints expanded — a reader cannot open it */
+details>*{display:block !important}
+details>summary{list-style:none;font-weight:600}
+}

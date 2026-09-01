@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Should you negotiate your salary? | Ethicare Resourcing</title>
+<meta name="description" content="How salary negotiation actually works for clinicians relocating to Australia or New Zealand: what's flexible, how to ask, when not to push.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   ETHICARE RESOURCING — CROSS-COUNTRY GUIDE
+   Australia or New Zealand? — a decision guide
+   ================================================================ */
+:root{
+  --teal:#02615D; --green:#02615D; --sage:#72A471; --lime:#A6C84A;
+  --nz:#72A471; --au:#D9A084;
+  --mint:#C9DED3; --soft:#E6F1ED; --soft-green:#E6F1ED; --warm:#FCFBF8;
+  --white:#FFFFFF; --text:#333333; --muted:#555555;
+  --display:'Work Sans',sans-serif; --body:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+body{font-family:var(--body);font-size:16px;line-height:1.72;color:var(--text);background:var(--warm);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,.btn:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 7px rgba(167,201,87,.55)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.18;color:var(--teal)}
+h1{font-size:clamp(40px,6vw,56px);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+h2{font-size:clamp(30px,4vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin-bottom:24px}
+h3{font-size:18px;margin-bottom:8px}
+p{margin-bottom:16px}
+strong{color:var(--green)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.reading{max-width:1180px}.reading>*{max-width:760px}
+.section{padding:var(--sp-major,clamp(60px,8vw,96px)) 0;position:relative}
+.eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:16px}
+.lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:50ch}
+
+/* breadcrumb */
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:13px;color:var(--muted);margin-bottom:24px}
+.crumb a:hover{color:var(--teal)}
+.crumb .sep{opacity:.85}
+.crumb .here{color:var(--teal)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-family:var(--display);font-weight:600;font-size:16px;padding:13px 26px;border-radius:12px;transition:transform .15s ease,background .15s ease;color:var(--teal);cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#014E4B}
+.btn-secondary{background:#fff;border:1.5px solid var(--sage);color:var(--teal)}.btn-secondary:hover{background:var(--soft-green)}
+.btn-ghost{background:transparent;border:1.5px solid var(--sage);color:var(--teal)}.btn-ghost:hover{background:var(--soft-green)}
+.btn-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+
+/* ---------------- HERO ---------------- */
+.hero{background:var(--teal);position:relative;overflow:hidden;min-height:calc(88svh - 78px);display:grid;align-content:center}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 46%,rgba(169,101,79,.55) 46% 54%,rgba(95,143,120,.55) 54%);opacity:.5;pointer-events:none}
+.hero .wrap{position:relative;z-index:1;padding-top:clamp(46px,6vw,72px);padding-bottom:clamp(46px,6vw,72px)}
+.hero-copy{max-width:760px}
+.hero h1{color:#fff;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:#A34438}
+.hero .eyebrow{color:#C6E084}
+.hero .crumb{color:rgba(255,255,255,.9)}
+.hero .crumb a:hover,.hero .crumb .here{color:#fff}
+.hero .btn-primary{background:#fff;color:var(--teal)}
+.hero .btn-primary:hover{background:var(--warm)}
+.hero .btn-ghost{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5);color:#fff}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.2)}
+.hero-sub{font-size:clamp(16.5px,2vw,20px);line-height:1.6;color:rgba(255,255,255,.88);max-width:50ch;margin-bottom:8px}
+
+/* page at a glance */
+.glance-wrap{background:var(--warm);padding:clamp(34px,5vw,50px) 0 0}
+.glance{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:26px 30px}
+.glance .gl-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.glance .gl-top .eyebrow{margin-bottom:0}
+.glance .gl-top .note{font-size:13.5px;color:var(--muted)}
+.glance ol{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 24px}
+.glance li{counter-increment:g;border-top:1px solid var(--mint)}
+.glance a{display:flex;align-items:baseline;gap:8px;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);padding:11px 4px;transition:color .15s ease}
+.glance a::before{content:counter(g,decimal-leading-zero);font-size:11.5px;font-weight:600;color:#A34438;flex-shrink:0}
+.glance a:hover{color:var(--teal)}
+@media (max-width:760px){.glance ol{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.glance ol{grid-template-columns:1fr}}
+
+/* intro reassurance */
+.reassure{background:var(--soft-green);border:1px solid var(--mint);border-radius:14px;padding:24px 26px;margin:24px 0 0}
+.reassure p{margin:0;font-size:16.5px}
+
+/* duo mirror cards */
+.section .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.section .duo .cc{background:#fff;border:1px solid var(--mint);border-radius:20px;padding:30px 30px;transition:transform .15s ease,box-shadow .15s ease}
+.section .duo .cc:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(1,49,47,.09)}
+.section .duo .cc.au{border-top:5px solid var(--au)}
+.section .duo .cc.nz{border-top:5px solid var(--nz)}
+.section .duo .cc .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.section .duo .cc.au .k{color:var(--au-text,#A34438)} .duo .cc.nz .k{color:#A34438}
+.section .duo .cc h3{color:var(--green);font-size:20px;margin-bottom:8px}
+.section .duo .cc p{font-size:15px;color:var(--muted);margin:0 0 8px}
+.section .duo .cc p:last-child{margin-bottom:0}
+
+/* comparison table */
+.cmp-wrap{margin-top:40px;overflow-x:auto;border:1px solid var(--mint);border-radius:20px}
+.cmp{width:100%;border-collapse:collapse;font-size:15px;min-width:640px;background:#fff}
+.cmp thead th{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.13em;text-transform:uppercase;text-align:left;padding:18px 22px 14px;color:#2F5E49;background:none}
+.cmp thead th:first-child{width:18%}
+.cmp thead th.au{color:#A34438;box-shadow:inset 0 3px 0 #D9A084} .cmp thead th.nz{color:#2F5E49;box-shadow:inset 0 3px 0 #72A471}
+.cmp tbody th{font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);text-align:left;padding:18px 22px;background:var(--soft);vertical-align:top;width:18%;border-top:1px solid var(--mint)}
+.cmp td{padding:18px 22px;color:var(--text);vertical-align:top;border-top:1px solid var(--mint);line-height:1.6}
+.cmp td.au{background:rgba(169,101,79,.05)}
+.cmp td.nz{background:rgba(95,143,120,.05)}
+
+/* registration two-up + ticks */
+.reg-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.reg-col{background:#fff;border:1px solid var(--mint);border-radius:20px;padding:30px 30px}
+.reg-col.au{border-top:5px solid var(--au)} .reg-col.nz{border-top:5px solid var(--nz)}
+.reg-col .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.reg-col.au .k{color:var(--au-text,#A34438)} .reg-col.nz .k{color:#A34438}
+.reg-col h3{color:var(--green);font-size:19px;margin-bottom:8px}
+.reg-col p{font-size:14.5px;color:var(--muted)}
+ul.ticks{list-style:none;display:grid;gap:8px;margin:16px 0 0}
+ul.ticks li{position:relative;padding-left:28px;font-size:14.5px;color:var(--text)}
+ul.ticks li::before{content:"";position:absolute;left:0;top:8px;width:15px;height:15px;border-radius:6px;background:var(--soft-green);border:1px solid var(--mint)}
+ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;height:9px;border:2px solid var(--teal);border-top:0;border-left:0;transform:rotate(45deg)}
+
+/* insight callout */
+.insight{margin-top:40px;background:var(--soft-green);border:1px solid var(--mint);border-radius:14px;padding:26px 30px;max-width:920px}
+.insight .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px}
+.insight p{font-size:16px;color:var(--text);margin:0}
+
+.pullquote{margin:40px 0 0;padding:8px 0 8px 26px;border-left:4px solid #72A471;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(20px,2.6vw,26px);line-height:1.45;color:var(--teal);max-width:50ch}
+
+/* decide grid */
+.decide{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.decide .card{border:1px solid var(--mint);border-radius:20px;padding:30px 30px;background:#fff}
+.decide .card.au{border-top:5px solid var(--au)} .decide .card.nz{border-top:5px solid var(--nz)}
+.decide .card .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.decide .card.au .k{color:var(--au-text,#A34438)} .decide .card.nz .k{color:#A34438}
+.decide .card ul{list-style:none;display:grid;gap:8px}
+.decide .card li{position:relative;padding-left:24px;font-size:15px;color:var(--text)}
+.decide .card li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%}
+.decide .card.au li::before{background:var(--au)} .decide .card.nz li::before{background:var(--nz)}
+
+/* Sophie insight */
+.sophie{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:clamp(28px,4vw,40px);display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:start;max-width:920px}
+.sophie .photo{width:120px;height:140px;border-radius:14px;overflow:hidden;border:1px solid var(--mint);background:linear-gradient(150deg,var(--mint),var(--soft-green))}
+.sophie .photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.sophie .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A34438;margin-bottom:8px}
+.sophie p{font-size:16.5px;color:var(--text);margin-bottom:0}
+.sophie .sign{font-family:var(--display);font-style:italic;font-weight:600;font-size:18px;color:var(--teal);margin-top:16px}
+.sophie .sign span{display:block;font-style:normal;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* FAQ */
+.faq{margin-top:40px;max-width:920px}
+.faq details{background:#fff;border:1px solid var(--mint);border-radius:14px;margin-bottom:16px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--teal);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;font-weight:400;color:#A34438;transition:transform .2s ease;line-height:1}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .ans{padding:0 24px 22px;font-size:15.5px;color:var(--muted)}
+.faq .ans p{margin-bottom:8px}.faq .ans p:last-child{margin-bottom:0}
+
+/* related */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.rel{position:relative;background:#fff;border:1px solid var(--mint);border-left:5px solid var(--sage);border-radius:14px;padding:24px 24px;transition:background .15s ease,transform .15s ease}
+.rel:hover{background:var(--soft-green);transform:translateY(-2px)}
+.rel .k{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#A34438;margin-bottom:8px;display:block}
+.rel h3{font-size:16.5px;color:var(--green);margin-bottom:4px}
+.rel p{font-size:13.5px;color:var(--muted);margin:0}
+.rel .go{margin-top:16px;font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--teal);display:inline-flex;align-items:center;gap:8px}
+.rel .go::after{content:"\2192";color:#A34438}
+
+/* final CTA */
+.final{background:var(--teal);border-radius:24px;padding:clamp(34px,5vw,52px);text-align:left;color:#fff}
+.final .eyebrow{color:#C6E084}
+.final h2{margin-bottom:16px;color:#fff}
+.final p{max-width:64ch;color:rgba(255,255,255,.85);font-size:17px}
+.final .btn-row{justify-content:flex-start}
+.final .btn-light{background:#fff;color:var(--teal)}.final .btn-light:hover{background:var(--warm)}
+.final .btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff}.final .btn-outline:hover{background:rgba(255,255,255,.12)}
+.final .small{margin-top:16px;font-size:13.5px;color:rgba(255,255,255,.7)}
+
+@media (max-width:880px){
+  .duo,.reg-cols,.decide,.related-grid{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .section{padding:54px 0}
+  .sophie{grid-template-columns:1fr;gap:24px}
+  .sophie .photo{margin:0 auto}
+  .btn{width:100%}
+}
+</style>
+<link rel="stylesheet" href="../shell.css">
+<style>/* playfair-hero */ .hero-sub{font-family:'Playfair Display',Georgia,serif;font-weight:500}</style>
+<link rel="stylesheet" href="../guide-mobile.css">
+<link rel="canonical" href="https://ethicareresourcing.com/guides/negotiating-your-offer">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Should you negotiate your salary? | Ethicare Resourcing">
+<meta property="og:description" content="How salary negotiation actually works for clinicians relocating to Australia or New Zealand: what's flexible, how to ask, when not to push.">
+<meta property="og:url" content="https://ethicareresourcing.com/guides/negotiating-your-offer">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Should you negotiate your salary? | Ethicare Resourcing">
+<meta name="twitter:description" content="How salary negotiation actually works for clinicians relocating to Australia or New Zealand: what's flexible, how to ask, when not to push.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="au-orange-accent">.hero .eyebrow{color:#C6E084}.hero .eyebrow::before{background:#A6C84A}.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style id="au-palette-tune">:root{--teal:#02615D;--green:#02615D;--sage:#72A471}h1,h2,h3{color:#02615D}</style>
+<style id="nz-fern-accent">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style id="au-hero-teal"></style>
+<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}
+</style>
+<link rel="stylesheet" href="../hero.css">
+<link rel="stylesheet" href="../guide-cover.css">
+<link rel="stylesheet" href="../guide-print.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will negotiating make me look difficult, or risk the offer?","acceptedAnswer":{"@type":"Answer","text":"A single, well-framed question asked with genuine enthusiasm for the role does not put a sensible offer at risk. What can cause friction is challenging six things at once, negotiating before the employer has decided to appoint you, or pushing again after they’ve already moved significantly. Ask once, ask clearly, and be ready to accept the answer."}},{"@type":"Question","name":"Can I negotiate in the public sector at all?","acceptedAnswer":{"@type":"Answer","text":"Often not the rate itself, because it sits on a published scale. But you can and should ask about placement on that scale — whether all your relevant post-qualification experience has been recognised in your starting step. That’s a question with a factual answer, and it’s where most value is actually found."}},{"@type":"Question","name":"What if they can’t move on salary?","acceptedAnswer":{"@type":"Answer","text":"Ask about the rest of the package: relocation assistance, flights, temporary accommodation, registration and visa costs, CPD funding, start date, working pattern, leave, or the timing of your first review. For an international move, those can be worth more in year one than a modest increase to base pay."}},{"@type":"Question","name":"Should I tell them about another offer?","acceptedAnswer":{"@type":"Answer","text":"Only if it’s real, and only framed as a question rather than an ultimatum — making clear this is still your preferred role. Never invent one or inflate it. Specialist healthcare communities in both countries are small, and your reputation outlasts any single negotiation."}},{"@type":"Question","name":"Will you negotiate on my behalf?","acceptedAnswer":{"@type":"Answer","text":"Where it’s appropriate, yes — and it’s often easier that way, since we already know the employer’s structure and whether there’s flexibility. We’ll also tell you honestly when there isn’t, rather than putting you through a conversation that won’t change anything."}},{"@type":"Question","name":"How do I know whether the offer is fair in the first place?","acceptedAnswer":{"@type":"Answer","text":"Start with how the figure was set and what it should be compared against — award floor, collective agreement step, or a private-market rate. Our Australian and New Zealand pay guides explain the mechanics of each, and we’ll confirm the specific position for any role we discuss with you."}}]}</script>
+<link rel="stylesheet" href="../disclose.css">
+<link rel="stylesheet" href="../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<!-- ============ HERO ============ -->
+<section class="cover">
+  <div class="cov-bg" aria-hidden="true"><img decoding="async" src="../assets/nz-life/lake-from-high-track.jpg" alt="A lake and mountain range seen from a high walking track" fetchpriority="high"><img decoding="async" src="../assets/nsw/reloc/cover-opera-house.jpg" alt="The Opera House forecourt and the Harbour Bridge on a busy afternoon" fetchpriority="high"></div>
+  <div class="cov-top"><span class="cov-ct"><i class="nz"></i>New Zealand</span><span class="cov-ct">Australia<i class="au"></i></span></div>
+  <div class="cov-in">
+    <div class="cov-eb"><i></i>The offer guide</div>
+    <h1>Should you <em>negotiate?</em></h1>
+    <p class="cov-sub">How to ask well, and when not to</p>
+    <p class="cov-lead">You&rsquo;ve received the offer. The role is right, the location works, your family is excited, and the salary is slightly lower than you expected.</p>
+    <div class="cov-btns"><a class="cov-a" href="#how-set">Work through it <span aria-hidden="true">&rarr;</span></a><a class="cov-b" href="/contact">Ask us about an offer</a></div>
+    <div class="cov-meta"><span>10 sections</span><span>Updated August 2026</span><span>Free &middot; no sign-up</span></div>
+  </div>
+</section>
+<nav class="guidebar" aria-label="Guide">
+  <div class="gb-in">
+    <span class="gb-t">Negotiating your offer</span>
+    <div class="gb-l"><a class="gb" href="/resources">All guides</a><a class="gb" href="/new-zealand">Careers in New Zealand</a><a class="gb" href="/australia">Careers in Australia</a><a class="gb" href="/jobs/">Current roles</a><a class="gb" href="/contact">Contact</a></div>
+  </div>
+</nav>
+
+<!-- ============ PAGE AT A GLANCE ============ -->
+<section class="glance-wrap">
+  <div class="wrap">
+    <nav class="glance" id="glance" aria-label="On this page">
+      <div class="gl-top">
+        <span class="eyebrow">Page at a glance</span>
+        <span class="note">Jump to any part, read the whole thing, or just what matters to you.</span>
+      </div>
+      <ol>
+        <li><a href="#how-set">How was the figure set?</a></li>
+        <li><a href="#flexibility">Who has room to move</a></li>
+        <li><a href="#compare">Compare like with like</a></li>
+        <li><a href="#beyond">It isn&rsquo;t only the salary</a></li>
+        <li><a href="#prioritise">Prioritise, don&rsquo;t list</a></li>
+        <li><a href="#use">Using another offer</a></li>
+        <li><a href="#how-ask">When and how to ask</a></li>
+        <li><a href="#no">If the answer is no</a></li>
+        <li><a href="#decide">Then make the decision</a></li>
+        <li><a href="#faq">Common questions</a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="section">
+  <div class="wrap reading">
+    <span class="eyebrow">The uncomfortable bit</span>
+    <h2>Asking a reasonable question rarely has to be confrontational</h2>
+    <p class="lead">For healthcare professionals moving to Australia or New Zealand, this moment can feel particularly uncomfortable. You may already have spent months on registration, interviews and planning an international move. The last thing you want is to jeopardise the opportunity by appearing difficult.</p>
+    <p>The good news is that a well-framed question about salary is a normal professional conversation, not a confrontation. But whether you <em>can</em> negotiate, and how much flexibility the employer actually has, depends heavily on your profession, your employer and your employment model.</p>
+    <p>So the first job isn&rsquo;t deciding what to ask for. It&rsquo;s working out which situation you&rsquo;re in.</p>
+  </div>
+</section>
+
+<!-- ============ 01 HOW WAS IT SET ============ -->
+<section class="section" id="how-set" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 01 &middot; Before you respond</span>
+    <h2>Find out how the salary was determined</h2>
+    <p class="lead">Healthcare salaries aren&rsquo;t all set the same way, and these are different conversations rather than variations on one.</p>
+    <ul class="ticks">
+      <li>A <strong>public hospital</strong> may employ clinicians according to a collective agreement, award or established salary scale.</li>
+      <li>A <strong>private provider</strong> may have considerably greater discretion.</li>
+      <li>A <strong>GP</strong> may be discussing an hourly rate or a percentage of billings rather than a traditional salary.</li>
+      <li>A <strong>senior specialist</strong> may be negotiating sessions, on-call commitments and private work alongside base remuneration.</li>
+    </ul>
+    <p>Sometimes the employer has real flexibility. Sometimes they don&rsquo;t. Establishing which should come before you decide how to respond, because the same request lands very differently in each case.</p>
+  </div>
+</section>
+
+<!-- ============ 02 FLEXIBILITY ============ -->
+<section class="section" id="flexibility" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 02 &middot; Room to move</span>
+    <h2>Who actually has flexibility</h2>
+    <p class="lead">The public and private answers are different, and so is the question worth asking in each.</p>
+    <div class="reg-cols">
+      <div class="reg-col au">
+        <div class="k">Public sector</div>
+        <h3>Less flexible than you expect, but ask about placement</h3>
+        <p>If you&rsquo;re joining a public healthcare organisation, your salary may be linked to an established scale. That doesn&rsquo;t mean there is nothing to discuss. The important question is usually <strong>where you enter the scale</strong>.</p>
+        <p>Previous experience can influence placement, depending on the profession, agreement and employer. If you have twelve years of relevant post-qualification experience, it&rsquo;s entirely reasonable to ask whether all of it has been recognised in determining your starting point.</p>
+        <p>That is a different conversation from <em>&ldquo;I&rsquo;d like another $15,000.&rdquo;</em> You&rsquo;re asking the employer to check whether the offer accurately reflects your experience, which is a question they can actually act on.</p>
+      </div>
+      <div class="reg-col nz">
+        <div class="k">Private sector</div>
+        <h3>More freedom, and scarcity counts</h3>
+        <p>Private healthcare employers often have greater freedom over remuneration, although this varies enormously. It&rsquo;s particularly relevant in private radiology, general practice, allied health and diagnostic imaging.</p>
+        <p>The employer may be weighing the scarcity of your skills, local workforce demand, your experience, subspecialty expertise and how difficult the vacancy has been to fill.</p>
+        <p>An experienced MSK radiologist is entering a very different negotiation from someone applying for a position with numerous suitable local candidates. Your position depends partly on the value and scarcity of what you bring.</p>
+      </div>
+    </div>
+    <div class="insight">
+      <div class="k">Don&rsquo;t negotiate because you think you should</div>
+      <p>Plenty of generic career advice says never accept the first offer. Healthcare recruitment isn&rsquo;t that simple. If an employer has offered the top of the applicable range and has correctly recognised your experience, pushing further because negotiating is supposedly expected may achieve very little. Equally, accepting an offer you&rsquo;re uncomfortable with creates a different problem later. The aim isn&rsquo;t to win, it&rsquo;s to be comfortable before you move your life to another country.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 COMPARE ============ -->
+<section class="section" id="compare" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 03 &middot; Your benchmark</span>
+    <h2>Know what you&rsquo;re worth, but use the right comparison</h2>
+    <p class="lead">Salary research is useful. Comparing the wrong two things is worse than not researching at all, because it gives you false confidence.</p>
+    <ul class="ticks">
+      <li>A private Australian salary shouldn&rsquo;t automatically be compared with a public New Zealand one.</li>
+      <li>Sydney shouldn&rsquo;t necessarily be compared with regional Western Australia.</li>
+      <li>A contractor rate isn&rsquo;t equivalent to an employee salary.</li>
+      <li>A package inclusive of superannuation isn&rsquo;t the same as a base salary plus super.</li>
+      <li>A role with substantial on-call or weekend work shouldn&rsquo;t be compared with one built around predictable weekday sessions.</li>
+    </ul>
+    <p>Before deciding an offer is too low, be certain what you&rsquo;re measuring it against. Our <a href="/guides/australia-vs-new-zealand-salary">money guide</a> works through the comparisons that actually hold up.</p>
+  </div>
+</section>
+
+<!-- ============ 04 BEYOND SALARY ============ -->
+<section class="section" id="beyond" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 04 &middot; The rest of the package</span>
+    <h2>Salary isn&rsquo;t the only thing you can negotiate</h2>
+    <p class="lead">This matters especially when relocating internationally. Sometimes an employer cannot increase the base, and that doesn&rsquo;t mean the conversation is finished.</p>
+    <p style="max-width:64ch">Depending on the employer and role, there may be scope to discuss:</p>
+    <ul class="ticks">
+      <li>Relocation assistance, flights and temporary accommodation</li>
+      <li>Professional registration or licensing costs</li>
+      <li>Immigration or visa-related support</li>
+      <li>CPD or professional development funding, and professional memberships</li>
+      <li>Start date</li>
+      <li>Working pattern, or number of sessions</li>
+      <li>Flexible working arrangements</li>
+      <li>Additional annual leave</li>
+      <li>On-call or overtime arrangements</li>
+      <li>The timing of your first salary review</li>
+    </ul>
+    <p style="margin-top:24px;max-width:64ch">Not every employer will offer these, and some organisations have strict policies about what they can fund. But when you&rsquo;re moving internationally, relatively small changes to the package can make a significant difference.</p>
+    <div class="insight">
+      <div class="k">Relocation support can be worth more than a rise</div>
+      <p>Imagine an employer can&rsquo;t move on salary but can contribute towards flights, temporary accommodation and relocation expenses. For someone moving alone, that&rsquo;s useful. For someone relocating a family of four, it could materially reduce the cost and stress of the move. Consider the <strong>total first-year value</strong> of an offer. A slightly higher base isn&rsquo;t the better package if another employer is meaningfully helping you get established.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 PRIORITISE ============ -->
+<section class="section" id="prioritise" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 05 &middot; Focus</span>
+    <h2>There&rsquo;s a difference between negotiating and producing a shopping list</h2>
+    <p class="lead">If salary, leave, relocation, working hours, start date and every other part of the offer are challenged at once, an employer may reasonably start to wonder whether you actually want the job.</p>
+    <p>So prioritise. Ask yourself one question: <strong>what matters to me?</strong></p>
+    <ul class="ticks">
+      <li>If salary is the issue, concentrate on salary.</li>
+      <li>If the salary is acceptable but the cost of relocating your family is the worry, relocation assistance is the more important conversation.</li>
+      <li>If your priority is spending Fridays with your children, negotiating your working pattern may be worth considerably more to you than a small increase.</li>
+    </ul>
+    <p class="pullquote">One clear ask lands. Six diffuse ones sound like doubt.</p>
+  </div>
+</section>
+
+<!-- ============ 06 LEVERAGE ============ -->
+<section class="section" id="use" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 06 &middot; Other offers</span>
+    <h2>Be careful about using another offer as use</h2>
+    <p class="lead">If you have another offer, it can be relevant. Handle it carefully.</p>
+    <p>There is a considerable difference between saying:</p>
+    <p class="pullquote">&ldquo;I&rsquo;ve received another offer at a higher salary, although this remains my preferred role. Is there any flexibility within the package?&rdquo;</p>
+    <p>&hellip;and attempting to create a bidding war. Healthcare communities in Australia and New Zealand can be surprisingly small, particularly within specialist professions, and your professional reputation travels with you.</p>
+    <p><strong>Never invent another offer, or exaggerate its value.</strong> It is a small world, the claim is easier to check than people assume, and the cost of being caught is out of all proportion to the gain.</p>
+  </div>
+</section>
+
+<!-- ============ 07 WHEN & HOW ============ -->
+<section class="section" id="how-ask" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 07 &middot; The conversation</span>
+    <h2>When and how to ask</h2>
+    <p class="lead">Usually once you have a clear offer. Trying to negotiate hard before an employer has decided they want to appoint you tends to be counterproductive.</p>
+    <p>By offer stage, both sides have invested in the process. The employer knows your experience, you know more about the role, and there is something concrete to discuss. If you&rsquo;re working with a recruiter, this is also where they earn their place. A good one already understands the employer&rsquo;s salary structure, whether flexibility is likely, and where your experience sits relative to other appointments.</p>
+    <p>You don&rsquo;t need a complicated strategy. Something like this is enough:</p>
+    <p class="pullquote">&ldquo;Thank you &mdash; I&rsquo;m genuinely pleased to receive the offer and really enthusiastic about the role. Before I formally accept, could I ask whether there is any flexibility on the salary? Based on my experience in [area], I was hoping we might look at something closer to [figure].&rdquo;</p>
+    <p>That&rsquo;s a professional conversation. You&rsquo;ve expressed enthusiasm, explained your reasoning, and given the employer a chance to respond. They may agree. They may meet you in the middle. Or they may explain the offer is already at the maximum available.</p>
+    <p><strong>All three are useful answers.</strong></p>
+  </div>
+</section>
+
+<!-- ============ 08 IF NO ============ -->
+<section class="section" id="no" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 08 &middot; The answer</span>
+    <h2>When to stop, and what a &ldquo;no&rdquo; actually tells you</h2>
+    <p class="lead">At some point, negotiation needs to become a decision.</p>
+    <div class="reg-cols">
+      <div class="reg-col au">
+        <div class="k">When not to push</div>
+        <h3>Some limits are real</h3>
+        <p>If the employer has clearly demonstrated you&rsquo;re already at the maximum available under the relevant agreement, asking repeatedly won&rsquo;t change the outcome.</p>
+        <p>Likewise, if an employer has already improved the offer significantly to meet your requests, think carefully before returning with another. The question becomes simply: <strong>is this opportunity right for you at the package available?</strong></p>
+      </div>
+      <div class="reg-col nz">
+        <div class="k">If they say no</div>
+        <h3>Then you have information</h3>
+        <p>A declined salary request doesn&rsquo;t mean the employer doesn&rsquo;t value you. They may be constrained by a collective agreement, internal parity, budget or organisational policy. None of which is about you.</p>
+        <p>You can then look at the whole opportunity and decide. If it works, accept it confidently. If it doesn&rsquo;t, far better to recognise that before relocating halfway around the world.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 DECIDE ============ -->
+<section class="section" id="decide" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 09 &middot; The point of all this</span>
+    <h2>Don&rsquo;t accept a salary you&rsquo;re already unhappy with</h2>
+    <p class="lead">This is probably the most important thing on the page. Relocating internationally requires commitment from both sides.</p>
+    <p>If you accept an offer while privately feeling underpaid or undervalued, that feeling rarely disappears once you&rsquo;ve moved. It waits, and it surfaces in your first difficult month.</p>
+    <p>So ask reasonable questions before you commit. Understand the salary. Understand the package. Understand what is and isn&rsquo;t negotiable. Then decide on the full opportunity.</p>
+    <div class="insight">
+      <div class="k">Negotiation isn&rsquo;t just about earning more</div>
+      <p>A successful negotiation doesn&rsquo;t have to end with the biggest possible salary. It might mean having your previous experience properly recognised. Help with the cost of moving your family. Eight sessions rather than ten. Additional professional development. Or understanding that the original offer was already a fair one.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOPHIE'S INSIGHT ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sophie">
+      <div class="photo"><img loading="lazy" decoding="async" src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing"></div>
+      <div>
+        <span class="k">Sophie&rsquo;s insight</span>
+        <p>Our role isn&rsquo;t to push every offer higher. If an employer has recognised your experience properly and the figure is at the top of what they can do, I&rsquo;d rather tell you that than manufacture a negotiation to look useful. Where there is room, we&rsquo;ll have the conversation with the employer on your behalf, which is often easier for everyone than doing it yourself in the same week you&rsquo;re trying to make a good first impression. What I care about is that both sides understand exactly what&rsquo;s being agreed, and that the opportunity still feels right once the excitement of receiving the offer has passed.</p>
+        <p class="sign">Sophie<span>Founder, Ethicare Resourcing</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <span class="eyebrow">Common questions</span>
+    <h2>The questions candidates ask us at offer stage</h2>
+    <div class="faq">
+      <details open>
+        <summary>Will negotiating make me look difficult, or risk the offer?</summary>
+        <div class="ans"><p>A single, well-framed question asked with genuine enthusiasm for the role does not put a sensible offer at risk. What can cause friction is challenging six things at once, negotiating before the employer has decided to appoint you, or pushing again after they&rsquo;ve already moved significantly. Ask once, ask clearly, and be ready to accept the answer.</p></div>
+      </details>
+      <details>
+        <summary>Can I negotiate in the public sector at all?</summary>
+        <div class="ans"><p>Often not the rate itself, because it sits on a published scale. But you can and should ask about <em>placement</em> on that scale. Whether all your relevant post-qualification experience has been recognised in your starting step. That&rsquo;s a question with a factual answer, and it&rsquo;s where most value is actually found.</p></div>
+      </details>
+      <details>
+        <summary>What if they can&rsquo;t move on salary?</summary>
+        <div class="ans"><p>Ask about the rest of the package: relocation assistance, flights, temporary accommodation, registration and visa costs, CPD funding, start date, working pattern, leave, or the timing of your first review. For an international move, those can be worth more in year one than a modest increase to base pay.</p></div>
+      </details>
+      <details>
+        <summary>Should I tell them about another offer?</summary>
+        <div class="ans"><p>Only if it&rsquo;s real, and only framed as a question rather than an ultimatum. Making clear this is still your preferred role. Never invent one or inflate it. Specialist healthcare communities in both countries are small, and your reputation outlasts any single negotiation.</p></div>
+      </details>
+      <details>
+        <summary>Will you negotiate on my behalf?</summary>
+        <div class="ans"><p>Where it&rsquo;s appropriate, yes, and it&rsquo;s often easier that way, since we already know the employer&rsquo;s structure and whether there&rsquo;s flexibility. We&rsquo;ll also tell you honestly when there isn&rsquo;t, rather than putting you through a conversation that won&rsquo;t change anything.</p></div>
+      </details>
+      <details>
+        <summary>How do I know whether the offer is fair in the first place?</summary>
+        <div class="ans"><p>Start with how the figure was set and what it should be compared against, award floor, collective agreement step, or a private-market rate. Our <a href="/guides/australia-salary">Australian</a> and <a href="/guides/new-zealand-salary">New Zealand</a> pay guides explain the mechanics of each, and we&rsquo;ll confirm the specific position for any role we discuss with you.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA + RELATED ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="final">
+      <span class="eyebrow">No pressure, just a conversation</span>
+      <h2>Got an offer in front of you?</h2>
+      <p>Send us the detail and we&rsquo;ll tell you honestly how the figure was set, whether there&rsquo;s likely to be room, and what else in the package is worth asking about. Even if the role isn&rsquo;t one of ours.</p>
+      <div class="btn-row">
+        <a href="/contact" class="btn btn-light">Ask us about your offer</a>
+        <a href="/apply" class="btn btn-outline">Browse current opportunities</a>
+      </div>
+      <p class="small">Ethicare Resourcing, healthcare careers across Australia &amp; New Zealand.</p>
+    </div>
+
+    <div style="margin-top:40px;">
+      <span class="eyebrow">Explore further</span>
+      <h2 style="font-size:clamp(22px,3vw,28px);">Read a little deeper</h2>
+      <div class="related-grid">
+        <a href="/guides/australia-vs-new-zealand-salary" class="rel">
+          <span class="k">The money guide</span>
+          <h3>Where will your salary go further?</h3>
+          <p>Super and KiwiSaver, housing, commuting and family costs, why the higher salary isn&rsquo;t always more money.</p>
+          <span class="go">Read the guide</span>
+        </a>
+        <a href="/guides/australia-salary" class="rel">
+          <span class="k">Reference &middot; Australia</span>
+          <h3>Salary &amp; pay in Australia</h3>
+          <p>The national award floor, state enterprise agreements above it, penalties and 12% superannuation.</p>
+          <span class="go">Read the guide</span>
+        </a>
+        <a href="/guides/new-zealand-salary" class="rel">
+          <span class="k">Reference &middot; New Zealand</span>
+          <h3>Salary &amp; pay in New Zealand</h3>
+          <p>National collective agreements, the steps that set your pay, and how to land on the right one.</p>
+          <span class="go">Read the guide</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="../site.js"></script>
+
+<!-- ============================================================
+     INTERNAL LINK MAP
+     ============================================================
+  HEADER (site-wide) — brand → Home (/) · Home (/) · Australia (/australia) + journey ×6 + AU professions ×5 + /destinations/australia ·
+   New Zealand (/new-zealand) + journey ×6 + NZ professions ×9 · Jobs (/jobs) · Guides & Resources (/resources) ·
+   Employers (/employers · /insights · /insights/international-recruitment-toolkit · /submit-a-vacancy · /contact) ·
+   About (/about-ethicare) · Contact (/contact)
+  HERO — Breadcrumb → Guides & Resources (/resources) · this page ·
+   Work through it → #glance (same page) · Ask us about an offer → Contact (/contact)
+  PAGE AT A GLANCE (same-page anchors) → #how-set · #flexibility · #compare · #beyond ·
+   #prioritise · #use · #how-ask · #no · #decide · #faq
+  COMPARE LIKE WITH LIKE (#compare) — money guide → /guides/australia-vs-new-zealand-salary
+  FAQ — Australian pay guide → /guides/australia-salary ·
+   New Zealand pay guide → /guides/new-zealand-salary
+  FINAL CTA — Ask us about your offer → Contact (/contact) · Browse current opportunities → Apply (/apply)
+  READ A LITTLE DEEPER — Where will your salary go further? → /guides/australia-vs-new-zealand-salary ·
+   Salary & pay in Australia → /guides/australia-salary ·
+   Salary & pay in New Zealand → /guides/new-zealand-salary
+  FOOTER (site-wide) — /new-zealand · /australia · /destinations · /destinations/australia ·
+   /jobs · /resources · /insights · /apply · /about-ethicare · /employers · /submit-a-vacancy ·
+   /contact · Privacy Policy (/privacy-policy)
+     ============================================================ -->
+<!-- ============================================================
+     SEO
+     ============================================================
+   Page Title:       Should you negotiate your salary? | Ethicare Resourcing
+   URL Slug:         /guides/negotiating-your-offer
+   SEO Title:        Negotiating a Healthcare Salary Offer in Australia or New Zealand | Ethicare
+   Meta Description: How salary negotiation really works when you're relocating: where the figure
+                     came from, what public and private employers can flex, what else is
+                     negotiable, how to ask — and when not to push.
+     ============================================================ -->
+<script src="../nav.js" defer></script>
+<script src="../journey-nav.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Getting around Nelson Tasman: short commutes, the Tākaka Hill and the ferry · Ethicare Resourcing</title>
+<meta name="description" content="Ten-minute commutes, the Great Taste Trail, a busy little airport, and the honest distance to the rest of the South Island.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../../shell.css">
+<style>
+:root{
+  --primary:#02615D; --secondary:#72A471; --highlight:#A6C84A;
+  --sage:#C9DED3; --bg:#FCFBF8; --white:#FFFFFF; --text:#333333; --text2:#2F5E49;
+  --divider:#E4E9E5; --border:#C9DED3; --accent:#02615D;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
+body{
+  font-family:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color:var(--text); background:var(--bg); line-height:1.65;
+  font-size:17px; letter-spacing:-0.003em; -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+/* ---------- TOP BAR ---------- */
+.topbar{
+  position:sticky;top:0;z-index:60;background:rgba(252,251,248,0.88);
+  backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--divider);
+}
+.topbar .inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.brand{display:flex;align-items:center;gap:8px}
+.brand img{height:34px;border-radius:6px}
+.brand .bn{font-weight:600;font-size:14px;color:var(--accent);letter-spacing:-0.01em}
+.topbar nav{display:flex;gap:24px}
+.topbar nav a{font-size:13px;font-weight:600;color:var(--text2);letter-spacing:0.01em}
+.topbar nav a:hover{color:var(--accent)}
+.topcta{background:var(--accent);color:#fff!important;padding:9px 18px;border-radius:999px;font-size:13px;font-weight:600}
+
+/* dropdown */
+.topbar nav .has-drop{position:relative}
+.topbar nav .has-drop>a{cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.topbar nav .has-drop>a svg{width:10px;height:10px;transition:transform .15s}
+.topbar nav .has-drop:hover>a svg{transform:rotate(180deg)}
+.dropmenu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);background:var(--white);border:1px solid var(--divider);border-radius:14px;box-shadow:0 26px 54px rgba(1,49,47,.12);padding:10px;min-width:320px;opacity:0;visibility:hidden;transition:.15s;display:grid;grid-template-columns:1fr 1fr;gap:4px;z-index:80}
+.has-drop:hover .dropmenu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px)}
+.dropmenu a{display:block;padding:9px 12px;border-radius:12px;font-size:13.5px;font-weight:600;color:var(--text)!important}
+.dropmenu a:hover{background:var(--sage);color:var(--accent)!important}
+.dropmenu a .mi{display:block;font-size:11px;font-weight:500;color:var(--text2);margin-top:4px}
+.dropmenu a.allguides{grid-column:1/-1;background:var(--sage);color:var(--accent)!important;text-align:center;margin-top:4px;font-weight:600}
+
+/* hamburger */
+.hamb{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:4px}
+.hamb span{display:block;width:24px;height:2px;background:var(--accent);border-radius:2px}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:90;background:var(--bg)}
+.mobile-menu.open{display:block}
+.mobile-menu .mhead{display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 28px;border-bottom:1px solid var(--divider)}
+.mobile-menu .mclose{background:none;border:none;font-size:30px;line-height:1;color:var(--accent);cursor:pointer}
+.mobile-menu .mbody{padding:18px 28px 60px;overflow-y:auto;height:calc(100% - 64px)}
+.mobile-menu .mbody a{display:block;padding:13px 0;font-size:17px;font-weight:600;color:var(--accent);border-bottom:1px solid var(--divider)}
+.mobile-menu .mbody .mlabel{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);font-weight:700;margin:24px 0 4px}
+.mobile-menu .mbody .mregion{padding:11px 0;font-size:15.5px;font-weight:600;color:var(--text)!important;border-bottom:1px solid var(--divider)}
+@media(max-width:980px){.topbar nav{display:none}.hamb{display:flex}}
+
+/* ---------- VOICE (candidate quote) ---------- */
+.voice{margin:40px 0 4px;padding:30px 34px 26px;background:#E3ECE5;border-radius:20px;position:relative}
+.voice::before{content:"";position:absolute;left:34px;top:0;width:28px;height:3px;border-radius:0 0 2px 2px;background:#A6C84A}
+.voice blockquote{margin:0;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(18px,1.6vw,21px);line-height:1.55;color:#02615D;text-wrap:pretty}
+.voice figcaption{margin-top:16px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:#2F5E49}
+@media(max-width:640px){.voice{padding:24px 22px 20px}.voice::before{left:22px}}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:clamp(430px,66svh,620px);display:flex;align-items:flex-end;overflow:hidden}
+.hero .photo{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(2,97,93,0.05) 0%, rgba(2,97,93,0.55) 100%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 22px, rgba(255,255,255,0) 22px 44px),
+    linear-gradient(155deg,var(--secondary) 0%,var(--accent) 65%,var(--primary) 100%);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;color:rgba(255,255,255,0.9)
+}
+.hero .photo .ph-ico{width:54px;height:54px;opacity:.7;margin-bottom:8px}
+.hero .photo .ph-t{font-weight:600;font-size:15px;letter-spacing:.02em}
+.hero .photo .ph-s{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-top:4px}
+.hero .inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 28px 64px;width:100%}
+.hero .eyebrow{color:#fff}
+.hero .eyebrow::before{background:#A6C84A}
+.hero h1{
+  color:#fff;font-weight:300;font-size:clamp(40px,6vw,72px);line-height:1.04;text-wrap:balance;
+  letter-spacing:-0.025em;max-width:15ch;margin-top:16px;
+  text-shadow:0 2px 24px rgba(0,0,0,0.18)
+}
+.hero .sub{color:rgba(255,255,255,0.92);font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-top:16px}
+
+/* ---------- EYEBROW ---------- */
+.eyebrow{font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--highlight)}
+
+/* ---------- LAYOUT: SIDEBAR + CONTENT ---------- */
+.shell{max-width:var(--maxw);margin:0 auto;padding:56px 28px 0;display:block}
+.site-header .shell{padding:0 28px}
+.sidebar{position:static;margin-bottom:40px}
+.otp{background:var(--sage);border:1px solid var(--divider);border-radius:20px;padding:26px 32px 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px}
+.otp h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;font-weight:700;grid-column:1/-1}
+.otp a{display:flex;align-items:center;gap:8px;padding:12px 0;border-top:1px solid var(--divider);font-size:14.5px;color:var(--text);font-weight:500;transition:color .15s}
+.otp a .tick{width:6px;height:6px;border-radius:50%;background:var(--secondary);flex:none;transition:all .15s}
+.otp a:hover{color:var(--accent)}
+.otp a.active{color:var(--primary);font-weight:600}
+.otp a.active .tick{background:var(--highlight);width:9px;height:9px}
+.side-cta{display:none}
+.side-cta .t{font-weight:600;font-size:15px;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.side-cta .t .dot{width:9px;height:9px;border-radius:50%;background:var(--highlight)}
+.side-cta p{font-size:13px;color:rgba(255,255,255,0.9);line-height:1.55}
+.side-cta a{display:inline-block;margin-top:8px;background:var(--highlight);color:var(--primary)!important;font-weight:600;font-size:13px;padding:8px 15px;border-radius:999px}
+
+/* ---------- CONTENT ---------- */
+.content section{padding:clamp(80px,8vw,116px) 0;border-bottom:1px solid var(--divider);scroll-margin-top:clamp(56px,7vw,78px)}
+.content section:last-child{border-bottom:none}
+.content h2{font-weight:600;font-size:clamp(26px,3.4vw,36px);line-height:1.12;letter-spacing:-0.02em;color:var(--accent);margin:0 0 24px;max-width:22ch;text-wrap:balance}
+.content h3{font-weight:600;font-size:19px;color:var(--accent);margin:40px 0 16px;letter-spacing:-0.01em}
+.content p{margin-bottom:24px;max-width:64ch;line-height:1.78}
+.content .lead{font-size:20px;color:var(--text2);max-width:50ch;margin-bottom:40px;line-height:1.66}
+.cols{column-count:2;column-gap:40px}
+.cols p{max-width:none}
+@media(max-width:900px){.cols{column-count:1}}
+
+/* ---------- IMAGE PLACEHOLDER ---------- */
+.imgph{
+  position:relative;width:100%;border-radius:20px;overflow:hidden;margin:40px 0;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 16px, rgba(255,255,255,0) 16px 32px),
+    linear-gradient(150deg,var(--secondary),var(--accent));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:28px;min-height:300px
+}
+.imgph .ph-ico{width:42px;height:42px;opacity:.9;margin-bottom:8px}
+.imgph .ph-t{font-weight:600;font-size:15px}
+.imgph .ph-s{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.82;margin-top:4px}
+
+/* ---------- REAL PHOTOS ---------- */
+.photo-fig{margin:40px auto;max-width:none}
+.photo-fig img{width:100%;height:clamp(300px,40vw,460px);object-fit:cover;display:block;border-radius:20px}
+.photo-fig figcaption,.photo-row figcaption{font-size:13px;color:#333333;margin-top:8px;font-weight:600;text-align:center}
+.photo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:40px 0}
+.photo-row figure{margin:0}
+.photo-row img{width:100%;height:210px;object-fit:cover;display:block;border-radius:14px}
+.photo-row figcaption{text-align:center;margin-top:8px}
+@media(max-width:700px){.photo-row{grid-template-columns:1fr}.photo-row img{height:240px}}
+.photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:40px 0}
+.photo-pair figure{margin:0}
+.photo-pair img{width:100%;height:330px;object-fit:cover;display:block;border-radius:20px}
+.photo-pair figcaption{text-align:center;margin-top:8px;font-size:13px;color:#333333;font-weight:600}
+@media(max-width:600px){.photo-pair{grid-template-columns:1fr}.photo-pair img{height:250px}}
+
+/* ---------- STAT CARDS ---------- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:40px 0}
+@media(max-width:700px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--white);border:1px solid var(--divider);border-radius:20px;padding:22px}
+.stat .num{font-weight:700;font-size:34px;color:var(--accent);letter-spacing:-0.02em;line-height:1}
+.stat .num .u{font-size:17px;font-weight:700}
+.stat .cap{font-size:11.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--text2);font-weight:600;margin-top:8px}
+.stat .bar{width:30px;height:3px;background:var(--highlight);border-radius:2px;margin-top:8px}
+
+/* ---------- PANEL ---------- */
+.panel{background:#E3ECE5;border-radius:20px;padding:34px 36px;margin:40px 0}
+.panel .pt{font-weight:600;font-size:18px;color:var(--primary);margin-bottom:8px}
+.panel ul{list-style:none}
+.panel li{position:relative;padding-left:24px;margin-bottom:8px;font-size:15.5px}
+.panel li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;background:var(--highlight)}
+
+/* ---------- QUOTE ---------- */
+.quote{margin:40px 0}
+.quote .mark{font-weight:700;font-size:64px;color:#2F5E49;line-height:.5;display:block}
+.quote .q{font-weight:600;font-size:clamp(22px,2.8vw,30px);line-height:1.3;color:var(--accent);letter-spacing:-0.015em;max-width:24ch;margin-top:8px}
+.quote .by{font-size:12.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--text2);font-weight:600;margin-top:16px}
+
+/* ---------- SEASONS ---------- */
+.seasons{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:24px 0}
+@media(max-width:700px){.seasons{grid-template-columns:repeat(2,1fr)}}
+.season{border-radius:14px;padding:18px;color:#fff}
+.season .s{font-weight:600;font-size:16px}
+.season .m{font-size:11px;letter-spacing:.07em;text-transform:uppercase;opacity:.85;margin:4px 0 16px}
+.season .t{font-weight:600;font-size:25px;letter-spacing:-0.02em}
+.season .tl{font-size:11px;letter-spacing:.07em;text-transform:uppercase;opacity:.85;margin-top:4px}
+
+/* ---------- FACTS ---------- */
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:40px 0}
+@media(max-width:700px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--white);border:1px solid var(--divider);border-radius:14px;padding:24px 26px}
+.fact .k{font-size:11.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:4px}
+.fact .v{font-size:15px;line-height:1.5}
+
+/* ---------- TIMELINE ---------- */
+.timeline{position:relative;margin:16px 0;padding-left:32px}
+.timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--secondary)}
+.tl{position:relative;margin-bottom:24px}
+.tl::before{content:"";position:absolute;left:-32px;top:2px;width:20px;height:20px;border-radius:50%;background:var(--white);border:3px solid var(--highlight)}
+.tl .st{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.tl .h{font-weight:600;font-size:17px;margin:4px 0 4px}
+.tl .b{font-size:15px;color:var(--text2);max-width:64ch}
+
+/* ---------- TAKEAWAY ---------- */
+.takeaway{background:var(--accent);color:#fff;border-radius:24px;padding:40px 42px;margin:40px 0 8px}
+.takeaway .tt{display:flex;align-items:center;gap:8px;font-weight:600;font-size:19px;margin-bottom:8px}
+.takeaway .tt .dot{width:11px;height:11px;background:var(--highlight);border-radius:50%}
+.takeaway p{color:rgba(255,255,255,0.92);margin-bottom:0;max-width:64ch}
+.takeaway .hl{color:#fff;font-weight:600}
+
+/* ---------- LINKS / RESOURCES ---------- */
+.linkgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:40px 0}
+@media(max-width:700px){.linkgrid{grid-template-columns:1fr}}
+.linkcard{display:block;background:var(--white);border:1px solid var(--divider);border-radius:14px;padding:24px 26px;transition:border-color .2s ease-out,transform .2s ease-out,box-shadow .2s ease-out}
+.linkcard:hover{border-color:#2F5E49;transform:translateY(-2px);box-shadow:0 16px 38px rgba(1,49,47,.09)}
+.linkcard .lk{font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:var(--text2);font-weight:700;margin-bottom:4px}
+.linkcard .ln{font-weight:600;font-size:16px;color:var(--accent);display:flex;align-items:center;gap:8px}
+.linkcard .ln svg{width:14px;height:14px;flex:none}
+.linkcard .ld{font-size:13.5px;color:var(--text2);margin-top:4px;line-height:1.5}
+
+/* ---------- FOOTER ---------- */
+.footer{background:var(--primary);color:#fff;margin-top:0;padding:48px 0 40px}
+.footer .inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px}
+.footer .brand img{height:40px}
+.footer .fcol h5{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#C9DED3;margin-bottom:8px;font-weight:700}
+.footer .fcol a{display:block;color:rgba(255,255,255,0.85);font-size:14px;margin-bottom:8px;font-weight:500}
+.footer .fcol a:hover{color:#fff}
+.footer .note{width:100%;border-top:1px solid rgba(255,255,255,0.18);margin-top:24px;padding-top:18px;font-size:12px;color:rgba(255,255,255,0.6)}
+
+/* ---------- SOPHIE'S INSIGHTS ---------- */
+.sophie{background:var(--sage);border-radius:24px;padding:30px 32px;margin:24px 0;display:flex;gap:24px;align-items:flex-start}
+@media(max-width:700px){.sophie{flex-direction:column;gap:16px;padding:26px}}
+.sophie .photo{flex:none;width:104px;height:104px;border-radius:50%;overflow:hidden;
+  background:repeating-linear-gradient(135deg,rgba(255,255,255,0.12) 0 10px,rgba(255,255,255,0) 10px 20px),linear-gradient(150deg,var(--secondary),var(--accent));
+  display:flex;align-items:center;justify-content:center;color:#fff;text-align:center}
+.sophie .photo svg{width:30px;height:30px;opacity:.9}
+.sophie .photo .pl{font-size:8.5px;letter-spacing:.10em;text-transform:uppercase;opacity:.85;margin-top:4px;line-height:1.3;padding:0 6px}
+.sophie .body{flex:1}
+.sophie .kick{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.sophie .kick .dot{width:8px;height:8px;border-radius:50%;background:var(--highlight)}
+.sophie .q{font-weight:600;font-size:19px;line-height:1.45;color:var(--primary);letter-spacing:-0.01em}
+.sophie .q p{margin-bottom:8px;max-width:none}
+.sophie .q p:last-child{margin-bottom:0}
+.sophie .by{margin-top:16px;font-size:13px;color:var(--text2)}
+.sophie .by strong{color:var(--accent);font-weight:600;display:block;font-size:14px}
+.sophie .draft{display:inline-block;margin-top:16px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--text2);background:rgba(255,255,255,0.6);border:1px dashed var(--secondary);border-radius:999px;padding:4px 11px}
+
+/* ---------- CHECKLIST ---------- */
+.checklist{list-style:none;margin:16px 0;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+@media(max-width:700px){.checklist{grid-template-columns:1fr}}
+.checklist li{position:relative;padding-left:34px;font-size:15px;line-height:1.5}
+.checklist li::before{content:"";position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:6px;background:var(--sage);border:1.5px solid var(--highlight)}
+.checklist li::after{content:"";position:absolute;left:6px;top:5px;width:7px;height:11px;border:solid var(--primary);border-width:0 2px 2px 0;transform:rotate(42deg)}
+.checklist.full{grid-template-columns:1fr}
+
+/* ---------- GLOSSARY ---------- */
+.glossary{display:grid;grid-template-columns:1fr 1fr;gap:8px 40px;margin:40px 0}
+@media(max-width:700px){.glossary{grid-template-columns:1fr}}
+.gloss{display:flex;gap:8px;padding:13px 0;border-bottom:1px solid var(--divider);font-size:15px}
+.gloss .term{font-weight:600;color:var(--accent);flex:none;min-width:120px}
+.gloss .def{color:var(--text2)}
+
+/* ---------- BUDGET TABLE ---------- */
+.budget{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+.budget th{background:var(--accent);color:#fff;text-align:left;padding:11px 16px;font-weight:600;font-size:13.5px}
+.budget th:last-child,.budget td:last-child{text-align:right}
+.budget th:first-child{border-radius:12px 0 0 0}
+.budget th:last-child{border-radius:0 12px 0 0}
+.budget td{padding:10px 16px;border-bottom:1px solid var(--divider)}
+.budget tr:nth-child(even) td{background:var(--white)}
+.budget tr:nth-child(odd) td{background:var(--sage)}
+.budget tr.total td{background:var(--accent);color:#fff;font-weight:600;border:none}
+.budget tr.total td:first-child{border-radius:0 0 0 12px}
+.budget tr.total td:last-child{border-radius:0 0 12px 0}
+
+/* responsive sidebar collapse */
+@media(max-width:880px){
+  .sidebar{margin-bottom:40px}
+  .otp{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .otp{grid-template-columns:1fr}
+}
+.dl-guide:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.12)}
+.backtop{position:fixed;right:22px;bottom:22px;z-index:70;width:46px;height:46px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 26px 54px rgba(1,49,47,.12);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s}
+.backtop.show{opacity:1;visibility:visible;transform:none}
+.backtop svg{width:20px;height:20px}
+@media print{.backtop{display:none}}
+.faqs{display:flex;flex-direction:column;gap:8px;margin:40px 0}
+.faqs details{border:1px solid var(--divider);border-radius:14px;background:#fff;overflow:hidden}
+.faqs summary{cursor:pointer;list-style:none;padding:17px 22px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;color:var(--primary);display:flex;align-items:center;justify-content:space-between;gap:16px;transition:background .18s}
+.faqs summary::-webkit-details-marker{display:none}
+.faqs summary::after{content:"";flex:none;width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(45deg);transition:transform .2s;margin-top:-4px}
+.faqs details[open] summary::after{transform:rotate(-135deg);margin-top:4px}
+.faqs summary:hover{background:var(--sage)}
+.faqs details p{padding:0 22px 19px;margin:0;max-width:64ch}
+@media(max-width:640px){.faqs summary{font-size:15.5px;padding:15px 17px}.faqs details p{padding:0 17px 16px}}
+.sx{margin:24px 0}
+.sx-lbl{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);margin:24px 0 8px}
+.sx-chips{display:flex;flex-wrap:wrap;gap:8px}
+.sx-chips button{font-family:'Work Sans',sans-serif;font-size:14px;font-weight:500;color:var(--primary);background:transparent;border:1px solid rgba(2,97,93,.3);border-radius:999px;padding:10px 18px;cursor:pointer;white-space:nowrap;transition:background .18s,color .18s}
+.sx-chips button:hover{background:var(--sage)}
+.sx-chips button[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:#fff}
+.sx-note{font-size:14.5px;line-height:1.55;color:var(--text2);margin:8px 0 0;max-width:64ch}
+.sx-sorts{display:flex;flex-wrap:wrap;gap:24px}
+.sx-sorts button{font-family:'Work Sans',sans-serif;font-size:13px;font-weight:500;color:var(--text2);background:none;border:none;border-bottom:2px solid transparent;padding:6px 2px;cursor:pointer}
+.sx-sorts button[aria-pressed="true"]{color:var(--primary);font-weight:600;border-bottom-color:var(--highlight)}
+.sx-grid{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:24px;margin-top:24px;align-items:start}
+.sx-list{max-height:560px;overflow-y:auto;border:1px solid var(--divider);border-radius:14px;padding:6px;background:#fff}
+.sx-list button{width:100%;display:grid;grid-template-columns:8px minmax(0,1fr) auto;gap:8px;align-items:center;text-align:left;background:transparent;border:none;border-bottom:1px solid var(--divider);padding:14px 12px;cursor:pointer;font-family:'Manrope',sans-serif;border-radius:6px;transition:background .18s}
+.sx-list button:last-child{border-bottom:none}
+.sx-list button:hover{background:var(--sage)}
+.sx-list button[aria-selected="true"]{background:var(--sage)}
+.sx-list .dot{width:7px;height:7px;border-radius:999px;background:var(--divider)}
+.sx-list button[aria-selected="true"] .dot{background:var(--highlight)}
+.sx-list .nm{display:block;font-family:'Work Sans',sans-serif;font-size:16px;font-weight:500;color:var(--primary);margin-bottom:4px}
+.sx-list button[aria-selected="true"] .nm{font-weight:600}
+.sx-list .tg{display:block;font-size:13px;line-height:1.4;color:var(--text2)}
+.sx-list .rt{text-align:right;font-family:'Work Sans',sans-serif;font-size:13.5px;font-weight:500;color:var(--primary);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sx-list .dr{display:block;font-size:11.5px;font-weight:500;color:var(--text2)}
+.sx-detail{border:1px solid var(--divider);border-radius:14px;padding:28px 30px;background:#fff}
+.sx-detail h4{font-family:'Work Sans',sans-serif;font-size:26px;font-weight:600;color:var(--primary);margin:0 0 4px}
+.sx-detail .reg{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.sx-detail .ch{font-size:16px;line-height:1.65;color:var(--text);margin:0 0 24px}
+.sx-kpis{display:flex;flex-wrap:wrap;gap:24px;padding:16px 0;border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);margin-bottom:16px}
+.sx-kpis div span{display:block}
+.sx-kpis .k{font-family:'Work Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text2);margin-bottom:4px}
+.sx-kpis .v{font-family:'Work Sans',sans-serif;font-size:19px;font-weight:500;color:var(--primary);font-variant-numeric:tabular-nums}
+.sx-rows{display:flex;flex-direction:column;gap:0;margin-bottom:16px}
+.sx-rows div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;padding:11px 0;border-bottom:1px solid var(--divider);font-size:15px;line-height:1.55}
+.sx-rows div:last-child{border-bottom:none}
+.sx-rows .rl{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text2);padding-top:2px}
+.sx-who{background:var(--sage);border-radius:12px;padding:16px 18px;font-size:15px;line-height:1.6}
+.sx-who b{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--primary);display:block;margin-bottom:4px}
+.sx-cm{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.sx-cm span{font-family:'Work Sans',sans-serif;font-size:12.5px;padding:6px 12px;border-radius:999px;background:var(--bg);color:var(--text2);border:1px solid var(--divider)}
+.sx-cm span.on{background:var(--primary);color:#fff;border-color:var(--primary)}
+@media(max-width:900px){.sx-grid{grid-template-columns:1fr}.sx-list{max-height:340px}}
+@media(max-width:640px){.sx-detail{padding:22px 18px}.sx-rows div{grid-template-columns:1fr;gap:4px}}
+.chapter-open{position:relative;margin:calc(var(--sp-major,74px) * -1) 0 42px;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);width:100vw;min-height:min(52vh,400px);display:flex;align-items:flex-end;isolation:isolate;overflow:hidden}
+.chapter-open img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.chapter-open::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(1,49,47,.12) 0%,rgba(1,49,47,.50) 58%,rgba(1,49,47,.84) 100%)}
+.chapter-open .co-in{max-width:var(--maxw);width:100%;margin:0 auto;padding:0 28px 42px}
+.chapter-open .eyebrow{color:rgba(255,255,255,.9)}
+.chapter-open h2{color:#fff;margin:0;max-width:20ch;text-wrap:balance}
+.wf-crumb a,.wf-crumb .here{white-space:nowrap}
+
+@media(max-width:640px){.chapter-open{min-height:300px}.chapter-open .co-in{padding:0 20px 30px}}
+.ctitle{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 16px;margin:40px 0 4px}
+.ctitle h3{margin:0;font-size:23px;line-height:1.3;padding:0}
+.ctitle .badge{position:relative;top:-1px}
+.badge{font-family:'Work Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:6px 12px;border-radius:999px;white-space:nowrap}
+.badge.local{background:var(--primary);color:#fff}
+.badge.nat{background:var(--sage);color:var(--sage-text,var(--primary));border:1px solid var(--divider)}
+.cnote{font-size:15px;color:var(--text2);margin:0 0 16px;max-width:64ch}
+.chaps{display:flex;flex-direction:column;gap:4px}
+a.chap{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px 14px;border-bottom:1px solid var(--divider);border-radius:12px;background:var(--sage);transition:background .18s,transform .18s;color:inherit;text-decoration:none}
+a.chap:hover{background:#DCE8DF;transform:translateX(2px)}
+a.chap.nat{background:transparent}
+a.chap.nat:hover{background:var(--bg)}
+a.chap .n{font-family:'Work Sans',sans-serif;font-size:14px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+a.chap .t{display:block;font-family:'Work Sans',sans-serif;font-size:17px;font-weight:500;color:var(--primary);margin-bottom:4px}
+a.chap .b{display:block;font-size:14px;line-height:1.45;color:var(--text2)}
+a.chap .go{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:600;color:var(--accent);white-space:nowrap}
+a.chap.nat .go{color:var(--text2);font-weight:500}
+.ch-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-top:40px;padding-top:26px;border-top:1px solid var(--divider)}
+.ch-nav a{font-family:'Work Sans',sans-serif;font-size:15px;font-weight:500;color:var(--primary);text-decoration:none}
+.ch-nav a:hover{color:var(--accent)}
+.ch-print{margin-top:16px;text-align:center}
+.ch-print a{font-family:'Work Sans',sans-serif;font-size:13.5px;font-weight:500;color:var(--text2);text-decoration:none}
+.ch-print a:hover{color:var(--accent)}
+.ch-nav a span{display:block;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text2);margin-bottom:4px}
+.ch-nav .next{text-align:right}
+.ch-nav .up{font-size:13px;color:var(--text2);white-space:nowrap}
+@media(max-width:640px){a.chap{grid-template-columns:32px minmax(0,1fr);gap:8px}a.chap .go{display:none}.ch-nav{grid-template-columns:1fr;gap:16px}.ch-nav .next{text-align:left}}
+.ith{margin:24px 0 40px}
+.ith-map{position:relative;aspect-ratio:5/4;max-height:520px;border-radius:20px;background:linear-gradient(170deg,#D5E4E2 0%,#DCE9E4 42%,#E3ECE5 62%,#D5E4E2 100%);border:1px solid var(--divider);overflow:hidden}
+.ith-map::before{content:"";position:absolute;left:6%;right:6%;top:38%;height:26%;background:#EDF2EC;border-radius:46% 54% 40% 60%/60% 44% 56% 40%;box-shadow:0 0 0 1px rgba(2,97,93,.08)}
+.ith-h{position:absolute;font-family:'Work Sans',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#2F5E49;pointer-events:none}
+.ith-map button{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--divider);border-radius:999px;padding:7px 13px 7px 9px;cursor:pointer;font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;color:var(--primary);white-space:nowrap;box-shadow:0 16px 38px rgba(1,49,47,.09);transition:background .18s,transform .18s}
+.ith-map button:hover{transform:translate(-50%,-50%);box-shadow:0 26px 54px rgba(1,49,47,.12)}
+.ith-map button i{width:7px;height:7px;border-radius:999px;background:var(--border,#C3D2C7);display:block;flex:none}
+.ith-map button[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:#fff}
+.ith-map button[aria-pressed="true"] i{background:var(--highlight)}
+.ith-cap{font-size:12.5px;color:var(--text2);margin:8px 0 0;text-align:center}
+.ith-detail{margin-top:16px;background:#fff;border:1px solid var(--divider);border-radius:14px;padding:26px 28px}
+.ith-detail .lb{font-family:'Work Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.ith-detail h4{font-family:'Work Sans',sans-serif;font-size:22px;font-weight:600;color:var(--primary);margin:0 0 8px}
+.ith-detail p{font-size:15.5px;line-height:1.6;color:var(--text2);margin:0 0 16px}
+.ith-detail .tm{font-family:'Work Sans',sans-serif;font-size:13px;font-weight:500;color:var(--primary);padding-top:12px;border-top:1px solid var(--divider)}
+@media(max-width:640px){.ith-map{aspect-ratio:3/4}.ith-map button{font-size:11px;padding:6px 10px 6px 8px}}
+</style>
+<link rel="canonical" href="https://ethicareresourcing.com/destinations/nelson-tasman-new-zealand/transport">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Getting around Nelson Tasman: short commutes, the Tākaka Hill and the ferry · Ethicare Resourcing">
+<meta property="og:description" content="Ten-minute commutes, the Great Taste Trail, a busy little airport, and the honest distance to the rest of the South Island.">
+<meta property="og:url" content="https://ethicareresourcing.com/destinations/nelson-tasman-new-zealand/transport">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/nelson-tasman/reloc/nt-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Getting around Nelson Tasman: short commutes, the Tākaka Hill and the ferry · Ethicare Resourcing">
+<meta name="twitter:description" content="Ten-minute commutes, the Great Taste Trail, a busy little airport, and the honest distance to the rest of the South Island.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/nelson-tasman/reloc/nt-hero.jpg">
+<style id="nz-fern-accent">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style id="a4-print-kit">
+@page{size:A4;margin:12mm}
+@media print{
+*{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+html,body{background:#fff !important}
+.site-header,.site-footer,.backtop,.nav-toggle,.site-nav,.skip-link,.sidebar,.otp,.ch-nav,.side-cta,.ch-print,.nextstep-band,.hubbar{display:none !important}
+.shell{display:block !important;max-width:none !important;width:auto !important;padding:0 !important;margin:0 !important}
+.content,.wrap{max-width:none !important;width:auto !important;padding-left:0 !important;padding-right:0 !important}
+.hero{position:relative !important;height:78mm !important;min-height:0 !important}
+.hero .photo{position:absolute !important;inset:0 !important}
+section.band{padding:9mm 0 !important}
+figure,.fact,.panel,.oppcard,.sophie,.season,.stat,.takeaway,.linkgrid a,table,.twoup figure,.cols>*{break-inside:avoid !important}
+figure img,.feat img,.shot img,.twoup img{width:auto !important;height:auto !important;max-width:100% !important;max-height:115mm !important;display:block;margin:0 auto}
+h1,h2,h3{break-after:avoid !important}
+.cta{break-inside:avoid !important}
+}
+</style>
+<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
+<style>.costgrid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}.costgrid h3{margin-top:0}@media(max-width:860px){.costgrid{grid-template-columns:1fr;gap:24px}}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"New Zealand","item":"https://ethicareresourcing.com/new-zealand"},{"@type":"ListItem","position":3,"name":"Nelson Tasman","item":"https://ethicareresourcing.com/destinations/nelson-tasman-new-zealand"},{"@type":"ListItem","position":4,"name":"Getting around"}]}</script>
+<link rel="stylesheet" href="../../stacked-hero.css">
+<link rel="stylesheet" href="../../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand" aria-current="page">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<div id="main-content" tabindex="-1"></div>
+
+<a id="top"></a>
+<div class="hero">
+  <div class="photo" style="background:url('../../assets/nelson-tasman/nelson-tasman-view-of-bays-in-queen-1146043526.jpg') center 50%/cover no-repeat"></div>
+  <div class="inner">
+    <nav class="wf-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">&#8250;</span><a href="/new-zealand">New Zealand</a><span class="sep">&#8250;</span><a href="/destinations/nelson-tasman-new-zealand">Nelson Tasman</a><span class="sep">&#8250;</span><span class="here">Getting around</span></nav>
+    <div class="eyebrow">Close in, far out</div>
+    <h1>Getting around</h1>
+    <div class="sub">Nelson Tasman Guide &middot; Chapter 06 of 9</div>
+  </div>
+</div>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="otp"><h2>Nelson Tasman chapters</h2>
+      <a href="/destinations/nelson-tasman-new-zealand/welcome" data-sec="welcome"><span class="tick"></span>Welcome to Nelson Tasman</a>
+      <a href="/destinations/nelson-tasman-new-zealand/why" data-sec="why"><span class="tick"></span>Why Nelson Tasman</a>
+      <a href="/destinations/nelson-tasman-new-zealand/glance" data-sec="glance"><span class="tick"></span>The region at a glance</a>
+      <a href="/destinations/nelson-tasman-new-zealand/healthcare" data-sec="healthcare"><span class="tick"></span>Healthcare here</a>
+      <a href="/destinations/nelson-tasman-new-zealand/suburbs" data-sec="suburbs"><span class="tick"></span>Where clinicians live</a>
+      <a class="active" aria-current="page" href="/destinations/nelson-tasman-new-zealand/transport" data-sec="transport"><span class="tick"></span>Getting around</a>
+      <a href="/destinations/nelson-tasman-new-zealand/cost" data-sec="cost"><span class="tick"></span>Cost of living</a>
+      <a href="/destinations/nelson-tasman-new-zealand/food" data-sec="food"><span class="tick"></span>Food, craft &amp; the everyday</a>
+      <a href="/destinations/nelson-tasman-new-zealand/weekends" data-sec="weekends"><span class="tick"></span>Three national parks</a>
+    </div>
+    <div class="side-cta"><div class="t"><span class="dot"></span>National topics</div><p>Visas, tax, renting, driving and schools are the same wherever you land.</p><a href="/destinations/new-zealand-relocation-guide">Moving to New Zealand</a></div>
+  </aside>
+  <main class="content">
+<section id="transport">
+  <p class="lead">Inside the region, getting around is easy: short flat commutes and one of the country&rsquo;s better cycle networks. Getting out of the region is the honest cost of living at the top of the South Island.</p>
+
+  <h2>The commute</h2>
+  <p>Ten to twenty minutes to work from most of Nelson, Stoke or Richmond. There is mild congestion on the Nelson&ndash;Richmond corridor at either end of the day, and that is genuinely the whole traffic story. Parking at the hospital and in town is straightforward.</p>
+  <p>Because the region is compact along the coast and flat on the plain, going further out for cheaper housing costs remarkably little time. Richmond is twenty minutes, Wakefield thirty, Motueka forty-five. That is why the housing decision here is more about money than commute.</p>
+
+  <h2>Cycling</h2>
+  <p>The <strong>Great Taste Trail</strong> is one of New Zealand&rsquo;s Great Rides and unusually practical &mdash; a mostly flat, sealed network linking Nelson, Richmond, M&#257;pua, Motueka and Wakefield, along coast, estuary and orchard. It connects real places, so it works for commuting as well as weekends.</p>
+  <p>Combined with the sunshine, that makes Nelson a genuinely good cycling city year-round. A number of clinicians here commute by bike or e-bike, and the trail is a large part of why.</p>
+
+  <h2>Buses</h2>
+  <div class="facts">
+    <div class="fact"><div class="k">The eBus network</div><div class="v">Electric buses linking Nelson, Stoke, Richmond, Wakefield and Motueka. Cheap, pleasant and useful on the main corridors.</div></div>
+    <div class="fact"><div class="k">Its limits</div><div class="v">Modest frequency, thin in the evenings, and it will not cover a clinical roster or a rural outreach role.</div></div>
+    <div class="fact"><div class="k">Do you need a car?</div><div class="v">Yes &mdash; though possibly only one per household if you cycle and live centrally. The national parks and the beaches all assume a vehicle.</div></div>
+    <div class="fact"><div class="k">No passenger rail</div><div class="v">None in the region. Nothing to plan around.</div></div>
+  </div>
+
+  <h2>The roads out</h2>
+  <div class="facts">
+    <div class="fact"><div class="k">The T&#257;kaka Hill</div><div class="v">The only route to Golden Bay &mdash; a steep, winding climb over marble country. It closes occasionally in bad weather, genuinely isolating the communities beyond.</div></div>
+    <div class="fact"><div class="k">East to Blenheim &amp; Picton</div><div class="v">1 hr 45 and 2 hours over the Whangamoa and Rai hills. Picton is the ferry to Wellington.</div></div>
+    <div class="fact"><div class="k">South to Christchurch</div><div class="v">Five to six hours via the Lewis Pass or the Kaik&#333;ura coast. A long day, and a beautiful one.</div></div>
+    <div class="fact"><div class="k">West to the Coast</div><div class="v">Down the Buller Gorge to Westport, around three hours &mdash; one of the great New Zealand drives.</div></div>
+  </div>
+
+  <h2>Flying and the ferry</h2>
+  <div class="facts">
+    <div class="fact"><div class="k">Nelson Airport</div><div class="v">Ten minutes from the city and busy for the region&rsquo;s size, with frequent flights to Auckland, Wellington and Christchurch. It is what makes Nelson feel less remote than the map suggests.</div></div>
+    <div class="fact"><div class="k">The Picton ferry</div><div class="v">Two hours to Picton, then the crossing to Wellington. The route if you&rsquo;re taking a car north.</div></div>
+    <div class="fact"><div class="k">Long-haul</div><div class="v">Always via Auckland, Wellington or Christchurch. Budget a comfortable half-day at each end, and expect one more leg than from a main centre.</div></div>
+    <div class="fact"><div class="k">Weather delays</div><div class="v">Nelson&rsquo;s approach is over hills into a bay. Fog and wind cause occasional delays and diversions. Build a buffer into anything that matters.</div></div>
+  </div>
+
+  <h2>Distances worth knowing</h2>
+  <div class="tblscroll"><table class="budget">
+    <thead><tr><th>Journey</th><th>Typical time</th></tr></thead>
+    <tbody>
+      <tr><td>Across Nelson</td><td>10&ndash;15 min</td></tr>
+      <tr><td>Nelson &rarr; airport</td><td>10 min</td></tr>
+      <tr><td>Nelson &rarr; Richmond</td><td>20 min</td></tr>
+      <tr><td>Nelson &rarr; M&#257;pua</td><td>30 min</td></tr>
+      <tr><td>Nelson &rarr; Wakefield</td><td>30 min</td></tr>
+      <tr><td>Nelson &rarr; Motueka</td><td>45 min</td></tr>
+      <tr><td>Nelson &rarr; Kaiteriteri</td><td>1 hr</td></tr>
+      <tr><td>Nelson &rarr; St Arnaud / Nelson Lakes</td><td>1 hr 30</td></tr>
+      <tr><td>Nelson &rarr; T&#257;kaka</td><td>1 hr 30</td></tr>
+      <tr><td>Nelson &rarr; Blenheim</td><td>1 hr 45</td></tr>
+      <tr><td>Nelson &rarr; Picton</td><td>2 hr</td></tr>
+      <tr><td>Nelson &rarr; Christchurch</td><td>5&ndash;6 hr, or 1 hr flying</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:13px;color:var(--text2);font-style:italic">Times on a good run. Check the T&#257;kaka Hill and the Rai Valley road in bad weather.</p>
+
+  <p>Converting your licence, buying a car, and what a warrant of fitness and registration involve are national matters, explained once in <a href="/guides/driving-and-licences">Driving &amp; licences</a>.</p>
+<nav class="ch-nav"><a class="prev" href="/destinations/nelson-tasman-new-zealand/suburbs"><span>Previous</span>Where clinicians live</a><a class="up" href="/destinations/nelson-tasman-new-zealand">All chapters</a><a class="next" href="/destinations/nelson-tasman-new-zealand/cost"><span>Next</span>Cost of living</a></nav>
+<p class="ch-print"><a href="/request-a-guide?guide=nelson-tasman-new-zealand">Prefer it on paper? Request the printed guide &rarr;</a></p>
+</section>
+</main>
+</div>
+
+<button class="backtop" aria-label="Back to top" data-backtop><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+
+<script>
+// active-section tracking for the sidebar
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.otp a'));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('data-sec')] = a; });
+  var secs = links.map(function(a){ return document.getElementById(a.getAttribute('data-sec')); }).filter(Boolean);
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(l){ l.classList.remove('active'); });
+        if(map[e.target.id]) map[e.target.id].classList.add('active');
+      }
+    });
+  }, { rootMargin:'-45% 0px -50% 0px', threshold:0 });
+  secs.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+<script>
+(function(){var b=document.querySelector('[data-backtop]');if(!b)return;b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});window.addEventListener('scroll',function(){b.classList.toggle('show',window.scrollY>600);},{passive:true});})();
+</script>
+
+<!-- INTERNAL LINK MAP — Nelson Tasman guide, chapter 06 of 9
+  Breadcrumb: Home (/) > New Zealand (/new-zealand) > Nelson Tasman (/destinations/nelson-tasman-new-zealand) > Getting around
+  Sidebar: all 9 Nelson Tasman chapters | CTA: Moving to New Zealand->../Moving_to_New_Zealand.html
+  In-body: Driving & licences->../../guides/nz/driving-and-licences.html | Where clinicians live->suburbs.html | Three national parks->weekends.html
+  Foot nav: Previous->suburbs.html | All chapters->../Nelson_Tasman_Destination_Guide.html | Next->cost.html
+  ARCHITECTURE — Level 3 destination chapter. Nelson Tasman-only material; national topics link out.
+  SEO
+  Page Title: Getting around · Nelson Tasman Guide · Ethicare Resourcing
+  URL Slug: /destinations/nelson-tasman-new-zealand/transport
+  SEO Title: Getting around Nelson & the Tasman District | Ethicare
+  Meta Description: Ten-minute commutes, the Great Taste Trail, a busy little airport, and the honest distance to the rest of the South Island.
+  -->
+
+
+
+<script>(function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var st=document.createElement('style');st.textContent='@media screen{.rv{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}.rv.in{opacity:1;transform:none}}@media print{.rv{opacity:1;transform:none}}';document.head.appendChild(st);addEventListener('beforeprint',function(){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})});var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});[].slice.call(document.querySelectorAll('.content section')).forEach(function(el){if(el.getBoundingClientRect().top>innerHeight*0.85){el.classList.add('rv');io.observe(el)}});})();</script>
+<script>(function(){try{
+var m=location.pathname.match(/([^\/]+)\/[^\/]+$/);var hub=m&&m[1];
+var links=[].slice.call(document.querySelectorAll('.otp a[data-sec]'));
+var act=document.querySelector('.otp a.active[data-sec]');
+if(!hub||!links.length||!act)return;
+localStorage.setItem('ec-last:'+hub,JSON.stringify({u:act.getAttribute('href'),t:act.textContent.replace(/\s+/g,' ').trim(),n:links.indexOf(act)+1}));
+var rk='ec-read:'+hub,rd={};try{rd=JSON.parse(localStorage.getItem(rk))||{}}catch(e){}
+rd[act.getAttribute('data-sec')]=1;localStorage.setItem(rk,JSON.stringify(rd));
+var st=document.createElement('style');st.textContent='.otp a.read .tick{background:var(--accent,#2F5E49);width:8px;height:8px}';document.head.appendChild(st);
+links.forEach(function(a){if(rd[a.getAttribute('data-sec')]&&a!==act)a.classList.add('read')});
+}catch(e){}})();</script>
+<script src="../../nav.js" defer></script>
+<script src="../../journey-nav.js" defer></script>
+</body>
+</html>

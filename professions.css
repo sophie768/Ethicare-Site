@@ -1,0 +1,35 @@
+/* /jobs/professions — the cross-country professions directory.
+   Rides on family.css (hero, eyebrow, buttons, notes, final CTA) and adds only the
+   directory itself: a role per row, with a chip per country we cover it in.
+   A role showing one chip is a role we recruit into in one country — the page says
+   so once, at the top, rather than printing "not yet" a dozen times. */
+.dir{margin-top:clamp(30px,3.6vw,46px);max-width:940px}
+.dfam{padding-top:clamp(30px,3.4vw,44px);margin-top:clamp(26px,3vw,38px);border-top:2px solid var(--rule-tint)}
+.dfam:first-child{margin-top:0}
+.dfhead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 24px}
+.dfhead h3{font-size:var(--t-h3);flex:1 1 auto;min-width:0}
+.dfcount{flex:none;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.02em;color:var(--muted);white-space:nowrap}
+.dfsub{margin-top:8px;font-size:var(--t-meta);color:var(--muted);max-width:62ch}
+.rrow{display:grid;grid-template-columns:1fr auto;gap:10px 28px;align-items:start;padding:clamp(17px,1.9vw,22px) 0}
+/* rules go BETWEEN rows only — .dfam already draws above the first one, and inverting
+   it this way survives markup changes (:first-of-type matched .dfhead, not .rrow). */
+.rrow+.rrow{border-top:1px solid var(--rule-tint)}
+.dfsub+.rrow{margin-top:clamp(14px,1.6vw,20px)}
+.rname{font-family:var(--display);font-weight:600;font-size:17px;color:var(--teal)}
+.rdesc{grid-column:1;font-size:var(--t-meta);color:var(--muted);max-width:56ch}
+.cchips{display:flex;flex-wrap:wrap;gap:8px;justify-self:end}
+.cchip{display:inline-flex;align-items:center;font-family:var(--display);font-weight:600;font-size:13.5px;white-space:nowrap;padding:7px 15px;border-radius:999px;border:1px solid;background:#fff;transition:background .15s ease,color .15s ease,border-color .15s ease}
+.cchip.nz{color:#2F5E49;border-color:rgba(47,94,73,.7)}
+.cchip.nz:hover{background:#2F5E49;border-color:#2F5E49;color:#fff}
+.cchip.au{color:#A34438;border-color:rgba(163,68,56,.7)}
+.cchip.au:hover{background:#A34438;border-color:#A34438;color:#fff}
+/* modality / sub-specialty routes that share one registration with the row above */
+.rsub{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:baseline;gap:7px 9px;margin-top:2px}
+.rsub .mk{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.rsub a{white-space:nowrap;font-family:var(--display);font-weight:600;font-size:12.5px;color:var(--fern-text);padding:4px 11px;border:1px solid var(--rule-tint);border-radius:999px;transition:background .15s ease,color .15s ease,border-color .15s ease}
+.rsub a:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+@media (max-width:760px){.dfcount{flex-basis:100%}}
+@media (max-width:620px){
+  .rrow{grid-template-columns:1fr}
+  .cchips{justify-self:start;margin-top:4px}
+}

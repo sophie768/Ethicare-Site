@@ -1,0 +1,17 @@
+/* Profession-page editorial blocks — one source for every /jobs page.
+   Was inlined as <style id="prof-editorial"> on three pages; consolidated here. */
+.figrow{margin:24px 0 0}
+.figrow .imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.figrow img{width:100%;height:clamp(130px,15vw,175px);object-fit:cover;border-radius:12px;display:block}
+.figrow figcaption{margin-top:8px;font-size:13.5px;color:var(--muted);max-width:64ch}
+@media(max-width:640px){.figrow .imgs{grid-template-columns:1fr 1fr}.figrow img{height:120px}}
+/* the one dark band — photograph under a deep-teal scrim */
+.photoband{position:relative;isolation:isolate;overflow:hidden;display:grid;align-content:center;min-height:clamp(360px,42vw,500px)}
+.photoband>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%;z-index:-2}
+.photoband::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,49,47,.70),rgba(1,49,47,.84));z-index:-1}
+.photoband .wrap{padding-top:clamp(54px,7vw,90px);padding-bottom:clamp(54px,7vw,90px)}
+.photoband .eyebrow{color:#C9DED3}
+.photoband .eyebrow::before{background:#A6C84A!important}
+.photoband.au .eyebrow{color:#EFC3AA}
+.photoband .big{font-family:var(--display);font-weight:600;font-size:clamp(26px,3.4vw,40px);line-height:1.16;letter-spacing:-.01em;color:#fff;max-width:28ch;margin:16px 0 0;text-wrap:pretty}
+.photoband .sub{font-family:'Playfair Display',Georgia,serif;font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:rgba(255,255,255,.84);max-width:50ch;margin:24px 0 0}
