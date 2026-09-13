@@ -1,22 +1,27 @@
-# Nelson Tasman photography — audit
+# Southland photography — audit
 
 ## Added 23 Aug 2026
 
-- `nelson-family-mountain-biking.jpg` — a father and two boys stopped on a dry singletrack, red and
-  blue helmets, mountain bikes, tussock and gorse either side, low sun. Nelson, on Sophie's
-  attribution. **Nothing in frame identifies the location** — no landmark, no signage, no plate — so
-  caption it for the activity, not the place: a family riding local trails. It reads plausibly as the
-  Codgers or Fringed Hill trail network above Nelson, but that is inference.
+- `southland-fiordland-sound-snowline.jpg` — a fiord from the water: near-vertical bush-clad walls
+  either side, a snow-capped peak closing the head of the valley, beech forest along the shoreline,
+  high cirrus. **Fiordland, confirmed** by the landform — glacial U-profile, hanging valleys, bush to
+  the waterline. Tall portrait crop (1500×2000).
 
-  Useful for a reason we are short of: it is a **family doing something together outdoors that is not
-  a beach**. Almost every lifestyle image in the library is coastal, and Nelson Tasman's real
-  argument is the trails, the sun and the small-city scale. It also shows an age range — a teenager
-  and a younger child, not toddlers — which matches the clinicians most likely to move: mid-career,
-  with school-age kids.
+  Filed on the "Milford Sound" attribution but **named for the region, not the sound.** Milford is
+  the one everyone knows, so it is the name people reach for, but this frame has no Mitre Peak, no
+  Bowen Falls and no jetty — and Doubtful Sound, Thompson Sound and the head of Lake Te Anau all look
+  much like this from a boat. Naming it Milford would be exactly the Uluru pattern: a real place
+  given the famous neighbour's name. The regional caption is true and costs nothing.
 
-  **One production caveat, and it matters.** The file carries a heavy magenta/lilac cast across the
-  whole sky, plainly a stylised filter rather than daylight. Against the brand palette — deep teal,
-  cream, fern — it reads as off, and it is the only image in the library with a colour grade this
-  strong. Either correct the cast before it goes on a page, or keep it small and away from any
-  teal surface. Do not put it next to `central-otago/queenstown-hillside-housing-street.jpg`, which
-  is neutral daylight; the mismatch is obvious side by side.
+  Fills a real gap. The Southland guide had **one** image for the whole guide before this, the
+  thinnest coverage in the library.
+
+  Do note what it does not do: it is a wilderness photograph, and Southland's harder question is
+  Invercargill — the city where the jobs actually are. A scenic fiord does not answer "what would my
+  street look like".
+
+## Still wanted
+
+An ordinary **Invercargill** residential street, and something of the city itself. Southland's real
+recruitment story is a working provincial city three hours from this view, and we have no photograph
+of it.
