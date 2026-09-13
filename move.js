@@ -51,6 +51,17 @@
 
   var C = function (d) { return d === 'au' ? 'australia' : 'new-zealand'; };
 
+  /* first30 is the one tool whose page differs by country — /guides/nz/your-first-month is
+     New Zealand's, and Australia's equivalent is /guides/living-in-australia. TOOL is a
+     static table, so reading it directly sent every Australian at the "already here" stage
+     to the New Zealand guide as their next step. Read tools through this, never TOOL[key],
+     for anything the candidate is shown. */
+  function tool(key) {
+    var t = TOOL[key] || TOOL.pathway;
+    if (key !== 'first30' || S.dest !== 'au') return t;
+    return { title: 'Living and thriving in Australia', href: '/guides/living-in-australia', store: null, note: t.note };
+  }
+
 
   function journey(d) {
     var c = C(d);
@@ -156,11 +167,22 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var esc = function (s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
 
-  /* profession and origin start EMPTY and are required. They used to default to 'nursing'
-     and 'uk', pre-selected in their dropdowns, so anyone who did not open them submitted a
-     plan asserting they were a nurse from the United Kingdom — facts they never gave. dest
-     and stage keep their defaults: both are visible pill pairs, chosen deliberately. */
-  var S = { first: '', dest: 'nz', profession: '', origin: '', stage: 'exploring', regStatus: '', party: '', hh: { with: '', work: '', bands: [] }, period: '', routed: false, set: false };
+  /* profession and origin start EMPTY: they used to default to 'nursing' and 'uk',
+     pre-selected in their dropdowns, so anyone who did not open them submitted a plan
+     asserting they were a nurse from the United Kingdom — facts they never gave. Only
+     profession is REQUIRED; origin prices flights and shipping and nothing else here,
+     so gating the whole plan on it stopped someone who just wanted to know whether they
+     could register. Empty stays empty rather than being guessed.
+
+     dest USED TO DEFAULT TO 'nz', and that is why Ethicare Move read as a New Zealand
+     tool. Australia has been a live edition since March 2026 and the whole planner is
+     branched for it — every step's links, the professions catalogue, the pathway cards
+     — but a visitor who never noticed the pill pair got a New Zealand plan by default
+     and no signal that the other country existed. Same failure as the pre-selected
+     'nurse from the United Kingdom': a fact asserted on the reader's behalf. It is now
+     REQUIRED and starts empty, like profession. stage keeps its default because every
+     stage is a real answer — there is no wrong one to start on. */
+  var S = { first: '', dest: '', profession: '', origin: '', stage: 'exploring', regStatus: '', party: '', hh: { with: '', work: '', bands: [] }, period: '', routed: false, set: false };
 
   /* OPERATOR PREVIEW — ?demo=welcome|setup|hub|doing
      This plan is device-local by design, which means the only way to see the returning-user
@@ -268,11 +290,24 @@
   }
 
   var DATA = function () { return window.ETHICARE_COSTS || window.EthicareCostData || {}; };
-  function profOptions() { var p = PROF(); return p ? p.options() : [{ value: 'nursing', label: 'Nursing' }]; }
+  function profOptions() {
+    var p = PROF();
+    if (!p) return [{ value: 'nursing', label: 'Nursing' }];
+    var o = p.options();
+    /* A plan saved before the list narrowed still has to show its own answer back, or the
+       select silently reads "Select your profession" over a plan that has one. */
+    if (S.profession && !o.some(function (x) { return x.value === S.profession; })) {
+      var kept = p.get(S.profession);
+      if (kept) o = o.concat([{ value: kept.key, label: kept.label }]);
+    }
+    return o;
+  }
   function origins() { var f = DATA().flights || {}; return Object.keys(f).map(function (k) { return { value: k, label: f[k].label }; }); }
-  function me() { var p = PROF(); return p ? p.forCountry(S.profession, S.dest) : null; }
+  function me() { var p = PROF(); return (p && S.dest) ? p.forCountry(S.profession, S.dest) : null; }
   function profLabel() { var m = me(); return m ? m.label : 'your profession'; }
-  function destLabel() { return S.dest === 'au' ? 'Australia' : 'New Zealand'; }
+  /* Neutral until the reader has actually chosen. Naming a country here was how a
+     New Zealand plan got described back to someone who had not picked one. */
+  function destLabel() { return S.dest === 'au' ? 'Australia' : S.dest === 'nz' ? 'New Zealand' : 'the country you choose'; }
 
   /* Has this tool been started on this device? Its own saved state is the
      evidence — the portal never writes to another tool's key. */
@@ -448,8 +483,7 @@
   }
 
   /* LINK-BACK, not accounts. A plan given a URL rather than a login: whitelisted plan
-     fields only (never PKEY — private notes have no path into a link, same guarantee
-     as the share-with-us form) base64'd into ?p=. Opening that URL restores the plan on
+     fields only, base64'd into ?p=. Opening that URL restores the plan on
      any device, any browser, with no backend and nothing stored anywhere but the link
      itself. This is the two-hour stand-in for accounts, not a replacement for them —
      it proves the demand rather than guessing at it. */
@@ -487,12 +521,8 @@
   }
 
   /* THE DOCUMENT. Built entirely in the browser, from data already on this device —
-     no network round trip, no server. That is what lets it be the one output allowed to
-     include private notes: they never leave localStorage to become this string, so the
-     structural guarantee on #private holds. It is therefore NOT what the shareable link
-     above sends — that stays notes-free on purpose, because a link can end up on a
-     screen you do not control. The document is for downloading or printing on THIS
-     device only; say so in the UI, do not conflate the two. */
+     no network round trip, no server. It is for downloading or printing on THIS device;
+     the shareable link is the thing that travels. Do not conflate the two. */
   function docHTML(forWord) {
     var jr = journey(S.dest);
     var who = (S.first ? esc(S.first) + '\u2019s' : 'Your') + ' plan for ' + esc(destLabel());
@@ -503,12 +533,7 @@
       ['Visas and immigration', '/guides/' + c + '-visa'], ['Salary and pay', '/guides/' + c + '-salary'],
       ['How healthcare works', '/guides/' + c + '-healthcare'], ['Bringing your family', '/guides/' + c + '-family']];
     var saved = savedItems();
-    var next = (TOOL[(STAGES.filter(function (x) { return x.value === S.stage; })[0] || STAGES[0]).next] || TOOL.pathway).note;
-    /* Private notes are deliberately NOT in this document, in either mode: a downloaded
-       file is portable in a way localStorage is not — it can sync to cloud storage, sit
-       in a shared Downloads folder, or be forwarded by accident. Private notes stay only
-       in the panel on this page. */
-
+    var next = tool((STAGES.filter(function (x) { return x.value === S.stage; })[0] || STAGES[0]).next).note;
     if (forWord) {
       /* Word cannot render flexbox/grid or most CSS — the "HTML saved as .doc" trick only
          survives simple block markup and inline styles. Tables stand in for layout. */
@@ -584,6 +609,31 @@
     return o2;
   }
   function setupScreen() {
+    /* THE TAP PAYS OUT FIRST. Answering "where are you in this" is enough to name the one
+       thing worth doing next, so that card is rendered above the form rather than behind
+       it. The seven questions then read as an upgrade — they shape everything else — not
+       as a toll gate in front of the first useful thing on the page. */
+    var sd0 = STAGES.filter(function (x) { return x.value === S.stage; })[0] || STAGES[0];
+    var tl0 = tool(sd0.next);
+    /* First run only. `routed` persists with the plan, so gating on it alone showed
+       onboarding step two to someone who came back via "Change my answers" to edit one
+       answer — with a Start here card duplicating the next-step card on the plan they had
+       just left. `set` is written the first time a plan is built, so routed && !set is
+       "tapped the router and has no plan yet". */
+    var firstRun = S.routed && !S.set;
+    var rn = $('[data-routed-next]');
+    if (rn) {
+      rn.hidden = !firstRun;
+      rn.setAttribute('href', tl0.href);
+      var rt0 = $('[data-rnexttitle]'), rb0 = $('[data-rnextnote]');
+      if (rt0) rt0.textContent = tl0.title;
+      if (rb0) rb0.textContent = tl0.note;
+    }
+    var sh = $('[data-setuph]'), sl = $('[data-setuplead]');
+    if (sh) sh.textContent = firstRun ? 'And the rest of the plan' : 'Set up your plan';
+    if (sl) sl.textContent = firstRun
+      ? 'You can open that now. These answers shape everything else \u2014 the guides, the costs, the order things need doing in. No email, and your name only if you want to give it.'
+      : 'A few quick answers \u2014 no email, and your name only if you want to give it. They shape everything you see from here, and you can change any of them later.';
     fillSelect($('#ptProf'), profOptions(), S.profession, 'Select your profession\u2026');
     fillSelect($('#ptOrigin'), origins(), S.origin, 'Select where you are now\u2026');
     fillSelect($('#ptReg'), opts(REG), S.regStatus || REG[0]);
@@ -593,91 +643,21 @@
     pills($('[data-destpills]'), [{ value: 'nz', label: 'New Zealand' }, { value: 'au', label: 'Australia' }], S.dest, function (v) {
       S.dest = v; setupScreen();
     });
-    /* Answered at the front door, so the field is hidden rather than asked twice — but it
-       stays in the DOM and stays changeable from the plan afterwards. `routed` is set only
-       by a router tap, never by demo states or a restored plan. */
+    /* Answered at the front door, so the field is hidden on the first run rather than
+       asked twice. Once a plan exists it comes back: someone editing their answers has to
+       be able to change the stage, and hiding it left that impossible from this screen. */
     var stageF = $('[data-stagefield]');
-    if (stageF) stageF.hidden = !!S.routed;
+    if (stageF) stageF.hidden = firstRun;
     pills($('[data-stagepills]'), STAGES, S.stage, function (v) { S.stage = v; setupScreen(); }, true);
     profHint();
     paintSend();
-  }
-
-  /* Every healthcare profession, grouped, with this candidate's own lifted to
-     the top of its group and marked. Status is read from the catalogue, so a
-     profession only says "we recruit into this" when a page actually exists. */
-  function paintCoverage() {
-    var host = $('[data-coverage]'), p = PROF();
-    if (!host || !p) return;
-    var rows = p.list().map(function (x) { return p.forCountry(x.key, S.dest); })
-      .filter(function (x) { return x && x.available && x.key !== 'other'; });
-    var rec = rows.filter(function (r) { return r.status === 'recruiting'; }).length;
-
-    var note = $('[data-covnote]');
-    if (note) note.textContent = 'Ethicare Moves works for every one of these. We currently recruit into ' + rec +
-      ' of them in ' + destLabel() + '; the rest are marked coming soon, which means the planning tools work but we cannot yet find you a role. Regulators checked ' + p.checked + '.';
-
-    var groups = [];
-    rows.forEach(function (r) {
-      var g = groups.filter(function (x) { return x.name === r.group; })[0];
-      if (!g) { g = { name: r.group, items: [] }; groups.push(g); }
-      g.items.push(r);
-    });
-
-    host.innerHTML = groups.map(function (g) {
-      var items = g.items.slice().sort(function (a, b) { return (b.key === S.profession) - (a.key === S.profession); });
-      return '<p class="pt-cgrp">' + esc(g.name) + '</p>' + items.map(function (r) {
-        var mine = r.key === S.profession;
-        var reg = r.regulated === false
-          ? 'Not on a statutory register &mdash; ' + esc(r.body)
-          : 'Registered by ' + esc(r.body);
-        var acts = [];
-        if (r.page) acts.push('<a href="' + r.page + '">Roles and pay &rarr;</a>');
-        if (r.href) acts.push('<a href="' + r.href + '" target="_blank" rel="noopener">Regulator &rarr;</a>');
-        acts.push('<span class="pt-chip ' + (r.status === 'recruiting' ? 'rec">Recruiting now' : 'soon">Coming soon') + '</span>');
-        return '<div class="pt-crow' + (mine ? ' mine' : '') + '">' +
-          '<div><b>' + esc(r.label) + (mine ? '<span class="pt-yours">Yours</span>' : '') + '</b>' +
-          '<span class="reg">' + reg + '</span></div>' +
-          '<div class="pt-cacts">' + acts.join('') + '</div></div>';
-      }).join('');
-    }).join('');
-  }
-
-  /* PRIVATE STORE. Its own key, deliberately not part of S: the share form reads named
-     fields from the plan key only, so nothing typed here has a route to us even if
-     someone later adds a field carelessly. Structural, not a setting. */
-  var PKEY = 'ethicare_private_v1';
-  var PF = [['pvOffer', 'offer'], ['pvSalary', 'salary'], ['pvFloor', 'floor'], ['pvDate', 'date'], ['pvNotes', 'notes']];
-  function pread() { try { return JSON.parse(localStorage.getItem(PKEY) || '{}') || {}; } catch (e) { return {}; } }
-  function pwrite(o) { if (demo) return; try { localStorage.setItem(PKEY, JSON.stringify(o)); } catch (e) {} }
-  function psaid(msg) { var el = $('[data-psaved]'); if (el) el.textContent = msg; }
-  function paintPrivate() {
-    var o = pread(), any = false, t;
-    PF.forEach(function (p) {
-      var el = document.getElementById(p[0]);
-      if (!el) return;
-      el.value = o[p[1]] || '';
-      if (el.value) any = true;
-      if (el.getAttribute('data-pwired')) return;
-      el.setAttribute('data-pwired', '1');
-      el.addEventListener('input', function () {
-        clearTimeout(t);
-        t = setTimeout(function () {
-          var cur = pread();
-          cur[p[1]] = el.value;
-          pwrite(cur);
-          psaid('Saved on this device \u00b7 ' + new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }));
-        }, 400);
-      });
-    });
-    if (any) psaid('Kept on this device only');
   }
 
   function paintHub() {
     var d = DATA();
     var reg = d.registration && d.registration[S.dest] ? (d.registration[S.dest][S.profession] || d.registration[S.dest].other) : null;
     var stageDef = STAGES.filter(function (x) { return x.value === S.stage; })[0] || STAGES[0];
-    var nextTool = TOOL[stageDef.next] || TOOL.pathway;
+    var nextTool = tool(stageDef.next);
 
     $('[data-eyebrow]').textContent = destLabel() + ' · ' + profLabel();
     /* Greet in the language of the country they are heading to, not ours — "Kia ora" to
@@ -708,7 +688,7 @@
     var seenStage = '';
     $('[data-steps]').innerHTML = jr.map(function (st, i) {
       var isNow = i === here;
-      var t = st.tool ? TOOL[st.tool] : null;
+      var t = st.tool ? tool(st.tool) : null;
       /* Badge cascade, ordered deliberately. Reading steps are tested BEFORE `i < here`
          because they are never behind you — they have no tool to have finished, and the
          household steps splice in at earlier positions on purpose, so an index test told a
@@ -743,9 +723,16 @@
         }));
       }
       var head = '';
-      if (st.stage && st.stage !== seenStage) { seenStage = st.stage; head = '<p class="pt-stagehead">' + esc(st.stage) + '</p>'; }
+      if (st.stage && st.stage !== seenStage) {
+        seenStage = st.stage;
+        var stageIcon = { 'Before you apply': 'registration-and-pay', 'Once you have an offer': 'visa-and-immigration', 'After you land': 'settling-in-move' }[st.stage];
+        var icon = stageIcon ? '<img src="assets/heroes/' + stageIcon + '.svg" alt="" width="26" height="20">' : '';
+        head = '<p class="pt-stagehead">' + icon + esc(st.stage) + '</p>';
+      }
+      var stepIcon = { fit: 'deciding', registration: 'registration-and-pay', cv: 'job-search-cv', visa: 'visa-and-immigration', move: 'packing-and-shipping', arrive: 'settling-in-move', household: 'family', partnerreg: 'partner-registration', children: 'schools-and-education', soloparent: 'family' }[st.key];
+      var iconHtml = stepIcon ? '<img class="pt-icon" src="assets/heroes/' + stepIcon + '.svg" alt="">' : '';
       return head + '<div class="pt-step' + (isNow ? ' now' : '') + '">' +
-        '<span class="pt-num">' + String(i + 1).padStart(2, '0') + '</span>' +
+        '<div class="pt-lead-col">' + iconHtml + '<span class="pt-num">' + String(i + 1).padStart(2, '0') + '</span></div>' +
         '<div><div class="pt-ttl"><h3>' + esc(st.title) + '</h3><span class="pt-badge' + cls + '">' + badge + '</span></div>' +
         '<p>' + esc(note) + '</p><div class="pt-links">' +
         links.map(function (l) {
@@ -785,8 +772,6 @@
     }
     var rh = $('[data-reghref]');
     rh.setAttribute('href', m && m.href ? m.href : '/pathway-checker');
-    paintCoverage();
-    paintPrivate();
 
     /* the details panel mirrors the setup controls */
     var profs = profOptions();
@@ -843,21 +828,28 @@
         screen('setup');
         return;
       }
-      var t = e.target.closest ? e.target.closest('[data-go],[data-save],[data-clear],[data-pclear],[data-getlink],[data-linkcopy],[data-doc]') : null;
+      var t = e.target.closest ? e.target.closest('[data-go],[data-save],[data-clear],[data-getlink],[data-linkcopy],[data-doc]') : null;
       if (!t) return;
       if (t.hasAttribute('data-go')) { screen(t.getAttribute('data-go')); return; }
       if (t.hasAttribute('data-save')) {
         var err = $('[data-err]');
         var prof = $('#ptProf').value, orig = $('#ptOrigin').value;
         /* Two answers the plan cannot honestly invent. Everything else has a visible,
-           deliberate default; these two would otherwise be assumed silently. */
-        var missing = [];
-        if (!prof) missing.push('your profession');
-        if (!orig) missing.push('where you are now');
-        if (missing.length) {
+           deliberate default or is genuinely optional. Destination is asked FIRST in the
+           error order because it changes more of the plan than profession does — every
+           step's links, the regulator, the visa route and the pathway cards all fork on
+           it, so guessing it produced a whole plan for the wrong country. */
+        if (!S.dest) {
           err.hidden = false;
-          err.textContent = 'We need ' + missing.join(' and ') + ' before we can build the plan \u2014 everything below is shaped by them.';
-          var focusEl = !prof ? $('#ptProf') : $('#ptOrigin');
+          err.textContent = 'Choose New Zealand or Australia first \u2014 the regulator, the visa route and every guide in the plan are different in each, so we would rather ask than assume.';
+          var destEl = $('[data-destpills] .pt-pill');
+          if (destEl && destEl.focus) destEl.focus();
+          return;
+        }
+        if (!prof) {
+          err.hidden = false;
+          err.textContent = 'We need your profession before we can build the plan \u2014 the regulator, the route and the guides all follow from it.';
+          var focusEl = $('#ptProf');
           if (focusEl && focusEl.focus) focusEl.focus();
           return;
         }
@@ -885,13 +877,6 @@
         screen('hub');
         return;
       }
-      if (t.hasAttribute('data-pclear')) {
-        if (!window.confirm('Delete your private notes from this device? We never had a copy, so this cannot be undone.')) return;
-        try { localStorage.removeItem(PKEY); } catch (e3) {}
-        PF.forEach(function (p) { var el = document.getElementById(p[0]); if (el) el.value = ''; });
-        psaid('Deleted from this device');
-        return;
-      }
       if (t.hasAttribute('data-doc')) {
         var mode = t.getAttribute('data-doc');
         if (mode === 'view') {
@@ -915,7 +900,7 @@
         if (box) box.hidden = false;
         var mailBtn = $('[data-linkmail]');
         if (mailBtn) mailBtn.href = 'mailto:?subject=' + encodeURIComponent('My Ethicare Move plan') +
-          '&body=' + encodeURIComponent('Here is the link back to my plan and saved guides on Ethicare Move:\n\n' + link + '\n\nOpening it on any device or browser will bring your plan and saved pages up exactly as you left them.\n\nYour own private notes (any offer you are weighing, your numbers) stay on this device only and are never in this link.');
+          '&body=' + encodeURIComponent('Here is the link back to my plan and saved guides on Ethicare Move:\n\n' + link + '\n\nOpening it on any device or browser will bring your plan and saved pages up exactly as you left them.');
         if (window.track) window.track('move_link_generated', {});
         return;
       }

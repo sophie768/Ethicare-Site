@@ -7,7 +7,7 @@
 <meta name="description" content="The national guide for healthcare professionals moving to Aotearoa: the health system, money, housing, schools, driving and the southern-hemisphere year.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../shell.css">
 <style>
@@ -346,7 +346,6 @@ a.mrow .mg{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;l
 <meta name="twitter:description" content="The national guide for healthcare professionals moving to Aotearoa: the health system, money, housing, schools, driving and the southern-hemisphere year.">
 <meta name="twitter:image" content="https://ethicareresourcing.com/assets/nz-life/arrivals-welcome.jpg">
 <style id="mint-eyebrow">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
-<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
 <style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
 <style id="anchor-offsets">[id]{scroll-margin-top:clamp(56px,7vw,78px)}</style>
 <style>
@@ -426,13 +425,18 @@ a.mrow{display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:bas
 a.mrow:hover{background:#DCE8DF;text-decoration:none}
 a.mrow.soon{background:transparent}
 a.mrow.soon:hover{background:var(--bg)}
-a.mrow .n{font-family:'Work Sans',sans-serif;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--primary)}
-a.mrow.soon .n{color:var(--text2)}
-a.mrow .t{display:flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-size:20px;font-weight:500;color:var(--primary);margin-bottom:4px}
-a.mrow .dot{width:6px;height:6px;border-radius:999px;background:var(--highlight);display:inline-block;flex:none}
-a.mrow .d{display:block;font-size:15px;line-height:1.5;color:var(--text2);max-width:64ch}
-a.mrow .g{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;letter-spacing:.04em;color:var(--primary);white-space:nowrap}
-a.mrow.soon .g{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text2)}
+.mrow .n{font-family:'Work Sans',sans-serif;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--primary)}
+.mrow.soon .n{color:var(--text2)}
+.mrow .t{display:flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-size:20px;font-weight:500;color:var(--primary);margin-bottom:4px}
+.mrow .dot{width:6px;height:6px;border-radius:999px;background:var(--highlight);display:inline-block;flex:none}
+.mrow .d{display:block;font-size:15px;line-height:1.5;color:var(--text2);max-width:64ch}
+.mrow .g{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;letter-spacing:.04em;color:var(--primary);white-space:nowrap}
+.mrow.soon .g{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text2)}
+/* Unpublished chapters are NOT links — a div, so nothing is focusable or announced
+   as a link, and no hover state implies a destination that does not exist yet.
+   The child rules above are element-agnostic (.mrow, not a.mrow) so the div
+   inherits all of them; only layout and hover stay scoped to the anchor. */
+div.mrow.soon{display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;margin:0 -16px;border-bottom:1px solid var(--divider);border-radius:6px;color:inherit;background:transparent}
 .mcity{background:#FAF7F3;padding:96px 0}
 .mcity-h{max-width:64ch;margin-bottom:40px}
 .mcity-h h2{font-size:clamp(28px,3.2vw,40px);font-weight:600;line-height:1.18;color:var(--primary);margin:0 0 16px}
@@ -469,6 +473,7 @@ a.mcity-c:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.
 .mlist a{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0;border-top:1px solid rgba(252,251,248,.22);color:#FCFBF8;text-decoration:none;font-family:'Work Sans',sans-serif;font-size:18px;font-weight:600}
 .mlist a:last-child{border-bottom:1px solid rgba(252,251,248,.22)}
 .mlist a:hover{color:#C6E084;text-decoration:none}
+@media(max-width:640px){div.mrow.soon{grid-template-columns:34px minmax(0,1fr);gap:8px}.mrow.soon .g{display:none}}
 @media(max-width:640px){.mc-in{padding:120px 20px 40px}.mc-top{padding:22px 20px}.wrapx{padding:0 20px}.mnums div+div{border-left:none;border-top:1px solid rgba(2,97,93,.18)}a.mrow{grid-template-columns:38px 1fr;gap:8px}a.mrow .g{display:none}.mbleed figcaption{left:16px;bottom:16px}}
 @media print{.mcover,.guidebar,.site-header,.site-footer{display:none!important}}
 </style>
@@ -497,7 +502,7 @@ a.mcity-c:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
       <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
         <div class="subnav">
           
@@ -508,6 +513,7 @@ a.mcity-c:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
@@ -654,9 +660,9 @@ a.mcity-c:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.
     </div>
     <div>
       <div class="mph"><span>Still to come</span><i></i></div>
-      <a class="mrow soon" href="#contents"><span class="n">&middot;</span><span><span class="t">The southern-hemisphere year</span><span class="d">Christmas in summer, the January shutdown, twelve public holidays, and when to fly home</span></span><span class="g">Coming soon</span></a>
-      <a class="mrow soon" href="#contents"><span class="n">&middot;</span><span><span class="t">Working life as a clinician</span><span class="d">Rosters, leave, unions and collective agreements, pay steps, and what a department feels like</span></span><span class="g">Coming soon</span></a>
-      <a class="mrow soon" href="#contents"><span class="n">&middot;</span><span><span class="t">Buying a home</span><span class="d">Deposits, LIM reports, the auction system, and how lending works for new arrivals</span></span><span class="g">Coming soon</span></a>
+      <div class="mrow soon"><span class="n">&middot;</span><span><span class="t">The southern-hemisphere year</span><span class="d">Christmas in summer, the January shutdown, twelve public holidays, and when to fly home</span></span><span class="g">Coming soon</span></div>
+      <div class="mrow soon"><span class="n">&middot;</span><span><span class="t">Working life as a clinician</span><span class="d">Rosters, leave, unions and collective agreements, pay steps, and what a department feels like</span></span><span class="g">Coming soon</span></div>
+      <div class="mrow soon"><span class="n">&middot;</span><span><span class="t">Buying a home</span><span class="d">Deposits, LIM reports, the auction system, and how lending works for new arrivals</span></span><span class="g">Coming soon</span></div>
 </div>
     </div>
   </section>
@@ -839,7 +845,10 @@ a.mcity-c:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.
 
 
 
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="../page-feedback.js" defer></script>
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">
@@ -887,4 +896,51 @@ a.mcity-c:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.
 <script>(function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var st=document.createElement('style');st.textContent='@media screen{.rv{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}.rv.in{opacity:1;transform:none}}@media print{.rv{opacity:1;transform:none}}';document.head.appendChild(st);addEventListener('beforeprint',function(){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})});var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});[].slice.call(document.querySelectorAll('section[data-screen-label]:not([data-screen-label=\'Cover\'])')).forEach(function(el){if(el.getBoundingClientRect().top>innerHeight*0.85){el.classList.add('rv');io.observe(el)}});})();</script>
 <script src="../nav.js" defer></script>
 <script src="../journey-nav.js" defer></script>
+<!-- ============================================================
+  INTERNAL LINK MAP — Moving to New Zealand (national master guide)
+  HEADER NAV (site-wide) — Brand/Home → / · Australia ▾ · New Zealand ▾ · Jobs → /jobs/ · Move ↗ ▾ · About ▾ · For Employers → /employers · Contact → /contact
+  COVER — Start reading → #contents · Go straight to a region → #cities
+  GUIDEBAR — Contents → #contents · Regional guides → #cities · All destinations → /destinations/ · Careers in New Zealand → /new-zealand · Request printed guide → /request-a-guide?guide=new-zealand-national
+  CONTENTS — the fifteen chapters, in order:
+    01 Aotearoa in short           → /guides/aotearoa-in-short        (200 → /guides/nz/aotearoa-in-short.html)
+    02 Choosing where to live      → /destinations/
+    03 How the health system works → /guides/new-zealand-healthcare
+    04 Te ao Māori at work         → /guides/te-ao-maori-at-work      (200 → /guides/nz/te-ao-maori-at-work.html)
+    05 Money, tax & banking        → /guides/money-tax-and-banking    (200 → /guides/nz/money-tax-and-banking.html)
+    06 Renting in New Zealand      → /guides/renting-in-new-zealand   (200 → /guides/nz/renting-in-new-zealand.html)
+    07 Schools & education         → /guides/new-zealand-education
+    08 Driving & licences          → /guides/driving-and-licences     (200 → /guides/nz/driving-and-licences.html)
+    09 Your move, step by step     → /guides/new-zealand-visa
+    10 Bringing pets & belongings  → /guides/nz/bringing-pets-and-belongings
+       (the only chapter linked by its raw path rather than a /guides/ alias — give it one)
+    11 Before you leave home       → /guides/before-you-leave         (200 → /guides/nz/before-you-leave.html)
+    12 Your first month            → /guides/new-zealand-first-month  (200 → /guides/nz/your-first-month.html)
+    13 The relocation checklist    → /guides/new-zealand-checklist    (200 → /guides/nz/relocation-checklist.html)
+    14 Finding your feet & your people → /guides/new-zealand-community
+    15 Key numbers to know         → /guides/new-zealand-contacts
+  ALSO — Preparing to move → /guides/new-zealand-relocation · Living & thriving → /guides/living-in-new-zealand
+  STILL TO COME — The southern-hemisphere year · Working life as a clinician · Buying a home.
+    Deliberately NOT links. They previously carried href="#contents", which scrolled the reader
+    back to the list they were already reading and put three dead entries in the tab order. An
+    unwritten chapter is a label, not a destination; the "Still to come" heading and the badge
+    already say so. Give each an href when the chapter exists.
+  REGIONS (#cities) — 13 destination hubs, all "9 chapters · live now":
+    Auckland · Wellington · Christchurch · Waikato · Bay of Plenty · Northland · Hawke's Bay ·
+    Palmerston North · Nelson Tasman · Dunedin · Central Otago · Southland · Gisborne
+    → /destinations/{region}-new-zealand
+  CTA — Explore current opportunities → /jobs/ · Speak with our team → /contact · Read the Auckland guide → /destinations/auckland-new-zealand
+  FOOTER (site-wide) — Destinations: /new-zealand · /australia · /destinations/ · /destinations/australia | Candidates: /jobs/ · /jobs/professions · /resources · /pathway-checker · /apply | Company: /about-ethicare · /employers · /submit-a-vacancy · /contact
+
+  NOTE ON THIS URL — /destinations/new-zealand-relocation-guide is a 200 rewrite onto THIS file.
+  destinations/New_Zealand_Relocation_Guide.html was the pre-nine-chapter monolith that also
+  claimed this canonical while being 301'd away from its own filename: 4,348 words serving
+  nobody. Archived 1 Sep 2026 as archive/nz-relocation-guide-pre-nine-chapter-2026-09-01.html.
+  Its 301s stay — they carry legacy inbound links to this page.
+
+  SEO
+   Page Title:       Moving to New Zealand
+   URL Slug:         /destinations/new-zealand-relocation-guide
+   SEO Title:        Moving to New Zealand — The Relocation Guide for Healthcare Professionals | Ethicare
+   Meta Description: The national guide for healthcare professionals moving to Aotearoa: the health system, money, housing, schools, driving and the southern-hemisphere year.
+     ============================================================ -->
 </body></html>

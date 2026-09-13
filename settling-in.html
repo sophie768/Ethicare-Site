@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Settling in: the first weeks after you arrive | Ethicare Resourcing</title>
+<meta name="description" content="The tax number, the bank account, a GP, your licence, and finding your people. What the first weeks in New Zealand or Australia actually ask of you, in the order it tends to come up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
+/* Router 5 of 5. Owns no topic: the question, an honest paragraph, then handoffs. */
+.rt-wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.rt-hero{background:var(--warm,#FCFBF8);border-bottom:1px solid var(--mint,#C9DED3)}
+.rt-hero .in{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3.4vw,52px);align-items:center;padding:clamp(38px,4.4vw,62px) 0}
+.rt-hero h1{font-weight:600;font-size:clamp(30px,4vw,48px);line-height:1.06;letter-spacing:-.02em;color:var(--teal,#02615D);margin:0 0 16px;max-width:22ch}
+.rt-hero .lede{font-size:clamp(17px,1.8vw,20px);line-height:1.62;color:var(--text,#333);max-width:58ch;margin:0}
+.rt-hero figure{margin:0}
+.rt-hero img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:18px}
+.rt-sec{padding:clamp(34px,4vw,58px) 0}
+.rt-sec.tint{background:var(--soft-green,#E3ECE5);border-top:1px solid rgba(2,97,93,.65);border-bottom:1px solid rgba(2,97,93,.65)}
+.rt-sec.sand{background:var(--warm,#FCFBF8);border-top:1px solid rgba(2,97,93,.65)}
+.rt-sec h2{font-weight:600;font-size:clamp(22px,2.6vw,30px);line-height:1.18;color:var(--teal,#02615D);margin:0 0 12px;max-width:28ch}
+.rt-lead{font-size:17px;line-height:1.68;color:var(--text,#333);max-width:66ch;margin:0 0 26px}
+.rt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:14px}
+.rt-card{display:flex;flex-direction:column;gap:7px;background:#fff;border:1px solid var(--mint,#C9DED3);border-radius:16px;padding:22px 24px;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.1);border-color:var(--teal,#02615D)}
+.rt-card .k{font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fern-text,#2F5E49)}
+.rt-card h3{font-weight:600;font-size:18.5px;line-height:1.28;color:var(--teal,#02615D);margin:0}
+.rt-card p{font-size:15px;line-height:1.55;color:var(--muted,#555);margin:0}
+.rt-card .go{margin-top:auto;padding-top:12px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:var(--fern-text,#2F5E49)}
+.rt-first{background:#fff;border:1px solid var(--mint,#C9DED3);border-radius:18px;box-shadow:inset 0 4px 0 #72A471;padding:clamp(24px,2.6vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px 34px;align-items:center}
+.rt-first h2{margin:0 0 10px}
+.rt-first p{font-size:16.5px;line-height:1.62;color:var(--muted,#555);margin:0}
+.rt-btn{display:inline-flex;align-items:center;gap:9px;justify-self:start;min-height:48px;padding:13px 22px;border-radius:12px;background:var(--teal,#02615D);color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;text-decoration:none;transition:background .18s ease}
+.rt-btn:hover{background:#01312F}
+/* First-weeks order: a numbered sequence, because order is the whole point here. */
+.rt-steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.rt-step{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;background:#fff;border:1px solid var(--mint,#C9DED3);border-radius:16px;padding:20px 24px}
+.rt-step .n{grid-row:1/span 3;align-self:start;width:38px;height:38px;border-radius:50%;background:var(--soft-green,#E3ECE5);color:var(--teal,#02615D);font-family:'Work Sans',sans-serif;font-weight:700;font-size:16px;display:grid;place-items:center}
+.rt-step h3{font-weight:600;font-size:18.5px;line-height:1.28;color:var(--teal,#02615D);margin:0}
+.rt-step p{font-size:15.5px;line-height:1.6;color:var(--muted,#555);margin:0}
+.rt-step a{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:var(--teal,#02615D);text-decoration:underline;text-decoration-color:#72A471;text-underline-offset:3px;justify-self:start}
+.rt-band{background:var(--teal,#02615D);color:#fff;padding:clamp(36px,4.2vw,60px) 0}
+.rt-band h2{color:#fff;margin-bottom:12px}
+.rt-band .rt-lead{color:#DCEAE5}
+.rt-band .kick{color:#C6E084}
+.rt-band .box{background:rgba(1,49,47,.42);border-radius:14px;padding:20px 22px}
+.rt-band .box h3{font-weight:600;font-size:17.5px;line-height:1.3;color:#fff;margin:0 0 7px}
+.rt-band .box p{font-size:15px;line-height:1.56;color:#DCEAE5;margin:0}
+.rt-band a.on-dark{color:#C6E084;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.kick{display:flex;align-items:center;gap:12px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fern-text,#2F5E49);margin:0 0 14px}
+.kick::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none}
+.rt-note{font-size:15px;line-height:1.62;color:var(--muted,#555);max-width:66ch;margin:22px 0 0}
+</style>
+<link rel="canonical" href="https://ethicareresourcing.com/settling-in">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Settling in: the first weeks after you arrive | Ethicare Resourcing">
+<meta property="og:description" content="The tax number, the bank account, a GP, your licence, and finding your people — in the order it tends to come up.">
+<meta property="og:url" content="https://ethicareresourcing.com/settling-in">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<header class="rt-hero">
+  <div class="rt-wrap in">
+    <div>
+      <p class="kick">The last question</p>
+      <h1>What happens once we land?</h1>
+      <p class="lede">Everything before this was decisions. This part is errands &mdash; a long list of small things that all seem to depend on each other, usually while you are jet-lagged and starting a new job. We understand that it is a strange few weeks: the big move is behind you and yet nothing works yet. The good news is that the list is shorter than the one before the flight, and it has a natural order.</p>
+    </div>
+    <figure><img src="assets/christchurch/chch-new-regent-street.jpg" alt="A quiet pastel-fronted street in Christchurch, shops open and people walking" width="1200" height="900" loading="eager" decoding="async"></figure>
+  </div>
+</header>
+
+<section class="rt-sec">
+  <div class="rt-wrap">
+    <p class="kick">The first fortnight</p>
+    <h2>Five things, roughly in this order</h2>
+    <p class="rt-lead">Most of the first two weeks hangs off the first two items, so it is worth doing them early even if you do nothing else. Each one is covered properly in the relocation guide for your country; this is just the order.</p>
+    <ol class="rt-steps">
+      <li class="rt-step"><span class="n" aria-hidden="true">1</span><h3>Your tax number</h3><p>An IRD number in New Zealand, a tax file number in Australia. Payroll, a bank account that behaves properly, and KiwiSaver or super all wait on it &mdash; so this is the one to do in week one.</p><a href="/guides/new-zealand-relocation">What you need to apply</a></li>
+      <li class="rt-step"><span class="n" aria-hidden="true">2</span><h3>A local bank account</h3><p>Your first pay needs somewhere to land, and a rental bond usually has to come from a local account. Some banks let you start the process before you fly, which is worth knowing.</p><a href="/guides/australia-money">Banking and what to bring</a></li>
+      <li class="rt-step"><span class="n" aria-hidden="true">3</span><h3>A GP, and how the health system works</h3><p>Enrolling with a practice is what makes routine care cheap, and it is far easier done before anyone is unwell. Not urgent, until it suddenly is.</p><a href="/guides/new-zealand-healthcare">How enrolment works</a></li>
+      <li class="rt-step"><span class="n" aria-hidden="true">4</span><h3>Your driving licence</h3><p>Your current licence works for a limited period and then it does not. The deadline is shorter than most people expect, and the conversion route depends on where the licence was issued.</p><a href="/guides/australia-driving">Converting your licence</a></li>
+      <li class="rt-step"><span class="n" aria-hidden="true">5</span><h3>Somewhere longer-term to live</h3><p>Most people arrive into something temporary. Once you know the commute and the school run in practice rather than on a map, the permanent decision gets much easier.</p><a href="/guides/renting-in-new-zealand">Renting, bonds and inspections</a></li>
+    </ol>
+    <p class="rt-note">If you are moving with children, school enrolment usually sits alongside items one and two &mdash; it is tied to your address, so it shapes the housing decision. <a href="/guides/new-zealand-family">Moving with your family</a> has the sequence for a household rather than an individual.</p>
+  </div>
+</section>
+
+<section class="rt-sec tint">
+  <div class="rt-wrap">
+    <div class="rt-first">
+      <div>
+        <h2>Keep the list somewhere</h2>
+        <p>My Move carries the arrival stage as well as the planning one. It shows one next step rather than twelve, remembers what you have done, and adjusts if your dates or your household change. If you built a plan before you flew, it is still there.</p>
+      </div>
+      <a class="rt-btn" href="/move">Open my plan <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="rt-band">
+  <div class="rt-wrap">
+    <p class="kick">What nobody warns you about</p>
+    <h2>The bit that is harder than the paperwork</h2>
+    <p class="rt-lead">The errands get done in a fortnight. Feeling at home takes longer, and in our experience this is where people are least prepared &mdash; because it is the part no checklist can carry for you.</p>
+    <div class="rt-grid">
+      <div class="box"><h3>Month three is often the hardest</h3><p>The novelty has worn off, the friends you left are getting on with their lives, and the new ones are still colleagues rather than friends. Almost everyone we have placed describes some version of this, and almost everyone comes out the other side of it.</p></div>
+      <div class="box"><h3>A partner who is not working feels it first</h3><p>You have a team, a routine and a reason to leave the house. They may have none of those yet. Worth naming out loud early rather than discovering it in an argument.</p></div>
+      <div class="box"><h3>Distance from family is not a one-off cost</h3><p>It is a birthday, a funeral, a grandchild growing up on a screen. Some households build an annual flight into the budget from the start; it helps more than people expect.</p></div>
+      <div class="box"><h3>Finding your people takes effort here</h3><p>Communities exist &mdash; national, cultural, professional, sporting &mdash; but they rarely come to you. The people who settle fastest are usually the ones who joined something in the first month, whatever it was.</p></div>
+    </div>
+    <p style="font-size:15px;line-height:1.6;color:#DCEAE5;margin:20px 0 0;max-width:66ch">If you are in the middle of this and it is not going well, <a class="on-dark" href="/contact">tell us</a>. We would rather know at month three than read it in a resignation. And we are glad to introduce you to someone who made the same move &mdash; often that is the thing that helps.</p>
+  </div>
+</section>
+
+<section class="rt-sec">
+  <div class="rt-wrap">
+    <p class="kick">Finding your people</p>
+    <h2>Where communities actually are</h2>
+    <p class="rt-lead">Not a list of societies. Where people from your country gather, what happens on a weekend, how newcomers tend to meet each other, and which specialist shops mean you can cook the food you grew up with.</p>
+    <div class="rt-grid">
+      <a class="rt-card" href="/guides/new-zealand-community"><span class="k">New Zealand</span><h3>Community and belonging</h3><p>Cultural and national communities, sport, faith, volunteering, and how the first six months tend to go.</p><span class="go">Community in New Zealand &rarr;</span></a>
+      <a class="rt-card" href="/guides/australia-community"><span class="k">Australia</span><h3>Community and belonging</h3><p>The same ground for Australia, state by state, including the big migrant communities in each city.</p><span class="go">Community in Australia &rarr;</span></a>
+      <a class="rt-card" href="/destinations/"><span class="k">Your region</span><h3>Weekends where you live</h3><p>Every destination guide has a chapter on what a weekend actually looks like there &mdash; the local version, not the postcard.</p><span class="go">Destination guides &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="rt-sec sand">
+  <div class="rt-wrap">
+    <p class="kick">Later on</p>
+    <h2>The things that come after the first year</h2>
+    <p class="rt-lead">Not urgent now, and worth knowing they exist. Both are decisions rather than errands, and both are easier if you have kept your paperwork tidy from the start.</p>
+    <div class="rt-grid">
+      <a class="rt-card" href="/guides/new-zealand-visa"><span class="k">Your visa</span><h3>Residency, and what leads to it</h3><p>Which routes lead where, how time on a temporary visa counts, and what changes for your family when it does.</p><span class="go">Visas and residency &rarr;</span></a>
+      <a class="rt-card" href="/guides/new-zealand-practice"><span class="k">Your career</span><h3>Progression from here</h3><p>How seniority, scope and pay steps work once you are inside the system rather than applying to it.</p><span class="go">Working here &rarr;</span></a>
+      <a class="rt-card" href="/contact"><span class="k">Still us</span><h3>We do not stop at the placement</h3><p>Long-term careers, not vacancies &mdash; so if something comes up in year two, we are still the same phone number.</p><span class="go">Get in touch &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="rt-sec tint">
+  <div class="rt-wrap">
+    <p class="kick">The five questions</p>
+    <h2>If you came in at the end</h2>
+    <p class="rt-lead">This page is the last of five. If you are earlier in the process than it assumes, start wherever fits.</p>
+    <div class="rt-grid">
+      <a class="rt-card" href="/can-i-work-here"><span class="k">One</span><h3>Can I work there?</h3><p>Registration, your Board, and the route you would be assessed under.</p><span class="go">Can I work there? &rarr;</span></a>
+      <a class="rt-card" href="/is-it-worth-it"><span class="k">Two</span><h3>Is it worth it?</h3><p>Pay, costs, and what the job would actually be.</p><span class="go">Is it worth it? &rarr;</span></a>
+      <a class="rt-card" href="/where-would-we-live"><span class="k">Three</span><h3>Where would we live?</h3><p>Housing, hospitals, schools and the commute, region by region.</p><span class="go">Where would we live? &rarr;</span></a>
+      <a class="rt-card" href="/move"><span class="k">Four</span><h3>How do we do this?</h3><p>A plan built around your household and your dates.</p><span class="go">Build my journey &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
+</main>
+<script src="page-feedback.js" defer></script>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="site.js"></script>
+<script src="nav.js" defer></script>
+
+<!-- INTERNAL LINK MAP — /settling-in (router 5 of 5)
+  Explains nothing a guide owns. Every topic is one paragraph and a link out.
+
+  The first fortnight:
+    1 What you need to apply → NZ relocation master (/guides/new-zealand-relocation)
+    2 Banking and what to bring → AU money guide (/guides/australia-money)
+    3 How enrolment works → NZ healthcare guide (/guides/new-zealand-healthcare)
+    4 Converting your licence → AU driving guide (/guides/australia-driving)
+    5 Renting, bonds and inspections → NZ renting guide (/guides/new-zealand-renting)
+    · Moving with your family → (/guides/new-zealand-family)
+  Keep the list: Open my plan → Move (/move)
+  What nobody warns you about: tell us → Contact (/contact)
+  Finding your people: Community in New Zealand → (/guides/new-zealand-community)
+    · Community in Australia → (/guides/australia-community) | Destination guides → (/destinations/)
+  Later on: Visas and residency → (/guides/new-zealand-visa) | Working here → (/guides/new-zealand-practice)
+    · Get in touch → Contact (/contact)
+  The five questions: router 1 (/can-i-work-here) | router 2 (/is-it-worth-it) | router 3 (/where-would-we-live) | Move (/move)
+  Feedback: "Was this page useful?" → Netlify form page-feedback (page-feedback.js)
+  Header/footer: canonical shared nav and footer (site/_header.html)
+
+  ARCHITECTURE — Level 0 router, question 5 of the five-question spine (Ethicare Design Map,
+  agreed 7 Sep 2026). Completes the set: 1 /can-i-work-here · 2 /is-it-worth-it ·
+  3 /where-would-we-live · 4 /move (existing) · 5 /settling-in. Hero is a PHOTOGRAPH — a real
+  street, per the rule that places are always photography. Next: the nav and homepage carry
+  these five, which is also what releases the six "here is the country" duplicates.
+  ============================================================
+-->
+
+<!-- SEO
+  Page Title: Settling in: the first weeks after you arrive | Ethicare Resourcing
+  URL Slug: /settling-in
+  SEO Title: Settling In — Your First Weeks in New Zealand or Australia
+  Meta Description: The tax number, the bank account, a GP, your licence, and finding your people. What the first weeks in New Zealand or Australia actually ask of you, in the order it tends to come up.
+-->
+</body>
+</html>

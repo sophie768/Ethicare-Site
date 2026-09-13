@@ -395,6 +395,22 @@
           : 'Ethicare team only'
       }));
     } catch (err) {}
+    // Queryable capture: fire a JSON copy of the form to the Supabase-backed
+    // endpoint before the native (Netlify Forms) navigation. Keepalive so it
+    // survives the redirect; best-effort, never blocks the submit.
+    try {
+      var cap = {};
+      $all('[name]', form).forEach(function (el) {
+        if (!el.name || el.type === 'file') return;
+        cap[el.name] = el.type === 'checkbox' ? el.checked : el.value;
+      });
+      fetch('/.netlify/functions/capture', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        keepalive: true,
+        body: JSON.stringify({ kind: 'application', page: '/apply', data: cap })
+      }).catch(function () {});
+    } catch (e2) {}
     HTMLFormElement.prototype.submit.call(form); // bypasses the submit-event handler; Netlify redirects to the form's action (?submitted=1) after capture
   }
   function submitError(msg) {

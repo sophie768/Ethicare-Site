@@ -7,7 +7,7 @@
 <meta name="description" content="Explore New Zealand region by region: destination guides on lifestyle, cost of living, healthcare, housing and schools, plus the national guide.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../shell.css">
 <style>
@@ -43,7 +43,7 @@ a{color:inherit;text-decoration:none}
 .has-drop>a{cursor:pointer;display:inline-flex;align-items:center;gap:4px}
 .has-drop>a svg{width:10px;height:10px;transition:transform .15s}
 .has-drop:hover>a svg{transform:rotate(180deg)}
-.dropmenu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);background:var(--white);border:1px solid var(--divider);border-radius:14px;box-shadow:0 26px 54px rgba(1,49,47,.12);padding:10px;min-width:340px;opacity:0;visibility:hidden;transition:.15s;display:grid;grid-template-columns:1fr 1fr;gap:4px;z-index:80}
+.dropmenu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);background:var(--white);border:1px solid var(--divider);border-radius:14px;box-shadow:0 12px 30px rgba(1,49,47,.08);padding:10px;min-width:340px;opacity:0;visibility:hidden;transition:.15s;display:grid;grid-template-columns:1fr 1fr;gap:4px;z-index:80}
 .has-drop:hover .dropmenu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px)}
 .dropmenu a{display:block;padding:9px 12px;border-radius:12px;font-size:13.5px;font-weight:600;color:var(--ink)!important}
 .dropmenu a:hover{background:var(--sage);color:var(--brand)!important}
@@ -60,13 +60,13 @@ a{color:inherit;text-decoration:none}
 .hero .lead b{color:var(--brand);font-weight:600}
 .hero .h-cta{margin-top:24px;display:flex;gap:16px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:15px;padding:13px 24px;border-radius:999px;transition:transform .25s var(--ease),background .25s,box-shadow .25s,border-color .25s}
-.btn-primary{background:var(--brand);color:#fff;box-shadow:0 26px 54px rgba(1,49,47,.12)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.12)}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 12px 30px rgba(1,49,47,.08)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(1,49,47,.08)}
 .btn-ghost{background:transparent;color:var(--brand);border:1.5px solid var(--divider)}
 .btn-ghost:hover{border-color:var(--brand);transform:translateY(-2px)}
 .btn .arr{transition:transform .25s var(--ease)}
 .btn:hover .arr{transform:translateX(3px)}
-.h-art{position:relative;height:430px;border-radius:24px;overflow:hidden;border:7px solid #fff;box-shadow:0 26px 54px rgba(1,49,47,.12);background:linear-gradient(180deg,rgba(2,97,93,0.05),rgba(2,97,93,0.5)),repeating-linear-gradient(135deg,rgba(255,255,255,0.05) 0 22px,rgba(255,255,255,0) 22px 44px),linear-gradient(155deg,var(--secondary),var(--brand) 70%);display:flex;align-items:center;justify-content:center;flex-direction:column;color:rgba(255,255,255,.92);text-align:center}
+.h-art{position:relative;height:430px;border-radius:14px;overflow:hidden;border:7px solid #fff;box-shadow:0 12px 30px rgba(1,49,47,.08);background:linear-gradient(180deg,rgba(2,97,93,0.05),rgba(2,97,93,0.5)),repeating-linear-gradient(135deg,rgba(255,255,255,0.05) 0 22px,rgba(255,255,255,0) 22px 44px),linear-gradient(155deg,var(--secondary),var(--brand) 70%);display:flex;align-items:center;justify-content:center;flex-direction:column;color:rgba(255,255,255,.92);text-align:center}
 .h-art .ph-t{font-weight:600;font-size:15px;letter-spacing:.02em}
 .h-art .ph-s{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-top:4px}
 .h-art svg{width:50px;height:50px;opacity:.75;margin-bottom:8px}
@@ -92,8 +92,8 @@ section.block{padding:78px 0}
 
 /* ---------- CARDS ---------- */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.card{background:var(--white);border-radius:24px;overflow:hidden;border:1px solid var(--divider);display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-.card:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.12)}
+.card{background:var(--white);border-radius:14px;overflow:hidden;border:1px solid var(--divider);display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.card:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(1,49,47,.08)}
 .card.feature{grid-column:1/-1;flex-direction:row}
 .card .ph{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--secondary),var(--brand));display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9)}
 .card:not(.feature) .ph{aspect-ratio:16/10}
@@ -121,7 +121,7 @@ section.block{padding:78px 0}
 .relo h2{font-size:clamp(26px,3vw,36px);color:var(--brand);letter-spacing:-.02em}
 .relo p{margin-top:16px;color:#333333;font-size:17px;max-width:50ch}
 .relo .actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
-.relo .card-note{background:var(--white);border-radius:20px;padding:26px 28px;box-shadow:0 26px 54px rgba(1,49,47,.12)}
+.relo .card-note{background:var(--white);border-radius:12px;padding:26px 28px;box-shadow:0 12px 30px rgba(1,49,47,.08)}
 .relo .card-note .k{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#2F5E49;font-weight:700}
 .relo .card-note ul{list-style:none;margin-top:16px;display:grid;gap:8px}
 .relo .card-note li{display:flex;gap:8px;align-items:flex-start;font-size:15px;color:var(--ink)}
@@ -152,7 +152,6 @@ section.block{padding:78px 0}
 <meta name="twitter:description" content="Explore New Zealand region by region: destination guides on lifestyle, cost of living, healthcare, housing and schools, plus the national guide.">
 <meta name="twitter:image" content="https://ethicareresourcing.com/assets/nz-life/lake-from-high-track.jpg">
 <style id="mint-eyebrow">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
-<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
 <style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}</style>
 <style id="ch-rail">.ch-rail{background:#F3F7F4;border-bottom:1px solid rgba(2,97,93,.12)}.ch-rail .in{max-width:1180px;margin:0 auto;padding:13px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px}.ch-rail .lb{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#02615D}.ch-rail .lb b{font-weight:600;color:#2F5E49}.ch-rail a{font-family:'Work Sans',sans-serif;font-size:13.5px;font-weight:500;color:#02615D;text-decoration:none}.ch-rail a:hover{text-decoration:underline}
 .ch-foot{max-width:1180px;margin:0 auto;padding:44px 28px 64px;display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;border-top:1px solid rgba(2,97,93,.14)}.ch-foot a{font-family:'Work Sans',sans-serif;text-decoration:none;color:#02615D;font-size:16px;font-weight:500;line-height:1.35}.ch-foot a span{display:block;font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#2F5E49;margin-bottom:4px}.ch-foot .next{text-align:right}.ch-foot .up{font-size:13px;color:#2F5E49;white-space:nowrap}.ch-foot a:hover{color:#2F5E49}
@@ -182,7 +181,7 @@ section.block{padding:78px 0}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
       <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
         <div class="subnav">
           
@@ -193,6 +192,7 @@ section.block{padding:78px 0}
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
@@ -326,7 +326,10 @@ section.block{padding:78px 0}
 
 <!-- FOOTER -->
 <nav class="ch-foot" aria-label="Chapter navigation"><a class="prev" href="/guides/aotearoa-in-short"><span>Previous</span>Aotearoa in short</a><a class="up" href="/destinations/new-zealand-relocation-guide">All chapters</a><a class="next" href="/guides/new-zealand-healthcare"><span>Next</span>How the health system works</a></nav>
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="../page-feedback.js" defer></script>
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">

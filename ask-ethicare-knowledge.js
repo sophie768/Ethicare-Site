@@ -1,56 +1,51 @@
-/* Ask Ethicare V1 — system instructions, resource map, verified knowledge.
-   Loaded on pages that embed Ask Ethicare. Keep the system prompt in sync with
-   netlify/functions/ask-ethicare.mjs (production keeps it server-side). */
+/* Ask Ethicare V1 — resource map only.
+
+   THE SYSTEM PROMPT IS NOT IN THIS FILE, AND MUST NOT COME BACK.
+   It lives in netlify/functions/ask-ethicare.js and never reaches the browser.
+
+   It used to be here, and the browser sent it to the function on every request — so the
+   function obeyed whatever prompt it was given. Anyone could POST their own and use the
+   endpoint as a free LLM billed to Ethicare, with every guardrail (no salary figures against
+   live roles, no employer named but Health New Zealand, no advice-giving) simply omitted.
+   The client now sends messages and nothing else.
+
+   What stays here is only what the BROWSER needs: the id → title/description/URL map used to
+   render the action cards. The function keeps its own list of valid ids. If the two ever drift,
+   an id the browser does not recognise is dropped when the cards render — degradation, not
+   breakage — but they should be changed together. */
 window.ASK_ETHICARE_KB = {
   resources: {
     pathway_checker: { t: 'Registration pathway checker', d: 'Your likely route to registration, in two minutes', u: '/pathway-checker' },
     move_planner: { t: 'Ethicare Move', d: 'The whole move, sequenced — what to do and when', u: '/move' },
     compare_countries: { t: 'Australia vs New Zealand', d: 'Pay, pace and lifestyle, side by side', u: '/guides/australia-vs-new-zealand' },
+    cost_calculator: { t: 'What the move will cost', d: 'Build a realistic figure for your own move', u: '/cost-calculator' },
+    before_you_accept: { t: 'Before you accept an offer', d: 'What to check in a contract before you sign', u: '/before-you-accept' },
     nz_destinations: { t: 'NZ destination guides', d: 'Costs, suburbs, hospitals, city by city', u: '/destinations/' },
     au_destinations: { t: 'AU destination guides', d: 'Eight states and territories, compared honestly', u: '/destinations/australia' },
     jobs: { t: 'Live roles', d: 'Current Ethicare vacancies in both countries', u: '/jobs/' },
     professions: { t: 'Find your profession', d: 'Registration, work and indicative pay for your role', u: '/jobs/professions' },
     nz_registration: { t: 'Registering in New Zealand', d: 'The full registration guide', u: '/guides/new-zealand-registration' },
-    au_registration: { t: 'Registering in Australia', d: 'Ahpra and the national boards, explained', u: '/guides/australia-registration' },
+    au_registration: { t: 'Registering in Australia', d: 'Ahpra, the national boards, and where skills assessment fits', u: '/guides/australia-registration' },
     nz_visa: { t: 'New Zealand visas', d: 'Options for you and everyone moving with you', u: '/guides/new-zealand-visa' },
     au_visa: { t: 'Australian visas', d: 'Work and family routes, in plain English', u: '/guides/australia-visa' },
-    nz_family: { t: 'Family moves to NZ', d: 'Schools, childcare, partners, the first months', u: '/guides/new-zealand-family' },
-    au_family: { t: 'Family moves to AU', d: 'Schools, childcare, partners, the first months', u: '/guides/australia-family' },
+    nz_family: { t: 'Moving to NZ with your family', d: 'Schools, childcare, partners, the first months', u: '/guides/new-zealand-family' },
+    au_family: { t: 'Moving to AU with your family', d: 'Schools, childcare, partners, the first months', u: '/guides/australia-family' },
     nz_healthcare: { t: 'How NZ healthcare works', d: 'The system you would be joining', u: '/guides/new-zealand-healthcare' },
     au_healthcare: { t: 'How AU healthcare works', d: 'Medicare, public and private, the PBS', u: '/guides/australia-healthcare' },
     nz_practice: { t: 'Practising in New Zealand', d: 'Culture, expectations, what feels different', u: '/guides/new-zealand-practice' },
     au_practice: { t: 'Practising in Australia', d: 'Culture, expectations, what feels different', u: '/guides/australia-practice' },
+    nz_salary: { t: 'Pay in New Zealand', d: 'What the money actually looks like, explained', u: '/guides/new-zealand-salary' },
+    au_salary: { t: 'Pay in Australia', d: 'What the money actually looks like, explained', u: '/guides/australia-salary' },
     pay_register: { t: 'NZ pay agreements', d: 'The collective agreements that set public pay', u: '/guides/new-zealand-pay-agreements' },
-    peer_connection: { t: 'Talk to someone who has done it', d: 'A clinician in your profession who already moved', u: '/contact' },
+    nz_relocation: { t: 'Moving to New Zealand, step by step', d: 'The whole journey in six stages', u: '/guides/new-zealand-relocation' },
+    au_relocation: { t: 'Moving to Australia, step by step', d: 'The whole journey in six stages', u: '/guides/australia-relocation' },
+    interview_prep: { t: 'Interview preparation', d: 'What they ask, and how to prepare for it', u: '/interview-prep' },
+    build_cv: { t: 'Build your CV', d: 'A CV in the format these employers expect', u: '/build-your-cv' },
     talk_to_team: { t: 'Talk to the Ethicare team', d: 'A real conversation, no pressure', u: '/contact' },
     apply: { t: 'Register your interest', d: 'Send your CV and preferences', u: '/apply' },
     resources_library: { t: 'Guides & resources', d: 'The full library', u: '/resources' },
     employer_support: { t: 'For employers', d: 'Recruit, relocate, retain', u: '/employers' },
     nz_country: { t: 'Working in New Zealand', d: 'The country hub', u: '/new-zealand' },
     au_country: { t: 'Working in Australia', d: 'The country hub', u: '/australia' }
-  },
-  system: [
-    'You are Ask Ethicare, the specialist healthcare career and relocation assistant on the Ethicare Resourcing website.',
-    'You help healthcare professionals explore working and living in Australia and New Zealand: registration, jobs, visas, money, family, destinations, relocation and settling in.',
-    'Users do NOT need to have been recruited by Ethicare. They may be exploring, applying directly to an employer, working with another agency, already holding an offer, or already relocating. Never divert someone with a job elsewhere into Ethicare recruitment — congratulate them and help with the next stage. When relevant say they can use Ethicare whichever way they found their role.',
-    'Voice: warm, practical, concise, plain English. Knowledgeable, not overwhelming; honest, not sales-driven. No hype, no pressure, no emoji.',
-    'NEVER tell someone what to do. You inform, compare, explain uncertainty and point at authoritative sources — you do not tell anyone whether to move, whether to accept an offer, or which country to choose. Those are theirs to decide. Present trade-offs honestly (a higher salary against higher housing costs; a regional post against a partner\u2019s job options). Use "may", "might", "often", "typically", "depends on" where they reflect real uncertainty, and never harden them into "will" to sound more helpful.',
-    'Never assume what matters to this person: not that more money is better, that a city beats a region, that an outdoor life appeals, or that they want to leave where they are. Ask, or offer the comparison instead.',
-    'Family language needs the most care. Never suggest a move would give someone\u2019s children a better life, or somewhere their family would thrive — you cannot know that. Say what tends to matter (schools, childcare, housing, everyday costs, a partner\u2019s career) and give them the information.',
-    'No rhetoric: no "take the leap", "your next chapter", "why wait", "ready to change your life". Do not manufacture emotion — the subject already carries it. "Neither country is right for me at the moment" and "I want to wait" are successful outcomes of talking to you; treat them as such, with no disappointment and no counter-argument.',
-    'Length: first answers roughly 120–250 words. Structure with short bold headings (lines like "**The short answer**") only when it genuinely helps. End the answer with AT MOST ONE follow-up question, and only when one extra detail would materially improve your help.',
-    'Accuracy rules — never break these:',
-    '- Never invent registration requirements, visa eligibility, fees, processing times, salaries, vacancies or relocation packages. If you are not confident, say what you would check and where. Regulators and immigration authorities make the final decisions; say so with a light contextual caveat, not a wall of disclaimers.',
-    '- Salaries: indicative rounded bands only, always naming the agreement or framework that sets them (e.g. NZ public pay is set by collective agreements such as APEX and the ASMS MECA). For any specific live vacancy the package is "competitive" — never quote a figure against a named live role.',
-    '- Never name any employer except Health New Zealand / Te Whatu Ora.',
-    '- Registration is profession-specific: never generalise one profession\u2019s pathway to another. NZ and Australia are separate systems (Australia: Ahpra national boards, plus ASAR for sonographers; NZ: profession-specific boards and councils). When someone asks "can I register", point at the likely shape of the route and send them to the pathway checker rather than reciting requirements from memory.',
-    '- Dates matter: rules change. One verified example: Ahpra minimum English-test scores changed for tests taken on or after 23 April 2026 (checked August 2026).',
-    'Ethicare facts you may state: founded by Sophie Careem, a former NHS transformation manager (Royal Free London); recruiting into New Zealand since 2023 and Australia since March 2026 (medical imaging first); never a fee to a candidate; clinical oversight from Prof Alastair Sutcliffe (UCL & Great Ormond Street) and Dr Jude A. Oben (King\u2019s College London); relocation support is guidance and sequencing, not immigration advice.',
-    'Every reply MUST end with a block in exactly this form (2–4 ids, most useful first, chosen from the resource list you are given):',
-    'NEXT_ACTIONS',
-    'pathway_checker',
-    'nz_destinations',
-    'If the situation would genuinely be better handled by a person (a declined registration, a confusing offer, supervision conditions, anything distressing), add a line reading exactly HANDOFF before NEXT_ACTIONS.',
-    'The goal is not merely to answer. The goal is to help the person understand what to do next.'
-  ].join('\n')
+  }
 };

@@ -8,7 +8,7 @@
 <meta name="description" content="Physiotherapy careers in New Zealand for internationally trained clinicians: scope of practice, registration with the Physiotherapy Board, the ACC model, salary, demand and how to make the move. A calm, practical guide from Ethicare Resourcing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../shell.css">
 <style>
 :root{
@@ -31,7 +31,7 @@ p{margin-bottom:18px}strong{color:var(--green)}
 .wrap{max-width:1200px;margin:0 auto;padding:0 22px}
 .reading{max-width:1200px}.reading>*{max-width:760px}
 .section{padding:var(--sp-major,clamp(56px,7vw,92px)) 0;position:relative}
-.eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:16px}
+/* eyebrow — canonical (shell.css) */
 
 .lead{font-size:18px;line-height:var(--lh-body);color:var(--muted);max-width:64ch}
 .crumb{display:flex;flex-wrap:wrap;align-items:center;gap:9px;font-family:var(--display);font-weight:600;font-size:13px;color:var(--muted);margin-bottom:22px}
@@ -98,7 +98,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 
 /* feature band */
 .feature{background:var(--teal);border-radius:24px;padding:clamp(32px,4.5vw,52px);color:#fff;margin-top:6px}
-.feature .eyebrow{color:#A6CB94}.feature h2{color:#fff}.feature .lead{color:rgba(255,255,255,.86);max-width:64ch}
+.feature .eyebrow{color:#C6E084}.feature h2{color:#fff}.feature .lead{color:rgba(255,255,255,.86);max-width:64ch}
 .feature .pts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
 .fpt{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:18px 20px;font-family:var(--display);font-weight:600;font-size:14.5px;color:#fff}
 @media (max-width:760px){.feature .pts{grid-template-columns:1fr}}
@@ -180,31 +180,29 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 <meta name="twitter:title" content="Physiotherapist jobs in New Zealand | Ethicare Resourcing">
 <meta name="twitter:description" content="Physiotherapy careers in New Zealand for internationally trained clinicians: scope of practice, registration with the Physiotherapy Board, the ACC model, salary, demand and how to make the move. A calm, practical guide from Ethicare Resourcing.">
 <meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
-<style id="nz-fern-accent">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}.cta .eyebrow{color:#2F5E49}</style>
 <link rel="stylesheet" href="../hero.css">
 <link rel="stylesheet" href="../hero-rail.css">
 <link rel="stylesheet" href="../profession-hero.css">
 <link rel="stylesheet" href="../disclose.css">
-<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
 <style id="profession-redesign">
 :root{--acc:#72A471;--acc-deep:#72A471;--soft:#E3ECE5;--chip:#EAF2EA}
-.hero{background:#FCFBF8;min-height:auto;display:block;overflow:hidden;position:relative}
-.hero .bg{position:absolute;top:0;right:0;bottom:0;left:auto;width:55%;z-index:0}
+.hero{background:#02615D;min-height:auto;display:block;overflow:hidden;position:relative}
+.hero .bg{display:none}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:38% 30%}
 .hero .bg::after{content:"";position:absolute;inset:0;display:block!important;background:linear-gradient(90deg,#FCFBF8 0px,rgba(247,245,239,.92) 6px,rgba(247,245,239,.55) 15px,rgba(247,245,239,.18) 23px,rgba(247,245,239,0) 32px)}
 .hero .wrap{max-width:1200px;margin:0 auto;padding-top:clamp(40px,4.6vw,64px);padding-bottom:clamp(40px,4.6vw,64px)}
 .hero h1{font-size:var(--t-display);line-height:1.08}
 .hero .hero-sub{margin-bottom:2px}
-.hero .copy{position:relative;z-index:2;max-width:min(45%,552px)}
-.hero h1{color:#02615D}
-.hero .eyebrow{color:#2F5E49;display:flex;align-items:center;gap:12px}
-.hero .crumb,.hero .crumb a{color:#5C6B57}
-.hero .crumb a:hover,.hero .crumb .here{color:#02615D}
-.hero .hero-sub{color:#3C4B45}
-.hero .btn-primary{background:#02615D;color:#fff;box-shadow:0 10px 26px rgba(2,97,93,.20)}
-.hero .btn-primary:hover{background:#014E4B}
-.hero .btn-ghost{background:transparent;border:2px solid #02615D;color:#02615D}
-.hero .btn-ghost:hover{background:rgba(2,97,93,.08)}
+.hero .copy{position:relative;z-index:2;max-width:min(760px,92%)}
+.hero h1{color:#fff}
+.hero .eyebrow{color:#C6E084;display:flex;align-items:center;gap:12px}
+.hero .crumb,.hero .crumb a{color:#BBD9D2}
+.hero .crumb a:hover,.hero .crumb .here{color:#fff}
+.hero .hero-sub{color:#DCEAE5}
+.hero .btn-primary{background:#FCFBF8;color:#02615D;box-shadow:0 10px 26px rgba(1,49,47,.28)}
+.hero .btn-primary:hover{background:#F7F4EE}
+.hero .btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.55);color:#fff}
+.hero .btn-ghost:hover{background:rgba(1,49,47,.42);border-color:#fff}
 .hero .hchips{display:flex;gap:9px;flex-wrap:wrap;margin-top:30px}
 .hero .hchip{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:12.5px;border-radius:30px;padding:8px 15px;background:#fff;border:1px solid #E0E8E1;color:#02615D}
 .hero .hchip .dot{width:6px;height:6px;border-radius:50%;background:#A6C84A;flex:none}
@@ -224,7 +222,8 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 .wrap.reading{max-width:1200px}
 .wrap.reading>*{max-width:800px}
 .section .eyebrow{display:flex;align-items:center;gap:12px;color:#2F5E49}
-.section .eyebrow::before{content:"";width:28px;height:3px;border-radius:3px;background:var(--acc);flex:none}
+.section .eyebrow::before{content:"";width:28px;height:3px;border-radius:3px;background:#A6C84A;flex:none}
+.section .feature .eyebrow{color:#C6E084}
 .gcard{border-top:4px solid var(--acc)}
 .gcard.accent{border-top-color:var(--acc-deep)}
 .pullquote{border-left-color:var(--acc)}
@@ -236,7 +235,6 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 .final{background:var(--chip)}
 .wcard{background:#fff;border-left-color:var(--acc)}
 </style>
-<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{content:"";width:28px;height:3px;border-radius:3px;background:#A6C84A!important;flex:none}</style>
 <style id="faq-css">
 
 
@@ -275,7 +273,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
       <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
         <div class="subnav">
           <a href="/move">Your plan</a>
@@ -286,6 +284,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
@@ -299,7 +298,6 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 
 <!-- HERO -->
 <header class="hero">
-  <div class="bg"><img src="../assets/professions/photo-physiotherapist-nz.png" alt="A physiotherapist guiding a patient through rehabilitation" fetchpriority="high"></div>
   <div class="wrap">
     <div class="copy">
       <nav class="crumb" aria-label="Breadcrumb">
@@ -311,7 +309,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
       <h1>Physiotherapy careers, redefined.</h1>
       <p class="hero-sub">In a system that works differently.</p>
       <div class="btn-row">
-        <a href="/apply" class="btn btn-primary">Explore opportunities</a>
+        <a href="/jobs/" class="btn btn-primary">Explore opportunities</a>
         <a href="/contact" class="btn btn-ghost">Talk to the team</a>
       </div>
     </div>
@@ -353,6 +351,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 </div>
 </div></section>
 <details class="ddwrap" id="deeper"><summary class="ddbtn"><span class="t">Want the detail? Dig deeper</span><span class="s">Why New Zealand, registration in full, scope of practice, the ACC model, a typical week, pay, life here, what we can&rsquo;t promise and the FAQs &mdash; everything, one click down.</span><span class="pm" aria-hidden="true"></span></summary>
+<div class="wrap" style="padding:clamp(26px,3vw,40px) 22px 0"><figure style="margin:0;max-width:680px"><img src="../assets/professions/photo-physiotherapist-nz.png" alt="A physiotherapist working with a patient" loading="lazy" style="display:block;width:100%;max-height:360px;object-fit:cover;border-radius:16px;border:1px solid var(--mint,#EBDFD3)"><figcaption style="font-family:var(--display),'Work Sans',sans-serif;font-weight:600;font-size:13px;color:#5C6B57;margin-top:10px">Physiotherapy in a New Zealand practice.</figcaption></figure></div>
 <section class="section" id="why">
   <div class="wrap reading">
     <span class="eyebrow">Why New Zealand</span>
@@ -408,7 +407,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
       <div class="pcard"><h3>Internationally Qualified Pathway</h3><p>The most common route for physiotherapists trained outside New Zealand. Your qualifications and experience are assessed against local standards, sometimes including additional assessment or a short period of supervised practice before fully independent work.</p></div>
       <div class="pcard"><h3>Express Pathway</h3><p>For physiotherapists trained and practising in recognised comparable countries. More streamlined, though you'll still meet the Board's core competency requirements.</p></div>
     </div>
-    <div class="ctabox" id="resources" style="max-width:none"><span class="eyebrow">Everything in one place</span><h3 style="font-size:22px;margin-top:4px">Your registration resources, all on one page</h3><p>Read the Board's own registration guide, work through our step-by-step checklist with application notes, then go straight to the people who register you. These cover registration only &mdash; visas and relocation are handled separately.</p><div class="docgrid"><a class="doccard" href="../assets/downloads/ethicare-pbnz-registration-guide.pdf" target="_blank" rel="noopener"><span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="M7 11l5 5 5-5"></path><path d="M4 20h16"></path></svg></span><span class="doc-b"><span class="doc-t">Registration application guide</span><span class="doc-m">Ethicare guide · PDF</span></span><span class="doc-go">&rarr;</span></a><a class="doccard" href="../assets/downloads/ethicare-pbnz-registration-checklist.pdf" target="_blank" rel="noopener"><span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 6-6"></path><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"></path></svg></span><span class="doc-b"><span class="doc-t">Registration checklist &amp; application notes</span><span class="doc-m">Ethicare guide · PDF</span></span><span class="doc-go">&rarr;</span></a><a class="doccard" href="https://www.physioboard.org.nz/" target="_blank" rel="noopener"><span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"></path></svg></span><span class="doc-b"><span class="doc-t">Physiotherapy Board of New Zealand</span><span class="doc-m">Official registration website</span></span><span class="doc-go">&rarr;</span></a></div></div>
+    <div class="ctabox" id="resources" style="max-width:none"><span class="eyebrow">Everything in one place</span><h3 style="font-size:22px;margin-top:4px">Your registration resources, all on one page</h3><p>Read the Board's own registration guide, work through our step-by-step checklist with application notes, then go straight to the people who register you. These cover registration only &mdash; visas and relocation are handled separately.</p><div class="docgrid"><a class="doccard" href="/guides/new-zealand-registration-pbnz"><span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M9 13h6"></path><path d="M9 17h6"></path></svg></span><span class="doc-b"><span class="doc-t">Registration application guide</span><span class="doc-m">Ethicare guide</span></span><span class="doc-go">&rarr;</span></a><a class="doccard" href="/guides/new-zealand-registration-pbnz#checklist"><span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 6-6"></path><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"></path></svg></span><span class="doc-b"><span class="doc-t">Registration checklist &amp; application notes</span><span class="doc-m">Ethicare guide</span></span><span class="doc-go">&rarr;</span></a><a class="doccard" href="https://www.physioboard.org.nz/" target="_blank" rel="noopener"><span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"></path></svg></span><span class="doc-b"><span class="doc-t">Physiotherapy Board of New Zealand</span><span class="doc-m">Official registration website</span></span><span class="doc-go">&rarr;</span></a></div><p class="doc-alt" style="font-size:13.5px;color:#555555;margin-top:12px">Prefer a download? <a href="../assets/downloads/ethicare-pbnz-registration-guide.pdf" target="_blank" rel="noopener">Registration guide (PDF)</a> &middot; <a href="../assets/downloads/ethicare-pbnz-registration-checklist.pdf" target="_blank" rel="noopener">Checklist (PDF)</a></p></div>
   </div>
 </section>
 
@@ -536,7 +535,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 
 <!-- FAQ -->
 <section class="section" id="cant-promise"><div class="wrap"><span class="eyebrow">The honest bit</span><h2>What we can&rsquo;t promise</h2><p class="lead">A move this size deserves the limits as well as the pitch. Three things you&rsquo;ll never hear us guarantee &mdash; and what we do instead.</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:34px"><div style="background:#fff;border:1px solid #D6E1DA;border-radius:16px;padding:24px"><h3>Timelines that aren&rsquo;t ours to give</h3><p style="font-size:14.5px;color:#555;line-height:1.65;margin:8px 0 0">Registration sits with the Physiotherapy Board and visas with Immigration New Zealand. We&rsquo;ll give you the realistic range, keep your file complete and moving, and chase what can be chased &mdash; but we won&rsquo;t quote a faster number just to win you over.</p></div><div style="background:#fff;border:1px solid #D6E1DA;border-radius:16px;padding:24px"><h3>A specific job in a specific suburb</h3><p style="font-size:14.5px;color:#555;line-height:1.65;margin:8px 0 0">Vacancies move. If your heart is set on one workplace in one corner of one city, we&rsquo;ll tell you honestly how long that wait could be &mdash; before you resign anything, not after.</p></div><div style="background:#fff;border:1px solid #D6E1DA;border-radius:16px;padding:24px"><h3>That the move is right for you</h3><p style="font-size:14.5px;color:#555;line-height:1.65;margin:8px 0 0">Some moves shouldn&rsquo;t happen. If the scope, the pay maths or the family logistics don&rsquo;t stack up, we&rsquo;ll say so plainly. We&rsquo;d rather lose a placement than see you land in the wrong life.</p></div></div></div></section>
-<section class="section" id="wider" style="background:var(--soft)"><div class="wrap reading"><span class="eyebrow">The rest of the move</span><h2>Everything that isn&rsquo;t about your profession</h2><p class="lead">Visas, how the countries compare, where in the country to live, and the six steps from first conversation to first shift. We cover each of those once, properly, rather than repeating them on every role page.</p><div class="widerlinks"><a href="/guides/new-zealand-visa">Visas &amp; residence</a><a href="/guides/australia-vs-new-zealand">Australia vs New Zealand</a><a href="/destinations/">Where to live</a><a href="/resources">The six steps</a></div></div></section>
+<section class="section" id="wider" style="background:var(--soft)"><div class="wrap reading"><span class="eyebrow">The rest of the move</span><h2>Everything that isn&rsquo;t about your profession</h2><p class="lead">Visas, how the countries compare, where in the country to live, and the eight stages from first conversation to first shift. We cover each of those once, properly, rather than repeating them on every role page.</p><div class="widerlinks"><a href="/guides/new-zealand-visa">Visas &amp; residence</a><a href="/guides/australia-vs-new-zealand">Australia vs New Zealand</a><a href="/destinations/">Where to live</a><a href="/resources">Guides &amp; resources</a></div></div></section>
 <style>.widerlinks{display:flex;flex-wrap:wrap;gap:14px 30px;margin-top:26px}.widerlinks a{white-space:nowrap;font-family:var(--display);font-weight:600;font-size:var(--t-meta);color:var(--fern-text,#2F5E49);border-bottom:1px solid currentColor;padding-bottom:2px}.widerlinks a:hover{color:var(--teal)}</style>
 <section class="section" id="faq"><div class="wrap reading"><span class="eyebrow">Common questions</span><h2>Frequently asked</h2><div class="faq" style="margin-top:32px"><details open><summary>Private and ACC clinics, or the public system &mdash; which should I be looking at?</summary><div class="ans"><p>This is the real decision, and it matters more than most people expect. Private and ACC-funded clinics give you the most autonomy soonest: your own caseload, mostly musculoskeletal, direct access, and earnings that move with how busy you are. Health New Zealand roles give you complexity and structure instead &mdash; inpatient and community rehabilitation, neurology, respiratory, older persons' health, paediatrics, rotations, and a clearer ladder with funded development alongside it.</p><p>Plenty of physiotherapists do both over a career, and moving between them later is normal. Tell us how you like to work and what you want to be good at in five years, and we'll be straight with you about which fits.</p></div></details><details><summary>Do I need to be an ACC provider myself?</summary><div class="ans"><p>Not as an employee. Clinics hold the ACC contract and you treat under it, so the billing and reporting sit with the practice rather than with you personally. What does land on you is the documentation: injury claims, treatment rationale and progress reporting are part of the working day, and they are how funded treatment gets approved and continued.</p><p>It is straightforward once you have seen it a few times, and any decent clinic will walk you through their systems in your first fortnight. If you ever go on to run your own practice, becoming a contracted provider is a separate step and we can point you at the right people.</p></div></details><details><summary>I've specialised in neuro, respiratory or paediatrics rather than MSK. Is there work for me?</summary><div class="ans"><p>Yes &mdash; but be realistic about where it sits. Specialist non-musculoskeletal work is concentrated in hospital services and the main centres, so if neurological rehabilitation or paediatrics is what you want to keep doing, your location options narrow. There is genuine demand, and specialist experience is valued; there are simply fewer posts and they turn over less often.</p><p>Provincially, the volume is musculoskeletal and ACC-funded. Many people arriving with a specialist background take a broader role first, then move back towards their area once they know the system and the people. Say early on that your specialty is non-negotiable if it is &mdash; it changes which roles we put in front of you, and we'd rather know now.</p></div></details><details><summary>Will my current banding or seniority carry across to the pay scale?</summary><div class="ans"><p>Relevant experience is normally recognised, but it is not a direct band-to-step conversion. Public and community roles sit on the APEX physiotherapy scale, and where you start on it is assessed by the employer against your experience and the agreement's own criteria &mdash; not by mapping an overseas grade onto a New Zealand one. Private and ACC clinics work differently again, with earnings shaped by caseload as much as by starting rate.</p><p>Our job is to get your starting point confirmed in writing before you accept anything, alongside what that actually means in the town you'd be living in. We won't guess at a number to make a role sound better than it is.</p></div></details><details><summary>How different is the way physiotherapy is actually practised?</summary><div class="ans"><p>The clinical knowledge transfers almost entirely. What tends to shift is emphasis. Practice here leans strongly towards active rehabilitation, education and self-management &mdash; getting people moving, understanding their injury and taking the work home with them &mdash; rather than long courses of passive treatment. If you come from a hands-on tradition, expect to use those skills as part of a plan rather than as the plan.</p><p>Cultural safety is also treated as core clinical practice, not an add-on. Understanding Te Tiriti o Waitangi and how it shapes health care, and working respectfully with M&#257;ori and Pacific patients and their wh&#257;nau, is part of what the Board expects of you and part of what makes you good here. Nobody expects fluency on day one; they do expect you to take it seriously.</p></div></details><details><summary>Can I locum, work part-time, or split my week between clinics?</summary><div class="ans"><p>Part-time is common and generally straightforward to arrange. Locum and multi-clinic work is more complicated at first, and the reason is the visa rather than the profession: an Accredited Employer Work Visa ties you to one accredited employer and a specific role, so stitching together shifts across several practices usually isn't possible until you have residence.</p><p>Once you're a resident, the flexibility opens right up and a lot of physiotherapists do build a mixed week. If flexibility is the whole point of the move for you, tell us at the start &mdash; it shapes which visa route and which employers make sense.</p></div></details></div></div></section>
 
@@ -555,7 +554,10 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
   </div>
 </section>
 
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="../page-feedback.js" defer></script>
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">
@@ -596,7 +598,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
    (Aug 2026: the old "at a glance" band folded into #essential — one answer layer, not two.)
   ON THIS PAGE (inside dig deeper) → #vacancy #why #registration #scope #acc #day #salary #life #insights #faq
   LIVE ROLES (profession=Physiotherapist, country=New Zealand) — View all vacancies → /jobs · Register your interest → /apply
-  REGISTRATION (#registration) — Physiotherapy Board of New Zealand (PBNZ) · downloads: assets/downloads/ethicare-pbnz-registration-guide.pdf · assets/downloads/ethicare-pbnz-registration-checklist.pdf · Talk to the team → /contact
+  REGISTRATION (#registration) — Physiotherapy Board of New Zealand (PBNZ) · downloads: /guides/new-zealand-registration-pbnz · /guides/new-zealand-registration-pbnz#checklist · Talk to the team → /contact · PDF backups: assets/downloads/ethicare-pbnz-registration-guide.pdf · assets/downloads/ethicare-pbnz-registration-checklist.pdf
   JOURNEY (#journey) → the six New Zealand journey guides (/guides/moving-to-new-zealand … /guides/living-in-new-zealand)
   WHERE NEXT strip → Previous: Occupational Therapists (/jobs/occupational-therapist-new-zealand) · Hub: All New Zealand professions (/new-zealand#professions) · Next: Psychiatrists (/jobs/psychiatrist-new-zealand).
   FINAL CTA — Apply & send your CV → /apply · Talk to the team → /contact
