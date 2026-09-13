@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Welcome to Wellington — Akhil, Lakhia &amp; Sarah · Ethicare Resourcing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+doc-page:not(:defined){visibility:hidden}
+:root{--teal:#02615D;--deep:#01312F;--fern:#72A471;--fernink:#2F5E49;--lime:#A6C84A;--limelight:#C6E084;--cream:#FCFBF8;--sage:#E3ECE5;--ink:#333333;--muted:#555555;--rule:rgba(2,97,93,.65)}
+.page{background:var(--cream);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:10.6pt;line-height:1.49;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.pad{padding:15mm 19mm 13mm;display:flex;flex-direction:column;height:100%}
+h1,h2,h3{font-family:'Work Sans',sans-serif;text-wrap:balance;color:var(--teal)}
+p{text-wrap:pretty;margin:0 0 2.4mm}
+p:last-child{margin-bottom:0}
+.eyebrow{display:flex;align-items:center;gap:4mm;font-family:'Work Sans',sans-serif;font-weight:700;font-size:7.6pt;letter-spacing:.18em;text-transform:uppercase;color:var(--fernink);margin:0 0 5mm}
+.eyebrow::before{content:"";width:9mm;height:1.1mm;border-radius:1mm;background:var(--lime);flex:none}
+.eyebrow.on-dark{color:var(--limelight)}
+/* An eyebrow overlaid on a photograph cannot rely on the scrim: the gradient is at its
+   weakest (.28) exactly where the copy block starts, so contrast depended on whichever
+   image was dropped into the slot — four of eight measured 1.9–2.7:1 over bright sky and
+   a light cafe interior. Same failure the stacked cover was built to avoid, so the same
+   remedy it uses for its country chips: give the eyebrow its own solid plate. Lime on
+   rgba(1,49,47,.88) clears AA over any backdrop, including pure white (6.17:1), and
+   darkens nothing but the pill itself. Do not fix this by raising the scrim. */
+.on-img .eyebrow.on-dark{display:inline-flex;background:rgba(1,49,47,.88);padding:1.8mm 4.2mm 1.8mm 3.4mm;border-radius:9mm;gap:3mm}
+h2{font-weight:300;font-size:25pt;line-height:1.1;letter-spacing:-.022em;margin:0 0 4.5mm;max-width:26ch}
+h2 em{font-style:normal;font-family:'Playfair Display',Georgia,serif;font-weight:400}
+.lede{font-family:'Playfair Display',Georgia,serif;font-size:13pt;line-height:1.42;color:var(--teal);margin:0 0 5mm;max-width:44ch}
+h3{font-weight:600;font-size:11.5pt;line-height:1.28;margin:4mm 0 1.6mm}
+.num{list-style:none;margin:0;padding:0;display:grid;gap:4mm}
+.num li{display:grid;grid-template-columns:10mm 1fr;gap:0 4mm;align-items:start}
+.num .n{font-family:'Work Sans',sans-serif;font-weight:300;font-size:18pt;line-height:.9;color:var(--fern)}
+.num h4{font-family:'Work Sans',sans-serif;font-weight:600;font-size:11pt;color:var(--teal);margin:0 0 1.2mm}
+.num p{font-size:10.2pt;line-height:1.58;color:var(--muted);margin:0}
+.box{background:var(--sage);border-radius:2mm;padding:4.2mm 5.2mm;margin:3.5mm 0}
+.box h4{font-family:'Work Sans',sans-serif;font-weight:700;font-size:7.6pt;letter-spacing:.16em;text-transform:uppercase;color:var(--fernink);margin:0 0 2.2mm}
+.box p{font-size:10.2pt;line-height:1.6;margin:0 0 2mm}
+.box p:last-child{margin:0}
+.sub{display:grid;grid-template-columns:1fr 1fr;gap:3.4mm 7mm;margin-top:3.4mm}
+.sub div{break-inside:avoid}
+.sub b{display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:10.6pt;color:var(--teal);margin-bottom:1mm}
+.sub span{display:block;font-size:9.8pt;line-height:1.54;color:var(--muted)}
+.who{border-left:3px solid var(--fern);padding:1mm 0 1mm 5mm;margin:4mm 0}
+.auth{margin:5mm 0 0;padding-top:3mm;border-top:.35mm solid var(--rule);font-size:9.6pt;line-height:1.56;color:var(--muted)}
+.auth b{font-family:'Work Sans',sans-serif;font-weight:600;color:var(--teal)}
+.who p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:12.5pt;line-height:1.4;color:var(--teal);margin:0}
+.foot{margin-top:auto;padding-top:3.2mm;border-top:.35mm solid var(--rule);display:flex;justify-content:space-between;align-items:baseline;font-family:'Work Sans',sans-serif;font-size:7.4pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--fernink)}
+.bleed{position:absolute;inset:0}
+.bleed img{width:100%;height:100%;object-fit:cover;display:block}
+.scrim{position:absolute;inset:0;background:linear-gradient(160deg,rgba(1,49,47,.28) 0%,rgba(1,49,47,.50) 46%,rgba(1,49,47,.82) 100%)}
+.on-img{position:relative;color:#fff;margin-top:auto}
+.on-img h2,.on-img .lede{color:#fff}
+.on-img p{color:rgba(255,255,255,.92)}
+.cap{position:relative;margin-top:7mm;font-family:'Work Sans',sans-serif;font-size:7.4pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+.cover{justify-content:flex-end}
+.cover h1{font-weight:200;font-size:40pt;line-height:1.03;letter-spacing:-.035em;color:#fff;margin:0 0 5mm;max-width:20ch}
+.cover .names{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:16pt;line-height:1.34;color:var(--limelight);margin:0 0 8mm}
+.cover .mark{position:relative;display:flex;align-items:center;gap:9pt;font-family:'Work Sans',sans-serif;font-weight:600;font-size:9pt;letter-spacing:.24em;text-transform:uppercase;color:#fff;margin-bottom:auto}
+.mark img{width:20pt;height:20pt;display:block;border-radius:3pt}
+.foot .fmark{display:inline-flex;align-items:center;gap:6pt}
+.foot .fmark img{width:12pt;height:12pt;display:block;border-radius:2pt}
+.cover .step{position:relative;padding-top:5mm;border-top:.35mm solid rgba(255,255,255,.34);font-family:'Work Sans',sans-serif;font-size:8pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.close{background:var(--teal);color:#fff;justify-content:center}
+.close h2{color:#fff;font-size:28pt;max-width:22ch}
+.close .lede{color:var(--limelight)}
+.close p{color:rgba(255,255,255,.9);max-width:52ch}
+.close .det{margin-top:8mm;padding-top:5mm;border-top:.35mm solid rgba(255,255,255,.3);display:grid;gap:2mm;font-size:10.4pt;color:rgba(255,255,255,.92)}
+.close .det b{font-family:'Work Sans',sans-serif;font-weight:600;color:#fff}
+.close .fine{margin-top:8mm;font-size:8.4pt;line-height:1.6;color:rgba(255,255,255,.68);max-width:60ch}
+a{color:inherit;text-decoration:none}
+.toc{display:grid;grid-template-columns:1fr 1fr;column-gap:26pt;row-gap:0;margin-top:12pt}
+.toc .tr{display:grid;grid-template-columns:20pt 1fr;align-items:baseline;gap:8pt;padding:3pt 0;border-bottom:.5pt solid rgba(2,97,93,.2)}
+.toc .tn{font-family:'Work Sans',sans-serif;font-weight:600;font-size:8pt;color:#72A471}
+.toc .tt{font-family:'Work Sans',sans-serif;font-weight:600;font-size:9pt;line-height:1.3;color:#02615D}
+.toc .tk{display:none}
+.ded{font-family:'Work Sans',sans-serif;font-size:8.5pt;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-top:6pt}
+</style>
+</head>
+<body>
+<!-- PRIVATE PACK. Wellington Hospital is named here deliberately: Akhil already holds the
+     post, and this document goes to one family rather than to the site. The site-wide rule
+     stands everywhere else — never name an employer other than Health New Zealand. Do not
+     lift this copy onto a public page without stripping the hospital name. -->
+<doc-page size="a4">
+
+<section class="page cover" id="p1">
+  <div class="bleed"><img src="../wellington/reloc/harbour-aerial.jpg" alt="Wellington harbour from the air, the city wrapped around the water beneath green hills"><div class="scrim"></div></div>
+  <div class="pad">
+    <div class="mark"><img src="../logo-mark-original.png" alt="">Ethicare Resourcing</div>
+    <div class="on-img">
+      <p class="eyebrow on-dark">Nau mai, haere mai</p>
+      <h1>Welcome to Wellington</h1>
+      <p class="names">Akhil, Lakhia &amp; Sarah</p>
+      <div class="ded">Made for your first year in Aotearoa &middot; August 2026</div>
+      <div class="step">A book for your first year here</div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="p2">
+  <div class="pad">
+    <p class="eyebrow">A note to the three of you</p>
+    <h2>You have moved a family, <em>not taken a job</em></h2>
+    <p class="lede">Kia ora, and welcome home &mdash; because that is what Wellington is now. You are here, Akhil has started, and the part everyone congratulates you on is done. What follows is the longer, quieter part, and this is a book for that.</p>
+    <p>Akhil, almost everything written for you so far has been about the job &mdash; registration, contract, roster, first day. That was the easiest part of this move, even when it did not feel like it, and it is not the part that decides whether the three of you are still happy here in two years.</p>
+    <p>Lakhia, your side of this is harder and gets less attention. Moving countries when the job is someone else&rsquo;s is a particular kind of hard, and the people who settle best are usually the ones whose partner found their own footing early rather than waiting for it to happen. There is a page in here that is only about that.</p>
+    <p>And Sarah &mdash; three is a very good age for this. Old enough to enjoy a beach and a cable car, young enough that friendships have not yet become the thing she would grieve. Do not be surprised if she picks up a New Zealand accent long before either of you do.</p>
+    <div class="who"><p>Wellington is a small city that behaves like a big one. Six months in, you will keep running into people you know, and that is when it starts to feel like home.</p></div>
+    <h3>How to use this book</h3>
+    <p>It is not a manual and it is not urgent. Keep it somewhere you will come back to — a shelf, a drawer, the kitchen — and open it when a question comes up rather than reading it through. The first weeks page is the one for the fridge. Everything about Sarah is on one page, everything about Lakhia&rsquo;s work is on another, and the honest page near the back is the one we would most like you to read before you arrive rather than after.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>02</span></div>
+  </div>
+</section>
+
+<section class="page" id="p-contents">
+  <div class="pad">
+    <p class="eyebrow">What is in here</p>
+    <h2>Contents</h2>
+    <p class="lede">Read it in order if you like, or open it at whichever part is worrying you this week. Nothing here needs to be read twice.</p>
+    <div class="toc"><div class="tr"><span class="tn">02</span><span class="tt">You have moved a family, not taken a job</span></div><div class="tr"><span class="tn">04</span><span class="tt">Suburbs, for a family with a small child</span></div><div class="tr"><span class="tn">05</span><span class="tt">The shortlist, in more detail</span></div><div class="tr"><span class="tn">06</span><span class="tt">What to check before you sign</span></div><div class="tr"><span class="tn">07</span><span class="tt">Three years old, in a new country</span></div><div class="tr"><span class="tn">08</span><span class="tt">Playgroups, parks and Saturday mornings</span></div><div class="tr"><span class="tn">09</span><span class="tt">Parks, beaches and a red cable car</span></div><div class="tr"><span class="tn">10</span><span class="tt">Swimming, and where to do it</span></div><div class="tr"><span class="tn">11</span><span class="tt">Animals, farms and lovely days out</span></div><div class="tr"><span class="tn">12</span><span class="tt">Your side of this matters as much</span></div><div class="tr"><span class="tn">13</span><span class="tt">In this order, and no other</span></div><div class="tr"><span class="tn">14</span><span class="tt">Before the first shift, and after it</span></div><div class="tr"><span class="tn">15</span><span class="tt">What we would rather you knew now</span></div><div class="tr"><span class="tn">16</span><span class="tt">Managing the cold, which is not what you expect</span></div><div class="tr"><span class="tn">17</span><span class="tt">Sarah&rsquo;s room, and the wind</span></div><div class="tr"><span class="tn">18</span><span class="tt">You may not need two cars</span></div><div class="tr"><span class="tn">19</span><span class="tt">What the ordinary bills actually are</span></div><div class="tr"><span class="tn">20</span><span class="tt">Rubbish, recycling and the small domestic stuff</span></div><div class="tr"><span class="tn">21</span><span class="tt">Where to buy the things that taste like home</span></div><div class="tr"><span class="tn">22</span><span class="tt">The words you will hear in your first week</span></div><div class="tr"><span class="tn">23</span><span class="tt">At work, and around the city</span></div><div class="tr"><span class="tn">24</span><span class="tt">Church &mdash; and finding the right one</span></div><div class="tr"><span class="tn">25</span><span class="tt">School, when it comes</span></div><div class="tr"><span class="tn">26</span><span class="tt">Dentists, glasses and heads</span></div><div class="tr"><span class="tn">27</span><span class="tt">Heads, and everything else</span></div><div class="tr"><span class="tn">28</span><span class="tt">In an emergency, and other numbers</span></div><div class="tr"><span class="tn">29</span><span class="tt">Earthquakes and the coast</span></div><div class="tr"><span class="tn">30</span><span class="tt">Missing home, and what actually helps</span></div><div class="tr"><span class="tn">31</span><span class="tt">And three more things that help</span></div><div class="tr"><span class="tn">32</span><span class="tt">Visitors, visas and the first Christmas</span></div><div class="tr"><span class="tn">33</span><span class="tt">What visitors always underestimate</span></div><div class="tr"><span class="tn">34</span><span class="tt">While the container is still coming</span></div><div class="tr"><span class="tn">35</span><span class="tt">The paperwork to keep to hand</span></div><div class="tr"><span class="tn">36</span><span class="tt">Where to buy things, cheapest first</span></div><div class="tr"><span class="tn">37</span><span class="tt">Furniture, appliances and the second-hand rule</span></div><div class="tr"><span class="tn">38</span><span class="tt">Power, phones and the insurance conversation</span></div><div class="tr"><span class="tn">39</span><span class="tt">Insurance, and what is different here</span></div><div class="tr"><span class="tn">40</span><span class="tt">Numbers to save and where to go</span></div><div class="tr"><span class="tn">41</span><span class="tt">Markets, beaches and where to go on a Sunday</span></div><div class="tr"><span class="tn">42</span><span class="tt">Further afield, once you have a car</span></div></div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>03</span></div>
+  </div>
+</section>
+<section class="page" id="p3">
+  <div class="bleed"><img src="../wellington/reloc/oriental-bay.jpg" alt="Oriental Bay, a curved city beach with the Wellington waterfront behind it"><div class="scrim"></div></div>
+  <div class="pad">
+    <div class="on-img">
+      <p class="eyebrow on-dark">The city itself</p>
+      <h2 style="max-width:22ch">A harbour, a ring of hills, and a twenty-minute life</h2>
+      <p class="lede" style="max-width:42ch">Everything is close. That single fact is the reason people who love Wellington love it &mdash; the commute, the coffee, the coast and the hills are all inside twenty minutes.</p>
+    </div>
+    <div class="cap">Oriental Bay &middot; a ten-minute walk from the city centre</div>
+  </div>
+</section>
+
+<section class="page" id="p4">
+  <div class="pad">
+    <p class="eyebrow">Where to live</p>
+    <h2>Suburbs, for a family <em>with a small child</em></h2>
+    <p class="lede">Wellington Hospital sits in Newtown, just south of the city centre. That one fact should shape your shortlist &mdash; and the good news is that almost everywhere in this city is inside half an hour of it.</p>
+    <div class="box">
+      <h4>Getting to Wellington Hospital</h4>
+      <p><b>Walk or ten minutes&rsquo; drive</b> &mdash; Newtown, Berhampore, Mount Cook, Melrose. Some staff walk in, which is a genuine luxury on a night shift.</p>
+      <p><b>Fifteen to twenty minutes</b> &mdash; Island Bay, Karori, Northland, Hataitai, Miramar, Kilbirnie, the city centre.</p>
+      <p><b>Twenty-five to thirty-five minutes</b> &mdash; Khandallah and the northern suburbs, Johnsonville, Lower Hutt and Petone. All perfectly normal commutes here, and cheaper housing.</p>
+      <p>There is no such thing as a long commute in Wellington by the standards of the city you are leaving. Choose the suburb that suits the three of you and the drive will follow.</p>
+    </div>
+    <div class="sub">
+      <div><b>Karori, Northland, Wilton</b><span>Green, established, family-heavy. Close to Zealandia and the botanic gardens, a straightforward drive in, and good sections for children. A sensible first choice.</span></div>
+      <div><b>Khandallah, Ngaio, Crofton Downs</b><span>Northern suburbs on the train line, leafy and quiet, strong community feel. Hilly &mdash; check the walk from car to front door before you sign.</span></div>
+      <div><b>Miramar, Seatoun, Strathmore</b><span>Eastern bays. Flatter, sunnier, beaches at the end of the street and the airport nearby. Popular with families and priced accordingly.</span></div>
+      <div><b>Newtown, Berhampore, Island Bay</b><span>Closest to the hospital &mdash; Newtown is on its doorstep and genuinely walkable. Diverse, characterful, with the south coast at the bottom. Island Bay is the family favourite of the three.</span></div>
+      <div><b>Johnsonville &amp; the north</b><span>More house for the money, good amenities, train and motorway access. Less charm, more practicality &mdash; a reasonable trade with a young child.</span></div>
+      <div><b>Lower Hutt &amp; Petone</b><span>Twenty to thirty minutes out, noticeably better value, flat, and with the Hutt River and Days Bay nearby. Where a lot of young families end up.</span></div>
+    </div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>04</span></div>
+  </div>
+</section>
+
+<section class="page" id="p-areas">
+  <div class="pad">
+    <p class="eyebrow">Where to live</p>
+    <h2>The shortlist, <em>in more detail</em></h2>
+    <p class="lede">Every Wellington suburb trades something. These are the trades, honestly, for a family with a three-year-old and one hospital commute.</p>
+    <div class="sub">
+      <div><b>Karori</b><span>The default family suburb and the largest. Schools, shops, Zealandia at the end of the road, and a straightforward fifteen minutes to Newtown. Trades: it is inland and can feel enclosed, and the one road in and out is slow at peak.</span></div>
+      <div><b>Northland &amp; Wilton</b><span>Smaller, greener and closer in than Karori, with Otari-Wilton&rsquo;s Bush on the doorstep. Trades: steep in places, and less shopping of its own.</span></div>
+      <div><b>Island Bay</b><span>Our pick of the southern suburbs for a young family. A real village, a beach at the bottom, a strong community and ten minutes to the hospital. Trades: it gets the southerly first, and it is priced for its popularity.</span></div>
+      <div><b>Newtown &amp; Berhampore</b><span>On the hospital&rsquo;s doorstep &mdash; genuinely walkable, which changes what a night shift feels like. Diverse, characterful, the best food in the city. Trades: busier, older housing stock, less garden.</span></div>
+      <div><b>Miramar &amp; Seatoun</b><span>Flatter and sunnier than most of Wellington, with beaches and the airport close. Excellent for small children. Trades: twenty minutes to the hospital, and aircraft noise in parts.</span></div>
+      <div><b>Khandallah &amp; Ngaio</b><span>Leafy northern suburbs on the train line, quiet and established, with a strong community feel. Trades: hilly enough that the walk from car to front door matters, and the longest of these commutes.</span></div>
+      <div><b>Lower Hutt &amp; Petone</b><span>Where a lot of young families end up: flat, noticeably better value, the river and Days Bay nearby, and Petone&rsquo;s main street is a destination in itself. Trades: twenty-five to thirty-five minutes in, and it is a separate city with its own council.</span></div>
+    </div>
+    <div class="box">
+      <h4>How we would actually do it</h4>
+      <p>Rent for six months somewhere convenient rather than perfect &mdash; Karori or Island Bay &mdash; and use that time to work out which side of the city you like, where Sarah&rsquo;s school zone will be, and how the commute feels in July rather than in January. Buying or committing to a long lease in month one is the most common regret we hear.</p>
+    </div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>05</span></div>
+  </div>
+</section>
+<section class="page" id="p4b">
+  <div class="pad">
+    <p class="eyebrow">Choosing well</p>
+    <h2>What to check <em>before you sign</em></h2>
+    <p class="lede">Wellington houses vary more than the photographs suggest. Three questions answer most of it.</p>
+    <div class="box">
+      <h4>Three things to check at every viewing</h4>
+      <p><b>The hill.</b> Wellington is steep. A house up ninety steps is charming until you are carrying a sleeping three-year-old and the shopping.</p>
+      <p><b>The sun.</b> A south-facing Wellington house in winter is a genuinely different proposition from a north-facing one. Ask which way it faces and visit in the afternoon.</p>
+      <p><b>The warmth.</b> Ask directly what it costs to heat, and what insulation and heating it has under the Healthy Homes standards. This matters more here than the rent does.</p>
+    </div>
+    <p>Do not sign anything from overseas. We will help you book four to six weeks somewhere temporary so you can look properly, drive the commute at eight in the morning, and see a suburb on a wet Tuesday rather than in a photograph.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>06</span></div>
+  </div>
+</section>
+
+<section class="page" id="p5">
+  <div class="pad">
+    <p class="eyebrow">For Sarah</p>
+    <h2>Three years old, <em>in a new country</em></h2>
+    <p class="lede">The practical list is short. The reassuring part is that Wellington is unusually good for small children, and that at three Sarah will adapt faster than either of you.</p>
+    <h3>Early childhood education</h3>
+    <p>Sarah is not school age &mdash; that starts at five here &mdash; so what you are looking for is early childhood education: a kindergarten, an education and care centre, or a home-based service. At three, Sarah is eligible for up to 20 funded hours a week, capped at six hours a day. You may still pay for hours beyond that and for optional extras, so ask each centre what a normal week actually costs.</p>
+    <p>The important thing: good centres have waiting lists measured in months, not weeks. Start enquiring now and put her name down at two or three places near the suburbs you are considering. This is the single most time-sensitive item in this pack.</p>
+    <div class="box">
+      <h4>Worth knowing</h4>
+      <p>Plunket is the free national well-child service and a genuinely useful first point of contact &mdash; health checks, and playgroups where Lakhia will meet other parents, which matters as much as the checks do.</p>
+      <p>Enrol Sarah with a general practice in your first week, before anyone is unwell. Enrolled patients pay less and get continuity; children&rsquo;s dental care is publicly provided.</p>
+    </div>
+    <h3>Crèches, kindergartens and the difference</h3>
+    <p>The words are used loosely, so here is the actual distinction. <b>Education and care centres</b> (what you may call a nursery or crèche) take children from babies to five and open long days &mdash; the usual choice when both parents work. <b>Kindergartens</b> generally take children from two or three, often in shorter sessions, and are strongly play-based. <b>Home-based care</b> places Sarah with a qualified educator in a small group at their home, which suits some children far better. <b>K&#333;hanga reo</b> are full immersion in te reo M&#257;ori and welcome families who want that.</p>
+    <p>At three, Sarah is eligible for government-funded hours, and all four options can offer them. Visit two or three before deciding &mdash; you will know within ten minutes of walking in.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>07</span></div>
+  </div>
+</section>
+
+<section class="page" id="p5b">
+  <div class="pad">
+    <p class="eyebrow">Sarah&rsquo;s week</p>
+    <h2>Playgroups, parks <em>and Saturday mornings</em></h2>
+    <p class="lede">Almost all of this is free, and most of it is where Lakhia will meet the people who make Wellington feel like home.</p>
+    <h3>Free drop-ins, and where Lakhia will meet people</h3>
+    <div class="sub">
+      <div><b>Library rhymetime and storytime</b><span>Free, weekly, at branches across the city. Half an hour of songs and stories, and the easiest possible first outing.</span></div>
+      <div><b>Plunket playgroups</b><span>Run by the national well-child service. Informal, free or nearly, and full of parents in exactly your position.</span></div>
+      <div><b>Playcentre</b><span>Parent-led and co-operative &mdash; you stay and help rather than drop off. More commitment, and much faster friendships.</span></div>
+      <div><b>Community centre sessions</b><span>Most suburbs run a weekly under-fives morning. Ask at the local community centre or check the council&rsquo;s events listing.</span></div>
+    </div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>08</span></div>
+  </div>
+</section>
+
+<section class="page" id="p5c">
+  <div class="pad">
+    <p class="eyebrow">Weekends with Sarah</p>
+    <h2>Parks, beaches <em>and a red cable car</em></h2>
+    <p class="lede">All free, all close, and all buggy-friendly unless noted.</p>
+    <h3>Parks and playgrounds worth knowing</h3>
+    <div class="sub">
+      <div><b>Frank Kitts Park</b><span>On the waterfront, with a big playground and a lighthouse slide. Flat, central, and the default good afternoon.</span></div>
+      <div><b>Waitangi Park</b><span>Next door, more open space, a skate area to watch and the Sunday market alongside.</span></div>
+      <div><b>Botanic Gardens</b><span>Up the cable car, with a playground, duck pond and the rose garden. Buggy-friendly if you take the top entrance.</span></div>
+      <div><b>Otari-Wilton&rsquo;s Bush</b><span>Native forest inside the city, with easy loop tracks. Birdsong, and a canopy walkway.</span></div>
+      <div><b>Karori and Hataitai parks</b><span>Big suburban parks with playgrounds and playing fields &mdash; the ordinary weekly ones rather than the outings.</span></div>
+      <div><b>Days Bay</b><span>A harbour ferry ride, a beach, a playground and an ice cream. Feels like a holiday and takes half a day.</span></div>
+    </div>
+    <h3>Swimming, early</h3>
+    <p>Learn-to-swim lessons are widely available and start young, and this is treated as a basic life skill here rather than an optional activity. In a coastal city it is worth booking in her first term.</p>
+    <div class="who"><p>Te Papa, the national museum, is free and has a children&rsquo;s level she will not want to leave. Keep it for a wet Sunday.</p></div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>09</span></div>
+  </div>
+</section>
+
+<section class="page" id="p-swim">
+  <div class="pad">
+    <p class="eyebrow">For Sarah</p>
+    <h2>Swimming, <em>and where to do it</em></h2>
+    <p class="lede">Swimming is treated as a life skill here rather than an activity, and in a city surrounded by water that makes sense. Book early &mdash; learn-to-swim terms fill up.</p>
+    <h3>How lessons work</h3>
+    <p>Council pools and private swim schools both run learn-to-swim programmes, taught in blocks that follow the school terms. Places for the younger age groups go quickly, so put Sarah&rsquo;s name down in your first fortnight rather than waiting for a settled routine &mdash; you can always move her once you know which pool suits. Most pools also run parent-and-child sessions from a much younger age, which are as much about confidence in the water as technique.</p>
+    <h3>Pools worth knowing</h3>
+    <div class="sub">
+      <div><b>Freyberg Pool</b><span>Oriental Parade, on the waterfront. Indoor, central, and the view from the lane is hard to beat. Good for an adult swim while the other one takes Sarah to the beach outside.</span></div>
+      <div><b>Kilbirnie &mdash; Wellington Regional Aquatic Centre</b><span>The big one. Multiple pools including a warm learners&rsquo; pool and a leisure area with slides. If you land in the eastern suburbs this will become a Saturday habit.</span></div>
+      <div><b>Karori Pool</b><span>Local, friendly and the obvious choice if you settle in Karori or Northland.</span></div>
+      <div><b>Keith Spry Pool</b><span>Johnsonville. The northern suburbs&rsquo; pool, with learn-to-swim classes and a good warm pool for small children.</span></div>
+      <div><b>Huia Pool</b><span>Lower Hutt. Worth knowing if you end up out that way.</span></div>
+    </div>
+    <div class="box">
+      <h4>Beaches, and being honest about them</h4>
+      <p>The harbour beaches &mdash; Oriental Bay, Days Bay, Petone &mdash; are calm and fine for paddling with a three-year-old. The south coast is beautiful and genuinely not for swimming with small children: cold, rough, and with currents. Learn the difference early and you will relax.</p>
+    </div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>10</span></div>
+  </div>
+</section>
+<section class="page" id="p-fun">
+  <div class="pad">
+    <p class="eyebrow">For Sarah</p>
+    <h2>Animals, farms <em>and lovely days out</em></h2>
+    <p class="lede">The list you will work through in your first year. Most of it is close, and the best of it is genuinely good rather than good-for-a-small-city.</p>
+    <div class="sub">
+      <div><b>Wellington Zoo</b><span>Daniell Street, Newtown &mdash; close enough to the hospital that Akhil could walk over on a day off. Small, well run and easy with a three-year-old: you can do the whole thing before she runs out of legs. An annual pass pays for itself in about three visits.</span></div>
+      <div><b>Zealandia</b><span>53 Waiapu Road, Karori. A fenced valley of native bush and birds ten minutes from town. Take the pushchair on the lower loop. The night tours are for later years, and worth remembering.</span></div>
+      <div><b>Staglands Wildlife Reserve</b><span>Akatarawa Valley, about an hour up the Hutt. A proper hands-on farm day &mdash; feeding animals, wandering paddocks, a stream. This is the one small children talk about for weeks.</span></div>
+      <div><b>Space Place</b><span>Carter Observatory, in the Botanic Gardens at the top of the cable car. Planetarium shows suited to small children in the afternoons. A very good wet-day pairing with the cable car ride itself.</span></div>
+      <div><b>Capital E</b><span>Te Ng&#257;kau Civic Square. Children&rsquo;s theatre, workshops and holiday programmes &mdash; the place to look when school holidays arrive and you need a plan.</span></div>
+      <div><b>Te Papa</b><span>55 Cable Street. Free, with a level built for children. The answer to every wet Sunday for the next three years.</span></div>
+    </div>
+    <div class="box">
+      <h4>Two habits worth forming</h4>
+      <p>Buy annual passes for the zoo and Zealandia if you land nearby &mdash; they change how you use a free morning, because there is no cost to going for forty minutes. And keep the cable car for visitors: it never stops being a treat, and it makes you look like you planned something.</p>
+    </div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>11</span></div>
+  </div>
+</section>
+<section class="page" id="p6">
+  <div class="pad">
+    <p class="eyebrow">For Lakhia</p>
+    <h2>Your side of this <em>matters as much</em></h2>
+    <p class="lede">One of the easiest things to overlook in a move like this is the partner’s life. If one of you arrives with a job, colleagues and a ready-made routine while the other has none of those, the first few months can feel very different for each of you.</p>
+    <h3>Start now, not once you feel settled</h3>
+    <p>Wellington is a government and professional-services city, which means the job market is different from Auckland&rsquo;s &mdash; public sector, policy, tech, education, health administration and a lot of small consultancies. It is also small enough that networks matter more than portals. Begin conversations now rather than applications later: professional associations, LinkedIn, and anyone we can introduce you to.</p>
+    <h3>Two things to check early</h3>
+    <ol class="num">
+      <li><span class="n">01</span><div><h4>Your work rights</h4><p>These flow from Akhil&rsquo;s visa class rather than being a separate thing you apply for. Some visas carry open work rights for a partner and others are more restricted. Confirm which applies before you plan anything, because it changes your options entirely.</p></div></li>
+      <li><span class="n">02</span><div><h4>Whether your qualification needs recognising</h4><p>If your field is regulated or requires a recognised qualification, find out now what the New Zealand equivalent process is and how long it takes. If it is not regulated, the question is simply how your experience reads to a local employer &mdash; and that is a CV problem we can help with.</p></div></li>
+    </ol>
+    <div class="who"><p>Ask us for an introduction to someone who did exactly this a year or two ago. It is the single most useful conversation available to you, and we can usually arrange it within a week.</p></div>
+    <h3>The first few months, honestly</h3>
+    <p>Akhil will have a department, a rota and forty new colleagues from day one. You will have a house, a three-year-old and a city you do not know. That asymmetry is normal and it is temporary, but it is worth naming out loud rather than discovering it in month three.</p>
+    <p>What consistently helps: something in the diary every week that is yours alone; Sarah&rsquo;s kindergarten and Plunket playgroups, which are the fastest route into a neighbourhood; and saying yes to invitations for the first six months even when you are tired, because they thin out if you decline them.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>12</span></div>
+  </div>
+</section>
+
+<section class="page" id="p7">
+  <div class="bleed"><img src="../wellington/reloc/south-coast-beach.jpg" alt="The wild south coast of Wellington, rocky beach and open sea"><div class="scrim"></div></div>
+  <div class="pad">
+    <div class="on-img">
+      <p class="eyebrow on-dark">Weekends</p>
+      <h2 style="max-width:20ch">Fifteen minutes from your front door</h2>
+      <p class="lede" style="max-width:42ch">Wild coast to the south, bush tracks in every direction, the Wairarapa&rsquo;s wineries an hour over the hill, and the South Island a three-hour ferry away.</p>
+    </div>
+    <div class="cap">The south coast &middot; and yes, it really is that windy</div>
+  </div>
+</section>
+
+<section class="page" id="p8">
+  <div class="pad">
+    <p class="eyebrow">The first weeks</p>
+    <h2>In this order, <em>and no other</em></h2>
+    <p class="lede">Everything here is straightforward and everything takes longer than you expect. Done in this sequence, the rest of the month is yours.</p>
+    <ol class="num">
+      <li><span class="n">01</span><div><h4>Activate the bank account</h4><p>If it is not fully live yet, finish it with passports and visas. Your first salary needs somewhere to land.</p></div></li>
+      <li><span class="n">02</span><div><h4>Apply for IRD numbers</h4><p>Both of you. Give Akhil&rsquo;s tax code to payroll before the first pay run, or he will be taxed at a higher no-declaration rate.</p></div></li>
+      <li><span class="n">03</span><div><h4>Get local mobile numbers</h4><p>Rental applications, kindergartens, banks and the practice all want a New Zealand number. Day one or two.</p></div></li>
+      <li><span class="n">04</span><div><h4>Enrol all three of you with a general practice</h4><p>Before anyone is ill. Enrolled patients pay less and some practices close their books when full.</p></div></li>
+      <li><span class="n">05</span><div><h4>Confirm Sarah&rsquo;s early childhood place</h4><p>Confirm the start date and what she needs to bring.</p></div></li>
+      <li><span class="n">06</span><div><h4>Diarise the driving licence deadline</h4><p>You may drive on your overseas licences for a limited period after arriving, then you must convert. Check the date on arrival, because the clock starts then and testing has a queue.</p></div></li>
+      <li><span class="n">07</span><div><h4>Sort power, internet and a heater</h4><p>You choose your electricity retailer and switching is quick. Ask the landlord what the house costs to heat in winter before you need to know.</p></div></li>
+    </ol>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>13</span></div>
+  </div>
+</section>
+
+<section class="page" id="p8b">
+  <div class="pad">
+    <p class="eyebrow">Two more things</p>
+    <h2>Before the first shift, <em>and after it</em></h2>
+    <div class="box">
+      <h4>Before your first shift, Akhil</h4>
+      <p>Walk into Wellington Hospital once as a visitor rather than as staff. Find the department, the car park, the coffee and the way out. Doing it without a lanyard on and nothing at stake takes a surprising amount of pressure off day one.</p>
+    </div>
+    <div class="box">
+      <h4>And one thing that is not admin</h4>
+      <p>In your first fortnight, do one thing purely because it is lovely. The cable car, Te Papa, fish and chips at Island Bay. The paperwork will still be there afterwards, and Sarah will remember the first one.</p>
+    </div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>14</span></div>
+  </div>
+</section>
+
+<section class="page" id="p9">
+  <div class="pad">
+    <p class="eyebrow">The honest page</p>
+    <h2>What we would rather you knew <em>now</em></h2>
+    <p class="lede">None of this should change your mind. All of it is easier to meet when you were expecting it.</p>
+    <ol class="num">
+      <li><span class="n">01</span><div><h4>The wind is not a joke</h4><p>Wellington is the windiest city in the country and it is a real feature of daily life, not a quirky detail. Buy proper coats rather than umbrellas &mdash; umbrellas do not survive here. Some people find it invigorating and some find it wearing; you will know which you are by month two.</p></div></li>
+      <li><span class="n">02</span><div><h4>Houses are colder than you expect</h4><p>Winters are mild by many standards and the housing stock is less prepared for them. This is why we keep going on about insulation and heating: a cold, damp house is the most common regret of a first year here, and it is entirely avoidable at the viewing stage.</p></div></li>
+      <li><span class="n">03</span><div><h4>Earthquakes</h4><p>Wellington sits on a fault line and you will feel small shakes. Buildings are engineered for it and this is genuinely normal life, but prepare properly once and then stop worrying: a stored water supply, a torch, a plan for where to meet. Sarah&rsquo;s kindergarten will drill it, calmly.</p></div></li>
+      <li><span class="n">04</span><div><h4>The sun is stronger than it looks</h4><p>UV levels here are far higher than at comparable northern latitudes, and you can burn in under twenty minutes in summer, including on a cloudy day. Hat, sunscreen and shade in the middle of the day are the local standard and Sarah will learn it at kindergarten.</p></div></li>
+      <li><span class="n">05</span><div><h4>The distance from family is the hard part</h4><p>Not the flights themselves &mdash; the ordinary Sundays. Book the first trip home, or someone&rsquo;s first trip out, before you leave. Having a date in the calendar changes how the first year feels.</p></div></li>
+    </ol>
+    <div class="who"><p>Almost everyone dips somewhere between three and six months, when the novelty has gone and the friendships have not arrived yet. It passes. Ring us when it happens rather than after it.</p></div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>15</span></div>
+  </div>
+</section>
+
+<section class="page" id="pw">
+  <div class="pad">
+    <p class="eyebrow">Getting through winter</p>
+    <h2>Managing the cold, <em>which is not what you expect</em></h2>
+    <p class="lede">Wellington winters are mild by British or northern standards &mdash; eight to twelve degrees in the day, and snow essentially never. And you will very likely be colder here than you were at home.</p>
+    <p>That sounds contradictory and it is the most useful thing in this pack. The reason is the houses, not the weather: much of the housing stock was built for a temperate climate by people who assumed you would put on a jumper &mdash; single glazing, limited insulation, no central heating, air moving under the floors. You are not fighting the temperature outside, but an indoor one that follows it.</p>
+    <p>Damp is the other half. Wellington is humid and windy, washing does not dry outside for weeks, and moisture indoors makes a cool room feel genuinely cold. Mould on window reveals and in wardrobes is a ventilation problem rather than a cleaning one.</p>
+    <h3>What actually works</h3>
+    <ol class="num">
+      <li><span class="n">01</span><div><h4>Choose the house on warmth, not charm</h4><p>The single biggest decision. North-facing, insulated, double glazed if you can find it, with a heat pump. Ask the landlord directly what heating and insulation it has under the Healthy Homes standards, and ask what it costs to heat in July. A cold house cannot be fixed with blankets.</p></div></li>
+      <li><span class="n">02</span><div><h4>Heat one room properly, not the whole house</h4><p>The local habit, and the cheap one. A heat pump in the living area, doors closed, and electric blankets or a small heater in bedrooms. Trying to hold a whole New Zealand house at a British thermostat setting is how people get frightening power bills.</p></div></li>
+      <li><span class="n">03</span><div><h4>Get a dehumidifier in your first month</h4><p>Not a luxury here. It makes a cool room feel warm, dries washing indoors, and prevents the mould. Ask any New Zealander and they will tell you the same thing, usually with feeling.</p></div></li>
+      <li><span class="n">04</span><div><h4>Ventilate every morning, even when it is cold</h4><p>Ten minutes of open windows, including in winter. Counterintuitive and correct: the air you let out is wetter than the air you let in, and dry air is far easier to heat.</p></div></li>
+      <li><span class="n">05</span><div><h4>Curtains closed before dusk</h4><p>Thermal-lined if possible. Most of the heat you lose goes through the glass, and the difference is immediate and free.</p></div></li>
+      <li><span class="n">06</span><div><h4>Dress for indoors</h4><p>You will wear slippers and a fleece inside in a way you may find undignified. Everyone does it. Merino is worth the money and is everywhere here.</p></div></li>
+    </ol>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>16</span></div>
+  </div>
+</section>
+<section class="page" id="pw2">
+  <div class="pad">
+    <p class="eyebrow">Getting through winter</p>
+    <h2>Sarah&rsquo;s room, <em>and the wind</em></h2>
+    <p class="lede">Two things worth their own page: the bedroom, because damp is what causes the winter coughs, and the wind, because nothing prepares you for it.</p>
+    <div class="box">
+      <h4>For Sarah&rsquo;s room</h4>
+      <p>Keep it dry and draught-free rather than hot, and check for condensation on the inside of the window each morning &mdash; that is your early warning. Sleeping bags designed for cots hold warmth better than blankets she can kick off. Damp bedrooms, not cold ones, are what cause the winter coughs that fill Akhil&rsquo;s department every July.</p>
+    </div>
+    <h3>And the wind</h3>
+    <p>It deserves its own sentence. Buy proper coats rather than umbrellas &mdash; umbrellas genuinely do not survive here, and you will see broken ones in every bin. Layers, a hood and a wind-proof outer shell will serve you better than any single warm coat.</p>
+    <div class="who"><p>The good news: the winters are short, the light is better than you are used to, and a clear calm Wellington winter day is one of the finest things in the country.</p></div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>17</span></div>
+  </div>
+</section>
+
+<section class="page" id="p11">
+  <div class="pad">
+    <p class="eyebrow">Getting around</p>
+    <h2>You may not need <em>two cars</em></h2>
+    <p class="lede">Wellington is the one New Zealand city where a car is genuinely optional. Plenty of families run one between them, and some run none at all.</p>
+    <div class="sub">
+      <div><b>Walking</b><span>The centre is small enough to cross on foot in twenty minutes, and a great many people walk to work. It is what residents love most.</span></div>
+      <div><b>Trains and buses</b><span>The Metlink network covers the city, the Hutt Valley and the K&#257;piti Coast. Get a Snapper card in week one &mdash; cheaper than cash and it works across buses.</span></div>
+      <div><b>The cable car</b><span>Genuinely part of the transport network as well as a lovely thing. Sarah will ask to go on it repeatedly.</span></div>
+      <div><b>Ferries</b><span>Harbour ferries to Days Bay for a day out, and the Cook Strait ferry to the South Island &mdash; three hours, and it takes your car.</span></div>
+      <div><b>The airport</b><span>Twenty minutes from most suburbs. Domestic and trans-Tasman flights, a short runway and a famously bumpy approach.</span></div>
+      <div><b>Cycling</b><span>Flat and lovely along the waterfront and the bays. The hills are honest about themselves.</span></div>
+    </div>
+    <div class="box">
+      <h4>Driving, and the licence clock</h4>
+      <p>New Zealanders drive on the left. Your overseas licence lets you drive here for a limited period after you arrive, and then you must convert. The rules are changing in late 2026, so confirm your own deadline with NZTA once your travel date is fixed, and diarise it — the clock starts the day you land. Bring both licences and any official translation.</p>
+      <p>Sarah needs an approved child restraint and the rules are strict and enforced. Sort it before you collect a car, not after.</p>
+    </div>
+    <p>Central parking is expensive and mostly metered, and many older suburban houses have no off-street parking at all. Worth checking at a viewing, along with the hill.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>18</span></div>
+  </div>
+</section>
+
+<section class="page" id="p12">
+  <div class="pad">
+    <p class="eyebrow">Money, month to month</p>
+    <h2>What the ordinary bills <em>actually are</em></h2>
+    <p class="lede">Not the salary &mdash; the small recurring things nobody mentions until the first one lands.</p>
+    <h3>Rates are not council tax, and you probably will not pay them</h3>
+    <p>This is the one that catches British arrivals every time. Council rates are the local property tax and they are paid by the <b>property owner</b>, not the tenant. If you are renting, you do not pay rates &mdash; they are already inside the rent. If you later buy, they become yours: they vary with property value and council, and they are billed quarterly.</p>
+    <p>Water is the same story in practice: as renters you would not normally be responsible for the property’s fixed water-service charge. Wellington’s water funding arrangements changed in 2026, so read the tenancy agreement — the position could differ if usage-based charging is introduced later. Neighbouring councils differ too, so check the specific address.</p>
+    <h3>The bills you will pay</h3>
+    <div class="sub">
+      <div><b>Power</b><span>You choose your retailer and switching takes days. The big one in a Wellington winter, and it depends on the house far more than the provider.</span></div>
+      <div><b>Internet</b><span>Fibre across most of the city and genuinely fast. Unlimited data is standard.</span></div>
+      <div><b>Mobile</b><span>Competitive and simple. Prepaid for the first month, then commit.</span></div>
+      <div><b>Contents insurance</b><span>Worth having. Ask specifically about earthquake cover and the excess.</span></div>
+      <div><b>Groceries</b><span>Dairy, meat and imported goods cost more than you expect. Produce is excellent and cheap in season.</span></div>
+      <div><b>Early childhood</b><span>Funded hours cut this substantially at three, but there are usually extra charges. Ask each centre for a real weekly number.</span></div>
+    </div>
+    <div class="box">
+      <h4>The first three months are the expensive ones</h4>
+      <p>Bond and rent in advance, a car, a heater, appliances, Sarah&rsquo;s kindergarten and the gap before Akhil&rsquo;s first full pay all arrive together. This is the most underestimated part of any move. Use our cost calculator to see the shape of it &mdash; and tell us if the timing is tight, because relocation support is more negotiable than people assume.</p>
+    </div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>19</span></div>
+  </div>
+</section>
+
+<section class="page" id="p13">
+  <div class="pad">
+    <p class="eyebrow">Running a house here</p>
+    <h2>Rubbish, recycling <em>and the small domestic stuff</em></h2>
+    <p class="lede">Genuinely useful, faintly dull, and otherwise learned by getting it wrong in front of a neighbour.</p>
+    <h3>Recycling is taken seriously</h3>
+    <p>Kerbside collection separates recycling from general rubbish, and glass is usually collected separately &mdash; often in its own crate so it can be sorted by colour. Mixed recycling takes paper, cardboard, tins and certain plastics, and the accepted grades are narrower than you may be used to. Everything must be clean and dry.</p>
+    <p>General rubbish is where councils differ most. Some areas use official council bags bought from supermarkets; others use a private wheelie-bin service you arrange yourself. Ask your landlord or a neighbour which applies at your address, because the wrong thing simply is not collected.</p>
+    <div class="box">
+      <h4>Three things people get wrong in month one</h4>
+      <p><b>Collection day.</b> It varies street by street and shifts over Christmas. Look up your own address at <b>wellington.govt.nz/rubbish-recycling</b> rather than copying next door &mdash; the council site takes the address and tells you the day, the bin and what goes in it. Neighbouring councils have the same tool on their own sites: Hutt City at <b>huttcity.govt.nz</b>, Porirua at <b>poriruacity.govt.nz</b>, K&#257;piti at <b>kapiticoast.govt.nz</b>.</p>
+      <p><b>Soft plastics and e-waste.</b> Neither belongs in the kerbside bin. Supermarkets take soft plastics; e-waste goes to a recycling centre, usually for a fee.</p>
+    </div>
+    <h3>Composting, and why people bother</h3>
+    <p>Home composting and worm farms are common and often council-subsidised. This is not an eccentricity: environmental care is close to a civic value here, part of the same idea as the Tiaki Promise &mdash; leave a place better than you found it.</p>
+    <h3>Warming a Wellington house</h3>
+    <p>Heat pumps are the norm and the cheapest to run. Beyond that: curtains closed before dusk, a dehumidifier if the house is damp, and ten minutes of ventilation each morning even in winter &mdash; damp, not cold, is what makes a New Zealand house miserable. Ask what heating and insulation the property has under the Healthy Homes standards before you sign.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>20</span></div>
+  </div>
+</section>
+
+<section class="page" id="p14">
+  <div class="pad">
+    <p class="eyebrow">Food, shopping and community</p>
+    <h2>Where to buy the things <em>that taste like home</em></h2>
+    <p class="lede">Wellington is small but not narrow. Whatever you cook, the ingredients are here &mdash; and the community you are looking for almost certainly already exists.</p>
+    <h3>The weekly shop</h3>
+    <p>Two main supermarket groups, with prices differing noticeably between them, so try both. Loyalty cards are free and make a real difference. Beyond them, the Sunday harbourside market is where Wellingtonians actually buy fruit and vegetables &mdash; cheaper, fresher, and an outing in itself.</p>
+    <h3>Indian and Sri Lankan groceries</h3>
+    <p>Newtown is the heart of it, with Asian, Indian, Middle Eastern and Pacific grocers within a few streets &mdash; spices, pulses, rice in the right size bag, curry leaves, fresh coconut, and the specific brands you have always used. There are more in the central city and out towards the Hutt. If there is one ingredient you cannot find in your first month, ask us: someone we know will know where it is.</p>
+    <h3>Community &mdash; and yes, there is a Kerala one</h3>
+    <p>New Zealand has active, organised Malayali and wider Kerala communities in most main centres, alongside long-established Indian associations &mdash; Wellington included. Between them they run Onam and Vishu celebrations, Malayalam classes for children, cricket teams, cultural evenings and a great deal of quiet practical help for new arrivals: which school, which suburb, where to get the good fish.</p>
+    <p>These groups are usually the single fastest route into a new city, and they are used to people arriving cold and asking. Tell us which community you would like introducing to and we will find the current contact rather than leaving you to search &mdash; committee details change, and a name from someone is worth more than a website.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>21</span></div>
+  </div>
+</section>
+
+<section class="page" id="p-reo">
+  <div class="pad">
+    <p class="eyebrow">Te reo M&#257;ori</p>
+    <h2>The words you will hear <em>in your first week</em></h2>
+    <p class="lede">Te reo M&#257;ori is an official language and it is woven through ordinary working life here &mdash; emails, ward rounds, school newsletters. Nobody expects fluency. They do notice effort.</p>
+    <h3>Saying it right</h3>
+    <p>The vowels are consistent, which makes it easier than it looks: <b>a</b> as in far, <b>e</b> as in egg, <b>i</b> as in tree, <b>o</b> as in awe, <b>u</b> as in food. A macron (&#257;, &#275;, &#299;, &#333;, &#363;) lengthens the vowel and it matters. <b>Wh</b> is usually an f sound, and <b>ng</b> is the sound in the middle of &ldquo;singer&rdquo;. Say every vowel &mdash; nothing is silent.</p>
+    <div class="sub">
+      <div><b>Kia ora</b><span>kee-ah OR-ah &mdash; hello, thanks, cheers, agreed. The most useful word in the country and appropriate almost anywhere.</span></div>
+      <div><b>M&#333;rena</b><span>MAW-reh-nah &mdash; good morning. You will hear this before you hear anything else.</span></div>
+      <div><b>Nau mai, haere mai</b><span>noh my, HIGH-reh my &mdash; welcome. On signs, at doors and at the start of meetings.</span></div>
+      <div><b>Ka kite</b><span>kah KEE-teh &mdash; see you later. The normal sign-off.</span></div>
+      <div><b>Wh&#257;nau</b><span>FAH-no &mdash; family, in the broad sense including extended family. Used constantly in healthcare: &ldquo;is wh&#257;nau with her?&rdquo;</span></div>
+      <div><b>Tamariki</b><span>tah-MAH-ree-kee &mdash; children. Sarah&rsquo;s centre will use this more than the English word.</span></div>
+    </div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>22</span></div>
+  </div>
+</section>
+<section class="page" id="p-reo2">
+  <div class="pad">
+    <p class="eyebrow">Te reo M&#257;ori</p>
+    <h2>At work, <em>and around the city</em></h2>
+    <p class="lede">A short list, because these are the ones that turn up in a clinical setting or on a road sign and are worth knowing before someone uses them.</p>
+    <h3>In the hospital</h3>
+    <div class="sub">
+      <div><b>Hauora</b><span>health and wellbeing, in a whole-person sense rather than the absence of disease.</span></div>
+      <div><b>Tangata whenua</b><span>people of the land &mdash; M&#257;ori as the indigenous people of Aotearoa.</span></div>
+      <div><b>Te Tiriti o Waitangi</b><span>the Treaty of Waitangi, 1840. It underpins how health services here are designed and delivered, and it will come up in your induction and your registration requirements. Worth reading about properly rather than picking up second-hand.</span></div>
+      <div><b>Karakia</b><span>a blessing or prayer. Meetings and ward handovers often open with one; you are not expected to lead it, only to stand quietly.</span></div>
+      <div><b>Kaum&#257;tua</b><span>respected elders. Their presence with a patient is significant and worth accommodating.</span></div>
+      <div><b>Mana</b><span>standing, prestige, dignity. &ldquo;Preserving someone&rsquo;s mana&rdquo; is a real consideration in how care is given.</span></div>
+    </div>
+    <h3>Everywhere else</h3>
+    <div class="sub">
+      <div><b>Aotearoa</b><span>ow-teh-ah-ROW-ah &mdash; New Zealand. Used interchangeably and increasingly officially.</span></div>
+      <div><b>Kai</b><span>food. &ldquo;Bring a plate of kai&rdquo; means bring something to share, and it is not optional.</span></div>
+      <div><b>Puku</b><span>stomach or tummy. You will hear it at Sarah&rsquo;s centre.</span></div>
+      <div><b>Motu</b><span>island, or the country as a whole &mdash; &ldquo;across the motu&rdquo; means nationwide.</span></div>
+    </div>
+    <div class="who"><p>The single best thing you can do is learn to say colleagues&rsquo; and patients&rsquo; names correctly, and ask when you are unsure. Asking is welcomed here. Guessing repeatedly is not.</p></div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>23</span></div>
+  </div>
+</section>
+<section class="page" id="p14b">
+  <div class="pad">
+    <p class="eyebrow">Sunday</p>
+    <h2>Church &mdash; and finding <em>the right one</em></h2>
+    <p class="lede">If church is part of your life, this is the most important page in the pack. It is also, in our experience, the fastest way a family goes from knowing nobody to being known.</p>
+    <p>Wellington has established congregations across the Christian traditions &mdash; Catholic parishes in most suburbs and the Sacred Heart Cathedral in the city, Anglican including the Cathedral of St Paul, Presbyterian, Baptist, Methodist, Pentecostal and independent churches, and a number of vibrant migrant-led congregations.</p>
+    <p>For Kerala Christian families specifically, the tradition you belong to is likely to be represented. Syro-Malabar Catholic, Malankara and Syrian Orthodox, and Mar Thoma communities are all active in New Zealand, with Malayalam liturgy celebrated in the main centres &mdash; sometimes in a dedicated church, sometimes as a regular Mass or service hosted by a local parish. Wellington&rsquo;s arrangement is the sort of thing that changes with the priest and the roster, so rather than print something that may be out of date, tell us your tradition and we will find the current time, place and a name to ask for.</p>
+    <div class="box">
+      <h4>What we will do for you</h4>
+      <p>Put you in touch with someone in the congregation, not just send you an address. A person expecting you on your first Sunday is worth ten websites, and it means Lakhia and Sarah walk in knowing a face.</p>
+      <p>We will also find out what is there for Sarah &mdash; Sunday school, children&rsquo;s liturgy, a family service time &mdash; because that determines whether the whole morning works or only part of it.</p>
+    </div>
+    <p>Beyond Sunday, churches here run the practical scaffolding of a new life: playgroups, meals, lifts, someone who knows a good landlord and someone whose cousin is a plumber. If your first month is going to include one deliberate act of putting down roots, this is the one we would choose.</p>
+    <h3>Other faiths</h3>
+    <p>For completeness, and because colleagues will ask you: Wellington also has a Hindu temple, mosques, a synagogue, and Buddhist and Sikh communities, all well established.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>24</span></div>
+  </div>
+</section>
+
+<section class="page" id="p15">
+  <div class="pad">
+    <p class="eyebrow">Looking ahead for Sarah</p>
+    <h2>School, when it comes</h2>
+    <p class="lede">Sarah has two years before this matters &mdash; but it decides where you live, so it is worth understanding now rather than then.</p>
+    <h3>How it works</h3>
+    <p>Children may start school on their fifth birthday and must be enrolled by six, so most start partway through a year rather than all together. Year levels run one to thirteen and are age-based: primary is roughly years one to six, intermediate seven and eight, secondary nine to thirteen &mdash; so there is an extra transition in the middle that will be unfamiliar.</p>
+    <h3>Zoning is the whole game</h3>
+    <p>Popular state schools operate enrolment zones, and living inside the zone is what guarantees a place. Out-of-zone places go to a ballot. So the school decision and the housing decision are one decision, made in that order &mdash; which is why this page sits here, while you are still choosing a suburb.</p>
+    <div class="box">
+      <h4>What to do while Sarah is three</h4>
+      <p>Three tools do this in an evening. <b>educationcounts.govt.nz</b> has the official directory &mdash; every school, its type, roll and contact details. <b>ero.govt.nz</b> publishes the Education Review Office report on each one, which is the honest read. And each school&rsquo;s own website carries its <b>enrolment zone map</b>, which is the document that decides whether an address qualifies &mdash; check the exact street before you sign anything, because zone boundaries run down the middle of roads. Ten minutes now saves a move later. State schooling is free for children of most work-visa holders &mdash; confirm your entitlement against Akhil&rsquo;s specific visa class.</p>
+    </div>
+    <div class="sub">
+      <div><b>State schools</b><span>Free, zoned, generally very good, and where the large majority of children go.</span></div>
+      <div><b>State-integrated</b><span>State-funded with a particular character, often faith-based. Charge attendance dues.</span></div>
+      <div><b>Private</b><span>A small sector, full fees, mostly in the larger cities.</span></div>
+      <div><b>Kura kaupapa M&#257;ori</b><span>Teaching in te reo M&#257;ori within a M&#257;ori worldview.</span></div>
+    </div>
+    <p>Free is not costless: expect voluntary donations, trips, uniforms, stationery and eventually a device. Ask any school for its real annual figure.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>25</span></div>
+  </div>
+</section>
+
+<section class="page" id="p16b">
+  <div class="pad">
+    <p class="eyebrow">Looking after yourselves</p>
+    <h2>Dentists, glasses <em>and heads</em></h2>
+    <p class="lede">Akhil will know the hospital side within a fortnight. This is the other side &mdash; being patients rather than staff, and the bits that are not free.</p>
+    <h3>Dentists: budget for this</h3>
+    <p>Adult dental care is essentially private here and it is not cheap. There is no subsidised adult service of the kind you may be used to, so it is worth finding a practice in your first few months rather than at the first twinge. Prices vary noticeably between practices, so it is reasonable to ask for a quote.</p>
+    <p>The good news is Sarah. Dental care for children is publicly funded and free &mdash; delivered through community dental services and school dental therapists while she is young, and free at a dentist through adolescence. Enrol her once you have an address; the service will then contact you for check-ups.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>26</span></div>
+  </div>
+</section>
+
+<section class="page" id="p16b3">
+  <div class="pad">
+    <p class="eyebrow">Looking after yourselves</p>
+    <h2>Heads, <em>and everything else</em></h2>
+    <h3>Mental health, including your own</h3>
+    <p>Start with your general practice: GPs here manage a great deal of mental health care directly and can refer on. There is a free national telephone and text counselling service available at any hour, which is genuinely useful and worth having in all three phones. Publicly funded specialist services exist and waiting times vary by region; the private sector is available and reasonably well supplied in Wellington.</p>
+    <div class="box">
+      <h4>The one Akhil will not think to ask about</h4>
+      <p>At induction, ask what wellbeing and staff support your employer provides, and whether any of it extends to family. Provision differs from place to place, so it is worth asking rather than assuming either way &mdash; and worth remembering in month four. Clinicians are famously poor at using support that exists.</p>
+    </div>
+    <h3>The rest of it</h3>
+    <div class="sub">
+      <div><b>Pharmacy</b><span>Most funded prescriptions carry a small co-payment, currently $5 per medicine for adults who are not exempt, though it varies with who prescribed it and whether the medicine is fully funded. Pharmacists give more advice than you may expect and can help with minor things without a GP visit.</span></div>
+      <div><b>Optometry</b><span>Private, and glasses are a real cost. Some subsidised eye checks are available for children &mdash; ask at Sarah&rsquo;s check.</span></div>
+      <div><b>Physiotherapy</b><span>Substantially subsidised if it follows an injury, because that falls under the accident scheme. Private otherwise.</span></div>
+      <div><b>Immunisations</b><span>The childhood schedule is free and delivered through your general practice. Bring Sarah&rsquo;s existing records with you &mdash; paper, not just an app.</span></div>
+      <div><b>Sarah&rsquo;s four-year check</b><span>There is a free developmental and health check in the year before school. It will find you once she is enrolled with a practice.</span></div>
+      <div><b>Maternity, if relevant</b><span>Free for those eligible, and led by a midwife you choose yourself rather than by a GP or obstetrician. A genuinely different model &mdash; ask early if it is on the horizon.</span></div>
+    </div>
+    <p>One practical note: keep your own medical records, prescriptions and Sarah&rsquo;s immunisation history as paper copies somewhere you can find them. Transferring records internationally is slow, and the first time you need them will be the one time you are in a hurry.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>27</span></div>
+  </div>
+</section>
+
+<section class="page" id="p17">
+  <div class="pad">
+    <p class="eyebrow">Keep this page</p>
+    <h2>In an emergency, <em>and other numbers</em></h2>
+    <p class="lede">Save these in all three phones in your first week, before you need any of them.</p>
+    <h3>The number is 111</h3>
+    <p>Dial <b>111</b> for police, fire or ambulance. It is free from any phone including a locked one, and the operator will ask which service you want. There is also a free twenty-four-hour national telephone health advice line staffed by nurses &mdash; genuinely good, and the right call at two in the morning with a feverish three-year-old in a country whose services you do not know yet. Ask us for the current number and put it in your phones under &ldquo;Health advice&rdquo;.</p>
+    <div class="box">
+      <h4>Where to go, and when</h4>
+      <p><b>Emergency department</b> &mdash; anything serious or potentially life-threatening. Yours is at Wellington Hospital in Newtown, which will shortly be very familiar to Akhil and is worth Lakhia driving to once, in daylight, before she ever needs to find it. <b>Urgent care clinic</b> &mdash; the after-hours middle ground, and the right choice for most evening and weekend problems: sprains, cuts, fevers, infections. <b>Your general practice</b> &mdash; everything routine, once you are enrolled. <b>Pharmacy</b> &mdash; more advice than you may expect, and some open late. Also worth saving: the National Poisons Centre, your power company&rsquo;s fault line, and the non-emergency police number.</p>
+    </div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>28</span></div>
+  </div>
+</section>
+
+<section class="page" id="p17b">
+  <div class="pad">
+    <p class="eyebrow">Wellington specifics</p>
+    <h2>Earthquakes <em>and the coast</em></h2>
+    <p class="lede">Prepare properly once, then stop worrying. This is ordinary life here.</p>
+    <h3>Earthquakes</h3>
+    <p>Wellington sits on a fault line and you will feel small shakes. Buildings are engineered for it and this is ordinary life here, but prepare properly once and then stop worrying. In a shake: <b>drop, cover, hold</b> &mdash; get under a table, cover your head, hold on until it stops. Do not run outside during it.</p>
+    <p>Keep stored water, food, a torch, a radio and copies of documents. Agree now where the three of you would meet if you were apart and phones were down &mdash; that single conversation is worth more than the kit. Sarah&rsquo;s kindergarten will drill this calmly and she will take it in her stride.</p>
+    <h3>If you are near the coast</h3>
+    <p>The rule taught to every child here is simple and worth learning on day one: <b>long or strong, get gone.</b> If a shake lasts longer than a minute or is strong enough that it is hard to stand, do not wait for an official warning &mdash; move inland or uphill immediately. Know your nearest high ground from home, from work and from Sarah&rsquo;s kindergarten.</p>
+    <div class="auth" style="border-top:.35mm solid var(--rule);padding-top:3mm;margin-top:5mm;font-size:9.6pt;color:var(--muted)">Ask us for a one-page version of this with the current numbers filled in, and we will go through it with you.</div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>29</span></div>
+  </div>
+</section>
+
+<section class="page" id="p16">
+  <div class="pad">
+    <p class="eyebrow">The one we most want you to read</p>
+    <h2>Missing home, <em>and what actually helps</em></h2>
+    <p class="lede">You will miss home. All three of you, at different times and about different things. It is not a sign the move was wrong, and it is not something to be brave about.</p>
+    <p>Homesickness here has a shape people rarely warn you about. The first weeks are busy and bright &mdash; new house, new job, everything an adventure. Then the boxes are unpacked, the visitors have gone, winter arrives, and a wet Tuesday evening can feel very far from everyone you love. That dip often lands somewhere between three and six months. Many people describe it, and for most it eases as routines and friendships take shape.</p>
+    <h3>What consistently helps</h3>
+    <ol class="num">
+      <li><span class="n">01</span><div><h4>Book the next reunion now</h4><p>A date in the diary changes everything. Whether it is your trip back or someone&rsquo;s trip out, having something to count towards makes the distance finite rather than open-ended.</p></div></li>
+      <li><span class="n">02</span><div><h4>Regular calls, not occasional ones</h4><p>A fixed weekly time beats spontaneous contact, because the time difference will otherwise eat it. Same slot, same day. Sarah will grow up knowing exactly when she talks to her grandparents.</p></div></li>
+      <li><span class="n">03</span><div><h4>Keep two rituals exactly as they were</h4><p>A Sunday meal, a festival, a particular way of doing birthdays. Children especially need some things to be unchanged, and it costs nothing to protect them.</p></div></li>
+    </ol>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>30</span></div>
+  </div>
+</section>
+
+<section class="page" id="p16b2">
+  <div class="pad">
+    <p class="eyebrow">Missing home, continued</p>
+    <h2>And three more things <em>that help</em></h2>
+    <ol class="num">
+      <li><span class="n">04</span><div><h4>Find your church in the first fortnight</h4><p>Not month five, when you will most need it and have least energy for it. Church first, then the Kerala association, a sports club, the kindergarten gate. Ask us for an introduction rather than arriving cold &mdash; walking in on a first Sunday to someone who is expecting you is a completely different experience.</p></div></li>
+      <li><span class="n">05</span><div><h4>Say yes for six months</h4><p>To every invitation, even when you are tired. Invitations thin out if they are declined, and the friendships that carry you through winter are made in the first summer.</p></div></li>
+      <li><span class="n">06</span><div><h4>Tell someone</h4><p>Your GP, your employee assistance programme, a colleague, us. Clinicians are famously poor at this. Every single person in your new department who arrived from overseas has felt exactly this, and saying so out loud is what shrinks it.</p></div></li>
+    </ol>
+    <p>And one thing for the two of you. It will not hit you both at the same time, which is the awkward part &mdash; one of you will be fine while the other is struggling, and then it will swap. Knowing that in advance is most of the answer.</p>
+    <p>Ask anyone two years in: the second winter is a completely different experience from the first. That is not a platitude. It is what happens once a place has people in it.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>31</span></div>
+  </div>
+</section>
+
+<section class="page" id="p16c">
+  <div class="pad">
+    <p class="eyebrow">When family come to you</p>
+    <h2>Visitors, visas <em>and the first Christmas</em></h2>
+    <p class="lede">This is the question your parents will ask before you have finished telling them the news. It is worth having a real answer ready, because it is really a question about whether they will still see Sarah grow up.</p>
+    <h3>The short version</h3>
+    <p>Visiting New Zealand is straightforward for most people. Visitors from a good number of countries do not need a visa in advance at all &mdash; they need an electronic travel authority obtained online before they fly, plus a small tourism levy, and they are then admitted for a stay of a few months. Visitors from other countries apply for a visitor visa in advance. Which applies depends on the passport, not on their relationship to you, so check the passport rather than assuming.</p>
+    <div class="box">
+      <h4>Do this before you tell them the dates</h4>
+      <p>Look up each set of grandparents&rsquo; passports on the Immigration New Zealand website and establish which route applies. It takes ten minutes and it changes the planning entirely &mdash; an electronic authority is a same-week job, while a visitor visa application needs lead time.</p>
+    </div>
+    <h3>Longer stays, and parents in particular</h3>
+    <p>A standard visitor stay is measured in months rather than weeks, and can often be extended, with a maximum total in any period. There is also a specific visa category for parents of migrants that allows considerably longer, repeated stays &mdash; the requirements, sponsorship conditions and health cover obligations are particular, and the rules in this space are revised more often than most. If a parent staying for several months at a time matters to you, ask us early and we will point you at the current settings rather than yesterday&rsquo;s.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>32</span></div>
+  </div>
+</section>
+
+<section class="page" id="p16c2">
+  <div class="pad">
+    <p class="eyebrow">When family come to you</p>
+    <h2>What visitors <em>always underestimate</em></h2>
+    <p class="lede">Worth saying to them plainly, because none of it is obvious from the other side of the world.</p>
+    <h3>What visitors always underestimate</h3>
+    <div class="sub">
+      <div><b>The flight</b><span>Twenty-four hours plus a stop. For older parents that is a genuine consideration &mdash; a stopover of a night or two on the way makes an enormous difference.</span></div>
+      <div><b>Travel insurance</b><span>Visitors are not covered for healthcare here, and the accident scheme covers injury but not illness. Proper insurance is not optional, particularly for older travellers.</span></div>
+      <div><b>Medication</b><span>Bring it in original labelled packaging with a copy of the prescription. Rules on what may be brought in are strict.</span></div>
+      <div><b>The seasons are upside down</b><span>Christmas is summer. A December visit means shorts and sunscreen, and July means a cold house. Tell them, twice.</span></div>
+      <div><b>Biosecurity</b><span>No food, no seeds, no soil on boots &mdash; and it is enforced with fines. Warn them properly; it catches out the most law-abiding grandparents.</span></div>
+      <div><b>Length of stay</b><span>Longer is better when the flight is that long. Three weeks costs the same in airfare as one and is a completely different visit.</span></div>
+    </div>
+    <h3>A suggestion</h3>
+    <p>Book one visit before you leave &mdash; either yours home or theirs out. Not a vague intention: an actual date. It changes the whole first year from an open-ended separation into a countdown, and it is the single most effective thing we have seen families do. Aim it at that three-to-six-month window when the dip lands.</p>
+    <div class="auth"><b>Where to check:</b> Immigration New Zealand owns every rule on this page, including the electronic travel authority list, visitor visa requirements and the parent categories. Settings change often &mdash; treat this as the shape of it and immigration.govt.nz as the fact.</div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>33</span></div>
+  </div>
+</section>
+
+<section class="page" id="p-shipping">
+  <div class="pad">
+    <p class="eyebrow">Still on the water</p>
+    <h2>While the container <em>is still coming</em></h2>
+    <p class="lede">Sea freight routinely outlasts the person who sent it. If yours has not landed yet, this is what is worth knowing — and what to expect at the border when it does.</p>
+    <h3>Split it three ways</h3>
+    <div class="sub">
+      <div><b>Sea freight</b><span>Furniture, books, kitchen things, anything heavy you love. Allow a couple of months door to door and assume the longer end. Get three quotes.</span></div>
+      <div><b>Air freight</b><span>A small, expensive category. Sarah&rsquo;s favourite things, work equipment, anything the first six weeks would be miserable without.</span></div>
+      <div><b>What you carried yourself</b><span>The things that should never have gone in the container: documents, medication, a fortnight of clothes for all three of you, Sarah&rsquo;s comfort things, chargers and adapters. Pack it as though the container might be late, because it might.</span></div>
+    </div>
+    <div class="box">
+      <h4>What is not worth shipping</h4>
+      <p>Anything bulky and cheap to replace, most electricals that will not run here, and furniture you were already tired of. The second-hand market here is excellent, and shipping a wardrobe across the world costs more than replacing it.</p>
+    </div>
+    <h3>Biosecurity is not a formality</h3>
+    <p>New Zealand&rsquo;s border rules are among the strictest anywhere and they are enforced with instant fines. This applies to your shipment as much as to your suitcase.</p>
+    <div class="sub">
+      <div><b>Clean everything outdoor</b><span>Hiking boots, tents, bicycles, golf clubs, garden tools, prams and pushchairs. Any soil, seed or plant material is a problem. Scrub it before it is packed, not at the airport.</span></div>
+      <div><b>Wooden and woven items</b><span>Furniture, carvings, baskets and anything cane or bamboo may be inspected or treated. Declare it and let them decide.</span></div>
+      <div><b>Food, plants and seeds</b><span>Do not bring them. Spices in sealed commercial packaging are usually fine; anything homemade, fresh or from a garden is not.</span></div>
+      <div><b>Medication</b><span>Original labelled packaging with a copy of the prescription. The rules are strict &mdash; check before you pack.</span></div>
+    </div>
+    <p><b>The rule that saves you:</b> declaring something is free, and getting it wrong is not. If you are unsure, tick the box. Officers are helpful to people who declare and unforgiving of people who do not.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>34</span></div>
+  </div>
+</section>
+<section class="page" id="p-docs">
+  <div class="pad">
+    <p class="eyebrow">Still on the water</p>
+    <h2>The paperwork <em>to keep to hand</em></h2>
+    <p class="lede">Worth gathering into one folder now, if it is not already. Transferring records internationally is slow, and the copy in your own hands is the one that works.</p>
+    <div class="sub">
+      <div><b>For all three of you</b><span>Passports and visas, birth and marriage certificates, and a set of scanned copies stored somewhere you can reach without your laptop.</span></div>
+      <div><b>Akhil&rsquo;s professional file</b><span>Registration certificates, certificates of good standing, your primary qualification and postgraduate certificates, references, and your CV. Bring the originals you have and know where the rest can be re-issued from.</span></div>
+      <div><b>Medical</b><span>Your own records and repeat prescriptions, and Sarah&rsquo;s full immunisation history on paper rather than in an app. Her general practice here will ask for it in the first month.</span></div>
+      <div><b>For Sarah</b><span>Any early-years reports or learning-support paperwork. It is easier to hand over too much than to request it from another country later.</span></div>
+      <div><b>For Lakhia</b><span>Qualification certificates and transcripts, and a reference or two from your most recent employer. If your field is regulated here, the assessment will want originals.</span></div>
+      <div><b>Financial</b><span>Proof of address history, bank statements, and a driving record or no-claims letter from your insurer &mdash; it can reduce your premium here and is awkward to get once you have left.</span></div>
+    </div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>35</span></div>
+  </div>
+</section>
+<section class="page" id="p-shops">
+  <div class="pad">
+    <p class="eyebrow">The weekly shop</p>
+    <h2>Where to buy things, <em>cheapest first</em></h2>
+    <p class="lede">Groceries cost more here than you are used to, and the gap between the cheapest and dearest shop for an identical basket is wide. Knowing the order saves real money.</p>
+    <h3>Supermarkets, in price order</h3>
+    <div class="sub">
+      <div><b>Pak&rsquo;nSave &mdash; cheapest</b><span>Yellow, warehouse-style, no frills. You pack your own bags and bring them. Consistently the lowest prices in the country for a standard basket, and the range is narrower for it. This is your bulk shop.</span></div>
+      <div><b>Woolworths &mdash; middle</b><span>Formerly Countdown, and the name most people still use. Comfortable middle ground on price and range, good online ordering and delivery, and the most likely to have a branch near you.</span></div>
+      <div><b>New World &mdash; dearer, better</b><span>Same owner as Pak&rsquo;nSave. Wider range, better fresh food and deli, noticeably higher prices. Worth it for the things you care about rather than the whole shop.</span></div>
+      <div><b>Four Square &mdash; convenience</b><span>Small local shops, useful at 8pm, priced accordingly. Not a weekly shop.</span></div>
+    </div>
+    <div class="box">
+      <h4>How Wellington families actually do it</h4>
+      <p>Produce from the Sunday Harbourside Market, the bulk of the shop at Pak&rsquo;nSave, spices and rice from the Newtown grocers, and New World for the few things worth paying for. That combination costs meaningfully less than doing the whole thing in one supermarket, and the market half of it is also a nice morning.</p>
+      <p>Get the free loyalty cards on day one &mdash; New World Clubcard and Woolworths Everyday Rewards. Fuel discounts attach to grocery spend here, which is not obvious and adds up.</p>
+    </div>
+    <h3>Worth knowing</h3>
+    <div class="sub">
+      <div><b>Moore Wilson&rsquo;s</b><span>Corner of Tory and College Streets. A Wellington institution &mdash; part wholesaler, part food hall. Bulk sizes, excellent fresh produce and the best range in the city for anything unusual. Open to the public.</span></div>
+      <div><b>Newtown grocers</b><span>Riddiford Street and around: Indian, Sri Lankan, Middle Eastern and Pacific shops within a few blocks. Spices, pulses, rice in the right size bag, curry leaves and fresh coconut, at a fraction of supermarket prices.</span></div>
+      <div><b>Chemist Warehouse</b><span>Toiletries, nappies and over-the-counter medicines, substantially cheaper than the supermarket. Worth the separate trip for the bulky things.</span></div>
+    </div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>36</span></div>
+  </div>
+</section>
+<section class="page" id="p-shops2">
+  <div class="pad">
+    <p class="eyebrow">Setting up a house</p>
+    <h2>Furniture, appliances <em>and the second-hand rule</em></h2>
+    <p class="lede">Furnishing from nothing is the expensive part of month one. Almost none of it needs to be bought new.</p>
+    <h3>Start here</h3>
+    <div class="sub">
+      <div><b>Trade Me</b><span>trademe.co.nz &mdash; and this is the one to understand first. It is where New Zealand buys and sells almost everything second-hand: furniture, whiteware, cars, and a good share of the rental listings too. Nothing in the UK is quite equivalent. Furnishing a house here rather than new will halve the bill.</span></div>
+      <div><b>Facebook Marketplace</b><span>Strong for furniture and free items, particularly in the family suburbs. Collection is on you, so factor in a van hire or a friend with a ute.</span></div>
+      <div><b>Charity shops</b><span>Wellington has a strong op-shop culture and the furniture ones are genuinely good &mdash; solid older pieces for very little, and the money goes somewhere useful. Worth a Saturday before you buy anything new.</span></div>
+      <div><b>Kmart</b><span>Cheap homewares, kitchen basics, children&rsquo;s clothes and toys. Not built to last a decade, entirely adequate for a first flat.</span></div>
+      <div><b>The Warehouse</b><span>The big red general store. Household basics, bedding, electricals. Same territory as Kmart with a wider range.</span></div>
+      <div><b>Briscoes</b><span>Homeware and kitchen. Famously always in the middle of a sale &mdash; never pay the ticket price, wait a week.</span></div>
+      <div><b>Bunnings and Mitre 10</b><span>DIY, garden, tools, and the heaters you will want by May. Both do delivery.</span></div>
+    </div>
+    <div class="box">
+      <h4>The one thing to buy new and buy properly</h4>
+      <p>A good heater, and a dehumidifier. In a Wellington winter these do more for how the house feels &mdash; and for Sarah&rsquo;s chest &mdash; than anything else you will buy, and the cheap ones are a false economy. Ask what the house already has before you buy.</p>
+    </div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>37</span></div>
+  </div>
+</section>
+<section class="page" id="p-setup">
+  <div class="pad">
+    <p class="eyebrow">Setting up</p>
+    <h2>Power, phones <em>and the insurance conversation</em></h2>
+    <p class="lede">Most of this is quicker here than you are used to. Two parts of it work differently enough to catch people out.</p>
+    <h3>Power, gas and broadband</h3>
+    <p>You choose your own electricity retailer and switching is genuinely easy &mdash; days, not weeks, with no interruption to supply. Prices differ more than you would expect for an identical product, so it is worth ten minutes.</p>
+    <div class="sub">
+      <div><b>Powerswitch</b><span>powerswitch.org.nz &mdash; free, independent, and run by Consumer NZ rather than by a retailer. Put in your address and rough usage and it ranks the plans. This is the one to use.</span></div>
+      <div><b>Consumer NZ</b><span>consumer.org.nz &mdash; the equivalent of Which?. Subscription, and worth it for the first year while you are buying a car, appliances and insurance from scratch.</span></div>
+      <div><b>Broadband</b><span>Most of Wellington is on fibre and it is fast and cheap by British standards. If the property has been connected before, installation is usually quick; if it has not, allow a few weeks and ask the landlord before you sign.</span></div>
+    </div>
+    <div class="box">
+      <h4>Ask this before you sign the tenancy</h4>
+      <p>What does this house cost to heat in winter? A cold, poorly insulated house can add a great deal to a monthly bill, and the honest answer to that question tells you more about the property than the photographs do.</p>
+    </div>
+    <h3>Mobile</h3>
+    <p>Three networks: One NZ, Spark and 2degrees, plus smaller providers using their coverage. Coverage is good across Wellington and patchy in the hills and rural Wairarapa &mdash; worth knowing before a day trip.</p>
+    <p><b>Start on prepay.</b> Buy a SIM at the airport or any supermarket on day one, so you have a New Zealand number for rental applications, kindergartens and the bank. Move to a contract later once you know your usage and have a local credit history &mdash; providers will ask for identification and often a local address, and neither is convenient in week one. Bring an unlocked handset if you can; buying one here is more expensive than in the UK.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>38</span></div>
+  </div>
+</section>
+<section class="page" id="p-insurance">
+  <div class="pad">
+    <p class="eyebrow">Setting up</p>
+    <h2>Insurance, <em>and what is different here</em></h2>
+    <p class="lede">Two surprises for British arrivals: car insurance is not compulsory, and the accident scheme changes what you actually need cover for.</p>
+    <h3>Car insurance is optional &mdash; and you should still buy it</h3>
+    <p>There is no legal requirement to insure a car in New Zealand. A meaningful number of drivers carry none at all, which is precisely why third-party cover matters: if someone uninsured damages your car you may have no practical way to recover it, and if you damage someone else&rsquo;s without cover the bill is yours. Third-party is inexpensive. Comprehensive is not much more on a modest car. Do not skip this because the law lets you.</p>
+    <h3>Contents insurance</h3>
+    <p>As tenants you insure your contents; the landlord insures the building. Take the natural-hazard element seriously here rather than treating it as small print &mdash; contents policies carry cover for earthquake and other natural hazard damage, and in Wellington that is not theoretical. Check what the excess is, and whether the policy pays replacement value or current value.</p>
+    <h3>Life and income protection</h3>
+    <p>This is where the accident scheme changes the maths. <b>ACC covers accidental injury for everyone in New Zealand</b>, residents and visitors alike, including treatment and a proportion of lost earnings while you cannot work. What it does not cover is illness. So income protection here is essentially illness cover, and that is a different product from the one you may have held at home.</p>
+    <p>Life cover is worth a conversation once, properly, rather than a policy bought in a hurry. Two things to check: whether any cover you hold at home still pays out with you living overseas &mdash; many do not &mdash; and what Akhil&rsquo;s employment package already includes, because health and life cover are common in New Zealand employment and you may be about to buy something twice.</p>
+    <div class="box">
+      <h4>Health insurance</h4>
+      <p>Public healthcare covers you, and private health insurance here mainly buys speed and choice for non-urgent treatment &mdash; elective surgery, specialist appointments, some diagnostics. It is common as an employment benefit. Ask what the job includes before you buy your own.</p>
+    </div>
+    <div class="who"><p>Do not buy any of this in your first fortnight. Get through arrival, then sit down once with everything on the table &mdash; car, contents, life, income, health &mdash; and buy the lot in one conversation. It is quicker and you will not double up.</p></div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>39</span></div>
+  </div>
+</section>
+<section class="page" id="p-contacts">
+  <div class="pad">
+    <p class="eyebrow">Keep this page</p>
+    <h2>Numbers to save <em>and where to go</em></h2>
+    <p class="lede">Put the first four in both your phones this week. The rest are the addresses you will actually drive to.</p>
+    <h3>Save these now</h3>
+    <div class="sub">
+      <div><b>111 &mdash; emergency</b><span>Ambulance, fire or police. Free from any phone, including a locked one. The operator will ask which service you want.</span></div>
+      <div><b>Healthline &mdash; 0800 611 116</b><span>Free health advice from a nurse, 24 hours a day, for anyone of any age. Free from mobiles. This is the number for a 2am &ldquo;is this serious?&rdquo;</span></div>
+      <div><b>PlunketLine &mdash; 0800 933 922</b><span>Free, 24/7, answered by a Plunket nurse. Advice on parenting and on children under five &mdash; sleep, feeding, behaviour, development. You do not need to be registered with Plunket to call.</span></div>
+      <div><b>Plunket appointments &mdash; 0800 184 803</b><span>Well Child checks and general enquiries, 8.30am&ndash;4.30pm weekdays. No referral needed. This is the number that books Sarah in and points you at your nearest clinic and playgroup.</span></div>
+    </div>
+    <h3>Places, with addresses</h3>
+    <div class="sub">
+      <div><b>Wellington Regional Hospital</b><span>Riddiford Street, Newtown. The emergency department is signposted from Riddiford Street and has its own entrance and parking &mdash; worth a look before you need it. Akhil will know it well within a fortnight; Lakhia should know the way in from cold.</span></div>
+      <div><b>Wellington City Council</b><span>04 499 4444, and wellington.govt.nz. The single most useful website of your first month. Rubbish and recycling days by address at <b>wellington.govt.nz/rubbish-recycling</b>; library branches and rhymetime times at <b>wcl.govt.nz</b>; community centre timetables and the events listing under &ldquo;What&rsquo;s on&rdquo;. If you land outside the city boundary, your council is Hutt City, Porirua or K&#257;piti Coast, and each runs the same tools on its own site.</span></div>
+      <div><b>Te Papa</b><span>55 Cable Street, on the waterfront. Free entry. The children&rsquo;s level is the wet-Sunday answer for the next three years.</span></div>
+      <div><b>Zealandia</b><span>53 Waiapu Road, Karori. A fenced native sanctuary ten minutes from town. Ticketed, and worth an annual pass if you land in Karori or Northland.</span></div>
+      <div><b>Otari-Wilton&rsquo;s Bush</b><span>160 Wilton Road. Native forest inside the city, free, with a canopy walkway and easy loops. The closest thing to real bush you can reach on a weeknight.</span></div>
+      <div><b>Botanic Gardens</b><span>Glenmore Street, or ride the cable car up from Lambton Quay and walk down. Playground, duck pond, rose garden.</span></div>
+    </div>
+    <p>For Sarah, ring PlunketLine. For the three of you, Healthline. Both are free, both are answered by nurses, and both will tell you honestly whether something needs a GP, an after-hours clinic or nothing at all. Using them is not making a fuss &mdash; it is what they are for.</p>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>40</span></div>
+  </div>
+</section>
+<section class="page" id="p-weekends">
+  <div class="pad">
+    <p class="eyebrow">Weekends</p>
+    <h2>Markets, beaches <em>and where to go on a Sunday</em></h2>
+    <p class="lede">Wellington is small enough that most of this is inside half an hour, and the good weekends here are cheap ones.</p>
+    <h3>Markets</h3>
+    <div class="sub">
+      <div><b>Harbourside Market</b><span>Sunday mornings at the Cable Street end of Waitangi Park, beside Te Papa. Fruit and vegetables at a fraction of supermarket prices, and the reason Wellingtonians plan their Sunday around it. Take bags and cash, and go early.</span></div>
+      <div><b>Underground Market</b><span>Saturdays under Frank Kitts Park on the waterfront. Makers, art and food rather than groceries. Half an hour, and a good pairing with the playground next door.</span></div>
+      <div><b>Newtown</b><span>Not a market so much as a street &mdash; Riddiford Street and around, where the Indian, Sri Lankan, Middle Eastern and Pacific grocers sit within a few blocks of each other. Saturday morning shop, then lunch.</span></div>
+    </div>
+    <h3>Half a day, no planning required</h3>
+    <div class="sub">
+      <div><b>Days Bay by ferry</b><span>The harbour ferry from Queens Wharf, twenty-odd minutes across the water to a beach, a playground and an ice cream. The journey is the point &mdash; Sarah will ask to do it again.</span></div>
+      <div><b>Red Rocks and the south coast</b><span>From Owhiro Bay, a flat coastal walk to a seal colony. Wild, windswept and free. Best in winter when the seals are in.</span></div>
+      <div><b>Mount Victoria</b><span>Drive or walk up for the view of the whole harbour. Fifteen minutes from town, and the shot everyone sends home.</span></div>
+      <div><b>Island Bay</b><span>Fish and chips on the seafront. A local institution rather than a tourist thing.</span></div>
+    </div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>41</span></div>
+  </div>
+</section>
+<section class="page" id="p-weekends2">
+  <div class="pad">
+    <p class="eyebrow">Weekends</p>
+    <h2>Further afield, <em>once you have a car</em></h2>
+    <p class="lede">Everything here is a day, not a holiday. The Wairarapa and the K&#257;piti Coast are the two you will do again and again.</p>
+    <h3>Day trips</h3>
+    <div class="sub">
+      <div><b>The Wairarapa</b><span>Over the Remutaka Hill, about an hour and a quarter. Martinborough is a village square ringed by vineyards; Greytown is the one for a long lunch. Castlepoint&rsquo;s lighthouse and reef is further on and worth the drive once.</span></div>
+      <div><b>The K&#257;piti Coast</b><span>Forty minutes north. Long flat beaches, easier swimming than the south coast, and Sunday markets in the small towns along the way.</span></div>
+      <div><b>The South Island</b><span>The Cook Strait ferry takes three hours and takes your car with it. Picton and the Marlborough Sounds at the other end. Book ahead in summer; the crossing itself is a proper day out.</span></div>
+    </div>
+    <div class="who"><p>The best thing about weekends here is how little they cost. A ferry, a beach and a bag of chips is a genuinely good Saturday, and it is the sort of thing you will still be doing in five years.</p></div>
+    <div class="foot"><span class="fmark"><img src="../logo-mark-original.png" alt="">Welcome to Wellington</span><span>42</span></div>
+  </div>
+</section>
+<section class="page close" id="p18">
+  <div class="pad" style="justify-content:center">
+    <p class="eyebrow on-dark">We are still here</p>
+    <h2>Nau mai, haere mai.</h2>
+    <p class="lede">Welcome. We mean it, and we are not going anywhere once you land.</p>
+    <p>Most recruiters go quiet at the airport. That is exactly when the hard part starts, so ours does not.</p>
+    <p><b>And you do not need a reason.</b> If something is not working &mdash; the house, the kindergarten, the department, a wet Tuesday in July when it all feels like a mistake &mdash; ring us. But equally, if you just want to talk to someone who knows both places, who understands what you have given up and what you are trying to build, that is reason enough on its own. You will not be interrupting and you will not be a nuisance. We would genuinely rather hear from you in month four than find out in year two that month four was hard.</p>
+    <p>Lakhia, that goes for you as much as for Akhil. Partners are the people who most often feel they have no standing to call a recruiter. You have exactly the same standing.</p>
+    <p>And if it would help either of you to speak to someone who has already done this, say the word. Akhil, someone in your own profession. Lakhia, someone who arrived as the partner. Both are more useful than anything in this pack.</p>
+    <div class="who"><p>You are not a placement to us. You are three people we have got to know, moving to the other side of the world, and we would like to still be in touch when Sarah starts school.</p></div>
+    <div class="det">
+      <span><b>Anything at all, any time</b> &middot; hello@ethicareresourcing.com</span>
+      <span><b>Telephone</b> &middot; +44 20 4626 6580</span>
+      <span><b>Everything else we publish</b> &middot; ethicareresourcing.com/resources</span>
+      <span><b>The full Wellington guide</b> &middot; ethicareresourcing.com/destinations/wellington-new-zealand</span>
+    </div>
+    <p class="fine">Prepared for Akhil, Lakhia and Sarah, August 2026. This pack is general information rather than advice on your circumstances: confirm registration with your professional council, visas and work rights with Immigration New Zealand, tax with Inland Revenue, and tenancy with Tenancy Services. Ethicare Resourcing Ltd, Company No 14646354, Office 1, One Coldbath Square, London EC1R 5HL.</p>
+  </div>
+</section>
+
+</doc-page>
+<script src="./doc-page.js"></script>
+</body>
+</html>
