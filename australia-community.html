@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Community &amp; belonging in Australia | Ethicare Resourcing</title>
+<meta name="description" content="Finding your people in Australia: faith, cultural and diaspora communities, and how diversity differs between the big cities and regional towns.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shell.css">
+<link rel="stylesheet" href="../guide-au.css">
+<link rel="stylesheet" href="../guide-mobile.css">
+<style>
+h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
+/* page-specific extras (shared bits live in guide-au.css) */
+.feature{background:var(--teal);border-radius:24px;padding:clamp(32px,4.5vw,52px);color:#fff;margin-top:4px}
+.feature .eyebrow.eyebrow{color:#EFC3AA}
+.feature h2{color:#fff}
+.feature .lead{color:rgba(255,255,255,.86);max-width:64ch}
+.feature .pts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.fpt{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:24px 24px}
+.fpt h3{color:#fff;font-size:16.5px;margin-bottom:4px}
+.fpt p{font-size:13.5px;color:rgba(255,255,255,.82);margin:0}
+@media (max-width:760px){.feature .pts{grid-template-columns:1fr}}
+
+.plist{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 24px;margin-top:40px;max-width:920px}
+.pitem{display:flex;gap:16px;align-items:flex-start}
+.pitem .pk{flex-shrink:0;width:28px;height:28px;border-radius:6px;background:var(--soft-green);display:flex;align-items:center;justify-content:center;margin-top:4px}
+.pitem .pk svg{width:16px;height:16px;stroke:var(--teal);fill:none;stroke-width:2}
+.pitem h3{font-size:16px;color:var(--green);margin-bottom:4px}
+.pitem p{font-size:14px;color:var(--muted);margin:0;line-height:1.6}
+@media (max-width:760px){.plist{grid-template-columns:1fr}}
+
+/* diversity-by-place ladder */
+.places{display:grid;gap:16px;margin-top:40px}
+.place{display:grid;grid-template-columns:210px 1fr;gap:24px;background:#fff;border:1px solid var(--mint);border-radius:14px;padding:24px 28px;align-items:start;border-left:5px solid var(--sage)}
+.place.metro{border-left-color:var(--teal)}
+.place.region{border-left-color:#A34438}
+.place.remote{border-left-color:#A34438}
+.place .lbl{display:flex;flex-direction:column;gap:8px}
+.place .lbl .tag{align-self:flex-start;font-family:var(--display);font-weight:700;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;border-radius:999px;padding:5px 12px}
+.place.metro .tag{background:var(--soft-green);color:var(--teal)}
+.place.region .tag{background:#F7F4EE;color:#A34438}
+.place.remote .tag{background:#F7F4EE;color:#A34438}
+.place .lbl h3{color:var(--teal);font-size:18px;margin:4px 0 0}
+.place .lbl .where{font-size:12.5px;color:var(--muted);font-weight:600;font-family:var(--display)}
+.place .body p{font-size:14.5px;color:var(--muted);margin:0}
+.place .body p+p{margin-top:8px}
+@media (max-width:760px){.place{grid-template-columns:1fr;gap:16px}}
+
+/* directory */
+.dir-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px 40px;margin-top:40px}
+.dir h3{font-size:16px;color:var(--green);margin-bottom:4px}
+.dir .sub{font-size:13.5px;color:var(--muted);margin-bottom:8px}
+.dir .link-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 2px;border-bottom:1px solid var(--mint);font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);min-height:48px;transition:color .15s ease}
+.dir .link-row:first-of-type{border-top:1px solid var(--mint)}
+.dir .link-row:hover{color:#A34438}
+.dir .link-row::after{content:"\2197";color:#A34438;font-size:17px;flex-shrink:0}
+.dir-note{font-size:13px;color:var(--muted);max-width:64ch;margin-top:24px;padding-top:16px;border-top:1px solid var(--mint)}
+.crisis{margin-top:24px;background:#fff;border:1px solid var(--mint);border-top:3px solid var(--teal);border-radius:14px;padding:24px 26px 26px}
+.crisis .cl{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--teal);margin-bottom:4px}
+.crisis .ci{font-size:14.5px;color:var(--muted);line-height:1.6;margin:0 0 16px;max-width:64ch}
+.crisis-rows{display:grid;grid-template-columns:1fr 1fr;gap:24px 24px}
+.crisis-row .num{display:block;font-family:var(--display);font-weight:700;font-size:clamp(24px,2.8vw,30px);line-height:1.1;letter-spacing:-.015em;color:var(--teal);text-decoration:none}
+.crisis-row a.num:hover{color:#A34438}
+.crisis-row .nm{font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--teal);margin-top:8px}
+.crisis-row .d{font-size:14px;color:var(--muted);line-height:1.55;margin-top:4px}
+@media (max-width:620px){.crisis-rows{grid-template-columns:1fr;gap:24px}}
+@media (max-width:880px){.dir-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.dir-grid{grid-template-columns:1fr}}
+
+/* communities & support networks — curated directory */
+.cnet{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ctheme{background:#fff;border:1px solid var(--mint);border-top:4px solid var(--sage);border-radius:20px;padding:26px 30px 14px}
+.ctheme.wide{grid-column:1 / -1;background:var(--soft-green)}
+.ct-kick{display:inline-block;font-family:var(--display);font-weight:700;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:#A34438}
+.ctheme h3{font-size:19px;color:var(--teal);margin:8px 0 4px;letter-spacing:-.01em}
+.ctheme .desc{font-size:13.5px;color:var(--muted);margin:0 0 8px;line-height:1.6;max-width:64ch}
+.ct-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 40px;margin-top:4px}
+.ct-block{min-width:0}
+.ct-sub{font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.02em;color:var(--green);margin:8px 0 0;padding-top:6px}
+.ct-links{display:flex;flex-direction:column}
+.clink{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 2px;border-bottom:1px solid var(--mint);min-height:46px;text-decoration:none;transition:color .15s ease}
+.ctheme.wide .clink{border-bottom-color:rgba(12,95,96,.14)}
+.clink .nm{font-family:var(--display);font-weight:600;font-size:14px;color:var(--green);line-height:1.3}
+.clink .nm small{display:block;font-family:'Manrope',sans-serif;font-weight:500;font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:0}
+.clink::after{content:"\2197";color:#A34438;font-size:16px;flex-shrink:0;transition:transform .15s ease}
+.clink:hover .nm{color:#A34438}
+.clink:hover::after{transform:translate(2px,-2px)}
+@media (max-width:820px){.ct-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.cnet{grid-template-columns:1fr}}
+@media (max-width:560px){.ct-grid{grid-template-columns:1fr}}
+</style>
+<link rel="canonical" href="https://ethicareresourcing.com/guides/australia-community">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Religion, community &amp; belonging in Australia | Ethicare Resourcing">
+<meta property="og:description" content="Finding your people in Australia: faith, cultural and diaspora communities, and how diversity differs between the big cities and regional towns.">
+<meta property="og:url" content="https://ethicareresourcing.com/guides/australia-community">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Religion, community &amp; belonging in Australia | Ethicare Resourcing">
+<meta name="twitter:description" content="Finding your people in Australia: faith, cultural and diaspora communities, and how diversity differs between the big cities and regional towns.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="au-orange-accent">.hero .eyebrow{color:#EFC3AA}.hero .eyebrow::before{background:#EFC3AA}.eyebrow{color:#A34438}.eyebrow::before{background:#A6C84A}</style>
+<style id="au-palette-tune">:root{--teal:#02615D;--green:#02615D;--sage:#02615D}h1,h2,h3{color:var(--green)}</style>
+<link rel="stylesheet" href="../hero.css">
+<style id="au-hero-teal"></style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
+<link rel="stylesheet" href="../guide-print.css">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Australia","item":"https://ethicareresourcing.com/australia"},{"@type":"ListItem","position":2,"name":"Guides & Resources","item":"https://ethicareresourcing.com/resources"},{"@type":"ListItem","position":3,"name":"Religion, community & belonging"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What's it like as a person of colour or visible minority in a small town?","acceptedAnswer":{"@type":"Answer","text":"It depends a lot on the town, and we'll always give you an honest read on a specific one. In the big cities, being from anywhere is completely ordinary and most people feel very much at home. In small country towns and remote areas, which are predominantly Anglo-Australian, you'll be more visible, and while most country Australians are warm and welcoming, a minority of people do experience staring, clumsy assumptions or occasional prejudice. It's not the norm, but it's real. For many single clinicians on a fixed contract it's a non-issue; for a family putting down roots it can matter more. If it's a concern, a diverse regional city or a well-chosen city suburb is often a better fit than a remote posting, and we'll help you weigh it up."}},{"@type":"Question","name":"Will I be able to practise my religion freely?","acceptedAnswer":{"@type":"Answer","text":"Yes. Australia has freedom of religion, and active communities exist across all the major faiths, especially in the cities. Places of worship, religious schools and cultural associations are well established in metro areas. In regional and remote places the nearest mosque, temple or gurdwara may be a long way off, so if regular worship is important to you, it's worth checking what's available in a particular town before you move."}},{"@type":"Question","name":"Is there a community of people from my country?","acceptedAnswer":{"@type":"Answer","text":"Almost certainly, particularly in and around the capitals. Australia's healthcare workforce is highly international, with established communities from the UK, Ireland, India, the Philippines, South Africa, China, the Middle East and many more, with social groups, festivals and online networks. These cluster in the cities, so even if your role is regional, many people choose a city base or visit regularly to stay connected."}},{"@type":"Question","name":"How welcoming is Australia to LGBTQ+ people?","acceptedAnswer":{"@type":"Answer","text":"Marriage equality has been law since 2017, anti-discrimination protections are nationwide, and the cities have visible, thriving communities and major events. Smaller towns are often quieter and more conservative in feel, but the legal protections apply everywhere. As with everything on this page, we're happy to be candid about what a particular community is likely to feel like."}},{"@type":"Question","name":"Can you help me choose somewhere I'll actually belong?","acceptedAnswer":{"@type":"Answer","text":"That's one of the most valuable things we do. Tell us your background, your faith if it's part of your life, what matters to your family and the kind of role you want, and we'll be honest about which places are likely to suit, and which probably won't. The goal is a move that lasts, not just a job that's filled."}}]}]</script>
+<link rel="stylesheet" href="../disclose.css">
+<link rel="stylesheet" href="../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia" aria-current="page">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<!-- ============ HERO ============ -->
+<header class="hero au" data-screen-label="AU community · hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="/australia">Australia</a><span class="sep">›</span>
+        <a href="/resources">Guides &amp; Resources</a><span class="sep">›</span>
+        <span class="here">Religion, community &amp; belonging</span>
+      </nav>
+      <span class="eyebrow">Reference guide</span>
+      <h1>Finding your people<br>in Australia</h1>
+      <p class="hero-sub">A new job is only half of a move. The other half is belonging: faith, culture, friendship and a taste of home.</p>
+      <div class="btn-row">
+        <a href="#place" class="btn btn-primary">Diversity by place</a>
+        <a href="/contact" class="btn btn-ghost">Ask us about community</a>
+      </div>
+    </div>
+    <div class="hero-badge"><img class="hero-illus" decoding="async" fetchpriority="high" src="../assets/heroes/community.svg" alt="A church, a mosque and a domed temple side by side" width="400" height="300"></div>
+  </div>
+</header>
+
+<!-- ============ JOURNEY BAND ============ -->
+<nav class="journey-band" aria-label="The Australia relocation journey">
+  <div class="wrap">
+    <p class="jb-title">Your Australia journey · <b>jump in anywhere</b></p>
+    <ol class="timeline">
+      <li class="tl"><a href="/australia"><i>1</i><span class="lab">Imagine the possibilities</span></a></li>
+      <li class="tl"><a href="/move#s2"><i>2</i><span class="lab">Choose your destination</span></a></li>
+      <li class="tl"><a href="/where-would-we-live"><i>3</i><span class="lab">Find your place</span></a></li>
+      <li class="tl"><a href="/guides/australia-registration"><i>4</i><span class="lab">Can I work there?</span></a></li>
+      <li class="tl"><a href="/is-it-worth-it"><i>5</i><span class="lab">Make the numbers work</span></a></li>
+      <li class="tl"><a href="/jobs/"><i>6</i><span class="lab">Find the right role</span></a></li>
+      <li class="tl"><a href="/move"><i>7</i><span class="lab">Plan your move</span></a></li>
+      <li class="tl"><a href="/settling-in"><i>8</i><span class="lab">Settle into life</span></a></li>
+    </ol>
+    <p class="jb-current">Reference guide · Religion, community &amp; belonging</p>
+  </div>
+</nav>
+
+<!-- ============ PAGE AT A GLANCE ============ -->
+<section class="glance-wrap">
+  <div class="wrap">
+    <nav class="glance" aria-label="On this page">
+      <div class="gl-top">
+        <span class="eyebrow">Page at a glance</span>
+        <span class="note">Jump to any part. This guide is made to return to.</span>
+      </div>
+      <ol>
+        <li><a href="#faith">Faith &amp; worship</a></li>
+        <li><a href="#communities">Cultural communities</a></li>
+        <li><a href="#place">Diversity by place</a></li>
+        <li><a href="#firstnations">First Nations &amp; a fair go</a></li>
+        <li><a href="#inclusion">An inclusive welcome</a></li>
+        <li><a href="#taste">A taste of home</a></li>
+        <li><a href="#finding">Finding your community</a></li>
+        <li><a href="#links">Communities &amp; networks</a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="section">
+  <div class="wrap reading">
+    <span class="eyebrow">Why this matters</span>
+    <h2>Belonging is what makes a move last</h2>
+    <p class="lead">The clinicians who settle for good aren&rsquo;t the ones with the biggest salary. They&rsquo;re the ones who found their people &mdash; a place to worship, a familiar festival, a friend who cooks the food of home.</p>
+    <p>Australia is one of the most multicultural countries in the world. Almost half its people were born overseas or have a parent who was, and the big cities are a true mix of cultures, faiths and languages from every corner of the earth. The healthcare workforce itself is wonderfully international.</p>
+    <p>But here&rsquo;s the honest part, and it&rsquo;s the most important thing on this page: <strong>that diversity is not spread evenly across the country.</strong> The capitals are among the most cosmopolitan cities anywhere; large regional cities are reasonably mixed; and small country towns and the remote outback are predominantly Anglo-Australian, where a newcomer who looks or worships differently can feel far more visible. None of that means a place is unwelcoming, but it changes the day-to-day, and you deserve to know before you choose where to live.</p>
+    <div class="reassure">
+      <p>Our promise in this guide is simple: <strong>we&rsquo;ll tell you the truth about a town before you move there.</strong> Where your community already exists, what life tends to feel like for people from your background, and whether somewhere is likely to suit your family, honestly, with no pressure either way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAITH & WORSHIP ============ -->
+<section class="section" id="faith" data-screen-label="AU community · faith">
+  <div class="wrap">
+    <span class="eyebrow">Faith &amp; places of worship</span>
+    <h2>A place to worship, whatever your faith</h2>
+    <p class="lead">Freedom of religion is protected in law, and there are active communities across all the major faiths. In the cities especially you&rsquo;ll find established congregations across many traditions, though in smaller towns the choice narrows, sometimes sharply.</p>
+    <div class="weigh-grid">
+      <div class="weigh"><span class="k">Christian</span><h3>Churches of every tradition</h3><p>From Catholic, Anglican and Uniting to Pentecostal, Orthodox and a wide range of ethnic-specific congregations, Christian communities are found in every city and most towns: many with services in languages other than English.</p></div>
+      <div class="weigh"><span class="k">Muslim</span><h3>Mosques &amp; Islamic centres</h3><p>Long-established Muslim communities in the major cities run mosques, Islamic centres and schools, and halal food is easy to find. In regional and remote areas, mosques and halal options are far fewer and worth checking before you move.</p></div>
+      <div class="weigh"><span class="k">Hindu</span><h3>Temples &amp; cultural life</h3><p>A large, active Hindu community supports temples and cultural associations in the cities, with festivals such as Diwali celebrated publicly, often as major city-wide events.</p></div>
+      <div class="weigh"><span class="k">Sikh</span><h3>Gurdwaras &amp; community</h3><p>A fast-growing Sikh population maintains gurdwaras across the cities and a number of regional centres, offering worship, langar and a strong, practical welcome for new arrivals.</p></div>
+      <div class="weigh"><span class="k">Buddhist</span><h3>Temples &amp; meditation</h3><p>Buddhist temples and meditation centres reflect Australia&rsquo;s diverse Asian communities, welcoming both heritage practitioners and newcomers to the practice.</p></div>
+      <div class="weigh"><span class="k">Jewish &amp; others</span><h3>Settled communities</h3><p>Well-established Jewish communities are concentrated in Sydney and Melbourne, with synagogues, schools and kosher food. Many other faith communities are present too, mostly in the larger cities.</p></div>
+    </div>
+    <div class="reassure">
+      <p>Faith communities are often the fastest route to friendship and practical help when you arrive: many run welcome groups, share local knowledge and lend a hand with the early settling-in. It&rsquo;s worth reaching out before you even land. If your faith matters to you, tell us; it can shape which town is the right one.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CULTURAL COMMUNITIES ============ -->
+<section class="section" id="communities" data-mobile-collapse data-mc-label="See the cultural communities">
+  <div class="wrap">
+    <span class="eyebrow">Cultural &amp; diaspora communities</span>
+    <h2>Chances are, your community is already here, in the cities</h2>
+    <p class="lead">Healthcare professionals come here from all over the world, and communities form where people settle &mdash; mostly around the capitals. Knowing where yours is established can help when you&rsquo;re choosing a base.</p>
+    <div class="family-grid">
+      <div class="fcard"><h3>Established diaspora networks</h3><p>Large, active communities from the UK, Ireland, India, the Philippines, South Africa, China, Vietnam, the Middle East and across the Pacific mean cultural associations, social events and familiar faces are rarely far away in the cities.</p></div>
+      <div class="fcard"><h3>Professional peer groups</h3><p>Because so many clinicians have made this exact move, from the UK, South Africa, the UAE and beyond, you&rsquo;ll find others in your profession who share your background and understand both the work and the journey.</p></div>
+      <div class="fcard"><h3>Cultural festivals &amp; events</h3><p>Diwali, Eid, Lunar New Year, Holi, Vaisakhi and many more are celebrated openly and often city-wide: public, joyful occasions that make it easy to stay connected to your heritage and share it.</p></div>
+      <div class="fcard"><h3>Community language &amp; schooling</h3><p>Many communities run weekend language and culture schools so children stay connected to their heritage language and traditions while they grow up as young Australians.</p></div>
+      <div class="fcard"><h3>Social media &amp; local groups</h3><p>Active online groups for almost every nationality and city are where newcomers ask questions, find housing, swap recommendations and arrange the first real-life catch-ups.</p></div>
+      <div class="fcard"><h3>Sport &amp; shared interests</h3><p>Cricket, football, netball, cultural dance, choirs and hobby clubs are some of the easiest, most natural ways to meet people who share your interests and, often, your background.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIVERSITY BY PLACE (the honest section) ============ -->
+<section class="section" id="place" data-screen-label="AU community · diversity by place">
+  <div class="wrap">
+    <span class="eyebrow">The honest part</span>
+    <h2>Diversity changes enormously by place</h2>
+    <p class="lead">Australia is diverse on average, and the average hides a wide gap between a city suburb and a remote town. If your faith or culture is central to your life, where you settle matters as much as the job.</p>
+    <div class="places">
+      <div class="place metro">
+        <div class="lbl"><span class="tag">Most diverse</span><h3>The big cities</h3><span class="where">Sydney · Melbourne · Perth · Brisbane · Adelaide</span></div>
+        <div class="body">
+          <p>Among the most multicultural cities on earth. In many suburbs the majority of residents were born overseas, you&rsquo;ll hear dozens of languages, and almost every faith, cuisine and community is well represented. For most people from any background, the capitals feel cosmopolitan and easy to belong in.</p>
+          <p>This is where established diaspora communities, places of worship, cultural grocers and international schools are concentrated, and where being from somewhere else is completely ordinary.</p>
+        </div>
+      </div>
+      <div class="place region">
+        <div class="lbl"><span class="tag">Mixed</span><h3>Large regional cities</h3><span class="where">e.g. Newcastle · Geelong · Townsville · Cairns · Toowoomba</span></div>
+        <div class="body">
+          <p>The bigger regional centres are reasonably diverse and growing more so, partly because healthcare and universities draw people from everywhere. You&rsquo;ll usually find at least one mosque, temple or cultural association, some international groceries, and other migrant families, though less choice than a capital, and it varies a lot from town to town.</p>
+        </div>
+      </div>
+      <div class="place remote">
+        <div class="lbl"><span class="tag">Least diverse</span><h3>Small towns &amp; the remote outback</h3><span class="where">Inland NSW/QLD/SA · remote WA &amp; NT communities</span></div>
+        <div class="body">
+          <p>Small country towns and remote areas are predominantly Anglo-Australian, alongside significant Aboriginal and Torres Strait Islander populations in parts of the outback. There may be no mosque, temple or gurdwara for hundreds of kilometres, little or no halal or cultural food, and you may be one of very few people of your background in town.</p>
+          <p><strong>Being honest:</strong> most people find country Australians warm, direct and welcoming, and many newcomers thrive in the close-knit pace. But as a visible minority you will be more conspicuous, and a minority of people do encounter staring, awkward assumptions or, occasionally, outright prejudice. It&rsquo;s not the norm, but it&rsquo;s real, and it weighs differently for a family than for a single clinician on a fixed contract.</p>
+        </div>
+      </div>
+    </div>
+    <div class="reassure">
+      <p>So a Black clinician from South Africa, a Muslim family from the UK or a Hindu radiographer from India might love a busy Perth or Melbourne suburb, and find a tiny outback town isolating. <strong>That&rsquo;s exactly the kind of trade-off we&rsquo;ll talk through with you, town by town, before you accept anything.</strong> Sometimes the answer is a regional city rather than a remote one; sometimes it&rsquo;s choosing the suburb carefully. There&rsquo;s almost always a way to get both the role and the community, it just takes an honest conversation first.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIRST NATIONS & A FAIR GO ============ -->
+<section class="section" id="firstnations" data-mobile-collapse data-mc-label="Read about First Nations &amp; the fair go">
+  <div class="wrap reading">
+    <span class="eyebrow">The culture you&rsquo;re joining</span>
+    <h2>First Nations Australia &amp; the &lsquo;fair go&rsquo;</h2>
+    <p class="lead">Australia has the world&rsquo;s oldest continuous living cultures, cared for by Aboriginal and Torres Strait Islander peoples for more than 60,000 years. In remote and regional areas you may work closely with Aboriginal communities.</p>
+    <p>In healthcare this matters practically. Many services place real emphasis on <strong>cultural safety</strong>: care that respects a patient&rsquo;s culture, history and identity, and you may take part in cultural awareness training, hear an <em>Acknowledgement of Country</em> at the start of meetings, or work alongside Aboriginal Health Workers. You don&rsquo;t need to know all of this on arrival; a willingness to learn and to show respect goes a very long way, and it&rsquo;s one of the quiet privileges of working here.</p>
+    <p>Australians talk a lot about a <strong>&ldquo;fair go&rdquo;</strong>, the idea that everyone deserves a fair chance regardless of background. It&rsquo;s a genuine part of the national character and you&rsquo;ll feel it in how flat, first-name and unpretentious workplaces tend to be. Like any ideal it isn&rsquo;t lived out perfectly everywhere, but it&rsquo;s a real and widely-held value, and it sits behind much of the warmth newcomers describe.</p>
+    <div class="reassure">
+      <p>If you&rsquo;re considering a remote role with a large Aboriginal community, we&rsquo;ll talk you through what the work and the cultural context are like, so you arrive prepared and respectful rather than surprised.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AN INCLUSIVE WELCOME ============ -->
+<section class="section" id="inclusion" data-mobile-collapse data-mc-label="Read about the welcome">
+  <div class="wrap">
+    <div class="feature">
+      <span class="eyebrow">An inclusive welcome</span>
+      <h2>A country that welcomes you as you are</h2>
+      <p class="lead">Australia has strong anti-discrimination law covering race, religion, sex, sexual orientation and disability, at work and in everyday life. The protections apply everywhere; the lived experience is warmest in the cities.</p>
+      <div class="pts">
+        <div class="fpt"><h3>LGBTQ+ communities</h3><p>Marriage equality has been law since 2017, protections are nationwide, and the cities have visible, thriving communities and major events such as Sydney&rsquo;s Mardi Gras. Smaller towns are often quieter and more conservative, but the law protects you everywhere.</p></div>
+        <div class="fpt"><h3>Equality at work</h3><p>Workplaces, including across the health system, take inclusion and anti-discrimination seriously under the Fair Work framework. You should expect to be treated with respect and fairness as a matter of course.</p></div>
+        <div class="fpt"><h3>Families of every shape</h3><p>Single parents, blended families, same-sex parents and multi-generational households are all an ordinary, accepted part of Australian life.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ A TASTE OF HOME ============ -->
+<section class="section" id="taste" data-mobile-collapse data-mc-label="See a taste of home">
+  <div class="wrap">
+    <span class="eyebrow">A taste of home</span>
+    <h2>The small comforts that matter most</h2>
+    <p class="lead">It&rsquo;s the little things that catch people out: the spice you can&rsquo;t find, the snack from childhood. In the cities most are surprisingly close; in the regions, most people end up planning ahead and ordering online.</p>
+    <div class="family-grid">
+      <div class="fcard"><h3>Food &amp; groceries</h3><p>The big supermarkets, Woolworths, Coles and ALDI, carry growing world-food aisles, and the cities have large Asian, Indian, Middle Eastern, African and European grocers. Halal, kosher and a huge range of cultural foods are easy to find in metro areas; online ordering fills most gaps elsewhere.</p></div>
+      <div class="fcard"><h3>Restaurants &amp; community kitchens</h3><p>From South Indian and Filipino to Lebanese, Vietnamese, Korean and beyond, city restaurants serve the real thing, and community events where home cooking is shared generously are some of the best ways to meet people.</p></div>
+      <div class="fcard"><h3>Festivals &amp; traditions</h3><p>The celebrations you grew up with are very likely marked here too, often publicly in the cities. Keeping your own traditions alive, and being invited into others&rsquo;, is part of what makes life here rich.</p></div>
+    </div>
+    <div class="family-grid" style="margin-top:24px">
+      <div class="fcard">
+        <h3>Halal</h3>
+        <p>Halal food is widely available in the cities: many mainstream supermarkets and butchers stock halal-certified meat, and metro areas have dedicated halal butchers, grocers and restaurants. In regional and remote areas the choice narrows considerably, so it&rsquo;s worth checking what&rsquo;s available in a specific town before you commit.</p>
+      </div>
+      <div class="fcard">
+        <h3>Kosher</h3>
+        <p>Kosher options are concentrated in Sydney and Melbourne, which have kosher stores, butchers and delis alongside established Jewish communities. Elsewhere it&rsquo;s mostly online or through the local community, the peak Jewish bodies in the <a href="#links" style="color:var(--teal);font-weight:600">useful links</a> are the best people to point you to current suppliers.</p>
+      </div>
+      <div class="fcard">
+        <h3>African &amp; South African</h3>
+        <p>Biltong, boerewors and braai staples, plus West and East African groceries, are available through specialist stores in the cities and a number of online retailers that ship Australia-wide, a real comfort if you&rsquo;re moving from South Africa or elsewhere on the continent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINDING YOUR COMMUNITY ============ -->
+<section class="section" id="finding" data-mobile-collapse data-mc-label="How to find your community">
+  <div class="wrap">
+    <span class="eyebrow">Practical first steps</span>
+    <h2>How to find your people, quickly</h2>
+    <p class="lead">Community rarely just appears, but a little intention in your first weeks makes all the difference. These are the things we suggest to every clinician we place, and they work.</p>
+    <div class="plist">
+      <div class="pitem"><span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><div><h3>Connect before you arrive</h3><p>Search online for groups linked to your nationality, faith or city. Introducing yourself early means a friendly contact or two before you even land.</p></div></div>
+      <div class="pitem"><span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><div><h3>Choose your suburb with care</h3><p>In a big city the suburb shapes everything: community, schools, places of worship, the food shops. We&rsquo;ll help you pick one that fits your family, not just your commute.</p></div></div>
+      <div class="pitem"><span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><div><h3>Use your workplace</h3><p>Colleagues are often your first community, and many have made the same move. Ask them where to worship, shop and gather, they&rsquo;ll know.</p></div></div>
+      <div class="pitem"><span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><div><h3>Join one regular thing</h3><p>A weekly class, sports team, choir or place of worship gives your week an anchor and the same faces each time, which is how acquaintances become friends.</p></div></div>
+      <div class="pitem"><span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><div><h3>Bring your culture with you</h3><p>Cook for new neighbours, share your festivals, contribute what&rsquo;s yours. Belonging flows both ways, and people love being welcomed into something new.</p></div></div>
+      <div class="pitem"><span class="pk"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><div><h3>Ask us</h3><p>We know the makeup of the towns we place people in, and we&rsquo;ll be honest about where you&rsquo;re likely to find your community, and where you might not.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMUNITIES & SUPPORT NETWORKS ============ -->
+<section class="section" id="links" data-screen-label="AU community · communities &amp; support networks">
+  <div class="wrap">
+    <span class="eyebrow">Communities &amp; support networks</span>
+    <h2>A curated directory to help you belong</h2>
+    <p class="lead">The job is one part of it. The rest is finding your people, keeping your traditions and knowing where to turn &mdash; so we&rsquo;ve gathered those networks and services in one place.</p>
+
+    <div class="cnet">
+
+      <!-- Professional communities (wide) -->
+      <div class="ctheme wide">
+        <span class="ct-kick">Your profession</span>
+        <h3>Professional communities</h3>
+        <p class="desc">Connect with clinicians who&rsquo;ve already made the move. These groups are a good place to ask the practical questions, compare notes and start building your network before you even arrive, a quick search surfaces the most active communities in your field.</p>
+        <div class="ct-grid">
+          <div class="ct-block">
+            <div class="ct-sub">Doctors</div>
+            <div class="ct-links">
+              <a class="clink" href="https://www.facebook.com/search/groups/?q=uk%20doctors%20in%20australia" target="_blank" rel="noopener"><span class="nm">UK Doctors in Australia</span></a>
+              <a class="clink" href="https://www.facebook.com/search/groups/?q=doctors%20in%20australia" target="_blank" rel="noopener"><span class="nm">Doctors in Australia</span></a>
+            </div>
+          </div>
+          <div class="ct-block">
+            <div class="ct-sub">Nurses</div>
+            <div class="ct-links">
+              <a class="clink" href="https://www.facebook.com/search/groups/?q=uk%20nurses%20in%20australia" target="_blank" rel="noopener"><span class="nm">UK Nurses in Australia</span></a>
+              <a class="clink" href="https://www.facebook.com/search/groups/?q=nurses%20in%20australia" target="_blank" rel="noopener"><span class="nm">Nurses in Australia</span></a>
+            </div>
+          </div>
+          <div class="ct-block">
+            <div class="ct-sub">Medical imaging</div>
+            <div class="ct-links">
+              <a class="clink" href="https://www.facebook.com/search/groups/?q=radiographers%20australia" target="_blank" rel="noopener"><span class="nm">Radiographers Australia</span></a>
+              <a class="clink" href="https://www.facebook.com/search/groups/?q=sonographers%20australia" target="_blank" rel="noopener"><span class="nm">Sonographers Australia</span></a>
+            </div>
+          </div>
+          <div class="ct-block">
+            <div class="ct-sub">Allied health</div>
+            <div class="ct-links">
+              <a class="clink" href="https://www.facebook.com/search/groups/?q=physiotherapists%20in%20australia" target="_blank" rel="noopener"><span class="nm">Physiotherapists in Australia</span></a>
+              <a class="clink" href="https://www.facebook.com/search/groups/?q=occupational%20therapists%20australia" target="_blank" rel="noopener"><span class="nm">Occupational Therapists Australia</span></a>
+            </div>
+          </div>
+          <div class="ct-block">
+            <div class="ct-sub">General</div>
+            <div class="ct-links">
+              <a class="clink" href="https://www.facebook.com/search/groups/?q=international%20healthcare%20professionals%20australia" target="_blank" rel="noopener"><span class="nm">International Healthcare Professionals Australia</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Diaspora communities -->
+      <div class="ctheme">
+        <span class="ct-kick">Your people</span>
+        <h3>Diaspora communities</h3>
+        <p class="desc">Find your community before you even arrive: people who share your language, culture and the experience of moving.</p>
+        <div class="ct-links">
+          <a class="clink" href="https://britishexpats.com/forum/australia-54/" target="_blank" rel="noopener"><span class="nm">British Expats · Australia</span></a>
+          <a class="clink" href="https://www.internations.org/australia-expats" target="_blank" rel="noopener"><span class="nm">InterNations Australia</span></a>
+          <a class="clink" href="https://www.facebook.com/groups/britsmovingtoaustralia/" target="_blank" rel="noopener"><span class="nm">Brits Moving to Australia</span></a>
+          <a class="clink" href="https://www.facebook.com/search/groups/?q=south%20africans%20in%20australia" target="_blank" rel="noopener"><span class="nm">South Africans in Australia</span></a>
+          <a class="clink" href="https://www.facebook.com/search/groups/?q=indians%20in%20australia" target="_blank" rel="noopener"><span class="nm">Indians in Australia</span></a>
+          <a class="clink" href="https://www.facebook.com/search/groups/?q=filipinos%20in%20australia" target="_blank" rel="noopener"><span class="nm">Filipinos in Australia</span></a>
+        </div>
+      </div>
+
+      <!-- Festivals & cultural events -->
+      <div class="ctheme">
+        <span class="ct-kick">What&rsquo;s on</span>
+        <h3>Festivals &amp; cultural events</h3>
+        <p class="desc">Celebrate your own culture and discover Australia&rsquo;s. There&rsquo;s something happening all year round.</p>
+        <div class="ct-links">
+          <a class="clink" href="https://www.australia.com/en/events.html" target="_blank" rel="noopener" target="_blank" rel="noopener"><span class="nm">What&rsquo;s On · Australia</span></a>
+          <a class="clink" href="https://www.sydneyfestival.org.au/" target="_blank" rel="noopener"><span class="nm">Sydney Festival</span></a>
+          <a class="clink" href="https://whatson.melbourne.vic.gov.au/" target="_blank" rel="noopener"><span class="nm">Melbourne · What&rsquo;s On</span></a>
+          <a class="clink" href="https://www.harmony.gov.au/" target="_blank" rel="noopener"><span class="nm">Harmony Week</span></a>
+          <a class="clink" href="https://www.naidoc.org.au/" target="_blank" rel="noopener"><span class="nm">NAIDOC Week</span></a>
+        </div>
+      </div>
+
+      <!-- Language & cultural schools -->
+      <div class="ctheme">
+        <span class="ct-kick">For the family</span>
+        <h3>Language &amp; cultural schools</h3>
+        <p class="desc">Help your children stay connected to their heritage language and culture as they grow up here.</p>
+        <div class="ct-links">
+          <a class="clink" href="https://communitylanguages.org.au/" target="_blank" rel="noopener"><span class="nm">Community Languages Australia</span></a>
+          <a class="clink" href="https://www.sbs.com.au/language/en" target="_blank" rel="noopener"><span class="nm">SBS Languages</span></a>
+          <a class="clink" href="https://www.myschool.edu.au/" target="_blank" rel="noopener"><span class="nm">My School</span></a>
+          <a class="clink" href="https://www.education.gov.au/" target="_blank" rel="noopener"><span class="nm">Australian Government · Education</span></a>
+        </div>
+      </div>
+
+      <!-- Local & social groups -->
+      <div class="ctheme">
+        <span class="ct-kick">Meeting people</span>
+        <h3>Local &amp; social groups</h3>
+        <p class="desc">One of the easiest ways to feel at home is to get involved locally. Find people who share your interests.</p>
+        <div class="ct-links">
+          <a class="clink" href="https://www.meetup.com/en-AU/" target="_blank" rel="noopener"><span class="nm">Meetup Australia</span></a>
+          <a class="clink" href="https://www.eventbrite.com.au/" target="_blank" rel="noopener"><span class="nm">Eventbrite Australia</span></a>
+          <a class="clink" href="https://www.internations.org/australia-expats" target="_blank" rel="noopener"><span class="nm">InterNations Australia</span></a>
+          <a class="clink" href="https://www.facebook.com/groups/" target="_blank" rel="noopener"><span class="nm">Facebook local groups</span></a>
+        </div>
+      </div>
+
+      <!-- Sport & shared interests -->
+      <div class="ctheme">
+        <span class="ct-kick">Getting involved</span>
+        <h3>Sport &amp; shared interests</h3>
+        <p class="desc">Joining a local club is one of the quickest ways to make friends, stay active and become part of your community.</p>
+        <div class="ct-links">
+          <a class="clink" href="https://www.parkrun.com.au/" target="_blank" rel="noopener"><span class="nm">parkrun Australia</span></a>
+          <a class="clink" href="https://www.playhq.com/" target="_blank" rel="noopener"><span class="nm">PlayHQ · community sport</span></a>
+          <a class="clink" href="https://www.sportaus.gov.au/" target="_blank" rel="noopener"><span class="nm">Sport Australia</span></a>
+          <a class="clink" href="https://scouts.com.au/" target="_blank" rel="noopener"><span class="nm">Scouts Australia</span></a>
+          <a class="clink" href="https://www.girlguides.org.au/" target="_blank" rel="noopener"><span class="nm">Girl Guides Australia</span></a>
+        </div>
+      </div>
+
+      <!-- LGBTQIA+ communities -->
+      <div class="ctheme">
+        <span class="ct-kick">Everyone belongs</span>
+        <h3>LGBTQIA+ communities</h3>
+        <p class="desc">Australia is one of the world&rsquo;s most LGBTQIA+-inclusive countries, with welcoming communities, professional networks and events in every major city.</p>
+        <div class="ct-links">
+          <a class="clink" href="https://www.mardigras.org.au/" target="_blank" rel="noopener"><span class="nm">Sydney Gay &amp; Lesbian Mardi Gras</span></a>
+          <a class="clink" href="https://www.prideinhealth.com.au/" target="_blank" rel="noopener"><span class="nm">Pride in Health + Wellbeing<small>Inclusive healthcare</small></span></a>
+          <a class="clink" href="https://qlife.org.au/" target="_blank" rel="noopener"><span class="nm">QLife<small>National peer support &amp; referral</small></span></a>
+          <a class="clink" href="https://www.rainbowfamilies.com.au/" target="_blank" rel="noopener"><span class="nm">Rainbow Families Australia<small>Support for LGBTQIA+ families</small></span></a>
+          <a class="clink" href="https://interpride.org/" target="_blank" rel="noopener"><span class="nm">InterPride</span></a>
+        </div>
+      </div>
+
+      <!-- Support networks: faith, accessibility & wellbeing (wide) -->
+      <div class="ctheme wide">
+        <span class="ct-kick">When you need support</span>
+        <h3>Faith, accessibility &amp; wellbeing</h3>
+        <p class="desc">Moving abroad doesn&rsquo;t mean leaving your faith or your support behind. Places of worship, accessibility services and mental-health support, the networks that help you look after yourself and the people you love.</p>
+        <div class="ct-grid">
+          <div class="ct-block">
+            <div class="ct-sub">Faith &amp; worship</div>
+            <div class="ct-links">
+              <a class="clink" href="https://www.ncca.org.au/" target="_blank" rel="noopener"><span class="nm">National Council of Churches</span></a>
+              <a class="clink" href="https://www.churchesaustralia.com.au/" target="_blank" rel="noopener"><span class="nm">Find a Church</span></a>
+              <a class="clink" href="https://www.anic.org.au/" target="_blank" rel="noopener"><span class="nm">Australian National Imams Council</span></a>
+              <a class="clink" href="https://hinducouncil.com.au/" target="_blank" rel="noopener"><span class="nm">Hindu Council of Australia</span></a>
+              <a class="clink" href="https://www.sikhcouncil.org.au/" target="_blank" rel="noopener"><span class="nm">Sikh Council of Australia</span></a>
+              <a class="clink" href="https://www.ecaj.org.au/" target="_blank" rel="noopener"><span class="nm">Executive Council of Australian Jewry</span></a>
+              <a class="clink" href="https://buddhistcouncil.org/" target="_blank" rel="noopener"><span class="nm">Buddhist Council of NSW</span></a>
+            </div>
+          </div>
+          <div class="ct-block">
+            <div class="ct-sub">Accessibility &amp; disability</div>
+            <div class="ct-links">
+              <a class="clink" href="https://www.disabilitygateway.gov.au/" target="_blank" rel="noopener"><span class="nm">Disability Gateway<small>Government information &amp; services</small></span></a>
+              <a class="clink" href="https://pwd.org.au/" target="_blank" rel="noopener"><span class="nm">People with Disability Australia</span></a>
+              <a class="clink" href="https://www.carersaustralia.com.au/" target="_blank" rel="noopener"><span class="nm">Carers Australia</span></a>
+              <a class="clink" href="https://www.disabilitysportsaustralia.org.au/" target="_blank" rel="noopener"><span class="nm">Disability Sports Australia</span></a>
+            </div>
+          </div>
+          <div class="ct-block">
+            <div class="ct-sub">Wellbeing &amp; mental health</div>
+            <div class="ct-links">
+              <a class="clink" href="https://www.lifeline.org.au/" target="_blank" rel="noopener"><span class="nm">Lifeline Australia<small>24/7 crisis support &middot; 13 11 14</small></span></a>
+              <a class="clink" href="https://www.beyondblue.org.au/" target="_blank" rel="noopener"><span class="nm">Beyond Blue<small>Anxiety, depression &amp; support</small></span></a>
+              <a class="clink" href="https://www.headtohealth.gov.au/" target="_blank" rel="noopener"><span class="nm">Head to Health</span></a>
+              <a class="clink" href="https://www.blackdoginstitute.org.au/" target="_blank" rel="noopener"><span class="nm">Black Dog Institute</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="dir-note">These are starting points, not endorsements: each link opens an external site we don&rsquo;t control, and communities come and go. If you can&rsquo;t find yours, or you&rsquo;d like a warm introduction to people who&rsquo;ve walked the same path, tell us where you&rsquo;re moving and what matters to you. See also our <a href="/guides/australia-contacts#faith-community" style="color:var(--teal);font-weight:600">Useful contacts</a> guide.</p>
+    <div class="crisis">
+      <div class="cl">If you need help now</div>
+      <p class="ci">Relocating is hard, and the months after arriving are when it tends to land. Both of these are free, and neither is a last resort.</p>
+      <div class="crisis-rows">
+        <div class="crisis-row"><a class="num" href="tel:131114">13 11 14</a><div class="nm">Lifeline</div><div class="d">Crisis support and suicide prevention, 24 hours a day. Call, or text 0477 13 11 14.</div></div>
+        <div class="crisis-row"><a class="num" href="tel:000">000</a><div class="nm">Emergency services</div><div class="d">Police, fire or ambulance, anywhere in Australia. Ask for the service you need.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOPHIE'S INSIGHT ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sophie">
+      <div class="photo"><img loading="lazy" decoding="async" src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing"></div>
+      <div>
+        <span class="k">Sophie&rsquo;s insight</span>
+        <p>People worry, quietly, about whether they&rsquo;ll fit in, whether they&rsquo;ll find somewhere to pray, food that tastes like home, friends who understand them, and whether they&rsquo;ll be made to feel welcome. I take those worries seriously, because the answer depends on where you go. A family might feel completely at home in a diverse city suburb and quite isolated in a remote town with the same job title. My job is to tell you that honestly, before you decide, not after. There is almost always a way to find both the right role and the right community. It just starts with a frank conversation, and I&rsquo;d much rather have it early.</p>
+        <p class="sign">Sophie<span>CEO &amp; Founder, Ethicare Resourcing</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section">
+  <div class="wrap reading">
+    <span class="eyebrow">Common questions</span>
+    <h2>The questions people ask us about belonging</h2>
+    <div class="faq">
+      <details open>
+        <summary>What&rsquo;s it like as a person of colour or visible minority in a small town?</summary>
+        <div class="ans"><p>It depends a lot on the town, and we&rsquo;ll always give you an honest read on a specific one. In the big cities, being from anywhere is completely ordinary and most people feel very much at home. In small country towns and remote areas, which are predominantly Anglo-Australian, you&rsquo;ll be more visible, and while most country Australians are warm and welcoming, a minority of people do experience staring, clumsy assumptions or occasional prejudice. It&rsquo;s not the norm, but it&rsquo;s real. For many single clinicians on a fixed contract it&rsquo;s a non-issue; for a family putting down roots it can matter more. If it&rsquo;s a concern, a diverse regional city or a well-chosen city suburb is often a better fit than a remote posting, and we&rsquo;ll help you weigh it up.</p></div>
+      </details>
+      <details>
+        <summary>Will I be able to practise my religion freely?</summary>
+        <div class="ans"><p>Yes. Australia has freedom of religion, and active communities exist across all the major faiths, especially in the cities. Places of worship, religious schools and cultural associations are well established in metro areas. In regional and remote places the nearest mosque, temple or gurdwara may be a long way off, so if regular worship is important to you, it&rsquo;s worth checking what&rsquo;s available in a particular town before you move.</p></div>
+      </details>
+      <details>
+        <summary>Is there a community of people from my country?</summary>
+        <div class="ans"><p>Almost certainly, particularly in and around the capitals. Australia&rsquo;s healthcare workforce is highly international, with established communities from the UK, Ireland, India, the Philippines, South Africa, China, the Middle East and many more, with social groups, festivals and online networks. These cluster in the cities, so even if your role is regional, many people choose a city base or visit regularly to stay connected.</p></div>
+      </details>
+      <details>
+        <summary>How welcoming is Australia to LGBTQ+ people?</summary>
+        <div class="ans"><p>Marriage equality has been law since 2017, anti-discrimination protections are nationwide, and the cities have visible, thriving communities and major events. Smaller towns are often quieter and more conservative in feel, but the legal protections apply everywhere. As with everything on this page, we&rsquo;re happy to be candid about what a particular community is likely to feel like.</p></div>
+      </details>
+      <details>
+        <summary>Can you help me choose somewhere I&rsquo;ll actually belong?</summary>
+        <div class="ans"><p>That&rsquo;s one of the most valuable things we do. Tell us your background, your faith if it&rsquo;s part of your life, what matters to your family and the kind of role you want, and we&rsquo;ll be honest about which places are likely to suit, and which probably won&rsquo;t. The goal is a move that lasts, not just a job that&rsquo;s filled.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RELATED + FINAL ============ -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">Keep exploring</span>
+    <h2 style="font-size:clamp(22px,3vw,28px);">Related guides</h2>
+    <div class="related-grid">
+      <a class="rel" href="/guides/living-in-australia">
+        <span class="k">Stage 08</span>
+        <h3>Living &amp; thriving</h3>
+        <p>Building a life that lasts: friendship, routine and feeling at home for good.</p>
+        <span class="go">Read Stage 08</span>
+      </a>
+      <a class="rel" href="/guides/australia-family">
+        <span class="k">Reference</span>
+        <h3>Moving with your family</h3>
+        <p>Partner work rights, childcare, schools, and helping everyone find their feet.</p>
+        <span class="go">Read the guide</span>
+      </a>
+      <a class="rel" href="/destinations/australia">
+        <span class="k">Destinations</span>
+        <h3>Explore by state</h3>
+        <p>Where the opportunities are: metro versus regional and remote, state by state.</p>
+        <span class="go">Explore guides</span>
+      </a>
+    </div>
+
+    <div class="final" style="margin-top:40px;">
+      <span class="eyebrow">No pressure, just a conversation</span>
+      <h2>Wondering if you&rsquo;ll find your people?</h2>
+      <p>Tell us a little about your faith, culture and what matters to your family, and where you&rsquo;re thinking of settling. We&rsquo;ll give you an honest picture of the communities there, and help you connect before you arrive.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/contact">Ask us about community</a>
+        <a class="btn btn-secondary" href="/jobs/">Browse current opportunities</a>
+      </div>
+      <p class="small">Ethicare Resourcing · your guide to a life and career in Australia.</p>
+    </div>
+  </div>
+</section>
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
+</main>
+<script src="../page-feedback.js" defer></script>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="../site.js"></script>
+
+<!-- ============================================================
+     INTERNAL LINK MAP — /guides/australia-community
+  HEADER NAV — Brand/Home → / · Australia ▾ (Working in Australia → /australia · Find your profession → /australia#professions · Explore destinations → /australia#destinations) · New Zealand ▾ (Working in New Zealand → /new-zealand · Find your profession → /new-zealand#professions · Explore destinations → /new-zealand#destinations) · Jobs → /jobs/ · Move ↗ ▾ (Your plan → /move · Guides & resources → /resources · Registration pathway checker → /pathway-checker) · About ▾ (About Ethicare → /about-ethicare · Insights → /insights) · For Employers → /employers · Contact → /contact
+<script src="../nav.js" defer></script>
+<script src="../journey-nav.js" defer></script>
+
+<!-- SEO
+  Page Title: Community &amp; belonging in Australia
+  URL Slug: /guides/australia-community
+  SEO Title: Community &amp; belonging in Australia | Ethicare Resourcing
+  Meta Description: Finding your people in Australia: faith, cultural and diaspora communities, and how diversity differs between the big cities and regional towns.
+-->
+</body>
+</html>

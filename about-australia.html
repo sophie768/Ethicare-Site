@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>About Australia: land, culture &amp; life | Ethicare Resourcing</title>
+<meta name="description" content="A warm, honest introduction to Australia for healthcare professionals: the land, a short history, First Nations culture and the everyday life you'll come to know.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   ETHICARE RESOURCING — AUSTRALIA · REFERENCE GUIDE
+   About Australia — the land, First Nations culture & everyday life
+   Mirrors the NZ "About" reference guide, carries the Australia
+   teal accent. Hero photo: ../assets/au-life/outback-sunset.jpg
+   ================================================================ */
+:root{
+  --teal:#02615D; --green:#02615D; --sage:#D9A084; --lime:#EFC3AA;
+  --mint:#EBDFD3; --soft:#F7F4EE; --soft-green:#F3F7F4; --warm:#FCFBF8;
+  --white:#FFFFFF; --text:#333333; --muted:#555555;
+  --display:'Work Sans',sans-serif; --body:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+body{font-family:var(--body);font-size:16px;line-height:1.72;color:var(--text);background:var(--warm);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,.btn:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 7px rgba(167,201,87,.55)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.18;color:var(--teal)}
+h1{font-size:clamp(40px,6vw,56px);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+h2{font-size:clamp(30px,4vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin-bottom:24px}
+h3{font-size:18px;margin-bottom:8px}
+p{margin-bottom:16px}
+strong{color:var(--green)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.reading{max-width:1180px}.reading>*{max-width:760px}
+.section{padding:var(--sp-major,clamp(60px,8vw,96px)) 0;position:relative}
+.eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#A34438;margin-bottom:16px}
+
+.lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:50ch}
+
+/* breadcrumb */
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:13px;color:var(--muted);margin-bottom:24px}
+.crumb a:hover{color:var(--teal)}
+.crumb .sep{opacity:.85}
+.crumb .here{color:var(--teal)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-family:var(--display);font-weight:600;font-size:16px;padding:13px 26px;border-radius:12px;transition:transform .15s ease,background .15s ease;color:var(--teal);cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#014E4B}
+.btn-secondary{background:#fff;border:1.5px solid var(--sage);color:var(--teal)}.btn-secondary:hover{background:var(--soft-green)}
+.btn-ghost{background:transparent;border:1.5px solid var(--sage);color:var(--teal)}.btn-ghost:hover{background:var(--soft-green)}
+.btn-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+
+/* ---------------- HERO (full-bleed photo) ---------------- */
+.hero{position:relative;overflow:hidden;isolation:isolate;background:var(--teal);min-height:calc(100svh - 78px);display:flex;align-items:flex-end}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,44,40,.28) 0%,rgba(10,44,40,.20) 40%,rgba(9,43,39,.88) 100%);z-index:1}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;z-index:0}
+.hero .wrap{position:relative;z-index:2;padding-top:48px;padding-bottom:clamp(40px,6vw,60px)}
+.hero .crumb{color:rgba(255,255,255,.82)}
+.hero .crumb a:hover,.hero .crumb .here{color:#fff}
+.hero .eyebrow{color:#EFC3AA;text-shadow:0 1px 3px rgba(1,49,47,.55),0 2px 18px rgba(1,49,47,.6)}
+.hero h1{color:#fff;margin-bottom:16px;max-width:18ch;text-shadow:0 2px 30px rgba(0,0,0,.25)}
+.hero-sub{font-size:clamp(16.5px,2vw,19px);line-height:1.62;color:rgba(255,255,255,.92);max-width:50ch}
+.hero .reo{font-family:var(--display);font-weight:600;font-style:italic;font-size:clamp(15px,1.8vw,17px);color:#EFC3AA;margin-bottom:16px;letter-spacing:.01em;text-shadow:0 1px 3px rgba(1,49,47,.55),0 2px 18px rgba(1,49,47,.6)}
+
+/* quick facts strip */
+.facts{position:relative;z-index:2;transform:translateY(-34px);margin-bottom:-34px}
+.facts-card{background:#fff;border:1px solid var(--mint);border-radius:20px;box-shadow:0 26px 54px rgba(1,49,47,.12);padding:28px 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.fact .n{font-family:var(--display);font-weight:700;font-size:clamp(22px,2.6vw,29px);line-height:1.05;color:var(--teal);letter-spacing:-.01em}
+.fact .l{font-family:var(--display);font-weight:600;font-size:13px;color:var(--green);margin-top:8px}
+.fact .s{font-size:12.5px;color:var(--muted);margin-top:4px}
+
+/* intro / reassurance */
+.reassure{background:var(--soft-green);border:1px solid var(--mint);border-left:5px solid #D9A084;border-radius:14px;padding:24px 26px;margin:24px 0 0}
+.reassure p{margin:0;font-size:16.5px}
+
+/* three-up cards */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.how{background:#fff;border:1px solid var(--mint);border-radius:14px;padding:28px 26px;border-top:4px solid var(--sage);transition:transform .15s ease,box-shadow .15s ease}
+.how:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(1,49,47,.09)}
+.how h3{color:var(--green);margin-bottom:8px}
+.how p{font-size:14.5px;color:var(--muted);margin:0}
+.how .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:#A34438;display:block;margin-bottom:8px}
+
+/* history timeline */
+.htl{margin-top:40px;max-width:920px;display:grid;gap:0}
+.he{display:grid;grid-template-columns:118px 1fr;gap:24px;position:relative;padding-bottom:26px}
+.he::before{content:"";position:absolute;left:118px;top:8px;bottom:-8px;width:2px;background:var(--mint);transform:translateX(13px)}
+.he:last-child{padding-bottom:0}
+.he:last-child::before{display:none}
+.he .yr{font-family:var(--display);font-weight:600;font-size:15px;color:var(--teal);text-align:right;position:relative;padding-right:30px}
+.he .yr::after{content:"";position:absolute;right:7px;top:5px;width:14px;height:14px;border-radius:50%;background:#02615D;border:3px solid var(--warm);z-index:1}
+.he .ev h3{font-size:16.5px;color:var(--green);margin-bottom:4px}
+.he .ev p{font-size:14.5px;color:var(--muted);margin:0}
+
+/* First Nations feature */
+.treaty{background:var(--teal);border-radius:24px;padding:clamp(32px,4.5vw,52px);color:#fff;margin-top:4px}
+.treaty .eyebrow{color:#EFC3AA}
+.treaty h2{color:#fff}
+.treaty .lead{color:rgba(255,255,255,.86);max-width:64ch}
+.treaty .arts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.art{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:24px 24px}
+.art .no{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#EFC3AA;margin-bottom:8px}
+.art h3{color:#fff;font-size:16.5px;margin-bottom:4px}
+.art p{font-size:13.5px;color:rgba(255,255,255,.82);margin:0}
+.treaty .note{font-size:13.5px;color:rgba(255,255,255,.74);margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);max-width:64ch}
+
+/* aussie-english glossary */
+.kupu{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 24px;margin-top:40px}
+.word{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:baseline;background:#fff;border:1px solid var(--mint);border-radius:12px;padding:16px 20px}
+.word .t{font-family:var(--display);font-weight:600;font-size:16px;color:var(--teal)}
+.word .m{font-size:14px;color:var(--muted)}
+.kupu-note{font-size:13px;color:var(--muted);max-width:64ch;margin-top:24px;padding-top:16px;border-top:1px solid var(--mint)}
+
+/* values cards (soft) */
+.vals{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
+.val{background:var(--soft);border:1px solid var(--mint);border-radius:14px;padding:26px 26px}
+.val .reo{font-family:var(--display);font-weight:600;font-style:italic;font-size:14px;color:#A34438;margin-bottom:4px}
+.val h3{color:var(--green);font-size:17px;margin-bottom:8px}
+.val p{font-size:14.5px;color:var(--muted);margin:0}
+
+/* callout */
+.callout{background:#fff;border:1px solid var(--mint);border-left:5px solid var(--sage);border-radius:14px;padding:26px 30px;margin-top:40px;max-width:920px}
+.callout h3{color:var(--green);font-size:17.5px;margin-bottom:8px}
+.callout p{font-size:15px;color:var(--muted);margin:0}
+
+/* Sophie insight */
+.sophie{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:clamp(28px,4vw,40px);display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:start;max-width:920px}
+.sophie .photo{width:120px;height:140px;border-radius:14px;overflow:hidden;border:1px solid var(--mint)}
+.sophie .photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.sophie .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A34438;margin-bottom:8px}
+.sophie p{font-size:16.5px;color:var(--text);margin-bottom:0}
+.sophie .sign{font-family:var(--display);font-style:italic;font-weight:600;font-size:18px;color:var(--teal);margin-top:16px}
+.sophie .sign span{display:block;font-style:normal;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* FAQ */
+.faq{margin-top:40px;max-width:760px}
+.faq details{background:#fff;border:1px solid var(--mint);border-radius:14px;margin-bottom:16px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--teal);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;font-weight:400;color:#A34438;transition:transform .2s ease;line-height:1}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .ans{padding:0 24px 22px;font-size:15.5px;color:var(--muted)}
+.faq .ans p{margin-bottom:8px}.faq .ans p:last-child{margin-bottom:0}
+
+/* related + final */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.rel{position:relative;background:#fff;border:1px solid var(--mint);border-left:5px solid var(--sage);border-radius:14px;padding:24px 24px;transition:background .15s ease,transform .15s ease}
+.rel:hover{background:var(--soft-green);transform:translateY(-2px)}
+.rel .k{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:#A34438;margin-bottom:8px;display:block}
+.rel h3{font-size:16.5px;color:var(--green);margin-bottom:4px}
+.rel p{font-size:13.5px;color:var(--muted);margin:0}
+.rel .go{margin-top:16px;font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--teal);display:inline-flex;align-items:center;gap:8px}
+.rel .go::after{content:"\2192";color:#A34438}
+.final{background:var(--soft-green);border-radius:24px;padding:clamp(34px,5vw,52px);text-align:left}
+.final h2{margin-bottom:16px}
+.final p{max-width:64ch;color:var(--muted);font-size:17px}
+.final .btn-row{justify-content:flex-start}
+.final .small{margin-top:16px;font-size:13.5px;color:var(--muted)}
+
+@media (max-width:880px){
+  .facts-card{grid-template-columns:1fr 1fr}
+  .how-grid,.related-grid{grid-template-columns:1fr 1fr}
+  .treaty .arts{grid-template-columns:1fr}
+  .kupu,.vals{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .section{padding:54px 0}
+  .facts-card{grid-template-columns:1fr 1fr;padding:24px 22px}
+  .how-grid,.related-grid{grid-template-columns:1fr}
+  .he{grid-template-columns:84px 1fr;gap:16px}
+  .he::before{left:84px}
+  .he .yr{padding-right:24px;font-size:14px}
+  .word{grid-template-columns:1fr;gap:4px}
+  .sophie{grid-template-columns:1fr;gap:24px;text-align:left}
+  .sophie .photo{margin:0 auto}
+  .btn{width:100%}
+}
+</style>
+<link rel="stylesheet" href="../shell.css">
+<style>/* playfair-hero */ .hero-sub,.hero .kicker,.h-hero .pf{font-family:'Playfair Display',Georgia,serif;font-weight:500}
+.hero .wrap{width:100%}
+/* closing CTAs — left aligned */
+.final,.complete,.close-ins{text-align:left}
+.final p,.complete p,.close-ins p{margin-left:0;margin-right:0}
+.final .btn-row,.complete .btn-row,.close-ins .btn-row{justify-content:flex-start}
+.final .eyebrow,.complete .eyebrow,.close-ins .eyebrow{text-align:left}
+/* tighten the page-foot: pull the journey bar up under the feedback card */
+main .jn-bar{margin-top:clamp(24px,3vw,32px)}
+</style>
+<link rel="stylesheet" href="../guide-mobile.css">
+<link rel="canonical" href="https://ethicareresourcing.com/guides/about-australia">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="About Australia: land, culture &amp; everyday life | Ethicare Resourcing">
+<meta property="og:description" content="A warm, honest introduction to Australia for healthcare professionals: the land, a short history, First Nations culture and the everyday life you'll come to know.">
+<meta property="og:url" content="https://ethicareresourcing.com/guides/about-australia">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Australia: land, culture &amp; everyday life | Ethicare Resourcing">
+<meta name="twitter:description" content="A warm, honest introduction to Australia for healthcare professionals: the land, a short history, First Nations culture and the everyday life you'll come to know.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="au-orange-accent">.hero .eyebrow{color:#EFC3AA}.hero .eyebrow::before{background:#EFC3AA}.eyebrow{color:#A34438}.eyebrow::before{background:#A6C84A}</style>
+<style id="au-palette-tune">:root{--teal:#02615D;--green:#02615D;--sage:#02615D}h1,h2,h3{color:var(--green)}</style>
+<style id="au-hero-teal"></style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
+<link rel="stylesheet" href="../guide-print.css">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Australia","item":"https://ethicareresourcing.com/australia"},{"@type":"ListItem","position":2,"name":"Guides & references","item":"https://ethicareresourcing.com/resources"},{"@type":"ListItem","position":3,"name":"About Australia"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will I understand the accent and all the slang?","acceptedAnswer":{"@type":"Answer","text":"Very quickly, yes. English is the everyday working language, so you'll never be stuck, the accent and the habit of shortening words just take a week or two to tune into. Picking up a few local expressions is a lovely, easy way to show you've settled in, and colleagues will happily translate anything that catches you out at first."}},{"@type":"Question","name":"How should I engage with First Nations culture respectfully?","acceptedAnswer":{"@type":"Answer","text":"Simply come open and curious. You'll encounter Acknowledgement of Country at work and around the community, and in healthcare you'll meet a real emphasis on culturally safe care and on closing the gap in outcomes for Aboriginal and Torres Strait Islander people. You don't need to be an expert, listening, learning and treating the culture with respect is exactly what's hoped for, and your workplace will guide you."}},{"@type":"Question","name":"Is Australia very different culturally from home?","acceptedAnswer":{"@type":"Answer","text":"It depends where you're coming from, but most newcomers find it familiar enough to settle quickly and different enough to feel like a genuine change. It's a modern, English-speaking democracy with a relaxed, outdoorsy, egalitarian culture and a deeply multicultural society. The adjustments tend to be gentle: more sunshine, more space and a slower pace rather than anything jarring."}},{"@type":"Question","name":"Will my family fit in?","acceptedAnswer":{"@type":"Answer","text":"Almost always, yes. Australia is welcoming and diverse, with well-established communities from all over the world. Children in particular settle fast, helped by friendly schools and an outdoor childhood of sport and the beach. We're also glad to connect you with families who've made the same move, so you arrive with a few familiar faces rather than none."}}]}]</script>
+<link rel="stylesheet" href="../disclose.css">
+<link rel="stylesheet" href="../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia" aria-current="page">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+
+<!-- ============ HERO ============ -->
+<header class="hero" data-screen-label="About Australia · hero">
+  <img decoding="async" class="bg" src="../assets/au-life/outback-sunset.jpg" alt="A fiery sunset over the red earth and low scrub of the Australian outback, under a vast open sky" fetchpriority="high">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="/australia">Australia</a><span class="sep">›</span>
+      <a href="/resources">Guides &amp; references</a><span class="sep">›</span>
+      <span class="here">About Australia</span>
+    </nav>
+    <span class="eyebrow">Australia</span>
+    <p class="reo">An ancient land with an easy, open welcome</p>
+    <h1>Getting to know Australia</h1>
+    <p class="hero-sub">Before it&rsquo;s a job or a visa, Australia is a place, with its own land, a very long history and an easy way of living.</p>
+  </div>
+</header>
+
+<!-- ============ QUICK FACTS ============ -->
+<section class="facts">
+  <div class="wrap">
+    <div class="facts-card">
+      <div class="fact"><div class="n">~26.6m</div><div class="l">People</div><div class="s">on a single continent</div></div>
+      <div class="fact"><div class="n">6 + 2</div><div class="l">States &amp; territories</div><div class="s">each with its own feel</div></div>
+      <div class="fact"><div class="n">200+</div><div class="l">Languages spoken</div><div class="s">one of the most multicultural nations</div></div>
+      <div class="fact"><div class="n">65,000+</div><div class="l">Years of culture</div><div class="s">the world&rsquo;s oldest, still living</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="section">
+  <div class="wrap reading">
+    <span class="eyebrow">A first impression</span>
+    <h2>A vast country with an easy warmth</h2>
+    <p class="lead">Australia is the world&rsquo;s largest island and its smallest continent, roughly the size of mainland Europe, home to around twenty-six million people. Nearly all of them live around the coastal edge.</p>
+    <p>What strikes most newcomers first is the ease of it. The light is bright, the days are outdoors, and people are relaxed, direct and quick to include you. Underneath that easygoing surface sit two things worth understanding early: a First Nations culture tens of thousands of years old, and a modern nation built by people from every corner of the world. You&rsquo;ll feel both, often in the same day.</p>
+    <div class="reassure">
+      <p>You don&rsquo;t need to know any of this before you arrive, but a little understanding goes a long way. <strong>The people who settle most happily are those who come curious</strong>, ready to learn the land&rsquo;s stories and customs rather than expecting it to be just like home.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE LAND ============ -->
+<section class="section" style="background:var(--soft);">
+  <div class="wrap">
+    <span class="eyebrow">The land</span>
+    <h2 style="max-width:22ch;">One continent, many worlds</h2>
+    <p class="lead">Australia is big enough to hold the tropics, the desert and cool green coastlines all at once. Where you settle shapes your whole experience of it, and there is far more choice than most people expect.</p>
+    <div class="how-grid">
+      <div class="how">
+        <span class="k">Where life happens</span>
+        <h3>The coastal crescent</h3>
+        <p>Most Australians live on the eastern and southern coasts: Sydney, Melbourne, Brisbane, Adelaide and Perth. Big, easy cities where the beach, the café and the office are rarely far apart.</p>
+      </div>
+      <div class="how">
+        <span class="k">The interior</span>
+        <h3>The Outback &amp; Red Centre</h3>
+        <p>Beyond the cities lies the vast interior: red earth, endless sky and sacred places like Uluru. Remote, spectacular, and central to how Australia sees itself.</p>
+      </div>
+      <div class="how">
+        <span class="k">The climate</span>
+        <h3>Sunshine &amp; reversed seasons</h3>
+        <p>From the tropical north to the temperate south, it&rsquo;s a sunlit country, and its seasons are flipped from the northern hemisphere. Summer runs December to February; Christmas is a beach day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ A SHORT HISTORY ============ -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">A short history</span>
+    <h2>How Australia came to be</h2>
+    <p class="lead">Australia holds two very different timescales at once, a human story that is one of the oldest on earth, and a nation that is remarkably young.</p>
+    <div class="htl">
+      <div class="he">
+        <div class="yr">65,000+ yrs ago</div>
+        <div class="ev"><h3>The First Australians</h3><p>Aboriginal and Torres Strait Islander peoples have lived on this land for more than sixty-five thousand years, the world&rsquo;s oldest continuous living cultures, with hundreds of distinct nations, languages and deep connection to Country.</p></div>
+      </div>
+      <div class="he">
+        <div class="yr">1770 &amp; 1788</div>
+        <div class="ev"><h3>British arrival</h3><p>James Cook charted the east coast in 1770; in 1788 the First Fleet established a British colony at Sydney Cove. What followed was profound and often painful upheaval for First Nations peoples, a history the country continues to reckon with honestly.</p></div>
+      </div>
+      <div class="he">
+        <div class="yr">1901</div>
+        <div class="ev"><h3>Federation</h3><p>Six self-governing British colonies united to form the Commonwealth of Australia, one nation, one Parliament, and the states and territories you&rsquo;ll recognise today.</p></div>
+      </div>
+      <div class="he">
+        <div class="yr">1967</div>
+        <div class="ev"><h3>The referendum</h3><p>More than ninety per cent of Australians voted to count Aboriginal people in the census and allow national laws for them, a landmark moment in a long journey toward recognition and equality.</p></div>
+      </div>
+      <div class="he">
+        <div class="yr">1992</div>
+        <div class="ev"><h3>Mabo &amp; native title</h3><p>The High Court recognised that Aboriginal and Torres Strait Islander peoples held rights to their land before colonisation, overturning the idea that Australia had belonged to no one, a turning point in law and national understanding.</p></div>
+      </div>
+      <div class="he">
+        <div class="yr">1970s–today</div>
+        <div class="ev"><h3>A modern, multicultural nation</h3><p>The end of restrictive immigration policy opened Australia to the world, and waves of migration made it one of the most diverse societies on earth. In 2008 the nation formally apologised to the Stolen Generations, and the work of reconciliation continues today.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIRST NATIONS ============ -->
+<section class="section" style="background:var(--soft);">
+  <div class="wrap">
+    <div class="treaty">
+      <span class="eyebrow">The oldest living culture on earth</span>
+      <h2>First Nations Australia</h2>
+      <p class="lead">Aboriginal and Torres Strait Islander peoples have cared for this continent for more than sixty-five thousand years. Australia has no national treaty; the relationship is expressed through recognition, custom and an ongoing process of reconciliation.</p>
+      <div class="arts">
+        <div class="art"><div class="no">You&rsquo;ll hear it often</div><h3>Acknowledgement of Country</h3><p>Meetings, events and school assemblies frequently open by acknowledging the Traditional Owners of the land. A Welcome to Country is a similar ceremony offered by Traditional Owners themselves.</p></div>
+        <div class="art"><div class="no">A different worldview</div><h3>Connection to Country</h3><p>For First Nations peoples, land, kinship, language and identity are woven together as “Country”, a living relationship of care, not ownership, across some 250 language groups.</p></div>
+        <div class="art"><div class="no">The work continues</div><h3>Reconciliation &amp; Closing the Gap</h3><p>A national effort to heal historic wrongs and close the gap in health, education and life outcomes, including, very directly, in the health system you&rsquo;ll work in.</p></div>
+      </div>
+      <p class="note">This is a live and sometimes complex national conversation, in 2023 a referendum on an Indigenous Voice to Parliament did not pass, and questions of treaty and recognition remain open. For healthcare workers it matters in practice: the system places real emphasis on culturally safe care and on better outcomes for Aboriginal and Torres Strait Islander people, and you&rsquo;ll see that reflected in policy, training and everyday practice. You don&rsquo;t need to be an expert, an open, respectful willingness to understand is exactly what&rsquo;s hoped for.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUSSIE ENGLISH ============ -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">Aussie English</span>
+    <h2>A few words you&rsquo;ll hear every day</h2>
+    <p class="lead">English is the everyday language, though Australians shorten almost everything. None of it takes long to pick up, and a few of them are one of the quicker ways people find their feet.</p>
+    <div class="kupu">
+      <div class="word"><span class="t">Arvo</span><span class="m">Afternoon: “see you this arvo”.</span></div>
+      <div class="word"><span class="t">Brekkie</span><span class="m">Breakfast, often eaten out, at a café.</span></div>
+      <div class="word"><span class="t">Servo</span><span class="m">A petrol (service) station.</span></div>
+      <div class="word"><span class="t">Bottle-o</span><span class="m">The bottle shop, where you buy alcohol.</span></div>
+      <div class="word"><span class="t">Chemist</span><span class="m">The pharmacy, where you fill a script.</span></div>
+      <div class="word"><span class="t">Doona</span><span class="m">A duvet or quilt for the bed.</span></div>
+      <div class="word"><span class="t">Thongs</span><span class="m">Flip-flops: footwear, not underwear!</span></div>
+      <div class="word"><span class="t">Heaps</span><span class="m">Lots, or very: “heaps good”, “thanks heaps”.</span></div>
+      <div class="word"><span class="t">No worries</span><span class="m">You&rsquo;re welcome, it&rsquo;s fine, the national motto.</span></div>
+      <div class="word"><span class="t">Esky</span><span class="m">A cool box for keeping drinks and food cold.</span></div>
+      <div class="word"><span class="t">Ute</span><span class="m">A utility vehicle, a pick-up truck.</span></div>
+      <div class="word"><span class="t">Snag</span><span class="m">A sausage, the star of any “barbie” (barbecue).</span></div>
+    </div>
+    <p class="kupu-note">Many Australian place names come from Aboriginal languages, Canberra, Wollongong, Parramatta, Bendigo, so it&rsquo;s worth learning to say where you live correctly. Getting it right is warmly appreciated, and locals are happy to help.</p>
+  </div>
+</section>
+
+<!-- ============ PEOPLE & VALUES ============ -->
+<section class="section" style="background:var(--soft);">
+  <div class="wrap">
+    <span class="eyebrow">People &amp; culture</span>
+    <h2>What Australians are like</h2>
+    <p class="lead">Generalisations only go so far, but a few cultural threads come up again and again, and they tend to make settling in easier than newcomers expect.</p>
+    <div class="vals">
+      <div class="val">
+        <div class="reo">Mateship</div>
+        <h3>Welcoming</h3>
+        <p>Loyalty and looking out for one another run deep. Neighbours, colleagues and other families who&rsquo;ve made the move tend to fold you in quickly: many newcomers are surprised how at home they feel within months.</p>
+      </div>
+      <div class="val">
+        <div class="reo">The great outdoors</div>
+        <h3>A life lived outside</h3>
+        <p>Weekends are for the beach, the bush, the backyard barbecue or the footy. Sunshine and the coast are woven into ordinary life, and an easy, shared way to make friends and feel you belong.</p>
+      </div>
+      <div class="val">
+        <div class="reo">A fair go</div>
+        <h3>Egalitarian &amp; informal</h3>
+        <p>Hierarchy is downplayed and first names are the norm, even at work. People value fairness, humility and not taking yourself too seriously. Everyone, in the Australian ideal, deserves “a fair go”.</p>
+      </div>
+      <div class="val">
+        <div class="reo">Many cultures, one home</div>
+        <h3>Diverse &amp; multicultural</h3>
+        <p>Nearly half of all Australians were born overseas or have a parent who was. Large communities from every continent mean you&rsquo;ll rarely be the only one who has come from somewhere else.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <h3>A note on the everyday</h3>
+      <p>Life here is comfortable and modern, but more relaxed and more spread out than many are used to: cities are low-rise and car-friendly, coffee is taken seriously, and sport is a shared language. For most people that easy, outdoor rhythm is precisely the appeal, and it&rsquo;s one our clinicians rarely regret.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOPHIE'S INSIGHT ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sophie">
+      <div class="photo"><img loading="lazy" decoding="async" src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing"></div>
+      <div>
+        <span class="k">Sophie&rsquo;s insight</span>
+        <p>When we began working in Australia, the thing that struck me most was how easily people made room for us. Say yes to the barbecue and the early swim. Learn to acknowledge the Country you&rsquo;re standing on, and to say your town&rsquo;s name the way the locals do. None of it is hard, and all of it tells Australia you&rsquo;ve come to belong, not just to work. That openness, more than the sunshine, is what turns a posting into a home.</p>
+        <p class="sign">Sophie<span>CEO &amp; Founder, Ethicare Resourcing</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" style="background:var(--soft);">
+  <div class="wrap">
+    <span class="eyebrow">Common questions</span>
+    <h2>The things people ask us first</h2>
+    <div class="faq">
+      <details open>
+        <summary>Will I understand the accent and all the slang?</summary>
+        <div class="ans"><p>Very quickly, yes. English is the everyday working language, so you&rsquo;ll never be stuck, the accent and the habit of shortening words just take a week or two to tune into. Picking up a few local expressions is a lovely, easy way to show you&rsquo;ve settled in, and colleagues will happily translate anything that catches you out at first.</p></div>
+      </details>
+      <details>
+        <summary>How should I engage with First Nations culture respectfully?</summary>
+        <div class="ans"><p>Come open and curious. You&rsquo;ll encounter Acknowledgement of Country at work and around the community, and in healthcare you&rsquo;ll meet a real emphasis on culturally safe care and on closing the gap in outcomes for Aboriginal and Torres Strait Islander people. You don&rsquo;t need to be an expert, listening, learning and treating the culture with respect is exactly what&rsquo;s hoped for, and your workplace will guide you.</p></div>
+      </details>
+      <details>
+        <summary>Is Australia very different culturally from home?</summary>
+        <div class="ans"><p>It depends where you&rsquo;re coming from, but most newcomers find it familiar enough to settle quickly and different enough to feel like a genuine change. It&rsquo;s a modern, English-speaking democracy with a relaxed, outdoorsy, egalitarian culture and a deeply multicultural society. The adjustments tend to be gentle: more sunshine, more space and a slower pace rather than anything jarring.</p></div>
+      </details>
+      <details>
+        <summary>Will my family fit in?</summary>
+        <div class="ans"><p>Almost always, yes. Australia is welcoming and diverse, with well-established communities from all over the world. Children in particular settle fast, helped by friendly schools and an outdoor childhood of sport and the beach. We&rsquo;re also glad to connect you with families who&rsquo;ve made the same move, so you arrive with a few familiar faces rather than none.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RELATED + FINAL ============ -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">Keep exploring</span>
+    <h2 style="font-size:clamp(22px,3vw,28px);">Related guides</h2>
+    <div class="related-grid">
+      <a href="/guides/moving-to-australia" class="rel">
+        <span class="k">Stage 01</span>
+        <h3>Is Australia right for me?</h3>
+        <p>An honest look at the life, the joys and the genuine trade-offs.</p>
+        <span class="go">Read Stage 01</span>
+      </a>
+      <a href="/australia#destinations" class="rel">
+        <span class="k">Destinations</span>
+        <h3>Explore the states &amp; territories</h3>
+        <p>In-depth guides to each state: climate, cities, housing and pace of life.</p>
+        <span class="go">Explore guides</span>
+      </a>
+      <a href="/guides/australia-contacts" class="rel">
+        <span class="k">Reference</span>
+        <h3>Useful contacts &amp; community</h3>
+        <p>Official links and the people we trust to help you settle in.</p>
+        <span class="go">Open directory</span>
+      </a>
+    </div>
+
+    <div class="final" style="margin-top:40px;">
+      <span class="eyebrow">No pressure, just a conversation</span>
+      <h2>Curious about life in Australia?</h2>
+      <p>Whether you&rsquo;re weighing up the move or want to understand the country better, we&rsquo;re always glad to talk about the land, the lifestyle, and whether it could be the right home for your family.</p>
+      <div class="btn-row">
+        <a href="/contact" class="btn btn-primary">Ask us about Australia</a>
+        <a href="/australia" class="btn btn-secondary">Back to Australia</a>
+      </div>
+      <p class="small">Ethicare Resourcing · your guide to a life and career in Australia.</p>
+    </div>
+  </div>
+</section>
+
+
+<div class="shell" style="padding:0"><page-feedback to="Sophie"></page-feedback></div>
+</main>
+<script src="../page-feedback.js" defer></script>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="../site.js"></script>
+
+<!-- ============================================================
+     INTERNAL LINK MAP — /guides/about-australia
+     ============================================================
+  HEADER NAV — Brand/Home → / · Australia ▾ (Working in Australia → /australia · Find your profession → /australia#professions · Explore destinations → /australia#destinations) · New Zealand ▾ (Working in New Zealand → /new-zealand · Find your profession → /new-zealand#professions · Explore destinations → /new-zealand#destinations) · Jobs → /jobs/ · Move ↗ ▾ (Your plan → /move · Guides & resources → /resources · Registration pathway checker → /pathway-checker) · About ▾ (About Ethicare → /about-ethicare · Insights → /insights) · For Employers → /employers · Contact → /contact
+  HERO — Breadcrumb: Australia → /australia · Guides & references → /resources · About Australia [current]
+  RELATED — Is Australia right for me? → /guides/moving-to-australia ·
+   Explore the states & territories → /australia#destinations · Useful contacts → /guides/australia-contacts
+  FINAL CTA — Ask us about Australia → /contact · Back to Australia → /australia
+  FOOTER (site-wide) — Destinations: /new-zealand · /australia · /destinations · /destinations/australia | Candidates: /jobs · /resources · /insights · /apply | Company: /about-ethicare · /employers · /submit-a-vacancy · /contact | hello@ email · Privacy (/privacy-policy)
+   About Ethicare → /about-ethicare · Contact us → /contact · Apply → /apply · email → mailto
+     ============================================================
+     SEO
+     ============================================================
+   Page Title:       About Australia — the land, First Nations culture & everyday life | Ethicare Resourcing
+   URL Slug:         /guides/about-australia
+   SEO Title:        About Australia — The Land, First Nations Culture & Everyday Life | Ethicare
+   Meta Description: A warm, honest introduction to Australia for healthcare professionals thinking of
+                     making the move — the land, a short history, First Nations Australia, and the
+                     everyday culture you'll come to know before you arrive.
+     ============================================================ -->
+<script src="../nav.js" defer></script>
+<script src="../journey-nav.js" defer></script>
+</body>
+</html>

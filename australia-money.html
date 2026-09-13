@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Money, tax &amp; banking in Australia | Ethicare Resourcing</title>
+<meta name="description" content="Your TFN, superannuation and the choice of fund, the Medicare levy and its surcharge, what tax residency actually means, and the order to do things in when you arrive.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shell.css">
+<link rel="stylesheet" href="../guide-au.css">
+<link rel="stylesheet" href="../guide-mobile.css">
+<style>
+h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
+.section.cool{background:#F3F7F4}
+.section.warm{background:#F7F4EE}
+/* No photograph on this reference hero, so collapse guide-au.css's two-column
+   hero grid — otherwise the copy is squeezed into 1.05fr and the second column
+   sits empty. Same defect the renting hero had, different cause. */
+/* This reference hero now carries a family illustration in the second column, so the
+   grid stays on — weighted towards the copy so it is never squeezed, which is why the
+   grid used to be collapsed here. .hero-copy keeps its own measure. */
+.hero.cream .wrap{grid-template-columns:1.45fr .55fr}
+.hero.cream .hero-copy{max-width:56ch}
+.hero.cream .hero-sub::after{content:"";display:block;width:44px;height:3px;border-radius:2px;background:#D9A084;margin:24px 0 4px}
+.steps{counter-reset:s;margin:36px 0 0;padding:0;list-style:none;max-width:760px}
+.steps li{counter-increment:s;position:relative;padding:0 0 26px 60px;border-left:1px solid rgba(2,97,93,.28);margin-left:16px}
+.steps li:last-child{border-left-color:transparent;padding-bottom:0}
+.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:-16px;top:-2px;width:33px;height:33px;border-radius:50%;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center}
+.steps .when{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#A34438;display:block;margin-bottom:5px}
+.steps h3{font-size:18px;margin:0 0 6px}
+.steps p{font-size:15.5px;color:#555;margin:0}
+.steps p+p{margin-top:8px}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,44px);margin-top:40px}
+.twocol>div{padding-top:20px;border-top:3px solid #D9A084}
+.twocol>div+div{border-top-color:#02615D}
+.twocol h3{font-size:19px;margin-bottom:10px}
+.twocol ul{list-style:none;margin:0;padding:0}
+.twocol li{position:relative;padding-left:22px;font-size:15px;line-height:1.55;margin-bottom:11px;color:#333}
+.twocol li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#D9A084}
+.twocol>div+div li::before{background:#02615D}
+@media(max-width:720px){.twocol{grid-template-columns:1fr;gap:30px}}
+.ourview{background:#02615D;border-radius:18px;padding:clamp(28px,4vw,44px);margin-top:44px;max-width:860px}
+.ourview .k{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#EFC3AA;margin-bottom:14px;display:block}
+.ourview h3{color:#fff!important;font-size:clamp(21px,2.6vw,27px);font-weight:500;margin-bottom:14px;max-width:32ch}
+.ourview p{color:rgba(255,255,255,.9);font-size:16.5px;line-height:1.68;margin:0;max-width:58ch}
+.ourview p+p{margin-top:12px;color:rgba(255,255,255,.8)}
+.warn{background:#FAF7F3;border:1px solid #EBDFD3;border-left:5px solid #A34438;border-radius:14px;padding:26px 28px;margin-top:40px;max-width:820px}
+.warn .k{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:#A34438;display:block;margin-bottom:12px}
+.warn p{font-size:15.5px;line-height:1.6;margin:0}
+.warn p+p{margin-top:10px}
+.warn strong{color:#A34438}
+.src{background:#fff;border:1px solid #EBDFD3;border-radius:14px;padding:26px 28px;margin-top:40px;max-width:820px}
+.src .k{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:#2F5E49;display:block;margin-bottom:14px}
+.src ul{list-style:none;margin:0;padding:0}
+.src li{position:relative;padding-left:22px;font-size:15px;line-height:1.55;margin-bottom:12px}
+.src li:last-child{margin-bottom:0}
+.src li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#02615D}
+@media(max-width:640px){.steps li{padding-left:50px}}
+</style>
+<link rel="canonical" href="https://ethicareresourcing.com/guides/australia-money">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Money, tax &amp; banking in Australia">
+<meta property="og:description" content="Your TFN, superannuation and the choice of fund, the Medicare levy and its surcharge, what tax residency actually means, and the order to do things in when you arrive.">
+<meta property="og:url" content="https://ethicareresourcing.com/guides/australia-money">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Money, tax &amp; banking in Australia">
+<meta name="twitter:description" content="Your TFN, superannuation and the choice of fund, the Medicare levy and its surcharge, what tax residency actually means, and the order to do things in when you arrive.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="au-orange-accent">.hero .eyebrow{color:#EFC3AA}.hero .eyebrow::before{background:#EFC3AA}.eyebrow{color:#A34438}.eyebrow::before{background:#A6C84A}</style>
+<style id="au-palette-tune">:root{--teal:#02615D;--green:#02615D;--sage:#02615D}h1,h2,h3{color:var(--green)}</style>
+<link rel="stylesheet" href="../hero.css">
+<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
+<link rel="stylesheet" href="../guide-print.css">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Australia","item":"https://ethicareresourcing.com/australia"},{"@type":"ListItem","position":2,"name":"Guides & Resources","item":"https://ethicareresourcing.com/resources"},{"@type":"ListItem","position":3,"name":"Money, tax & banking"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a TFN and when should I apply for one?","acceptedAnswer":{"@type":"Answer","text":"A Tax File Number is your permanent personal reference with the Australian Taxation Office. You can apply once you have arrived and hold a visa with work rights, and it is free — you never need to pay an agent for one. Without it your employer must withhold tax at the top rate, so applying in your first week is worth doing. The number stays with you for life, even if you leave Australia and return years later."}},{"@type":"Question","name":"What is superannuation and can I choose my own fund?","acceptedAnswer":{"@type":"Answer","text":"Superannuation is Australia's compulsory retirement saving. Your employer must pay a percentage of your earnings into a super fund on top of your salary, and that rate is set by law rather than negotiated. In most cases you can choose the fund. If you do not choose, your employer uses your existing stapled fund if you have one, or their default. Health sector employers commonly offer an industry fund, and industry funds are generally low-fee — but the choice is yours to make rather than to accept by default."}},{"@type":"Question","name":"Do I have to pay the Medicare levy as a temporary resident?","acceptedAnswer":{"@type":"Answer","text":"It depends on whether you are entitled to Medicare. The levy is a percentage of taxable income paid by most residents for tax purposes. If your country has a reciprocal health care agreement with Australia you may be enrolled in Medicare and liable for the levy; if you are not entitled to Medicare you can apply to Services Australia for a Medicare Entitlement Statement and claim an exemption in your tax return. This is one of the most commonly missed refunds among arriving clinicians."}},{"@type":"Question","name":"What is the Medicare levy surcharge and how do I avoid it?","acceptedAnswer":{"@type":"Answer","text":"It is an additional charge on higher earners who do not hold an appropriate level of private hospital cover. Many clinicians earn above the threshold, so taking private hospital cover often costs less than the surcharge it avoids — which is why so many Australian households hold it. Run your own numbers rather than assuming, and note that the cover has to be hospital cover, not extras."}},{"@type":"Question","name":"Am I a resident for tax purposes in Australia?","acceptedAnswer":{"@type":"Answer","text":"Tax residency is separate from your visa and separate from citizenship. It turns on your circumstances — where you live, work and intend to remain — rather than on the visa label. Most clinicians who arrive on a skilled or employer-sponsored visa, take a lease and start work become residents for tax purposes, which generally means a tax-free threshold and resident rates rather than the higher non-resident rates. It is worth confirming your own position with the ATO or an accountant in your first year, because it changes what you pay."}},{"@type":"Question","name":"Can I open an Australian bank account before I arrive?","acceptedAnswer":{"@type":"Answer","text":"Usually yes, and it is worth doing. The major banks let you open a transaction account online from overseas before you land, then verify your identity at a branch with your passport once you arrive. Having an account open before you fly means your first salary and your rental bond have somewhere to go, and it saves a queue in a week when you will have plenty else to do."}}]}]</script>
+<link rel="stylesheet" href="../disclose.css">
+<link rel="stylesheet" href="../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia" aria-current="page">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<header class="hero cream au">
+  <div class="wrap">
+    <div class="hero-copy">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="/australia">Australia</a><span class="sep">&#8250;</span>
+        <a href="/resources">Guides &amp; Resources</a><span class="sep">&#8250;</span>
+        <span class="here">Money, tax &amp; banking</span>
+      </nav>
+      <span class="eyebrow">Reference guide</span>
+      <h1>Money, tax &amp;<br>banking in Australia</h1>
+      <p class="hero-sub">Four things to set up, one refund people routinely miss, and one decision most clinicians accept by default when they should make it deliberately.</p>
+      <div class="btn-row">
+        <a href="#order" class="btn btn-primary">The order to do it in</a>
+        <a href="/contact" class="btn btn-ghost">Ask us a question</a>
+      </div>
+    </div>
+    <div class="hero-badge"><img class="hero-illus" decoding="async" fetchpriority="high" src="../assets/heroes/money-tax-and-banking.svg" alt="A tax number, a bank account and a first payslip chained in sequence" width="400" height="300"></div>
+  </div>
+</header>
+
+<section class="glance-wrap">
+  <div class="wrap">
+    <nav class="glance" aria-label="On this page">
+      <div class="gl-top">
+        <span class="eyebrow">Page at a glance</span>
+        <span class="note">Jump to any part. This guide is made to return to.</span>
+      </div>
+      <ol>
+        <li><a href="#order">The order to do things in</a></li>
+        <li><a href="#tfn">Your Tax File Number</a></li>
+        <li><a href="#banking">Opening a bank account</a></li>
+        <li><a href="#super">Superannuation, and the choice</a></li>
+        <li><a href="#insurance">Insurance you may already have</a></li>
+        <li><a href="#tax">How income tax works</a></li>
+        <li><a href="#residency">Resident for tax purposes</a></li>
+        <li><a href="#medicare">The Medicare levy and its surcharge</a></li>
+        <li><a href="#moving">Moving money into Australia</a></li>
+        <li><a href="#home">What you leave behind at home</a></li>
+        <li><a href="#faq">Common questions</a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<section class="section" id="order">
+  <div class="wrap reading">
+    <span class="eyebrow">Start here</span>
+    <h2>The order to do things in</h2>
+    <p class="lead">Almost all of this is straightforward. It goes wrong when people do it in the wrong sequence, and the commonest version of that is starting work before the tax office knows you exist.</p>
+    <ol class="steps">
+      <li><span class="when">Before you fly</span><h3>Open a bank account online</h3><p>The major banks let you open a transaction account from overseas, then verify your identity at a branch when you arrive. It costs nothing and it means your bond and your first salary have somewhere to land.</p></li>
+      <li><span class="when">Week one</span><h3>Apply for your Tax File Number</h3><p>Free, online, and only possible once you are in the country with work rights. Until your employer has it, they are obliged to withhold tax at the top rate.</p></li>
+      <li><span class="when">Week one</span><h3>Verify your identity at a branch</h3><p>Passport and, ideally, a local address. This activates the account you opened from overseas and usually gets you a card the same week.</p></li>
+      <li><span class="when">Before your first pay run</span><h3>Choose your super fund, deliberately</h3><p>Your employer will ask, or will quietly default you. This is the one decision on this page that compounds for forty years, and the section below is about why it deserves ten minutes.</p></li>
+      <li><span class="when">First month</span><h3>Sort out Medicare, or your exemption</h3><p>Either enrol if you are entitled, or get the statement that lets you claim an exemption from the levy. Both routes need doing; neither happens automatically.</p></li>
+      <li><span class="when">First month</span><h3>Decide about private hospital cover</h3><p>Not a lifestyle question but an arithmetic one, because of the surcharge. Explained below.</p></li>
+      <li><span class="when">Ongoing</span><h3>Keep your first-year paperwork</h3><p>Arrival date, visa grant, any foreign income, and the date you started work. Your first tax return is the one where residency and part-year thresholds matter, and the paperwork makes it painless.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section cool" id="tfn">
+  <div class="wrap reading">
+    <span class="eyebrow">The one that unlocks everything</span>
+    <h2>Your Tax File Number</h2>
+    <p class="lead">A TFN is your permanent personal reference with the Australian Taxation Office. One number, issued once, yours for life. Including if you leave Australia and come back a decade later.</p>
+    <p>You apply after you arrive, online, once you hold a visa with work rights. It is <strong>free</strong>. There are commercial sites that will charge you to submit the same form, and there is no version of the process where paying is faster or better. Apply through the ATO directly.</p>
+    <p>Give the number to your employer as soon as it arrives, and to your bank and your super fund. Until your employer has it they are legally required to withhold tax at the highest rate, which you would get back eventually through your return, but it makes your first month or two considerably leaner than it needs to be.</p>
+    <p>One habit worth keeping from day one: your TFN is a sensitive identifier. Legitimate parties who ask for it are your employer, your bank, your super fund and the ATO. Nobody else needs it, and no genuine organisation will ever ask for it by email or text.</p>
+  </div>
+</section>
+
+<section class="section" id="banking">
+  <div class="wrap">
+    <span class="eyebrow">Practical set-up</span>
+    <h2>Opening a bank account</h2>
+    <p class="lead">Easier than in most countries, and one of the few things worth doing before you get on the plane.</p>
+    <div class="twocol">
+      <div>
+        <h3>How it works</h3>
+        <ul>
+          <li><strong>Apply online from overseas.</strong> The major banks all offer a migrant or newcomer account you can open before arrival, months ahead if you like.</li>
+          <li><strong>Verify in a branch on arrival</strong> with your passport. Bring your visa grant notice too; it saves questions.</li>
+          <li><strong>Everyday banking is app-first</strong> and payments between accounts are near-instant, including to businesses and individuals.</li>
+          <li><strong>You will need a BSB and account number</strong> to give your employer, the two numbers that together identify an Australian account.</li>
+          <li><strong>Cheques are effectively extinct.</strong> Do not budget any part of your move on being able to pay by cheque.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Worth knowing</h3>
+        <ul>
+          <li><strong>Monthly account fees are common</strong> but usually waived above a modest monthly deposit, which a salary comfortably clears. Ask rather than assume.</li>
+          <li><strong>Give your bank your TFN</strong> when it arrives. Without it, tax is withheld from any interest you earn.</li>
+          <li><strong>Tap-and-go is universal</strong>, and a surcharge for card payment is legal and common in cafés and taxis.</li>
+          <li><strong>Keep your home-country account open</strong> for at least the first year. Closing it early makes transfers, pensions and any lingering direct debits harder than they need to be.</li>
+          <li><strong>Credit history does not travel.</strong> You start from nothing here, which matters for borrowing later but not for everyday banking.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="super">
+  <div class="wrap reading">
+    <span class="eyebrow">The decision that compounds</span>
+    <h2>Superannuation, and the choice most people accept by default</h2>
+    <p class="lead">Superannuation is Australia&rsquo;s compulsory retirement saving, and it is one of the better features of working here. Your employer pays a legislated percentage of your earnings into a fund <em>on top of</em> your salary.</p>
+    <p>The rate is set by law rather than negotiated, it has been rising in steps, and you should check the current figure, but the important point is structural: it is additional to your pay, not deducted from it. When you compare a package here against one at home, super is real money that a salary comparison alone will miss.</p>
+    <p>In most cases <strong>you can choose the fund</strong>. If you do not choose, one of two things happens: your existing fund is used if you already have one, or your employer&rsquo;s default applies. Health sector employers commonly offer an industry fund, and industry funds are generally low-fee and perfectly reasonable, but there is a difference between choosing that and being defaulted into it without looking.</p>
+    <p>What to actually look at, in order: the fees, the long-run net performance, the insurance built into the default option and whether you need it, and the investment mix relative to your age and your plans. Ten minutes on the government&rsquo;s comparison tool is enough to make a defensible choice, and small fee differences compound into large numbers across a career.</p>
+    <div class="ourview">
+      <span class="k">In our experience</span>
+      <h3>The one thing clinicians most often regret is ending up with several small super accounts</h3>
+      <p>It happens quietly: a locum stint here, a fixed-term contract there, each one defaulting you into a different fund. Every account charges its own fees and often its own insurance premiums, and the total quietly erodes.</p>
+      <p>Keep one fund and tell each new employer where to pay. Consolidating later is possible and worth doing, but check what insurance cover you would lose before you close anything, because that is the one part of consolidation that can bite.</p>
+    </div>
+    <h3 style="margin-top:40px" id="insurance">The insurance you probably do not know you have</h3>
+    <p>This is the part that surprises almost every arriving clinician. Most Australian super funds include <strong>default insurance</strong> inside the fund, with the premiums deducted from your balance rather than billed to you. Typically that means <strong>life cover</strong>, <strong>total and permanent disability cover</strong>, and sometimes <strong>income protection</strong>.</p>
+    <p>Two consequences worth understanding. The first is that you may already be insured for more than you assume, which matters if you were about to buy a separate policy. The second is the reason for the warning above: consolidating several accounts into one closes the others, and closes their cover with them. If you have developed a health condition since that cover started, you may not be able to replace it on the same terms.</p>
+    <p>So the order matters. Find out what cover each fund provides, decide what you actually need against your mortgage and dependants, and only then consolidate. If the default cover is more than you need you can usually reduce or cancel it and stop paying the premiums, and if it is less than you need, a super fund is often not the cheapest place to top it up. Neither of those is a decision we are licensed to make for you, but both are worth ten minutes of a licensed adviser&rsquo;s time.</p>
+    <p style="margin-top:34px">If you eventually leave Australia permanently on a temporary visa, you may be able to claim your super back through the departing Australia superannuation payment, taxed at a rate set for that purpose. It is not a reason to plan differently, but it is worth knowing the money is not lost.</p>
+  </div>
+</section>
+
+<section class="section cool" id="tax">
+  <div class="wrap reading">
+    <span class="eyebrow">How it works</span>
+    <h2>Income tax, in outline</h2>
+    <p class="lead">Australian income tax is progressive and administered federally &mdash; unlike tenancy law, there is no state income tax to learn. We do not print rates or thresholds here, because they change with each federal budget.</p>
+    <p>Tax is withheld from your pay by your employer under a system called PAYG. Pay as you go, so for most employed clinicians the amount arriving in your account is already net. The financial year runs from <strong>1 July to 30 June</strong>, which catches people out in a small but persistent way: it is not the calendar year and it is not the April year some of you are used to.</p>
+    <p>You lodge a return after 30 June, and for a straightforward salaried position this is simple: much of it arrives pre-filled, and the ATO&rsquo;s own online service is free. Most clinicians in their second year onwards do it themselves in under an hour.</p>
+    <p>Two things that are worth an accountant in your <em>first</em> year specifically: a part-year residency position, and any income or assets still generating money in your home country. Both are ordinary situations, both have a right answer, and both are easier to get right once than to unpick later.</p>
+    <div class="src">
+      <span class="k">Where to get the current numbers</span>
+      <ul>
+        <li><a href="https://www.ato.gov.au/" target="_blank" rel="noopener">Australian Taxation Office</a>, the primary source for rates, thresholds, the residency tests and lodging your return. Free, and more current than any guide.</li>
+        <li><a href="https://moneysmart.gov.au/" target="_blank" rel="noopener">Moneysmart</a>. The government&rsquo;s independent money guidance, including a pay calculator and a super fund comparison tool. No products sold.</li>
+        <li><a href="https://www.ato.gov.au/individuals-and-families/super-for-individuals-and-families/super" target="_blank" rel="noopener">ATO: superannuation</a>, the current employer contribution rate, choice-of-fund rules and consolidation.</li>
+        <li><a href="https://www.servicesaustralia.gov.au/medicare" target="_blank" rel="noopener">Services Australia &mdash; Medicare</a>, enrolling, reciprocal agreements, and applying for a Medicare Entitlement Statement.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="residency">
+  <div class="wrap reading">
+    <span class="eyebrow">A distinction that matters</span>
+    <h2>&ldquo;Resident for tax purposes&rdquo; is not the same as your visa</h2>
+    <p class="lead">This is the single most misunderstood thing on this page, and it changes what you pay.</p>
+    <p>Tax residency has nothing to do with citizenship and only an indirect relationship with your visa. It turns on your actual circumstances: where you live, where you work, where your family is, what you have set up, and whether you intend to stay. Someone on a temporary employer-sponsored visa who takes a twelve-month lease and starts a permanent clinical role is very often a resident for tax purposes, despite the word &ldquo;temporary&rdquo; on the visa.</p>
+    <p>It matters because residents generally get a tax-free threshold and resident rates, while non-residents are taxed from the first dollar at higher rates. The gap is not trivial.</p>
+    <p>Most arriving clinicians who move properly. Job, home, family, intention to stay. Are residents for tax purposes from close to their arrival date, which is usually the better outcome. But it is your circumstances that decide it, not a form you fill in, so confirm your own position with the ATO&rsquo;s residency tests or an accountant in year one.</p>
+    <div class="warn">
+      <span class="k">Where this goes wrong</span>
+      <p>Two mistakes we see. The first is assuming that a <strong>temporary visa means non-resident for tax</strong>, and paying more than necessary for a year before anyone notices.</p>
+      <p>The second is the reverse: assuming residency and forgetting that as a resident you generally need to <strong>declare worldwide income</strong>, including rent from a property you kept at home. Both are fixable. Both are much easier to get right at the start.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section warm" id="medicare">
+  <div class="wrap">
+    <span class="eyebrow">The levy, and the refund people miss</span>
+    <h2>The Medicare levy and the surcharge</h2>
+    <p class="lead">Two separate things with confusingly similar names. Clinicians are affected by both, and one of them is a refund routinely left unclaimed.</p>
+    <div class="twocol">
+      <div>
+        <h3>The Medicare levy</h3>
+        <ul>
+          <li><strong>What it is:</strong> a percentage of taxable income paid by most residents, funding the public health system. It appears in your tax return rather than as a separate bill.</li>
+          <li><strong>If your country has a reciprocal health care agreement</strong> with Australia, you may be enrolled in Medicare and liable for the levy in the ordinary way.</li>
+          <li><strong>If you are not entitled to Medicare</strong>, you can apply to Services Australia for a <strong>Medicare Entitlement Statement</strong> and claim an exemption in your return.</li>
+          <li><strong>This is the missed refund.</strong> Plenty of arriving clinicians pay a levy for a health system they were not entitled to use, because nobody told them the statement exists.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>The Medicare levy surcharge</h3>
+        <ul>
+          <li><strong>What it is:</strong> an additional charge on higher earners who do not hold an appropriate level of private <em>hospital</em> cover.</li>
+          <li><strong>Why it matters to you:</strong> many clinical salaries sit above the threshold, so this is likely to apply.</li>
+          <li><strong>The arithmetic:</strong> a basic hospital policy frequently costs less than the surcharge it avoids. That is precisely why so many Australian households hold cover they rarely claim on.</li>
+          <li><strong>Extras is not hospital cover.</strong> Dental and optical extras do not exempt you from the surcharge, and this is the most common expensive misunderstanding.</li>
+          <li><strong>Run your own numbers</strong> against your actual income rather than taking a rule of thumb, including ours.</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:34px;max-width:760px">How the public and private systems fit together, and what Medicare actually covers, is explained properly in <a href="/guides/australia-healthcare">how the health system works</a>. This section is only about the money.</p>
+  </div>
+</section>
+
+<section class="section" id="moving">
+  <div class="wrap reading">
+    <span class="eyebrow">Getting your money here</span>
+    <h2>Moving money into Australia</h2>
+    <p class="lead">Transferring your savings is one of the largest single financial events of the move, and one where the default option is usually the expensive one.</p>
+    <p>The cost of an international transfer is rarely the advertised fee. It is the exchange rate margin. The gap between the rate you are given and the real mid-market rate, and on a sum large enough to fund a bond, a car and three months of living, a poor margin costs meaningfully more than any fee.</p>
+    <p>Compare your bank against a specialist transfer service, on the same day, for the same amount, and look only at how many Australian dollars actually arrive. That is the whole comparison. Banks are convenient and often not competitive; specialists are usually better on rate and require a little setup.</p>
+    <p>Two practical points. Split your transfer rather than moving everything on one day, because you have no way of knowing whether today&rsquo;s rate is good and splitting removes the need to guess. And expect to be asked to document the source of large sums. That is ordinary anti-money-laundering compliance, not suspicion, and having a payslip or sale document ready makes it a five-minute conversation.</p>
+    <div class="ourview">
+      <span class="k">In our experience</span>
+      <h3>Nobody regrets keeping a buffer at home for the first six months</h3>
+      <p>Moving everything at once feels decisive and occasionally goes wrong. A delayed start date, a rental application that falls through, a family reason to fly home unexpectedly. A reserve in your home currency is not indecision, it is what makes the first months calm.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section cool" id="home">
+  <div class="wrap reading">
+    <span class="eyebrow">The other end</span>
+    <h2>What you leave behind at home</h2>
+    <p class="lead">We are not qualified to advise on the tax system you are leaving, and neither is any recruiter who says otherwise. What we can do is tell you which questions to ask while the people who can answer them are still a local phone call away.</p>
+    <p><strong>Your pension.</strong> Whatever scheme you are in, find out before you leave what happens to it when you stop contributing, whether it can be transferred, and whether transferring is actually a good idea. Frequently it is not. Get this in writing while you are still in the country.</p>
+    <p><strong>Property you are keeping.</strong> If you rent out a home at home, that income may be declarable in both countries. Double tax agreements exist precisely so you are not taxed twice, but they do not apply themselves.</p>
+    <p><strong>Your final part-year return.</strong> Most systems require one for the year you leave, and it is often the year you are owed a refund. Easy to forget from twelve thousand miles away.</p>
+    <p><strong>Student loans.</strong> Many countries require continued repayment from abroad, on a different basis from at home, and some charge a fixed amount rather than an income-linked one. Check the rule for your own scheme before you go.</p>
+    <p>One accountant conversation in your last month at home and one in your first Australian year will cost less than either mistake. This is the part of the move where paying a professional is straightforwardly worth it.</p>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap reading">
+    <span class="eyebrow">Common questions</span>
+    <h2>The things people ask us first</h2>
+    <div class="faq">
+      <details open>
+        <summary>What is a TFN and when should I apply?</summary>
+        <div class="ans"><p>Your permanent tax reference with the ATO, one number, yours for life. Apply online once you have arrived and hold a visa with work rights. It is free, and no commercial site can get it faster. Until your employer has it, they must withhold tax at the top rate, so week one is the right time.</p></div>
+      </details>
+      <details>
+        <summary>Can I choose my own super fund?</summary>
+        <div class="ans"><p>In most cases yes, and you should. If you do not choose, you are defaulted, either into an existing fund of yours or your employer&rsquo;s default. Health employers commonly offer a low-fee industry fund, which is a perfectly good answer, but there is a difference between choosing it and being placed in it without looking. Compare fees and long-run net performance on the government&rsquo;s tool.</p></div>
+      </details>
+      <details>
+        <summary>Do I have to pay the Medicare levy?</summary>
+        <div class="ans"><p>It depends on whether you are entitled to Medicare. If your country has a reciprocal agreement you may be enrolled and liable in the ordinary way. If you are not entitled, apply to Services Australia for a Medicare Entitlement Statement and claim an exemption in your return. This is the refund arriving clinicians most often miss.</p></div>
+      </details>
+      <details>
+        <summary>Is private health insurance worth it?</summary>
+        <div class="ans"><p>Often, and for an unromantic reason: above a certain income you pay the Medicare levy surcharge if you do not hold private <em>hospital</em> cover, and a basic policy frequently costs less than the surcharge. Extras cover does not count. Run it against your own income rather than trusting a rule of thumb.</p></div>
+      </details>
+      <details>
+        <summary>Am I a resident for tax purposes?</summary>
+        <div class="ans"><p>Probably, if you have moved properly. Job, home, family, intention to stay, even on a temporary visa. Tax residency follows your circumstances, not your visa label, and residents generally get a tax-free threshold and lower rates. Confirm your own position with the ATO&rsquo;s residency tests in year one, because it changes what you pay.</p></div>
+      </details>
+      <details>
+        <summary>Do I need life insurance or income protection?</summary>
+        <div class="ans"><p>Check what you already have first. Most Australian super funds include default life and total-and-permanent-disability cover, sometimes income protection, with premiums taken from your balance rather than billed to you. Find out what each of your funds provides before buying a separate policy, and before consolidating accounts, because closing a fund closes its cover.</p></div>
+      </details>
+      <details>
+        <summary>What about professional indemnity insurance?</summary>
+        <div class="ans"><p>Ahpra requires professional indemnity arrangements to be in place as a condition of registration. In an employed public role you are generally covered by your employer; if you take on private sessions or any independent practice, that usually needs your own cover. It belongs with <a href="/guides/australia-registration">eligibility &amp; registration</a> rather than here, because it is a registration requirement rather than a money question.</p></div>
+      </details>
+      <details>
+        <summary>When is the tax year?</summary>
+        <div class="ans"><p>1 July to 30 June. Not the calendar year, and not the April year some arrivals are used to. You lodge after 30 June, and for a salaried role much of the return arrives pre-filled.</p></div>
+      </details>
+      <details>
+        <summary>What is the cheapest way to move my savings over?</summary>
+        <div class="ans"><p>Compare your bank against a specialist transfer service on the same day for the same amount, and look only at how many Australian dollars arrive. The exchange rate margin matters far more than the advertised fee. Split the transfer over several dates rather than betting on one, and keep a buffer at home for the first six months.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div style="margin-bottom:0;">
+      <span class="eyebrow">Read a little deeper</span>
+      <h2 style="font-size:clamp(22px,3vw,28px);">Helpful alongside this guide</h2>
+      <div class="related-grid">
+        <a href="/guides/australia-renting" class="rel"><span class="k">National</span><h3>Renting in Australia</h3><p>Applications with no rental history, and how bond actually works.</p><span class="go">Read guide</span></a>
+        <a href="/guides/australia-healthcare" class="rel"><span class="k">Reference</span><h3>How the health system works</h3><p>Medicare, the private system, and what it means for your family.</p><span class="go">Read guide</span></a>
+        <a href="/guides/australia-salary" class="rel"><span class="k">Reference</span><h3>Pay &amp; conditions</h3><p>How pay is set, and the agreements behind the numbers.</p><span class="go">Read guide</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="final">
+      <span class="eyebrow">No pressure, just a conversation</span>
+      <h2>Not sure what applies to you?</h2>
+      <p>We are recruiters, not accountants, and we will not pretend otherwise, but we have walked a lot of clinicians through this first month and we know which questions are worth paying someone to answer. Ask us, and we will tell you honestly which parts need a professional.</p>
+      <div class="btn-row">
+        <a href="/contact" class="btn btn-primary">Ask us a question</a>
+        <a href="/destinations/australia-relocation-guide" class="btn btn-secondary">The full move, step by step</a>
+      </div>
+      <p class="small">Ethicare Resourcing &middot; your guide to a life and career in Australia.</p>
+    </div>
+  </div>
+</section>
+
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
+</main>
+<script src="../page-feedback.js" defer></script>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="../site.js"></script>
+<script src="../nav.js" defer></script>
+<script src="../journey-nav.js" defer></script>
+
+<!-- ============================================================
+  INTERNAL LINK MAP — /guides/australia-money
+
+  WHY THIS PAGE EXISTS (24 Aug 2026)
+    Second of three Australian national guides that had no owner. New Zealand explains
+    money, tax and banking once at /guides/money-tax-and-banking; Australia explained it
+    nowhere, which is why the Bunbury and Geelong hubs had invented /guides/australia-money.
+    Sibling: /guides/australia-renting (built same day). Still to write: australia-driving.
+
+  HERO — tier-2 flat cream, NO photograph, so no .hero-art and no guide-hero-split.css.
+    Deliberate: this is a reference page, and there is no honest photograph of a tax system.
+    If a photo is ever added it MUST follow the renting-guide pattern exactly (.hero-art a
+    direct child of .hero OUTSIDE .wrap, guide-hero-split.css loaded LAST after hero.css,
+    and a LANDSCAPE asset). Mixing those two patterns is what broke the renting hero.
+
+  Breadcrumb: Australia (/australia) › Guides & Resources (/resources) › Money, tax & banking
+
+  ON-PAGE ANCHORS (glance nav, 11 rows)
+    #order · #tfn · #banking · #super · #insurance · #tax · #residency · #medicare
+    #moving · #home · #faq
+    #insurance is an h3 INSIDE the #super section, not its own section — insurance held
+    inside a super fund is a super topic, and splitting it out would break one-topic-one-source.
+
+  INSURANCE OWNERSHIP (decided 24 Aug 2026) — insurance is not one topic, it distributes:
+    Private health cover, waiting periods, Lifetime Health Cover loading -> /guides/australia-healthcare
+    Medicare levy + surcharge arithmetic                                 -> THIS PAGE, #medicare
+    Life / TPD / income protection (default cover inside super)          -> THIS PAGE, #insurance
+    Professional indemnity (an Ahpra registration standard)              -> /guides/australia-registration
+    Compulsory third party motor insurance (state-based)                 -> /guides/australia-driving
+    Home contents                                                        -> /guides/australia-renting
+    Do NOT create a standalone insurance guide — it would duplicate healthcare and pull
+    indemnity content out of registration, where it is a condition of practice.
+
+  IN-BODY INTERNAL LINKS
+    How the health system works (#medicare)  -> /guides/australia-healthcare
+    Renting in Australia (related)           -> /guides/australia-renting
+    Pay & conditions (related)               -> /guides/australia-salary
+    Moving to Australia master (final CTA)   -> /destinations/australia-relocation-guide
+    Contact (hero, final)                    -> /contact
+
+  EXTERNAL · official sources only (all target=_blank rel=noopener)
+    ATO                     -> ato.gov.au
+    ATO superannuation      -> ato.gov.au/individuals-and-families/super-for-individuals-and-families/super
+    Moneysmart              -> moneysmart.gov.au
+    Services Australia      -> servicesaustralia.gov.au/medicare
+    No banks, super funds, transfer services or insurers are named anywhere — naming a
+    financial product would read as advice we are not licensed to give. Described by
+    function ("the major banks", "a specialist transfer service") instead.
+
+  RULES OBSERVED
+    EMPLOYER RULE — no employer, hospital, trust or private provider named.
+    COST RULE — no dollar figures anywhere. Tax rates, thresholds, the super guarantee
+      percentage, levy and surcharge rates are all described as MECHANISMS and routed to
+      the ATO for current numbers. The #tax lead states this policy explicitly. Federal
+      budgets change these annually — do NOT add figures to this page.
+    PAY RULE — no salary figures.
+    NOT ADVICE — the page repeatedly says we are recruiters not accountants, and the
+      #home section explicitly declines to advise on the reader's home tax system.
+    INTERNATIONAL — "your country", "the system you are leaving", reciprocal health care
+      agreements framed generally; never UK-only.
+
+  PUBLISHED 25 Aug 2026 — _redirects row live, listed in the Australia master contents,
+  and the Bunbury and Geelong hub rows point here.
+
+  SEO
+  Page Title: Money, tax & banking in Australia | Ethicare Resourcing
+  URL Slug: /guides/australia-money
+  SEO Title: Money, tax & banking in Australia — TFN, super, Medicare levy and residency
+  Meta Description: Your TFN, superannuation and the choice of fund, the Medicare levy and its surcharge, what tax residency actually means, and the order to do things in when you arrive.
+  ============================================================ -->
+</body>
+</html>

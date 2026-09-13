@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>About New Zealand: Te Tiriti &amp; te reo | Ethicare Resourcing</title>
+<meta name="description" content="A warm, honest introduction to Aotearoa for healthcare professionals: the land, history, Te Tiriti o Waitangi, te reo Māori and everyday culture.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   ETHICARE RESOURCING — NEW ZEALAND · REFERENCE GUIDE
+   About New Zealand: history, Te Tiriti & te reo
+   Wix HTML-embed page. Begins below the Wix header, ends above the
+   Wix footer. Hero photo: ../assets/photo-sounds-track.jpg
+   ================================================================ */
+:root{
+  --teal:#02615D; --green:#02615D; --sage:#72A471; --lime:#A6C84A;
+  --mint:#C9DED3; --soft:#E3ECE5; --soft-green:#E3ECE5; --warm:#FCFBF8;
+  --white:#FFFFFF; --text:#333333; --muted:#555555;
+  --display:'Work Sans',sans-serif; --body:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+body{font-family:var(--body);font-size:16px;line-height:1.72;color:var(--text);background:var(--warm);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,.btn:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 7px rgba(167,201,87,.55)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.18;color:var(--teal)}
+h1{font-size:clamp(40px,6vw,56px);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+h2{font-size:clamp(30px,4vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin-bottom:24px}
+h3{font-size:18px;margin-bottom:8px}
+p{margin-bottom:16px}
+strong{color:var(--green)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.reading{max-width:1180px}.reading>*{max-width:760px}
+.section{padding:var(--sp-major,clamp(60px,8vw,96px)) 0;position:relative}
+.eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:16px}
+
+.lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:50ch}
+
+/* breadcrumb */
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:13px;color:var(--muted);margin-bottom:24px}
+.crumb a:hover{color:var(--teal)}
+.crumb .sep{opacity:.85}
+.crumb .here{color:var(--teal)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-family:var(--display);font-weight:600;font-size:16px;padding:13px 26px;border-radius:12px;transition:transform .15s ease,background .15s ease;color:var(--teal);cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#014E4B}
+.btn-secondary{background:#fff;border:1.5px solid var(--sage);color:var(--teal)}.btn-secondary:hover{background:var(--soft-green)}
+.btn-ghost{background:transparent;border:1.5px solid var(--sage);color:var(--teal)}.btn-ghost:hover{background:var(--soft-green)}
+.btn-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+
+/* ---------------- HERO (editorial cover) ---------------- */
+.hero{position:relative;overflow:hidden;background:var(--teal);min-height:min(840px,calc(100svh - 78px));display:grid;align-content:end}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:0}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(98deg,rgba(1,49,47,.94) 0%,rgba(1,49,47,.86) 26%,rgba(1,49,47,.58) 50%,rgba(1,49,47,.16) 76%,rgba(1,49,47,0) 100%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(1,49,47,.58) 0%,rgba(1,49,47,.04) 28%,rgba(1,49,47,.52) 84%,rgba(1,49,47,.80) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-top:clamp(36px,6vw,72px);padding-bottom:clamp(26px,3.4vw,40px)}
+.hero-copy{max-width:640px}
+.hero .crumb{color:rgba(255,255,255,.76);margin-bottom:clamp(30px,5vw,64px)}
+.hero .crumb a:hover,.hero .crumb .here{color:#fff}
+.hero .kicker{display:flex;align-items:center;gap:16px;font-style:italic;font-size:clamp(16px,2vw,19.5px);line-height:1.3;color:#C9DED3;margin-bottom:16px}
+.hero .kicker::before{content:"";flex:none;width:28px;height:3px;border-radius:2px;background:#A6C84A}
+.hero h1{color:#fff;font-size:clamp(44px,7vw,78px);line-height:1.02;letter-spacing:-.028em;margin-bottom:24px;max-width:15ch;text-shadow:0 2px 40px rgba(1,32,31,.32)}
+.hero-sub{font-size:clamp(17px,2vw,20.5px);line-height:1.6;color:rgba(255,255,255,.92);max-width:50ch;margin-bottom:0}
+.hero .btn-row{margin-top:24px}
+.hero .btn-primary{background:#fff;color:var(--teal)}
+.hero .btn-primary:hover{background:var(--warm)}
+.hero .btn-ghost{background:rgba(255,255,255,.10);border:1.5px solid rgba(255,255,255,.55);color:#fff}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.20)}
+
+/* quick facts, as the base of the hero */
+.hero-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,34px);margin-top:clamp(36px,5vw,60px);padding-top:clamp(20px,2.6vw,26px);border-top:1px solid rgba(255,255,255,.24)}
+.hero-facts .n{font-family:var(--display);font-weight:700;font-size:clamp(22px,2.7vw,32px);line-height:1;color:#fff;letter-spacing:-.015em}
+.hero-facts .l{font-family:var(--display);font-weight:600;font-size:13px;color:#C9DED3;margin-top:8px}
+.hero-facts .s{font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.74);margin-top:4px}
+
+/* on this page */
+.pagenav{background:var(--warm);border-bottom:1px solid var(--mint)}
+.pagenav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;padding-top:15px;padding-bottom:15px}
+.pagenav .lbl{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:#5C6B57}
+.pagenav a{font-family:var(--display);font-weight:600;font-size:14px;color:var(--teal);padding:4px 0;border-bottom:2px solid transparent;transition:border-color .15s ease}
+.pagenav a:hover{border-color:#2F5E49}
+@media (max-width:900px){
+  .hero{min-height:0}
+  .hero::before{background:linear-gradient(180deg,rgba(1,49,47,.78) 0%,rgba(1,49,47,.70) 42%,rgba(1,49,47,.90) 100%)}
+  .hero .wrap{padding-top:clamp(30px,7vw,48px);padding-bottom:32px}
+  .hero .crumb{margin-bottom:24px}
+  .hero-copy{max-width:none}
+  .hero-facts{grid-template-columns:1fr 1fr;gap:24px 24px}
+}
+
+/* intro / reassurance */
+.reassure{background:var(--soft-green);border:1px solid var(--mint);border-left:5px solid #72A471;border-radius:14px;padding:24px 26px;margin:24px 0 0}
+.reassure p{margin:0;font-size:16.5px}
+
+/* three-up cards */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.how{background:#fff;border:1px solid var(--mint);border-radius:14px;padding:28px 26px;border-top:4px solid var(--sage);transition:transform .15s ease,box-shadow .15s ease}
+.how:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(1,49,47,.09)}
+.how h3{color:var(--green);margin-bottom:8px}
+.how p{font-size:14.5px;color:var(--muted);margin:0}
+.how .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:#2F5E49;display:block;margin-bottom:8px}
+
+/* history timeline */
+.htl{margin-top:40px;max-width:920px;display:grid;gap:0}
+.he{display:grid;grid-template-columns:118px 1fr;gap:24px;position:relative;padding-bottom:26px}
+.he::before{content:"";position:absolute;left:118px;top:8px;bottom:-8px;width:2px;background:var(--mint);transform:translateX(13px)}
+.he:last-child{padding-bottom:0}
+.he:last-child::before{display:none}
+.he .yr{font-family:var(--display);font-weight:600;font-size:15px;color:var(--teal);text-align:right;position:relative;padding-right:30px}
+.he .yr::after{content:"";position:absolute;right:7px;top:5px;width:14px;height:14px;border-radius:50%;background:#72A471;border:3px solid var(--warm);z-index:1}
+.he .ev h3{font-size:16.5px;color:var(--green);margin-bottom:4px}
+.he .ev p{font-size:14.5px;color:var(--muted);margin:0}
+
+/* Te Tiriti feature */
+.treaty{background:var(--teal);border-radius:24px;padding:clamp(32px,4.5vw,52px);color:#fff;margin-top:4px}
+.treaty .eyebrow{color:#C9DED3}
+.treaty h2{color:#fff}
+.treaty .lead{color:rgba(255,255,255,.86);max-width:64ch}
+.treaty .arts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.art{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:24px 24px}
+.art .no{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#C9DED3;margin-bottom:8px}
+.art h3{color:#fff;font-size:16.5px;margin-bottom:4px}
+.art p{font-size:13.5px;color:rgba(255,255,255,.82);margin:0}
+.treaty .note{font-size:13.5px;color:rgba(255,255,255,.74);margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);max-width:64ch}
+
+/* kupu glossary */
+.kupu{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 24px;margin-top:40px}
+.word{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:baseline;background:#fff;border:1px solid var(--mint);border-radius:12px;padding:16px 20px}
+.word .t{font-family:var(--display);font-weight:600;font-size:16px;color:var(--teal)}
+.word .m{font-size:14px;color:var(--muted)}
+.kupu-note{font-size:13px;color:var(--muted);max-width:64ch;margin-top:24px;padding-top:16px;border-top:1px solid var(--mint)}
+
+/* values cards (soft) */
+.vals{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
+.val{background:var(--soft);border:1px solid var(--mint);border-radius:14px;padding:26px 26px}
+.val .reo{font-family:var(--display);font-weight:600;font-style:italic;font-size:14px;color:#2F5E49;margin-bottom:4px}
+.val h3{color:var(--green);font-size:17px;margin-bottom:8px}
+.val p{font-size:14.5px;color:var(--muted);margin:0}
+
+/* callout */
+.callout{background:#fff;border:1px solid var(--mint);border-left:5px solid var(--sage);border-radius:14px;padding:26px 30px;margin-top:40px;max-width:920px}
+.callout h3{color:var(--green);font-size:17.5px;margin-bottom:8px}
+.callout p{font-size:15px;color:var(--muted);margin:0}
+
+/* Sophie insight */
+.sophie{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:clamp(28px,4vw,40px);display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:start;max-width:920px}
+.sophie .photo{width:120px;height:140px;border-radius:14px;background:linear-gradient(150deg,var(--mint),var(--soft-green));border:1px solid var(--mint);display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--display);font-weight:700;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(1,49,47,.5);padding:0 12px}
+.sophie .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px}
+.sophie p{font-size:16.5px;color:var(--text);margin-bottom:0}
+.sophie .sign{font-family:var(--display);font-style:italic;font-weight:600;font-size:18px;color:var(--teal);margin-top:16px}
+.sophie .sign span{display:block;font-style:normal;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+.sophie .photo{overflow:hidden;padding:0}
+.sophie .photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+
+/* FAQ */
+.faq{margin-top:40px;max-width:760px}
+.faq details{background:#fff;border:1px solid var(--mint);border-radius:14px;margin-bottom:16px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--teal);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;font-weight:400;color:#2F5E49;transition:transform .2s ease;line-height:1}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .ans{padding:0 24px 22px;font-size:15.5px;color:var(--muted)}
+.faq .ans p{margin-bottom:8px}.faq .ans p:last-child{margin-bottom:0}
+
+/* related + final */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.rel{position:relative;background:#fff;border:1px solid var(--mint);border-left:5px solid var(--sage);border-radius:14px;padding:24px 24px;transition:background .15s ease,transform .15s ease}
+.rel:hover{background:var(--soft-green);transform:translateY(-2px)}
+.rel .k{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px;display:block}
+.rel h3{font-size:16.5px;color:var(--green);margin-bottom:4px}
+.rel p{font-size:13.5px;color:var(--muted);margin:0}
+.rel .go{margin-top:16px;font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--teal);display:inline-flex;align-items:center;gap:8px}
+.rel .go::after{content:"\2192";color:#2F5E49}
+.final{background:var(--soft-green);border-radius:24px;padding:clamp(34px,5vw,52px);text-align:left}
+.final h2{margin-bottom:16px}
+.final p{max-width:64ch;color:var(--muted);font-size:17px}
+.final .btn-row{justify-content:flex-start}
+.final .small{margin-top:16px;font-size:13.5px;color:var(--muted)}
+
+@media (max-width:880px){
+  .facts-card{grid-template-columns:1fr 1fr}
+  .how-grid,.related-grid{grid-template-columns:1fr 1fr}
+  .treaty .arts{grid-template-columns:1fr}
+  .kupu,.vals{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .section{padding:54px 0}
+  .facts-card{grid-template-columns:1fr 1fr;padding:24px 22px}
+  .how-grid,.related-grid{grid-template-columns:1fr}
+  .he{grid-template-columns:84px 1fr;gap:16px}
+  .he::before{left:84px}
+  .he .yr{padding-right:24px;font-size:14px}
+  .word{grid-template-columns:1fr;gap:4px}
+  .sophie{grid-template-columns:1fr;gap:24px;text-align:left}
+  .sophie .photo{margin:0 auto}
+  .btn{width:100%}
+}
+</style>
+<link rel="stylesheet" href="../shell.css">
+<style>/* playfair-hero */ .hero-sub,.hero .kicker,.h-hero .pf{font-family:'Playfair Display',Georgia,serif;font-weight:500}
+/* closing CTAs — left aligned */
+.final,.complete,.close-ins{text-align:left}
+.final p,.complete p,.close-ins p{margin-left:0;margin-right:0}
+.final .btn-row,.complete .btn-row,.close-ins .btn-row{justify-content:flex-start}
+.final .eyebrow,.complete .eyebrow,.close-ins .eyebrow{text-align:left}
+</style>
+<link rel="stylesheet" href="../guide-mobile.css">
+<link rel="canonical" href="https://ethicareresourcing.com/guides/about-new-zealand">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="About New Zealand: history, Te Tiriti &amp; te reo | Ethicare Resourcing">
+<meta property="og:description" content="A warm, honest introduction to Aotearoa for healthcare professionals: the land, history, Te Tiriti o Waitangi, te reo Māori and everyday culture.">
+<meta property="og:url" content="https://ethicareresourcing.com/guides/about-new-zealand">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About New Zealand: history, Te Tiriti &amp; te reo | Ethicare Resourcing">
+<meta name="twitter:description" content="A warm, honest introduction to Aotearoa for healthcare professionals: the land, history, Te Tiriti o Waitangi, te reo Māori and everyday culture.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="nz-fern-accent">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
+<link rel="stylesheet" href="../guide-print.css">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"New Zealand","item":"https://ethicareresourcing.com/new-zealand"},{"@type":"ListItem","position":2,"name":"Guides & references","item":"https://ethicareresourcing.com/new-zealand#journey"},{"@type":"ListItem","position":3,"name":"About New Zealand"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need to speak te reo Māori?","acceptedAnswer":{"@type":"Answer","text":"Not at all. English is the everyday working language, and you'll get by perfectly without a word of te reo. That said, learning a handful of common greetings and saying place names correctly is warmly received, and it's a lovely, easy way to show you respect where you've come to live. You'll absorb plenty just by being here."}},{"@type":"Question","name":"Why does the Treaty matter for my work in healthcare?","acceptedAnswer":{"@type":"Answer","text":"Te Tiriti o Waitangi underpins how public services, including health, are designed and delivered. In practice that means the system places real emphasis on equity and on improving outcomes for Māori, and you'll see that reflected in policy, training and day-to-day care. You don't need to be an expert, an open, respectful willingness to understand it is exactly what's hoped for."}},{"@type":"Question","name":"Is New Zealand very different culturally from home?","acceptedAnswer":{"@type":"Answer","text":"It depends where you're coming from, but most newcomers find it familiar enough to settle quickly and different enough to feel like a genuine change. It's a modern, English-speaking democracy with a relaxed, outdoorsy, egalitarian culture and a strong bicultural heart. The adjustments tend to be gentle, a slower pace, smaller cities and earlier nights rather than anything jarring."}},{"@type":"Question","name":"Will my family fit in?","acceptedAnswer":{"@type":"Answer","text":"Almost always, yes. New Zealand is welcoming and diverse, and there are well-established communities from all over the world. Children in particular settle fast, helped by friendly schools and an outdoor childhood. We're also glad to connect you with families who've made the same move, so you arrive with a few familiar faces rather than none."}}]}]</script>
+<link rel="stylesheet" href="../disclose.css">
+<link rel="stylesheet" href="../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand" aria-current="page">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <img decoding="async" class="bg" src="../assets/photo-sounds-track.jpg" alt="A walking track winding over green hills above the blue waters of the Marlborough Sounds, New Zealand" fetchpriority="high">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="/new-zealand">New Zealand</a><span class="sep">›</span>
+      <a href="/new-zealand#journey">Guides &amp; references</a><span class="sep">›</span>
+      <span class="here">About New Zealand</span>
+    </nav>
+    <div class="hero-copy">
+      <p class="kicker">Aotearoa, the land of the long white cloud</p>
+      <h1>Getting to know New Zealand</h1>
+      <p class="hero-sub">Before it&rsquo;s a job or a visa, it&rsquo;s a place: its own land, its own history, its own way of doing things. Start here.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#land">Start with the land</a>
+        <a class="btn btn-ghost" href="/guides/moving-to-new-zealand">Is it right for my family? &rarr;</a>
+      </div>
+    </div>
+    <div class="hero-facts">
+      <div class="fact"><div class="n">~5.3m</div><div class="l">People</div><div class="s">across two main islands</div></div>
+      <div class="fact"><div class="n">2</div><div class="l">Main islands</div><div class="s">Te Ika-a-Māui &amp; Te Waipounamu</div></div>
+      <div class="fact"><div class="n">3</div><div class="l">Official languages</div><div class="s">English, te reo Māori, NZSL</div></div>
+      <div class="fact"><div class="n">1840</div><div class="l">Te Tiriti o Waitangi</div><div class="s">the founding document</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ON THIS PAGE ============ -->
+<nav class="pagenav" aria-label="On this page">
+  <div class="wrap">
+    <span class="lbl">On this page</span>
+    <a href="#first-impression">First impressions</a>
+    <a href="#land">The land</a>
+    <a href="#history">A short history</a>
+    <a href="#tiriti">Te Tiriti o Waitangi</a>
+    <a href="#te-reo">Te reo M&#257;ori</a>
+    <a href="#people">People &amp; culture</a>
+    <a href="#faq">Questions</a>
+  </div>
+</nav>
+
+<!-- ============ INTRO ============ -->
+<section class="section" id="first-impression">
+  <div class="wrap reading">
+    <span class="eyebrow">A first impression</span>
+    <h2>A small country with a big heart</h2>
+    <p class="lead">Aotearoa is a nation of around five million people at the bottom of the South Pacific, closer to Antarctica than to most of the world. That distance is part of its character.</p>
+    <p>What strikes most newcomers first is the contrast between the dramatic and the gentle. Soaring mountains, deep fiords and wild coastlines sit beside an unhurried, friendly way of life. People are direct but warm, proud but unshowy, and quick to make room for you. Underpinning it all is a bicultural foundation, the partnership between Māori, the indigenous people, and those who came later, layered today with communities from every corner of the world.</p>
+    <div class="reassure">
+      <p>You don&rsquo;t need to know any of this before you arrive, but a little understanding goes a long way. <strong>The people who settle most happily are those who come curious</strong>, ready to learn the land&rsquo;s stories and customs rather than expecting it to be just like home.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE LAND ============ -->
+<section class="section" id="land" style="background:var(--soft);">
+  <div class="wrap">
+    <span class="eyebrow">The land</span>
+    <h2 style="max-width:22ch;">Two islands, and never far from nature</h2>
+    <p class="lead">New Zealand stretches long and narrow, so wherever you settle the coast, the bush and the mountains are close. The two main islands each have their own feel.</p>
+    <div class="how-grid">
+      <div class="how">
+        <span class="k">Te Ika-a-Māui</span>
+        <h3>The North Island</h3>
+        <p>Warmer and more populous, home to Auckland and the capital, Wellington. Rolling green farmland, volcanic plateaus, geothermal Rotorua and long surf beaches define it.</p>
+      </div>
+      <div class="how">
+        <span class="k">Te Waipounamu</span>
+        <h3>The South Island</h3>
+        <p>Wilder and more spacious, with the Southern Alps running down its spine, the lakes and fiords of the south, and Christchurch and Dunedin as its main cities.</p>
+      </div>
+      <div class="how">
+        <span class="k">The climate</span>
+        <h3>Temperate &amp; seasonal</h3>
+        <p>Mild rather than extreme, with four real seasons, and reversed from the northern hemisphere. Summer is December to February; the far south can be properly cold in winter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ A SHORT HISTORY ============ -->
+<section class="section" id="history">
+  <div class="wrap">
+    <span class="eyebrow">A short history</span>
+    <h2>How Aotearoa came to be</h2>
+    <p class="lead">New Zealand was one of the last large landmasses on earth to be settled by people, which makes its history comparatively recent, and all the more vivid for it.</p>
+    <div class="htl">
+      <div class="he">
+        <div class="yr">c.1300s</div>
+        <div class="ev"><h3>Māori settlement</h3><p>Polynesian voyagers navigated vast distances of open ocean to reach Aotearoa, becoming the tāngata whenua, the people of the land, and developing distinct iwi (tribes) with rich language, custom and oral history.</p></div>
+      </div>
+      <div class="he">
+        <div class="yr">1642 &amp; 1769</div>
+        <div class="ev"><h3>First European contact</h3><p>Dutch explorer Abel Tasman sighted the coast in 1642; more than a century later, British navigator James Cook mapped the islands, opening the way to wider European contact and trade.</p></div>
+      </div>
+      <div class="he">
+        <div class="yr">1840</div>
+        <div class="ev"><h3>Te Tiriti o Waitangi</h3><p>The Treaty of Waitangi was signed between the British Crown and many Māori rangatira (chiefs), the document still considered New Zealand&rsquo;s founding agreement, and central to public life to this day.</p></div>
+      </div>
+      <div class="he">
+        <div class="yr">1860s–1900</div>
+        <div class="ev"><h3>Colonisation &amp; conflict</h3><p>Rapid settlement, the New Zealand Wars and large-scale land loss profoundly affected Māori, a difficult history the country continues to reckon with honestly and openly.</p></div>
+      </div>
+      <div class="he">
+        <div class="yr">1893</div>
+        <div class="ev"><h3>Votes for women</h3><p>New Zealand became the first self-governing country in the world to grant women the right to vote, an early mark of the egalitarian streak it still prizes.</p></div>
+      </div>
+      <div class="he">
+        <div class="yr">1970s–today</div>
+        <div class="ev"><h3>Renaissance &amp; a modern nation</h3><p>A Māori cultural renaissance revitalised te reo and tikanga, Treaty settlements began addressing historic wrongs, and waves of migration made New Zealand the diverse, outward-looking democracy it is now.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TE TIRITI ============ -->
+<section class="section" id="tiriti" style="background:var(--soft);">
+  <div class="wrap">
+    <div class="treaty">
+      <span class="eyebrow">The founding document</span>
+      <h2>Te Tiriti o Waitangi</h2>
+      <p class="lead">Signed on 6 February 1840, Te Tiriti o Waitangi is an agreement between the Crown and M&#257;ori. It shapes law, public services and the health system you&rsquo;ll work in.</p>
+      <div class="arts">
+        <div class="art"><div class="no">Article one</div><h3>Kāwanatanga</h3><p>Governance, the Crown&rsquo;s role in governing the country, establishing settled law and order.</p></div>
+        <div class="art"><div class="no">Article two</div><h3>Rangatiratanga</h3><p>Chieftainship: Māori authority over their lands, resources and taonga (treasures), including language and custom.</p></div>
+        <div class="art"><div class="no">Article three</div><h3>Ōritetanga</h3><p>Equity, the same rights, protections and citizenship for Māori as for all New Zealanders.</p></div>
+      </div>
+      <p class="note">The English and te reo Māori texts differ in important ways, and those differences sit at the heart of New Zealand&rsquo;s ongoing conversation about partnership. For healthcare workers this matters in practice: the principles of Te Tiriti underpin the health system&rsquo;s commitment to equity and to better outcomes for Māori, something you&rsquo;ll see reflected in how care is delivered.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TE REO ============ -->
+<section class="section" id="te-reo">
+  <div class="wrap">
+    <span class="eyebrow">Te reo Māori</span>
+    <h2>A few words you&rsquo;ll hear every day</h2>
+    <p class="lead">Te reo Māori is an official language, woven through greetings, place names, signage and the workplace. No one expects fluency, and a handful of words tends to be warmly received.</p>
+    <div class="kupu">
+      <div class="word"><span class="t">Kia ora</span><span class="m">Hello, and a warm “be well”, used constantly.</span></div>
+      <div class="word"><span class="t">Aotearoa</span><span class="m">New Zealand: “land of the long white cloud”.</span></div>
+      <div class="word"><span class="t">Whānau</span><span class="m">Family, in the broad, extended sense.</span></div>
+      <div class="word"><span class="t">Tāngata whenua</span><span class="m">People of the land: Māori as indigenous people.</span></div>
+      <div class="word"><span class="t">Manaakitanga</span><span class="m">Hospitality, kindness and care for others.</span></div>
+      <div class="word"><span class="t">Kaitiakitanga</span><span class="m">Guardianship and care of the environment.</span></div>
+      <div class="word"><span class="t">Tikanga</span><span class="m">Customs, the right and proper way of doing things.</span></div>
+      <div class="word"><span class="t">Marae</span><span class="m">Communal meeting grounds, the heart of a community.</span></div>
+      <div class="word"><span class="t">Pākehā</span><span class="m">New Zealanders of European descent.</span></div>
+      <div class="word"><span class="t">Haere mai</span><span class="m">Welcome: come in, come here.</span></div>
+      <div class="word"><span class="t">Ngā mihi</span><span class="m">Thanks and warm regards: common at the end of emails.</span></div>
+      <div class="word"><span class="t">Kia kaha</span><span class="m">Stay strong, an everyday word of encouragement.</span></div>
+    </div>
+    <p class="kupu-note">Place names are often te reo too, so it&rsquo;s worth learning to say where you live correctly. Locals will warmly help you. Pronunciation is consistent once you learn the vowels, and getting it right is appreciated.</p>
+  </div>
+</section>
+
+<!-- ============ PEOPLE & VALUES ============ -->
+<section class="section" id="people" style="background:var(--soft);">
+  <div class="wrap">
+    <span class="eyebrow">People &amp; culture</span>
+    <h2>What New Zealanders are like</h2>
+    <p class="lead">Generalisations only go so far, but a few cultural threads come up again and again, and they tend to make settling in easier than newcomers expect.</p>
+    <div class="vals">
+      <div class="val">
+        <div class="reo">Manaakitanga</div>
+        <h3>Welcoming</h3>
+        <p>Hospitality runs deep. Neighbours, colleagues and other families who&rsquo;ve made the move tend to fold you in quickly: many newcomers are surprised how at home they feel within months.</p>
+      </div>
+      <div class="val">
+        <div class="reo">Tūrangawaewae</div>
+        <h3>A love of the outdoors</h3>
+        <p>Weekends are for the beach, the bush, the boat or the rugby. Connection to the land is central, and an easy, shared way to make friends and feel you belong.</p>
+      </div>
+      <div class="val">
+        <div class="reo">Mahi tahi</div>
+        <h3>Egalitarian &amp; informal</h3>
+        <p>Hierarchy is downplayed and first names are the norm, even at work. People value humility, fairness and pitching in, the “number eight wire” knack for practical problem-solving is a point of pride.</p>
+      </div>
+      <div class="val">
+        <div class="reo">Kanorau</div>
+        <h3>Diverse &amp; multicultural</h3>
+        <p>Alongside its bicultural foundation, New Zealand is home to large Pacific, Asian, South African, British and many other communities, so you&rsquo;ll rarely be the only one who has come from somewhere else.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <h3>A note on the everyday</h3>
+      <p>Life here is comfortable and modern but a little more low-key than some are used to: shops close earlier, cities are smaller, and the pace is gentler. For most people that&rsquo;s precisely the appeal. The trade is a simpler, more spacious kind of life, and it&rsquo;s one our clinicians rarely regret.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOPHIE'S INSIGHT ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sophie">
+      <div class="photo"><img loading="lazy" decoding="async" src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing"></div>
+      <div>
+        <span class="k">Sophie&rsquo;s insight</span>
+        <p>When my own family arrived, the thing that moved me most wasn&rsquo;t the scenery, it was how readily people made space for us. Learn a few words of te reo, say yes to the invitation to the beach, ask people how to pronounce their town&rsquo;s name properly. None of it is hard, and all of it tells New Zealand you&rsquo;ve come to belong, not just to work. That openness, more than anything, is what turns a posting into a home.</p>
+        <p class="sign">Sophie<span>CEO &amp; Founder, Ethicare Resourcing</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq" style="background:var(--soft);">
+  <div class="wrap">
+    <span class="eyebrow">Common questions</span>
+    <h2>The things people ask us first</h2>
+    <div class="faq">
+      <details open>
+        <summary>Do I need to speak te reo Māori?</summary>
+        <div class="ans"><p>Not at all. English is the everyday working language, and you&rsquo;ll get by perfectly without a word of te reo. That said, learning a handful of common greetings and saying place names correctly is warmly received, and it&rsquo;s a lovely, easy way to show you respect where you&rsquo;ve come to live. You&rsquo;ll absorb plenty just by being here.</p></div>
+      </details>
+      <details>
+        <summary>Why does the Treaty matter for my work in healthcare?</summary>
+        <div class="ans"><p>Te Tiriti o Waitangi underpins how public services, including health, are designed and delivered. In practice that means the system places real emphasis on equity and on improving outcomes for Māori, and you&rsquo;ll see that reflected in policy, training and day-to-day care. You don&rsquo;t need to be an expert, an open, respectful willingness to understand it is exactly what&rsquo;s hoped for.</p></div>
+      </details>
+      <details>
+        <summary>Is New Zealand very different culturally from home?</summary>
+        <div class="ans"><p>It depends where you&rsquo;re coming from, but most newcomers find it familiar enough to settle quickly and different enough to feel like a genuine change. It&rsquo;s a modern, English-speaking democracy with a relaxed, outdoorsy, egalitarian culture and a strong bicultural heart. The adjustments tend to be gentle, a slower pace, smaller cities and earlier nights rather than anything jarring.</p></div>
+      </details>
+      <details>
+        <summary>Will my family fit in?</summary>
+        <div class="ans"><p>Almost always, yes. New Zealand is welcoming and diverse, and there are well-established communities from all over the world. Children in particular settle fast, helped by friendly schools and an outdoor childhood. We&rsquo;re also glad to connect you with families who&rsquo;ve made the same move, so you arrive with a few familiar faces rather than none.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RELATED + FINAL ============ -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">Keep exploring</span>
+    <h2 style="font-size:clamp(22px,3vw,28px);">Related guides</h2>
+    <div class="related-grid">
+      <a href="/guides/moving-to-new-zealand" class="rel">
+        <span class="k">Stage 01</span>
+        <h3>Is New Zealand right for me?</h3>
+        <p>An honest look at the life, the joys and the genuine trade-offs.</p>
+        <span class="go">Read Stage 01</span>
+      </a>
+      <a href="/destinations/" class="rel">
+        <span class="k">Destinations</span>
+        <h3>Explore the destination guides</h3>
+        <p>Explore the regions: climate, cities, housing and pace of life.</p>
+        <span class="go">Explore guides</span>
+      </a>
+      <a href="/guides/new-zealand-contacts" class="rel">
+        <span class="k">Reference</span>
+        <h3>Useful contacts &amp; community</h3>
+        <p>Official links and the people we trust to help you settle in.</p>
+        <span class="go">Open directory</span>
+      </a>
+    </div>
+
+    <div class="final" style="margin-top:40px;">
+      <span class="eyebrow">No pressure, just a conversation</span>
+      <h2>Curious about life in New Zealand?</h2>
+      <p>Whether you&rsquo;re weighing up the move or want to understand the country better, we&rsquo;re always glad to talk about the land, the lifestyle, and whether it could be the right home for your family.</p>
+      <div class="btn-row">
+        <a href="/contact" class="btn btn-primary">Ask us about New Zealand</a>
+        <a href="/new-zealand" class="btn btn-secondary">Back to New Zealand</a>
+      </div>
+      <p class="small">Ethicare Resourcing · your guide to a life and career in New Zealand.</p>
+    </div>
+  </div>
+</section>
+
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
+</main>
+<script src="../page-feedback.js" defer></script>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="../site.js"></script>
+
+<!-- ============================================================
+     INTERNAL LINK MAP — /guides/about-new-zealand
+     ============================================================
+  HEADER NAV — Brand/Home → / · Australia ▾ (Working in Australia → /australia · Find your profession → /australia#professions · Explore destinations → /australia#destinations) · New Zealand ▾ (Working in New Zealand → /new-zealand · Find your profession → /new-zealand#professions · Explore destinations → /new-zealand#destinations) · Jobs → /jobs/ · Move ↗ ▾ (Your plan → /move · Guides & resources → /resources · Registration pathway checker → /pathway-checker) · About ▾ (About Ethicare → /about-ethicare · Insights → /insights) · For Employers → /employers · Contact → /contact
+  HERO — Breadcrumb: New Zealand → /new-zealand · Guides & references → /new-zealand#journey · About New Zealand [current]
+  RELATED — Is New Zealand right for me? → /guides/moving-to-new-zealand ·
+   Explore the destination guides → /destinations/ · Useful contacts & community → /guides/new-zealand-contacts
+  FINAL CTA — Ask us about New Zealand → /contact · Back to New Zealand → /new-zealand
+  FOOTER (site-wide) — Destinations: /new-zealand · /australia · /destinations · /destinations/australia | Candidates: /jobs · /resources · /insights · /apply | Company: /about-ethicare · /employers · /submit-a-vacancy · /contact | hello@ email · Privacy (/privacy-policy)
+   About Ethicare → /about-ethicare · Contact us → /contact · Apply → /apply · email → mailto
+     ============================================================
+     SEO
+     ============================================================
+   Page Title:       About New Zealand: history, Te Tiriti & te reo | Ethicare Resourcing
+   URL Slug:         /guides/about-new-zealand
+   SEO Title:        About New Zealand — History, Te Tiriti o Waitangi & Te Reo | Ethicare
+   Meta Description: A warm, honest introduction to Aotearoa New Zealand for healthcare
+                     professionals thinking of making the move — the land, a short history,
+                     Te Tiriti o Waitangi, te reo and the everyday culture you'll come to know.
+     ============================================================ -->
+<script src="../nav.js" defer></script>
+<script src="../journey-nav.js" defer></script>
+</body>
+</html>
