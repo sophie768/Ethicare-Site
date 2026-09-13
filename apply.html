@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Register your interest &amp; send your CV | Ethicare Resourcing</title>
+<meta name="description" content="Register with Ethicare in minutes: tell us where you'd like to work, your registration stage and your move, then send your CV. Free, no obligation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<link rel="canonical" href="https://ethicareresourcing.com/apply">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Register your interest &amp; send your CV | Ethicare Resourcing">
+<meta property="og:description" content="Register with Ethicare in a few minutes and send your CV. Honest guidance on roles, registration and relocation across Australia and New Zealand.">
+<meta property="og:url" content="https://ethicareresourcing.com/apply">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Register your interest &amp; send your CV | Ethicare Resourcing">
+<meta name="twitter:description" content="Register with Ethicare in a few minutes and send your CV. Honest guidance on roles, registration and relocation across Australia and New Zealand.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style>
+h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
+  /* ===== Candidate registration wizard (scoped .reg-) ===== */
+  .reg-wrap{background:#FCFBF8;padding:clamp(26px,5vw,60px) 20px;display:flex;justify-content:center}
+  .reg-card{width:100%;max-width:1180px;background:#fff;border-radius:24px;box-shadow:0 26px 54px rgba(1,49,47,.12);overflow:hidden;display:flex;flex-wrap:wrap}
+  #reg-form{display:contents}
+  .reg-err{display:none;align-items:flex-start;gap:4px;color:#A34438;font-size:12.5px;margin-top:8px;line-height:1.4}
+  .reg-err svg{width:14px;height:14px;flex:none;margin-top:4px}
+
+  /* aside */
+  .reg-aside{flex:1 1 340px;min-width:280px;max-width:400px;background:#02615D;color:#FCFBF8;padding:clamp(30px,3vw,40px) clamp(26px,2.4vw,34px);position:relative;overflow:hidden;display:flex;flex-direction:column}
+  .reg-aside .koru{position:absolute;right:-24px;bottom:-18px;width:162px;opacity:.1;filter:brightness(0) invert(1);pointer-events:none}
+  .reg-brand{position:relative;display:flex;align-items:center;gap:8px;margin-bottom:24px}
+  .reg-brand img{width:36px;height:36px;border-radius:12px;display:block}
+  .reg-brand span{font-family:'Work Sans';font-weight:600;font-size:16.5px;letter-spacing:.01em}
+  .reg-kicker{font-family:'Work Sans';font-weight:600;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#C9DED3;margin-bottom:16px}
+  .reg-aside h1{font-family:'Work Sans';font-weight:600;font-size:26px;line-height:1.24;color:#FCFBF8;margin:0 0 16px;letter-spacing:-.01em}
+  .reg-aside .lede{font-size:15px;line-height:1.6;color:rgba(252,251,248,.78);margin:0 0 24px;max-width:34ch}
+  .reg-prog{position:relative;height:5px;border-radius:999px;background:rgba(252,251,248,.16);margin-bottom:24px;overflow:hidden}
+  .reg-prog i{position:absolute;left:0;top:0;bottom:0;width:0;background:#72A471;border-radius:999px;transition:width .35s cubic-bezier(.4,0,.2,1)}
+  .reg-steps{position:relative;display:flex;flex-direction:column;margin-bottom:24px}
+  .reg-step{display:flex;gap:16px;align-items:stretch}
+  .reg-step .col{display:flex;flex-direction:column;align-items:center}
+  .reg-bubble{width:30px;height:30px;border-radius:999px;display:flex;align-items:center;justify-content:center;flex:none;font-family:'Work Sans';font-weight:600;font-size:13px;background:transparent;color:rgba(252,251,248,.55);border:1.5px solid rgba(252,251,248,.3);transition:all .25s}
+  .reg-bubble .tick{display:none;width:14px;height:14px}
+  .reg-step.current .reg-bubble{background:#FCFBF8;color:#02615D;border:2px solid #72A471}
+  .reg-step.done .reg-bubble{background:#72A471;color:#02615D;border:2px solid #72A471}
+  .reg-step.done .reg-bubble .num{display:none}
+  .reg-step.done .reg-bubble .tick{display:block}
+  .reg-connector{width:2px;flex:1;min-height:16px;margin:4px 0;border-radius:2px;background:rgba(252,251,248,.22)}
+  .reg-step.done .reg-connector{background:#72A471}
+  .reg-step .lbl{padding:4px 0 16px;font-family:'Work Sans';font-size:14.5px;line-height:1.3;color:rgba(252,251,248,.6);font-weight:500}
+  .reg-step.current .lbl,.reg-step.done .lbl{color:#FCFBF8;font-weight:600}
+  .reg-spacer{flex:1;min-height:12px}
+  .reg-insight{position:relative;background:#D6E1DA;border-radius:14px;padding:20px 22px;margin-bottom:24px}
+  .reg-insight .h{font-family:'Work Sans';font-weight:600;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px}
+  .reg-insight p{font-size:14.5px;line-height:1.55;color:#02615D;margin:0 0 16px}
+  .reg-insight .who{display:flex;align-items:center;gap:8px}
+  .reg-insight .av{width:34px;height:34px;border-radius:999px;background:#02615D;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Work Sans';font-weight:600;font-size:14px;flex:none}
+  .reg-insight .nm{font-family:'Work Sans';font-weight:600;font-size:13.5px;color:#02615D}
+  .reg-insight .rl{font-size:12px;color:#555555}
+  .reg-talk{position:relative;font-family:'Work Sans';font-weight:600;font-size:13.5px;color:#FCFBF8;display:inline-flex;align-items:center;gap:8px}
+  .reg-talk:hover{color:#2F5E49}
+
+  /* main */
+  .reg-main{flex:1 1 560px;min-width:320px;padding:clamp(30px,3.4vw,44px) clamp(24px,3vw,46px);display:flex;flex-direction:column;background:#fff}
+  .reg-head{display:flex;align-items:center;gap:16px;margin-bottom:4px}
+  .reg-ico{width:46px;height:46px;border-radius:12px;background:#E6F1ED;display:flex;align-items:center;justify-content:center;flex:none}
+  .reg-ey{font-family:'Work Sans';font-weight:600;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#A34438}
+  .reg-main h2{font-family:'Work Sans';font-weight:600;font-size:23px;color:#02615D;margin:4px 0 0;letter-spacing:-.01em}
+  .reg-sub{font-size:15px;color:#555555;margin:0 0 24px;line-height:1.55}
+  .reg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+  .reg-full{grid-column:1/-1}
+  .reg-lab{display:block;font-family:'Work Sans';font-weight:600;font-size:13px;color:#333333;margin-bottom:8px}
+  .reg-lab .rq{color:#A34438}
+  .reg-lab .op{color:#555555;font-weight:500}
+  .reg-main input,.reg-main select,.reg-main textarea{width:100%;font-family:'Manrope';font-size:16px;color:#333;background:#fff;border:1px solid #D6E1DA;border-radius:12px;padding:13px 15px;outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none}
+  .reg-main input::placeholder{color:#555555}
+  .reg-main input:focus,.reg-main select:focus,.reg-main textarea:focus{border-color:#02615D;box-shadow:0 0 0 7px rgba(167,201,87,.55)}
+  .reg-main input[data-error="1"],.reg-main select[data-error="1"]{border-color:#A34438;box-shadow:0 0 0 7px rgba(167,201,87,.55)}
+  .reg-main select{cursor:pointer;padding-right:42px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%235C6B68' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center}
+
+  /* option cards / pills / chips */
+  .reg-optgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+  .reg-optcol{display:flex;flex-direction:column;gap:8px}
+  .reg-opt{position:relative;font-family:'Work Sans';text-align:left;background:#fff;border:1px solid #D6E1DA;border-radius:14px;cursor:pointer;transition:border-color .15s,background .15s;color:#333;width:100%}
+  .reg-opt:hover{border-color:#C9DED3;background:#FCFBF8}
+  .reg-opt.is-selected{border:2px solid #02615D}
+  .reg-opt .reg-tick{position:absolute;top:12px;right:12px;width:22px;height:22px;border-radius:999px;background:#02615D;display:none;align-items:center;justify-content:center}
+  .reg-opt .reg-tick svg{width:13px;height:13px}
+  .reg-opt.is-selected .reg-tick{display:flex}
+  .reg-opt-card{border-radius:14px;padding:20px}
+  .reg-opt-card .ci{width:48px;height:48px;border-radius:12px;background:#E6F1ED;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .reg-opt-card .ct{font-family:'Work Sans';font-weight:600;font-size:17px;color:#02615D}
+  .reg-opt-card .cd{font-size:13px;color:#555555;margin-top:4px;line-height:1.5}
+  .reg-opt-card.center{text-align:center;padding:18px 14px}
+  .reg-opt-card.center .ci{margin:0 auto 8px;width:44px;height:44px;border-radius:12px}
+  .reg-opt-card.center .ct{font-size:14.5px;color:#333}
+  .reg-opt-card.center .cd{font-size:12.5px}
+  .reg-opt-row{display:flex;gap:16px;align-items:flex-start;padding:15px 17px}
+  .reg-radio{width:22px;height:22px;border-radius:999px;border:1.8px solid #C9DED3;flex:none;position:relative;margin-top:4px}
+  .reg-opt-row.is-selected .reg-radio{border-color:#02615D;background:#02615D}
+  .reg-opt-row.is-selected .reg-radio::after{content:"";position:absolute;inset:4px;border-radius:999px;background:#fff}
+  .reg-opt-row.is-selected{border-width:2px}
+  .reg-opt-txt{flex:1}
+  .reg-opt-title{display:block;font-family:'Work Sans';font-weight:600;font-size:15px;color:#333}
+  .reg-opt-desc{display:block;font-size:13.5px;color:#555555;margin-top:4px;line-height:1.45}
+  .reg-opt-row .reg-tick{top:50%;transform:translateY(-50%)}
+  .reg-opt-pill{display:flex;align-items:center;justify-content:center;text-align:center;padding:15px 12px;font-weight:600;font-size:14px;color:#333333;border-radius:12px}
+  .reg-opt-pill.wide{font-size:13.5px;line-height:1.35}
+  .reg-opt-pill .reg-tick.sm,.reg-opt-num .reg-tick{top:7px;right:7px;width:18px;height:18px}
+  .reg-opt-pill.is-selected,.reg-opt-num.is-selected{background:rgba(2,97,93,.05)}
+  .reg-opt-num{display:flex;align-items:center;justify-content:center;min-width:54px;padding:11px 8px;border-radius:12px;font-weight:600;font-size:15px;color:#333333}
+  .reg-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid #D6E1DA;background:#fff;color:#333333;border-radius:999px;padding:9px 16px;font-family:'Work Sans';font-weight:600;font-size:13.5px;line-height:1;cursor:pointer;transition:border-color .15s,background .15s}
+  .reg-chip.open{background:#E6F1ED}
+  .reg-chip:hover{border-color:#C9DED3}
+  .reg-chip .chk{width:14px;height:14px;display:none}
+  .reg-chip.is-selected{border:2px solid #02615D;background:rgba(2,97,93,.06);padding:8px 15px}
+  .reg-chip.is-selected .chk{display:block}
+  .reg-row-flex{display:flex;flex-wrap:wrap;gap:8px}
+  .reg-note-hint{font-size:13px;color:#555555;margin:8px 0 0;line-height:1.55}
+  .reg-depwrap{margin-top:24px;padding:18px 20px;background:var(--soft);border-radius:14px}
+  .reg-depwrap .dh{font-family:'Work Sans';font-weight:600;font-size:14px;color:#333333;margin-bottom:4px}
+  .reg-depwrap .dd{font-size:13px;color:#555555;margin-bottom:16px;line-height:1.5}
+
+  /* CV */
+  .reg-drop{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:34px 24px;border:2px dashed #C9DED3;border-radius:14px;background:var(--soft);cursor:pointer;transition:border-color .15s,background .15s}
+  .reg-drop:hover,.reg-drop.is-drag{border-color:#02615D;background:#D6E1DA}
+  .reg-drop .di{width:52px;height:52px;border-radius:14px;background:#E6F1ED;display:flex;align-items:center;justify-content:center}
+  .reg-drop .d1{font-size:15px;color:#333333}
+  .reg-drop .d1 b{font-family:'Work Sans';font-weight:600;color:#02615D}
+  .reg-drop .d2{font-size:13px;color:#555555}
+  .reg-cvcard{display:none;align-items:center;gap:16px;padding:16px 18px;border:1px solid #D6E1DA;border-radius:14px;background:#fff;box-shadow:0 1px 3px rgba(1,49,47,.05)}
+  .reg-cvcard .fi{width:44px;height:44px;border-radius:12px;background:#E6F1ED;display:flex;align-items:center;justify-content:center;flex:none}
+  .reg-cvcard .ft{flex:1;min-width:0}
+  .reg-cvcard .fn{font-family:'Work Sans';font-weight:600;font-size:14.5px;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .reg-cvcard .fm{font-size:13px;color:#555555;margin-top:4px}
+  .reg-cvcard .rm{width:34px;height:34px;border-radius:999px;display:flex;align-items:center;justify-content:center;flex:none;color:#555555;transition:background .15s,color .15s;cursor:pointer;background:none;border:none}
+  .reg-cvcard .rm:hover{background:#FAF7F3;color:#A34438}
+
+  .reg-honest{margin-top:24px;display:flex;gap:16px;align-items:flex-start;padding:17px 19px;background:#F7F4EE;border:1px solid #EBDFD3;border-radius:14px}
+  .reg-honest .hi{width:34px;height:34px;border-radius:12px;background:#FAF7F3;border:1px solid #EBDFD3;display:flex;align-items:center;justify-content:center;flex:none}
+  .reg-honest .ht{font-family:'Work Sans';font-weight:600;font-size:14px;color:#A34438;margin-bottom:4px}
+  .reg-honest p{font-size:13.5px;line-height:1.55;color:#555555;margin:0}
+
+  .reg-check{display:flex;gap:16px;align-items:flex-start;margin-top:24px;cursor:pointer}
+  .reg-check input{position:absolute;opacity:0;width:1px;height:1px}
+  .reg-check .box{position:relative;width:22px;height:22px;border-radius:6px;border:1.5px solid #C9DED3;background:#fff;flex:none;margin-top:4px}
+  .reg-check .box svg{position:absolute;inset:0;margin:auto;width:13px;height:13px;display:none}
+  .reg-check.is-on .box{border-color:#02615D;background:#02615D}
+  .reg-check.is-on .box svg{display:block}
+  .reg-check .tx{font-size:13.5px;color:#555555;line-height:1.55}
+  .reg-check .tx a{color:#02615D;font-weight:600;text-decoration:underline}
+
+  /* employer visibility — the platform consent, given its own weight */
+  .reg-visib{margin-top:26px;padding:22px 24px;border-radius:14px;background:#E3ECE5;border:1px solid rgba(2,97,93,.18)}
+  .reg-visib .vh{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+  .reg-visib .vtag{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#2F5E49;background:#FCFBF8;border:1px solid rgba(47,94,73,.28);border-radius:99px;padding:4px 10px}
+  .reg-visib h3{font-family:var(--display);font-size:19px;line-height:1.3;font-weight:600;color:#02615D;margin:10px 0 8px}
+  .reg-visib p{font-size:14px;line-height:1.6;color:#2F5E49;margin:0 0 10px}
+  .reg-visib .reg-check{margin-top:18px;padding-top:18px;border-top:1px solid rgba(2,97,93,.18)}
+  .reg-visib .reg-check .box{border-color:rgba(47,94,73,.45)}
+  .reg-visib .reg-check .tx{color:#333333;font-size:14px}
+  .reg-visib .vfoot{font-size:13px;line-height:1.55;color:#2F5E49;margin:12px 0 0}
+
+  /* footer nav */
+  .reg-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:24px;padding-top:22px;border-top:1px solid #D6E1DA}
+  .reg-back{display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans';font-weight:600;font-size:15px;color:#02615D;padding:12px 14px;border-radius:12px;transition:background .15s;background:none;border:none;cursor:pointer}
+  .reg-back:hover{background:#D6E1DA}
+  .reg-primary{display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans';font-weight:600;font-size:15px;color:#fff;background:#02615D;padding:15px 30px;border-radius:12px;box-shadow:0 26px 54px rgba(1,49,47,.12);transition:filter .15s,transform .15s;border:none;cursor:pointer}
+  .reg-primary:hover{filter:brightness(.93);transform:translateY(-1px)}
+  .reg-primary:disabled{opacity:.6;cursor:default;transform:none}
+  .reg-submit-error{display:none;align-items:flex-start;gap:8px;margin-top:16px;padding:13px 15px;background:#FAF7F3;border:1px solid #EBDFD3;border-radius:12px;color:#A34438;font-size:13.5px;line-height:1.5}
+  .reg-submit-error svg{width:17px;height:17px;flex:none;margin-top:4px}
+
+  /* success */
+  .reg-done{width:100%;max-width:600px;background:#fff;border-radius:24px;box-shadow:0 26px 54px rgba(1,49,47,.12);overflow:hidden;position:relative}
+  .reg-done .bar{height:6px;background:#02615D}
+  .reg-done .inner{padding:44px 44px 40px;text-align:center}
+  .reg-done .seal{width:72px;height:72px;border-radius:999px;background:#02615D;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+  .reg-done .eyb{font-family:'Work Sans';font-weight:600;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#A34438;margin-bottom:8px}
+  .reg-done h2{font-family:'Work Sans';font-weight:600;font-size:27px;color:#02615D;margin:0 0 8px;letter-spacing:-.01em}
+  .reg-done .p{font-size:15.5px;line-height:1.6;color:#555555;margin:0 auto 24px;max-width:50ch}
+  .reg-sum{text-align:left;background:var(--soft);border-radius:14px;padding:4px 22px;margin-bottom:24px}
+  .reg-sum .r{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #D6E1DA}
+  .reg-sum .r:last-child{border-bottom:none}
+  .reg-sum .k{font-size:13.5px;color:#555555}
+  .reg-sum .v{font-family:'Work Sans';font-weight:600;font-size:13.5px;color:#333;text-align:right;max-width:62%}
+  .reg-next{text-align:left;margin-bottom:24px}
+  .reg-next .h{font-family:'Work Sans';font-weight:600;font-size:13px;color:#333333;margin-bottom:16px}
+  .reg-next .li{display:flex;gap:8px;margin-bottom:16px}
+  .reg-next .li:last-child{margin-bottom:0}
+  .reg-next .li .b{width:22px;height:22px;border-radius:999px;background:#E6F1ED;display:flex;align-items:center;justify-content:center;flex:none;margin-top:4px}
+  .reg-next .li span.t{font-size:14px;color:#555555;line-height:1.5}
+  .reg-done .acts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .reg-done .acts a,.reg-done .acts button{display:inline-flex;align-items:center;justify-content:center;font-family:'Work Sans';font-weight:600;font-size:15px;padding:14px 26px;border-radius:12px;cursor:pointer;transition:filter .15s,background .15s,transform .15s}
+  .reg-done .acts .solid{background:#02615D;color:#fff;border:none}
+  .reg-done .acts .solid:hover{filter:brightness(.93);transform:translateY(-1px)}
+  .reg-done .acts .ghost{background:transparent;color:#02615D;border:2px solid #02615D;padding:12px 24px}
+  .reg-done .acts .ghost:hover{background:#E6F1ED}
+  @media (max-width:600px){.reg-done .inner{padding:32px 22px}.reg-main{padding:26px 20px}}
+</style>
+<style id="mint-eyebrow">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}</style>
+<style id="form-transparency">
+/* .reg-main was 871px against a 400px aside inside an 871px card, so it wrapped and left the
+   aside's row half empty. Let it share the row, but keep the authored 320px floor — the
+   .reg-grid tracks are minmax(210px,1fr) and overflow below ~250px of content box. */
+.reg-main{flex:1 1 0;min-width:min(320px,100%)}
+@media(max-width:900px){#reg-card{flex-direction:column}.reg-aside{flex:1 1 auto;width:100%;max-width:none}.reg-main{flex:1 1 auto;min-width:0;width:100%}}
+
+.reg-why{grid-column:1/-1;margin:16px 0 0;font-family:'Manrope',ui-sans-serif,sans-serif;font-size:13.5px;line-height:1.6;color:var(--muted,#555);max-width:64ch}
+.reg-why a{color:var(--fern-text,#2F5E49);text-decoration:underline;text-decoration-color:#A6C84A;text-underline-offset:3px;text-decoration-thickness:2px}
+.reg-why a:hover{color:#02615D;text-decoration-color:#02615D}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Apply"}]}</script>
+<link rel="stylesheet" href="prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<div id="main-content" tabindex="-1"></div>
+
+<!-- ============ WIZARD ============ -->
+<main class="reg-wrap">
+  <div id="reg-card" class="reg-card">
+    <form id="reg-form" name="candidate-registration" method="POST" action="/apply.html?submitted=1" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" style="display:contents">
+      <input type="hidden" name="form-name" value="candidate-registration">
+      <input type="hidden" name="_subject" value="New candidate registration — Ethicare website">
+      <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+      <!-- selection fields (set by the option cards/pills/chips) -->
+      <input type="hidden" name="destination" value="">
+      <input type="hidden" name="registration_stage" value="">
+      <input type="hidden" name="relocate_timeline" value="">
+      <input type="hidden" name="relocating_with" value="">
+      <input type="hidden" name="dependents" value="">
+      <input type="hidden" name="preferred_areas" value="">
+      <input type="hidden" name="relocation_cost_help" value="">
+
+      <!-- ===== ASIDE ===== -->
+      <aside class="reg-aside">
+        <img loading="lazy" decoding="async" class="koru" src="assets/element-koru.png" alt="">
+        <div class="reg-brand"><img decoding="async" src="assets/logo-mark.png" alt=""><span>Ethicare Resourcing</span></div>
+        <div class="reg-kicker">Candidate registration</div>
+        <h1>Let&rsquo;s start your move to Australia or New Zealand.</h1>
+        <p class="lede">Tell us a little about you and where you&rsquo;re up to. It takes about three minutes, and there&rsquo;s no obligation.</p>
+
+        <div class="reg-prog"><i id="reg-progress"></i></div>
+
+        <div class="reg-steps">
+          <div class="reg-step" data-n="1"><div class="col"><span class="reg-bubble"><span class="num">1</span><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></span><span class="reg-connector"></span></div><div class="lbl">About you</div></div>
+          <div class="reg-step" data-n="2"><div class="col"><span class="reg-bubble"><span class="num">2</span><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></span><span class="reg-connector"></span></div><div class="lbl">Where you&rsquo;re headed</div></div>
+          <div class="reg-step" data-n="3"><div class="col"><span class="reg-bubble"><span class="num">3</span><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></span><span class="reg-connector"></span></div><div class="lbl">Your move</div></div>
+          <div class="reg-step" data-n="4"><div class="col"><span class="reg-bubble"><span class="num">4</span><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></span></div><div class="lbl">Your CV</div></div>
+        </div>
+
+        <div class="reg-spacer"></div>
+
+        <div class="reg-insight">
+          <div class="h">Sophie&rsquo;s insight</div>
+          <p>Moving countries is a big step, and you don&rsquo;t have to work it out alone. We&rsquo;ll be beside you from your very first question right through to your first day, and long after.</p>
+          <div class="who"><div class="av">S</div><div><div class="nm">Sophie Careem</div><div class="rl">Founder, Ethicare</div></div></div>
+        </div>
+
+        <a class="reg-talk" href="/contact">Questions? Talk to the team <span aria-hidden="true">&rarr;</span></a>
+      </aside>
+
+      <!-- ===== MAIN ===== -->
+      <section class="reg-main">
+        <noscript><div style="margin:0 0 20px;padding:14px 16px;background:#FAF7F3;border:1px solid #EBDFD3;border-radius:12px;color:#A34438;font-size:14px;line-height:1.55">This form needs JavaScript to move between steps. If it isn&rsquo;t working, email your CV and a few lines about what you&rsquo;re looking for to <a href="mailto:hello@ethicareresourcing.com" style="color:#A34438;font-weight:600;text-decoration:underline">hello@ethicareresourcing.com</a> — a real person reads every message.</div></noscript>
+
+        <!-- STEP 1 -->
+        <div id="step-1">
+          <div class="reg-head">
+            <div class="reg-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6" fill="#C9DED3" stroke="#02615D"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></div>
+            <div><div class="reg-ey">Step 1 of 4</div><h2>About you</h2></div>
+          </div>
+          <p class="reg-sub">The essentials, so we know who we&rsquo;re helping.</p>
+          <div class="reg-grid">
+            <div class="reg-full">
+              <label class="reg-lab" for="f-name">Full name <span class="rq">*</span></label>
+              <input id="f-name" name="full_name" type="text" autocomplete="name" placeholder="e.g. Priya Sharma">
+              <div class="reg-err" data-err="full_name"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+            </div>
+            <div>
+              <label class="reg-lab" for="f-email">Email <span class="rq">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+              <div class="reg-err" data-err="email"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+            </div>
+            <div>
+              <label class="reg-lab" for="f-phone">Phone <span class="rq">*</span></label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+44 7700 900000">
+              <div class="reg-err" data-err="phone"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+            </div>
+            <div>
+              <label class="reg-lab" for="f-residence">Country of residence <span class="rq">*</span></label>
+              <select id="f-residence" name="country_of_residence"></select>
+              <div class="reg-err" data-err="country_of_residence"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+            </div>
+            <div>
+              <label class="reg-lab" for="f-nationality">Nationality <span class="rq">*</span></label>
+              <select id="f-nationality" name="nationality"></select>
+              <div class="reg-err" data-err="nationality"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+            </div>
+        <p class="reg-why">Why we ask: nationality and country of residence determine which visa and registration pathways are open to you. They are used for that assessment only &mdash; never shared with an employer without your say-so. <a href="/privacy-policy">How we handle your details</a></p>
+            <div>
+              <label class="reg-lab" for="f-profession">Profession <span class="rq">*</span></label>
+              <select id="f-profession" name="profession" autocomplete="organization-title"></select>
+              <p class="reg-why" style="margin-top:8px">Don&rsquo;t see your profession? We may not recruit in your area yet &mdash; <a href="/resources/healthcare-regulators" style="color:#02615D;font-weight:600;white-space:nowrap">view official registration bodies &rarr;</a></p>
+              <div class="reg-err" data-err="profession"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+            </div>
+            <div>
+              <label class="reg-lab" for="f-experience">Years of experience <span class="rq">*</span></label>
+              <select id="f-experience" name="years_experience"></select>
+              <div class="reg-err" data-err="years_experience"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+            </div>
+            <div class="reg-full">
+              <label class="reg-lab" for="f-jobtitle">Current job title <span class="rq">*</span></label>
+              <input id="f-jobtitle" name="job_title" type="text" placeholder="e.g. Senior Radiographer" autocomplete="organization-title">
+              <div class="reg-err" data-err="job_title"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div id="step-2" style="display:none">
+          <div class="reg-head">
+            <div class="reg-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z" fill="#C9DED3" stroke="#02615D"/><circle cx="12" cy="10" r="2.4" fill="#fff" stroke="#02615D"/></svg></div>
+            <div><div class="reg-ey">Step 2 of 4</div><h2>Where you&rsquo;re headed</h2></div>
+          </div>
+          <p class="reg-sub">Your destination, and how far along your registration is.</p>
+
+          <label class="reg-lab" style="margin-bottom:12px">Where would you like to work? <span class="rq">*</span></label>
+          <div class="reg-optgrid" data-group="destination">
+            <button type="button" class="reg-opt reg-opt-card" data-value="Australia">
+              <div class="ci"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" fill="#C9DED3" stroke="#A34438"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"/></svg></div>
+              <div class="ct">Australia</div>
+              <div class="cd">Ahpra registration &middot; roles in every state and territory.</div>
+              <span class="reg-tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+            </button>
+            <button type="button" class="reg-opt reg-opt-card" data-value="Aotearoa New Zealand">
+              <div class="ci"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2F5E49" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 20c1-6 3-11 6.5-15.5"/><path d="M9.3 16.6c1.3-.3 2.1-1.1 2.4-2.4"/><path d="M10.6 13.4c1.3-.3 2.1-1.1 2.4-2.4"/><path d="M12 10.2c1.3-.3 2.1-1.1 2.4-2.4"/></svg></div>
+              <div class="ct">Aotearoa New Zealand</div>
+              <div class="cd">Board registration &middot; roles nationwide.</div>
+              <span class="reg-tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+            </button>
+          </div>
+          <div class="reg-err" data-err="destination"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+
+          <label class="reg-lab" style="margin:28px 0 12px">How far along is your professional registration? <span class="rq">*</span></label>
+          <div class="reg-optcol" id="grp-stage" data-group="registration_stage"></div>
+          <div class="reg-err" data-err="registration_stage"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div id="step-3" style="display:none">
+          <div class="reg-head">
+            <div class="reg-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z" fill="#C9DED3" stroke="#02615D"/></svg></div>
+            <div><div class="reg-ey">Step 3 of 4</div><h2>Your move</h2></div>
+          </div>
+          <p class="reg-sub">When you&rsquo;re thinking of relocating, and who&rsquo;s coming with you.</p>
+
+          <label class="reg-lab" style="margin-bottom:12px">When are you looking to relocate? <span class="rq">*</span></label>
+          <div class="reg-optgrid" id="grp-timeline" data-group="relocate_timeline" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))"></div>
+          <div class="reg-err" data-err="relocate_timeline"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+
+          <label class="reg-lab" style="margin:28px 0 12px">Who&rsquo;s relocating? <span class="rq">*</span></label>
+          <div class="reg-optgrid" data-group="relocating_with" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+            <button type="button" class="reg-opt reg-opt-card center" data-value="Just me">
+              <div class="ci"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4" fill="#C9DED3" stroke="#02615D"/><path d="M5.5 19.5a6.5 6.5 0 0 1 13 0"/></svg></div>
+              <div class="ct">Just me</div><div class="cd">Relocating solo</div>
+              <span class="reg-tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+            </button>
+            <button type="button" class="reg-opt reg-opt-card center" data-value="With my partner">
+              <div class="ci"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3" fill="#C9DED3" stroke="#02615D"/><circle cx="16.5" cy="9" r="2.4" stroke="#02615D"/><path d="M3.5 19.5a5.5 5.5 0 0 1 11 0"/><path d="M14.6 19.5a4.4 4.4 0 0 1 5.9-3.6"/></svg></div>
+              <div class="ct">With my partner</div><div class="cd">The two of us</div>
+              <span class="reg-tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+            </button>
+            <button type="button" class="reg-opt reg-opt-card center" data-value="With my family">
+              <div class="ci"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.6" fill="#C9DED3" stroke="#02615D"/><circle cx="16" cy="8" r="2.6" stroke="#02615D"/><path d="M3.5 18.5a4.5 4.5 0 0 1 9 0"/><path d="M11.5 18.5a4.5 4.5 0 0 1 9 0"/><circle cx="12" cy="14.5" r="1.8" stroke="#02615D"/></svg></div>
+              <div class="ct">With my family</div><div class="cd">Partner and/or children</div>
+              <span class="reg-tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+            </button>
+          </div>
+          <div class="reg-err" data-err="relocating_with"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+
+          <div id="dependents-wrap" class="reg-depwrap" style="display:none">
+            <div class="dh">How many will relocate with you?</div>
+            <div class="dd">Include your partner, children or anyone else joining you.</div>
+            <div class="reg-row-flex" id="grp-dependents" data-group="dependents"></div>
+            <div class="reg-err" data-err="dependents"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+          </div>
+
+          <label class="reg-lab" style="margin:28px 0 6px">Which areas would you consider? <span class="rq">*</span></label>
+          <p class="reg-note-hint" style="margin-top:0;margin-bottom:13px">The more open you are, the more roles we can put in front of you. Your first move doesn&rsquo;t have to be your forever home.</p>
+          <div class="reg-row-flex" id="grp-areas"></div>
+          <div class="reg-err" data-err="preferred_areas"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+
+          <label class="reg-lab" style="margin:28px 0 6px">Relocation costs &amp; support <span class="op">(optional)</span></label>
+          <p class="reg-note-hint" style="margin-top:0;margin-bottom:13px">Moving abroad is a big step, and the costs are part of it. Would you like us to talk you through relocation support and what to plan for?</p>
+          <div class="reg-optgrid" id="grp-cost" data-group="relocation_cost_help" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))"></div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div id="step-4" style="display:none">
+          <div class="reg-head">
+            <div class="reg-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" fill="#C9DED3" stroke="#02615D"/><path d="M14 3v5h5" fill="#fff" stroke="#02615D"/><path d="M9 13h6M9 17h4"/></svg></div>
+            <div><div class="reg-ey">Step 4 of 4</div><h2>Your CV</h2></div>
+          </div>
+          <p class="reg-sub">Upload your CV and we&rsquo;ll take it from here.</p>
+          <p class="reg-why" style="margin:0 0 20px">No CV ready? <a href="/build-your-cv">Build one</a> in about twenty minutes, or <a href="/cv-checker">check the one you have</a> first. Both run on your device and give you a file to attach here &mdash; this registration is the step that sends it to us.</p>
+
+          <label class="reg-lab" style="margin-bottom:10px">Your CV <span class="rq">*</span></label>
+          <label id="cv-dropzone" class="reg-drop" for="f-cv">
+            <div class="di"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V5"/><path d="M7.5 9.5 12 5l4.5 4.5"/><path d="M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/></svg></div>
+            <div class="d1"><b>Drag your CV here</b> or click to browse</div>
+            <div class="d2">PDF, DOC or DOCX &middot; up to 8 MB</div>
+          </label>
+          <div id="cv-card" class="reg-cvcard">
+            <div class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" fill="#C9DED3" stroke="#02615D"/><path d="M14 3v5h5" fill="#fff" stroke="#02615D"/></svg></div>
+            <div class="ft"><div class="fn" id="cv-name"></div><div class="fm" id="cv-meta"></div></div>
+            <button type="button" class="rm" id="cv-remove" aria-label="Remove file"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+          </div>
+          <input id="f-cv" name="cv" type="file" accept=".pdf,.doc,.docx" style="display:none">
+          <div class="reg-err" data-err="cv"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+
+          <div style="margin-top:22px">
+            <label class="reg-lab" for="f-heard">How did you hear about Ethicare? <span class="op">(optional)</span></label>
+            <select id="f-heard" name="heard_about"></select>
+          </div>
+
+          <div style="margin-top:22px">
+            <label class="reg-lab" for="f-introduction">Would you like to be put in touch with someone who has already made the move? <span class="op">(optional)</span></label>
+            <select id="f-introduction" name="introduction_request">
+              <option value="">Select&hellip;</option>
+              <option>Yes, someone in my profession if possible</option>
+              <option>Yes, someone who moved with family</option>
+              <option>Yes, anyone who has done it</option>
+              <option>No thank you</option>
+            </select>
+            <p class="reg-why" style="margin-top:8px">We introduce you to a clinician who made the same move recently, usually once you have an offer. We always ask them first, there is no obligation on either side, and saying yes here commits you to nothing.</p>
+          </div>
+
+          <div class="reg-honest">
+            <div class="hi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></div>
+            <div>
+              <div class="ht">An honest note</div>
+              <p>Roles across Australia and New Zealand are competitive, so we can&rsquo;t promise to place everyone. What we can promise: honest guidance, the right information, and our very best effort.</p>
+            </div>
+          </div>
+
+          <label class="reg-check" id="chk-consent">
+            <input type="checkbox" name="consent" value="Yes">
+            <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+            <span class="tx">I agree to Ethicare handling my details in line with the <a href="/privacy-policy">privacy policy</a>, and to being contacted about relevant opportunities.</span>
+          </label>
+          <div class="reg-err" data-err="consent"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span class="reg-err-txt"></span></div>
+
+          <div class="reg-visib">
+            <div class="vh"><span class="vtag">Launching soon</span></div>
+            <h3>Would you like employers to be able to find you?</h3>
+            <p>We&rsquo;re building a way for verified healthcare employers in Australia and New Zealand to tell us the kind of clinician they&rsquo;re looking for, and ask for an introduction.</p>
+            <p>Nothing is browsable and nothing is public. An employer asks us; we come to you first, and share your details only if you say yes to that specific employer. It isn&rsquo;t live yet, so ticking this changes nothing today.</p>
+            <label class="reg-check" id="chk-visibility">
+              <input type="checkbox" name="employer_visibility" value="Yes">
+              <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+              <span class="tx">Yes &mdash; when it launches, Ethicare may put my profile forward to verified healthcare employers looking for someone with my experience, after checking with me each time. <span class="op">(optional)</span></span>
+            </label>
+            <p class="vfoot">Reversible at any point &mdash; email us and we&rsquo;ll take you back out. Leave it unticked and only the Ethicare team ever sees your details.</p>
+          </div>
+
+          <label class="reg-check" id="chk-newsletter">
+            <input type="checkbox" name="newsletter" value="Yes">
+            <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+            <span class="tx">Yes, add me to the Ethicare newsletter: occasional, useful guidance on registration, relocation and new roles. Unsubscribe anytime. <span class="op">(optional)</span></span>
+          </label>
+        </div>
+
+        <!-- FOOTER NAV -->
+        <div class="reg-foot">
+          <button type="button" class="reg-back" id="btn-back" style="visibility:hidden"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>Back</button>
+          <button type="button" class="reg-primary" id="btn-next"><span id="btn-next-label">Continue</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+        <div class="reg-submit-error" id="reg-submit-error"><svg viewBox="0 0 24 24" fill="none" stroke="#A34438" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.2"/><path d="M12 16.4v.1"/></svg><span></span></div>
+
+      </section>
+    </form>
+  </div>
+
+  <!-- ===== SUCCESS ===== -->
+  <div id="reg-done" class="reg-done" style="display:none">
+    <div class="bar"></div>
+    <div class="inner">
+      <div class="seal"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div>
+      <div class="eyb">Registration received</div>
+      <h2>Thank you<span id="done-name"></span>. We&rsquo;ve got it.</h2>
+      <p class="p">Your details are with the Ethicare team. We&rsquo;ll review everything and be in touch within two working days with the next steps for <span id="done-dest-line">your destination</span>.</p>
+
+      <div class="reg-sum">
+        <div class="r"><span class="k">Destination</span><span class="v" id="sum-destination">—</span></div>
+        <div class="r"><span class="k">Timeline</span><span class="v" id="sum-timeline">—</span></div>
+        <div class="r"><span class="k">Registration</span><span class="v" id="sum-stage">—</span></div>
+        <div class="r"><span class="k">Relocating</span><span class="v" id="sum-relocating">—</span></div>
+        <div class="r"><span class="k">Areas</span><span class="v" id="sum-areas">—</span></div>
+        <div class="r"><span class="k">CV</span><span class="v" id="sum-cv" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">—</span></div>
+        <div class="r"><span class="k">Employer visibility</span><span class="v" id="sum-visibility">—</span></div>
+      </div>
+
+      <div class="reg-next">
+        <div class="h">What happens next</div>
+        <div class="li"><span class="b"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="t">A specialist consultant reviews your background and registration stage.</span></div>
+        <div class="li"><span class="b"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="t">We map your route to <span id="done-regbody">your registration board</span> registration and the roles that fit.</span></div>
+        <div class="li"><span class="b"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="t">We call you to talk through timelines, and answer every question.</span></div>
+      </div>
+
+      <div class="acts">
+        <a class="solid" href="/contact">Talk to the team</a>
+        <button type="button" class="ghost" id="btn-register-another">Register another</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script src="analytics.js"></script>
+<script src="apply-form.js"></script>
+
+<!-- ============================================================
+  INTERNAL LINK MAP — /apply (Candidate registration)
+   HEADER (shared nav)
+    Ethicare Resourcing (logo)        → Home (/)
+    Home                              → /
+    Australia ▾ + submenu             → /australia (+ #journey #professions #destinations #opportunities #download #contacts)
+    New Zealand ▾ + submenu           → /new-zealand (+ #journey #professions #destinations #registration #opportunities #download)
+    Jobs                              → /jobs
+    Guides & Resources                → /resources
+    Insights                          → /insights
+    About ▾ + submenu                 → /about-ethicare (+ #sophie #why-ethicare #different #leaders) · For employers → /employers
+    Contact (CTA)                     → /contact
+   WIZARD
+    Aside · Questions? Talk to the team → /contact
+    Step 4 · privacy policy (consent)   → /privacy-policy
+    Step 4 · employer visibility panel  → no link; optional preference (field "employer_visibility"). Explained in full at /privacy-policy#sharing → "Introductions to employers". Preference only — the sharing consent is captured per introduction, later.
+    Success · Talk to the team          → /contact
+    Success · Register another          → resets the form (no navigation)
+    Form submission                     → Netlify Forms ("candidate-registration"); CV + fields land in the Netlify dashboard (Forms tab). Set notification email there. To switch to an ATS later (e.g. Vincere), point the form action / submit at its endpoint.
+   FOOTER (site-wide) — Destinations: /new-zealand · /australia · /destinations · /destinations/australia | Candidates: /jobs · /resources · /insights · /apply | Company: /about-ethicare · /employers · /submit-a-vacancy · /contact | hello@ email · Privacy (/privacy-policy)
+    Careers in New Zealand → /new-zealand · Careers in Australia → /australia · For employers → /employers · About Ethicare → /about-ethicare
+    Contact us → /contact · Apply / submit your CV → /apply · hello@ethicareresourcing.com → mailto
+  ============================================================
+  SEO
+  Page Title: Register your interest & send your CV | Ethicare Resourcing
+  URL Slug: /apply
+  SEO Title: Register with Ethicare | Healthcare Careers in Australia & New Zealand
+  Meta Description: Register with Ethicare Resourcing in a few minutes — tell us about you, your destination and registration stage, and send your CV. Free, honest, no obligation.
+  ============================================================ -->
+<script src="nav.js" defer></script>
+</body>
+</html>
