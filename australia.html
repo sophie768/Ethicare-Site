@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Australia Destination Guides · Ethicare Resourcing</title>
+<meta name="description" content="Explore Australia state by state: where the healthcare opportunities are, metro versus regional, and the major cities across all six states.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../shell.css">
+<style>
+:root{
+  --brand:#02615D; --au:#D9A084; --au-deep:#014E4B; --secondary:#D9A084; --highlight:#EFC3AA;
+  --sage:#EBDFD3; --soft:#F7F4EE; --bg:#FCFBF8; --white:#FFFFFF; --ink:#333333; --muted:#555555;
+  --divider:#E4E9E5; --maxw:1180px; --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+body{font-family:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:17px;letter-spacing:-0.003em;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.eyebrow{font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--au-text,#A34438);display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--highlight)}
+
+/* ---------- HERO ---------- */
+.hero{min-height:calc(100svh - 64px);display:grid;align-content:center;padding:40px 0}
+.hero .h-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:64px;align-items:center}
+.hero h1{font-weight:600;font-size:clamp(38px,5.4vw,62px);line-height:1.04;letter-spacing:-0.025em;color:var(--brand);max-width:14ch;margin-top:4px}
+.hero .lead{margin-top:24px;font-size:18px;color:var(--ink);max-width:50ch}
+.hero .lead b{color:var(--brand);font-weight:600}
+.hero .h-cta{margin-top:24px;display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:15px;padding:13px 24px;border-radius:999px;transition:transform .25s var(--ease),background .25s,box-shadow .25s,border-color .25s}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 12px 30px rgba(1,49,47,.08)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--au-deep);box-shadow:0 12px 30px rgba(1,49,47,.08)}
+.btn-ghost{background:transparent;color:var(--au-text,#A34438);border:1.5px solid var(--divider)}
+.btn-ghost:hover{border-color:var(--au-text,#A34438);transform:translateY(-2px)}
+.btn .arr{transition:transform .25s var(--ease)}
+.btn:hover .arr{transform:translateX(3px)}
+.h-art{position:relative;height:430px;border-radius:14px;overflow:hidden;border:7px solid #fff;box-shadow:0 12px 30px rgba(1,49,47,.08);background:linear-gradient(180deg,rgba(2,97,93,0.05),rgba(2,97,93,0.5)),repeating-linear-gradient(135deg,rgba(255,255,255,0.05) 0 22px,rgba(255,255,255,0) 22px 44px),linear-gradient(155deg,var(--secondary),var(--au) 70%);display:flex;align-items:center;justify-content:center;flex-direction:column;color:rgba(255,255,255,.92);text-align:center}
+.h-art .ph-t{font-weight:600;font-size:15px;letter-spacing:.02em}
+.h-art .ph-s{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-top:4px}
+.h-art svg{width:50px;height:50px;opacity:.75;margin-bottom:8px}
+.h-art .badge{position:absolute;left:18px;bottom:18px;background:#fff;border-radius:14px;padding:12px 16px;display:flex;gap:8px;align-items:center;box-shadow:0 16px 38px rgba(0,0,0,.22)}
+.h-art .badge .num{font-size:26px;font-weight:700;color:var(--brand);line-height:1}
+.h-art .badge .lbl{font-size:11px;color:var(--muted);font-weight:600;line-height:1.25;text-transform:uppercase;letter-spacing:.06em;text-align:left}
+@media(max-width:860px){.hero{padding:48px 0 34px}.hero .h-grid{grid-template-columns:1fr;gap:40px}.hero h1{max-width:none}.h-art{height:300px}}
+
+/* ---------- STAT STRIP ---------- */
+.stats{border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);background:var(--white)}
+.stats-in{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:26px 24px;border-right:1px solid var(--divider)}
+.stat:last-child{border-right:0}
+.stat .v{font-size:30px;font-weight:700;color:var(--brand);letter-spacing:-.02em}
+.stat .k{font-size:13px;color:var(--muted);font-weight:500;margin-top:4px}
+@media(max-width:760px){.stats-in{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--divider)}}
+
+/* ---------- SECTION ---------- */
+section.block{padding:78px 0}
+.sec-head{max-width:64ch;margin-bottom:40px}
+.sec-head h2{font-size:clamp(28px,3.4vw,40px);color:var(--brand);letter-spacing:-.02em;margin-top:4px;font-weight:600}
+.sec-head p{margin-top:16px;color:var(--muted);font-size:17px}
+
+/* ---------- METRO VS REGIONAL EXPLAINER ---------- */
+.split{background:var(--soft)}
+.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.opp{background:var(--white);border-radius:14px;border:1px solid var(--divider);padding:34px 34px 30px;position:relative;overflow:hidden}
+.opp::before{content:"";position:absolute;inset:0 auto 0 0;width:5px}
+.opp.metro::before{background:var(--secondary)}
+.opp.regional::before{background:var(--highlight)}
+.opp .tagline{font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--au-text,#A34438)}
+.opp.regional .tagline{color:#02615D}
+.opp h3{font-size:23px;color:var(--brand);letter-spacing:-.01em;margin-top:8px;font-weight:600}
+.opp .sub{margin-top:8px;color:var(--ink);font-size:15.5px}
+.opp ul{list-style:none;margin-top:16px;display:grid;gap:8px}
+.opp li{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;color:var(--ink)}
+.opp li svg{width:18px;height:18px;flex:none;margin-top:4px;color:var(--au-text,#A34438)}
+.opp.regional li svg{color:#02615D}
+.opp .demand{margin-top:24px;padding-top:18px;border-top:1px solid var(--divider);font-size:13.5px;color:var(--muted)}
+.opp .demand b{color:var(--au-text,#A34438)}
+@media(max-width:820px){.split-grid{grid-template-columns:1fr}}
+
+/* ---------- STATE CARDS ---------- */
+.states{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.scard{background:var(--white);border-radius:14px;border:1px solid var(--divider);overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.scard:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(1,49,47,.08)}
+.scard .head{display:flex;align-items:center;gap:16px;padding:24px 28px 20px;border-bottom:1px solid var(--divider)}
+.scard .abbr{flex:none;width:58px;height:58px;border-radius:14px;background:linear-gradient(150deg,#2F5E49,#02615D);color:#fff;display:grid;place-items:center;font-family:'Work Sans',sans-serif;font-weight:600;font-size:18px;letter-spacing:.02em}
+.scard.terr .abbr{background:linear-gradient(150deg,#2F5E49,#02615D)}
+.scard .head .ht{flex:1}
+.scard .head h3{font-size:22px;color:var(--brand);letter-spacing:-.01em;font-weight:600;line-height:1.15}
+.scard .head .cap{font-size:13px;color:var(--muted);font-weight:600;margin-top:4px}
+.scard .head .cap b{color:var(--ink)}
+.scard .body{padding:22px 28px 26px;display:flex;flex-direction:column;flex:1}
+.scard .desc{color:var(--muted);font-size:14.5px}
+.placewrap{margin-top:24px;display:grid;gap:16px}
+.pgroup .pl{display:flex;align-items:center;gap:8px;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--au-text,#A34438);margin-bottom:8px}
+.pgroup.reg .pl{color:#02615D}
+.pgroup .pl .dot{width:9px;height:9px;border-radius:2px;background:var(--secondary)}
+.pgroup.reg .pl .dot{background:var(--highlight)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-family:'Work Sans',sans-serif;font-weight:600;font-size:12.5px;color:var(--ink);background:var(--bg);border:1px solid var(--divider);border-radius:999px;padding:5px 12px}
+.pgroup.reg .chips span{background:#FAF7F3;border-color:#EBDFD3}
+.scard .demand-note{margin-top:auto;padding-top:18px;display:flex;gap:8px;align-items:flex-start;font-size:13.5px;color:var(--ink)}
+.scard .demand-note .pill{flex:none;font-family:'Work Sans',sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:var(--sage);color:var(--au-text,#A34438);margin-top:4px}
+.scard .demand-note .pill.high{background:var(--highlight);color:#FFFFFF}
+.scard .foot{padding:0 28px 24px}
+.scard .foot .soon{display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:var(--bg);border:1px dashed var(--divider);border-radius:999px;padding:7px 14px}
+@media(max-width:780px){.states{grid-template-columns:1fr}}
+
+/* ---------- HELP BAND ---------- */
+.relo{background:var(--sage)}
+.relo .ri{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.relo h2{font-size:clamp(26px,3vw,36px);color:var(--brand);letter-spacing:-.02em;font-weight:600}
+.relo p{margin-top:16px;color:#333333;font-size:17px;max-width:50ch}
+.relo .actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+.relo .card-note{background:var(--white);border-radius:12px;padding:26px 28px;box-shadow:0 12px 30px rgba(1,49,47,.08)}
+.relo .card-note .k{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--au-text,#A34438);font-weight:700}
+.relo .card-note ul{list-style:none;margin-top:16px;display:grid;gap:8px}
+.relo .card-note li{display:flex;gap:8px;align-items:flex-start;font-size:15px;color:var(--ink)}
+.relo .card-note li svg{width:18px;height:18px;flex:none;margin-top:4px;color:var(--au-text,#A34438)}
+@media(max-width:820px){.relo .ri{grid-template-columns:1fr;gap:24px}}
+</style>
+<link rel="canonical" href="https://ethicareresourcing.com/destinations/australia">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Australia Destination Guides · Ethicare Resourcing">
+<meta property="og:description" content="Explore Australia state by state: where the healthcare opportunities are, metro versus regional, and the major cities across all six states.">
+<meta property="og:url" content="https://ethicareresourcing.com/destinations/australia">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/nt/nt-uluru-sunset.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Australia Destination Guides · Ethicare Resourcing">
+<meta name="twitter:description" content="Explore Australia state by state: where the healthcare opportunities are, metro versus regional, and the major cities across all six states.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/nt/nt-uluru-sunset.jpg">
+<style id="au-orange-accent">.hero .eyebrow{color:#EFC3AA}.hero .eyebrow::before{background:#EFC3AA}.eyebrow{color:#A34438}.eyebrow::before{background:#A6C84A}</style>
+<style id="au-palette-tune">:root{--primary:#02615D;--accent:#02615D;--au:#D9A084;--highlight:#02615D;--secondary:#02615D}</style>
+<style id="au-hero-teal"></style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Australia","item":"https://ethicareresourcing.com/australia"},{"@type":"ListItem","position":3,"name":"Destinations"}]}</script>
+<style id="au-link-tokens">:root{--link-ink:#A34438;--link-rule:#D9A084}</style>
+<link rel="stylesheet" href="../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia" aria-current="page">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<!-- HERO -->
+<section class="hero"><div class="wrap h-grid">
+  <div>
+    <nav class="wf-crumb on-light" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">&#8250;</span><a href="/australia">Australia</a><span class="sep">&#8250;</span><span class="here">Destinations</span></nav>
+    <div class="eyebrow">Destination guides</div>
+    <h1>Find the part of Australia that fits your life.</h1>
+    <p class="lead">Australia is a continent, not a country you settle into all at once. <b>Where the opportunities are, and what daily life feels like, changes enormously between the big cities and the regions.</b> These guides go local, state by state, so you can picture the move before you make it.</p>
+    <div class="h-cta">
+      <a class="btn btn-primary" href="#opportunity">Metro or regional? <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="#states">Explore the states</a>
+    </div>
+  </div>
+  <div class="h-art">
+    <img decoding="async" fetchpriority="high" src="../assets/nt/nt-uluru-sunset.jpg" alt="Uluru glowing deep red at dusk in the southern Northern Territory" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <div class="badge"><div class="num">8</div><div class="lbl">States &amp;<br>territories</div></div>
+  </div>
+</div></section>
+
+<!-- STATS -->
+<div class="stats"><div class="stats-in">
+  <div class="stat"><div class="v">6</div><div class="k">States</div></div>
+  <div class="stat"><div class="v">2</div><div class="k">Territories</div></div>
+  <div class="stat"><div class="v">One</div><div class="k">National registration (Ahpra)</div></div>
+  <div class="stat"><div class="v">Local</div><div class="k">Lifestyle, housing &amp; demand</div></div>
+</div></div>
+
+<!-- METRO VS REGIONAL EXPLAINER -->
+<section class="block split" id="opportunity"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">Where the opportunities are</div>
+    <h2>Metro or regional, it changes everything</h2>
+    <p>In Australia, the two have a different feel and a different job market. The big capitals offer the widest range of services and the busiest social life, but they&rsquo;re also the most competitive to land a role in. The regions and remote areas are where demand for healthcare professionals is consistently highest, and where the incentives to move are strongest. Neither is "better"; it depends entirely on the life you&rsquo;re after.</p>
+  </div>
+  <div class="split-grid">
+    <div class="opp metro">
+      <div class="tagline">Metro &middot; the capitals</div>
+      <h3>The big cities</h3>
+      <p class="sub">Perth, Sydney, Melbourne, Brisbane, Adelaide and the larger coastal centres.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>The widest range of specialist services and the most varied caseload.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Established diaspora communities, international schools and direct flights home.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>More applicants per role: roles can be more competitive and housing dearer.</li>
+      </ul>
+      <div class="demand">Demand here is <b>steady but competitive</b>. Worth being open about timing and which suburb you target.</div>
+    </div>
+    <div class="opp regional">
+      <div class="tagline">Regional &amp; remote</div>
+      <h3>The regions</h3>
+      <p class="sub">Coastal towns, inland cities and remote communities beyond the capitals.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>The highest demand for healthcare professionals, and faster routes into a role.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Often broader scope, more responsibility sooner and a close-knit team.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Frequently linked to relocation support and regional visa pathways.</li>
+      </ul>
+      <div class="demand">Demand here is <b>strongest of all</b>. If you&rsquo;re flexible on location, this is usually the quickest, smoothest move.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- MAJOR CITY GUIDES -->
+<section class="block" id="cities"><div class="wrap">
+  <style>
+  .bigcity{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px}
+  .bcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--rule,#EBDFD3);border-radius:14px;overflow:hidden;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease}
+  .bcard:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(1,49,47,.09)}
+  .bcard .bimg{aspect-ratio:16/10;background-size:cover;background-position:center}
+  .bcard .bbody{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+  .bcard .bst{font-family:'Work Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,#555555);margin-bottom:8px}
+  .bcard h3{font-family:'Work Sans',sans-serif;font-size:25px;font-weight:500;color:var(--ethicare-teal,#02615D);margin:0 0 8px;line-height:1.15}
+  .bcard p{font-size:14.5px;color:var(--muted,#555555);margin:0 0 16px;line-height:1.55}
+  .bcard .bmeta{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:14px;border-top:1px solid var(--rule,#EBDFD3)}
+  .bcard .bch{font-size:12.5px;color:var(--muted,#555555)}
+  .bcard .go{font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ethicare-teal,#02615D);white-space:nowrap}
+  @media(max-width:780px){.bigcity{grid-template-columns:1fr}}
+  </style>
+  <div class="sec-head">
+    <div class="eyebrow">Start with a city</div>
+    <h2>Where most people actually begin</h2>
+    <p>Most clinicians picture a city before they picture a state, so these are our deepest guides &mdash; nine chapters each on the hospital system, the suburbs clinicians choose, what a week really costs and what a weekend looks like. Written to be useful whether or not you ever talk to us.</p>
+  </div>
+  <div class="bigcity">
+    <a class="bcard" href="/destinations/sydney-australia"><div class="bimg" style="background-image:url('../assets/nsw/nsw-downtown-sydney-skyline-in-australia-1998095327.jpg')"></div><div class="bbody"><div class="bst">New South Wales</div><h3>Sydney</h3><p>The largest health system in the country, a hundred beaches &mdash; and the hardest housing arithmetic in Australia, priced honestly.</p><div class="bmeta"><span class="bch">9 chapters</span><span class="go">Read the guide &rarr;</span></div></div></a>
+    <a class="bcard" href="/destinations/melbourne-australia"><div class="bimg" style="background-image:url('../assets/vic/vic-melbourne-flinders-street-train-station-1426038686.jpg')"></div><div class="bbody"><div class="bst">Victoria</div><h3>Melbourne</h3><p>The deepest tertiary and research bench in Australia, the world&rsquo;s largest tram network, and a city that rewards people who like cities.</p><div class="bmeta"><span class="bch">9 chapters</span><span class="go">Read the guide &rarr;</span></div></div></a>
+    <a class="bcard" href="/destinations/brisbane-australia"><div class="bimg" style="background-image:url('../assets/brisbane/brisbane-river-cbd-goodwill-bridge.jpg')"></div><div class="bbody"><div class="bst">Queensland</div><h3>Brisbane</h3><p>Tertiary work and a family house within half an hour of it &mdash; the one big-city sum that still adds up, with a winter you look forward to.</p><div class="bmeta"><span class="bch">9 chapters</span><span class="go">Read the guide &rarr;</span></div></div></a>
+    <a class="bcard" href="/destinations/perth-australia"><div class="bimg" style="background-image:url('../assets/wa/perth-skyline-bluehour.jpg')"></div><div class="bbody"><div class="bst">Western Australia</div><h3>Perth</h3><p>The best beaches and weather of any capital, newer hospitals &mdash; and the only capital that counts as regional for skilled migration.</p><div class="bmeta"><span class="bch">9 chapters</span><span class="go">Read the guide &rarr;</span></div></div></a>
+    <a class="bcard" href="/destinations/adelaide-australia"><div class="bimg" style="background-image:url('../assets/sa/sa-brighton-esplanade-adelaide-south-australi-2726499833.jpg')"></div><div class="bbody"><div class="bst">South Australia</div><h3>Adelaide</h3><p>The most affordable mainland capital &mdash; tertiary work twenty minutes from home, wine country under an hour, and regional migration status.</p><div class="bmeta"><span class="bch">9 chapters</span><span class="go">Read the guide &rarr;</span></div></div></a>
+    <a class="bcard" href="/destinations/canberra-australia"><div class="bimg" style="background-image:url('../assets/act/act-parliament-house-aerial.jpg')"></div><div class="bbody"><div class="bst">Australian Capital Territory</div><h3>Canberra</h3><p>The country&rsquo;s highest incomes, a lake at the centre of the plan, and a regional migration classification most people don&rsquo;t expect.</p><div class="bmeta"><span class="bch">9 chapters</span><span class="go">Read the guide &rarr;</span></div></div></a>
+    <a class="bcard" href="/destinations/hobart-australia"><div class="bimg" style="background-image:url('../assets/tas/tas-the-iconic-tasman-bridge-at-2377136059.jpg')"></div><div class="bbody"><div class="bst">Tasmania</div><h3>Hobart</h3><p>A mountain over the wards, a working harbour, and a health system small enough to know your name &mdash; plus regional migration status.</p><div class="bmeta"><span class="bch">9 chapters</span><span class="go">Read the guide &rarr;</span></div></div></a>
+    <a class="bcard" href="/destinations/darwin-australia"><div class="bimg" style="background-image:url('../assets/nt/nt-an-aerial-view-of-darwin-2206700799.jpg')"></div><div class="bbody"><div class="bst">Northern Territory</div><h3>Darwin</h3><p>Australia&rsquo;s tropical gateway to Asia, home to the national trauma centre &mdash; and a regional migration classification most people don&rsquo;t expect.</p><div class="bmeta"><span class="bch">9 chapters</span><span class="go">Read the guide &rarr;</span></div></div></a>
+    <a class="bcard" href="/destinations/gold-coast-australia"><div class="bimg" style="background-image:url('../assets/gold-coast/goldcoast-beach-skyline.jpg')"></div><div class="bbody"><div class="bst">Queensland</div><h3>Gold Coast</h3><p>Fifty-seven kilometres of surf, a rainforest hinterland, and a full tertiary teaching hospital growing as fast as the skyline.</p><div class="bmeta"><span class="bch">9 chapters</span><span class="go">Read the guide &rarr;</span></div></div></a>
+    <a class="bcard" href="/destinations/newcastle-australia"><div class="bimg" style="background-image:url('../assets/nsw/nsw-an-aerial-view-of-newcastle-2158430125.jpg')"></div><div class="bbody"><div class="bst">New South Wales</div><h3>Newcastle</h3><p>A steel city rebuilt around a surf beach &mdash; a major regional hospital, wine country on the doorstep, and Sydney two hours away.</p><div class="bmeta"><span class="bch">9 chapters</span><span class="go">Read the guide &rarr;</span></div></div></a>
+  </div>
+</div></section>
+
+<!-- STATE CARDS -->
+<section class="block" id="states"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">Explore by state</div>
+    <h2>Or picture the whole state</h2>
+    <p>Each state guide covers what is true across the whole of it &mdash; the health structure, the regional and remote centres where demand is highest, and the places worth considering beyond the capital. Where a city guide exists, the state guide links across to it. The ACT and NT are covered in full by the Canberra and Darwin city guides above.</p>
+  </div>
+  <div class="states">
+
+    <!-- NSW -->
+    <div class="scard">
+      <div class="head">
+        <div class="abbr">NSW</div>
+        <div class="ht"><h3>New South Wales</h3><div class="cap">Capital · <b>Sydney</b></div></div>
+      </div>
+      <div class="body">
+        <p class="desc">The most populous state, a vast coastline, alpine country and a sweep of regional cities inland from the harbour capital.</p>
+        <div class="placewrap">
+          <div class="pgroup"><div class="pl"><span class="dot"></span>Major cities</div><div class="chips"><span>Sydney</span><span>Newcastle</span><span>Wollongong</span><span>Central Coast</span></div></div>
+          <div class="pgroup reg"><div class="pl"><span class="dot"></span>Regional &amp; remote</div><div class="chips"><span>Coffs Harbour</span><span>Port Macquarie</span><span>Wagga Wagga</span><span>Dubbo</span><span>Tamworth</span><span>Orange</span><span>Albury</span><span>Lismore</span></div></div>
+        </div>
+        <div class="demand-note"><span class="pill">Metro competitive</span><div>Sydney is sought-after; the regional cities are where roles open up fastest.</div></div>
+      </div>
+      <div class="foot"><a class="readlink" href="/destinations/new-south-wales-australia" style="display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--au);border-radius:999px;padding:8px 16px;transition:background .15s">Read the guide <span aria-hidden="true">→</span></a></div>
+    </div>
+
+    <!-- VIC -->
+    <div class="scard">
+      <div class="head">
+        <div class="abbr">VIC</div>
+        <div class="ht"><h3>Victoria</h3><div class="cap">Capital · <b>Melbourne</b></div></div>
+      </div>
+      <div class="body">
+        <p class="desc">Compact and green, built around a celebrated cultural capital, with a ring of fast-growing regional cities within easy reach.</p>
+        <div class="placewrap">
+          <div class="pgroup"><div class="pl"><span class="dot"></span>Major cities</div><div class="chips"><span>Melbourne</span><span>Geelong</span><span>Ballarat</span><span>Bendigo</span></div></div>
+          <div class="pgroup reg"><div class="pl"><span class="dot"></span>Regional &amp; remote</div><div class="chips"><span>Shepparton</span><span>Mildura</span><span>Warrnambool</span><span>Traralgon</span><span>Wodonga</span><span>Wangaratta</span></div></div>
+        </div>
+        <div class="demand-note"><span class="pill">Metro competitive</span><div>Melbourne draws the most applicants; the regional cities are growing and hiring.</div></div>
+      </div>
+      <div class="foot"><a class="readlink" href="/destinations/victoria-australia" style="display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--au);border-radius:999px;padding:8px 16px;transition:background .15s">Read the guide <span aria-hidden="true">→</span></a></div>
+    </div>
+
+    <!-- QLD -->
+    <div class="scard">
+      <div class="head">
+        <div class="abbr">QLD</div>
+        <div class="ht"><h3>Queensland</h3><div class="cap">Capital · <b>Brisbane</b></div></div>
+      </div>
+      <div class="body">
+        <p class="desc">Warm and decentralised, a string of coastal cities up the eastern seaboard and big demand the further north and inland you go.</p>
+        <div class="placewrap">
+          <div class="pgroup"><div class="pl"><span class="dot"></span>Major cities</div><div class="chips"><span>Brisbane</span><span>Gold Coast</span><span>Sunshine Coast</span><span>Townsville</span><span>Cairns</span></div></div>
+          <div class="pgroup reg"><div class="pl"><span class="dot"></span>Regional &amp; remote</div><div class="chips"><span>Toowoomba</span><span>Mackay</span><span>Rockhampton</span><span>Bundaberg</span><span>Hervey Bay</span><span>Gladstone</span><span>Mount Isa</span></div></div>
+        </div>
+        <div class="demand-note"><span class="pill high">High regional demand</span><div>Demand climbs sharply in the north and the inland centres.</div></div>
+      </div>
+      <div class="foot"><a class="readlink" href="/destinations/queensland-australia" style="display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--au);border-radius:999px;padding:8px 16px;transition:background .15s">Read the guide <span aria-hidden="true">→</span></a></div>
+    </div>
+
+    <!-- WA -->
+    <div class="scard">
+      <div class="head">
+        <div class="abbr">WA</div>
+        <div class="ht"><h3>Western Australia</h3><div class="cap">Capital · <b>Perth</b></div></div>
+      </div>
+      <div class="body">
+        <p class="desc">The largest state by far, a sunny, relaxed capital on the coast, then enormous distances out to mining, coastal and remote communities.</p>
+        <div class="placewrap">
+          <div class="pgroup"><div class="pl"><span class="dot"></span>Major cities</div><div class="chips"><span>Perth</span><span>Mandurah</span><span>Bunbury</span></div></div>
+          <div class="pgroup reg"><div class="pl"><span class="dot"></span>Regional &amp; remote</div><div class="chips"><span>Geraldton</span><span>Albany</span><span>Busselton</span><span>Kalgoorlie</span><span>Karratha</span><span>Port Hedland</span><span>Broome</span><span>Esperance</span></div></div>
+        </div>
+        <div class="demand-note"><span class="pill high">High regional demand</span><div>Beyond the Perth–Mandurah–Bunbury corridor, regional and remote demand is very high.</div></div>
+      </div>
+      <div class="foot"><a class="readlink" href="/destinations/western-australia-australia" style="display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--au);border-radius:999px;padding:8px 16px;transition:background .15s">Read the guide <span aria-hidden="true">→</span></a></div>
+    </div>
+
+    <!-- SA -->
+    <div class="scard">
+      <div class="head">
+        <div class="abbr">SA</div>
+        <div class="ht"><h3>South Australia</h3><div class="cap">Capital · <b>Adelaide</b></div></div>
+      </div>
+      <div class="body">
+        <p class="desc">An affordable, easy-going capital famed for wine and festivals, with regional centres scattered across coast, river and outback.</p>
+        <div class="placewrap">
+          <div class="pgroup"><div class="pl"><span class="dot"></span>Major cities</div><div class="chips"><span>Adelaide</span></div></div>
+          <div class="pgroup reg"><div class="pl"><span class="dot"></span>Regional &amp; remote</div><div class="chips"><span>Mount Gambier</span><span>Whyalla</span><span>Port Augusta</span><span>Port Lincoln</span><span>Murray Bridge</span><span>Victor Harbor</span><span>Port Pirie</span></div></div>
+        </div>
+        <div class="demand-note"><span class="pill high">High regional demand</span><div>Adelaide is well-priced for a capital; the regional centres need people most.</div></div>
+      </div>
+      <div class="foot"><a class="readlink" href="/destinations/south-australia-australia" style="display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--au);border-radius:999px;padding:8px 16px;transition:background .15s">Read the guide <span aria-hidden="true">→</span></a></div>
+    </div>
+
+    <!-- TAS -->
+    <div class="scard">
+      <div class="head">
+        <div class="abbr">TAS</div>
+        <div class="ht"><h3>Tasmania</h3><div class="cap">Capital · <b>Hobart</b></div></div>
+      </div>
+      <div class="body">
+        <p class="desc">An island state with a small-town pace, dramatic wilderness and a tight community feel across just a handful of centres.</p>
+        <div class="placewrap">
+          <div class="pgroup"><div class="pl"><span class="dot"></span>Major cities</div><div class="chips"><span>Hobart</span><span>Launceston</span></div></div>
+          <div class="pgroup reg"><div class="pl"><span class="dot"></span>Regional &amp; remote</div><div class="chips"><span>Devonport</span><span>Burnie</span><span>Ulverstone</span></div></div>
+        </div>
+        <div class="demand-note"><span class="pill high">High regional demand</span><div>The whole state counts as regional for many incentives: demand is steady throughout.</div></div>
+      </div>
+      <div class="foot"><a class="readlink" href="/destinations/tasmania-australia" style="display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--au);border-radius:999px;padding:8px 16px;transition:background .15s">Read the guide <span aria-hidden="true">→</span></a></div>
+    </div>
+
+  </div>
+</div></section>
+
+<!-- CITY & TOWN GUIDES -->
+<section class="block" id="towns" style="background:#F3F7F4"><div class="wrap" style="padding-top:60px;padding-bottom:64px">
+  <style>
+  .citygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+  .ccard{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--divider);border-radius:12px;overflow:hidden;text-decoration:none;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .ccard:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(1,49,47,.08)}
+  .ccard .cimg{height:158px;background-size:cover;background-position:center}
+  .ccard .cbody{padding:18px 22px 22px;display:flex;flex-direction:column;flex:1}
+  .ccard .cst{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--au-text,#A34438);margin-bottom:4px}
+  .ccard h3{font-size:20px;color:var(--brand);margin:0 0 4px;letter-spacing:-.01em}
+  .ccard p{font-size:14px;color:var(--muted);margin:0 0 16px;line-height:1.55}
+  .ccard .go{margin-top:auto;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--au-text,#A34438)}
+  @media(max-width:780px){.citygrid{grid-template-columns:1fr}}
+  </style>
+  <div class="sec-head">
+    <span class="eyebrow">Look beyond the big cities</span>
+    <h2>Underrated places, and often the smartest move</h2>
+    <p class="sub">The big-city guides above are honest about one thing: competition. Australia is an incredibly sought-after place to live and work, and roles in Sydney, Melbourne and Brisbane are the hardest to win. They do come up &mdash; but our advice is to also look at the places you may not have heard of yet, that are every bit as beautiful and have just as much to offer.</p>
+    <p class="sub">These are the ones we&rsquo;re asked about least and recommend most: a lower cost of living than the big metros, strong demand for clinicians, and a lifestyle that genuinely delivers. Short, honest guides to the everyday feel of each.</p>
+  </div>
+  <div class="citygrid">
+    <a class="ccard" href="/destinations/geelong-australia"><div class="cimg" style="background-image:url('../assets/geelong/geelong-waterfront-pier.jpg')"></div><div class="cbody"><div class="cst">Victoria</div><h3>Geelong</h3><p>A bayside city on Corio Bay with the Surf Coast and Great Ocean Road at its back door, an hour from Melbourne.</p><span class="go">Read the guide &rarr;</span></div></a>
+    <a class="ccard" href="/destinations/bunbury-australia"><div class="cimg" style="background-image:url('../assets/bunbury/bunbury-koombana-bay-footbridge.jpg')"></div><div class="cbody"><div class="cst">Western Australia</div><h3>Bunbury</h3><p>WA&rsquo;s largest regional city and the South West&rsquo;s referral centre, two hours south of Perth. Nine chapters.</p><span class="go">Read the guide &rarr;</span></div></a>
+    <a class="ccard" href="/destinations/bundaberg-australia"><div class="cimg" style="background-image:url('../assets/bundaberg/bundaberg-bargara-beach.jpg')"></div><div class="cbody"><div class="cst">Queensland</div><h3>Bundaberg</h3><p>A warm river city on the Coral Coast, gateway to the southern Great Barrier Reef, where clinicians are most needed.</p><span class="go">Read the guide &rarr;</span></div></a>
+  </div>
+</div></section>
+
+<!-- HELP BAND -->
+<section class="relo"><div class="wrap" style="padding-top:64px;padding-bottom:64px"><div class="ri">
+  <div>
+    <div class="eyebrow">Not sure where to start?</div>
+    <h2>We&rsquo;ll help you weigh it up</h2>
+    <p>Choosing between a capital and a regional move is one of the biggest calls you&rsquo;ll make, and it shapes everything from your visa pathway to your weekends. Tell us what matters to your family and we&rsquo;ll talk it through honestly, with no pressure either way.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/contact">Talk it through with us <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="/australia#journey">Back to the journey</a>
+    </div>
+  </div>
+  <div class="card-note">
+    <div class="k">What a good conversation covers</div>
+    <ul>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Where demand is strongest for your profession</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>How metro vs regional affects your visa options</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Schools, housing and community for your family</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>What relocation support may be available</li>
+    </ul>
+  </div>
+</div></div></section>
+
+<!-- FOOTER -->
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
+</main>
+<script src="../page-feedback.js" defer></script>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+
+<!-- =====================================================================
+INTERNAL LINK MAP — Australia destinations landing
+- Brand logo (header + footer)        → Home (/)
+- Australia ▾ (nav)                   → Australia hub (/australia) + section anchors  [current]
+- New Zealand ▾ (nav)                 → New Zealand hub (/new-zealand) + section anchors
+- Jobs (nav)                          → Jobs index (/jobs)
+- Guides & Resources (nav)            → Resources library (/resources)
+- Insights (nav)                      → Insights (/insights)
+- About ▾ (nav)                       → About Ethicare (/about-ethicare) + For employers (/employers)
+- Contact (nav CTA + bands + footer)  → Contact (/contact)
+- Hero "Metro or regional?"           → #opportunity (same page)
+- Hero "Explore the states"           → #states (same page)
+- City guides ×7 "Read the guide" → deep 9-chapter city guides [ALL LIVE]
+      · Sydney    → /destinations/sydney-australia    [LIVE]
+      · Melbourne → /destinations/melbourne-australia [LIVE]
+      · Brisbane  → /destinations/brisbane-australia  [LIVE]
+      · Perth     → /destinations/perth-australia     [LIVE]
+      · Adelaide  → /destinations/adelaide-australia  [LIVE]
+      · Canberra  → /destinations/canberra-australia  [LIVE]
+      · Hobart    → /destinations/hobart-australia    [LIVE, upgraded in place from the short guide]
+      · Darwin    → /destinations/darwin-australia    [LIVE, converted from the Northern Territory state guide]
+      · Gold Coast→ /destinations/gold-coast-australia [LIVE, upgraded in place from the short guide]
+      · Newcastle → /destinations/newcastle-australia  [LIVE, new guide]
+- State cards ×6 "Read the guide" → /destinations/{state}-australia [all LIVE]
+      · New South Wales → /destinations/new-south-wales-australia   [LIVE]
+      · Victoria        → /destinations/victoria-australia          [LIVE]
+      · Queensland      → /destinations/queensland-australia        [LIVE]
+      · Western Australia → /destinations/western-australia-australia [LIVE → Western_Australia_Relocation_Guide.html]
+      · South Australia → /destinations/south-australia-australia    [LIVE]
+      · Tasmania        → /destinations/tasmania-australia           [LIVE]
+      (Neither the ACT nor the NT is ever a state/territory card — both are fully covered by the Canberra and Darwin city guides above, per the 4 Aug 2026 direction)
+- Cities & towns ×4 "Read the guide" → city short guides (smaller / high-opportunity places; the seven deep-chapter city guides are in the #cities section above)
+      · Geelong    → /destinations/geelong-australia    (Geelong_Destination_Guide.html)
+      · Bunbury    → /destinations/bunbury-australia    (Bunbury_Destination_Guide.html — hub + 9 chapters, Aug 2026)
+      · Bundaberg  → /destinations/bundaberg-australia  (Bundaberg_Destination_Guide.html)
+- Help band "Talk it through with us" → Contact (/contact)
+- Help band "Back to the journey"     → Australia hub journey (/australia#journey)
+- Footer · Australia destinations     → this page (/destinations/australia)
+
+SEO BLOCK
+Page Title:       Australia Destination Guides | Ethicare Resourcing
+URL Slug:         /destinations/australia
+SEO Title:        Australia Destination Guides — Metro & Regional, State by State | Ethicare
+Meta Description: Explore Australia state by state — where the healthcare opportunities are, metro versus regional and remote, plus the major cities and regional towns across all six states.
+====================================================================== 
+  WAYFINDING → Breadcrumb: Home (/), Australia (/australia), Destinations [current, /destinations/australia].
+  -->
+<script src="../site.js"></script>
+<script>(function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var st=document.createElement('style');st.textContent='@media screen{.rv{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}.rv.in{opacity:1;transform:none}}@media print{.rv{opacity:1;transform:none}}';document.head.appendChild(st);addEventListener('beforeprint',function(){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})});var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});[].slice.call(document.querySelectorAll('.content section, main section')).forEach(function(el){if(el.getBoundingClientRect().top>innerHeight*0.85){el.classList.add('rv');io.observe(el)}});})();</script>
+<script src="../nav.js" defer></script>
+<script src="../journey-nav.js" defer></script>
+</body></html>

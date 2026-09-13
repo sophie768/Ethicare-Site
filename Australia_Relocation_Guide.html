@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Moving to Australia · Relocation guide · Ethicare</title>
+<meta name="description" content="Moving to Australia, explained once and properly: Medicare, Ahpra registration, visas, pay, schools and settling in — the national guide every state page builds on.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../shell.css">
+<style>
+:root{
+  --primary:#02615D; --secondary:#72A471; --highlight:#A6C84A;
+  --sage:#C9DED3; --bg:#FCFBF8; --white:#FFFFFF; --text:#333333; --text2:#2F5E49;
+  --divider:#E4E9E5; --border:#C9DED3; --accent:#02615D;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color:var(--text); background:var(--bg); line-height:1.65;
+  font-size:17px; letter-spacing:-0.003em; -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+/* ---------- TOP BAR ---------- */
+.topbar{
+  position:sticky;top:0;z-index:60;background:rgba(252,251,248,0.88);
+  backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--divider);
+}
+.topbar .inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.brand{display:flex;align-items:center;gap:8px}
+.brand img{height:34px;border-radius:6px}
+.brand .bn{font-weight:600;font-size:14px;color:var(--accent);letter-spacing:-0.01em}
+.topbar nav{display:flex;gap:24px}
+.topbar nav a{font-size:13px;font-weight:600;color:var(--text2);letter-spacing:0.01em}
+.topbar nav a:hover{color:var(--accent)}
+.topcta{background:var(--accent);color:#fff!important;padding:9px 18px;border-radius:999px;font-size:13px;font-weight:600}
+
+/* dropdown */
+.topbar nav .has-drop{position:relative}
+.topbar nav .has-drop>a{cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.topbar nav .has-drop>a svg{width:10px;height:10px;transition:transform .15s}
+.topbar nav .has-drop:hover>a svg{transform:rotate(180deg)}
+.dropmenu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);background:var(--white);border:1px solid var(--divider);border-radius:14px;box-shadow:0 26px 54px rgba(1,49,47,.12);padding:10px;min-width:320px;opacity:0;visibility:hidden;transition:.15s;display:grid;grid-template-columns:1fr 1fr;gap:4px;z-index:80}
+.has-drop:hover .dropmenu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px)}
+.dropmenu a{display:block;padding:9px 12px;border-radius:12px;font-size:13.5px;font-weight:600;color:var(--text)!important}
+.dropmenu a:hover{background:var(--sage);color:var(--accent)!important}
+.dropmenu a .mi{display:block;font-size:11px;font-weight:500;color:var(--text2);margin-top:4px}
+.dropmenu a.allguides{grid-column:1/-1;background:var(--sage);color:var(--accent)!important;text-align:center;margin-top:4px;font-weight:600}
+
+/* hamburger */
+.hamb{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:4px}
+.hamb span{display:block;width:24px;height:2px;background:var(--accent);border-radius:2px}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:90;background:var(--bg)}
+.mobile-menu.open{display:block}
+.mobile-menu .mhead{display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 28px;border-bottom:1px solid var(--divider)}
+.mobile-menu .mclose{background:none;border:none;font-size:30px;line-height:1;color:var(--accent);cursor:pointer}
+.mobile-menu .mbody{padding:18px 28px 60px;overflow-y:auto;height:calc(100% - 64px)}
+.mobile-menu .mbody a{display:block;padding:13px 0;font-size:17px;font-weight:600;color:var(--accent);border-bottom:1px solid var(--divider)}
+.mobile-menu .mbody .mlabel{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);font-weight:700;margin:24px 0 4px}
+.mobile-menu .mbody .mregion{padding:11px 0;font-size:15.5px;font-weight:600;color:var(--text)!important;border-bottom:1px solid var(--divider)}
+@media(max-width:980px){.topbar nav{display:none}.hamb{display:flex}}
+
+/* ---------- VOICE (candidate quote) ---------- */
+.voice{margin:40px 0 4px;padding:30px 34px 26px;background:#E3ECE5;border-radius:20px;position:relative}
+.voice::before{content:"";position:absolute;left:34px;top:0;width:28px;height:3px;border-radius:0 0 2px 2px;background:#A6C84A}
+.voice blockquote{margin:0;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(18px,1.6vw,21px);line-height:1.55;color:#02615D;text-wrap:pretty}
+.voice figcaption{margin-top:16px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:#2F5E49}
+@media(max-width:640px){.voice{padding:24px 22px 20px}.voice::before{left:22px}}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:clamp(430px,66svh,620px);display:flex;align-items:flex-end;overflow:hidden}
+.hero .photo{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(2,97,93,0.05) 0%, rgba(2,97,93,0.55) 100%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 22px, rgba(255,255,255,0) 22px 44px),
+    linear-gradient(155deg,var(--secondary) 0%,var(--accent) 65%,var(--primary) 100%);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;color:rgba(255,255,255,0.9)
+}
+.hero .photo .ph-ico{width:54px;height:54px;opacity:.7;margin-bottom:8px}
+.hero .photo .ph-t{font-weight:600;font-size:15px;letter-spacing:.02em}
+.hero .photo .ph-s{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-top:4px}
+.hero .inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 28px 64px;width:100%}
+.hero .eyebrow{color:#fff}
+.hero .eyebrow::before{background:#A6C84A}
+.hero h1{
+  color:#fff;font-weight:300;font-size:clamp(40px,6vw,72px);line-height:1.04;text-wrap:balance;
+  letter-spacing:-0.025em;max-width:15ch;margin-top:16px;
+  text-shadow:0 2px 24px rgba(0,0,0,0.18)
+}
+.hero .sub{color:rgba(255,255,255,0.92);font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-top:16px}
+
+/* ---------- EYEBROW ---------- */
+.eyebrow{font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--highlight)}
+
+/* ---------- LAYOUT: SIDEBAR + CONTENT ---------- */
+.shell{max-width:var(--maxw);margin:0 auto;padding:56px 28px 0;display:block}
+.site-header .shell{padding:0 28px}
+.sidebar{position:static;margin-bottom:40px}
+.otp{background:var(--sage);border:1px solid var(--divider);border-radius:20px;padding:26px 32px 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px}
+.otp h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;font-weight:700;grid-column:1/-1}
+.otp a{display:flex;align-items:center;gap:8px;padding:12px 0;border-top:1px solid var(--divider);font-size:14.5px;color:var(--text);font-weight:500;transition:color .15s}
+.otp a .tick{width:6px;height:6px;border-radius:50%;background:var(--secondary);flex:none;transition:all .15s}
+.otp a:hover{color:var(--accent)}
+.otp a.active{color:var(--primary);font-weight:600}
+.otp a.active .tick{background:var(--highlight);width:9px;height:9px}
+.side-cta{display:none}
+.side-cta .t{font-weight:600;font-size:15px;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.side-cta .t .dot{width:9px;height:9px;border-radius:50%;background:var(--highlight)}
+.side-cta p{font-size:13px;color:rgba(255,255,255,0.9);line-height:1.55}
+.side-cta a{display:inline-block;margin-top:8px;background:var(--highlight);color:var(--primary)!important;font-weight:600;font-size:13px;padding:8px 15px;border-radius:999px}
+
+/* ---------- CONTENT ---------- */
+.content section{padding:var(--sp-major,74px) 0;border-bottom:1px solid var(--divider);scroll-margin-top:clamp(56px,7vw,78px)}
+.content section:last-child{border-bottom:none}
+.content h2{font-weight:600;font-size:clamp(26px,3.4vw,36px);line-height:1.12;letter-spacing:-0.02em;color:var(--accent);margin-bottom:8px;max-width:20ch;text-wrap:balance}
+.content h3{font-weight:600;font-size:19px;color:var(--accent);margin:24px 0 8px;letter-spacing:-0.01em}
+.content p{margin-bottom:16px;max-width:64ch;line-height:1.7}
+.content .lead{font-size:20px;color:var(--text2);max-width:50ch;margin-bottom:24px;line-height:1.6}
+.cols{column-count:2;column-gap:40px}
+.cols p{max-width:none}
+@media(max-width:900px){.cols{column-count:1}}
+
+/* ---------- IMAGE PLACEHOLDER ---------- */
+.imgph{
+  position:relative;width:100%;border-radius:20px;overflow:hidden;margin:40px 0;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 16px, rgba(255,255,255,0) 16px 32px),
+    linear-gradient(150deg,var(--secondary),var(--accent));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:28px;min-height:300px
+}
+.imgph .ph-ico{width:42px;height:42px;opacity:.9;margin-bottom:8px}
+.imgph .ph-t{font-weight:600;font-size:15px}
+.imgph .ph-s{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.82;margin-top:4px}
+
+/* ---------- REAL PHOTOS ---------- */
+.photo-fig{margin:40px auto;max-width:none}
+.photo-fig img{width:100%;height:clamp(300px,40vw,460px);object-fit:cover;display:block;border-radius:20px}
+.photo-fig figcaption,.photo-row figcaption{font-size:13px;color:#333333;margin-top:8px;font-weight:600;text-align:center}
+.photo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:40px 0}
+.photo-row figure{margin:0}
+.photo-row img{width:100%;height:210px;object-fit:cover;display:block;border-radius:14px}
+.photo-row figcaption{text-align:center;margin-top:8px}
+@media(max-width:700px){.photo-row{grid-template-columns:1fr}.photo-row img{height:240px}}
+.photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:40px 0}
+.photo-pair figure{margin:0}
+.photo-pair img{width:100%;height:330px;object-fit:cover;display:block;border-radius:20px}
+.photo-pair figcaption{text-align:center;margin-top:8px;font-size:13px;color:#333333;font-weight:600}
+@media(max-width:600px){.photo-pair{grid-template-columns:1fr}.photo-pair img{height:250px}}
+
+/* ---------- STAT CARDS ---------- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+@media(max-width:700px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--white);border:1px solid var(--divider);border-radius:20px;padding:22px}
+.stat .num{font-weight:700;font-size:34px;color:var(--accent);letter-spacing:-0.02em;line-height:1}
+.stat .num .u{font-size:17px;font-weight:700}
+.stat .cap{font-size:11.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--text2);font-weight:600;margin-top:8px}
+.stat .bar{width:30px;height:3px;background:var(--highlight);border-radius:2px;margin-top:8px}
+
+/* ---------- PANEL ---------- */
+.panel{background:#F7F4EE;border-radius:20px;padding:26px 28px;margin:24px 0}
+.panel .pt{font-weight:600;font-size:18px;color:var(--primary);margin-bottom:8px}
+.panel ul{list-style:none}
+.panel li{position:relative;padding-left:24px;margin-bottom:8px;font-size:15.5px}
+.panel li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;background:var(--highlight)}
+
+/* ---------- QUOTE ---------- */
+.quote{margin:40px 0}
+.quote .mark{font-weight:700;font-size:64px;color:#2F5E49;line-height:.5;display:block}
+.quote .q{font-weight:600;font-size:clamp(22px,2.8vw,30px);line-height:1.3;color:var(--accent);letter-spacing:-0.015em;max-width:24ch;margin-top:8px}
+.quote .by{font-size:12.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--text2);font-weight:600;margin-top:16px}
+
+/* ---------- SEASONS ---------- */
+.seasons{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:24px 0}
+@media(max-width:700px){.seasons{grid-template-columns:repeat(2,1fr)}}
+.season{border-radius:14px;padding:18px;color:#fff}
+.season .s{font-weight:600;font-size:16px}
+.season .m{font-size:11px;letter-spacing:.07em;text-transform:uppercase;opacity:.85;margin:4px 0 16px}
+.season .t{font-weight:600;font-size:25px;letter-spacing:-0.02em}
+.season .tl{font-size:11px;letter-spacing:.07em;text-transform:uppercase;opacity:.85;margin-top:4px}
+
+/* ---------- FACTS ---------- */
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:700px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--white);border:1px solid var(--divider);border-radius:14px;padding:18px 20px}
+.fact .k{font-size:11.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:4px}
+.fact .v{font-size:15px;line-height:1.5}
+
+/* ---------- TIMELINE ---------- */
+.timeline{position:relative;margin:16px 0;padding-left:32px}
+.timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--secondary)}
+.tl{position:relative;margin-bottom:24px}
+.tl::before{content:"";position:absolute;left:-32px;top:2px;width:20px;height:20px;border-radius:50%;background:var(--white);border:3px solid var(--highlight)}
+.tl .st{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.tl .h{font-weight:600;font-size:17px;margin:4px 0 4px}
+.tl .b{font-size:15px;color:var(--text2);max-width:64ch}
+
+/* ---------- TAKEAWAY ---------- */
+.takeaway{background:var(--accent);color:#fff;border-radius:24px;padding:30px 32px;margin:24px 0}
+.takeaway .tt{display:flex;align-items:center;gap:8px;font-weight:600;font-size:19px;margin-bottom:8px}
+.takeaway .tt .dot{width:11px;height:11px;background:var(--highlight);border-radius:50%}
+.takeaway p{color:rgba(255,255,255,0.92);margin-bottom:0;max-width:64ch}
+.takeaway .hl{color:#fff;font-weight:600}
+
+/* ---------- LINKS / RESOURCES ---------- */
+.linkgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:700px){.linkgrid{grid-template-columns:1fr}}
+.linkcard{display:block;background:var(--white);border:1px solid var(--divider);border-radius:14px;padding:18px 20px;transition:border-color .15s,transform .15s}
+.linkcard:hover{border-color:#2F5E49;transform:translateY(-2px)}
+.linkcard .lk{font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:var(--text2);font-weight:700;margin-bottom:4px}
+.linkcard .ln{font-weight:600;font-size:16px;color:var(--accent);display:flex;align-items:center;gap:8px}
+.linkcard .ln svg{width:14px;height:14px;flex:none}
+.linkcard .ld{font-size:13.5px;color:var(--text2);margin-top:4px;line-height:1.5}
+
+/* ---------- FOOTER ---------- */
+.footer{background:var(--primary);color:#fff;margin-top:0;padding:48px 0 40px}
+.footer .inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px}
+.footer .brand img{height:40px}
+.footer .fcol h5{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#C9DED3;margin-bottom:8px;font-weight:700}
+.footer .fcol a{display:block;color:rgba(255,255,255,0.85);font-size:14px;margin-bottom:8px;font-weight:500}
+.footer .fcol a:hover{color:#fff}
+.footer .note{width:100%;border-top:1px solid rgba(255,255,255,0.18);margin-top:24px;padding-top:18px;font-size:12px;color:rgba(255,255,255,0.6)}
+
+/* ---------- SOPHIE'S INSIGHTS ---------- */
+.sophie{background:var(--sage);border-radius:24px;padding:30px 32px;margin:24px 0;display:flex;gap:24px;align-items:flex-start}
+@media(max-width:700px){.sophie{flex-direction:column;gap:16px;padding:26px}}
+.sophie .photo{flex:none;width:104px;height:104px;border-radius:50%;overflow:hidden;
+  background:repeating-linear-gradient(135deg,rgba(255,255,255,0.12) 0 10px,rgba(255,255,255,0) 10px 20px),linear-gradient(150deg,var(--secondary),var(--accent));
+  display:flex;align-items:center;justify-content:center;color:#fff;text-align:center}
+.sophie .photo svg{width:30px;height:30px;opacity:.9}
+.sophie .photo .pl{font-size:8.5px;letter-spacing:.10em;text-transform:uppercase;opacity:.85;margin-top:4px;line-height:1.3;padding:0 6px}
+.sophie .body{flex:1}
+.sophie .kick{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.sophie .kick .dot{width:8px;height:8px;border-radius:50%;background:var(--highlight)}
+.sophie .q{font-weight:600;font-size:19px;line-height:1.45;color:var(--primary);letter-spacing:-0.01em}
+.sophie .q p{margin-bottom:8px;max-width:none}
+.sophie .q p:last-child{margin-bottom:0}
+.sophie .by{margin-top:16px;font-size:13px;color:var(--text2)}
+.sophie .by strong{color:var(--accent);font-weight:600;display:block;font-size:14px}
+.sophie .draft{display:inline-block;margin-top:16px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--text2);background:rgba(255,255,255,0.6);border:1px dashed var(--secondary);border-radius:999px;padding:4px 11px}
+
+/* ---------- CHECKLIST ---------- */
+.checklist{list-style:none;margin:16px 0;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+@media(max-width:700px){.checklist{grid-template-columns:1fr}}
+.checklist li{position:relative;padding-left:34px;font-size:15px;line-height:1.5}
+.checklist li::before{content:"";position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:6px;background:var(--sage);border:1.5px solid var(--highlight)}
+.checklist li::after{content:"";position:absolute;left:6px;top:5px;width:7px;height:11px;border:solid var(--primary);border-width:0 2px 2px 0;transform:rotate(42deg)}
+.checklist.full{grid-template-columns:1fr}
+
+/* ---------- GLOSSARY ---------- */
+.glossary{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;margin:16px 0}
+@media(max-width:700px){.glossary{grid-template-columns:1fr}}
+.gloss{display:flex;gap:8px;padding:9px 0;border-bottom:1px solid var(--divider);font-size:15px}
+.gloss .term{font-weight:600;color:var(--accent);flex:none;min-width:120px}
+.gloss .def{color:var(--text2)}
+
+/* ---------- BUDGET TABLE ---------- */
+.budget{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+.budget th{background:var(--accent);color:#fff;text-align:left;padding:11px 16px;font-weight:600;font-size:13.5px}
+.budget th:last-child,.budget td:last-child{text-align:right}
+.budget th:first-child{border-radius:12px 0 0 0}
+.budget th:last-child{border-radius:0 12px 0 0}
+.budget td{padding:10px 16px;border-bottom:1px solid var(--divider)}
+.budget tr:nth-child(even) td{background:var(--white)}
+.budget tr:nth-child(odd) td{background:var(--sage)}
+.budget tr.total td{background:var(--accent);color:#fff;font-weight:600;border:none}
+.budget tr.total td:first-child{border-radius:0 0 0 12px}
+.budget tr.total td:last-child{border-radius:0 0 12px 0}
+
+/* responsive sidebar collapse */
+@media(max-width:880px){
+  .sidebar{margin-bottom:40px}
+  .otp{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .otp{grid-template-columns:1fr}
+}
+.dl-guide:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.12)}
+.backtop{position:fixed;right:22px;bottom:22px;z-index:70;width:46px;height:46px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 26px 54px rgba(1,49,47,.12);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s}
+.backtop.show{opacity:1;visibility:visible;transform:none}
+.backtop svg{width:20px;height:20px}
+@media print{.backtop{display:none}}
+.faqs{display:flex;flex-direction:column;gap:8px;margin:24px 0}
+.faqs details{border:1px solid var(--divider);border-radius:14px;background:#fff;overflow:hidden}
+.faqs summary{cursor:pointer;list-style:none;padding:17px 22px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;color:var(--primary);display:flex;align-items:center;justify-content:space-between;gap:16px;transition:background .18s}
+.faqs summary::-webkit-details-marker{display:none}
+.faqs summary::after{content:"";flex:none;width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(45deg);transition:transform .2s;margin-top:-4px}
+.faqs details[open] summary::after{transform:rotate(-135deg);margin-top:4px}
+.faqs summary:hover{background:var(--sage)}
+.faqs details p{padding:0 22px 19px;margin:0;max-width:64ch}
+@media(max-width:640px){.faqs summary{font-size:15.5px;padding:15px 17px}.faqs details p{padding:0 17px 16px}}
+.sx{margin:24px 0}
+.sx-lbl{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text2);margin:24px 0 8px}
+.sx-chips{display:flex;flex-wrap:wrap;gap:8px}
+.sx-chips button{font-family:'Work Sans',sans-serif;font-size:14px;font-weight:500;color:var(--primary);background:transparent;border:1px solid rgba(2,97,93,.3);border-radius:999px;padding:10px 18px;cursor:pointer;white-space:nowrap;transition:background .18s,color .18s}
+.sx-chips button:hover{background:var(--sage)}
+.sx-chips button[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:#fff}
+.sx-note{font-size:14.5px;line-height:1.55;color:var(--text2);margin:8px 0 0;max-width:64ch}
+.sx-sorts{display:flex;flex-wrap:wrap;gap:24px}
+.sx-sorts button{font-family:'Work Sans',sans-serif;font-size:13px;font-weight:500;color:var(--text2);background:none;border:none;border-bottom:2px solid transparent;padding:6px 2px;cursor:pointer}
+.sx-sorts button[aria-pressed="true"]{color:var(--primary);font-weight:600;border-bottom-color:var(--highlight)}
+.sx-grid{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:24px;margin-top:24px;align-items:start}
+.sx-list{max-height:560px;overflow-y:auto;border:1px solid var(--divider);border-radius:14px;padding:6px;background:#fff}
+.sx-list button{width:100%;display:grid;grid-template-columns:8px minmax(0,1fr) auto;gap:8px;align-items:center;text-align:left;background:transparent;border:none;border-bottom:1px solid var(--divider);padding:14px 12px;cursor:pointer;font-family:'Manrope',sans-serif;border-radius:6px;transition:background .18s}
+.sx-list button:last-child{border-bottom:none}
+.sx-list button:hover{background:var(--sage)}
+.sx-list button[aria-selected="true"]{background:var(--sage)}
+.sx-list .dot{width:7px;height:7px;border-radius:999px;background:var(--divider)}
+.sx-list button[aria-selected="true"] .dot{background:var(--highlight)}
+.sx-list .nm{display:block;font-family:'Work Sans',sans-serif;font-size:16px;font-weight:500;color:var(--primary);margin-bottom:4px}
+.sx-list button[aria-selected="true"] .nm{font-weight:600}
+.sx-list .tg{display:block;font-size:13px;line-height:1.4;color:var(--text2)}
+.sx-list .rt{text-align:right;font-family:'Work Sans',sans-serif;font-size:13.5px;font-weight:500;color:var(--primary);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sx-list .dr{display:block;font-size:11.5px;font-weight:500;color:var(--text2)}
+.sx-detail{border:1px solid var(--divider);border-radius:14px;padding:28px 30px;background:#fff}
+.sx-detail h4{font-family:'Work Sans',sans-serif;font-size:26px;font-weight:600;color:var(--primary);margin:0 0 4px}
+.sx-detail .reg{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.sx-detail .ch{font-size:16px;line-height:1.65;color:var(--text);margin:0 0 24px}
+.sx-kpis{display:flex;flex-wrap:wrap;gap:24px;padding:16px 0;border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);margin-bottom:16px}
+.sx-kpis div span{display:block}
+.sx-kpis .k{font-family:'Work Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text2);margin-bottom:4px}
+.sx-kpis .v{font-family:'Work Sans',sans-serif;font-size:19px;font-weight:500;color:var(--primary);font-variant-numeric:tabular-nums}
+.sx-rows{display:flex;flex-direction:column;gap:0;margin-bottom:16px}
+.sx-rows div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;padding:11px 0;border-bottom:1px solid var(--divider);font-size:15px;line-height:1.55}
+.sx-rows div:last-child{border-bottom:none}
+.sx-rows .rl{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text2);padding-top:2px}
+.sx-who{background:var(--sage);border-radius:12px;padding:16px 18px;font-size:15px;line-height:1.6}
+.sx-who b{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--primary);display:block;margin-bottom:4px}
+.sx-cm{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.sx-cm span{font-family:'Work Sans',sans-serif;font-size:12.5px;padding:6px 12px;border-radius:999px;background:var(--bg);color:var(--text2);border:1px solid var(--divider)}
+.sx-cm span.on{background:var(--primary);color:#fff;border-color:var(--primary)}
+@media(max-width:900px){.sx-grid{grid-template-columns:1fr}.sx-list{max-height:340px}}
+@media(max-width:640px){.sx-detail{padding:22px 18px}.sx-rows div{grid-template-columns:1fr;gap:4px}}
+.chapter-open{position:relative;margin:calc(var(--sp-major,74px) * -1) 0 42px;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);width:100vw;min-height:min(52vh,400px);display:flex;align-items:flex-end;isolation:isolate;overflow:hidden}
+.chapter-open img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.chapter-open::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(1,49,47,.12) 0%,rgba(1,49,47,.50) 58%,rgba(1,49,47,.84) 100%)}
+.chapter-open .co-in{max-width:var(--maxw);width:100%;margin:0 auto;padding:0 28px 42px}
+.chapter-open .eyebrow{color:rgba(255,255,255,.9)}
+.chapter-open h2{color:#fff;margin:0;max-width:20ch;text-wrap:balance}
+.wf-crumb a,.wf-crumb .here{white-space:nowrap}
+
+@media(max-width:640px){.chapter-open{min-height:300px}.chapter-open .co-in{padding:0 20px 30px}}
+.ctitle{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 16px;margin:40px 0 4px}
+.ctitle h3{margin:0;font-size:23px;line-height:1.3;padding:0}
+.ctitle .badge{position:relative;top:-1px}
+.badge{font-family:'Work Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:6px 12px;border-radius:999px;white-space:nowrap}
+.badge.local{background:var(--primary);color:#fff}
+.badge.nat{background:var(--sage);color:var(--sage-text,var(--primary));border:1px solid var(--divider)}
+.cnote{font-size:15px;color:var(--text2);margin:0 0 16px;max-width:64ch}
+.chaps{display:flex;flex-direction:column;gap:4px}
+a.chap{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px 14px;border-bottom:1px solid var(--divider);border-radius:12px;background:var(--sage);transition:background .18s,transform .18s;color:inherit;text-decoration:none}
+a.chap:hover{background:#DCE8DF;transform:translateX(2px)}
+a.chap.nat{background:transparent}
+a.chap.nat:hover{background:var(--bg)}
+a.chap .n{font-family:'Work Sans',sans-serif;font-size:14px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+a.chap .t{display:block;font-family:'Work Sans',sans-serif;font-size:17px;font-weight:500;color:var(--primary);margin-bottom:4px}
+a.chap .b{display:block;font-size:14px;line-height:1.45;color:var(--text2)}
+a.chap .go{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:600;color:var(--accent);white-space:nowrap}
+a.chap.nat .go{color:var(--text2);font-weight:500}
+.ch-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-top:40px;padding-top:26px;border-top:1px solid var(--divider)}
+.ch-nav a{font-family:'Work Sans',sans-serif;font-size:15px;font-weight:500;color:var(--primary);text-decoration:none}
+.ch-nav a:hover{color:var(--accent)}
+.ch-nav a span{display:block;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text2);margin-bottom:4px}
+.ch-nav .next{text-align:right}
+.ch-nav .up{font-size:13px;color:var(--text2);white-space:nowrap}
+@media(max-width:640px){a.chap{grid-template-columns:32px minmax(0,1fr);gap:8px}a.chap .go{display:none}.ch-nav{grid-template-columns:1fr;gap:16px}.ch-nav .next{text-align:left}}
+</style>
+<link rel="canonical" href="https://ethicareresourcing.com/destinations/australia-relocation-guide">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Moving to Australia · The national relocation guide · Ethicare Resourcing">
+<meta property="og:description" content="Moving to Australia: the health system, registration, visas, money and family life — written for healthcare professionals.">
+<meta property="og:url" content="https://ethicareresourcing.com/destinations/australia-relocation-guide">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/au-destination-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Moving to Australia · The national relocation guide · Ethicare Resourcing">
+<meta name="twitter:description" content="Moving to Australia, explained once and properly: Medicare, Ahpra registration, visas, pay, schools and settling in — the national guide every state page builds on.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/au-destination-hero.jpg">
+<style id="nz-fern-accent">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style id="a4-print-kit">
+@page{size:A4;margin:12mm}
+
+
+@media(max-width:640px){}
+@media print{
+*{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+html,body{background:#fff !important}
+.site-header,.backtop,
+.shell{display:block !important;max-width:none !important;width:auto !important;padding:0 !important;margin:0 !important}
+.content,.wrap{max-width:none !important;width:auto !important;padding-left:0 !important;padding-right:0 !important}
+.hero{position:relative !important;height:78mm !important;min-height:0 !important}
+.hero .photo{position:absolute !important;inset:0 !important}
+section.band{padding:9mm 0 !important}
+figure,.fact,.panel,.oppcard,.sophie,.season,.stat,.takeaway,.linkgrid a,table,.twoup figure,.cols>*{break-inside:avoid !important}
+figure img,.feat img,.shot img,.twoup img{width:auto !important;height:auto !important;max-width:100% !important;max-height:115mm !important;display:block;margin:0 auto}
+h1,h2,h3{break-after:avoid !important}
+.cta{break-inside:avoid !important}
+}
+</style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
+<style>
+:root{
+  --font-heading:'Work Sans',system-ui,-apple-system,sans-serif;
+  --font-body:'Manrope',system-ui,-apple-system,sans-serif;
+  --ethicare-teal:#02615D;
+  --accent-lime:#A6C84A;
+  --nz-accent:#72A471;
+  --nz-accent-deep:#2F5E49;
+  --nz-accent-soft:#D5E4D8;
+  --nz-highlight:#E3ECE5;
+  --surface-white:#FFFFFF;
+  --surface-sage:#E3ECE5;
+  --bg:#FCFBF8;
+  --text:#333333;
+  --text-muted:#555555;
+  --rule:#E4E9E5;
+  --ease:cubic-bezier(.4,0,.2,1);
+  }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-heading);font-weight:600;letter-spacing:-0.015em;text-wrap:balance}
+a{color:var(--ethicare-teal);text-decoration:none}
+a:hover{color:var(--ethicare-teal);text-decoration:underline;text-underline-offset:3px}
+img{max-width:100%}
+::selection{background:#D9E4C9;color:#02615D}
+:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 7px rgba(167,201,87,.55)}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+@media print{[data-chrome]{display:none !important}body{background:#fff}section{break-inside:avoid}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Destinations","item":"https://ethicareresourcing.com/destinations/"},{"@type":"ListItem","position":3,"name":"Moving to Australia"}]}</script>
+<style id="au-link-tokens">:root{--link-ink:#A34438;--link-rule:#D9A084}</style>
+<link rel="stylesheet" href="../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/destinations/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<section id="top" data-screen-label="Cover" style="position:relative;min-height:max(620px,94vh);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate">
+  <img decoding="async" fetchpriority="high" src="../assets/au-destination-hero.jpg" alt="An Australian coastline in evening light" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2">
+  <div style="position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(2,58,55,0.50) 0%,rgba(2,58,55,0.48) 30%,rgba(2,49,47,0.76) 70%,rgba(2,44,42,0.92) 100%)"></div>
+  <div style="position:absolute;top:0;left:0;right:0;padding:36px 32px;display:flex;align-items:center;justify-content:flex-end;gap:20px">
+    <span style="font-family:var(--font-heading);font-size:11.5px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(252,251,248,0.84);white-space:nowrap">Relocation Collection &middot; The Master</span>
+  </div>
+  <div style="max-width:1180px;width:100%;margin:0 auto;padding:150px 32px 56px">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:30px">
+      <span style="display:block;width:28px;height:2px;background:var(--accent-lime)"></span>
+      <span style="font-family:var(--font-heading);font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#C6E084">The national guide</span>
+    </div>
+    <h1 style="font-size:clamp(44px,8vw,110px);font-weight:300;line-height:0.94;letter-spacing:-0.035em;color:#FCFBF8;margin:0">Moving to Australia</h1>
+    <p style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(21px,2.6vw,32px);line-height:1.3;color:rgba(252,251,248,0.82);margin:14px 0 0">Everything that&rsquo;s true wherever you land &mdash; explained once, properly</p>
+    <p style="max-width:50ch;font-size:clamp(16.5px,1.5vw,19px);line-height:1.62;color:rgba(252,251,248,0.86);margin:26px 0 0">Medicare, registration, visas, pay, schools and settling in &mdash; written for healthcare professionals, by the team who help them move.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:36px">
+      <a href="/guides/about-australia" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:15px;font-weight:500;background:#FCFBF8;color:var(--ethicare-teal);padding:15px 26px;border-radius:12px;text-decoration:none;white-space:nowrap">Start reading <span aria-hidden="true" style="font-size:13px">&rarr;</span></a>
+      <a href="#contents" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:15px;font-weight:500;background:transparent;color:#FCFBF8;border:1px solid rgba(252,251,248,0.5);padding:15px 26px;border-radius:12px;text-decoration:none;white-space:nowrap">See the chapters</a>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:0 40px;margin-top:40px;padding-top:22px;border-top:1px solid rgba(252,251,248,0.24)">
+      <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.05em;color:rgba(252,251,248,0.78);white-space:nowrap">19 chapters</span>
+      <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.05em;color:rgba(252,251,248,0.78);white-space:nowrap">Updated August 2026</span>
+      <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.05em;color:rgba(252,251,248,0.78);white-space:nowrap">Free &middot; no sign-up</span>
+    </div>
+  </div>
+</section>
+
+<nav data-chrome="true" aria-label="Guide" style="background:var(--surface-white);border-bottom:1px solid #EBDFD3">
+  <div style="max-width:1180px;margin:0 auto;padding:0 32px;min-height:62px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px">
+    <span style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap">Moving to Australia &middot; the national guide</span>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px">
+      <a href="#contents" style="font-family:var(--font-heading);font-size:13.5px;font-weight:500;color:var(--ethicare-teal);white-space:nowrap">Contents</a>
+      <a href="/guides/about-australia" style="font-family:var(--font-heading);font-size:13.5px;font-weight:500;color:var(--text-muted);white-space:nowrap">Start reading</a>
+      <a href="/australia" style="font-family:var(--font-heading);font-size:13.5px;font-weight:500;color:var(--text-muted);white-space:nowrap">Working in Australia</a>
+      <a href="/destinations/australia" style="font-family:var(--font-heading);font-size:13.5px;font-weight:500;color:var(--text-muted);white-space:nowrap">State &amp; city guides</a>
+      <a href="/request-a-guide?guide=australia-national" style="font-family:var(--font-heading);font-size:13px;font-weight:500;color:var(--ethicare-teal);background:transparent;border:1px solid var(--ethicare-teal);border-radius:999px;padding:8px 16px;cursor:pointer;text-decoration:none;white-space:nowrap">Request printed guide</a>
+    </div>
+  </div>
+</nav>
+
+<section data-screen-label="Welcome" style="max-width:1180px;margin:0 auto;padding:112px 32px 24px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:64px;align-items:start">
+    <div>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:26px">
+        <span style="display:block;width:28px;height:2px;background:var(--accent-lime)"></span>
+        <span style="font-family:var(--font-heading);font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ethicare-teal)">Welcome</span>
+      </div>
+      <h2 style="font-size:clamp(30px,3.4vw,44px);font-weight:600;line-height:1.16;color:var(--ethicare-teal);margin:0 0 24px;max-width:24ch">One country&rsquo;s rules, explained once.</h2>
+      <p style="font-size:18px;line-height:1.68;color:var(--text);margin:0 0 24px;max-width:56ch">Almost everything that decides whether Australia works for you is national. Medicare and how the health system is funded. Ahpra and the national boards that register most health professions. The visa system. Tax and superannuation. How schools work &mdash; and what they charge on a temporary visa.</p>
+      <p style="font-size:18px;line-height:1.68;color:var(--text);margin:0 0 24px;max-width:56ch">So this guide explains each of those once, properly, and every state and city page links back here instead of repeating it. What the state pages own is what genuinely differs: their hospitals and health services, where clinicians live, local costs, and what the weekends look like.</p>
+      <p style="font-size:18px;line-height:1.68;color:var(--text);margin:0 0 24px;max-width:56ch">One honest caveat runs through everything: public-sector pay and conditions are set state by state, under each state&rsquo;s agreements. Where pay comes up we describe how the system works rather than quoting figures &mdash; and where a number matters, we verify it against the relevant agreement before we put it in writing.</p>
+      <p style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:21px;line-height:1.5;color:var(--ethicare-teal);margin:0 0 6px">Welcome to Australia.</p>
+      <p style="font-family:var(--font-heading);font-size:14px;font-weight:500;letter-spacing:0.04em;color:var(--text-muted);margin:0">The Ethicare team</p>
+    </div>
+    <figure style="margin:0;position:relative">
+      <img loading="lazy" decoding="async" src="../assets/au-life/beach-camping.jpg" alt="A tent pitched on the grass above a beach at sunset" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px;display:block">
+      <figcaption style="position:absolute;bottom:16px;left:16px;font-family:var(--font-heading);font-size:11.5px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#fff;background:rgba(24,44,42,0.70);backdrop-filter:blur(6px);padding:8px 13px;border-radius:999px">The life the move is for</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section data-screen-label="In short" style="margin-top:clamp(56px,7vw,78px);background:#F3F7F4;padding:96px 0">
+  <div style="max-width:1180px;margin:0 auto;padding:0 32px">
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:52px">
+      <h2 style="font-size:clamp(28px,3vw,38px);font-weight:600;line-height:1.2;color:var(--ethicare-teal);margin:0">Australia, in short</h2>
+      <span style="font-family:var(--font-heading);font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#A34438">The five-second version</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;border-top:1px solid #EBDFD3;border-bottom:1px solid #EBDFD3;margin-bottom:56px">
+      <div style="padding:36px 28px 34px 0"><div style="font-family:var(--font-heading);font-size:clamp(30px,3.6vw,46px);font-weight:300;letter-spacing:-0.03em;color:var(--ethicare-teal);line-height:1;white-space:nowrap">8</div><div style="font-family:var(--font-heading);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ethicare-teal);margin-top:12px">States &amp; territories</div></div>
+      <div style="padding:36px 28px 34px 28px;border-left:1px solid #EBDFD3"><div style="font-family:var(--font-heading);font-size:clamp(30px,3.6vw,46px);font-weight:300;letter-spacing:-0.03em;color:var(--ethicare-teal);line-height:1;white-space:nowrap">1</div><div style="font-family:var(--font-heading);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ethicare-teal);margin-top:12px">National regulator for most professions</div></div>
+      <div style="padding:36px 28px 34px 28px;border-left:1px solid #EBDFD3"><div style="font-family:var(--font-heading);font-size:clamp(30px,3.6vw,46px);font-weight:300;letter-spacing:-0.03em;color:var(--ethicare-teal);line-height:1;white-space:nowrap">Medicare</div><div style="font-family:var(--font-heading);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ethicare-teal);margin-top:12px">Universal public healthcare</div></div>
+      <div style="padding:36px 0 34px 28px;border-left:1px solid #EBDFD3"><div style="font-family:var(--font-heading);font-size:clamp(30px,3.6vw,46px);font-weight:300;letter-spacing:-0.03em;color:var(--ethicare-teal);line-height:1;white-space:nowrap">State by state</div><div style="font-family:var(--font-heading);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ethicare-teal);margin-top:12px">Public pay &amp; agreements</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:20px">
+      <div style="background:var(--surface-white);border-radius:14px;padding:26px 26px 28px;box-shadow:0 1px 3px rgba(1,49,47,.05)"><div style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A34438;margin-bottom:8px">The health system</div><div style="font-family:var(--font-heading);font-size:18.5px;font-weight:500;line-height:1.3;color:var(--text)">Medicare-funded public care alongside a large private sector &mdash; chapter 04 explains how the two fit together</div></div>
+      <div style="background:var(--surface-white);border-radius:14px;padding:26px 26px 28px;box-shadow:0 1px 3px rgba(1,49,47,.05)"><div style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A34438;margin-bottom:8px">Registration</div><div style="font-family:var(--font-heading);font-size:18.5px;font-weight:500;line-height:1.3;color:var(--text)">Ahpra and the national boards cover most professions once, for every state &mdash; chapter 05</div></div>
+      <div style="background:var(--surface-white);border-radius:14px;padding:26px 26px 28px;box-shadow:0 1px 3px rgba(1,49,47,.05)"><div style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A34438;margin-bottom:8px">Visas</div><div style="font-family:var(--font-heading);font-size:18.5px;font-weight:500;line-height:1.3;color:var(--text)">Skilled and employer-sponsored routes, explained in plain English &mdash; chapter 06</div></div>
+      <div style="background:var(--surface-white);border-radius:14px;padding:26px 26px 28px;box-shadow:0 1px 3px rgba(1,49,47,.05)"><div style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A34438;margin-bottom:8px">Pay</div><div style="font-family:var(--font-heading);font-size:18.5px;font-weight:500;line-height:1.3;color:var(--text)">Set under state agreements. We explain the system, and verify figures before quoting them &mdash; chapter 07</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contents" data-screen-label="Contents" style="max-width:1180px;margin:0 auto;padding:112px 32px 96px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:end;margin-bottom:64px">
+    <div>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:26px">
+        <span style="display:block;width:28px;height:2px;background:var(--accent-lime)"></span>
+        <span style="font-family:var(--font-heading);font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ethicare-teal)">Contents</span>
+      </div>
+      <h2 style="font-size:clamp(30px,3.4vw,44px);font-weight:600;line-height:1.14;color:var(--ethicare-teal);margin:0">What&rsquo;s inside</h2>
+    </div>
+    <p style="font-size:17px;line-height:1.62;color:var(--text-muted);margin:0;max-width:46ch">Nineteen chapters in five parts &mdash; every national topic once. Your state or city guide covers only what&rsquo;s true there, and links back here for the rest.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:56px">
+    <div>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:8px">
+        <span style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ethicare-teal);white-space:nowrap">Part one &middot; Deciding</span>
+        <span style="flex:1;height:1px;background:#EBDFD3"></span>
+      </div>
+      <a href="/guides/about-australia" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">01</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">About Australia<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">The country in orientation &mdash; the states, the seasons, the distances and the way the place works</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+      <a href="/guides/moving-to-australia" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">02</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Is it right for me &amp; my family?<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">The honest first questions, before any paperwork</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+      <a href="/guides/australia-vs-new-zealand" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">03</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Australia vs New Zealand<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">The two countries compared, for clinicians weighing both</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Both countries &rarr;</span>
+      </a>
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:8px">
+        <span style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ethicare-teal);white-space:nowrap">Part two &middot; The system</span>
+        <span style="flex:1;height:1px;background:#EBDFD3"></span>
+      </div>
+      <a href="/guides/australia-healthcare" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">04</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">How the health system works<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Medicare, public and private, and what it means to work inside it</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+      <a href="/guides/australia-registration" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">05</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Eligibility &amp; registration<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Ahpra, the national boards, and the pathway for your profession</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+      <a href="/guides/australia-visa" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">06</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Immigration &amp; visas<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Skilled and sponsored routes, and the order things happen in</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:8px">
+        <span style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ethicare-teal);white-space:nowrap">Part three &middot; Work &amp; money</span>
+        <span style="flex:1;height:1px;background:#EBDFD3"></span>
+      </div>
+      <a href="/guides/australia-salary" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">07</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Pay &amp; conditions<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">How state agreements and awards actually work &mdash; and what to check before you sign</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+      <a href="/guides/australia-interview" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">08</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">CVs &amp; interviews<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">What Australian employers look for, and how to prepare</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+      <a href="/guides/cost-of-relocating" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">09</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">The cost of relocating<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">What the move itself costs, and where the money goes</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Both countries &rarr;</span>
+      </a>
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:8px">
+        <span style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ethicare-teal);white-space:nowrap">Part four &middot; Everyday life</span>
+        <span style="flex:1;height:1px;background:#EBDFD3"></span>
+      </div>
+      <a href="/guides/living-in-australia" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">10</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Living in Australia<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Settling into working life, and building a life beyond it</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+      <a href="/guides/australia-renting" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">11</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Renting in Australia<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Applications with no rental history, how bond is held, your state&rsquo;s rulebook</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+      <a href="/guides/australia-money" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">12</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Money, tax &amp; banking<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Your TFN, superannuation, the Medicare levy and tax residency</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+      <a href="/guides/australia-driving" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">13</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Driving &amp; licences<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Converting your licence, your state&rsquo;s deadline, and CTP insurance</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+      <a href="/guides/australia-education" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">14</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Schools &amp; education<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">How the system works, and how to choose from overseas</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+      <a href="/guides/australia-school-fees" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">15</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">School fees on a visa<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">The cost that surprises visa holders &mdash; state by state, explained honestly</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:8px">
+        <span style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ethicare-teal);white-space:nowrap">Part five &middot; Belonging</span>
+        <span style="flex:1;height:1px;background:#EBDFD3"></span>
+      </div>
+      <a href="/guides/australia-pets" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">16</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Moving with pets<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Biosecurity, quarantine at Mickleham, costs and the flight itself &mdash; Australia-specific, start early</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+      <a href="/guides/australia-family" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">17</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Family life<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Partners, children and the family side of the move</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+      <a href="/guides/australia-community" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">18</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Community &amp; belonging<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Finding your people, from the cities to regional Australia</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+      <a href="/guides/australia-contacts" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+        <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">19</span>
+        <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Contacts &amp; first steps<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">The official bodies, the checklists, and where to start</span></span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Sophie" style="max-width:1180px;margin:0 auto;padding:96px 32px">
+  <div style="max-width:860px">
+    <div style="position:relative;background:#F7F4EE;border-radius:14px;padding:36px 34px;overflow:hidden">
+      <div style="font-family:var(--font-heading);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#A34438;margin-bottom:16px">Sophie&rsquo;s insight</div>
+      <p style="font-size:18px;line-height:1.62;color:var(--text);margin:0;max-width:62ch">Australia rewards people who understand that it&rsquo;s one registration system and eight employment systems. Registration opens the whole country; pay, conditions and the feel of the work change at every state line. Read this guide once, then choose your state with clear eyes &mdash; that order, not the reverse.</p>
+      <div style="display:flex;align-items:center;gap:16px;margin-top:24px">
+        <img loading="lazy" decoding="async" src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing" style="width:44px;height:44px;border-radius:999px;object-fit:cover;display:block;flex:none">
+        <div>
+          <div style="font-family:var(--font-heading);font-weight:500;font-size:15px;color:var(--text)">Sophie Careem</div>
+          <div style="font-size:13px;color:var(--text-muted)">Founder &amp; CEO, Ethicare Resourcing</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Closing" style="background:var(--ethicare-teal);color:#FCFBF8;padding:104px 0">
+  <div style="max-width:1180px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:64px;align-items:start">
+    <div>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:26px">
+        <span style="display:block;width:28px;height:2px;background:var(--accent-lime)"></span>
+        <span style="font-family:var(--font-heading);font-size:12px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#C6E084">When you&rsquo;re ready</span>
+      </div>
+      <h2 style="font-size:clamp(28px,3.2vw,40px);font-weight:600;line-height:1.16;color:#FCFBF8;margin:0 0 16px;max-width:20ch">Ready to explore opportunities?</h2>
+      <p style="font-size:17.5px;line-height:1.65;color:rgba(252,251,248,0.8);margin:0;max-width:46ch">No pressure and no pipeline. Read the guide, sit with it, and talk to us whenever it&rsquo;s useful — even if that&rsquo;s a year from now.</p>
+    </div>
+    <div style="display:flex;flex-direction:column">
+      <a href="/jobs/" style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0;border-top:1px solid rgba(252,251,248,0.22);color:#FCFBF8;text-decoration:none;font-family:var(--font-heading);font-size:18px;font-weight:600">Explore current opportunities <span aria-hidden="true" style="font-size:14px">→</span></a>
+      <a href="/contact" style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0;border-top:1px solid rgba(252,251,248,0.22);color:#FCFBF8;text-decoration:none;font-family:var(--font-heading);font-size:18px;font-weight:600">Speak with our team <span aria-hidden="true" style="font-size:14px">→</span></a>
+      <a href="/contact" style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0;border-top:1px solid rgba(252,251,248,0.22);color:#FCFBF8;text-decoration:none;font-family:var(--font-heading);font-size:18px;font-weight:600">Book a relocation consultation <span aria-hidden="true" style="font-size:14px">→</span></a>
+      <a href="/destinations/australia" style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0;border-top:1px solid rgba(252,251,248,0.22);border-bottom:1px solid rgba(252,251,248,0.22);color:#FCFBF8;text-decoration:none;font-family:var(--font-heading);font-size:18px;font-weight:600">Read the other regional guides <span aria-hidden="true" style="font-size:14px">→</span></a>
+    </div>
+  </div>
+</section>
+
+
+<div class="shell" style="padding:0 0 clamp(56px,7vw,96px)"><page-feedback to="Sophie"></page-feedback></div>
+</main>
+<script src="../page-feedback.js" defer></script>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+
+</div>
+
+<!-- INTERNAL LINK MAP — Moving to Australia, the national master (contents cover)
+  Privacy Policy (footer) → /privacy-policy
+  Cover: Start reading->../guides/about-australia.html | See the chapters->#contents
+  Guide bar: Contents->#contents | Start reading->../guides/about-australia.html | Working in Australia->../australia.html | State & city guides->australia.html | Request printed guide->/request-a-guide?guide=australia-national
+  CHAPTERS (19, five parts) — every row -> /guides/{slug}; rows 03 and 09 are shared both-countries guides
+    01 about-australia · 02 moving-to-australia · 03 australia-vs-new-zealand · 04 australia-healthcare
+    05 australia-registration · 06 australia-visa · 07 australia-salary · 08 australia-interview
+    NEW 25 Aug 2026 — 11 australia-renting · 12 australia-money · 13 australia-driving added to
+    Part four. Australia previously had no national owner for renting, money/tax/banking or
+    driving (New Zealand has all three); the Bunbury and Geelong hubs had invented links to
+    those exact slugs. Rows 11-16 renumbered to 14-19. Also: living-in-australia’s row
+    description no longer claims "renting, banking, driving" — those topics moved out of it.
+    09 cost-of-relocating · 10 living-in-australia · 11 australia-education · 12 australia-school-fees
+    13 australia-pets · 14 australia-family · 15 australia-community · 16 australia-contacts
+  Closing: Jobs (../jobs/index.html) · Contact ×2 (../contact.html) · State & city guides (australia.html)
+  ARCHITECTURE — Level 2 country master (Content Architecture.md). Explains national topics ONCE; the eight state
+    guides will be rebuilt to link here instead of restating Medicare/visas/registration/tax/schools.
+  PAY RULE — no figures on this page; pay described qualitatively per the APEX/SECA/EBA verification rule.
+  SURFACES — AU palette: rows/factual band #F3F7F4 (Pale Eucalyptus), Sophie/warm #F7F4EE (Soft Sand),
+    hairlines #EBDFD3, small-accent #A34438 (Clay); teal + lime eyebrow constant per brand.
+  SEO
+  Page Title: Moving to Australia · The national relocation guide · Ethicare Resourcing
+  URL Slug: /destinations/australia-relocation-guide
+  SEO Title: Moving to Australia: the national relocation guide | Ethicare
+  Meta Description: Moving to Australia, explained once and properly — Medicare, Ahpra registration, visas, pay, schools and settling in. The national guide every state page builds on.
+  -->
+<script>(function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var st=document.createElement('style');st.textContent='@media screen{.rv{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}.rv.in{opacity:1;transform:none}}@media print{.rv{opacity:1;transform:none}}';document.head.appendChild(st);addEventListener('beforeprint',function(){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})});var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});[].slice.call(document.querySelectorAll('section[data-screen-label]:not([data-screen-label=\'Cover\'])')).forEach(function(el){if(el.getBoundingClientRect().top>innerHeight*0.85){el.classList.add('rv');io.observe(el)}});})();</script>
+<script src="../nav.js" defer></script>
+<script src="../journey-nav.js" defer></script>
+</body>
+</html>
