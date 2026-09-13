@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Bringing pets &amp; belongings | Ethicare Resourcing</title>
+<meta name="description" content="What relocating a dog or cat to New Zealand actually involves: biosecurity requirements, import permits, quarantine, costs, the flight itself, restricted breeds, finding a pet-friendly rental and the first few weeks after arrival.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   ETHICARE RESOURCING — CROSS-COUNTRY GUIDE
+   New Zealand? — a decision guide
+   ================================================================ */
+:root{
+  --teal:#02615D; --green:#02615D; --sage:#72A471; --lime:#EFC3AA;
+  --nz:#72A471; --au:#D9A084;
+  --mint:#C9DED3; --soft:#E6F1ED; --soft-green:#E6F1ED; --warm:#FCFBF8;
+  --white:#FFFFFF; --text:#333333; --muted:#555555;
+  --display:'Work Sans',sans-serif; --body:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+body{font-family:var(--body);font-size:16px;line-height:1.72;color:var(--text);background:var(--warm);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,.btn:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 7px rgba(167,201,87,.55)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.18;color:var(--teal)}
+h1{font-size:clamp(40px,6vw,56px);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+h2{font-size:clamp(30px,4vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin-bottom:24px}
+h3{font-size:18px;margin-bottom:8px}
+p{margin-bottom:16px}
+strong{color:var(--green)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.reading{max-width:1180px}.reading>*{max-width:760px}
+.section{padding:var(--sp-major,clamp(60px,8vw,96px)) 0;position:relative}
+.eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#A34438;margin-bottom:16px}
+.lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:50ch}
+
+/* breadcrumb */
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:13px;color:var(--muted);margin-bottom:24px}
+.crumb a:hover{color:var(--teal)}
+.crumb .sep{opacity:.85}
+.crumb .here{color:var(--teal)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-family:var(--display);font-weight:600;font-size:16px;padding:13px 26px;border-radius:12px;transition:transform .15s ease,background .15s ease;color:var(--teal);cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#014E4B}
+.btn-secondary{background:#fff;border:1.5px solid var(--sage);color:var(--teal)}.btn-secondary:hover{background:var(--soft-green)}
+.btn-ghost{background:transparent;border:1.5px solid var(--sage);color:var(--teal)}.btn-ghost:hover{background:var(--soft-green)}
+.btn-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+
+/* ---------------- HERO ---------------- */
+.hero{background:var(--teal);position:relative;overflow:hidden;min-height:calc(88svh - 78px);display:grid;align-content:center}
+.hero::after{display:none}
+.hero .wrap{position:relative;z-index:1;padding-top:clamp(46px,6vw,72px);padding-bottom:clamp(46px,6vw,72px)}
+.hero-copy{max-width:760px}
+.hero h1{color:#fff;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:#A34438}
+.hero .eyebrow{color:#C6E084}
+.hero .crumb{color:rgba(255,255,255,.9)}
+.hero .crumb a:hover,.hero .crumb .here{color:#fff}
+.hero .btn-primary{background:#fff;color:var(--teal)}
+.hero .btn-primary:hover{background:var(--warm)}
+.hero .btn-ghost{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5);color:#fff}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.2)}
+.hero-sub{font-size:clamp(16.5px,2vw,20px);line-height:1.6;color:rgba(255,255,255,.88);max-width:50ch;margin-bottom:8px}
+
+/* page at a glance */
+.glance-wrap{background:var(--warm);padding:clamp(34px,5vw,50px) 0 0}
+.glance{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:26px 30px}
+.glance .gl-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.glance .gl-top .eyebrow{margin-bottom:0}
+.glance .gl-top .note{font-size:13.5px;color:var(--muted)}
+.glance ol{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 24px}
+.glance li{counter-increment:g;border-top:1px solid var(--mint)}
+.glance a{display:flex;align-items:baseline;gap:8px;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);padding:11px 4px;transition:color .15s ease}
+.glance a::before{content:counter(g,decimal-leading-zero);font-size:11.5px;font-weight:600;color:#A34438;flex-shrink:0}
+.glance a:hover{color:var(--teal)}
+@media (max-width:760px){.glance ol{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.glance ol{grid-template-columns:1fr}}
+
+/* intro reassurance */
+.reassure{background:var(--soft-green);border:1px solid var(--mint);border-left:5px solid #72A471;border-radius:14px;padding:24px 26px;margin:24px 0 0}
+.reassure p{margin:0;font-size:16.5px}
+
+/* duo mirror cards */
+.section .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.section .duo .cc{background:#fff;border:1px solid var(--mint);border-radius:20px;padding:30px 30px;transition:transform .15s ease,box-shadow .15s ease}
+.section .duo .cc:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(1,49,47,.09)}
+.section .duo .cc.au{border-top:5px solid var(--au)}
+.section .duo .cc.nz{border-top:5px solid var(--nz)}
+.section .duo .cc .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.section .duo .cc.au .k{color:var(--au-text,#A34438)} .duo .cc.nz .k{color:#A34438}
+.section .duo .cc h3{color:var(--green);font-size:20px;margin-bottom:8px}
+.section .duo .cc p{font-size:15px;color:var(--muted);margin:0 0 8px}
+.section .duo .cc p:last-child{margin-bottom:0}
+
+/* comparison table */
+.cmp-wrap{margin-top:40px;overflow-x:auto;border:1px solid var(--mint);border-radius:20px}
+.cmp{width:100%;border-collapse:collapse;font-size:15px;min-width:640px;background:#fff}
+.cmp thead th{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.02em;text-align:left;padding:16px 22px;color:#fff}
+.cmp thead th:first-child{background:var(--teal);width:18%}
+.cmp thead th.au{background:var(--au)} .cmp thead th.nz{background:var(--nz)}
+.cmp tbody th{font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);text-align:left;padding:18px 22px;background:var(--soft);vertical-align:top;width:18%;border-top:1px solid var(--mint)}
+.cmp td{padding:18px 22px;color:var(--text);vertical-align:top;border-top:1px solid var(--mint);line-height:1.6}
+.cmp td.au{background:rgba(169,101,79,.05)}
+.cmp td.nz{background:rgba(95,143,120,.05)}
+
+/* registration two-up + ticks */
+.reg-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.reg-col{background:#fff;border:1px solid var(--mint);border-radius:20px;padding:30px 30px}
+.reg-col.au{border-top:5px solid var(--au)} .reg-col.nz{border-top:5px solid var(--nz)}
+.reg-col .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.reg-col.au .k{color:var(--au-text,#A34438)} .reg-col.nz .k{color:#A34438}
+.reg-col h3{color:var(--green);font-size:19px;margin-bottom:8px}
+.reg-col p{font-size:14.5px;color:var(--muted)}
+ul.ticks{list-style:none;display:grid;gap:8px;margin:16px 0 0}
+ul.ticks li{position:relative;padding-left:28px;font-size:14.5px;color:var(--text)}
+ul.ticks li::before{content:"";position:absolute;left:0;top:8px;width:15px;height:15px;border-radius:6px;background:var(--soft-green);border:1px solid var(--mint)}
+ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;height:9px;border:2px solid var(--teal);border-top:0;border-left:0;transform:rotate(45deg)}
+
+/* insight callout */
+.insight{margin-top:40px;background:var(--soft-green);border:1px solid var(--mint);border-left:5px solid #72A471;border-radius:14px;padding:26px 30px;max-width:920px}
+.insight .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A34438;margin-bottom:8px}
+.insight p{font-size:16px;color:var(--text);margin:0}
+
+.pullquote{margin:40px 0 0;padding:8px 0 8px 26px;border-left:4px solid #72A471;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(20px,2.6vw,26px);line-height:1.45;color:var(--teal);max-width:50ch}
+
+/* decide grid */
+.decide{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.decide .card{border:1px solid var(--mint);border-radius:20px;padding:30px 30px;background:#fff}
+.decide .card.au{border-top:5px solid var(--au)} .decide .card.nz{border-top:5px solid var(--nz)}
+.decide .card .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.decide .card.au .k{color:var(--au-text,#A34438)} .decide .card.nz .k{color:#A34438}
+.decide .card ul{list-style:none;display:grid;gap:8px}
+.decide .card li{position:relative;padding-left:24px;font-size:15px;color:var(--text)}
+.decide .card li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%}
+.decide .card.au li::before{background:var(--au)} .decide .card.nz li::before{background:var(--nz)}
+
+/* Sophie insight */
+.sophie{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:clamp(28px,4vw,40px);display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:start;max-width:920px}
+.sophie .photo{width:120px;height:140px;border-radius:14px;overflow:hidden;border:1px solid var(--mint);background:linear-gradient(150deg,var(--mint),var(--soft-green))}
+.sophie .photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.sophie .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A34438;margin-bottom:8px}
+.sophie p{font-size:16.5px;color:var(--text);margin-bottom:0}
+.sophie .sign{font-family:var(--display);font-style:italic;font-weight:600;font-size:18px;color:var(--teal);margin-top:16px}
+.sophie .sign span{display:block;font-style:normal;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* FAQ */
+.faq{margin-top:40px;max-width:920px}
+.faq details{background:#fff;border:1px solid var(--mint);border-radius:14px;margin-bottom:16px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--teal);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;font-weight:400;color:#A34438;transition:transform .2s ease;line-height:1}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .ans{padding:0 24px 22px;font-size:15.5px;color:var(--muted)}
+.faq .ans p{margin-bottom:8px}.faq .ans p:last-child{margin-bottom:0}
+
+/* related */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.rel{position:relative;background:#fff;border:1px solid var(--mint);border-left:5px solid var(--sage);border-radius:14px;padding:24px 24px;transition:background .15s ease,transform .15s ease}
+.rel:hover{background:var(--soft-green);transform:translateY(-2px)}
+.rel .k{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#A34438;margin-bottom:8px;display:block}
+.rel h3{font-size:16.5px;color:var(--green);margin-bottom:4px}
+.rel p{font-size:13.5px;color:var(--muted);margin:0}
+.rel .go{margin-top:16px;font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--teal);display:inline-flex;align-items:center;gap:8px}
+.rel .go::after{content:"\2192";color:#A34438}
+
+/* final CTA */
+.final{background:var(--teal);border-radius:24px;padding:clamp(34px,5vw,52px);text-align:left;color:#fff}
+.final .eyebrow{color:#EFC3AA}
+.final h2{margin-bottom:16px;color:#fff}
+.final p{max-width:64ch;color:rgba(255,255,255,.85);font-size:17px}
+.final .btn-row{justify-content:flex-start}
+.final .btn-light{background:#fff;color:var(--teal)}.final .btn-light:hover{background:var(--warm)}
+.final .btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff}.final .btn-outline:hover{background:rgba(255,255,255,.12)}
+.final .small{margin-top:16px;font-size:13.5px;color:rgba(255,255,255,.7)}
+
+@media (max-width:880px){
+  .duo,.reg-cols,.decide,.related-grid{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .section{padding:54px 0}
+  .sophie{grid-template-columns:1fr;gap:24px}
+  .sophie .photo{margin:0 auto}
+  .btn{width:100%}
+}
+</style>
+<link rel="stylesheet" href="../../shell.css">
+<style>/* playfair-hero */ .hero-sub{font-family:'Playfair Display',Georgia,serif;font-weight:500}</style>
+<link rel="stylesheet" href="../../guide-mobile.css">
+<link rel="canonical" href="https://ethicareresourcing.com/guides/nz/bringing-pets-and-belongings">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Bringing pets &amp; belongings | Ethicare Resourcing">
+<meta property="og:description" content="What relocating a dog or cat to New Zealand actually involves: biosecurity requirements, import permits, quarantine, costs, the flight itself, restricted breeds, finding a pet-friendly rental and the first few weeks after arrival.">
+<meta property="og:url" content="https://ethicareresourcing.com/guides/nz/bringing-pets-and-belongings">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bringing pets &amp; belongings | Ethicare Resourcing">
+<meta name="twitter:description" content="What relocating a dog or cat to New Zealand actually involves: biosecurity requirements, import permits, quarantine, costs, the flight itself, restricted breeds, finding a pet-friendly rental and the first few weeks after arrival.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="au-orange-accent">.hero .eyebrow{color:#C6E084}.hero .eyebrow::before{background:#EFC3AA}.eyebrow{color:#A34438}.eyebrow::before{background:#72A471}</style>
+<style id="au-palette-tune">:root{--teal:#02615D;--green:#02615D;--sage:#72A471}h1,h2,h3{color:#02615D}</style>
+<style id="nz-fern-accent">.eyebrow{color:#A34438}.eyebrow::before{background:#72A471}</style>
+<style id="au-hero-teal"></style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
+<style id="pet-contacts">
+.prov{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.prov-c{background:#fff;border:1px solid #EBDFD3;border-radius:14px;padding:24px 22px;border-top:4px solid #72A471}
+.prov-c h3{font-size:16.5px;color:#02615D;margin-bottom:8px}
+.prov-c p{font-size:14px;color:var(--muted);margin:0;line-height:1.6}
+@media (max-width:820px){.prov{grid-template-columns:1fr}}
+.qbox{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+.qcol{background:#FAF7F3;border:1px solid #EBDFD3;border-radius:14px;padding:24px 24px}
+.qcol .k{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#A34438;display:block;margin-bottom:8px}
+.qcol h3{font-size:16.5px;color:#02615D;margin-bottom:8px}
+.qcol p{font-size:14px;color:var(--muted);margin:0 0 8px;line-height:1.6}
+.qcol ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.qcol li{font-family:var(--display);font-weight:600;font-size:14px;color:#02615D;padding-left:15px;position:relative}
+.qcol li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:#72A471}
+@media (max-width:760px){.qbox{grid-template-columns:1fr}}
+.disc{margin-top:24px;background:#fff;border:1px solid #EBDFD3;border-left:5px solid #A34438;border-radius:14px;padding:20px 24px;max-width:760px}
+.disc p{margin:0;font-size:14.5px;color:var(--muted)}
+</style>
+<link rel="stylesheet" href="../../hero.css">
+<style id="pets-hero">
+/* stacked hero: photograph above, copy on solid teal below.
+   Contrast is image-independent — #013D3B gives h1 12.1:1, sub 9.7:1, eyebrow 8.3:1, crumb 10.1:1. */
+.hero.duo{display:block;min-height:0}
+.hero.duo::before{display:none!important}
+.hero.duo .duo-bg{position:relative;inset:auto;height:clamp(230px,32vw,360px);grid-template-columns:1fr;gap:0;overflow:hidden}
+.hero.duo .duo-bg img{width:100%;height:100%;min-height:0;object-fit:cover;object-position:center 58%}
+.hero.duo .wrap{background:#013D3B;grid-template-columns:1fr;padding-top:clamp(34px,4.4vw,52px);padding-bottom:clamp(34px,4.4vw,52px)}
+.hero.duo .hero-copy{max-width:760px}
+.hero.duo h1{font-weight:300;font-size:clamp(40px,5.6vw,68px);letter-spacing:-.03em;line-height:1.04}
+.hero.duo .duo-tags{margin-top:24px}
+</style>
+<style id="ch-rail">.ch-rail{background:var(--soft-green,#F1F6F2);border-bottom:1px solid color-mix(in srgb,var(--teal,#02615D) 12%,transparent)}.ch-rail .in{max-width:1180px;margin:0 auto;padding:13px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px}.ch-rail .lb{font-family:var(--display,'Work Sans',sans-serif);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal,#02615D)}.ch-rail .lb b{font-weight:600;opacity:.68}.ch-rail a{font-family:var(--display,'Work Sans',sans-serif);font-size:13.5px;font-weight:500;color:var(--teal,#02615D);text-decoration:none}.ch-rail a:hover{text-decoration:underline}
+.ch-foot{max-width:1180px;margin:0 auto;padding:44px 28px 64px;display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;border-top:1px solid color-mix(in srgb,var(--teal,#02615D) 14%,transparent)}.ch-foot a{font-family:var(--display,'Work Sans',sans-serif);text-decoration:none;color:var(--teal,#02615D);font-size:16px;font-weight:500;line-height:1.35}.ch-foot a span{display:block;font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--muted,#555);margin-bottom:4px}.ch-foot .next{text-align:right}.ch-foot .up{font-size:13px;color:var(--muted,#555);white-space:nowrap}.ch-foot a:hover{color:var(--sage,#72A471)}
+@media(max-width:720px){.ch-foot{grid-template-columns:1fr;gap:24px}.ch-foot .next{text-align:left}.ch-rail .in{padding:12px 20px}}</style>
+<link rel="stylesheet" href="../../guide-print.css">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Guides & Resources","item":"https://ethicareresourcing.com/resources"},{"@type":"ListItem","position":2,"name":"Moving with pets"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How far in advance should I start?","acceptedAnswer":{"@type":"Answer","text":"As soon as the move becomes a serious possibility. Several of the veterinary steps have to happen in a particular order and within specified windows, and quarantine facilities have finite availability — so the timeline is set by regulation rather than by how organised you are. Starting early costs nothing and prevents the most common delays."}},{"@type":"Question","name":"Will my dog definitely have to go into quarantine?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily — it depends on the destination, the animal and your country of origin, since New Zealand categorises countries by biosecurity risk. Where quarantine does apply, treat facility availability as part of your relocation timeline rather than an afterthought."}},{"@type":"Question","name":"Can my pet travel on the same flight as me?","acceptedAnswer":{"@type":"Answer","text":"Sometimes, but don’t assume it. Depending on the route and airline, your pet may travel in a specially designed crate in an appropriate part of the aircraft rather than in the cabin, and there may be stopovers or transfers. A reputable specialist or the airline should walk you through where your animal will be at each stage."}},{"@type":"Question","name":"Should my pet be sedated for the journey?","acceptedAnswer":{"@type":"Answer","text":"That’s a decision for your vet and the transport company, not something to arrange yourself. Sedation can carry additional risks in air travel and may not be permitted or recommended depending on the animal and the carrier’s requirements."}},{"@type":"Question","name":"My dog is a restricted breed — is that the end of it?","acceptedAnswer":{"@type":"Answer","text":"Check the official rules before assuming either way, and before spending anything. New Zealand restricts certain breeds or types, and there can be restrictions on hybrid animals. Don’t rely on appearance, breeder descriptions or informal advice — this is one to confirm at the source."}},{"@type":"Question","name":"What about a rabbit, bird or reptile?","acceptedAnswer":{"@type":"Answer","text":"Considerably more complicated, and for some species and countries of origin importing simply isn’t possible. The dog-and-cat process doesn’t transfer. Confirm whether your animal can legally be imported before making any relocation plans around it."}},{"@type":"Question","name":"Will an employer pay for pet relocation?","acceptedAnswer":{"@type":"Answer","text":"It isn’t a standard benefit, so never assume it. But if the employer offers a general relocation allowance rather than reimbursing only specified expenses, you may have flexibility over how it’s used. Ask what the contribution can and can’t cover before you book."}}]}]</script>
+<link rel="stylesheet" href="../../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand" aria-current="page">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          <a href="/move">Your plan</a>
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+
+<!-- ============ HERO ============ -->
+<header class="hero duo">
+  <div class="duo-bg" aria-hidden="true" style="grid-template-columns:1fr"><img decoding="async" src="../../assets/guides/moving-with-pets.jpg" alt="A dog lying calmly on the floor beside its travel crate among packing boxes on moving day" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;object-position:center 38%"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="/resources">Guides &amp; Resources</a><span class="sep">›</span>
+        <span class="here">Moving with pets</span>
+      </nav>
+      <span class="eyebrow">The pet relocation guide</span>
+      <h1>Moving with <em>pets</em></h1>
+      <p class="hero-sub">There&rsquo;s one member of the family who isn&rsquo;t mentioned in the employment contract. The dog. Or the cat. And for a great many families, leaving them behind simply isn&rsquo;t an option.</p>
+      <div class="btn-row">
+        <a href="#glance" class="btn btn-primary">What&rsquo;s involved</a>
+        <a href="/contact" class="btn btn-ghost">Talk it through with us</a>
+      </div>
+      <div class="duo-tags"><span class="t"><i class="nz"></i>New Zealand</span></div>
+    </div>
+  </div>
+</header>
+<nav class="ch-rail" aria-label="Guide position"><div class="in"><span class="lb">Moving to New Zealand <b>&middot; Chapter 10 of 15</b></span><a href="/destinations/new-zealand-relocation-guide">All 15 chapters &rarr;</a></div></nav>
+
+
+<!-- ============ PAGE AT A GLANCE ============ -->
+<section class="glance-wrap">
+  <div class="wrap">
+    <nav class="glance" id="glance" aria-label="On this page">
+      <div class="gl-top">
+        <span class="eyebrow">Page at a glance</span>
+        <span class="note">Jump to any part &mdash; read the whole thing, or just what matters to you.</span>
+      </div>
+      <ol>
+        <li><a href="#early">Start planning early</a></li>
+        <li><a href="#requirements">The two countries&rsquo; rules</a></li>
+        <li><a href="#quarantine">Will they quarantine?</a></li>
+        <li><a href="#timing">They needn&rsquo;t travel with you</a></li>
+        <li><a href="#rental">Finding a pet-friendly home</a></li>
+        <li><a href="#cost">What it costs</a></li>
+        <li><a href="#flight">The flight itself</a></li>
+        <li><a href="#restrictions">Older pets &amp; restrictions</a></li>
+        <li><a href="#arrival">The first few weeks</a></li>
+        <li><a href="#contacts">Useful contacts</a></li>
+        <li><a href="#faq">Common questions</a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="section">
+  <div class="wrap reading">
+    <span class="eyebrow">The short version</span>
+    <h2>Absolutely possible. Not remotely last-minute.</h2>
+    <p class="lead">Moving pets to New Zealand works from many countries, and thousands of families do it every year. But it requires considerably more planning than booking an extra seat on the flight.</p>
+    <p>New Zealand operates strict biosecurity requirements designed to protect their unique environments and animal health. That means your pet&rsquo;s move needs to be planned alongside your own &mdash; not a few weeks before departure.</p>
+    <p class="pullquote">For most owners, a pet isn&rsquo;t cargo to be transported after the move. They&rsquo;re part of who&rsquo;s moving.</p>
+  </div>
+</section>
+
+<!-- ============ 01 EARLY ============ -->
+<section class="section" id="early" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 01 &middot; Timing</span>
+    <h2>Start planning early</h2>
+    <p class="lead">This is the single most important thing on the page. The process your pet follows depends on the country you are moving <em>from</em>, not simply the fact that you&rsquo;re heading to New Zealand.</p>
+    <p>Requirements can include microchipping, vaccinations, rabies testing, parasite treatments, veterinary examinations, official documentation, import permits and quarantine. And the <strong>order</strong> matters: where a test or treatment has to happen within a specified window, getting the sequence wrong can delay the whole move.</p>
+    <div class="insight">
+      <div class="k">When to start</div>
+      <p>As soon as New Zealand becomes a serious possibility &mdash; not when the removal boxes are packed. You don&rsquo;t need a signed contract to start researching your pet&rsquo;s requirements, and starting early is the cheapest thing you can do.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 REQUIREMENTS ============ -->
+<section class="section" id="requirements" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 02 &middot; The rules</span>
+    <h2>What New Zealand requires</h2>
+    <p class="lead">New Zealand sets requirements according to the animal-health and biosecurity risk of your country of export, so two families moving the same breed from different countries can face genuinely different processes.</p>
+    <div class="reg-cols" style="grid-template-columns:1fr;max-width:760px">
+      <div class="reg-col nz">
+        <div class="k">New Zealand</div>
+        <h3>Strict, and set by MPI</h3>
+        <p>As with Australia, what your dog or cat needs depends partly on where they&rsquo;re travelling from. The process can involve:</p>
+        <ul class="ticks">
+          <li>An import permit</li>
+          <li>Microchip identification</li>
+          <li>Vaccinations and testing</li>
+          <li>Parasite treatments</li>
+          <li>Veterinary examinations and official certification</li>
+        </ul>
+        <p>Some pets are also required to enter an approved quarantine facility after arrival. New Zealand&rsquo;s Ministry for Primary Industries sets the import requirements, and these should be checked carefully before arranging any travel.</p>
+      </div>
+    </div>
+    <div class="insight">
+      <div class="k">One rule for both</div>
+      <p>Regulations change. A checklist somebody used a few years ago &mdash; or even relatively recently &mdash; should never replace current government guidance. Check the source, not the forum post.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 QUARANTINE ============ -->
+<section class="section" id="quarantine" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 03 &middot; Quarantine</span>
+    <h2>Will my pet have to quarantine?</h2>
+    <p class="lead">Possibly. It depends on the destination, the animal and the country of origin &mdash; New Zealand categorises countries by animal-health and biosecurity risk, and that determines the process.</p>
+    <p>If quarantine is required, <strong>availability becomes part of your relocation timeline</strong>. Facilities book up, and that&rsquo;s one of the clearest reasons pet travel shouldn&rsquo;t be left until the end of the process.</p>
+    <div class="insight">
+      <div class="k">Three dates, not one</div>
+      <p>Your employment start date, your family&rsquo;s flights and your pet&rsquo;s travel date may not be the same. Plan them as three linked decisions rather than assuming everyone arrives together.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 TIMING ============ -->
+<section class="section" id="timing" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 04 &middot; Sequencing</span>
+    <h2>Your pet doesn&rsquo;t necessarily have to travel with you</h2>
+    <p class="lead">This can feel strange at first, particularly if your pet has always been part of family life. But it is often the most practical option.</p>
+    <p>A clinician might travel first, begin work, move out of temporary accommodation and secure a pet-friendly long-term rental before their partner, children and pets follow. Other families move together and arrange for the pet to arrive separately.</p>
+    <p>There isn&rsquo;t one correct way. Think about what makes the transition easiest for both your family and your animal &mdash; and remember that arriving into a settled home is a much gentler landing for a dog than arriving into a serviced apartment and a house-hunt.</p>
+  </div>
+</section>
+
+<!-- ============ 05 RENTAL ============ -->
+<section class="section" id="rental" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 05 &middot; Somewhere to live</span>
+    <h2>Finding a pet-friendly rental</h2>
+    <p class="lead">Getting your pet into the country is only half the problem. You also need somewhere to live that will have them.</p>
+    <p>Check the rules around pets before assuming a property is suitable &mdash; and pay particular attention to temporary accommodation. A serviced apartment or short-term let that works perfectly for a family may not accept a dog or cat. If your pet is arriving after you, use that window to find suitable long-term accommodation.</p>
+    <p>Then think beyond whether the landlord permits pets:</p>
+    <ul class="ticks">
+      <li>Is there enough space?</li>
+      <li>Is there a secure garden, if you have a dog?</li>
+      <li>Are there good places nearby for walking?</li>
+      <li>How long will your pet be alone while you&rsquo;re working?</li>
+    </ul>
+    <p>The right home for your family needs to work for them too.</p>
+  </div>
+</section>
+
+<!-- ============ 06 COST ============ -->
+<section class="section" id="cost" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 06 &middot; Cost</span>
+    <h2>How much does it cost?</h2>
+    <p class="lead">Pet relocation can be expensive. The total depends on where you&rsquo;re travelling from, your destination, the size and type of animal, veterinary requirements, transport arrangements and whether quarantine is required.</p>
+    <p>Potential expenses include veterinary appointments, vaccinations, blood tests, official certification, permits, airline transport, travel crates, pet relocation companies and quarantine. For a large dog or multiple animals, the total can become a significant part of the family&rsquo;s relocation budget.</p>
+    <div class="insight">
+      <div class="k">Get quotes early</div>
+      <p>It is far easier to plan for this six months out than to discover it once you&rsquo;ve committed most of your savings to flights, accommodation and setting up the new home. Our <a href="/guides/cost-of-relocating" style="color:#A34438;font-weight:600">relocation cost guide</a> shows where this sits against everything else you&rsquo;ll be paying for.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 THE FLIGHT ============ -->
+<section class="section" id="flight" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 07 &middot; The journey</span>
+    <h2>What is the flight actually like for them?</h2>
+    <p class="lead">Understandably one of the biggest worries for owners &mdash; and international pet travel is very different from taking an animal on a short domestic journey.</p>
+    <div class="reg-cols">
+      <div class="reg-col au">
+        <div class="k">The journey</div>
+        <h3>Ask for it stage by stage</h3>
+        <p>Depending on the route and airline arrangements, your pet may travel in a specially designed crate in an appropriate part of the aircraft rather than alongside you in the cabin. There may also be stopovers or transfers.</p>
+        <p>A reputable pet transport specialist or airline should be able to explain the journey clearly, including where your animal will be during each stage. If your pet is elderly or has a medical condition, discuss the proposed route with your vet well in advance.</p>
+      </div>
+      <div class="reg-col nz">
+        <div class="k">Medication &amp; sedation</div>
+        <h3>Not your decision to make alone</h3>
+        <p>If you&rsquo;re worried about how your pet will cope, speak to your vet <em>and</em> the company responsible for transporting them.</p>
+        <p>Sedation can create additional risks during air travel and may not be permitted or recommended in some circumstances. The right approach depends on the individual animal and the requirements of the carrier &mdash; so ask both, and follow the advice.</p>
+      </div>
+    </div>
+    <div class="insight">
+      <div class="k">Should you use a pet relocation company?</div>
+      <p>You don&rsquo;t have to manage all of this alone. Specialists can coordinate veterinary timelines, documentation, travel crates, flights and quarantine arrangements &mdash; at a cost. Some families value having someone run a complicated process while they&rsquo;re simultaneously dealing with visas, registration, jobs, schools and their own move; others prefer to manage it themselves. If you do use one, establish exactly what the quote includes and what you&rsquo;ll still need to arrange separately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 RESTRICTIONS ============ -->
+<section class="section" id="restrictions" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 08 &middot; Check before you spend</span>
+    <h2>Older pets, restricted breeds &amp; other animals</h2>
+    <p class="lead">Three situations where the answer needs checking before you spend any money on the process.</p>
+    <div class="reg-cols">
+      <div class="reg-col au">
+        <div class="k">Older pets</div>
+        <h3>A different conversation</h3>
+        <p>Moving a healthy three-year-old dog and moving a fourteen-year-old dog are very different decisions. For an older animal, the length of the journey, underlying conditions and ability to cope with transport all need careful thought.</p>
+        <p>That doesn&rsquo;t automatically mean an older pet can&rsquo;t relocate. It means the decision belongs with your vet, rather than resting on whether the paperwork permits it.</p>
+      </div>
+      <div class="reg-col nz">
+        <div class="k">Breeds &amp; species</div>
+        <h3>Some animals can&rsquo;t come</h3>
+        <p>New Zealand restricts the importation of certain dog breeds or types, and there can be restrictions affecting hybrid animals. If there&rsquo;s any possibility your dog falls within a restricted category, check the official rules first &mdash; don&rsquo;t rely on appearance, breeder descriptions or informal advice.</p>
+        <p>For pets other than dogs and cats &mdash; birds, rabbits, reptiles &mdash; don&rsquo;t assume the dog-and-cat process applies. Check whether your animal can legally be imported before making any plans. For some species and countries of origin, it may not be possible at all.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 ARRIVAL ============ -->
+<section class="section" id="arrival" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 09 &middot; Settling in</span>
+    <h2>The first few weeks after arrival</h2>
+    <p class="lead">The journey is only one part of your pet&rsquo;s transition. Everything familiar has changed &mdash; their home has gone, the smells are different, the routine has changed, and the family is stressed and surrounded by boxes.</p>
+    <p>Establish a predictable routine as quickly as you can. Find a local vet, update identification details where required, and learn the local rules for registration, microchipping and dog control.</p>
+    <p>Then do the enjoyable part. Find the walks. Find the parks. Find the beach.</p>
+    <p class="pullquote">For a lot of families, exploring the new neighbourhood with the dog is the first thing that makes the place feel like home.</p>
+  </div>
+</section>
+
+<!-- ============ 10 EMPLOYER ============ -->
+<section class="section" id="employer" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 10 &middot; The package</span>
+    <h2>Could your employer help?</h2>
+    <p class="lead">Pet relocation isn&rsquo;t normally a standard employment benefit &mdash; but that isn&rsquo;t quite the end of the question.</p>
+    <p>If your employer is providing a general relocation allowance rather than paying only specified expenses, you may have some flexibility over how that money is used. <strong>Never assume pet transport is covered.</strong> Ask what the relocation contribution can and cannot be used for before making any bookings.</p>
+    <p>Our <a href="/guides/negotiating-your-offer">offer guide</a> covers how to raise this well &mdash; and relocation support is often more negotiable than the salary itself.</p>
+  </div>
+</section>
+
+<!-- ============ 11 CONTACTS ============ -->
+<section class="section" id="contacts" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Useful contacts</span>
+    <h2>Specialists &amp; quarantine facilities</h2>
+    <p class="lead">You don&rsquo;t have to organise an international pet move alone. Specialist relocation companies can coordinate veterinary requirements, documentation, flights, travel crates and quarantine arrangements. For candidates relocating from the UK, established providers include:</p>
+    <div class="prov">
+      <div class="prov-c">
+        <h3>PetAir UK</h3>
+        <p>A vet-led international pet relocation company providing services to Australia and New Zealand.</p>
+      </div>
+      <div class="prov-c">
+        <h3>Airpets International</h3>
+        <p>Heathrow-based international pet transport specialist with veterinary and animal-handling facilities.</p>
+      </div>
+      <div class="prov-c">
+        <h3>PBS Pet Travel</h3>
+        <p>UK pet relocation company arranging international transport for dogs, cats and other animals.</p>
+      </div>
+    </div>
+    <div class="qbox">
+      
+      <div class="qcol">
+        <span class="k">Quarantine in New Zealand</span>
+        <h3>MPI-approved private facilities</h3>
+        <p>New Zealand uses MPI-approved private quarantine facilities. Current facilities include:</p>
+        <ul>
+          <li>Pethaven Quarantine Services &mdash; Auckland</li>
+          <li>Qualified Pet Services &mdash; Auckland</li>
+          <li>Canterbury Quarantine Services &mdash; Christchurch</li>
+        </ul>
+      </div>
+    </div>
+    <div class="disc">
+      <p>Requirements for importing animals depend on your country of origin and can change &mdash; always check the latest Australian Government or New Zealand Ministry for Primary Industries guidance before making arrangements. <strong>Ethicare does not receive commission from any of the providers listed here.</strong> We&rsquo;d recommend obtaining several quotes and confirming current government requirements directly before you book anything.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOPHIE'S INSIGHT ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sophie">
+      <div class="photo"><img loading="lazy" decoding="async" src="../../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing"></div>
+      <div>
+        <span class="k">Sophie&rsquo;s insight</span>
+        <p>I should declare an interest: we are all completely soft about animals here, and there are two dogs in the Ethicare office on any given day. So when someone tells me they won&rsquo;t move without their dog, I don&rsquo;t treat that as a complication to be worked around &mdash; it&rsquo;s just one of the things that has to work. What I&rsquo;d say honestly is that this is the part of a relocation people leave latest and regret most, because the timings are fixed by regulation and no amount of goodwill speeds them up. Raise it with us in the first conversation, not the last. It&rsquo;s far easier to build the whole move around your pet&rsquo;s timeline than to discover six weeks before departure that the sequence doesn&rsquo;t work.</p>
+        <p class="sign">Sophie<span>Founder, Ethicare Resourcing</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <span class="eyebrow">Common questions</span>
+    <h2>The questions we&rsquo;re asked about moving with pets</h2>
+    <div class="faq">
+      <details open>
+        <summary>How far in advance should I start?</summary>
+        <div class="ans"><p>As soon as the move becomes a serious possibility. Several of the veterinary steps have to happen in a particular order and within specified windows, and quarantine facilities have finite availability &mdash; so the timeline is set by regulation rather than by how organised you are. Starting early costs nothing and prevents the most common delays.</p></div>
+      </details>
+      <details>
+        <summary>Will my dog definitely have to go into quarantine?</summary>
+        <div class="ans"><p>Not necessarily &mdash; it depends on the destination, the animal and your country of origin, since New Zealand categorises countries by biosecurity risk. Where quarantine does apply, treat facility availability as part of your relocation timeline rather than an afterthought.</p></div>
+      </details>
+      <details>
+        <summary>Can my pet travel on the same flight as me?</summary>
+        <div class="ans"><p>Sometimes, but don&rsquo;t assume it. Depending on the route and airline, your pet may travel in a specially designed crate in an appropriate part of the aircraft rather than in the cabin, and there may be stopovers or transfers. A reputable specialist or the airline should walk you through where your animal will be at each stage.</p></div>
+      </details>
+      <details>
+        <summary>Should my pet be sedated for the journey?</summary>
+        <div class="ans"><p>That&rsquo;s a decision for your vet and the transport company, not something to arrange yourself. Sedation can carry additional risks in air travel and may not be permitted or recommended depending on the animal and the carrier&rsquo;s requirements.</p></div>
+      </details>
+      <details>
+        <summary>My dog is a restricted breed &mdash; is that the end of it?</summary>
+        <div class="ans"><p>Check the official rules before assuming either way, and before spending anything. New Zealand restricts certain breeds or types, and there can be restrictions on hybrid animals. Don&rsquo;t rely on appearance, breeder descriptions or informal advice &mdash; this is one to confirm at the source.</p></div>
+      </details>
+      <details>
+        <summary>What about a rabbit, bird or reptile?</summary>
+        <div class="ans"><p>Considerably more complicated, and for some species and countries of origin importing simply isn&rsquo;t possible. The dog-and-cat process doesn&rsquo;t transfer. Confirm whether your animal can legally be imported before making any relocation plans around it.</p></div>
+      </details>
+      <details>
+        <summary>Will an employer pay for pet relocation?</summary>
+        <div class="ans"><p>It isn&rsquo;t a standard benefit, so never assume it. But if the employer offers a general relocation allowance rather than reimbursing only specified expenses, you may have flexibility over how it&rsquo;s used. Ask what the contribution can and can&rsquo;t cover before you book.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA + RELATED ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="final">
+      <span class="eyebrow">No pressure, just a conversation</span>
+      <h2>Tell us about them in the first conversation</h2>
+      <p>Where you&rsquo;ll live, where the children will go to school, when the family should travel &mdash; and how and when your pets make the journey. These aren&rsquo;t small details to sort out once the job is secured. They&rsquo;re part of whether the relocation works for everybody.</p>
+      <div class="btn-row">
+        <a href="/contact" class="btn btn-light">Talk to the team</a>
+        <a href="/jobs/" class="btn btn-outline">Browse current opportunities</a>
+      </div>
+      <p class="small">Ethicare Resourcing &mdash; healthcare careers across Australia &amp; New Zealand.</p>
+    </div>
+
+    <div style="margin-top:40px;">
+      <span class="eyebrow">Explore further</span>
+      <h2 style="font-size:clamp(22px,3vw,28px);">Read a little deeper</h2>
+      <div class="related-grid">
+        <a href="/guides/cost-of-relocating" class="rel">
+          <span class="k">The relocation cost guide</span>
+          <h3>What does it really cost to get there?</h3>
+          <p>Where pet transport sits against registration, flights, temporary accommodation and everything else.</p>
+          <span class="go">Read the guide</span>
+        </a>
+        <a href="/guides/negotiating-your-offer" class="rel">
+          <span class="k">The offer guide</span>
+          <h3>Should you negotiate?</h3>
+          <p>How to ask what a relocation allowance can actually be spent on &mdash; and what else is flexible.</p>
+          <span class="go">Read the guide</span>
+        </a>
+        <a href="/guides/australia-vs-new-zealand" class="rel">
+          <span class="k">Decision guide</span>
+          <h3>Comparing with Australia?</h3>
+          <p>The wider comparison &mdash; health systems, registration, visas, lifestyle and family.</p>
+          <span class="go">Compare the two</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="ch-foot" aria-label="Chapter navigation"><a class="prev" href="/guides/new-zealand-visa"><span>Previous</span>Your move, step by step</a><a class="up" href="/destinations/new-zealand-relocation-guide">All chapters</a><a class="next" href="/guides/before-you-leave"><span>Next</span>Before you leave home</a></nav>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/move">Ethicare Move</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="../../site.js"></script>
+
+<!-- ============================================================
+     INTERNAL LINK MAP
+     ============================================================
+  HEADER (site-wide) — brand → Home (/) · Home (/) · Australia (/australia) + journey ×6 + AU professions ×5 + /destinations/australia ·
+   New Zealand (/new-zealand) + journey ×6 + NZ professions ×9 · Jobs (/jobs) · Guides & Resources (/resources) ·
+   Employers (/employers · /insights · /insights/international-recruitment-toolkit · /submit-a-vacancy · /contact) ·
+   About (/about-ethicare) · Contact (/contact)
+  HERO — Breadcrumb → Guides & Resources (/resources) · this page ·
+   What's involved → #glance (same page) · Talk it through with us → Contact (/contact)
+  PAGE AT A GLANCE (same-page anchors) → #early · #requirements · #quarantine · #timing ·
+   #rental · #cost · #flight · #restrictions · #arrival · #contacts · #faq
+  COST SECTION (#cost) — relocation cost guide → /guides/cost-of-relocating
+  EMPLOYER SECTION (#employer) — offer guide → /guides/negotiating-your-offer
+  CONTACTS (#contacts) — provider and quarantine facilities named, NOT linked (no commission;
+   users directed to Australian Government / NZ MPI guidance to confirm current requirements)
+  FINAL CTA — Talk to the team → Contact (/contact) · Browse current opportunities → Apply (/apply)
+  READ A LITTLE DEEPER — What does it really cost to get there? → /guides/cost-of-relocating ·
+   Should you negotiate? → /guides/negotiating-your-offer ·
+   Comparing with Australia? → /guides/australia-vs-new-zealand
+  FOOTER (site-wide) — /new-zealand · /australia · /destinations · /destinations/australia ·
+   /jobs · /resources · /insights · /apply · /about-ethicare · /employers · /submit-a-vacancy ·
+   /contact · Privacy Policy (/privacy-policy)
+     ============================================================ -->
+<!-- ============================================================
+     SEO
+     ============================================================
+   Page Title:       Bringing pets &amp; belongings | Ethicare Resourcing
+   URL Slug:         /guides/nz/bringing-pets-and-belongings
+   SEO Title:        Moving to New Zealand With Pets — What to Know | Ethicare
+   Meta Description: What relocating a dog or cat really involves: biosecurity rules, import
+                     permits, quarantine, costs, the flight itself, restricted breeds, finding a
+                     pet-friendly rental and settling in.
+     ============================================================ -->
+<script src="../../nav.js" defer></script>
+<script src="../../journey-nav.js" defer></script>
+</body>
+</html>

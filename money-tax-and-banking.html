@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Money, tax and banking in New Zealand · Ethicare Resourcing</title>
+<meta name="description" content="IRD numbers, your first payslip explained, KiwiSaver, building credit history and sending money home — the financial essentials for new arrivals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../../shell.css">
+<style>
+:root{
+  --primary:#02615D; --secondary:#72A471; --highlight:#A6C84A;
+  --sage:#C9DED3; --bg:#FCFBF8; --white:#FFFFFF; --text:#333333; --text2:#2F5E49;
+  --divider:#E4E9E5; --border:#C9DED3; --accent:#02615D;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
+body{
+  font-family:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color:var(--text); background:var(--bg); line-height:1.65;
+  font-size:17px; letter-spacing:-0.003em; -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+/* ---------- TOP BAR ---------- */
+.topbar{
+  position:sticky;top:0;z-index:60;background:rgba(252,251,248,0.88);
+  backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--divider);
+}
+.topbar .inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.brand{display:flex;align-items:center;gap:8px}
+.brand img{height:34px;border-radius:6px}
+.brand .bn{font-weight:600;font-size:14px;color:var(--accent);letter-spacing:-0.01em}
+.topbar nav{display:flex;gap:24px}
+.topbar nav a{font-size:13px;font-weight:600;color:var(--text2);letter-spacing:0.01em}
+.topbar nav a:hover{color:var(--accent)}
+.topcta{background:var(--accent);color:#fff!important;padding:9px 18px;border-radius:999px;font-size:13px;font-weight:600}
+
+/* dropdown */
+.topbar nav .has-drop{position:relative}
+.topbar nav .has-drop>a{cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.topbar nav .has-drop>a svg{width:10px;height:10px;transition:transform .15s}
+.topbar nav .has-drop:hover>a svg{transform:rotate(180deg)}
+.dropmenu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);background:var(--white);border:1px solid var(--divider);border-radius:14px;box-shadow:0 26px 54px rgba(1,49,47,.12);padding:10px;min-width:320px;opacity:0;visibility:hidden;transition:.15s;display:grid;grid-template-columns:1fr 1fr;gap:4px;z-index:80}
+.has-drop:hover .dropmenu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px)}
+.dropmenu a{display:block;padding:9px 12px;border-radius:12px;font-size:13.5px;font-weight:600;color:var(--text)!important}
+.dropmenu a:hover{background:var(--sage);color:var(--accent)!important}
+.dropmenu a .mi{display:block;font-size:11px;font-weight:500;color:var(--text2);margin-top:4px}
+.dropmenu a.allguides{grid-column:1/-1;background:var(--sage);color:var(--accent)!important;text-align:center;margin-top:4px;font-weight:600}
+
+/* hamburger */
+.hamb{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:4px}
+.hamb span{display:block;width:24px;height:2px;background:var(--accent);border-radius:2px}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:90;background:var(--bg)}
+.mobile-menu.open{display:block}
+.mobile-menu .mhead{display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 28px;border-bottom:1px solid var(--divider)}
+.mobile-menu .mclose{background:none;border:none;font-size:30px;line-height:1;color:var(--accent);cursor:pointer}
+.mobile-menu .mbody{padding:18px 28px 60px;overflow-y:auto;height:calc(100% - 64px)}
+.mobile-menu .mbody a{display:block;padding:13px 0;font-size:17px;font-weight:600;color:var(--accent);border-bottom:1px solid var(--divider)}
+.mobile-menu .mbody .mlabel{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);font-weight:700;margin:24px 0 4px}
+.mobile-menu .mbody .mregion{padding:11px 0;font-size:15.5px;font-weight:600;color:var(--text)!important;border-bottom:1px solid var(--divider)}
+@media(max-width:980px){.topbar nav{display:none}.hamb{display:flex}}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:calc(100svh - 64px);display:flex;align-items:flex-end;overflow:hidden}
+.hero .photo{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(2,97,93,0.05) 0%, rgba(2,97,93,0.55) 100%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 22px, rgba(255,255,255,0) 22px 44px),
+    linear-gradient(155deg,var(--secondary) 0%,var(--accent) 65%,var(--primary) 100%);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;color:rgba(255,255,255,0.9)
+}
+.hero .photo .ph-ico{width:54px;height:54px;opacity:.7;margin-bottom:8px}
+.hero .photo .ph-t{font-weight:600;font-size:15px;letter-spacing:.02em}
+.hero .photo .ph-s{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-top:4px}
+.hero .inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 28px 64px;width:100%}
+.hero .eyebrow{color:#fff}
+.hero .eyebrow::before{background:#A6C84A}
+.hero h1{
+  color:#fff;font-weight:300;font-size:clamp(40px,6vw,72px);line-height:1.04;text-wrap:balance;
+  letter-spacing:-0.025em;max-width:15ch;margin-top:16px;
+  text-shadow:0 2px 24px rgba(0,0,0,0.18)
+}
+.hero .sub{color:rgba(255,255,255,0.92);font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-top:16px}
+
+/* ---------- EYEBROW ---------- */
+.eyebrow{font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--highlight)}
+
+/* ---------- LAYOUT: SIDEBAR + CONTENT ---------- */
+.shell{max-width:var(--maxw);margin:0 auto;padding:56px 28px 0;display:block}
+.sidebar{position:static;margin-bottom:40px}
+.otp{background:var(--sage);border:1px solid var(--divider);border-radius:20px;padding:26px 32px 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px}
+.otp :is(h2,h3,h4){font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;font-weight:700;grid-column:1/-1}
+.otp a{display:flex;align-items:center;gap:8px;padding:12px 0;border-top:1px solid var(--divider);font-size:14.5px;color:var(--text);font-weight:500;transition:color .15s}
+.otp a .tick{width:6px;height:6px;border-radius:50%;background:var(--secondary);flex:none;transition:all .15s}
+.otp a:hover{color:var(--accent)}
+.otp a.active{color:var(--primary);font-weight:600}
+.otp a.active .tick{background:var(--highlight);width:9px;height:9px}
+.side-cta{display:none}
+.side-cta .t{font-weight:600;font-size:15px;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.side-cta .t .dot{width:9px;height:9px;border-radius:50%;background:var(--highlight)}
+.side-cta p{font-size:13px;color:rgba(255,255,255,0.9);line-height:1.55}
+.side-cta a{display:inline-block;margin-top:8px;background:var(--highlight);color:var(--primary)!important;font-weight:600;font-size:13px;padding:8px 15px;border-radius:999px}
+
+/* ---------- CONTENT ---------- */
+.content section{padding:var(--sp-major,74px) 0;border-bottom:1px solid var(--divider);scroll-margin-top:clamp(56px,7vw,78px)}
+.content section:last-child{border-bottom:none}
+.content h2{font-weight:600;font-size:clamp(26px,3.4vw,36px);line-height:1.08;letter-spacing:-0.02em;color:var(--accent);margin-bottom:8px;max-width:20ch}
+.content h3{font-weight:600;font-size:19px;color:var(--accent);margin:24px 0 8px;letter-spacing:-0.01em}
+.content p{margin-bottom:16px;max-width:64ch;line-height:1.7}
+.content .lead{font-size:20px;color:var(--text2);max-width:50ch;margin-bottom:24px;line-height:1.6}
+.cols{column-count:2;column-gap:40px}
+.cols p{max-width:none}
+@media(max-width:900px){.cols{column-count:1}}
+
+/* ---------- IMAGE PLACEHOLDER ---------- */
+.imgph{
+  position:relative;width:100%;border-radius:20px;overflow:hidden;margin:40px 0;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 16px, rgba(255,255,255,0) 16px 32px),
+    linear-gradient(150deg,var(--secondary),var(--accent));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:28px;min-height:300px
+}
+.imgph .ph-ico{width:42px;height:42px;opacity:.9;margin-bottom:8px}
+.imgph .ph-t{font-weight:600;font-size:15px}
+.imgph .ph-s{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.82;margin-top:4px}
+
+/* ---------- STAT CARDS ---------- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+@media(max-width:700px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--white);border:1px solid var(--divider);border-radius:20px;padding:22px}
+.stat .num{font-weight:700;font-size:34px;color:var(--accent);letter-spacing:-0.02em;line-height:1}
+.stat .num .u{font-size:17px;font-weight:700}
+.stat .cap{font-size:11.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--text2);font-weight:600;margin-top:8px}
+.stat .bar{width:30px;height:3px;background:var(--highlight);border-radius:2px;margin-top:8px}
+
+/* ---------- PANEL ---------- */
+.panel{background:#E3ECE5;border-radius:20px;padding:26px 28px;margin:24px 0}
+.panel .pt{font-weight:600;font-size:18px;color:var(--primary);margin-bottom:8px}
+.panel ul{list-style:none}
+.panel li{position:relative;padding-left:24px;margin-bottom:8px;font-size:15.5px}
+.panel li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;background:var(--highlight)}
+
+/* ---------- QUOTE ---------- */
+.quote{margin:40px 0}
+.quote .mark{font-weight:700;font-size:64px;color:#2F5E49;line-height:.5;display:block}
+.quote .q{font-weight:600;font-size:clamp(22px,2.8vw,30px);line-height:1.3;color:var(--accent);letter-spacing:-0.015em;max-width:24ch;margin-top:8px}
+.quote .by{font-size:12.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--text2);font-weight:600;margin-top:16px}
+
+/* ---------- SEASONS ---------- */
+.seasons{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:24px 0}
+@media(max-width:700px){.seasons{grid-template-columns:repeat(2,1fr)}}
+.season{border-radius:14px;padding:18px;color:#fff}
+.season .s{font-weight:600;font-size:16px}
+.season .m{font-size:11px;letter-spacing:.07em;text-transform:uppercase;opacity:.85;margin:4px 0 16px}
+.season .t{font-weight:600;font-size:25px;letter-spacing:-0.02em}
+.season .tl{font-size:11px;letter-spacing:.07em;text-transform:uppercase;opacity:.85;margin-top:4px}
+
+/* ---------- FACTS ---------- */
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:700px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--white);border:1px solid var(--divider);border-radius:14px;padding:18px 20px}
+.fact .k{font-size:11.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:4px}
+.fact .v{font-size:15px;line-height:1.5}
+
+/* ---------- TIMELINE ---------- */
+.timeline{position:relative;margin:16px 0;padding-left:32px}
+.timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--secondary)}
+.tl{position:relative;margin-bottom:24px}
+.tl::before{content:"";position:absolute;left:-32px;top:2px;width:20px;height:20px;border-radius:50%;background:var(--white);border:3px solid var(--highlight)}
+.tl .st{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.tl .h{font-weight:600;font-size:17px;margin:4px 0 4px}
+.tl .b{font-size:15px;color:var(--text2);max-width:64ch}
+
+/* ---------- TAKEAWAY ---------- */
+.takeaway{background:var(--accent);color:#fff;border-radius:24px;padding:30px 32px;margin:24px 0}
+.takeaway .tt{display:flex;align-items:center;gap:8px;font-weight:600;font-size:19px;margin-bottom:8px}
+.takeaway .tt .dot{width:11px;height:11px;background:var(--highlight);border-radius:50%}
+.takeaway p{color:rgba(255,255,255,0.92);margin-bottom:0;max-width:64ch}
+.takeaway .hl{color:#fff;font-weight:600}
+
+/* ---------- LINKS / RESOURCES ---------- */
+.linkgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:700px){.linkgrid{grid-template-columns:1fr}}
+.linkcard{display:block;background:var(--white);border:1px solid var(--divider);border-radius:14px;padding:18px 20px;transition:border-color .15s,transform .15s}
+.linkcard:hover{border-color:#2F5E49;transform:translateY(-2px);box-shadow:0 16px 38px rgba(1,49,47,.09)}
+.linkcard .lk{font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:var(--text2);font-weight:700;margin-bottom:4px}
+.linkcard .ln{font-weight:600;font-size:16px;color:var(--accent);display:flex;align-items:center;gap:8px}
+.linkcard .ln svg{width:14px;height:14px;flex:none}
+.linkcard .ld{font-size:13.5px;color:var(--text2);margin-top:4px;line-height:1.5}
+
+/* ---------- FOOTER ---------- */
+.footer{background:var(--primary);color:#fff;margin-top:0;padding:48px 0 40px}
+.footer .inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px}
+.footer .brand img{height:40px}
+.footer .fcol h5{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#C9DED3;margin-bottom:8px;font-weight:700}
+.footer .fcol a{display:block;color:rgba(255,255,255,0.85);font-size:14px;margin-bottom:8px;font-weight:500}
+.footer .fcol a:hover{color:#fff}
+.footer .note{width:100%;border-top:1px solid rgba(255,255,255,0.18);margin-top:24px;padding-top:18px;font-size:12px;color:rgba(255,255,255,0.6)}
+
+/* ---------- SOPHIE'S INSIGHTS ---------- */
+.sophie{background:var(--sage);border-radius:24px;padding:30px 32px;margin:24px 0;display:flex;gap:24px;align-items:flex-start}
+@media(max-width:700px){.sophie{flex-direction:column;gap:16px;padding:26px}}
+.sophie .photo{flex:none;width:104px;height:104px;border-radius:50%;overflow:hidden;
+  background:repeating-linear-gradient(135deg,rgba(255,255,255,0.12) 0 10px,rgba(255,255,255,0) 10px 20px),linear-gradient(150deg,var(--secondary),var(--accent));
+  display:flex;align-items:center;justify-content:center;color:#fff;text-align:center}
+.sophie .photo svg{width:30px;height:30px;opacity:.9}
+.sophie .photo .pl{font-size:8.5px;letter-spacing:.10em;text-transform:uppercase;opacity:.85;margin-top:4px;line-height:1.3;padding:0 6px}
+.sophie .body{flex:1}
+.sophie .kick{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.sophie .kick .dot{width:8px;height:8px;border-radius:50%;background:var(--highlight)}
+.sophie .q{font-weight:600;font-size:19px;line-height:1.45;color:var(--primary);letter-spacing:-0.01em}
+.sophie .q p{margin-bottom:8px;max-width:none}
+.sophie .q p:last-child{margin-bottom:0}
+.sophie .by{margin-top:16px;font-size:13px;color:var(--text2)}
+.sophie .by strong{color:var(--accent);font-weight:600;display:block;font-size:14px}
+.sophie .draft{display:inline-block;margin-top:16px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--text2);background:rgba(255,255,255,0.6);border:1px dashed var(--secondary);border-radius:999px;padding:4px 11px}
+
+/* ---------- CHECKLIST ---------- */
+.checklist{list-style:none;margin:16px 0;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+@media(max-width:700px){.checklist{grid-template-columns:1fr}}
+.checklist li{position:relative;padding-left:34px;font-size:15px;line-height:1.5}
+.checklist li::before{content:"";position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:6px;background:var(--sage);border:1.5px solid var(--highlight)}
+.checklist li::after{content:"";position:absolute;left:6px;top:5px;width:7px;height:11px;border:solid var(--primary);border-width:0 2px 2px 0;transform:rotate(42deg)}
+.checklist.full{grid-template-columns:1fr}
+
+/* ---------- GLOSSARY ---------- */
+.glossary{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;margin:16px 0}
+@media(max-width:700px){.glossary{grid-template-columns:1fr}}
+.gloss{display:flex;gap:8px;padding:9px 0;border-bottom:1px solid var(--divider);font-size:15px}
+.gloss .term{font-weight:600;color:var(--accent);flex:none;min-width:120px}
+.gloss .def{color:var(--text2)}
+
+/* ---------- BUDGET TABLE ---------- */
+.budget{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+.budget th{background:var(--accent);color:#fff;text-align:left;padding:11px 16px;font-weight:600;font-size:13.5px}
+.budget th:last-child,.budget td:last-child{text-align:right}
+.budget th:first-child{border-radius:12px 0 0 0}
+.budget th:last-child{border-radius:0 12px 0 0}
+.budget td{padding:10px 16px;border-bottom:1px solid var(--divider)}
+.budget tr:nth-child(even) td{background:var(--white)}
+.budget tr:nth-child(odd) td{background:var(--sage)}
+.budget tr.total td{background:var(--accent);color:#fff;font-weight:600;border:none}
+.budget tr.total td:first-child{border-radius:0 0 0 12px}
+.budget tr.total td:last-child{border-radius:0 0 12px 0}
+
+/* responsive sidebar collapse */
+@media(max-width:880px){
+  .sidebar{margin-bottom:40px}
+  .otp{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .otp{grid-template-columns:1fr}
+}
+
+/* ---------- ICON TILES (added) ---------- */
+.ic{width:42px;height:42px;border-radius:12px;background:var(--sage);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.ic svg{width:21px;height:21px;stroke:var(--accent);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.panel .pt{display:flex;align-items:center;gap:8px}
+.pti{width:34px;height:34px;border-radius:12px;background:var(--white);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.pti svg{width:18px;height:18px;stroke:var(--primary);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.stat{position:relative}
+.sic{position:absolute;top:16px;right:16px;display:inline-flex}
+.sic svg{width:26px;height:26px;stroke:var(--secondary);stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- SEE-ALSO / GO DEEPER (added) ---------- */
+.seealso{display:flex;align-items:center;gap:16px;background:var(--sage);border-radius:14px;padding:15px 20px;margin:24px 0;transition:transform .15s,box-shadow .15s}
+.seealso:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.12)}
+.seealso .sa-ic{width:40px;height:40px;border-radius:12px;background:var(--white);display:flex;align-items:center;justify-content:center;flex:none}
+.seealso .sa-ic svg{width:20px;height:20px;stroke:var(--primary);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.seealso .sa-tx{flex:1;min-width:0}
+.seealso .sa-lbl{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:4px}
+.seealso .sa-ttl{display:block;font-size:15.5px;font-weight:600;color:var(--primary);line-height:1.3}
+.seealso .sa-ar{flex:none;color:var(--accent);font-weight:600;font-size:20px;transition:transform .15s}
+.seealso:hover .sa-ar{transform:translateX(3px)}
+.cover{position:relative;min-height:max(600px,90vh);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.cover::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(2,58,55,.52) 0%,rgba(2,58,55,.48) 30%,rgba(2,49,47,.76) 70%,rgba(2,44,42,.92) 100%)}
+.cov-top{position:absolute;top:0;left:0;right:0;padding:34px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
+.cov-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.cov-brand img{width:34px;height:34px;display:block}
+.cov-brand span{font-family:'Work Sans',sans-serif;font-weight:500;font-size:15px;color:rgba(252,251,248,.94);white-space:nowrap}
+.cov-no{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(252,251,248,.84);white-space:nowrap}
+.cov-in{max-width:var(--maxw,1200px);width:100%;margin:0 auto;padding:150px 32px 56px}
+.cov-eb{display:flex;align-items:center;gap:16px;margin-bottom:24px;font-family:'Work Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C6E084}
+.cov-eb i{display:block;width:28px;height:2px;background:var(--highlight);flex:none}
+.cover h1{font-family:'Work Sans',sans-serif;font-size:clamp(42px,7vw,96px);font-weight:300;line-height:.94;letter-spacing:-.035em;color:#FCFBF8;margin:0}
+.cov-sub{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(20px,2.5vw,31px);line-height:1.3;color:rgba(252,251,248,.82);margin:16px 0 0}
+.cov-lead{max-width:50ch;font-size:clamp(16px,1.5vw,18.5px);line-height:1.62;color:rgba(252,251,248,.86);margin:24px 0 0}
+.cov-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px}
+.cov-a,.cov-b{font-family:'Work Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 26px;border-radius:12px;cursor:pointer;white-space:nowrap;text-decoration:none}
+.cov-a{display:inline-flex;align-items:center;gap:8px;background:#FCFBF8;color:var(--primary);border:none}
+.cov-a:hover{text-decoration:none;transform:translateY(-1px)}
+.cov-b{background:transparent;color:#FCFBF8;border:1px solid rgba(252,251,248,.5)}
+.cov-b:hover{background:rgba(252,251,248,.12)}
+.cov-meta{display:flex;flex-wrap:wrap;gap:8px 40px;margin-top:40px;padding-top:22px;border-top:1px solid rgba(252,251,248,.24)}
+.cov-meta span{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;letter-spacing:.05em;color:rgba(252,251,248,.78);white-space:nowrap}
+.guidebar{background:#fff;border-bottom:1px solid var(--divider)}
+.gb-in{max-width:var(--maxw,1200px);margin:0 auto;padding:0 32px;min-height:62px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px}
+.gb-t{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text2);white-space:nowrap}
+.gb-l{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px}
+.gb-l a{font-family:'Work Sans',sans-serif;font-size:13.5px;font-weight:500;color:var(--text2);white-space:nowrap;text-decoration:none}
+.gb-l a:first-child{color:var(--primary)}
+.gb-l a:hover{color:var(--primary);text-decoration:none}
+.gb-l button{font-family:'Work Sans',sans-serif;font-size:13px;font-weight:500;color:var(--primary);background:transparent;border:1px solid var(--primary);border-radius:999px;padding:8px 16px;cursor:pointer;white-space:nowrap}
+.gb-l button:hover{background:var(--sage)}
+.mparts{display:flex;flex-direction:column;gap:40px;margin-top:24px}
+.mph{display:flex;align-items:center;gap:16px;margin-bottom:4px}
+.mph span{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);white-space:nowrap}
+.mph i{flex:1;height:1px;background:var(--divider);display:block}
+a.mrow{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:19px 16px;margin:0 -16px;border-bottom:1px solid var(--divider);border-radius:6px;text-decoration:none;color:inherit;background:var(--sage);transition:background .18s}
+a.mrow:hover{background:#DCE8DF;text-decoration:none}
+a.mrow .mn{font-family:'Work Sans',sans-serif;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--primary)}
+a.mrow .mt{display:flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-size:19px;font-weight:500;color:var(--primary);margin-bottom:4px}
+a.mrow .mdot{width:6px;height:6px;border-radius:999px;background:var(--highlight);display:inline-block;flex:none}
+a.mrow .md{display:block;font-size:14.5px;line-height:1.5;color:var(--text2);max-width:64ch}
+a.mrow .mg{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;letter-spacing:.04em;color:var(--accent);white-space:nowrap}
+.mnote{background:#fff;border:1px solid var(--divider);border-radius:20px;padding:28px 30px;margin-top:40px}
+.mnote p{max-width:64ch;margin:4px 0 16px}
+.mlinks{display:flex;flex-wrap:wrap;gap:8px 24px}
+.mlinks a{font-family:'Work Sans',sans-serif;font-size:15px;font-weight:500;color:var(--primary);text-decoration:none}
+.mlinks a:hover{color:var(--accent)}
+@media(max-width:640px){.cov-in{padding:120px 20px 40px}.cov-top{padding:22px 20px}a.mrow{grid-template-columns:34px minmax(0,1fr);gap:8px}a.mrow .mg{display:none}}
+
+</style>
+<link rel="canonical" href="https://ethicareresourcing.com/guides/money-tax-and-banking">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Money, tax and banking in New Zealand · Ethicare Resourcing">
+<meta property="og:description" content="IRD numbers, your first payslip explained, KiwiSaver, building credit history and sending money home — the financial essentials for new arrivals.">
+<meta property="og:url" content="https://ethicareresourcing.com/guides/money-tax-and-banking">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Money, tax and banking in New Zealand · Ethicare Resourcing">
+<meta name="twitter:description" content="IRD numbers, your first payslip explained, KiwiSaver, building credit history and sending money home — the financial essentials for new arrivals.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="mint-eyebrow">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
+<style id="anchor-offsets">[id]{scroll-margin-top:clamp(56px,7vw,78px)}</style>
+<link rel="stylesheet" href="../../next-step.css">
+<link rel="stylesheet" href="../../guide-print.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"New Zealand","item":"https://ethicareresourcing.com/new-zealand"},{"@type":"ListItem","position":3,"name":"Moving to New Zealand","item":"https://ethicareresourcing.com/destinations/new-zealand-relocation-guide"},{"@type":"ListItem","position":4,"name":"Money, tax & banking"}]}</script>
+<link rel="stylesheet" href="../../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand" aria-current="page">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          <a href="/move">Your plan</a>
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<div id="main-content" tabindex="-1"></div>
+
+<a id="top"></a>
+<div class="hero">
+  <div class="photo" style="background:url('../../assets/nz-life/packing-to-move.jpg') center 45%/cover no-repeat"></div>
+  <div class="inner">
+    <nav class="wf-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">&#8250;</span><a href="/new-zealand">New Zealand</a><span class="sep">&#8250;</span><a href="/destinations/new-zealand-relocation-guide">Moving to New Zealand</a><span class="sep">&#8250;</span><span class="here">Money, tax & banking</span></nav>
+    <div class="eyebrow">Money &amp; home</div>
+    <h1>Money, tax &amp; banking</h1>
+    <div class="sub">Moving to New Zealand &middot; Chapter 05 of 15</div>
+  </div>
+</div>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="otp"><h2>National chapters</h2>
+      <a href="/guides/aotearoa-in-short" data-sec="aotearoa-in-short"><span class="tick"></span>Aotearoa in short</a>
+      <a href="/destinations/" data-sec="choosing-where-to-live"><span class="tick"></span>Choosing where to live</a>
+      <a href="/guides/new-zealand-healthcare" data-sec="how-the-health-system-works"><span class="tick"></span>How the health system works</a>
+      <a href="/guides/te-ao-maori-at-work" data-sec="te-ao-maori-at-work"><span class="tick"></span>Te ao Māori at work</a>
+      <a class="active" aria-current="page" href="/guides/money-tax-and-banking" data-sec="money-tax-and-banking"><span class="tick"></span>Money, tax &amp; banking</a>
+      <a href="/guides/renting-in-new-zealand" data-sec="renting-in-new-zealand"><span class="tick"></span>Renting in New Zealand</a>
+      <a href="/guides/new-zealand-education" data-sec="schools-education"><span class="tick"></span>Schools &amp; education</a>
+      <a href="/guides/driving-and-licences" data-sec="driving-and-licences"><span class="tick"></span>Driving &amp; licences</a>
+      <a href="/guides/new-zealand-visa" data-sec="your-move"><span class="tick"></span>Your move, step by step</a>
+      <a href="/guides/nz/bringing-pets-and-belongings" data-sec="bringing-pets-and-belongings"><span class="tick"></span>Bringing pets &amp; belongings</a>
+      <a href="/guides/before-you-leave" data-sec="before-you-leave"><span class="tick"></span>Before you leave home</a>
+      <a href="/guides/new-zealand-first-month" data-sec="your-first-month"><span class="tick"></span>Your first month</a>
+      <a href="/guides/new-zealand-checklist" data-sec="relocation-checklist"><span class="tick"></span>The relocation checklist</a>
+      <a href="/guides/new-zealand-community" data-sec="settling-in"><span class="tick"></span>Finding your feet &amp; your people</a>
+      <a href="/guides/new-zealand-contacts" data-sec="key-numbers"><span class="tick"></span>Key numbers to know</a>
+    </div>
+    <div class="side-cta"><div class="t"><span class="dot"></span>Going to a city?</div><p>Hospitals, suburbs, commutes and rents live in the destination guides.</p><a href="/destinations/auckland-new-zealand">The Auckland guide</a></div>
+  </aside>
+  <main class="content">
+<section id="money-tax-and-banking">
+<p class="lead">A handful of early tasks will get your finances running smoothly. Most can be started before you arrive and completed in your first few weeks.</p><div class="facts"><div class="fact"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V9l7-4 7 4v12"/><path d="M9 21v-6h6v6"/></svg></div><div class="k">Bank account</div><div class="v">Receive your salary and pay bills locally — start before arrival where possible</div></div><div class="fact"><div class="ic"><svg viewBox="0 0 24 24"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg></div><div class="k">IRD number</div><div class="v">Your tax identifier — needed to be paid correctly. Apply as soon as you arrive</div></div><div class="fact"><div class="ic"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><div class="k">KiwiSaver</div><div class="v">Voluntary retirement savings, with employer contributions, auto-enrolled when you start work</div></div><div class="fact"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><div class="k">ACC</div><div class="v">No-fault accident cover for everyone in NZ — funded automatically via levies</div></div></div><h3>Opening a bank account</h3><p>The major banks are ANZ, ASB, BNZ, Kiwibank and Westpac. You can usually start the process online before you arrive and activate the account in person once here. You&rsquo;ll typically need your passport, work or resident visa, and proof of a New Zealand address. Ask for online banking and a debit card at the same time.</p><h3>Your IRD number &amp; getting paid</h3><p>Every worker needs an IRD number from Inland Revenue. Apply online once you have a NZ address and bank account; processing usually takes around 7–10 working days. Give the number to your payroll team as soon as it arrives so the correct PAYE tax code is applied. Wages are commonly paid fortnightly into your NZ account.</p><h3>KiwiSaver &amp; sending money home</h3><div class="cols"><p><strong>KiwiSaver</strong> is a government-supported retirement scheme. On a work visa you can usually opt in or out; contributions are a set percentage of your pay (commonly 3%, 4%, 6%, 8% or 10%), with employers contributing at least 3%. Funds can be withdrawn if you permanently leave New Zealand.</p><p><strong>Sending money overseas:</strong> banks can transfer internationally, but specialist services such as Wise or OFX are often cheaper and faster. Always compare the exchange rate and fees before moving larger amounts.</p></div><div class="takeaway"><div class="tt"><span class="dot"></span>Do this first</div><p>Apply for your <span class="hl">IRD number</span> as soon as you arrive — almost everything else in your financial setup depends on it.</p></div><h3>Tax, ACC &amp; insurance</h3><div class="cols"><p><strong>Income tax</strong> is deducted automatically through PAYE, so for most people there&rsquo;s nothing to file. You&rsquo;re taxed on income from New Zealand and overseas once you&rsquo;re a tax resident — Inland Revenue (IRD) has clear calculators if you want to check where you&rsquo;ll sit.</p><p><strong>ACC</strong> — the Accident Compensation Corporation — gives everyone in New Zealand no-fault cover for injuries, whether they happen at work, at home or on the ski field. It&rsquo;s funded through levies and government, and applies to residents and visitors alike.</p></div><div class="panel"><div class="pt"><span class="pti"><svg viewBox="0 0 24 24"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><polyline points="22 4 12 14 9 11"/></svg></span>Worth sorting early</div><ul><li><strong>Insurance</strong> — ACC covers injury, but not illness or your belongings. Many newcomers take out health, contents and life cover; Immigration New Zealand publishes a migrants&rsquo; guide to what&rsquo;s worth considering.</li><li><strong>KiwiSaver</strong> — you become eligible once you&rsquo;re a resident, and it&rsquo;s one of the simplest ways to build long-term savings.</li></ul></div><h3>Work for a partner or family member</h3><p>If a partner is job-hunting, New Zealand has a healthy market and a few trusted places to start.</p><div class="linkgrid"><a class="linkcard" href="https://www.kiwihealthjobs.com/" target="_blank" rel="noopener"><div class="lk">Healthcare</div><div class="ln">Kiwi Health Jobs ↗</div><div class="ld">The national site for health and care vacancies across Aotearoa.</div></a><a class="linkcard" href="https://www.seek.co.nz/" target="_blank" rel="noopener"><div class="lk">All industries</div><div class="ln">Seek ↗</div><div class="ld">The largest general job board in New Zealand.</div></a><a class="linkcard" href="https://www.trademe.co.nz/a/jobs" target="_blank" rel="noopener"><div class="lk">All industries</div><div class="ln">Trade Me Jobs ↗</div><div class="ld">Broad listings across most sectors and regions.</div></a><a class="linkcard" href="https://www.workandincome.govt.nz/" target="_blank" rel="noopener"><div class="lk">Government</div><div class="ln">Work and Income ↗</div><div class="ld">Job listings plus advice and support for new arrivals.</div></a></div><a class="seealso" href="https://ethicareresourcing.com/guides/new-zealand-salary"><span class="sa-ic"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span class="sa-tx"><span class="sa-lbl">Go deeper</span><span class="sa-ttl">Salary &amp; pay in New Zealand healthcare</span></span><span class="sa-ar">&rarr;</span></a>
+<nav class="ch-nav"><a class="prev" href="/guides/te-ao-maori-at-work"><span>Previous</span>Te ao Māori at work</a><a class="up" href="/destinations/new-zealand-relocation-guide">All chapters</a><a class="next" href="/guides/renting-in-new-zealand"><span>Next</span>Renting in New Zealand</a></nav>
+</section>
+<section class="nextstep-band" aria-label="Next step">
+  <div class="ns-in">
+    <div class="ns-copy">
+      <p class="ns-k">Ethicare Resourcing</p>
+      <h2>This chapter is part of a bigger guide &mdash; and we&rsquo;re here for the rest of it</h2>
+      <p>We place healthcare professionals across New Zealand and Australia, and stay with the move through registration, visas and the first months after you land.</p>
+    </div>
+    <div class="ns-acts">
+      <a class="ns-a solid" href="/new-zealand">Careers in New Zealand <span aria-hidden="true">&rarr;</span></a>
+      <a class="ns-a ghost" href="/contact">Talk to us</a>
+    </div>
+  </div>
+</section>
+</main>
+</div>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/move">Ethicare Move</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+
+<script>
+// active-section tracking for the sidebar
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.otp a'));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('data-sec')] = a; });
+  var secs = links.map(function(a){ return document.getElementById(a.getAttribute('data-sec')); }).filter(Boolean);
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(l){ l.classList.remove('active'); });
+        if(map[e.target.id]) map[e.target.id].classList.add('active');
+      }
+    });
+  }, { rootMargin:'-45% 0px -50% 0px', threshold:0 });
+  secs.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+<script>(function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var st=document.createElement('style');st.textContent='@media screen{.rv{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}.rv.in{opacity:1;transform:none}}@media print{.rv{opacity:1;transform:none}}';document.head.appendChild(st);addEventListener('beforeprint',function(){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})});var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});[].slice.call(document.querySelectorAll('.content section')).forEach(function(el){if(el.getBoundingClientRect().top>innerHeight*0.85){el.classList.add('rv');io.observe(el)}});})();</script>
+<script src="../../nav.js" defer></script>
+<script src="../../journey-nav.js" defer></script>
+
+<!-- INTERNAL LINK MAP — /guides/money-tax-and-banking (generated 29 Aug 2026 from the rendered markup)
+  HEADER NAV + FOOTER — site-wide (see /site/_header.html and the shared footer)
+  MAIN CONTENT:
+  Healthcare Kiwi Health Jobs ↗ The national site for healt… → https://www.kiwihealthjobs.com/
+  All industries Seek ↗ The largest general job board in Ne… → https://www.seek.co.nz/
+  All industries Trade Me Jobs ↗ Broad listings across most… → https://www.trademe.co.nz/a/jobs
+  Government Work and Income ↗ Job listings plus advice and… → https://www.workandincome.govt.nz/
+  Go deeper Salary & pay in New Zealand healthcare → → https://ethicareresourcing.com/guides/new-zealand-salary
+  Previous Te ao Māori at work → /guides/te-ao-maori-at-work
+  All chapters → /destinations/new-zealand-relocation-guide
+  Next Renting in New Zealand → /guides/renting-in-new-zealand
+  Careers in New Zealand → → /new-zealand
+  Talk to us → /contact
+-->
+<!-- SEO
+  Page Title: Money, tax and banking in New Zealand · Ethicare Resourcing
+  URL Slug: /guides/money-tax-and-banking
+  SEO Title: Money, tax and banking in New Zealand · Ethicare Resourcing
+  Meta Description: IRD numbers, your first payslip explained, KiwiSaver, building credit history and sending money home — the financial essentials for new arrivals.
+-->
+</body></html>
