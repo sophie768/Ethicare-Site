@@ -8,7 +8,7 @@
 <meta name="description" content="Healthcare is about people. Ethicare helps clinicians and their families move well, and stay — founded by Sophie, with a decade in NHS leadership behind her.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 <style>
 /* ================================================================
    ETHICARE RESOURCING — ABOUT
@@ -97,8 +97,8 @@ strong{color:var(--green);font-weight:600}
 /* difference cards — the visual centrepiece */
 .diff .read h2{font-size:clamp(30px,4.4vw,46px)}
 .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.dcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--mint);border-radius:20px;padding:34px 32px;border-left:4px solid var(--sage);transition:transform .15s ease,box-shadow .15s ease}
-.dcard:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.12)}
+.dcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--mint);border-radius:10px;padding:34px 32px;transition:transform .15s ease,box-shadow .15s ease}
+.dcard:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(1,49,47,.08)}
 .dcard .dtop{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
 .dcard .dic{width:52px;height:52px;border-radius:14px;background:var(--soft-green);display:flex;align-items:center;justify-content:center;color:var(--teal)}
 .dcard .dic svg{width:26px;height:26px}
@@ -110,7 +110,7 @@ strong{color:var(--green);font-weight:600}
 
 /* leaders */
 .leaders{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
-.leader{display:flex;gap:24px;align-items:flex-start;background:#fff;border:1px solid var(--mint);border-left:4px solid var(--sage);border-radius:20px;padding:28px 28px}
+.leader{display:flex;gap:24px;align-items:flex-start;background:#fff;border:1px solid var(--mint);border-radius:10px;padding:28px 28px}
 .leader .ph{width:108px;height:108px;border-radius:50%;flex-shrink:0;font-size:9px;display:flex;align-items:center;justify-content:center;background:var(--soft-green);color:var(--teal);font-family:var(--display);font-weight:600;font-size:30px;letter-spacing:.02em}
 .leader img.ph{object-fit:cover;object-position:50% 22%;filter:grayscale(1)}
 .leader h3{font-size:18px;margin-bottom:4px}
@@ -166,7 +166,7 @@ strong{color:var(--green);font-weight:600}
 .illus-row.flip{grid-template-columns:320px 1fr}
 .illus-row.flip.wide-illus{grid-template-columns:440px 1fr}
 @media (max-width:820px){.illus-row.flip.wide-illus .illus{max-width:440px}}
-.illus-row .illus{width:100%;border-radius:20px;overflow:hidden;background:var(--soft-green);border:1px solid var(--mint)}
+.illus-row .illus{width:100%;border-radius:10px;overflow:hidden;background:var(--soft-green);border:1px solid var(--mint)}
 .illus-row .illus img{width:100%;height:auto;display:block}
 .illus-row .tcol{min-width:0}
 .illus-row .prose p+p{margin-top:16px}
@@ -179,7 +179,7 @@ strong{color:var(--green);font-weight:600}
 .choose .item p{font-size:16px;color:var(--muted);line-height:1.72;margin:0;max-width:64ch}
 @media (max-width:600px){.choose .item{grid-template-columns:1fr;gap:4px}.choose .num{font-size:16px}}
 /* introductions block — the service is described here and requested on /apply */
-.connect-in{max-width:920px;margin:34px auto 0;padding:clamp(24px,3vw,32px);border:1px solid var(--mint);border-radius:20px;background:var(--warm)}
+.connect-in{max-width:920px;margin:34px auto 0;padding:clamp(24px,3vw,32px);border:1px solid var(--mint);border-radius:10px;background:var(--warm)}
 .connect-in dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:22px 40px;margin:0}
 .connect-in dl>div{min-width:0}
 .connect-in dt{font-family:var(--display);font-weight:600;font-size:17.5px;line-height:1.3;color:var(--teal);margin-bottom:6px}
@@ -188,11 +188,11 @@ strong{color:var(--green);font-weight:600}
 .connect-go:hover{filter:brightness(.93);transform:translateY(-1px);color:#FCFBF8}
 .photo-feature{max-width:1180px;margin:0 auto;padding:0 24px}
 .photo-feature figure{margin:0}
-.photo-feature img{width:100%;height:clamp(300px,42vw,480px);object-fit:cover;display:block;border-radius:24px}
+.photo-feature img{width:100%;height:clamp(300px,42vw,480px);object-fit:cover;display:block;border-radius:14px}
 .photo-feature figcaption{font-family:var(--display);font-style:italic;font-weight:600;font-size:clamp(16px,1.9vw,21px);color:var(--teal);text-align:center;margin:16px auto 0;max-width:42ch;line-height:1.4}
 
 /* ---------------- TABS ---------------- */
-.tabsbar{position:sticky;top:78px;z-index:20;background:var(--warm);border-bottom:1px solid var(--mint);box-shadow:0 26px 54px rgba(1,49,47,.12)}
+.tabsbar{position:sticky;top:78px;z-index:20;background:var(--warm);border-bottom:1px solid var(--mint);box-shadow:0 12px 30px rgba(1,49,47,.08)}
 .tabsbar .wide{display:flex;gap:0;padding-top:0;padding-bottom:0}
 .tab-btn{appearance:none;background:none;border:none;cursor:pointer;font-family:var(--display);font-weight:600;font-size:15px;color:var(--muted);padding:19px 2px;margin-right:36px;border-bottom:3px solid transparent;transition:color .15s ease,border-color .15s ease;white-space:nowrap}
 .tab-btn:last-child{margin-right:0}
@@ -234,7 +234,6 @@ strong{color:var(--green);font-weight:600}
 <meta name="twitter:description" content="Healthcare is about people. Ethicare helps clinicians and their families move well, and stay — founded by Sophie, with a decade in NHS leadership behind her.">
 <meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
 <style id="mint-eyebrow">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
-<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
 <style id="about-editorial">
 .edrow{display:grid;margin-top:40px;border-top:1px solid rgba(2,97,93,.65)}
 .ed{display:grid;grid-template-columns:auto 1fr;gap:8px 28px;align-items:start;padding:clamp(24px,3vw,34px) 0;border-bottom:1px solid rgba(2,97,93,.65)}
@@ -245,7 +244,7 @@ strong{color:var(--green);font-weight:600}
 .bigquote{padding:clamp(48px,6.4vw,80px) 0;background:var(--warm)}
 .bigquote p.q{font-family:var(--display);font-weight:300;font-size:clamp(28px,4.2vw,48px);line-height:1.14;letter-spacing:-.028em;color:var(--teal);max-width:26ch;margin:0 auto;text-align:center;text-wrap:balance}
 .bigquote p.src{font-size:16px;line-height:1.66;color:var(--muted);max-width:54ch;margin:20px auto 0;text-align:center;text-wrap:pretty}
-.proofbig{padding:clamp(36px,4.6vw,56px) clamp(26px,3.4vw,48px);background:var(--teal);border-radius:20px;margin-top:34px}
+.proofbig{padding:clamp(36px,4.6vw,56px) clamp(26px,3.4vw,48px);background:var(--teal);border-radius:10px;margin-top:34px}
 .proofbig .n{font-family:var(--display);font-weight:300;font-size:clamp(29px,4.4vw,52px);line-height:1.08;letter-spacing:-.03em;color:#fff;max-width:24ch;text-wrap:balance}
 .proofbig p{font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.82);max-width:58ch;margin:20px 0 0;text-wrap:pretty}
 .connect-note{margin-top:38px;padding-top:30px;border-top:1px solid rgba(2,97,93,.65)}
@@ -279,7 +278,7 @@ strong{color:var(--green);font-weight:600}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
       <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
         <div class="subnav">
           
@@ -290,6 +289,7 @@ strong{color:var(--green);font-weight:600}
       <div class="navitem has-sub"><a href="/about-ethicare" aria-current="page">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
@@ -388,11 +388,11 @@ strong{color:var(--green);font-weight:600}
     <span class="eyebrow">Open by default</span>
     <h2>Candidates deserve better than that.</h2>
     <div class="prose">
-      <p>Recruitment agencies traditionally provide information when there is a vacancy to fill. We think candidates deserve better than that.</p>
+      <p>Recruitment agencies traditionally share information only when there is a vacancy to fill.</p>
       <p>A move to Australia or New Zealand can affect your career, your finances, your family and your everyday life. You should be able to understand what you are getting into before anyone asks you to apply for a job.</p>
       <p>So Ethicare does two things, and both of them are the business: we recruit into carefully chosen roles across Australia and New Zealand, and we get the people who take them, and the families who come with them, through registration, visas, arrival and the first year. But we don&rsquo;t believe good information should only reach the people we place. Our registration guides, comparison tools and relocation resources are free to use whether you find your role through Ethicare, apply directly to an employer, or work with another agency entirely.</p>
     </div>
-    <div style="max-width:760px;margin-top:34px;background:#FFFFFF;border:1px solid var(--mint,#C9DED3);border-top:3px solid #72A471;border-radius:20px;padding:clamp(26px,3vw,34px)">
+    <div style="max-width:760px;margin-top:34px;background:#FFFFFF;border:1px solid var(--mint,#C9DED3);border-top:3px solid #72A471;border-radius:10px;padding:clamp(26px,3vw,34px)">
       <h3 style="font-family:var(--display,'Work Sans'),sans-serif;font-weight:600;font-size:22px;line-height:1.22;letter-spacing:-.01em;color:var(--teal,#02615D);margin:0 0 12px">Already found your job?</h3>
       <p style="font-size:16.5px;line-height:1.62;color:var(--text,#333333);margin:0 0 22px;text-wrap:pretty">You don&rsquo;t need to have been placed by Ethicare to use our relocation support. If you have secured a role directly with an employer or through another agency, <strong>Ethicare Move</strong> is still yours to use: our free planning tool covering registration, the visa, the budget, schools, housing and what to do when.</p>
       <a href="/move" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 24px;border-radius:12px;background:var(--teal,#02615D);color:#FFFFFF;font-family:var(--display,'Work Sans'),sans-serif;font-weight:600;font-size:15px">Start planning your move <span aria-hidden="true">&rarr;</span></a>
@@ -423,6 +423,27 @@ strong{color:var(--green);font-weight:600}
       <div class="ed"><span class="edn">01</span><h3>We&rsquo;ve done this ourselves</h3><p>We know how the move goes, because we have spent years guiding it and because we have lived it. Not much surprises us anymore, which means far less of it has to surprise you.</p></div>
       <div class="ed"><span class="edn">02</span><h3>We tell you the truth</h3><p>Even when it isn&rsquo;t what you were hoping to hear. If the timing is wrong, or a move doesn&rsquo;t add up for your family, we will say so. You can trust our yes because we are willing to say no.</p></div>
       <div class="ed"><span class="edn">03</span><h3>We&rsquo;re deliberately small</h3><p>We take on fewer people and give each of them far more. You will deal with the same faces from the first conversation onward, never passed around, never a number in a pipeline.</p></div>
+    </div>
+  </div>
+</section>
+<!-- ===================== WHAT WE CAN'T PROMISE =====================
+     Canonical home, 6 Sep 2026. This section previously existed near-verbatim on ~20
+     profession pages, where only the first card differed (it named that profession's
+     regulator). It is a statement about the limits of our service, not a fact about any
+     profession, so under one-topic-one-source it belongs here once. Profession pages now
+     carry a single sentence and a link to #cant-promise. -->
+<section class="section" id="cant-promise" data-screen-label="About &middot; what we can&rsquo;t promise">
+  <div class="read">
+    <span class="eyebrow">The honest bit</span>
+    <h2>What we can&rsquo;t promise</h2>
+    <p class="lede">A move this size deserves the limits as well as the pitch. Four things you will never hear us guarantee &mdash; and what we do instead.</p>
+  </div>
+  <div class="read">
+    <div class="edrow">
+      <div class="ed"><span class="edn">01</span><h3>Timelines that aren&rsquo;t ours to give</h3><p>Registration sits with your professional regulator and visas with the immigration authority. We give you the realistic range, keep your file complete and moving, and chase what can be chased &mdash; but we will not quote a faster number to win you over.</p></div>
+      <div class="ed"><span class="edn">02</span><h3>A specific job in a specific suburb</h3><p>Vacancies move. If your heart is set on one workplace in one corner of one city, we will tell you honestly how long that wait could be &mdash; before you resign anything, not after.</p></div>
+      <div class="ed"><span class="edn">03</span><h3>A supervisor waiting at the other end</h3><p>Some registrations are granted subject to a period of supervised practice, and that only works if the department has a supervisor with the capacity to take you. We ask the question before you accept and we pass on exactly what we are told &mdash; but the answer belongs to the employer, and departments lose supervisors at short notice.</p></div>
+      <div class="ed"><span class="edn">04</span><h3>That the move is right for you</h3><p>Some moves should not happen. If the scope, the pay maths or the family logistics do not stack up, we will say so plainly. We would rather lose a placement than see you land in the wrong life.</p></div>
     </div>
   </div>
 </section>
@@ -482,7 +503,7 @@ strong{color:var(--green);font-weight:600}
   <div class="read">
     <span class="eyebrow">The people behind us</span>
     <h2>We keep good company</h2>
-    <p class="prose" style="color:var(--muted)">Two senior clinicians have backed Ethicare from the start and put their names behind how we work. Not a corporate board. Their reputations are attached to ours, and that keeps us honest.</p>
+    <p class="prose" style="color:var(--muted)">Two senior clinicians have backed Ethicare from the start and put their names behind how we work. Not a corporate board. Their reputations are attached to ours, and that keeps us honest. The standard they hold us to is published: <a href="/clinical-standard">read the Ethicare Clinical Standard</a>.</p>
   </div>
   <div class="wide">
     <div class="leaders">
@@ -512,7 +533,7 @@ strong{color:var(--green);font-weight:600}
 <section class="section cta" data-screen-label="About · CTA">
   <div class="read">
     <h2>Let&rsquo;s start with a conversation</h2>
-    <p>No pressure and no commitment. Just an honest conversation with people who understand both the clinical work and the move itself.</p>
+    <p>Tell us where you have got to, and we will tell you what we would do next &mdash; whether or not that involves us.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="/contact">Talk to our team</a>
       <a class="btn btn-ghost" href="/new-zealand">Explore New Zealand</a>
@@ -521,7 +542,10 @@ strong{color:var(--green);font-weight:600}
   </div>
 </section>
 
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="page-feedback.js" defer></script>
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">

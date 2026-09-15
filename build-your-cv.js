@@ -4,19 +4,26 @@
 (function () {
   var KEY = 'ethicare-cv-builder-v1';
 
-  /* Only professions Ethicare actually recruits (scope change, Aug 2026).
-     Nursing, midwifery, pharmacy and SLT were removed: offering a tailored CV
-     for a profession we cannot place is the lead-capture problem in another
-     form. Anyone outside this list is pointed at /resources/healthcare-regulators. */
+  /* One list, the same as the pathway checker's (rule agreed 8 Sep 2026): Ethicare
+     provides information and guidance to every profession the checker covers, whether
+     or not we currently place roles in it. Guide, do not gate. Values are stable keys —
+     they drive GROUPS and EQUIP below and are saved in the candidate's browser. */
   var PROFESSIONS = [
-    { value: 'radiography', label: 'Medical imaging, radiography & nuclear medicine' },
+    { value: 'radiography', label: 'Medical imaging \u2014 radiography, MRI & nuclear medicine' },
     { value: 'sonography', label: 'Sonography' },
     { value: 'radiation', label: 'Radiation therapy' },
-    { value: 'medicine', label: 'Medicine \u2014 radiology or general practice' },
-    { value: 'anaesthetics', label: 'Anaesthetic technology / theatre' },
-    { value: 'psychology', label: 'Psychology' },
     { value: 'physio', label: 'Physiotherapy' },
-    { value: 'ot', label: 'Occupational therapy' }
+    { value: 'ot', label: 'Occupational therapy' },
+    { value: 'psychology', label: 'Psychology' },
+    { value: 'slt', label: 'Speech & language therapy' },
+    { value: 'dietetics', label: 'Dietetics' },
+    { value: 'socialwork', label: 'Social work' },
+    { value: 'anaesthetics', label: 'Anaesthetic technology / ODP' },
+    { value: 'nursing', label: 'Nursing \u2014 registered or enrolled' },
+    { value: 'midwifery', label: 'Midwifery' },
+    { value: 'gp', label: 'General practice' },
+    { value: 'medicine', label: 'Hospital medicine \u2014 consultant, specialist or registrar' },
+    { value: 'other', label: 'Another profession' }
   ];
 
   var GROUPS = {
@@ -25,7 +32,10 @@
     radiation: ['Planning', 'Treatment delivery', 'Site groups', 'Brachytherapy', 'Quality assurance'],
     nursing: ['Clinical skills', 'Patient groups', 'Emergency and deteriorating patients', 'Medicines management', 'Teaching and supervision'],
     midwifery: ['Antenatal', 'Labour and birth', 'Postnatal', 'Neonatal', 'Complex and high risk'],
-    medicine: ['Clinical presentations', 'Procedures', 'Acute and on call', 'Outpatients', 'Teaching and supervision'],
+    gp: ['Clinical presentations', 'Long-term conditions', 'Procedures and minor surgery', 'Practice systems and teamwork', 'Teaching, supervision and audit'],
+    medicine: ['Clinical presentations', 'Procedures', 'Acute and on call', 'Outpatients and clinics', 'Leadership, teaching and governance'],
+    dietetics: ['Clinical dietetics and nutrition support', 'Patient groups and conditions', 'Enteral and parenteral nutrition', 'Community and food service', 'Education, audit and research'],
+    socialwork: ['Assessment and care planning', 'Safeguarding and risk', 'Client groups and settings', 'Discharge and community', 'Statutory frameworks and supervision'],
     anaesthetics: ['Anaesthetic techniques', 'Regional', 'Airway management', 'Case mix', 'Critical care and pain'],
     psychology: ['Assessment', 'Therapeutic models', 'Client groups', 'Risk and safeguarding', 'Consultation and supervision'],
     physio: ['Musculoskeletal', 'Neurological', 'Respiratory', 'Rehabilitation settings', 'Assessment and outcome measures'],
@@ -41,7 +51,10 @@
     radiation: { title: 'Equipment and systems used', lead: 'Linacs, planning systems and record-and-verify by name and version where you know it.' },
     nursing: { title: 'Systems and equipment used', lead: 'Clinical systems and equipment by name — the electronic record, the observation and escalation system, the pumps and monitors you are signed off on.' },
     midwifery: { title: 'Systems and equipment used', lead: 'Clinical systems and equipment by name — the maternity record, the monitoring you use, the equipment you are signed off on.' },
+    gp: { title: 'Systems and procedures', lead: 'Practice management and clinical systems by name, and the procedures you are independently signed off to perform.' },
     medicine: { title: 'Systems and procedures', lead: 'Clinical systems by name, and the procedures you are independently signed off to perform.' },
+    dietetics: { title: 'Assessments and systems used', lead: 'Named assessment tools, nutrition support products and regimens, and the clinical record systems you have worked on.' },
+    socialwork: { title: 'Frameworks and systems used', lead: 'The assessment frameworks, statutory processes and case-management systems you have worked in, by name.' },
     anaesthetics: { title: 'Equipment and systems used', lead: 'Anaesthetic machines, airway and monitoring equipment, and the record systems.' },
     psychology: { title: 'Assessments and systems used', lead: 'Named assessment tools and outcome measures, plus the clinical record system.' },
     physio: { title: 'Equipment and systems used', lead: 'Equipment, outcome measures and clinical systems by name.' },
@@ -544,6 +557,8 @@
   }
 
   function init() {
+    /* Page-scoped: the design-system bundle compiles this file too, so bail where the CV builder is not on the page. */
+    if (!document.getElementById('cvProf')) return;
     /* selects */
     var ps = $('#cvProf');
     ps.innerHTML = PROFESSIONS.map(function (p) { return '<option value="' + p.value + '">' + esc(p.label) + '</option>'; }).join('');

@@ -1,7 +1,7 @@
 /* Ethicare — journey navigation and saving.
    Two jobs, one small file, no dependencies:
 
-   1. FORWARD AND BACK. The six-step guides had a "Continue to Step 3" panel and no way
+   1. FORWARD AND BACK. The journey guides had a "Continue to Stage 06" panel and no way
       back; destination chapters already ship their own .ch-nav, so this leaves those
       alone. Where a page sits in a known sequence, it gets Previous · position · Next.
       Where it does not, it still gets a Back control, because "how do I get back to
@@ -20,26 +20,31 @@
   var KEY = 'ethicare_saved_v1';
   var MAX = 60;
 
-  /* The six-step journeys. Order is the journey-band order on the pages themselves —
-     change it there and here together, or the bar and the timeline will disagree. */
+  /* The guide sequences, labelled against the EIGHT-STAGE journey (names agreed 8 Sep 2026;
+     the six-step labels retired the same day). `s` is the page's stage — visas and Preparing
+     to move are both Stage 07, so the bar reads the stage, never the array index. Order is
+     the reading order on the pages themselves — change it there and here together, or the
+     bar and the journey band will disagree. */
+  var STAGES = 8;
   var SEQ = [
     { name: 'Your New Zealand journey', all: '/resources', steps: [
-      { u: '/guides/moving-to-new-zealand', t: 'Is it right for me?' },
-      { u: '/guides/new-zealand-registration', t: 'Can I work here?' },
-      { u: '/guides/new-zealand-interview', t: 'CV & interview' },
-      { u: '/guides/new-zealand-visa', t: 'Immigration & visas' },
-      { u: '/guides/new-zealand-relocation', t: 'Preparing to move' },
-      { u: '/guides/living-in-new-zealand', t: 'Living & thriving' }
+      { u: '/guides/moving-to-new-zealand', t: 'Is it right for me?', s: 1 },
+      { u: '/guides/new-zealand-registration', t: 'Can I work here?', s: 4 },
+      { u: '/guides/new-zealand-interview', t: 'CV & interview', s: 6 },
+      { u: '/guides/new-zealand-visa', t: 'Immigration & visas', s: 7 },
+      { u: '/guides/new-zealand-relocation', t: 'Preparing to move', s: 7 },
+      { u: '/guides/living-in-new-zealand', t: 'Living & thriving', s: 8 }
     ] },
     { name: 'Your Australian journey', all: '/resources', steps: [
-      { u: '/guides/moving-to-australia', t: 'Is it right for me?' },
-      { u: '/guides/australia-registration', t: 'Can I work here?' },
-      { u: '/guides/australia-interview', t: 'CV & interview' },
-      { u: '/guides/australia-visa', t: 'Immigration & visas' },
-      { u: '/guides/australia-relocation', t: 'Preparing to move' },
-      { u: '/guides/living-in-australia', t: 'Living & thriving' }
+      { u: '/guides/moving-to-australia', t: 'Is it right for me?', s: 1 },
+      { u: '/guides/australia-registration', t: 'Can I work here?', s: 4 },
+      { u: '/guides/australia-interview', t: 'CV & interview', s: 6 },
+      { u: '/guides/australia-visa', t: 'Immigration & visas', s: 7 },
+      { u: '/guides/australia-relocation', t: 'Preparing to move', s: 7 },
+      { u: '/guides/living-in-australia', t: 'Living & thriving', s: 8 }
     ] }
   ];
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
 
   var CSS =
     '.jn-bar{max-width:1180px;margin:clamp(34px,4.5vw,52px) auto 0;padding:22px clamp(22px,3vw,32px) 0;border-top:1px solid rgba(2,97,93,.65);' +
@@ -174,8 +179,8 @@
       html += prev
         ? '<a class="jn-step prev" href="' + prev.u + '"><span class="k">\u2190 Previous</span>' + esc(prev.t) + '</a>'
         : '<span></span>';
-      html += '<div class="jn-mid"><span class="jn-pos">' + esc(w.seq.name) + ' \u00b7 step ' + (w.i + 1) + ' of ' + w.seq.steps.length +
-        '</span><a class="jn-all" href="' + w.seq.all + '">All steps and guides</a></div>';
+      html += '<div class="jn-mid"><span class="jn-pos">' + esc(w.seq.name) + ' \u00b7 Stage ' + pad(w.seq.steps[w.i].s) + ' of ' + pad(STAGES) +
+        '</span><a class="jn-all" href="' + w.seq.all + '">All stages and guides</a></div>';
       html += next
         ? '<a class="jn-step next" href="' + next.u + '"><span class="k">Next \u2192</span>' + esc(next.t) + '</a>'
         : '<span></span>';

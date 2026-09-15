@@ -151,7 +151,7 @@ a:hover{color:#014E4B}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
       <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
         <div class="subnav">
           <a href="/resources">Guides &amp; resources</a>
@@ -176,12 +176,17 @@ a:hover{color:#014E4B}
 <header class="chero" data-screen-label="Clinical standard · hero">
   <div class="wrap">
     <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">&#8250;</span><a href="/about-ethicare">About Ethicare</a><span class="sep">&#8250;</span><span class="here">Our clinical standard</span></nav>
-    <span class="eyebrow">Clinical governance</span>
-    <h1>The Ethicare Clinical Standard</h1>
-    <p class="lead">What we establish before a clinician is put forward, what we verify ourselves, what the professional boards verify, and the circumstances in which we advise someone not to move yet.</p>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.4fr);gap:clamp(28px,5vw,64px);align-items:center">
+      <div>
+        <span class="eyebrow">Clinical governance</span>
+        <h1>The Ethicare Clinical Standard</h1>
+        <p class="lead">What we establish before a clinician is put forward, what we verify ourselves, what the professional boards verify, and the circumstances in which we advise someone not to move yet.</p>
+      </div>
+      <img src="assets/heroes/clinical-standard.svg" alt="A checked document under a magnifying glass" width="280" height="210" style="width:100%;max-width:280px;height:auto;justify-self:end">
+    </div>
     <div class="status">
-      <div><span class="k">Status</span><span class="v">Draft for board review</span></div>
-      <div><span class="k">Version</span><span class="v">v0.9</span></div>
+      <div><span class="k">Status</span><span class="v">Approved by the clinical board &middot; 8 September 2026</span></div>
+      <div><span class="k">Version</span><span class="v">v1.0</span></div>
       <div><span class="k">Held by</span><span class="v">Ethicare clinical board</span></div>
       <div><span class="k">Next review</span><span class="v">Annually, or on regulatory change</span></div>
     </div>
@@ -364,7 +369,10 @@ a:hover{color:#014E4B}
   </div>
 </section>
 
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="page-feedback.js" defer></script>
 
 <footer class="site-footer">
   <div class="shell">
@@ -394,30 +402,25 @@ a:hover{color:#014E4B}
 <script src="nav.js" defer></script>
 
 <!-- ============================================================
-  SOPHIE — BEFORE THIS PAGE GOES LIVE
+  SOPHIE — PUBLICATION RECORD
 
-  1. The status strip says "Draft for board review · v0.9" deliberately. Send this
-     page to Prof Sutcliffe and Dr Oben, ask them to read it once and confirm they
-     are content to have it described as held and reviewed by them. When they do,
-     change Status to "Approved by the clinical board", Version to v1.0, and add
-     the approval date. Do not publish it as approved before that happens — the
-     whole value of the page is that the claim is true.
-  2. Confirm the two affiliations read exactly as each of them would want.
-  2a. CONFLICT OF INTEREST — settle this BEFORE anything else. Both hold shares and
-     both work in the NHS. Ask each of them directly: (i) is the shareholding
-     declared to UCL/GOSH and King's under their employer's declaration-of-interests
-     policy, and (ii) are they content to be named publicly on this page knowing
-     the shareholding is disclosed alongside it. If either answer is no, remove the
-     named cards and the affiliations and describe the reviewers as "senior
-     practising clinicians" without names — the standard still works unnamed.
-     Do not name them and omit the shareholding: disclosure is what makes this safe.
-     Note also: if Ethicare ever opens a UK arm recruiting INTO the NHS, this
-     becomes a live material conflict and needs resolving before that is built.
-  3. "Provides a senior clinical view on unusual cases where we ask for one" —
-     only keep this line if they have both agreed to it in principle.
-  4. Once live, add "Our clinical standard" to the Company footer column on every
-     other page, and link it from /employers (qualification section) and
-     /about-ethicare (clinical oversight section).
+  Approved by Prof Sutcliffe and Dr Oben; published as v1.0 on 8 September 2026.
+  Done on publication: status strip updated, noindex removed, sitemap entry added,
+  "Our clinical standard" added to the About dropdown on every page (and to
+  _header.html + nav-data.js), and contextual links added from /about-ethicare
+  (board section) and /employers ("To be precise about what we check").
+
+  Still to confirm with each of them, because the page says it in their names:
+  (a) the shareholding is declared to UCL/GOSH and King's under the employer's
+      declaration-of-interests policy — disclosure on this page is what makes
+      naming them safe, so do not remove the "Declared interest" row;
+  (b) they have agreed in principle to "Provides a senior clinical view on
+      unusual cases where we ask for one";
+  (c) the two affiliations read exactly as each of them would want.
+  If Ethicare ever opens a UK arm recruiting INTO the NHS, the shareholding
+  becomes a live material conflict and needs resolving before that is built.
+  Optional follow-up: add "Our clinical standard" to the Company footer column
+  site-wide at the next footer pass (the About dropdown carries it for now).
 
   ============================================================
   INTERNAL LINK MAP

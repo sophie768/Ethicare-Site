@@ -19,7 +19,10 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 /* No photograph on this reference hero, so collapse guide-au.css's two-column
    hero grid — otherwise the copy is squeezed into 1.05fr and the second column
    sits empty. Same defect the renting hero had, different cause. */
-.hero.cream .wrap{display:block;grid-template-columns:none}
+/* This reference hero now carries a family illustration in the second column, so the
+   grid stays on — weighted towards the copy so it is never squeezed, which is why the
+   grid used to be collapsed here. .hero-copy keeps its own measure. */
+.hero.cream .wrap{grid-template-columns:1.45fr .55fr}
 .hero.cream .hero-copy{max-width:56ch}
 .hero.cream .hero-sub::after{content:"";display:block;width:44px;height:3px;border-radius:2px;background:#D9A084;margin:24px 0 4px}
 .steps{counter-reset:s;margin:36px 0 0;padding:0;list-style:none;max-width:760px}
@@ -101,7 +104,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
       <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
         <div class="subnav">
           <a href="/resources">Guides &amp; resources</a>
@@ -111,6 +114,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
@@ -137,6 +141,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
         <a href="/contact" class="btn btn-ghost">Ask us a question</a>
       </div>
     </div>
+    <div class="hero-badge"><img class="hero-illus" decoding="async" fetchpriority="high" src="../assets/heroes/money-tax-and-banking.svg" alt="A tax number, a bank account and a first payslip chained in sequence" width="400" height="300"></div>
   </div>
 </header>
 
@@ -248,7 +253,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   <div class="wrap reading">
     <span class="eyebrow">How it works</span>
     <h2>Income tax, in outline</h2>
-    <p class="lead">Australian income tax is progressive and administered federally. Unlike tenancy law, there is no state income tax to learn. We do not print rates or thresholds here, because they change with each federal budget and a stale figure is worse than none.</p>
+    <p class="lead">Australian income tax is progressive and administered federally &mdash; unlike tenancy law, there is no state income tax to learn. We do not print rates or thresholds here, because they change with each federal budget.</p>
     <p>Tax is withheld from your pay by your employer under a system called PAYG. Pay as you go, so for most employed clinicians the amount arriving in your account is already net. The financial year runs from <strong>1 July to 30 June</strong>, which catches people out in a small but persistent way: it is not the calendar year and it is not the April year some of you are used to.</p>
     <p>You lodge a return after 30 June, and for a straightforward salaried position this is simple: much of it arrives pre-filled, and the ATO&rsquo;s own online service is free. Most clinicians in their second year onwards do it themselves in under an hour.</p>
     <p>Two things that are worth an accountant in your <em>first</em> year specifically: a part-year residency position, and any income or assets still generating money in your home country. Both are ordinary situations, both have a right answer, and both are easier to get right once than to unpick later.</p>
@@ -330,7 +335,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   <div class="wrap reading">
     <span class="eyebrow">The other end</span>
     <h2>What you leave behind at home</h2>
-    <p class="lead">We are not qualified to advise on the tax system you are leaving, and neither is any recruiter who tells you otherwise. What we can do is tell you which questions to ask before you go, while the people who can answer them are still a local phone call away.</p>
+    <p class="lead">We are not qualified to advise on the tax system you are leaving, and neither is any recruiter who says otherwise. What we can do is tell you which questions to ask while the people who can answer them are still a local phone call away.</p>
     <p><strong>Your pension.</strong> Whatever scheme you are in, find out before you leave what happens to it when you stop contributing, whether it can be transferred, and whether transferring is actually a good idea. Frequently it is not. Get this in writing while you are still in the country.</p>
     <p><strong>Property you are keeping.</strong> If you rent out a home at home, that income may be declarable in both countries. Double tax agreements exist precisely so you are not taxed twice, but they do not apply themselves.</p>
     <p><strong>Your final part-year return.</strong> Most systems require one for the year you leave, and it is often the year you are owed a refund. Easy to forget from twelve thousand miles away.</p>
@@ -413,7 +418,10 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   </div>
 </section>
 
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="../page-feedback.js" defer></script>
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">

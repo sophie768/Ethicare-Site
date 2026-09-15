@@ -148,7 +148,7 @@ strong{color:var(--green)}
 @media (max-width:760px){.glance ol{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.glance ol{grid-template-columns:1fr}}
 
-/* six-step timeline */
+/* eight-stage journey band — shows position, never completion (agreed 8 Sep 2026) */
 .journey-band{background:var(--warm);border-top:1px solid var(--mint);border-bottom:1px solid var(--mint)}
 .journey-band .wrap{padding-top:26px;padding-bottom:26px}
 .jb-title{font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:#A34438;text-align:left;margin:0 0 24px}
@@ -161,11 +161,8 @@ strong{color:var(--green)}
 .tl::before{content:"";position:absolute;top:18px;left:calc(-100% + 18px);width:100%;height:2px;background:var(--mint);z-index:0}
 .tl:first-child::before{display:none}
 .tl a:hover i{border-color:#2F5E49}
-.tl.done i{background:#D9A084;border-color:#D9A084;color:#01312F}
-.tl.done::before{background:#D9A084}
 .tl.current i{background:var(--teal);border-color:var(--teal);color:#fff;box-shadow:var(--sh-focus)}
 .tl.current .lab{color:var(--teal);font-weight:600}
-.tl.current::before{background:#D9A084}
 .jb-current{display:none}
 @media (max-width:640px){
   .tl .lab{display:none}

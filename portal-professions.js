@@ -46,7 +46,7 @@ window.ETHICARE_PROFESSIONS = (function () {
       au: { reg: true, body: 'the Medical Radiation Practice Board of Australia', href: 'https://www.medicalradiationpracticeboard.gov.au/' },
       support: { nz: 'recruiting', au: 'recruiting' } },
 
-    { key: 'medicine', label: 'Medicine', group: 'Medicine & dentistry',
+    { key: 'medicine', label: 'Medicine', group: 'Medicine',
       nz: { reg: true, body: 'the Medical Council of New Zealand', href: 'https://www.mcnz.org.nz/' },
       au: { reg: true, body: 'the Medical Board of Australia', href: 'https://www.medicalboard.gov.au/' },
       support: { nz: 'recruiting', au: 'recruiting' } },
@@ -127,7 +127,7 @@ window.ETHICARE_PROFESSIONS = (function () {
         note: 'Not a registered profession nationally. Most employers require AASW eligibility.' },
       support: { nz: 'soon', au: 'soon' } },
 
-    { key: 'anaesthetic', label: 'Anaesthetic technology', group: 'Perioperative & laboratory',
+    { key: 'anaesthetic', label: 'Anaesthetic technology', group: 'Perioperative',
       nz: { reg: true, body: 'the Medical Sciences Council of New Zealand', href: 'https://www.mscouncil.org.nz/',
         note: 'A registered profession in New Zealand, unlike Australia.' },
       au: { reg: false, body: 'no national regulator', href: 'https://www.ahpra.gov.au/',
@@ -243,8 +243,15 @@ window.ETHICARE_PROFESSIONS = (function () {
   };
 
   function get(key) { for (var i = 0; i < P.length; i++) if (P[i].key === key) return P[i]; return null; }
-  function list() { return P.slice(); }
-  function options() { return P.map(function (p) { return { value: p.key, label: p.label }; }); }
+  /* The planner only offers professions the pathway checker can actually answer by name.
+     The catalogue stays wider on purpose (it names the correct regulator for 26 professions,
+     which the checker's "we have no route for you" result links out to) — but offering
+     Physician associate or Chiropractic in a plan that then cannot produce a pathway is a
+     promise the page cannot keep. Give the checker a verified entry and it appears here. */
+  function inChecker(key) { return Object.prototype.hasOwnProperty.call(CHECKER, key) && CHECKER[key] !== null; }
+  function list() { return P.filter(function (x) { return inChecker(x.key); }); }
+  function listAll() { return P.slice(); }
+  function options() { return list().map(function (p) { return { value: p.key, label: p.label }; }); }
 
   /* Everything the planner needs about one profession in one country. */
   function forCountry(key, dest) {
@@ -271,7 +278,7 @@ window.ETHICARE_PROFESSIONS = (function () {
   }
 
   return {
-    list: list, get: get, options: options, forCountry: forCountry,
+    list: list, listAll: listAll, inChecker: inChecker, get: get, options: options, forCountry: forCountry,
     pages: PAGE, extraPages: EXTRA_PAGES, docs: DOCS, docsPath: DOCS_PATH,
     checker: CHECKER,
     checked: '20 August 2026'

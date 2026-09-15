@@ -126,10 +126,14 @@
 .hero.cream .btn-ghost:hover{background:rgba(2,97,93,.08);}
 .hero.cream .hero-badge{order:2;display:flex;justify-content:center;align-items:center;min-width:0;}
 .hero.cream .hero-badge img{width:100%;max-width:clamp(184px,20vw,272px);height:auto;display:block;filter:drop-shadow(0 16px 32px rgba(2,49,47,.16));}
+/* Family hero illustration (assets/heroes/*.svg) — flat line drawing, so it runs
+   wider than the country brand mark and takes no drop shadow. */
+.hero.cream .hero-badge img.hero-illus{max-width:clamp(252px,28vw,380px);filter:none;}
 @media (max-width:880px){
   .hero.cream .wrap{grid-template-columns:1fr;gap:24px;}
   .hero.cream .hero-badge{justify-content:flex-start;}
   .hero.cream .hero-badge img{max-width:150px;}
+  .hero.cream .hero-badge img.hero-illus{max-width:296px;}
 }
 /* Australia accent — terracotta divider + eyebrow on the cream hero */
 .hero.cream.au{--hero-rule:#D9A084;}

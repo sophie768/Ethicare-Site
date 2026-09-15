@@ -1,63 +1,83 @@
+# The five-question routers (Design Map, agreed 7 Sep 2026). Level 0 pages: they own no
+# topic, they answer the question in a paragraph and hand off. Question 4 is /move, which
+# already exists — no router page is created for it.
+/can-i-work-here	/can-i-work-here.html	200
+/can-i-work-here.html	/can-i-work-here	301!
+/registration	/can-i-work-here	301
+/is-it-worth-it	/is-it-worth-it.html	200
+/is-it-worth-it.html	/is-it-worth-it	301!
+/pay-and-costs	/is-it-worth-it	301
+/where-would-we-live	/where-would-we-live.html	200
+/where-would-we-live.html	/where-would-we-live	301!
+/where-to-live	/where-would-we-live	301
+/settling-in	/settling-in.html	200
+/settling-in.html	/settling-in	301!
+/arriving	/settling-in	301
+
 # Webinar — medical imaging in Australia (Mon 21 Sep 2026)
 /webinar-medical-imaging-australia	/webinar-medical-imaging-australia.html	200
-/webinar-medical-imaging-australia.html	/webinar-medical-imaging-australia	301
+/webinar-medical-imaging-australia.html	/webinar-medical-imaging-australia	301!
 /webinar	/webinar-medical-imaging-australia	301
+
+# Retired 7 Sep 2026 — the ten NZ "*_Relocation_Guide" twins. Each duplicated its own
+# destination guide off the canonical URL and was reachable only by its own legacy slug.
+# Their /{region}-relocation-guide URLs now 301 to the destination hub that owns the region.
 
 # Ethicare — clean destination URLs (canonical slugs serve the underlying file)
 # Generated to match each page's <link rel="canonical">. Netlify processes top-to-bottom.
 
-# Ethicare Move (Stage 2 — end September 2026). noindex and unpromoted until then;
+# Ethicare Move. Canonical is /move (the URL the nav links to); /plan was a second 200 rewrite to the
+# same file with the page's canonical pointing at it — made a 301 on 8 Sep 2026 so one URL serves the page.
 # /portal was the working name and 301s here so nothing that was shared breaks.
+# NOTE: .html → clean-URL rules carry 301! because Netlify will not apply a redirect when a file exists at
+# the source path unless the status is forced.
 /move	/move.html	200
-/move.html	/move	301
-/plan	/move.html	200
+/move.html	/move	301!
+/plan	/move	301
 /my-move	/move#doing	301
 /portal	/move	301
 /portal.html	/move	301
 /build-your-cv	/build-your-cv.html	200
-/build-your-cv.html	/build-your-cv	301
+/build-your-cv.html	/build-your-cv	301!
 /destinations/auckland-new-zealand	/destinations/Auckland_Destination_Guide.html	200
 /destinations/Auckland_Destination_Guide	/destinations/auckland-new-zealand	301
-/destinations/Auckland_Destination_Guide.html	/destinations/auckland-new-zealand	301
-/destinations/auckland-relocation-guide	/destinations/Auckland_Relocation_Guide.html	200
-/destinations/Auckland_Relocation_Guide	/destinations/auckland-relocation-guide	301
-/destinations/Auckland_Relocation_Guide.html	/destinations/auckland-relocation-guide	301
+/destinations/Auckland_Destination_Guide.html	/destinations/auckland-new-zealand	301!
+/destinations/auckland-relocation-guide	/destinations/auckland-new-zealand	301
+/destinations/Auckland_Relocation_Guide	/destinations/auckland-new-zealand	301
+/destinations/Auckland_Relocation_Guide.html	/destinations/auckland-new-zealand	301
 /destinations/australia-relocation-guide	/destinations/Australia_Relocation_Guide.html	200
 /destinations/Australia_Relocation_Guide	/destinations/australia-relocation-guide	301
-/destinations/Australia_Relocation_Guide.html	/destinations/australia-relocation-guide	301
+/destinations/Australia_Relocation_Guide.html	/destinations/australia-relocation-guide	301!
 /destinations/australian-capital-territory-relocation-guide	/destinations/canberra-australia	301
 /destinations/Australian_Capital_Territory_Relocation_Guide	/destinations/canberra-australia	301
 /destinations/Australian_Capital_Territory_Relocation_Guide.html	/destinations/canberra-australia	301
 /destinations/bay-of-plenty-new-zealand	/destinations/Bay_of_Plenty_Destination_Guide.html	200
 /destinations/Bay_of_Plenty_Destination_Guide	/destinations/bay-of-plenty-new-zealand	301
-/destinations/Bay_of_Plenty_Destination_Guide.html	/destinations/bay-of-plenty-new-zealand	301
-/destinations/bay-of-plenty-relocation-guide	/destinations/Bay_of_Plenty_Relocation_Guide.html	200
-/destinations/Bay_of_Plenty_Relocation_Guide	/destinations/bay-of-plenty-relocation-guide	301
-/destinations/Bay_of_Plenty_Relocation_Guide.html	/destinations/bay-of-plenty-relocation-guide	301
-/destinations/bunbury-australia	/destinations/Bunbury_Destination_Guide.html	200
-/destinations/Bunbury_Destination_Guide	/destinations/bunbury-australia	301
-/destinations/Bunbury_Destination_Guide.html	/destinations/bunbury-australia	301
+/destinations/Bay_of_Plenty_Destination_Guide.html	/destinations/bay-of-plenty-new-zealand	301!
+/destinations/bay-of-plenty-relocation-guide	/destinations/bay-of-plenty-new-zealand	301
+/destinations/Bay_of_Plenty_Relocation_Guide	/destinations/bay-of-plenty-new-zealand	301
+/destinations/Bay_of_Plenty_Relocation_Guide.html	/destinations/bay-of-plenty-new-zealand	301
 /destinations/bundaberg-australia	/destinations/Bundaberg_Destination_Guide.html	200
 /destinations/Bundaberg_Destination_Guide	/destinations/bundaberg-australia	301
-/destinations/Bundaberg_Destination_Guide.html	/destinations/bundaberg-australia	301
+/destinations/Bundaberg_Destination_Guide.html	/destinations/bundaberg-australia	301!
 /destinations/central-otago-new-zealand	/destinations/Central_Otago_Destination_Guide.html	200
 /destinations/Central_Otago_Destination_Guide	/destinations/central-otago-new-zealand	301
-/destinations/Central_Otago_Destination_Guide.html	/destinations/central-otago-new-zealand	301
+/destinations/Central_Otago_Destination_Guide.html	/destinations/central-otago-new-zealand	301!
 /destinations/christchurch-new-zealand	/destinations/Christchurch_Destination_Guide.html	200
 /destinations/Christchurch_Destination_Guide	/destinations/christchurch-new-zealand	301
-/destinations/Christchurch_Destination_Guide.html	/destinations/christchurch-new-zealand	301
-/destinations/christchurch-relocation-guide	/destinations/Christchurch_Relocation_Guide.html	200
-/destinations/Christchurch_Relocation_Guide	/destinations/christchurch-relocation-guide	301
-/destinations/Christchurch_Relocation_Guide.html	/destinations/christchurch-relocation-guide	301
+/destinations/Christchurch_Destination_Guide.html	/destinations/christchurch-new-zealand	301!
+/destinations/christchurch-relocation-guide	/destinations/christchurch-new-zealand	301
+/destinations/Christchurch_Relocation_Guide	/destinations/christchurch-new-zealand	301
+/destinations/Christchurch_Relocation_Guide.html	/destinations/christchurch-new-zealand	301
 /destinations/dunedin-new-zealand	/destinations/Dunedin_Destination_Guide.html	200
 /destinations/Dunedin_Destination_Guide	/destinations/dunedin-new-zealand	301
-/destinations/Dunedin_Destination_Guide.html	/destinations/dunedin-new-zealand	301
-/destinations/dunedin-relocation-guide	/destinations/Dunedin_Relocation_Guide.html	200
-/destinations/Dunedin_Relocation_Guide	/destinations/dunedin-relocation-guide	301
-/destinations/Dunedin_Relocation_Guide.html	/destinations/dunedin-relocation-guide	301
+/destinations/Dunedin_Destination_Guide.html	/destinations/dunedin-new-zealand	301!
+/destinations/dunedin-relocation-guide	/destinations/dunedin-new-zealand	301
+/destinations/Dunedin_Relocation_Guide	/destinations/dunedin-new-zealand	301
+/destinations/Dunedin_Relocation_Guide.html	/destinations/dunedin-new-zealand	301
 /destinations/geelong-australia	/destinations/Geelong_Destination_Guide.html	200
 /destinations/Geelong_Destination_Guide	/destinations/geelong-australia	301
-/destinations/Geelong_Destination_Guide.html	/destinations/geelong-australia	301
+/destinations/Geelong_Destination_Guide.html	/destinations/geelong-australia	301!
 /destinations/gold-coast-australia	/destinations/Gold_Coast_Destination_Guide.html	200
 /destinations/gold-coast-australia/welcome	/destinations/gold-coast/welcome.html	200
 /destinations/gold-coast-australia/why	/destinations/gold-coast/why.html	200
@@ -69,13 +89,13 @@
 /destinations/gold-coast-australia/food	/destinations/gold-coast/food.html	200
 /destinations/gold-coast-australia/weekends	/destinations/gold-coast/weekends.html	200
 /destinations/Gold_Coast_Destination_Guide	/destinations/gold-coast-australia	301
-/destinations/Gold_Coast_Destination_Guide.html	/destinations/gold-coast-australia	301
+/destinations/Gold_Coast_Destination_Guide.html	/destinations/gold-coast-australia	301!
 /destinations/hawkes-bay-new-zealand	/destinations/Hawkes_Bay_Destination_Guide.html	200
 /destinations/Hawkes_Bay_Destination_Guide	/destinations/hawkes-bay-new-zealand	301
-/destinations/Hawkes_Bay_Destination_Guide.html	/destinations/hawkes-bay-new-zealand	301
-/destinations/hawkes-bay-relocation-guide	/destinations/Hawkes_Bay_Relocation_Guide.html	200
-/destinations/Hawkes_Bay_Relocation_Guide	/destinations/hawkes-bay-relocation-guide	301
-/destinations/Hawkes_Bay_Relocation_Guide.html	/destinations/hawkes-bay-relocation-guide	301
+/destinations/Hawkes_Bay_Destination_Guide.html	/destinations/hawkes-bay-new-zealand	301!
+/destinations/hawkes-bay-relocation-guide	/destinations/hawkes-bay-new-zealand	301
+/destinations/Hawkes_Bay_Relocation_Guide	/destinations/hawkes-bay-new-zealand	301
+/destinations/Hawkes_Bay_Relocation_Guide.html	/destinations/hawkes-bay-new-zealand	301
 /destinations/hobart-australia	/destinations/Hobart_Destination_Guide.html	200
 /destinations/hobart-australia/welcome	/destinations/hobart/welcome.html	200
 /destinations/hobart-australia/why	/destinations/hobart/why.html	200
@@ -87,30 +107,30 @@
 /destinations/hobart-australia/food	/destinations/hobart/food.html	200
 /destinations/hobart-australia/weekends	/destinations/hobart/weekends.html	200
 /destinations/Hobart_Destination_Guide	/destinations/hobart-australia	301
-/destinations/Hobart_Destination_Guide.html	/destinations/hobart-australia	301
+/destinations/Hobart_Destination_Guide.html	/destinations/hobart-australia	301!
 /destinations/melbourne-australia	/destinations/Melbourne_Destination_Guide.html	200
 /destinations/Melbourne_Destination_Guide	/destinations/melbourne-australia	301
-/destinations/Melbourne_Destination_Guide.html	/destinations/melbourne-australia	301
+/destinations/Melbourne_Destination_Guide.html	/destinations/melbourne-australia	301!
 /destinations/nelson-tasman-new-zealand	/destinations/Nelson_Tasman_Destination_Guide.html	200
 /destinations/Nelson_Tasman_Destination_Guide	/destinations/nelson-tasman-new-zealand	301
-/destinations/Nelson_Tasman_Destination_Guide.html	/destinations/nelson-tasman-new-zealand	301
-/destinations/nelson-tasman-relocation-guide	/destinations/Nelson_Tasman_Relocation_Guide.html	200
-/destinations/Nelson_Tasman_Relocation_Guide	/destinations/nelson-tasman-relocation-guide	301
-/destinations/Nelson_Tasman_Relocation_Guide.html	/destinations/nelson-tasman-relocation-guide	301
+/destinations/Nelson_Tasman_Destination_Guide.html	/destinations/nelson-tasman-new-zealand	301!
+/destinations/nelson-tasman-relocation-guide	/destinations/nelson-tasman-new-zealand	301
+/destinations/Nelson_Tasman_Relocation_Guide	/destinations/nelson-tasman-new-zealand	301
+/destinations/Nelson_Tasman_Relocation_Guide.html	/destinations/nelson-tasman-new-zealand	301
 /destinations/New_South_Wales_Relocation_Guide	/destinations/new-south-wales-australia	301
 /destinations/New_South_Wales_Relocation_Guide.html	/destinations/new-south-wales-australia	301
 /destinations/northland-new-zealand	/destinations/Northland_Destination_Guide.html	200
 /destinations/Northland_Destination_Guide	/destinations/northland-new-zealand	301
-/destinations/Northland_Destination_Guide.html	/destinations/northland-new-zealand	301
-/destinations/northland-relocation-guide	/destinations/Northland_Relocation_Guide.html	200
-/destinations/Northland_Relocation_Guide	/destinations/northland-relocation-guide	301
-/destinations/Northland_Relocation_Guide.html	/destinations/northland-relocation-guide	301
+/destinations/Northland_Destination_Guide.html	/destinations/northland-new-zealand	301!
+/destinations/northland-relocation-guide	/destinations/northland-new-zealand	301
+/destinations/Northland_Relocation_Guide	/destinations/northland-new-zealand	301
+/destinations/Northland_Relocation_Guide.html	/destinations/northland-new-zealand	301
 /destinations/palmerston-north-new-zealand	/destinations/Palmerston_North_Destination_Guide.html	200
 /destinations/Palmerston_North_Destination_Guide	/destinations/palmerston-north-new-zealand	301
-/destinations/Palmerston_North_Destination_Guide.html	/destinations/palmerston-north-new-zealand	301
-/destinations/palmerston-north-relocation-guide	/destinations/Palmerston_North_Relocation_Guide.html	200
-/destinations/Palmerston_North_Relocation_Guide	/destinations/palmerston-north-relocation-guide	301
-/destinations/Palmerston_North_Relocation_Guide.html	/destinations/palmerston-north-relocation-guide	301
+/destinations/Palmerston_North_Destination_Guide.html	/destinations/palmerston-north-new-zealand	301!
+/destinations/palmerston-north-relocation-guide	/destinations/palmerston-north-new-zealand	301
+/destinations/Palmerston_North_Relocation_Guide	/destinations/palmerston-north-new-zealand	301
+/destinations/Palmerston_North_Relocation_Guide.html	/destinations/palmerston-north-new-zealand	301
 /destinations/Queensland_Relocation_Guide	/destinations/queensland-australia	301
 /destinations/Queensland_Relocation_Guide.html	/destinations/queensland-australia	301
 /destinations/South_Australia_Relocation_Guide	/destinations/south-australia-australia	301
@@ -121,15 +141,15 @@
 /destinations/Victoria_Relocation_Guide.html	/destinations/victoria-australia	301
 /destinations/waikato-new-zealand	/destinations/Waikato_Destination_Guide.html	200
 /destinations/Waikato_Destination_Guide	/destinations/waikato-new-zealand	301
-/destinations/Waikato_Destination_Guide.html	/destinations/waikato-new-zealand	301
-/destinations/waikato-relocation-guide	/destinations/Waikato_Relocation_Guide.html	200
-/destinations/Waikato_Relocation_Guide	/destinations/waikato-relocation-guide	301
-/destinations/Waikato_Relocation_Guide.html	/destinations/waikato-relocation-guide	301
+/destinations/Waikato_Destination_Guide.html	/destinations/waikato-new-zealand	301!
+/destinations/waikato-relocation-guide	/destinations/waikato-new-zealand	301
+/destinations/Waikato_Relocation_Guide	/destinations/waikato-new-zealand	301
+/destinations/Waikato_Relocation_Guide.html	/destinations/waikato-new-zealand	301
 /destinations/Wellington_Destination_Guide	/destinations/wellington-new-zealand	301
-/destinations/Wellington_Destination_Guide.html	/destinations/wellington-new-zealand	301
-/destinations/wellington-relocation-guide	/destinations/Wellington_Relocation_Guide.html	200
-/destinations/Wellington_Relocation_Guide	/destinations/wellington-relocation-guide	301
-/destinations/Wellington_Relocation_Guide.html	/destinations/wellington-relocation-guide	301
+/destinations/Wellington_Destination_Guide.html	/destinations/wellington-new-zealand	301!
+/destinations/wellington-relocation-guide	/destinations/wellington-new-zealand	301
+/destinations/Wellington_Relocation_Guide	/destinations/wellington-new-zealand	301
+/destinations/Wellington_Relocation_Guide.html	/destinations/wellington-new-zealand	301
 /destinations/Western_Australia_Relocation_Guide	/destinations/western-australia-australia	301
 /destinations/Western_Australia_Relocation_Guide.html	/destinations/western-australia-australia	301
 /destinations/New_Zealand_Relocation_Guide	/destinations/new-zealand-relocation-guide	301
@@ -139,17 +159,17 @@
 /destinations/Australian_Capital_Territory_Destination_Guide	/destinations/canberra-australia	301
 /destinations/Australian_Capital_Territory_Destination_Guide.html	/destinations/canberra-australia	301
 /destinations/New_South_Wales_Destination_Guide	/destinations/new-south-wales-australia	301
-/destinations/New_South_Wales_Destination_Guide.html	/destinations/new-south-wales-australia	301
+/destinations/New_South_Wales_Destination_Guide.html	/destinations/new-south-wales-australia	301!
 /destinations/Queensland_Destination_Guide	/destinations/queensland-australia	301
-/destinations/Queensland_Destination_Guide.html	/destinations/queensland-australia	301
+/destinations/Queensland_Destination_Guide.html	/destinations/queensland-australia	301!
 /destinations/South_Australia_Destination_Guide	/destinations/south-australia-australia	301
-/destinations/South_Australia_Destination_Guide.html	/destinations/south-australia-australia	301
+/destinations/South_Australia_Destination_Guide.html	/destinations/south-australia-australia	301!
 /destinations/Tasmania_Destination_Guide	/destinations/tasmania-australia	301
-/destinations/Tasmania_Destination_Guide.html	/destinations/tasmania-australia	301
+/destinations/Tasmania_Destination_Guide.html	/destinations/tasmania-australia	301!
 /destinations/Victoria_Destination_Guide	/destinations/victoria-australia	301
-/destinations/Victoria_Destination_Guide.html	/destinations/victoria-australia	301
+/destinations/Victoria_Destination_Guide.html	/destinations/victoria-australia	301!
 /destinations/Western_Australia_Destination_Guide	/destinations/western-australia-australia	301
-/destinations/Western_Australia_Destination_Guide.html	/destinations/western-australia-australia	301
+/destinations/Western_Australia_Destination_Guide.html	/destinations/western-australia-australia	301!
 
 # Auckland guide chapters
 /destinations/auckland-new-zealand/welcome	/destinations/auckland/welcome.html	200
@@ -162,10 +182,10 @@
 /destinations/auckland-new-zealand/recreation	/destinations/auckland/recreation.html	200
 /destinations/auckland-new-zealand/food	/destinations/auckland/food.html	200
 
-# Moving to New Zealand — the national master guide
+# Moving to New Zealand — the national master guide. (/guides/moving-to-new-zealand is a DIFFERENT page —
+# "Is New Zealand right for my family?", the deciding-stage guide — and must not redirect here. Rule removed 8 Sep 2026.)
 /destinations/new-zealand-relocation-guide	/destinations/Moving_to_New_Zealand.html	200
 /moving-to-new-zealand	/destinations/new-zealand-relocation-guide	301
-/guides/moving-to-new-zealand	/destinations/new-zealand-relocation-guide	301
 /guides/aotearoa-in-short	/guides/nz/aotearoa-in-short.html	200
 /guides/choosing-where-to-live	/destinations/	301
 /guides/how-the-health-system-works	/guides/new-zealand-healthcare	301
@@ -313,9 +333,9 @@
 # Practice layer — "how to practise well here" (29 Aug 2026). Clean canonical URL
 # serves the file; the .html form 301s to it so only one URL is indexable.
 /guides/new-zealand-practice	/guides/new-zealand-practice.html	200
-/guides/new-zealand-practice.html	/guides/new-zealand-practice	301
+/guides/new-zealand-practice.html	/guides/new-zealand-practice	301!
 /guides/australia-practice	/guides/australia-practice.html	200
-/guides/australia-practice.html	/guides/australia-practice	301
+/guides/australia-practice.html	/guides/australia-practice	301!
 
 # Printed guides — request only
 /request-a-guide	/request-a-guide.html	200
@@ -333,7 +353,7 @@
 /destinations/southland-new-zealand/food	/destinations/southland/food.html	200
 /destinations/southland-new-zealand/weekends	/destinations/southland/weekends.html	200
 /destinations/Southland_Destination_Guide	/destinations/southland-new-zealand	301
-/destinations/Southland_Destination_Guide.html	/destinations/southland-new-zealand	301
+/destinations/Southland_Destination_Guide.html	/destinations/southland-new-zealand	301!
 
 # Hawke's Bay guide chapters (Aug 2026)
 /destinations/hawkes-bay-new-zealand/welcome	/destinations/hawkes-bay/welcome.html	200
@@ -369,7 +389,7 @@
 /destinations/gisborne-new-zealand/food	/destinations/gisborne/food.html	200
 /destinations/gisborne-new-zealand/weekends	/destinations/gisborne/weekends.html	200
 /destinations/Gisborne_Destination_Guide	/destinations/gisborne-new-zealand	301
-/destinations/Gisborne_Destination_Guide.html	/destinations/gisborne-new-zealand	301
+/destinations/Gisborne_Destination_Guide.html	/destinations/gisborne-new-zealand	301!
 
 # New South Wales guide chapters (Aug 2026)
 /destinations/new-south-wales-australia	/destinations/New_South_Wales_Destination_Guide.html	200
@@ -462,7 +482,7 @@
 /destinations/brisbane-australia/weekends	/destinations/brisbane/weekends.html	200
 /destinations/brisbane	/destinations/brisbane-australia	301
 /destinations/Brisbane_Destination_Guide	/destinations/brisbane-australia	301
-/destinations/Brisbane_Destination_Guide.html	/destinations/brisbane-australia	301
+/destinations/Brisbane_Destination_Guide.html	/destinations/brisbane-australia	301!
 
 # Melbourne city guide (Aug 2026)
 /destinations/melbourne-australia/welcome	/destinations/melbourne/welcome.html	200
@@ -488,7 +508,7 @@
 /destinations/sydney-australia/weekends	/destinations/sydney/weekends.html	200
 /destinations/sydney	/destinations/sydney-australia	301
 /destinations/Sydney_Destination_Guide	/destinations/sydney-australia	301
-/destinations/Sydney_Destination_Guide.html	/destinations/sydney-australia	301
+/destinations/Sydney_Destination_Guide.html	/destinations/sydney-australia	301!
 
 # Perth city guide (Aug 2026)
 /destinations/perth-australia	/destinations/Perth_Destination_Guide.html	200
@@ -503,7 +523,7 @@
 /destinations/perth-australia/weekends	/destinations/perth/weekends.html	200
 /destinations/perth	/destinations/perth-australia	301
 /destinations/Perth_Destination_Guide	/destinations/perth-australia	301
-/destinations/Perth_Destination_Guide.html	/destinations/perth-australia	301
+/destinations/Perth_Destination_Guide.html	/destinations/perth-australia	301!
 
 # Canberra city guide (Aug 2026)
 /destinations/canberra-australia	/destinations/Canberra_Destination_Guide.html	200
@@ -518,7 +538,7 @@
 /destinations/canberra-australia/weekends	/destinations/canberra/weekends.html	200
 /destinations/canberra	/destinations/canberra-australia	301
 /destinations/Canberra_Destination_Guide	/destinations/canberra-australia	301
-/destinations/Canberra_Destination_Guide.html	/destinations/canberra-australia	301
+/destinations/Canberra_Destination_Guide.html	/destinations/canberra-australia	301!
 
 # Darwin city guide (Aug 2026) — converted from the Northern Territory state guide
 /destinations/darwin-australia	/destinations/Darwin_Destination_Guide.html	200
@@ -533,7 +553,7 @@
 /destinations/darwin-australia/weekends	/destinations/darwin/weekends.html	200
 /destinations/darwin	/destinations/darwin-australia	301
 /destinations/Darwin_Destination_Guide	/destinations/darwin-australia	301
-/destinations/Darwin_Destination_Guide.html	/destinations/darwin-australia	301
+/destinations/Darwin_Destination_Guide.html	/destinations/darwin-australia	301!
 
 # Bunbury city guide (Aug 2026) — upgraded from a single-page short guide to hub + nine chapters
 /destinations/bunbury-australia	/destinations/Bunbury_Destination_Guide.html	200
@@ -548,7 +568,7 @@
 /destinations/bunbury-australia/weekends	/destinations/bunbury/weekends.html	200
 /destinations/bunbury	/destinations/bunbury-australia	301
 /destinations/Bunbury_Destination_Guide	/destinations/bunbury-australia	301
-/destinations/Bunbury_Destination_Guide.html	/destinations/bunbury-australia	301
+/destinations/Bunbury_Destination_Guide.html	/destinations/bunbury-australia	301!
 
 # Newcastle city guide (Aug 2026) — new guide, no previous single page existed
 /destinations/newcastle-australia	/destinations/Newcastle_Destination_Guide.html	200
@@ -563,7 +583,7 @@
 /destinations/newcastle-australia/weekends	/destinations/newcastle/weekends.html	200
 /destinations/newcastle	/destinations/newcastle-australia	301
 /destinations/Newcastle_Destination_Guide	/destinations/newcastle-australia	301
-/destinations/Newcastle_Destination_Guide.html	/destinations/newcastle-australia	301
+/destinations/Newcastle_Destination_Guide.html	/destinations/newcastle-australia	301!
 /destinations/northern-territory-relocation-guide	/destinations/darwin-australia	301
 /destinations/Northern_Territory_Relocation_Guide	/destinations/darwin-australia	301
 /destinations/Northern_Territory_Relocation_Guide.html	/destinations/darwin-australia	301
@@ -583,7 +603,7 @@
 /destinations/adelaide-australia/weekends	/destinations/adelaide/weekends.html	200
 /destinations/adelaide	/destinations/adelaide-australia	301
 /destinations/Adelaide_Destination_Guide	/destinations/adelaide-australia	301
-/destinations/Adelaide_Destination_Guide.html	/destinations/adelaide-australia	301
+/destinations/Adelaide_Destination_Guide.html	/destinations/adelaide-australia	301!
 
 # Retired 23 Aug 2026 — introductions are now requested on the registration form,
 # and candidate stories are being rebuilt from real placements.
@@ -623,3 +643,11 @@
 /destinations/geelong-australia/cost	/destinations/geelong/cost.html	200
 /destinations/geelong-australia/food	/destinations/geelong/food.html	200
 /destinations/geelong-australia/weekends	/destinations/geelong/weekends.html	200
+
+# Profession comparison guides folded into the profession pages (#compared) on 8 Sep 2026 — programme item 2: seven comparison guides become two.
+/guides/gp-australia-vs-new-zealand	/guides/australia-vs-new-zealand	301
+/guides/gp-australia-vs-new-zealand.html	/guides/australia-vs-new-zealand	301
+/guides/radiologist-australia-vs-new-zealand	/guides/australia-vs-new-zealand	301
+/guides/radiologist-australia-vs-new-zealand.html	/guides/australia-vs-new-zealand	301
+/guides/sonographer-australia-vs-new-zealand	/guides/australia-vs-new-zealand	301
+/guides/sonographer-australia-vs-new-zealand.html	/guides/australia-vs-new-zealand	301

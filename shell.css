@@ -475,6 +475,56 @@ nav.wf-crumb a,nav.ch-nav a,nav.crumb a{min-height:24px;display:flex;align-items
    shell had to declare its own — which is how 48 pages ended up patching the
    colour back to raw fern (2.37:1). Mirrored from site.css. Page-level rules
    still win on order, so this only reaches pages that had no rule at all. */
-.eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:16px}
+/* Canonical eyebrow — mirrored from site.css (both sheets must carry every component
+   token, per the accessibility rule). The ::before is the 28px lime rule; --eyebrow-ink
+   / --eyebrow-rule let a country page override to clay + apricot, with the NZ/default
+   canonical as the literal fallback so an unset page still renders correctly. */
+.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--eyebrow-ink,#2F5E49);margin-bottom:16px}
+.eyebrow::before{content:"";width:28px;height:3px;border-radius:3px;background:var(--eyebrow-rule,#A6C84A);flex:none}
 
 .navitem .ar{font-size:.78em;font-weight:600;margin-left:.18em;vertical-align:.08em}
+
+/* Move is the differentiator, not just another nav item — a soft lime pill marks it
+   without competing with the solid-teal Contact CTA. Desktop only: in the stacked
+   mobile panel a pill reads as a button and confuses the hierarchy. Selected on the
+   href so no page markup changes (the header is hand-maintained on ~400 pages).
+   Teal #02615D on the blended tint measures ~6.5:1 — clears AA. */
+@media(min-width:981px){
+.site-nav .navitem>a[href="/move"]{border:1.5px solid #72A471;border-radius:999px;padding-left:15px;padding-right:15px;color:#02615D;transition:border-color .15s ease,background .15s ease}
+.site-nav .navitem>a[href="/move"]:hover{border-color:#02615D;background:rgba(2,97,93,.06)}
+}
+
+
+/* ==========================================================================
+   LEGIBILITY FLOORS (2 Sep 2026) — corrected at source so every page inherits.
+   Previously these lived only in readable.css, linked on eight journey pages;
+   the 13.5px card copy and ~85-character measure were still the default
+   everywhere else. Selectors are prefixed with `main` so they beat page-level
+   class rules (0,1,2 vs 0,1,1) without !important and regardless of load order.
+   Mirrored in site.css and shell.css — per the rule that a component token
+   added to one sheet must be added to both.
+   - MEASURE: prose capped at 66ch. Long lines are the hardest part of reading
+     with dyslexia (losing your place on the return sweep).
+   - SIZE: nothing below 16px in cards, lists and answers.
+   - LEADING: 1.6 minimum inside cards; clearer gaps between paragraphs.
+   ========================================================================== */
+main .reading>p:not([class]),main .reading>ul,main .reading>ol,main .reading>dl{max-width:66ch}
+main .reading>p:not([class]){font-size:17px;line-height:1.75}
+main .reading>p+p{margin-top:6px}
+main .how p,main .pick p,main .rel p,main .dl-card p,main .star-i p,main .regstep p{font-size:16px;line-height:1.6}
+main .qcard li,main .fit li,main .ticks li{font-size:16px;line-height:1.65}
+main .faq .ans,main .faq .ans p{font-size:16.5px;line-height:1.7}
+main .lead{font-size:18.5px;line-height:1.7}
+main .crumb{font-size:14px}
+main .tl .lab{font-size:13px}
+main .how h3,main .rel h3{font-size:18px}
+main p,main li,main dd{letter-spacing:.006em;text-wrap:pretty;hyphens:none;overflow-wrap:break-word}
+
+/* Profession and destination page vocabularies (added 2 Sep 2026). The floors
+   above name guide-page classes only, so these families were still rendering
+   card and fact copy at 13.5–14.5px. Same rules, wider selector list. */
+main .pcard p,main .fcard p,main .fact .v,main .season p,main .tool .td{font-size:16px;line-height:1.6}
+main .fcard h3{font-size:18px}
+main .ans p,main .ans li{font-size:16.5px;line-height:1.7}
+main .wf-step p,main .wf-hub p,main .locator figcaption,main figcaption{font-size:15px;line-height:1.6}
+main .editorial{line-height:1.75}

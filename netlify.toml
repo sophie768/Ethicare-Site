@@ -30,6 +30,36 @@
   status = 301
   force = true
 
+# Australia launched medical-imaging-first (Sep 2026). The non-imaging AU family
+# routers are not built yet; their single canonical surface is the brewing hub,
+# which captures interest. force=true so the redirect wins even if a stale file
+# lingers. Remove a line here when that family's AU offering goes live.
+[[redirects]]
+  from = "/jobs/medicine-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/jobs/nursing-midwifery-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/jobs/mental-health-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/jobs/allied-health-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/jobs/theatre-perioperative-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+
 # Security + caching headers
 [[headers]]
   for = "/*"
@@ -38,8 +68,30 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
 
+# Content-addressed assets (images, fonts, downloads) never change under the
+# same filename — cache them for a year.
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Stylesheets and scripts are NOT fingerprinted (site.css, shell.css, move.js),
+# so an immutable year would strand users on a stale build. Revalidate hourly
+# but serve the cached copy instantly for a week while that happens.
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=604800"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=604800"
+
+# HTML must always be checked — content and pricing change.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

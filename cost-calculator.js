@@ -45,7 +45,21 @@
   function isAU() { return st.dest === 'au'; }
   function cc() { return isAU() ? 'au' : 'nz'; }
   function code() { return D().currency.code[st.dest]; }
-  function save() { try { localStorage.setItem(LSK, JSON.stringify({ st: st, ts: Date.now() })); } catch (e) {} }
+  function save() { try { localStorage.setItem(LSK, JSON.stringify({ st: st, ts: Date.now() })); } catch (e) {} summary(); }
+  /* A compact read-only summary for My Move's money line (my-move reads SUMMARY_KEY, never LSK).
+     Written only once the estimate has been reached, so a half-answered stage 1 never shows as a budget. */
+  var SUMMARY_KEY = 'ethicare_cost_summary_v1';
+  function summary() {
+    try {
+      if (!D() || st.stage < 5) return;
+      var t = totals();
+      localStorage.setItem(SUMMARY_KEY, JSON.stringify({
+        grand: Math.round(t.grand), costToYou: Math.round(t.costToYou), contribution: Math.round(t.contribution),
+        upfront: Math.round(t.upfront), showUpfront: t.showUpfront, employer: st.employer,
+        currency: code(), dest: st.dest, region: regionLabel(), ts: Date.now()
+      }));
+    } catch (e) {}
+  }
   function set(patch) { assign(st, patch); save(); render(); }
   function setOverride(id, value) {
     var next = assign({}, st.overrides);
@@ -714,7 +728,7 @@
     if (el.hasAttribute('data-print')) return window.print();
 
     if (el.hasAttribute('data-restart')) {
-      try { localStorage.removeItem(LSK); } catch (e2) {}
+      try { localStorage.removeItem(LSK); localStorage.removeItem(SUMMARY_KEY); } catch (e2) {}
       st = assign({}, S0, { covers: {}, overrides: {} });
       moveFocus = true; save(); return render();
     }

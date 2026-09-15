@@ -1,0 +1,37 @@
+/* ==========================================================================
+   READABLE — legibility floors for dyslexic and low-vision readers.
+   Load LAST on content pages (after the page sheet, prose-links.css and
+   secbar.css) so it wins on equal specificity. Every selector is prefixed
+   with `main` so it beats the page's own class rules without !important.
+
+   What this sheet fixes, and why:
+   - MEASURE. Prose ran to ~85 characters a line. Tracking a line back to the
+     next one is the hardest part of reading with dyslexia; 60–70 is the
+     usable range, so prose is capped at 66ch.
+   - SIZE FLOOR. Card and list copy sat at 13.5–14.5px. Nothing below 16px.
+   - LEADING & SEPARATION. 1.6 minimum inside cards; a clear gap between
+     paragraphs does more for scanning than tighter leading.
+   - TRACKING. A whisper of letter-spacing aids letter discrimination without
+     looking spaced out.
+   Off-white surfaces (#FCFBF8) and left-aligned, unjustified text were
+   already right and are left alone.
+   ========================================================================== */
+
+/* line length */
+main .reading>p:not([class]),main .reading>ul,main .reading>ol,main .reading>dl{max-width:66ch}
+main .reading>p:not([class]){font-size:17px;line-height:1.75}
+main .reading>p+p{margin-top:6px}
+
+/* size floors in cards, lists and answers */
+main .how p,main .pick p,main .rel p,main .dl-card p,main .star-i p,main .regstep p{font-size:16px;line-height:1.6}
+main .qcard li,main .fit li{font-size:16px;line-height:1.65}
+main .faq .ans,main .faq .ans p{font-size:16.5px;line-height:1.7}
+main .lead{font-size:18.5px;line-height:1.7}
+main .crumb{font-size:14px}
+main .tl .lab{font-size:13px}
+
+/* headings inside cards: a touch larger so the hierarchy is obvious at a glance */
+main .how h3,main .rel h3{font-size:18px}
+
+/* letter discrimination + never break a word mid-line */
+main p,main li,main dd{letter-spacing:.006em;text-wrap:pretty;hyphens:none;overflow-wrap:break-word}

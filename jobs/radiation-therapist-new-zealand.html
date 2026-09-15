@@ -8,7 +8,7 @@
 <meta name="description" content="Radiation therapy careers in New Zealand: registration with the Medical Radiation Technologists Board, scope, salary, demand and relocation support from Ethicare Resourcing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../shell.css">
 <style>
 :root{
@@ -34,7 +34,7 @@ p{margin-bottom:18px}strong{color:var(--green)}
 .wrap{max-width:1200px;margin:0 auto;padding:0 22px}
 .reading{max-width:1200px}.reading>*{max-width:760px}
 .section{padding:var(--sp-major,clamp(56px,7vw,92px)) 0;position:relative}
-.eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:16px}
+/* eyebrow — canonical (shell.css) */
 
 .lead{font-size:18px;line-height:var(--lh-body);color:var(--muted);max-width:64ch}
 .crumb{display:flex;flex-wrap:wrap;align-items:center;gap:9px;font-family:var(--display);font-weight:600;font-size:13px;color:var(--muted);margin-bottom:22px}
@@ -129,12 +129,10 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 .hero-art::after{display:none}
 @media (max-width:900px){.hero-art{position:relative;top:auto;right:auto;transform:none;width:100%;max-width:460px;margin:24px auto 0;padding:0}.hero-copy{max-width:none}}
 </style>
-<style id="nz-fern-accent">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}.cta .eyebrow{color:#2F5E49}</style>
 <link rel="stylesheet" href="../hero.css">
 <link rel="stylesheet" href="../hero-rail.css">
 <link rel="stylesheet" href="../profession-hero.css">
 <link rel="stylesheet" href="../disclose.css">
-<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
 <style id="cmp-faq-base">
 
 
@@ -147,23 +145,23 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 </style>
 <style id="profession-redesign">
 :root{--acc:#72A471;--acc-deep:#72A471;--soft:#E3ECE5;--chip:#EAF2EA}
-.hero{background:#FCFBF8;min-height:auto;display:block;overflow:hidden;position:relative}
-.hero .bg{position:absolute;top:0;right:0;bottom:0;left:auto;width:55%;z-index:0}
+.hero{background:#02615D;min-height:auto;display:block;overflow:hidden;position:relative}
+.hero .bg{display:none}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 34%}
 .hero .bg::after{content:"";position:absolute;inset:0;display:block!important;background:linear-gradient(90deg,#FCFBF8 0px,rgba(247,245,239,.92) 6px,rgba(247,245,239,.55) 15px,rgba(247,245,239,.18) 23px,rgba(247,245,239,0) 32px)}
 .hero .wrap{max-width:1200px;margin:0 auto;padding-top:clamp(40px,4.6vw,64px);padding-bottom:clamp(40px,4.6vw,64px)}
 .hero h1{font-size:var(--t-display);line-height:1.08}
 .hero .hero-sub{margin-bottom:2px}
-.hero .copy{position:relative;z-index:2;max-width:min(45%,552px)}
-.hero h1{color:#02615D}
-.hero .eyebrow{color:#2F5E49;display:flex;align-items:center;gap:12px}
-.hero .crumb,.hero .crumb a{color:#5C6B57}
-.hero .crumb a:hover,.hero .crumb .here{color:#02615D}
-.hero .hero-sub{color:#3C4B45}
-.hero .btn-primary{background:#02615D;color:#fff;box-shadow:0 10px 26px rgba(2,97,93,.20)}
-.hero .btn-primary:hover{background:#014E4B}
-.hero .btn-ghost{background:transparent;border:2px solid #02615D;color:#02615D}
-.hero .btn-ghost:hover{background:rgba(2,97,93,.08)}
+.hero .copy{position:relative;z-index:2;max-width:min(760px,92%)}
+.hero h1{color:#fff}
+.hero .eyebrow{color:#C6E084;display:flex;align-items:center;gap:12px}
+.hero .crumb,.hero .crumb a{color:#BBD9D2}
+.hero .crumb a:hover,.hero .crumb .here{color:#fff}
+.hero .hero-sub{color:#DCEAE5}
+.hero .btn-primary{background:#FCFBF8;color:#02615D;box-shadow:0 10px 26px rgba(1,49,47,.28)}
+.hero .btn-primary:hover{background:#F7F4EE}
+.hero .btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.55);color:#fff}
+.hero .btn-ghost:hover{background:rgba(1,49,47,.42);border-color:#fff}
 .hero .hchips{display:flex;gap:9px;flex-wrap:wrap;margin-top:30px}
 .hero .hchip{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:12.5px;border-radius:30px;padding:8px 15px;background:#fff;border:1px solid #E0E8E1;color:#02615D}
 .hero .hchip .dot{width:6px;height:6px;border-radius:50%;background:#A6C84A;flex:none}
@@ -183,11 +181,11 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 .wrap.reading{max-width:1200px}
 .wrap.reading>*{max-width:800px}
 .section .eyebrow{display:flex;align-items:center;gap:12px;color:#2F5E49}
-.section .eyebrow::before{content:"";width:28px;height:3px;border-radius:3px;background:var(--acc);flex:none}
+.section .eyebrow::before{content:"";width:28px;height:3px;border-radius:3px;background:#A6C84A;flex:none}
+.section .feature .eyebrow{color:#C6E084}
 .faq summary::after{color:var(--acc)}
 .final{background:var(--chip)}
 </style>
-<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{content:"";width:28px;height:3px;border-radius:3px;background:#A6C84A!important;flex:none}</style>
 <style id="rt-edit">
 /* links inside the facts strip and pay grid: prose-links.css deliberately only reaches
    :is(p,li,dd)>a:not([class]), so an anchor inside a div or span renders as plain body text —
@@ -230,7 +228,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
       <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
         <div class="subnav">
           <a href="/move">Your plan</a>
@@ -241,6 +239,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
@@ -253,7 +252,6 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 <main id="main-content" tabindex="-1">
 
 <header class="hero">
-  <div class="bg"><img src="../assets/professions/photo-radiation-therapist-nz.png" alt="A radiation therapist preparing a patient for treatment" fetchpriority="high"></div>
   <div class="wrap">
     <div class="copy">
       <nav class="crumb" aria-label="Breadcrumb">
@@ -265,7 +263,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
       <h1>Radiation therapy, where your expertise is valued.</h1>
       <p class="hero-sub">Modern centres, strong teams, meaningful work.</p>
       <div class="btn-row">
-        <a href="/apply" class="btn btn-primary">Explore opportunities</a>
+        <a href="/jobs/" class="btn btn-primary">Explore opportunities</a>
         <a href="/contact" class="btn btn-ghost">Talk to the team</a>
       </div>
     </div>
@@ -296,6 +294,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 </div>
 </div></section>
 <details class="ddwrap" id="deeper"><summary class="ddbtn"><span class="t">Want the detail? Dig deeper</span><span class="s">Why New Zealand, the work itself, registration, pay in full, life here, choosing a location, what we can&rsquo;t promise and the FAQs &mdash; everything, one click down.</span><span class="pm" aria-hidden="true"></span></summary>
+<div class="wrap" style="padding:clamp(26px,3vw,40px) 22px 0"><figure style="margin:0;max-width:680px"><img src="../assets/professions/photo-radiation-therapist-nz.png" alt="A radiation therapist preparing a patient for treatment" loading="lazy" style="display:block;width:100%;max-height:360px;object-fit:cover;border-radius:16px;border:1px solid var(--mint,#EBDFD3)"><figcaption style="font-family:var(--display),'Work Sans',sans-serif;font-weight:600;font-size:13px;color:#5C6B57;margin-top:10px">Radiation therapy in a New Zealand cancer centre.</figcaption></figure></div>
 
 <section class="section" id="why" style="background:var(--soft)"><div class="wrap"><span class="eyebrow">Radiation therapy &middot; New Zealand</span><h2>Whether this page is relevant to you, in about twenty seconds</h2>
 <div class="factrow">
@@ -319,7 +318,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 </div></section>
 
 <section class="section" id="registration" style="background:var(--soft)"><div class="wrap reading"><span class="eyebrow">Getting registered</span><h2>Registration, in brief</h2><p class="rev-note" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;color:#2F5E49;margin:8px 0 0">Reviewed July 2026 &middot; checked against the Medical Radiation Technologists Board&rsquo;s current published guidance</p><p class="lead">You register with the <strong>Medical Radiation Technologists Board</strong>, which assesses your qualification, clinical experience and competency against New Zealand standards. Once registered you hold an Annual Practising Certificate.</p><p>What the Board will typically want to see:</p><ul class="ticks"><li>Verification of your qualification</li><li>Evidence of recent clinical practice</li><li>A certificate of good standing from every authority you have registered with</li><li>A police or criminal-history clearance</li><li>Confirmation of English-language proficiency, if required</li></ul><p style="margin-top:24px"><strong>Document shelf life is what catches people out.</strong> Certificates of good standing and certified copies have a short validity window, and the Board&rsquo;s window and Immigration New Zealand&rsquo;s are not the same &mdash; so the order you do things in matters more than the speed. We map that sequence with you, and review your documents before you submit anything.</p><p>The full detail &mdash; both pathways, the document checklist, fees and what to do if something is missing &mdash; lives on the registration guide, which is where we keep it up to date.</p><div class="linkrow"><a class="tlink" href="/guides/new-zealand-registration">The full registration guide<span class="ar" aria-hidden="true">&rarr;</span></a><a class="tlink" href="/pathway-checker?destination=new-zealand">Check your own pathway<span class="ar" aria-hidden="true">&rarr;</span></a></div></div>
-<div class="wrap"><div class="docgrid" style="max-width:920px"><a class="doccard" href="../assets/downloads/ethicare-mrtb-registration-guide.pdf" target="_blank" rel="noopener"><span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="M7 11l5 5 5-5"></path><path d="M4 20h16"></path></svg></span><span class="doc-b"><span class="doc-t">Registration application guide</span><span class="doc-m">Ethicare guide &middot; PDF</span></span><span class="doc-go" aria-hidden="true">&rarr;</span></a><a class="doccard" href="../assets/downloads/ethicare-mrtb-registration-checklist.pdf" target="_blank" rel="noopener"><span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 6-6"></path><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"></path></svg></span><span class="doc-b"><span class="doc-t">Registration checklist</span><span class="doc-m">Ethicare guide &middot; PDF</span></span><span class="doc-go" aria-hidden="true">&rarr;</span></a><a class="doccard" href="https://www.mrtboard.org.nz/" target="_blank" rel="noopener"><span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"></path></svg></span><span class="doc-b"><span class="doc-t">Medical Radiation Technologists Board</span><span class="doc-m">Official registration website</span></span><span class="doc-go" aria-hidden="true">&rarr;</span></a></div></div></section>
+<div class="wrap"><div class="docgrid" style="max-width:920px"><a class="doccard" href="/guides/new-zealand-registration-mrtb"><span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M9 13h6"></path><path d="M9 17h6"></path></svg></span><span class="doc-b"><span class="doc-t">Registration application guide</span><span class="doc-m">Ethicare guide</span></span><span class="doc-go" aria-hidden="true">&rarr;</span></a><a class="doccard" href="/guides/new-zealand-registration-mrtb#checklist"><span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 6-6"></path><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"></path></svg></span><span class="doc-b"><span class="doc-t">Registration checklist</span><span class="doc-m">Ethicare guide</span></span><span class="doc-go" aria-hidden="true">&rarr;</span></a><a class="doccard" href="https://www.mrtboard.org.nz/" target="_blank" rel="noopener"><span class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"></path></svg></span><span class="doc-b"><span class="doc-t">Medical Radiation Technologists Board</span><span class="doc-m">Official registration website</span></span><span class="doc-go" aria-hidden="true">&rarr;</span></a></div><p class="doc-alt" style="font-size:13.5px;color:#555555;margin-top:12px">Prefer a download? <a href="../assets/downloads/ethicare-mrtb-registration-guide.pdf" target="_blank" rel="noopener">Registration guide (PDF)</a> &middot; <a href="../assets/downloads/ethicare-mrtb-registration-checklist.pdf" target="_blank" rel="noopener">Checklist (PDF)</a></p></div></section>
 
 <section class="section" id="pay"><div class="wrap"><span class="eyebrow">Pay</span><h2>One national scale, so location is a lifestyle decision rather than a pay one</h2>
 <div class="payhead"><span class="fig">NZ$79,000&ndash;$119,000</span><span class="cap">Indicative &middot; APEX allied health core scale</span></div>
@@ -359,7 +358,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 <div class="t"><h3>That the move is right for you</h3><p>Some moves shouldn&rsquo;t happen. If the scope, the pay maths or the family logistics don&rsquo;t stack up, we will say so plainly. We would rather lose a placement than see you land in the wrong life.</p></div>
 </div></div></section>
 
-<section class="section" id="wider"><div class="wrap reading"><span class="eyebrow">The rest of the move</span><h2>Everything that isn&rsquo;t about your profession</h2><p class="lead">Visas, how the countries compare, where in the country to live, and the six steps from first conversation to first shift. We cover each of those once, properly, rather than repeating them on every role page.</p><div class="widerlinks"><a href="/guides/new-zealand-visa">Visas &amp; residence</a><a href="/guides/australia-vs-new-zealand">Australia vs New Zealand</a><a href="/destinations/">Where to live</a><a href="/resources">The six steps</a></div></div></section>
+<section class="section" id="wider"><div class="wrap reading"><span class="eyebrow">The rest of the move</span><h2>Everything that isn&rsquo;t about your profession</h2><p class="lead">Visas, how the countries compare, where in the country to live, and the eight stages from first conversation to first shift. We cover each of those once, properly, rather than repeating them on every role page.</p><div class="widerlinks"><a href="/guides/new-zealand-visa">Visas &amp; residence</a><a href="/guides/australia-vs-new-zealand">Australia vs New Zealand</a><a href="/destinations/">Where to live</a><a href="/resources">Guides &amp; resources</a></div></div></section>
 
 <section class="section" id="faq" style="background:var(--soft)"><div class="wrap reading"><span class="eyebrow">Common questions</span><h2>Frequently asked</h2><div class="faq" style="margin-top:32px"><details open><summary>Does my Australian registration and experience count?</summary><div class="ans"><p>Australian-trained and Ahpra-registered therapists are usually the most straightforward group to move, helped by the trans-Tasman recognition arrangement between the two countries. It is still an application to the MRTB rather than an automatic transfer, and the Board will want evidence of recent practice. We confirm what applies to you before anything is lodged.</p></div></details><details><summary>There are so few centres. Will that limit my career?</summary><div class="ans"><p>It limits where you live more than what you do. With a small number of services, the honest position is that your options in any given month are counted in ones and twos, not dozens, and timing matters. What you get in exchange is breadth: rotation across pre-treatment, planning and delivery, and a genuine say in how your role develops because the team is small enough for that conversation to happen.</p><p>Most therapists who move here find their next step is within their service rather than by changing employer &mdash; which is a different career shape, not a worse one.</p></div></details><details><summary>Will I be siloed into planning or into treatment?</summary><div class="ans"><p>Usually the opposite. Most services expect movement across the pathway, and many therapists prefer it. If you want to specialise in planning and dosimetry you can, and there are real roles in it, but you will typically keep some delivery work alongside rather than leaving the units entirely.</p></div></details><details><summary>What are the hours and on-call patterns?</summary><div class="ans"><p>Treatment units run to a daytime list, with extended hours in the larger centres. Palliative and urgent treatment means some out-of-hours or weekend cover in most services, and how that is arranged varies quite a bit between centres.</p><p>It is one of the specific things we ask about on your behalf during offer discussions, because the answer differs enough to change how a role feels.</p></div></details><details><summary>Do I need experience of a particular planning system?</summary><div class="ans"><p>No. Services here use the mainstream planning and record-and-verify platforms you will already have worked with in some form, and they train you on their own configuration. What employers care about is your planning judgement and your patient care, not which vendor&rsquo;s interface you learned on.</p></div></details><details><summary>What is the team structure like?</summary><div class="ans"><p>Small and flat. You will work closely with radiation oncologists and medical physicists, often in the same room rather than through a referral chain, and decisions get made faster because there are fewer layers to go through. Therapists arriving from very large departments often say the access to senior colleagues is the biggest single change.</p><p>It also means visibility. Good work is noticed here, and so is the other kind.</p></div></details></div></div></section>
 
@@ -367,7 +366,10 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 <section class="section"><div class="wrap"><nav class="wf-onward nz" style="margin-bottom:clamp(30px,3.6vw,46px)" aria-label="More professions"><a class="wf-step wf-prev" href="/jobs/psychologist-new-zealand"><span class="wf-lbl"><span class="arw">&#8592;</span>Previous</span><span class="wf-ttl">Psychologists</span></a><a class="wf-hub" href="/new-zealand#professions"><span class="wf-ht">All New&nbsp;Zealand professions</span><span class="wf-hs">Nine specialisms</span></a><a class="wf-step wf-next" href="/jobs/radiographer-new-zealand"><span class="wf-lbl">Next<span class="arw">&#8594;</span></span><span class="wf-ttl">Radiographers</span></a></nav>
 <div class="final"><span class="eyebrow">Nau mai, haere mai &middot; If you&rsquo;re weighing it up</span><h2>What do you want your next department to feel like?</h2><p>Relocating to a new country can feel overwhelming at times, and you won't be doing it on your own. Tell us where you trained and what you're weighing up, and we'll help you think it through.</p><div class="btn-row"><a href="/pathway-checker?destination=new-zealand" class="btn btn-primary">Find your pathway</a><a href="/apply" class="btn btn-secondary">Apply &amp; send your CV</a><a href="/contact" class="btn btn-secondary">Talk to the team</a></div><p class="small">Ethicare Resourcing · your guide to a life and career in New Zealand.</p></div></div></section>
 
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="../page-feedback.js" defer></script>
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">
@@ -407,7 +409,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
   ON THIS PAGE (inside dig deeper) → #vacancy (Roles) · #work (The work) · #registration · #pay · #life (Life in New Zealand) · #where (Locations)
   FACTS STRIP (#why) — What that means → #pay · Check your registration pathway → /pathway-checker?destination=new-zealand · See current opportunities → #vacancy
   LIVE ROLES (profession=Radiation Therapist, country=New Zealand) — View all vacancies → /jobs · Register your interest → /apply
-  REGISTRATION (#registration) — The full registration guide → /guides/new-zealand-registration · Check your own pathway → /pathway-checker?destination=new-zealand · downloads: assets/downloads/ethicare-mrtb-registration-guide.pdf · assets/downloads/ethicare-mrtb-registration-checklist.pdf · Medical Radiation Technologists Board → https://www.mrtboard.org.nz/ (external)
+  REGISTRATION (#registration) — The full registration guide → /guides/new-zealand-registration · Check your own pathway → /pathway-checker?destination=new-zealand · downloads: /guides/new-zealand-registration-mrtb · /guides/new-zealand-registration-mrtb#checklist · Medical Radiation Technologists Board → https://www.mrtboard.org.nz/ (external) · PDF backups: assets/downloads/ethicare-mrtb-registration-guide.pdf · assets/downloads/ethicare-mrtb-registration-checklist.pdf
   PAY (#pay) — How visas work → /guides/new-zealand-visa · Which agreement sets this → /guides/new-zealand-pay-agreements
   LOCATIONS (#where) — Explore the destination guides → /destinations/ · Weighing two countries → /guides/australia-vs-new-zealand
   THE REST OF THE MOVE (#wider) → /guides/new-zealand-visa · /guides/australia-vs-new-zealand · /destinations/ · /resources

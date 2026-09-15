@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,follow">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<link rel="canonical" href="https://ethicareresourcing.com/move-steps">
+<title>Ethicare Move — start where you are</title>
+<meta name="description" content="Eight stages that describe the whole move to New Zealand or Australia: imagine it, choose, find your place, check you can work, make the numbers work, find the role, plan, settle. Start at any stage. Free, no account.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="prose-links.css">
+<style>
+/* === TOPBAR === */
+.mv-bar{background:#FCFBF8;border-bottom:1px solid #C9DED3;position:sticky;top:var(--hdr-h,78px);z-index:40}
+.mv-bar .in{display:flex;align-items:center;gap:8px 20px;padding:12px clamp(16px,3vw,28px);flex-wrap:nowrap}
+.mv-brand{display:flex;align-items:center;gap:10px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;color:#02615D;text-decoration:none;flex:none;white-space:nowrap}
+.mv-brand img{width:30px;height:30px;border-radius:6px}
+.mv-tnav{display:flex;align-items:center;gap:18px;overflow-x:auto;scrollbar-width:none;flex:1;padding:0 8px}
+.mv-tnav::-webkit-scrollbar{display:none}
+.mv-tnav a{font-family:'Work Sans',sans-serif;font-weight:600;font-size:13.5px;color:#2F5E49;white-space:nowrap;text-decoration:none}
+.mv-tnav a:hover{color:#02615D;text-decoration:underline;text-underline-offset:3px}
+.pack-pill{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:8px 16px;background:#02615D;color:#fff;border:0;border-radius:999px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;cursor:pointer;transition:background .15s;white-space:nowrap}
+.pack-pill:hover{background:#014A47}
+.pack-ct{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 3px;border-radius:10px;background:#A6C84A;color:#01312F;font-size:11px;font-weight:700}
+/* === LAYOUT === */
+.mv-layout{display:grid;grid-template-columns:200px minmax(0,1fr);max-width:1160px;margin:0 auto;padding:0 0 0 clamp(16px,2.4vw,28px)}
+/* === RAIL === */
+.mv-rail{position:sticky;top:calc(var(--hdr-h,78px) + 60px);height:calc(100vh - var(--hdr-h,78px) - 60px);overflow-y:auto;padding:28px 0;scrollbar-width:none;border-right:1px solid #E6F1ED}
+.mv-rail::-webkit-scrollbar{display:none}
+.mv-rail-hd{font-family:'Work Sans',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#72A471;padding:0 18px;margin:0 0 10px}
+.mv-rb{display:flex;align-items:flex-start;gap:10px;width:100%;background:none;border:0;padding:9px 18px 9px 14px;text-align:left;cursor:pointer;transition:background .12s;border-radius:0;position:relative}
+.mv-rb::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:0 2px 2px 0;background:transparent;transition:background .12s}
+.mv-rb.active::before{background:#72A471}
+.mv-rb:hover{background:#F3F7F4}
+.mv-rb.active{background:#F3F7F4}
+.mv-rb .rn{font-family:'Work Sans',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.08em;color:#2F5E49;flex:none;margin-top:2px;min-width:22px}
+.mv-rb .rl{font-family:'Work Sans',sans-serif;font-size:12.5px;line-height:1.38;color:#555555;text-align:left}
+.mv-rb.active .rl{color:#02615D;font-weight:600}
+.mv-rb.done .rn::after{content:" ✓";color:#72A471}
+/* === MAIN === */
+.mv-main{padding:0 clamp(24px,3.2vw,44px) 64px;min-height:100vh}
+.mv-intro{padding:clamp(32px,4vw,52px) 0 clamp(28px,3.2vw,40px);border-bottom:1px solid rgba(2,97,93,.12);max-width:680px}
+.mv-intro .tag{display:flex;align-items:center;gap:12px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin:0 0 12px}
+.mv-intro .tag::before{content:"";width:24px;height:2px;border-radius:1px;background:#A6C84A;flex:none}
+.mv-intro h1{font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(32px,4.2vw,50px);line-height:1.07;letter-spacing:-.025em;color:#02615D;margin:0 0 14px}
+.mv-intro p{font-size:17px;line-height:1.65;color:#333333;max-width:60ch;margin:0;text-wrap:pretty}
+.mv-intro .free{display:inline-block;margin-top:14px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;letter-spacing:.06em;color:#2F5E49;background:#E6F1ED;border-radius:999px;padding:5px 14px}
+/* === STEPS === */
+.mv-step{padding:clamp(36px,4.6vw,60px) 0;border-bottom:1px solid rgba(2,97,93,.1);max-width:700px;scroll-margin-top:calc(var(--hdr-h,78px) + 80px)}
+.mv-step:last-of-type{border-bottom:0}
+.mv-sn{display:block;font-family:'Work Sans',sans-serif;font-weight:700;font-size:clamp(52px,6vw,80px);line-height:.9;letter-spacing:-.04em;color:#C9DED3;margin:0 0 6px;transition:color .2s}
+.mv-step.active .mv-sn{color:#D6E9E7}
+.mv-step h2{font-family:'Work Sans',sans-serif;font-weight:500;font-size:clamp(25px,3vw,36px);line-height:1.08;letter-spacing:-.02em;color:#02615D;margin:0 0 18px;text-wrap:balance}
+.mv-copy{font-size:17px;line-height:1.65;color:#333333;max-width:62ch;margin:0 0 26px;text-wrap:pretty}
+.mv-copy p{margin:0 0 12px}.mv-copy p:last-child{margin:0}
+.mv-copy a{color:#02615D;font-weight:600}
+.mv-btns{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.mv-btn{display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:12px 22px;border-radius:12px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;text-decoration:none;transition:background .15s;white-space:nowrap}
+.mv-btn:hover{background:#014A47;color:#fff}
+.mv-btn i{font-style:normal;transition:transform .18s ease}
+.mv-btn:hover i{transform:translateX(3px)}
+.mv-btn.ghost{background:none;color:#02615D;border:1.5px solid #C9DED3}.mv-btn.ghost:hover{border-color:#02615D;background:#E6F1ED}
+/* === GUIDES === */
+.mv-gh{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#2F5E49;display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.mv-gh::before{content:"";width:18px;height:2px;border-radius:1px;background:#A6C84A;flex:none}
+.mv-glist{display:grid;gap:9px}
+.mv-gc{display:flex;align-items:center;gap:14px;background:#F3F7F4;border:1px solid #D6E1DA;border-radius:12px;padding:13px 16px}
+.mv-gc .gct{font-family:'Work Sans',sans-serif;font-weight:600;font-size:14.5px;color:#02615D;flex:1}
+.mv-gc .gcd{font-size:13px;line-height:1.4;color:#555555;flex:1}
+.mv-gc-body{display:flex;flex-direction:column;gap:2px;flex:1}
+.mv-add{flex:none;min-height:34px;padding:6px 14px;border-radius:999px;border:1.5px solid #C9DED3;background:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:12px;color:#02615D;cursor:pointer;white-space:nowrap;transition:all .15s ease}
+.mv-add:hover{border-color:#02615D;background:#E6F1ED}
+.mv-add.on{background:#02615D;border-color:#02615D;color:#fff}
+/* === DESTINATION FINDER === */
+.df{border:1px solid #C9DED3;border-top:3px solid #72A471;border-radius:16px;padding:clamp(22px,2.6vw,32px);margin-bottom:28px;background:#fff}
+.df-intro{font-size:15.5px;line-height:1.62;color:#555555;margin:0 0 22px;max-width:60ch}
+.df-q{margin-bottom:20px}
+.df-ql{font-family:'Work Sans',sans-serif;font-weight:600;font-size:14.5px;color:#02615D;display:block;margin:0 0 10px}
+.df-opts{display:flex;flex-wrap:wrap;gap:8px}
+.df-opt{min-height:42px;padding:9px 18px;border-radius:999px;border:1.5px solid #C9DED3;background:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#555555;cursor:pointer;transition:all .15s}
+.df-opt:hover{border-color:#02615D;color:#02615D}
+.df-opt.sel{background:#02615D;border-color:#02615D;color:#fff}
+.df-run{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:12px 24px;border-radius:12px;background:#02615D;color:#fff;border:0;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;cursor:pointer;margin-top:8px;transition:background .15s}
+.df-run:hover{background:#014A47}
+.df-run:disabled{opacity:.4;cursor:default}
+.df-out{margin-top:26px;display:grid;gap:14px}
+.df-out[hidden]{display:none}
+.df-res{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;background:#F3F7F4;border:1px solid #D6E1DA;border-radius:14px;padding:18px 20px}
+.df-res.first{border-top:3px solid #72A471}
+.df-rank{font-family:'Work Sans',sans-serif;font-weight:700;font-size:28px;line-height:1;color:#C9DED3;margin-top:4px}
+.df-res.first .df-rank{color:#72A471}
+.df-rplace{font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;color:#02615D;margin:0 0 2px}
+.df-rsub{font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#2F5E49;margin:0 0 10px}
+.df-rpros{list-style:none;margin:0 0 8px;padding:0;display:grid;gap:4px}
+.df-rpros li{font-size:14px;line-height:1.52;color:#333333;padding-left:16px;position:relative}
+.df-rpros li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:#72A471}
+.df-rcons{font-size:13.5px;line-height:1.5;color:#555555;margin:0 0 10px;border-left:2px solid #C9DED3;padding-left:10px}
+.df-rlink{font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#02615D}
+.df-rbody{grid-column:2}
+.df-note{font-size:13.5px;color:#555555;margin-top:6px;padding-top:14px;border-top:1px solid rgba(2,97,93,.12)}
+/* === PACK SECTION === */
+.mv-pack{background:#02615D;border-radius:20px;padding:clamp(30px,4vw,48px);max-width:700px;margin:clamp(36px,5vw,60px) 0 0;scroll-margin-top:calc(var(--hdr-h,78px) + 80px)}
+.mv-pack h2{font-family:'Work Sans',sans-serif;font-weight:500;font-size:clamp(24px,2.8vw,32px);color:#fff;margin:0 0 10px;line-height:1.1}
+.mv-pack .pklede{font-size:17px;line-height:1.6;color:rgba(255,255,255,.86);max-width:56ch;margin:0 0 22px;text-wrap:pretty}
+.mv-pack .pk-empty{font-style:italic;color:rgba(255,255,255,.55);font-size:15px;margin:0 0 20px}
+.pk-list{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:7px}
+.pk-list li{display:flex;align-items:baseline;gap:9px;font-size:15px;color:#DCEAE5}
+.pk-list li::before{content:"✓";color:#A6C84A;font-weight:700;flex:none;font-size:14px}
+.pk-form{display:grid;gap:11px;max-width:500px}
+.pk-form label{display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.05em;color:#C6E084;margin-bottom:4px}
+.pk-form input{width:100%;min-height:48px;padding:12px 16px;border:1.5px solid rgba(255,255,255,.28);border-radius:12px;background:rgba(255,255,255,.1);color:#fff;font-family:'Manrope',sans-serif;font-size:16px}
+.pk-form input::placeholder{color:rgba(255,255,255,.42)}
+.pk-form input:focus{outline:none;border-color:#A6C84A}
+.pk-submit{min-height:50px;padding:13px 28px;border-radius:12px;border:0;background:#A6C84A;color:#01312F;font-family:'Work Sans',sans-serif;font-weight:700;font-size:16px;cursor:pointer;transition:background .15s}
+.pk-submit:hover{background:#C6E084}
+.pk-fine{font-size:12.5px;color:rgba(255,255,255,.52);margin:8px 0 0;max-width:46ch}
+.pk-sent{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;color:#C6E084;padding:16px 0;display:none}
+/* === LIFESTYLE TILES === */
+.life-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 28px}
+.life-tile{background:none;border:2px solid #D6E1DA;border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,border-color .15s;text-align:left;padding:0;font:inherit}
+.life-tile:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(2,97,93,.14);border-color:#72A471}
+.life-tile.sel{border-color:#02615D;box-shadow:0 0 0 1px #02615D}
+.life-ph{height:100px;display:block;width:100%;overflow:hidden}
+.life-body{padding:10px 13px;background:#fff;border-top:1px solid #E6F1ED}
+.life-body b{display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13.5px;color:#02615D;margin:0 0 2px;line-height:1.3}
+.life-body small{font-size:11.5px;color:#555555;line-height:1.4}
+.mv-lede{font-family:'Work Sans',sans-serif;font-weight:500;font-size:clamp(19px,2.2vw,24px);line-height:1.38;color:#02615D;margin:0 0 14px!important;letter-spacing:-.01em}
+@media(max-width:560px){.life-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){
+.mv-layout{grid-template-columns:1fr;padding:0 16px}
+.mv-rail{position:relative;top:0;height:auto;display:flex;overflow-x:auto;gap:3px;padding:12px 0;border-right:0;border-bottom:1px solid #E6F1ED;scrollbar-width:none;margin-bottom:8px}
+.mv-rail-hd{display:none}
+.mv-rb{flex-direction:column;gap:1px;padding:8px 12px;flex:none;border-radius:10px;white-space:nowrap}
+.mv-rb::before{display:none}
+.mv-rb .rl{font-size:11px;white-space:nowrap}
+.mv-main{padding:0 0 40px}
+}
+/* === STAGES / CHOOSER / SKIP / START WHERE YOU ARE === */
+.mv-step h1{font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(34px,4.4vw,54px);line-height:1.05;letter-spacing:-.025em;color:#02615D;margin:0 0 16px}
+.mv-q{font-family:'Work Sans',sans-serif;font-weight:500;font-size:clamp(17px,1.9vw,20px);line-height:1.4;color:#2F5E49;margin:-8px 0 18px;max-width:58ch;text-wrap:pretty}
+.where-h{font-family:'Work Sans',sans-serif;font-weight:600;font-size:18px;color:#02615D;margin:26px 0 12px;scroll-margin-top:calc(var(--hdr-h,78px) + 90px)}
+.where{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:0 0 14px}
+.where-opt{display:flex;flex-direction:column;gap:3px;text-align:left;background:#fff;border:1.5px solid #C9DED3;border-radius:14px;padding:16px 18px;cursor:pointer;font:inherit;transition:border-color .15s,box-shadow .15s,transform .15s}
+.where-opt:hover{border-color:#02615D;transform:translateY(-1px);box-shadow:0 10px 24px rgba(2,97,93,.12)}
+.where-opt b{font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;color:#02615D}
+.where-opt small{font-size:13.5px;color:#555555;line-height:1.4}
+.where-opt.sel{border-color:#02615D;background:#E6F1ED;box-shadow:0 0 0 1px #02615D}
+.where-opt.sel b::after{content:" \2713";color:#2F5E49}
+.mv-principle{font-size:15px;line-height:1.55;color:#555555;margin:0 0 18px;padding:14px 16px;border-left:3px solid #A6C84A;background:#FCFBF8;max-width:60ch}
+.mv-principle b{color:#02615D;font-family:'Work Sans',sans-serif;font-weight:600}
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:0 0 10px}
+.who .where-opt{padding:13px 16px}.who .where-opt b{font-size:15px}
+.who-note{font-size:14px;line-height:1.5;color:#555555;margin:0 0 22px;max-width:60ch}
+.mv-hh{display:none;font-size:15.5px;line-height:1.6;color:#333333;background:#F3F7F4;border-left:3px solid #72A471;padding:12px 16px;margin:-8px 0 24px;max-width:62ch;text-wrap:pretty}
+.mv-hh a{color:#02615D;font-weight:600}
+body[data-who="solo"] .mv-hh[data-hh="solo"],body[data-who="partner"] .mv-hh[data-hh="partner"],body[data-who="children"] .mv-hh[data-hh="children"],body[data-who="partner-children"] .mv-hh[data-hh="partner-children"],body[data-who="parent"] .mv-hh[data-hh="parent"]{display:block}
+body[data-who="solo"] .gc-hh{display:none}
+.who-more{display:none;margin:-6px 0 22px}.who-more .df-ql{margin-bottom:8px}.who-more .df-opts{margin-bottom:12px}
+body[data-who="partner"] .who-pw,body[data-who="partner-children"] .who-pw,body[data-who="children"] .who-ages,body[data-who="partner-children"] .who-ages{display:block}
+.who-chip{min-height:42px;padding:9px 18px;border-radius:999px;border:1.5px solid #C9DED3;background:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#555555;cursor:pointer;transition:all .15s}.who-chip:hover{border-color:#02615D;color:#02615D}.who-chip.sel{background:#02615D;border-color:#02615D;color:#fff}
+body[data-pw="health"] .mv-hh[data-hh="partner-health"],body[data-ages~="u5"] .mv-hh[data-hh="age-u5"],body[data-ages~="18up"] .mv-hh[data-hh="age-18up"],body[data-who="children"] .mv-hh[data-hh="solo-parent"]{display:block}
+#life{scroll-margin-top:calc(var(--hdr-h,78px) + 90px)}
+.mv-skip{display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:6px 12px;border-radius:999px;border:1.5px solid #C9DED3;background:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:12.5px;color:#2F5E49;cursor:pointer;margin:0 0 22px;transition:all .15s}
+.mv-skip:hover{border-color:#02615D;color:#02615D}
+.mv-step.skipped .mv-skip{background:#E6F1ED;border-color:#72A471}
+.mv-step.skipped > :not(.mv-sn):not(h1):not(h2):not(.mv-q):not(.mv-skip){display:none}
+.mv-step.skipped .mv-sn{color:#72A471}
+.st-explore,.st-compare,.st-nz,.st-au{display:none}
+body[data-where="explore"] .st-explore,body[data-where="compare"] .st-compare,body[data-where="nz"] .st-nz,body[data-where="au"] .st-au{display:block}
+body[data-where="nz"] .gc-au,body[data-where="au"] .gc-nz,body[data-where="nz"] .hide-if-chosen,body[data-where="au"] .hide-if-chosen{display:none}
+.state-card{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;background:#E6F1ED;border-radius:14px;padding:18px 20px;margin:0 0 22px}
+.state-card p{margin:0;font-family:'Work Sans',sans-serif;font-weight:600;font-size:17px;color:#02615D;flex:1;min-width:180px}
+.state-card .mv-btn{min-height:44px;padding:10px 18px;font-size:14.5px}
+.link-btn{background:none;border:0;padding:0;font:inherit;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#2F5E49;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.link-btn:hover{color:#02615D}
+.sww{position:relative;flex:none}
+.sww summary{list-style:none;display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:8px 14px;border-radius:999px;border:1.5px solid #C9DED3;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;color:#02615D;cursor:pointer;white-space:nowrap;background:#fff}
+.sww summary::-webkit-details-marker{display:none}
+.sww summary:hover,.sww[open] summary{border-color:#02615D}
+.sww-menu{position:absolute;right:0;top:calc(100% + 8px);background:#fff;border:1px solid #C9DED3;border-radius:14px;box-shadow:0 18px 40px rgba(2,97,93,.16);padding:10px;width:min(320px,calc(100vw - 32px));display:grid;gap:2px;z-index:200}
+.sww-menu .hd{font-family:'Work Sans',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:#72A471;padding:6px 10px 4px;margin:0}
+.sww-menu button{display:flex;gap:10px;align-items:baseline;width:100%;text-align:left;background:none;border:0;border-radius:8px;padding:8px 10px;font-family:'Work Sans',sans-serif;font-size:13.5px;color:#333333;cursor:pointer}
+.sww-menu button:hover{background:#F3F7F4;color:#02615D}
+.sww-menu button .n{font-weight:700;font-size:11px;letter-spacing:.08em;color:#2F5E49;min-width:20px}
+.sww-menu button.done .n::after{content:" \2713";color:#72A471}
+.mv-rail-sub{font-size:11.5px;line-height:1.4;color:#555555;padding:0 18px;margin:-4px 0 12px}
+@media(max-width:560px){.where{grid-template-columns:1fr}}
+@media(max-width:700px){.mv-rail-sub{display:none}.mv-tnav{display:none}}
+a{color:inherit;text-decoration:none}
+</style>
+<link rel="icon" href="assets/logo-mark.png">
+<template id="__bundler_thumbnail" data-bg-color="#02615D">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#02615D"/>
+  <rect x="140" y="200" width="560" height="80" rx="14" fill="rgba(255,255,255,.12)"/>
+  <rect x="140" y="310" width="420" height="80" rx="14" fill="rgba(255,255,255,.12)"/>
+  <rect x="140" y="420" width="490" height="80" rx="14" fill="rgba(255,255,255,.12)"/>
+  <rect x="140" y="530" width="380" height="80" rx="14" fill="rgba(255,255,255,.12)"/>
+  <rect x="800" y="200" width="240" height="480" rx="20" fill="rgba(255,255,255,.08)"/>
+  <text x="920" y="460" font-family="sans-serif" font-size="96" font-weight="700" fill="#A6C84A" text-anchor="middle">→</text>
+</svg>
+</template>
+</head>
+<body data-where="explore">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Move <span class="ar" aria-hidden="true">↗</span></a>
+        <div class="subnav">
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<div class="mv-bar" role="region" aria-label="Ethicare Move">
+  <div class="in">
+    <a class="mv-brand" href="/"><img src="assets/logo-mark.png" alt="" width="30" height="30"><span>Ethicare<strong>&nbsp;Move</strong></span></a>
+    <nav class="mv-tnav" aria-label="Tools">
+      <a href="/pathway-checker">Can I register?</a>
+      <a href="/guides/australia-vs-new-zealand">Compare countries</a>
+      <a href="/cost-calculator">What it costs</a>
+      <a href="/resources">All guides</a>
+      <a href="/about-ethicare">Who we are</a>
+    </nav>
+    <details class="sww" id="sww">
+      <summary>Start where you are <span aria-hidden="true">&#9662;</span></summary>
+      <div class="sww-menu">
+        <p class="hd">Jump to any stage</p>
+        <button type="button" data-go="s1"><span class="n">01</span>Imagine the possibilities</button>
+        <button type="button" data-go="s2"><span class="n">02</span>Choose your destination</button>
+        <button type="button" data-go="s3"><span class="n">03</span>Find your place</button>
+        <button type="button" data-go="s4"><span class="n">04</span>Can I work there?</button>
+        <button type="button" data-go="s5"><span class="n">05</span>Make the numbers work</button>
+        <button type="button" data-go="s6"><span class="n">06</span>Find the right role</button>
+        <button type="button" data-go="s7"><span class="n">07</span>Plan your move</button>
+        <button type="button" data-go="s8"><span class="n">08</span>Settle into life</button>
+        <button type="button" data-go="where"><span class="n">&#8634;</span>Change where I am in my thinking</button><button type="button" data-go="who"><span class="n">&#8634;</span>Who’s coming with me</button>
+      </div>
+    </details>
+    <button class="pack-pill" id="pack-pill" onclick="scrollToPack()" aria-label="View guide pack">
+      My pack&nbsp;<span class="pack-ct" id="pack-count">0</span>
+    </button>
+  </div>
+</div>
+
+<div class="mv-layout">
+  <nav class="mv-rail" aria-label="Your journey steps" id="mv-rail">
+    <p class="mv-rail-hd">Start where you are</p>
+    <p class="mv-rail-sub">Skip anything you&rsquo;ve already decided.</p>
+    <button class="mv-rb" data-target="s1" onclick="scrollTo('s1')"><span class="rn">01</span><span class="rl">Imagine the possibilities</span></button>
+    <button class="mv-rb" data-target="s2" onclick="scrollTo('s2')"><span class="rn">02</span><span class="rl">Choose your destination</span></button>
+    <button class="mv-rb" data-target="s3" onclick="scrollTo('s3')"><span class="rn">03</span><span class="rl">Find your place</span></button>
+    <button class="mv-rb" data-target="s4" onclick="scrollTo('s4')"><span class="rn">04</span><span class="rl">Can I work there?</span></button>
+    <button class="mv-rb" data-target="s5" onclick="scrollTo('s5')"><span class="rn">05</span><span class="rl">Make the numbers work</span></button>
+    <button class="mv-rb" data-target="s6" onclick="scrollTo('s6')"><span class="rn">06</span><span class="rl">Find the right role</span></button>
+    <button class="mv-rb" data-target="s7" onclick="scrollTo('s7')"><span class="rn">07</span><span class="rl">Plan your move</span></button>
+    <button class="mv-rb" data-target="s8" onclick="scrollTo('s8')"><span class="rn">08</span><span class="rl">Settle into life</span></button>
+    <button class="mv-rb" data-target="pack-anchor" onclick="scrollToPack()"><span class="rn" style="color:#A6C84A">&#9432;</span><span class="rl" style="color:#2F5E49">Send my guides</span></button>
+  </nav>
+
+  <main class="mv-main" id="main-content">
+
+    <!-- STAGE 01 — the opening -->
+    <section class="mv-step" id="s1" data-screen-label="Stage 01 — Imagine the possibilities" style="padding-top:clamp(32px,4vw,52px)">
+      <p style="display:flex;align-items:center;gap:12px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin:0 0 14px"><span style="width:24px;height:2px;border-radius:1px;background:#A6C84A;flex:none"></span>Ethicare Move &middot; free, no account &middot; nothing sent until you say so</p>
+      <span class="mv-sn">01</span>
+      <h1>Imagine the possibilities</h1>
+      <p class="mv-q">What could your career and life look like on the other side of the world?</p>
+      <div class="mv-copy">
+        <p>Most people who land here are carrying some version of the same thought &mdash; a conversation that keeps coming back, a colleague who made the move, the feeling that something could be different. Before registration forms and job applications, give yourself permission to imagine the life: the weekends, the house, what anyone coming with you would do with their days, what school looks like if there are children, how often you could get home.</p>
+        <p>Deciding whether to move shouldn&rsquo;t start with a vacancy. It should start with whether you can see a life there &mdash; <a href="/guides/why-people-move" style="font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D;border-bottom:2px solid #72A471">why people move, and what they say they miss</a>.</p>
+      </div>
+      <p class="where-h" id="where">Where are you in your thinking?</p>
+      <div class="where" role="group" aria-labelledby="where">
+        <button type="button" class="where-opt" data-where="au"><b>I&rsquo;m considering Australia</b><small>Take me to Australia</small></button>
+        <button type="button" class="where-opt" data-where="nz"><b>I&rsquo;m considering New Zealand</b><small>Take me to New Zealand</small></button>
+        <button type="button" class="where-opt" data-where="compare"><b>I&rsquo;m comparing both</b><small>Show me Australia vs New Zealand</small></button>
+        <button type="button" class="where-opt" data-where="explore"><b>I&rsquo;m just exploring</b><small>Help me work out what might suit me</small></button>
+      </div>
+      <p class="mv-principle"><b>Eight stages describe the whole move. They are not eight steps you have to complete.</b> Start wherever you are, skip anything you have already decided, and come back to the rest when it matters.</p>
+      <p class="where-h" id="who">Who&rsquo;s coming with you?</p>
+      <div class="who" role="group" aria-labelledby="who">
+        <button type="button" class="where-opt" data-who="solo"><b>Just me</b><small>One visa, one income, one flight home</small></button>
+        <button type="button" class="where-opt" data-who="partner"><b>Me and a partner</b><small>Two careers, one move</small></button>
+        <button type="button" class="where-opt" data-who="children"><b>Me and my children</b><small>Schools, childcare, the school year</small></button>
+        <button type="button" class="where-opt" data-who="partner-children"><b>A partner and children</b><small>Everyone lands at once</small></button>
+        <button type="button" class="where-opt" data-who="parent"><b>A parent is coming with me</b><small>Their visa runs on its own rules</small></button>
+      </div>
+      <div class="who-more who-pw" data-q="pw" role="group" aria-labelledby="who-pw-l"><span class="df-ql" id="who-pw-l">Is your partner also a health professional?</span><div class="df-opts"><button type="button" class="who-chip" data-pw="health">Yes &mdash; they would need registering too</button><button type="button" class="who-chip" data-pw="other">No</button></div></div>
+      <div class="who-more who-ages" role="group" aria-labelledby="who-ages-l"><span class="df-ql" id="who-ages-l">How old are the children? Pick all that apply.</span><div class="df-opts"><button type="button" class="who-chip" data-age="u5">Under 5</button><button type="button" class="who-chip" data-age="school">School age</button><button type="button" class="who-chip" data-age="18up">18 or over</button></div></div>
+      <p class="who-note">Optional, and you can change it any time. It changes which guides each stage points you to and adds one line about your household; it is never sent anywhere unless you send your pack.</p>
+      <p id="country-note" style="font-size:14px;line-height:1.5;color:#555555;margin:0 0 26px">Until you choose a country, the guides below show the New Zealand version.</p>
+      <p class="mv-gh" style="margin-bottom:14px" id="life">What kind of life are you imagining?</p>
+      <div class="life-grid">
+        <button class="life-tile" data-lv="city">
+          <span class="life-ph" style="background:linear-gradient(160deg,#014A47 0%,#01312F 100%)">
+            <svg viewBox="0 0 240 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block">
+              <rect x="8" y="28" width="18" height="72" fill="rgba(255,255,255,.12)"/>
+              <rect x="30" y="48" width="13" height="52" fill="rgba(255,255,255,.08)"/>
+              <rect x="48" y="14" width="24" height="86" fill="rgba(255,255,255,.16)"/>
+              <rect x="76" y="34" width="16" height="66" fill="rgba(255,255,255,.1)"/>
+              <rect x="96" y="8" width="28" height="92" fill="rgba(255,255,255,.14)"/>
+              <rect x="130" y="36" width="16" height="64" fill="rgba(255,255,255,.1)"/>
+              <rect x="150" y="20" width="20" height="80" fill="rgba(255,255,255,.13)"/>
+              <rect x="175" y="52" width="14" height="48" fill="rgba(255,255,255,.08)"/>
+              <rect x="193" y="30" width="18" height="70" fill="rgba(255,255,255,.11)"/>
+              <rect x="215" y="44" width="22" height="56" fill="rgba(255,255,255,.09)"/>
+            </svg>
+          </span>
+          <div class="life-body"><b>Big city life</b><small>Buzz, culture, tertiary centre</small></div>
+        </button>
+        <button class="life-tile" data-lv="coast">
+          <span class="life-ph" style="background:linear-gradient(160deg,#2F5E49 0%,#014A47 100%)">
+            <svg viewBox="0 0 240 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block">
+              <circle cx="195" cy="28" r="18" fill="rgba(166,200,74,.22)"/>
+              <path d="M-5 65 C30 50,55 80,95 65 S155 50,195 65 S235 50,260 65" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M-5 78 C30 63,55 93,95 78 S155 63,195 78 S235 63,260 78" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M-5 90 C30 75,55 105,95 90 S155 75,195 90 S235 75,260 90" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <div class="life-body"><b>By the coast</b><small>Beach weekends, sea air</small></div>
+        </button>
+        <button class="life-tile" data-lv="space">
+          <span class="life-ph" style="background:linear-gradient(160deg,#72A471 0%,#2F5E49 100%)">
+            <svg viewBox="0 0 240 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block">
+              <path d="M-10 80 Q30 55,75 70 Q120 85,168 62 Q205 44,260 60 L260 100 L-10 100Z" fill="rgba(255,255,255,.12)"/>
+              <path d="M-10 92 Q40 74,90 84 Q140 94,192 76 Q220 66,260 78 L260 100 L-10 100Z" fill="rgba(255,255,255,.08)"/>
+              <circle cx="50" cy="28" r="22" fill="rgba(255,255,255,.07)"/>
+              <circle cx="66" cy="24" r="16" fill="rgba(255,255,255,.05)"/>
+            </svg>
+          </span>
+          <div class="life-body"><b>Space &amp; slower pace</b><small>Room to breathe, community</small></div>
+        </button>
+        <button class="life-tile" data-lv="family">
+          <span class="life-ph" style="background:linear-gradient(160deg,#02615D 0%,#2F5E49 100%)">
+            <svg viewBox="0 0 240 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block">
+              <polygon points="80,14 46,48 114,48" fill="rgba(255,255,255,.14)"/>
+              <rect x="53" y="48" width="54" height="52" fill="rgba(255,255,255,.1)"/>
+              <rect x="70" y="62" width="14" height="38" fill="rgba(255,255,255,.16)"/>
+              <line x1="152" y1="100" x2="152" y2="62" stroke="rgba(255,255,255,.2)" stroke-width="2.5"/>
+              <ellipse cx="152" cy="54" rx="14" ry="12" fill="rgba(255,255,255,.13)"/>
+              <line x1="180" y1="100" x2="180" y2="66" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+              <ellipse cx="180" cy="57" rx="12" ry="10" fill="rgba(255,255,255,.11)"/>
+            </svg>
+          </span>
+          <div class="life-body"><b>Family life</b><small>Good schools, outdoors, safe</small></div>
+        </button>
+        <button class="life-tile" data-lv="outdoors">
+          <span class="life-ph" style="background:linear-gradient(160deg,#014A47 0%,#01312F 100%)">
+            <svg viewBox="0 0 240 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block">
+              <polygon points="50,14 14,100 86,100" fill="rgba(255,255,255,.12)"/>
+              <polygon points="105,28 64,100 146,100" fill="rgba(255,255,255,.08)"/>
+              <polygon points="162,8 118,100 206,100" fill="rgba(255,255,255,.15)"/>
+              <polygon points="212,34 180,100 244,100" fill="rgba(255,255,255,.1)"/>
+              <polygon points="50,14 36,38 64,38" fill="rgba(255,255,255,.22)"/>
+              <polygon points="162,8 148,32 176,32" fill="rgba(255,255,255,.24)"/>
+            </svg>
+          </span>
+          <div class="life-body"><b>Outdoors &amp; adventure</b><small>Mountains, trails, seasons</small></div>
+        </button>
+        <button class="life-tile" data-lv="career">
+          <span class="life-ph" style="background:linear-gradient(160deg,#333333 0%,#02615D 100%)">
+            <svg viewBox="0 0 240 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block">
+              <rect x="20" y="28" width="82" height="6" rx="3" fill="rgba(255,255,255,.14)"/>
+              <rect x="20" y="42" width="62" height="5" rx="2.5" fill="rgba(255,255,255,.09)"/>
+              <rect x="20" y="54" width="72" height="5" rx="2.5" fill="rgba(255,255,255,.09)"/>
+              <rect x="20" y="66" width="48" height="5" rx="2.5" fill="rgba(255,255,255,.07)"/>
+              <polyline points="130,84 150,64 170,72 190,48 210,54 228,26" fill="none" stroke="rgba(166,200,74,.5)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="228" cy="26" r="4" fill="rgba(166,200,74,.6)"/>
+            </svg>
+          </span>
+          <div class="life-body"><b>Career &amp; development</b><small>Specialist depth, progression</small></div>
+        </button>
+      </div>
+      <div class="mv-btns">
+        <button class="mv-btn" onclick="scrollTo('s3')">Show me where I could live <i>&rarr;</i></button>
+        <button class="mv-btn ghost" onclick="scrollTo('s2')">Choose a destination <i>&rarr;</i></button>
+      </div>
+      <p class="mv-gh">Useful at this stage</p>
+      <div class="mv-glist">
+        <div class="mv-gc gc-hh"><div class="mv-gc-body"><span class="gct">Moving with a partner or children</span><span class="gcd">Work rights, schools, childcare and what changes for the household.</span></div><button class="mv-add" data-title="Moving with a partner or children" data-url="/guides/new-zealand-family" data-nz-url="/guides/new-zealand-family" data-au-url="/guides/australia-family">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Destination guides — every region</span><span class="gcd">Lifestyle, housing, healthcare and schools, region by region.</span></div><button class="mv-add" data-title="Destination guides" data-url="/destinations/" data-nz-url="/destinations/" data-au-url="/destinations/australia">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">What people find hard about the first year</span><span class="gcd">Honest, and not in a brochure anywhere.</span></div><button class="mv-add" data-title="What people find hard about the first year" data-url="/guides/new-zealand-community" data-nz-url="/guides/new-zealand-community" data-au-url="/guides/australia-community">Add to pack</button></div>
+      </div>
+    </section>
+
+    <!-- STAGE 02 -->
+    <section class="mv-step" id="s2" data-screen-label="Stage 02 — Choose your destination">
+      <span class="mv-sn">02</span>
+      <h2>Choose your destination</h2>
+      <p class="mv-q">Already decided? Head straight there. Still deciding? Compare Australia and New Zealand.</p>
+      <button type="button" class="mv-skip" data-skip="s2">Already sorted? Skip this stage</button>
+      <div class="st-nz">
+        <div class="state-card"><p>You&rsquo;re heading for New Zealand.</p><a class="mv-btn" href="/new-zealand">Explore New Zealand <i>&rarr;</i></a><button type="button" class="link-btn" data-where="explore">Change</button></div>
+        <div class="mv-copy"><p>Everything below is now written for New Zealand &mdash; the guides, the registration route and the places. If you would still like to see how Australia compares, the <a href="/guides/australia-vs-new-zealand">comparison</a> is one page.</p></div>
+      </div>
+      <div class="st-au">
+        <div class="state-card"><p>You&rsquo;re heading for Australia.</p><a class="mv-btn" href="/australia">Explore Australia <i>&rarr;</i></a><button type="button" class="link-btn" data-where="explore">Change</button></div>
+        <div class="mv-copy"><p>Everything below is now written for Australia &mdash; the guides, the registration route and the places. If you would still like to see how New Zealand compares, the <a href="/guides/australia-vs-new-zealand">comparison</a> is one page.</p></div>
+      </div>
+      <div class="st-compare">
+        <div class="mv-copy">
+          <p>The two countries share a lot and sit close on a map. The differences that matter in daily life are more specific: what your profession earns in each, how long a visa takes, whether your partner can work freely, how far you are from a flight home, and what a week actually feels like where you land.</p>
+          <p>Neither is the more ambitious answer. Australia is bigger, pays more in most specialties and has one national registration covering everything. New Zealand is smaller, moves at a different pace and tends to suit people who want career and life to fit together more easily.</p>
+        </div>
+        <div class="mv-btns">
+          <a class="mv-btn" href="/guides/australia-vs-new-zealand">Compare the two honestly <i>&rarr;</i></a>
+          <a class="mv-btn ghost" href="/guides/australia-vs-new-zealand-salary">Compare salaries <i>&rarr;</i></a>
+        </div>
+        <p style="font-size:15px;color:#555555;margin:-8px 0 26px">Made your mind up? <button type="button" class="link-btn" data-where="nz">New Zealand</button> &middot; <button type="button" class="link-btn" data-where="au">Australia</button></p>
+      </div>
+      <div class="st-explore">
+        <div class="mv-copy"><p>Most people arrive with a loose instinct about which country &mdash; something a colleague said, a holiday, a job ad that caught their eye. That instinct is worth following, and worth testing. You do not have to decide yet: the next stage lets you look at places in both.</p></div>
+        <div class="where" style="margin-bottom:12px">
+          <button type="button" class="where-opt" data-where="nz"><b>New Zealand</b><small>Smaller, a different pace, career and life fitting together</small></button>
+          <button type="button" class="where-opt" data-where="au"><b>Australia</b><small>Bigger, pays more in most specialties, one national registration</small></button>
+        </div>
+        <div class="mv-btns"><a class="mv-btn ghost" href="/guides/australia-vs-new-zealand">Compare the two honestly <i>&rarr;</i></a></div>
+      </div>
+      <p class="mv-gh">Useful at this stage</p>
+      <div class="mv-glist">
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Australia or New Zealand?</span><span class="gcd">Pay, distance, lifestyle and the everyday life &mdash; the two set side by side, question by question.</span></div><button class="mv-add" data-title="Australia or New Zealand?" data-url="/guides/australia-vs-new-zealand">Add to pack</button></div>
+        <div class="mv-gc gc-nz"><div class="mv-gc-body"><span class="gct">Working in New Zealand</span><span class="gcd">The health system, how it works and what it offers a clinician.</span></div><button class="mv-add" data-title="Working in New Zealand" data-url="/new-zealand">Add to pack</button></div>
+        <div class="mv-gc gc-au"><div class="mv-gc-body"><span class="gct">Working in Australia</span><span class="gcd">A bigger country, one national registration, more locations.</span></div><button class="mv-add" data-title="Working in Australia" data-url="/australia">Add to pack</button></div>
+      </div>
+    </section>
+
+    <!-- STEP 3 — DESTINATION FINDER -->
+    <section class="mv-step" id="s3" data-screen-label="Stage 03 — Find your place">
+      <span class="mv-sn">03</span>
+      <h2>Find your place</h2>
+      <p class="mv-q">Cities, coast, regional life, communities, climate, commuting and what different places actually feel like.</p>
+      <button type="button" class="mv-skip" data-skip="s3">Already sorted? Skip this stage</button>
+      <div class="mv-copy">
+        <p>This is the question that usually gets decided by accident. A role comes up somewhere, so that becomes the answer — and only later does anyone ask whether it was the right place for the household. Housing, the commute, schools and how far you are from a big hospital vary far more between regions than between the two countries.</p>
+        <p>Tell us what you want and what you would miss from home. We will suggest three places worth reading about, with the trade-offs alongside the good bits.</p>
+      </div>
+      <p class="mv-hh" data-hh="solo">On your own, the trade-off is usually distance: from specialist backup at work, and from the people at home. Every <a href="/destinations/" data-nz-href="/destinations/" data-au-href="/destinations/australia">destination guide</a> says how far each is.</p>
+      <p class="mv-hh" data-hh="partner">Two careers, one move. Places with a broader job market for whoever is not the clinician &mdash; the main centres and state capitals &mdash; usually make the shortlist for that reason alone. <a href="/guides/new-zealand-family" data-nz-href="/guides/new-zealand-family" data-au-href="/guides/australia-family">Moving with a partner</a> covers work rights.</p>
+      <p class="mv-hh" data-hh="children">With children, school zones and the school year shape the shortlist as much as the hospital does. Each destination guide has a schools section; the national <a href="/guides/new-zealand-education" data-nz-href="/guides/new-zealand-education" data-au-href="/guides/australia-education">schools guide</a> explains zoning and terms once.</p>
+      <p class="mv-hh" data-hh="partner-children">Two adults, children, one move. School zones and a job market for both of you narrow the list faster than climate does. The <a href="/guides/new-zealand-education" data-nz-href="/guides/new-zealand-education" data-au-href="/guides/australia-education">schools guide</a> and <a href="/guides/new-zealand-family" data-nz-href="/guides/new-zealand-family" data-au-href="/guides/australia-family">moving with a partner or children</a> between them own those two topics.</p>
+      <p class="mv-hh" data-hh="parent">Bringing a parent changes the housing question &mdash; a second bedroom or a self-contained flat, a GP taking on patients, distance to a base hospital. Regional places tend to be generous on space and thinner on specialist cover; each destination guide&rsquo;s healthcare section says which.</p>
+
+      <div class="df" id="dest-finder">
+        <p class="df-intro">Seven questions. You can change your mind about any of them and run it again.</p>
+        <div class="df-q"><span class="df-ql">Which country, or are you still deciding?</span>
+          <div class="df-opts" data-q="country">
+            <button class="df-opt" data-v="nz">New Zealand</button>
+            <button class="df-opt" data-v="au">Australia</button>
+            <button class="df-opt" data-v="either">Still deciding</button>
+          </div>
+        </div>
+        <div class="df-q"><span class="df-ql">What kind of place are you imagining?</span>
+          <div class="df-opts" data-q="scale">
+            <button class="df-opt" data-v="metro">A proper city — big services, city life</button>
+            <button class="df-opt" data-v="city">A mid-sized town — still connected, less pressure</button>
+            <button class="df-opt" data-v="regional">Somewhere smaller — community, clinical autonomy</button>
+          </div>
+        </div>
+        <div class="df-q"><span class="df-ql">What matters more for your weekends?</span>
+          <div class="df-opts" data-q="outdoor">
+            <button class="df-opt" data-v="coast">Coast and beaches</button>
+            <button class="df-opt" data-v="alpine">Mountains and outdoors</button>
+            <button class="df-opt" data-v="either">A bit of both</button>
+          </div>
+        </div>
+        <div class="df-q"><span class="df-ql">Climate?</span>
+          <div class="df-opts" data-q="climate">
+            <button class="df-opt" data-v="warm">Warm to hot most of the year</button>
+            <button class="df-opt" data-v="temperate">Mild, four proper seasons</button>
+            <button class="df-opt" data-v="cool">I don&rsquo;t mind cold at all</button>
+          </div>
+        </div>
+        <div class="df-q"><span class="df-ql">Clinical scope?</span>
+          <div class="df-opts" data-q="scope">
+            <button class="df-opt" data-v="tertiary">A big tertiary centre — subspecialty depth</button>
+            <button class="df-opt" data-v="base">A base hospital — broader scope, less hierarchy</button>
+            <button class="df-opt" data-v="either">Happy with either</button>
+          </div>
+        </div>
+        <div class="df-q"><span class="df-ql">How much does housing cost matter?</span>
+          <div class="df-opts" data-q="cost">
+            <button class="df-opt" data-v="low">We need it to be affordable</button>
+            <button class="df-opt" data-v="mid">Somewhere in the middle</button>
+            <button class="df-opt" data-v="fine">It&rsquo;s not our main concern</button>
+          </div>
+        </div>
+        <div class="df-q"><span class="df-ql">Who&rsquo;s coming with you?</span>
+          <div class="df-opts" data-q="hh">
+            <button class="df-opt" data-v="solo">Just me</button>
+            <button class="df-opt" data-v="partner">Me and a partner</button>
+            <button class="df-opt" data-v="children">Me and my children</button>
+            <button class="df-opt" data-v="partner-children">A partner and children</button>
+            <button class="df-opt" data-v="parent">A parent is coming with me</button>
+          </div>
+        </div>
+        <button class="df-run" id="df-run" onclick="runFinder()" disabled>Show my suggestions &rarr;</button>
+        <div class="df-out" id="df-out" hidden></div>
+      </div>
+
+      <p class="mv-gh">Useful at this stage</p>
+      <div class="mv-glist">
+        <div class="mv-gc gc-nz"><div class="mv-gc-body"><span class="gct">New Zealand destination guides</span><span class="gcd">Every region: lifestyle, housing, healthcare and schools.</span></div><button class="mv-add" data-title="New Zealand destination guides" data-url="/destinations/">Add to pack</button></div>
+        <div class="mv-gc gc-au"><div class="mv-gc-body"><span class="gct">Australian destination guides</span><span class="gcd">State by state, from Sydney to Bunbury.</span></div><button class="mv-add" data-title="Australian destination guides" data-url="/destinations/australia">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Renting in New Zealand</span><span class="gcd">What renting actually looks like — bonds, agencies, what to expect.</span></div><button class="mv-add" data-title="Renting in New Zealand" data-url="/guides/renting-in-new-zealand" data-nz-url="/guides/renting-in-new-zealand" data-au-url="/guides/australia-renting" data-nz-title="Renting in New Zealand" data-au-title="Renting in Australia">Add to pack</button></div>
+      </div>
+    </section>
+
+    <!-- STEP 4 -->
+    <section class="mv-step" id="s4" data-screen-label="Stage 04 — Can I work there?">
+      <span class="mv-sn">04</span>
+      <h2>Can I work there?</h2>
+      <p class="mv-q">Registration, eligibility, visas, health and character requirements.</p>
+      <button type="button" class="mv-skip" data-skip="s4">Already sorted? Skip this stage</button>
+      <div class="mv-copy">
+        <p>Registration sets every timeline. It decides how long before you can work, whether your employer will wait, and which visa route is open to you. Some professions register in a few weeks. Others take the better part of a year &mdash; and some need additional exams or bridging programmes that change the whole picture.</p>
+        <p>Neither country works like the UK system you already know. The pathway checker asks about your profession, where you trained and what you hold already, then shows the route most likely to apply to you with a realistic timeline.</p>
+      </div>
+      <p class="mv-hh" data-hh="partner-health">Two clinicians means two registrations, and your partner&rsquo;s can take longer than yours &mdash; a different board, a different pathway, sometimes a different English requirement. Run <a href="/pathway-checker">Check my pathway</a> for both of you, and read the <a href="/guides/new-zealand-registration" data-nz-href="/guides/new-zealand-registration" data-au-href="/guides/australia-registration">registration master</a> with their profession in mind as well as yours.</p>
+      <div class="mv-btns">
+        <a class="mv-btn" href="/pathway-checker">Check my registration pathway <i>&rarr;</i></a>
+      </div>
+      <p class="mv-gh">Useful at this stage</p>
+      <div class="mv-glist">
+        <div class="mv-gc gc-nz"><div class="mv-gc-body"><span class="gct">New Zealand registration, explained</span><span class="gcd">Which council, which route, what they actually ask for and how long it takes.</span></div><button class="mv-add" data-title="New Zealand registration, explained" data-url="/guides/new-zealand-registration">Add to pack</button></div>
+        <div class="mv-gc gc-au"><div class="mv-gc-body"><span class="gct">Australian registration through Ahpra</span><span class="gcd">One national register covering almost every clinical profession.</span></div><button class="mv-add" data-title="Australian registration through Ahpra" data-url="/guides/australia-registration">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Pay agreements and salary scales</span><span class="gcd">What the published agreements say, before you talk to any employer.</span></div><button class="mv-add" data-title="Pay agreements and salary scales" data-url="/guides/new-zealand-pay-agreements" data-nz-url="/guides/new-zealand-pay-agreements" data-au-url="/guides/australia-salary" data-nz-title="Pay agreements and salary scales" data-au-title="Awards, state agreements and pay">Add to pack</button></div>
+      </div>
+    </section>
+
+    <!-- STEP 5 -->
+    <section class="mv-step" id="s5" data-screen-label="Stage 05 — Make the numbers work">
+      <span class="mv-sn">05</span>
+      <h2>Make the numbers work</h2>
+      <p class="mv-q">Salary, tax, housing, cost of living, moving costs and your personal budget.</p>
+      <button type="button" class="mv-skip" data-skip="s5">Already sorted? Skip this stage</button>
+      <div class="mv-copy">
+        <p>Salary figures look good at first glance. What matters is what they look like after rent, the school run and one flight home a year &mdash; and that varies significantly by where you land. Auckland and Sydney are expensive. Dunedin and Adelaide are not. The same grade feels very different in each.</p>
+        <p>The cost calculator puts the whole move in one place: visa fees for everyone coming, flights, shipping, temporary accommodation and the first months of costs, alongside what an employer typically covers. The salary guide explains how pay actually works &mdash; steps, progression, penal rates and what sits on top of base &mdash; before you start comparing figures.</p>
+      </div>
+      <p class="mv-hh" data-hh="solo">One income, one set of visa fees, one flight home. Most line items in the <a href="/cost-calculator">cost calculator</a> shrink; rent does not.</p>
+      <p class="mv-hh" data-hh="partner">Two incomes or one, and for how long? A partner&rsquo;s right to work depends on their visa, and the gap before a second income starts is the figure couples most often leave out. The <a href="/cost-calculator">cost calculator</a> has a line for it.</p>
+      <p class="mv-hh" data-hh="children">Add childcare or school costs to the sums. Whether school fees apply can depend on your visa &mdash; the <a href="/guides/new-zealand-education" data-nz-href="/guides/new-zealand-education" data-au-href="/guides/australia-school-fees">schools guide</a> explains when, and the <a href="/cost-calculator">cost calculator</a> carries the figure.</p>
+      <p class="mv-hh" data-hh="partner-children">Visa fees for everyone, childcare or school costs that can depend on the visa, and a possible gap before a second income. The <a href="/cost-calculator">cost calculator</a> takes all three; the salary guide explains what one clinical salary carries.</p>
+      <p class="mv-hh" data-hh="age-18up">At university age your visa route can decide whether they pay domestic or international fees &mdash; a gap wide enough to change the maths of the whole move. The <a href="/guides/new-zealand-visa" data-nz-href="/guides/new-zealand-visa" data-au-href="/guides/australia-visa">visa guide</a> explains which routes count, and the <a href="/guides/new-zealand-education" data-nz-href="/guides/new-zealand-education" data-au-href="/guides/australia-education">schools guide</a> covers the tertiary side.</p>
+      <p class="mv-hh" data-hh="parent">A dependent parent is the line most people never model: visa eligibility is narrower, health insurance may be a condition, and access to public healthcare differs by visa. Read the <a href="/guides/new-zealand-visa" data-nz-href="/guides/new-zealand-visa" data-au-href="/guides/australia-visa">visa guide</a> before you rely on any figure.</p>
+      <div class="mv-btns">
+        <a class="mv-btn" href="/cost-calculator">Cost calculator <i>&rarr;</i></a>
+        <a class="mv-btn ghost hide-if-chosen" href="/guides/australia-vs-new-zealand-salary">Compare salaries <i>&rarr;</i></a>
+        <a class="mv-btn ghost" href="/guides/new-zealand-salary" data-nz-href="/guides/new-zealand-salary" data-au-href="/guides/australia-salary">How pay works <i>&rarr;</i></a>
+      </div>
+      <p class="mv-gh">Useful at this stage</p>
+      <div class="mv-glist">
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">What the move will cost</span><span class="gcd">Every fee, for everyone coming, with what employers usually cover.</span></div><button class="mv-add" data-title="What the move will cost" data-url="/cost-calculator">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Pay and salary in New Zealand</span><span class="gcd">How the pay scales work and what you can realistically expect.</span></div><button class="mv-add" data-title="Pay and salary in New Zealand" data-url="/guides/new-zealand-salary" data-nz-url="/guides/new-zealand-salary" data-au-url="/guides/australia-salary" data-nz-title="Pay and salary in New Zealand" data-au-title="Pay and salary in Australia">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Tax, banking and money</span><span class="gcd">Tax number, a bank account, retirement savings and what to do with a UK pension.</span></div><button class="mv-add" data-title="Tax, banking and money" data-url="/guides/money-tax-and-banking" data-nz-url="/guides/money-tax-and-banking" data-au-url="/guides/australia-money">Add to pack</button></div>
+      </div>
+    </section>
+
+    <!-- STEP 6 -->
+    <section class="mv-step" id="s6" data-screen-label="Stage 06 — Find the right role">
+      <span class="mv-sn">06</span>
+      <h2>Find the right role</h2>
+      <p class="mv-q">Real opportunities plus honest guidance on the market, applications, CVs and interviews.</p>
+      <button type="button" class="mv-skip" data-skip="s6">Already sorted? Skip this stage</button>
+      <div class="mv-copy">
+        <p>We recruit a deliberately small list of professions rather than trying to cover everything. If yours is on it, you will see what is open now and what tends to come up even when nothing is listed today. If it is not, the profession pages still explain what the work looks like, who recruits and what a good application needs.</p>
+        <p>New Zealand and Australian employers read CVs differently from UK ones. The CV builder walks through the nine sections that matter. When an offer comes, the offer checker flags what the package actually contains &mdash; because an offer letter leaves more to the collective agreement than employers usually make obvious &mdash; and what is worth confirming before you sign.</p>
+      </div>
+      <div class="mv-btns">
+        <a class="mv-btn" href="/jobs/">See live roles <i>&rarr;</i></a>
+        <a class="mv-btn ghost" href="/build-your-cv">Build your CV <i>&rarr;</i></a>
+      </div>
+      <p class="mv-gh">Useful at this stage</p>
+      <div class="mv-glist">
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">All professions</span><span class="gcd">What your profession looks like in each country, who recruits and typical packages.</span></div><button class="mv-add" data-title="All professions" data-url="/jobs/professions">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">CVs and interviews</span><span class="gcd">What employers want to see and what panels actually ask.</span></div><button class="mv-add" data-title="CVs and interviews" data-url="/guides/new-zealand-interview" data-nz-url="/guides/new-zealand-interview" data-au-url="/guides/australia-interview">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Build your CV</span><span class="gcd">Nine sections in the order employers here read them, live A4 preview, Word and PDF export. Your draft stays on your device.</span></div><button class="mv-add" data-title="Build your CV" data-url="/build-your-cv">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Am I ready to apply?</span><span class="gcd">Readiness check, the question bank panels actually use, and space for your own examples.</span></div><button class="mv-add" data-title="Am I ready to apply? (interview prep)" data-url="/interview-prep" data-nz-url="/interview-prep" data-au-url="/interview-prep?destination=au">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Understanding your offer</span><span class="gcd">What each line means, what is negotiable and what to confirm before you sign.</span></div><button class="mv-add" data-title="Understanding your offer" data-url="/guides/negotiating-your-offer">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Offer checker tool</span><span class="gcd">Walk through the document in front of you, line by line.</span></div><button class="mv-add" data-title="Offer checker" data-url="/before-you-accept">Add to pack</button></div>
+      </div>
+    </section>
+
+    <!-- STEP 7 -->
+    <section class="mv-step" id="s7" data-screen-label="Stage 07 — Plan your move">
+      <span class="mv-sn">07</span>
+      <h2>Plan your move</h2>
+      <p class="mv-q">Turn the decision into a practical, personalised relocation plan.</p>
+      <button type="button" class="mv-skip" data-skip="s7">Already sorted? Skip this stage</button>
+      <div class="mv-copy">
+        <p>The visa comes after the offer, not before it — your employer sponsors you. What matters is knowing which visa, what it costs for everyone coming, and how long it actually takes. Some routes take three months; some take seven. The visa guide walks through the options without the immigration jargon, and links to the official authorities for the decisions that are theirs, not ours.</p>
+        <p>Everything else — shipping, storage, temporary accommodation, the school catchment you need to be in before term starts — has a lead time that surprises people. The moving checklist is filtered to your household and keeps track of what is done.</p>
+      </div>
+      <p class="mv-hh" data-hh="solo">The shortest critical path: registration, visa, somewhere to land for the first month. The <a href="/moving-checklist">moving checklist</a> filtered to one person is a good deal shorter.</p>
+      <p class="mv-hh" data-hh="partner">Your partner&rsquo;s visa is applied for alongside yours, and their right to work depends on it. It is the item most likely to hold up a start date, so it goes early in the <a href="/moving-checklist">checklist</a>; the <a href="/guides/new-zealand-visa" data-nz-href="/guides/new-zealand-visa" data-au-href="/guides/australia-visa">visa guide</a> explains the options.</p>
+      <p class="mv-hh" data-hh="children">Enrolment zones decide where you rent, and the school year decides when you arrive. Both are in the <a href="/guides/new-zealand-education" data-nz-href="/guides/new-zealand-education" data-au-href="/guides/australia-education">schools guide</a>; put them on the checklist before shipping.</p>
+      <p class="mv-hh" data-hh="partner-children">Dependant visas for everyone, enrolment zones, and the term dates that fix your arrival window. The <a href="/guides/new-zealand-visa" data-nz-href="/guides/new-zealand-visa" data-au-href="/guides/australia-visa">visa guide</a> and the <a href="/guides/new-zealand-education" data-nz-href="/guides/new-zealand-education" data-au-href="/guides/australia-education">schools guide</a> own every one of those.</p>
+      <p class="mv-hh" data-hh="age-u5">Childcare places, waiting lists and cost vary street by street, and the good ones fill early &mdash; worth starting before you fly rather than in your first week. <a href="/guides/new-zealand-family#childcare" data-nz-href="/guides/new-zealand-family#childcare" data-au-href="/guides/australia-family#childcare">Childcare, explained</a>, and the official position at <a href="https://parents.education.govt.nz/" data-nz-href="https://parents.education.govt.nz/" data-au-href="https://www.servicesaustralia.gov.au/child-care-subsidy">the Ministry of Education</a>.</p>
+      <p class="mv-hh" data-hh="solo-parent">Doing this on your own is a different move, not a smaller one. Two things carry it: a school or childcare arrangement that fits a clinical roster, and the immigration authority&rsquo;s requirements for children travelling with one parent &mdash; evidence about the other parent&rsquo;s consent or custody is commonly asked for. <a href="/guides/new-zealand-family#single-parent" data-nz-href="/guides/new-zealand-family#single-parent" data-au-href="/guides/australia-family#single-parent">Moving as a single parent</a>.</p>
+      <p class="mv-hh" data-hh="parent">Parent visas run on their own timetable and rules, separate from yours. The <a href="/guides/new-zealand-visa" data-nz-href="/guides/new-zealand-visa" data-au-href="/guides/australia-visa">visa guide</a> sets out what exists; the decision is the immigration authority&rsquo;s, and this is where a licensed adviser earns their fee.</p>
+      <div class="mv-btns">
+        <a class="mv-btn" href="/moving-checklist">Moving checklist <i>&rarr;</i></a>
+        <a class="mv-btn ghost" href="/guides/new-zealand-visa" data-nz-href="/guides/new-zealand-visa" data-au-href="/guides/australia-visa">Visa guide <i>&rarr;</i></a>
+      </div>
+      <p class="mv-gh">Useful at this stage</p>
+      <div class="mv-glist">
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">New Zealand visa routes</span><span class="gcd">Which visa, what it costs, how long it takes.</span></div><button class="mv-add" data-title="New Zealand visa routes" data-url="/guides/new-zealand-visa" data-nz-url="/guides/new-zealand-visa" data-au-url="/guides/australia-visa" data-nz-title="New Zealand visa routes" data-au-title="Australian visa routes">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Preparing to move</span><span class="gcd">Shipping, storage, temporary accommodation and what has the longest lead time.</span></div><button class="mv-add" data-title="Preparing to move" data-url="/guides/new-zealand-relocation" data-nz-url="/guides/new-zealand-relocation" data-au-url="/guides/australia-relocation">Add to pack</button></div>
+        <div class="mv-gc gc-hh"><div class="mv-gc-body"><span class="gct">Moving with a partner or children</span><span class="gcd">Dependant visas, work rights, schools and childcare &mdash; the one guide the household lines above point to.</span></div><button class="mv-add" data-title="Moving with a partner or children" data-url="/guides/new-zealand-family" data-nz-url="/guides/new-zealand-family" data-au-url="/guides/australia-family">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Schools in New Zealand</span><span class="gcd">Enrolment zones, when to arrive and whether fees apply on your visa.</span></div><button class="mv-add" data-title="Schools in New Zealand" data-url="/guides/new-zealand-education" data-nz-url="/guides/new-zealand-education" data-au-url="/guides/australia-education" data-nz-title="Schools in New Zealand" data-au-title="Schools in Australia">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Renting, from abroad</span><span class="gcd">How to find something before you land without getting it wrong.</span></div><button class="mv-add" data-title="Renting, from abroad" data-url="/guides/renting-in-new-zealand" data-nz-url="/guides/renting-in-new-zealand" data-au-url="/guides/australia-renting">Add to pack</button></div>
+      </div>
+    </section>
+
+    <!-- STEP 8 -->
+    <section class="mv-step" id="s8" data-screen-label="Stage 08 — Settle into life">
+      <span class="mv-sn">08</span>
+      <h2>Settle into life</h2>
+      <p class="mv-q">The first weeks and months &mdash; starting work, finding your feet and making somewhere new feel like home.</p>
+      <button type="button" class="mv-skip" data-skip="s8">Already sorted? Skip this stage</button>
+      <div class="mv-copy">
+        <p>Landing is not the end of the hard part. It is the beginning of a different kind of hard — registration paperwork in a new system, your first days on the unit with people you do not know yet, ordinary things like driving on the left or finding a GP taking on patients, and the slow work of making a place feel like yours rather than somewhere you are staying.</p>
+        <p>The first-month guide runs through what needs doing in what order, what can wait, and what people say they wish they had done sooner. The community guide is the one that goes after the feelings rather than the admin.</p>
+      </div>
+      <p class="mv-hh" data-hh="solo">The first months are yours to shape. The <a href="/guides/new-zealand-community" data-nz-href="/guides/new-zealand-community" data-au-href="/guides/australia-community">community guide</a> is written for the quiet evening in a new flat as much as for anyone.</p>
+      <p class="mv-hh" data-hh="partner">Your partner arrives without a workplace to walk into. The <a href="/guides/new-zealand-community" data-nz-href="/guides/new-zealand-community" data-au-href="/guides/australia-community">community guide</a> is as much for them as for you, and the first-month guide covers their tax number, bank account and driving licence too.</p>
+      <p class="mv-hh" data-hh="children">School is the fastest route into a community &mdash; for the children and, through the school gate, for you. The <a href="/guides/new-zealand-first-month" data-nz-href="/guides/new-zealand-first-month" data-au-href="/guides/living-in-australia">first-month guide</a> puts enrolment, the GP and the ordinary things in order.</p>
+      <p class="mv-hh" data-hh="partner-children">Everyone lands at once and only one of you has a job to go to. The <a href="/guides/new-zealand-first-month" data-nz-href="/guides/new-zealand-first-month" data-au-href="/guides/living-in-australia">first-month guide</a> puts the household admin in order; the <a href="/guides/new-zealand-community" data-nz-href="/guides/new-zealand-community" data-au-href="/guides/australia-community">community guide</a> is for the rest.</p>
+      <p class="mv-hh" data-hh="parent">A parent&rsquo;s first months turn on a GP, getting around without driving, and company during the day. The <a href="/guides/new-zealand-community" data-nz-href="/guides/new-zealand-community" data-au-href="/guides/australia-community">community guide</a> covers the groups that welcome newcomers; the first-month guide covers healthcare enrolment.</p>
+      <div class="mv-btns">
+        <a class="mv-btn" href="/guides/new-zealand-first-month" data-nz-href="/guides/new-zealand-first-month" data-au-href="/guides/living-in-australia">Your first month <i>&rarr;</i></a>
+        <a class="mv-btn ghost" href="/guides/new-zealand-community" data-nz-href="/guides/new-zealand-community" data-au-href="/guides/australia-community">Community and belonging <i>&rarr;</i></a>
+      </div>
+      <p class="mv-gh">Useful at this stage</p>
+      <div class="mv-glist">
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Your first month</span><span class="gcd">The paperwork in the right order, and the parts that are harder than the forms.</span></div><button class="mv-add" data-title="Your first month" data-url="/guides/new-zealand-first-month" data-nz-url="/guides/new-zealand-first-month" data-au-url="/guides/living-in-australia" data-nz-title="Your first month" data-au-title="Living and thriving in Australia">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Community and belonging</span><span class="gcd">Finding your people — where communities gather and what the first six months tend to feel like.</span></div><button class="mv-add" data-title="Community and belonging" data-url="/guides/new-zealand-community" data-nz-url="/guides/new-zealand-community" data-au-url="/guides/australia-community">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Tax number, bank, licence, GP</span><span class="gcd">The admin worth doing in the first two weeks, in order.</span></div><button class="mv-add" data-title="Tax number, bank, licence, GP" data-url="/guides/money-tax-and-banking" data-nz-url="/guides/money-tax-and-banking" data-au-url="/guides/australia-money">Add to pack</button></div>
+        <div class="mv-gc"><div class="mv-gc-body"><span class="gct">Residency — when and how</span><span class="gcd">What shifts from temporary to permanent, and when the clock starts.</span></div><button class="mv-add" data-title="Residency — when and how" data-url="/guides/new-zealand-visa" data-nz-url="/guides/new-zealand-visa" data-au-url="/guides/australia-visa">Add to pack</button></div>
+      </div>
+    </section>
+
+    <!-- GUIDE PACK SEND -->
+    <div class="mv-pack" id="pack-anchor" data-screen-label="Send my guide pack">
+      <h2>Send my guide pack</h2>
+      <p class="pklede">Give us an email address and we will send you the guides you have added, plus any that match what we know about where you are heading. One email, no follow-up unless you ask.</p>
+      <ul class="pk-list" id="pack-list-display">
+        <li class="pk-empty" id="pack-empty">No guides added yet — use the &ldquo;Add to pack&rdquo; buttons above to collect what looks useful.</li>
+      </ul>
+      <form class="pk-form" name="guide-pack" method="POST" action="/thank-you" data-netlify="true" data-netlify-honeypot="bot-trap" id="pack-form">
+        <input type="hidden" name="form-name" value="guide-pack">
+        <input type="hidden" name="pack-contents" id="pack-contents-field"><input type="hidden" name="household" id="pk-hh">
+        <p hidden><label>Leave this empty: <input name="bot-trap"></label></p>
+        <div><label for="pk-name">Your name</label><input id="pk-name" name="name" type="text" autocomplete="given-name" required placeholder="First name is fine"></div>
+        <div><label for="pk-email">Email</label><input id="pk-email" name="email" type="email" autocomplete="email" required placeholder="We will only use this to send the pack"></div>
+        <div><label for="pk-dest" style="display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.05em;color:#C6E084;margin-bottom:4px">Where are you heading? <span style="font-weight:400;color:rgba(255,255,255,.5)">(optional — helps us add the right extras)</span></label>
+          <select id="pk-dest" name="destination" style="width:100%;min-height:48px;padding:12px 16px;border:1.5px solid rgba(255,255,255,.28);border-radius:12px;background:rgba(255,255,255,.1);color:#fff;font-family:'Manrope',sans-serif;font-size:16px">
+            <option value="">Not sure yet</option>
+            <option value="nz">New Zealand</option>
+            <option value="au">Australia</option>
+          </select>
+        </div>
+        <button type="submit" class="pk-submit">Send my pack &rarr;</button>
+        <p class="pk-fine">One email with your guides. We will not add you to a mailing list or pass your address on. See our <a href="/privacy-policy" style="color:rgba(255,255,255,.6);text-decoration:underline">privacy policy</a>.</p>
+      </form>
+      <p class="pk-sent" id="pk-sent">&#10003;&nbsp; On its way — check your inbox in a few minutes.</p>
+    </div>
+    <div style="padding:clamp(24px,3vw,40px) 0 0;max-width:700px"><page-feedback to="Sophie"></page-feedback></div>
+
+  </main>
+</div>
+
+<footer class="site-footer" style="margin-top:64px">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation. Free to use whether we place you or not.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+        </div>
+      </div>
+      <div class="f-col"><h2>Your move</h2><a href="/pathway-checker">Check my pathway</a><a href="/cost-calculator">Cost calculator</a><a href="/build-your-cv">CV builder</a><a href="/before-you-accept">Offer checker</a><a href="/moving-checklist">Moving checklist</a></div>
+      <div class="f-col"><h2>Guides</h2><a href="/resources">All guides</a><a href="/destinations/">NZ destinations</a><a href="/destinations/australia">AU destinations</a><a href="/jobs/professions">Every profession</a></div>
+      <div class="f-col"><h2>Ethicare</h2><a href="/about-ethicare">About us</a><a href="/jobs/">Live roles</a><a href="/employers">For employers</a><a href="/contact">Contact</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script src="nav.js" defer></script>
+<script src="/page-feedback.js" defer></script>
+<script>
+/* keep the sticky tool bar and rail below the real site header, whatever its height */
+(function(){var h=document.querySelector('.site-header');function set(){if(h)document.documentElement.style.setProperty('--hdr-h',h.offsetHeight+'px')}set();window.addEventListener('resize',set);window.addEventListener('load',set)})();
+/* === DESTINATION DATA === */
+var DESTS=[
+  /* NZ */
+  {id:'auckland-nz',name:'Auckland',sub:'Tāmaki Makaurau',country:'nz',scale:'metro',coast:true,alpine:false,climate:'warm',scope:'tertiary',cost:'high',
+   guide:'/destinations/auckland-new-zealand',
+   pros:['New Zealand&rsquo;s widest range of specialist services','The most diverse communities in the country','Most career options for a partner'],
+   cons:'The most expensive housing in New Zealand, and a commute that behaves like a big city\'s.'},
+  {id:'wellington-nz',name:'Wellington',sub:'Te Whanganui-a-Tara',country:'nz',scale:'metro',coast:true,alpine:false,climate:'temperate',scope:'tertiary',cost:'high',
+   guide:'/destinations/wellington-new-zealand',
+   pros:['Compact and walkable — the easiest big city to live in','Strong tertiary services and training environment','The capital: culture, food, community'],
+   cons:'The wind is not a joke, and hillside housing is old, steep and tightly held.'},
+  {id:'christchurch-nz',name:'Christchurch',sub:'Ōtautahi',country:'nz',scale:'city',coast:false,alpine:true,climate:'temperate',scope:'tertiary',cost:'mid',
+   guide:'/destinations/christchurch-new-zealand',
+   pros:['Flat, grid city — easy to navigate and commute','Tertiary centre with a revitalised feel','Alps on the doorstep'],
+   cons:'Still carries some post-earthquake legacy; fewer deep community threads than the older cities.'},
+  {id:'dunedin-nz',name:'Dunedin',sub:'Ōtepoti',country:'nz',scale:'city',coast:true,alpine:false,climate:'cool',scope:'tertiary',cost:'low',
+   guide:'/destinations/dunedin-new-zealand',
+   pros:['Most affordable major city in New Zealand','Strong tertiary hospital and university teaching environment','Wildlife and extraordinary scenery on the doorstep'],
+   cons:'Cold, and a long way from Auckland or Wellington if family is there.'},
+  {id:'hamilton-nz',name:'Hamilton',sub:'Waikato — green heartland',country:'nz',scale:'city',coast:false,alpine:false,climate:'temperate',scope:'base',cost:'mid',
+   guide:'/destinations/waikato-new-zealand',
+   pros:['Green and central — close to both coasts and the mountains','Growing health sector','Noticeably more affordable than Auckland'],
+   cons:'Inland and flat. If you want to see the sea from the house, this is not it.'},
+  {id:'bay-plenty-nz',name:'Bay of Plenty',sub:'Te Moana-a-Toi',country:'nz',scale:'city',coast:true,alpine:false,climate:'warm',scope:'base',cost:'mid',
+   guide:'/destinations/bay-of-plenty-new-zealand',
+   pros:['Beaches and year-round sunshine','Fast-growing region','A base hospital with a broad caseload'],
+   cons:'Growth has pushed housing faster than wages; summer brings the whole country to your beach.'},
+  {id:'nelson-nz',name:'Nelson Tasman',sub:'Whakatū',country:'nz',scale:'regional',coast:true,alpine:true,climate:'warm',scope:'base',cost:'mid',
+   guide:'/destinations/nelson-tasman-new-zealand',
+   pros:['Sunniest place in New Zealand','National parks on three sides','An easy, outdoor-focused life'],
+   cons:'Everyone else wants it too — housing is tight for the size of the town.'},
+  {id:'pn-nz',name:'Palmerston North',sub:'Te Papaioea',country:'nz',scale:'city',coast:false,alpine:false,climate:'temperate',scope:'base',cost:'low',
+   guide:'/destinations/palmerston-north-new-zealand',
+   pros:['The most affordable medium-sized city in New Zealand','Central North Island — easy to get anywhere from','Friendly, student-city energy'],
+   cons:'Flat, inland and windy. Its appeal is convenience and cost, not scenery.'},
+  {id:'central-otago-nz',name:'Central Otago',sub:'Southern Lakes & high country',country:'nz',scale:'regional',coast:false,alpine:true,climate:'cool',scope:'base',cost:'low',
+   guide:'/destinations/central-otago-new-zealand',
+   pros:['Lakes, mountains and four real seasons','A genuinely beautiful place to live','Affordable relative to NZ&rsquo;s main centres'],
+   cons:'Small team, and specialist backup is further away. Queenstown tourism inflates some costs.'},
+  {id:'southland-nz',name:'Southland',sub:'Murihiku & Fiordland',country:'nz',scale:'regional',coast:false,alpine:true,climate:'cool',scope:'base',cost:'low',
+   guide:'/destinations/southland-new-zealand',
+   pros:['Cheapest city housing in New Zealand','Fiordland two hours away','A relaxed, unpretentious community'],
+   cons:'Cold. A long way from anywhere else. Make sure the person coming with you wants it too.'},
+  /* AU */
+  {id:'sydney-au',name:'Sydney',sub:'New South Wales',country:'au',scale:'metro',coast:true,alpine:false,climate:'warm',scope:'tertiary',cost:'high',
+   guide:'/destinations/sydney-australia',
+   pros:['Largest clinical job market in Australia','Extraordinary coastline and beaches','The most diverse communities in the country'],
+   cons:'The most expensive housing in Australia, and traffic that earns its reputation.'},
+  {id:'melbourne-au',name:'Melbourne',sub:'Victoria',country:'au',scale:'metro',coast:true,alpine:false,climate:'temperate',scope:'tertiary',cost:'high',
+   guide:'/destinations/melbourne-australia',
+   pros:['World-class food, culture and sport','Major tertiary centres and teaching hospitals','A well-connected international hub'],
+   cons:'Expensive housing; a weather reputation for a reason (four seasons in a day).'},
+  {id:'brisbane-au',name:'Brisbane',sub:'Queensland',country:'au',scale:'metro',coast:true,alpine:false,climate:'warm',scope:'tertiary',cost:'mid',
+   guide:'/destinations/brisbane-australia',
+   pros:['Sun year-round and growing fast','More affordable than Sydney or Melbourne','Gateway to the Gold Coast and the Whitsundays'],
+   cons:'Hot and humid in summer. The sprawl can make it feel disconnected.'},
+  {id:'perth-au',name:'Perth',sub:'Western Australia',country:'au',scale:'metro',coast:true,alpine:false,climate:'warm',scope:'tertiary',cost:'mid',
+   guide:'/destinations/perth-australia',
+   pros:['World-class beaches and outdoor life','Strong WA Health pay and conditions','Grows on people fast — far fewer feel isolated than they expected'],
+   cons:'8,000 km from the east coast. Direct flights to the UK make Europe easier than Sydney.'},
+  {id:'adelaide-au',name:'Adelaide',sub:'South Australia',country:'au',scale:'city',coast:true,alpine:false,climate:'warm',scope:'tertiary',cost:'low',
+   guide:'/destinations/adelaide-australia',
+   pros:['Most affordable major city in Australia','Good wine regions, coast and the Flinders Ranges close by','SASMOA conditions are competitive'],
+   cons:'Smaller job market. Some feel it is quieter than they expected.'},
+  {id:'hobart-au',name:'Hobart',sub:'Tasmania',country:'au',scale:'city',coast:true,alpine:true,climate:'cool',scope:'base',cost:'low',
+   guide:'/destinations/hobart-australia',
+   pros:['Extraordinary scenery and outdoor life','Most affordable capital city in Australia','A real small-city feel with a big cultural scene (MONA)'],
+   cons:'Cold winters. Smaller clinical market. Getting to the mainland takes a flight.'},
+  {id:'bunbury-au',name:'Bunbury',sub:'Western Australia',country:'au',scale:'regional',coast:true,alpine:false,climate:'warm',scope:'base',cost:'low',
+   guide:'/destinations/bunbury-australia',
+   pros:['Affordable coast, 2 hours south of Perth','Warm year-round','Regional designation — migration pathway benefit'],
+   cons:'Base hospital rather than tertiary. Social life is Perth-orientated for many.'},
+  {id:'geelong-au',name:'Geelong',sub:'Victoria',country:'au',scale:'city',coast:true,alpine:false,climate:'temperate',scope:'base',cost:'mid',
+   guide:'/destinations/geelong-australia',
+   pros:['An hour from Melbourne on the bay','Growing fast — new hospital investment','A real city feeling without Melbourne prices'],
+   cons:'In Melbourne&rsquo;s orbit. The regional health service is expanding but still a step below a major metro centre.'}
+];
+
+/* === SCORING === */
+var dfAnswers={};
+function setOpt(q,v,btn){
+  dfAnswers[q]=v;
+  document.querySelectorAll('[data-q="'+q+'"] .df-opt').forEach(function(b){b.classList.remove('sel')});
+  btn.classList.add('sel');
+  checkReady();
+}
+function checkReady(){
+  var qs=['country','scale','outdoor','climate','scope','cost','hh'];
+  document.getElementById('df-run').disabled=qs.some(function(q){return !dfAnswers[q]});
+}
+document.querySelectorAll('.df-opt').forEach(function(btn){
+  btn.addEventListener('click',function(){setOpt(btn.closest('[data-q]').dataset.q,btn.dataset.v,btn)});
+});
+
+function score(dest){
+  var s=0,a=dfAnswers;
+  if(a.country==='either')s+=1; else if(a.country===dest.country)s+=3;
+  if(a.scale===dest.scale)s+=2;
+  if(a.outdoor==='coast'&&dest.coast)s+=2; else if(a.outdoor==='alpine'&&dest.alpine)s+=2; else if(a.outdoor==='either')s+=1;
+  if(a.climate==='warm'&&dest.climate==='warm')s+=2; else if(a.climate==='temperate'&&dest.climate==='temperate')s+=2; else if(a.climate==='cool'&&dest.climate==='cool')s+=2;
+  if(a.scope==='either')s+=0.5; else if(a.scope===dest.scope)s+=1;
+  if(a.cost==='low'&&dest.cost==='low')s+=2; else if(a.cost==='low'&&dest.cost==='mid')s+=1; else if(a.cost==='mid'&&dest.cost==='mid')s+=2; else if(a.cost==='mid'&&dest.cost==='low')s+=1; else if(a.cost==='fine')s+=0.5;
+  return s;
+}
+
+function runFinder(){
+  var ranked=DESTS.slice().sort(function(a,b){return score(b)-score(a)});
+  /* if not 'either', filter to chosen country but fall back if fewer than 3 */
+  var chosen=dfAnswers.country==='either'?ranked:ranked.filter(function(d){return d.country===dfAnswers.country});
+  if(chosen.length<3)chosen=ranked;
+  var top3=chosen.slice(0,3);
+  var out=document.getElementById('df-out');
+  out.removeAttribute('hidden');
+  out.innerHTML=top3.map(function(d,i){
+    var prolis=d.pros.map(function(p){return '<li>'+p+'</li>'}).join('');
+    return '<div class="df-res'+(i===0?' first':'')+'"><span class="df-rank">'+(i+1)+'</span>'
+      +'<div class="df-rbody"><p class="df-rplace">'+d.name+'</p><p class="df-rsub">'+d.sub+'</p>'
+      +'<ul class="df-rpros">'+prolis+'</ul>'
+      +'<p class="df-rcons"><strong>The honest bit:</strong> '+d.cons+'</p>'
+      +'<a class="df-rlink" href="'+d.guide+'">Read the '+d.name+' guide &rarr;</a></div></div>';
+  }).join('')+'<p class="df-note">These are suggestions based on your answers, not a recommendation. Visit if you possibly can &mdash; a week in a place tells you something no page can. If you are torn between two, <a href="/contact">say so</a> &mdash; we have had this conversation many times.</p>';
+  out.scrollIntoView({block:'nearest',behavior:'smooth'});
+}
+
+/* === LIFESTYLE TILES === */
+document.querySelectorAll('.life-tile').forEach(function(t){
+  t.addEventListener('click',function(){t.classList.toggle('sel')});
+});
+/* === PACK === */
+var PACK_KEY='ethicare_guide_pack_v1';
+function loadPack(){try{return JSON.parse(localStorage.getItem(PACK_KEY)||'[]')}catch(e){return[]}}
+function savePack(p){try{localStorage.setItem(PACK_KEY,JSON.stringify(p))}catch(e){}}
+function renderPack(){
+  var p=loadPack();
+  document.getElementById('pack-count').textContent=p.length;
+  var list=document.getElementById('pack-list-display');
+  var empty=document.getElementById('pack-empty');
+  if(p.length===0){
+    if(empty)empty.style.display=''; list.querySelectorAll('li:not(#pack-empty)').forEach(function(li){li.remove()});
+  } else {
+    if(empty)empty.style.display='none';
+    list.querySelectorAll('li:not(#pack-empty)').forEach(function(li){li.remove()});
+    p.forEach(function(g){var li=document.createElement('li');li.textContent=g.title;list.appendChild(li)});
+  }
+  document.getElementById('pack-contents-field').value=p.map(function(g){return g.title+' ('+g.url+')'}).join('\n');
+  /* sync buttons */
+  document.querySelectorAll('.mv-add').forEach(function(btn){
+    var inPack=p.some(function(g){return g.url===btn.dataset.url});
+    btn.textContent=inPack?'In pack ✓':'Add to pack';
+    btn.classList.toggle('on',inPack);
+  });
+}
+document.querySelectorAll('.mv-add').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var p=loadPack(),url=btn.dataset.url,title=btn.dataset.title;
+    var idx=p.findIndex(function(g){return g.url===url});
+    if(idx===-1)p.push({title:title,url:url}); else p.splice(idx,1);
+    savePack(p); renderPack();
+  });
+});
+renderPack();
+
+/* === PACK FORM ===
+   Two posts, in this order and for different reasons:
+   1. Netlify Forms — the RECORD. Fires first so a request is never lost.
+   2. /.netlify/functions/send-pack — the DELIVERY, via Resend.
+   If the delivery fails the record still exists and the Netlify Forms
+   notification still reaches the office, so the confirmation says the pack is
+   coming by hand rather than claiming an inbox it did not reach. */
+document.getElementById('pack-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var form=this,btn=form.querySelector('.pk-submit'),data=new FormData(form);
+  btn.disabled=true; btn.textContent='Sending\u2026';
+  function done(sent){
+    form.style.display='none';
+    var el=document.getElementById('pk-sent');
+    if(!sent)el.innerHTML='\u2713&nbsp; We have your request. Your pack is on its way from Sophie shortly \u2014 if it has not arrived by tomorrow, email <a href="mailto:hello@ethicareresourcing.com" style="color:#C6E084">hello@ethicareresourcing.com</a>.';
+    el.style.display='block';
+  }
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:new URLSearchParams(data).toString()})
+    .catch(function(){})
+    .then(function(){
+      return fetch('/.netlify/functions/send-pack',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({name:data.get('name')||'',email:data.get('email')||'',destination:data.get('destination')||'',household:data.get('household')||'',pack:data.get('pack-contents')||'','bot-trap':data.get('bot-trap')||''})})
+        .then(function(r){return r.ok});
+    })
+    .then(function(ok){done(!!ok)})
+    .catch(function(){done(false)});
+});
+
+/* === WHERE ARE YOU IN YOUR THINKING === */
+var WHERE_KEY='ethicare_move_where_v1',DONE_KEY='ethicare_move_done_v1';
+var WHERE=(function(){try{var w=localStorage.getItem(WHERE_KEY);return (w==='nz'||w==='au'||w==='compare')?w:'explore'}catch(e){return 'explore'}})();
+function setWhere(w,opts){
+  opts=opts||{}; WHERE=w; try{localStorage.setItem(WHERE_KEY,w)}catch(e){}
+  document.body.setAttribute('data-where',w);
+  document.querySelectorAll('button.where-opt[data-where]').forEach(function(b){b.classList.toggle('sel',b.dataset.where===w)});
+  var c=(w==='nz'||w==='au')?w:'nz';
+  document.querySelectorAll('.mv-add[data-nz-url]').forEach(function(b){
+    b.dataset.url=b.dataset[c+'Url']; var t=b.dataset[c+'Title'];
+    if(t){b.dataset.title=t; var el=b.closest('.mv-gc').querySelector('.gct'); if(el)el.textContent=t;}
+  });
+  document.querySelectorAll('a[data-nz-href]').forEach(function(a){a.setAttribute('href',a.dataset[c+'Href'])});
+  var rl=document.querySelector('.mv-rb[data-target="s2"] .rl');
+  if(rl){rl.textContent=w==='nz'?'New Zealand \u2014 chosen':w==='au'?'Australia \u2014 chosen':'Choose your destination'; rl.parentNode.classList.toggle('done',w==='nz'||w==='au')}
+  var mb=document.querySelector('.sww-menu button[data-go="s2"]'); if(mb)mb.classList.toggle('done',w==='nz'||w==='au');
+  var note=document.getElementById('country-note'); if(note)note.hidden=(w==='nz'||w==='au');
+  if(typeof applyHhx==='function'&&typeof HHX!=='undefined')applyHhx();
+  if(!opts.fromFinder&&(w==='nz'||w==='au')){ dfAnswers.country=w; document.querySelectorAll('[data-q="country"] .df-opt').forEach(function(b){b.classList.toggle('sel',b.dataset.v===w)}); checkReady(); }
+  renderPack();
+}
+document.querySelectorAll('button[data-where]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var w=b.dataset.where; setWhere(w);
+    if(b.classList.contains('link-btn')&&w==='explore'){scrollTo('where');return;}
+    if(w==='explore')scrollTo('life'); else scrollTo('s2');
+  });
+});
+/* === WHO'S COMING WITH YOU === */
+var WHO_KEY='ethicare_move_who_v1',WHO_VALS=['solo','partner','children','partner-children','parent'];
+var WHO=(function(){try{var w=localStorage.getItem(WHO_KEY);return WHO_VALS.indexOf(w)>-1?w:''}catch(e){return ''}})();
+function setWho(w,opts){
+  opts=opts||{}; WHO=w; try{if(w)localStorage.setItem(WHO_KEY,w);else localStorage.removeItem(WHO_KEY)}catch(e){}
+  if(w)document.body.setAttribute('data-who',w); else document.body.removeAttribute('data-who');
+  document.querySelectorAll('button.where-opt[data-who]').forEach(function(b){b.classList.toggle('sel',b.dataset.who===w)});
+  if(typeof applyHhx==='function')applyHhx();
+  if(!opts.fromFinder&&w){ dfAnswers.hh=w; document.querySelectorAll('[data-q="hh"] .df-opt').forEach(function(b){b.classList.toggle('sel',b.dataset.v===w)}); checkReady(); }
+}
+document.querySelectorAll('button[data-who]').forEach(function(b){b.addEventListener('click',function(){setWho(b.dataset.who===WHO?'':b.dataset.who)})});
+/* follow-ups: partner a clinician? children's ages? — persisted with the household answer */
+var HHX_KEY='ethicare_move_hh_v1';
+var HHX=(function(){try{var o=JSON.parse(localStorage.getItem(HHX_KEY)||'{}');return {pw:o.pw||'',ages:Array.isArray(o.ages)?o.ages:[]}}catch(e){return {pw:'',ages:[]}}})();
+function applyHhx(){
+  try{localStorage.setItem(HHX_KEY,JSON.stringify(HHX))}catch(e){}
+  var partner=(WHO==='partner'||WHO==='partner-children'), kids=(WHO==='children'||WHO==='partner-children');
+  if(partner&&HHX.pw)document.body.setAttribute('data-pw',HHX.pw); else document.body.removeAttribute('data-pw');
+  if(kids&&HHX.ages.length)document.body.setAttribute('data-ages',HHX.ages.join(' ')); else document.body.removeAttribute('data-ages');
+  document.querySelectorAll('.who-chip[data-pw]').forEach(function(b){b.classList.toggle('sel',b.dataset.pw===HHX.pw)});
+  document.querySelectorAll('.who-chip[data-age]').forEach(function(b){b.classList.toggle('sel',HHX.ages.indexOf(b.dataset.age)>-1)});
+  var f=document.getElementById('pk-hh'); if(f)f.value=WHO?(WHO+(partner&&HHX.pw?'; partner: '+HHX.pw:'')+(kids&&HHX.ages.length?'; children: '+HHX.ages.join(' '):'')):'';
+  var ml=document.querySelector('.mv-hh[data-hh="age-u5"] a[data-au-href*="servicesaustralia"]'); if(ml)ml.textContent=(WHERE==='au')?'Services Australia':'the Ministry of Education';
+}
+document.querySelectorAll('.who-chip[data-pw]').forEach(function(b){b.addEventListener('click',function(){HHX.pw=(HHX.pw===b.dataset.pw)?'':b.dataset.pw;applyHhx()})});
+document.querySelectorAll('.who-chip[data-age]').forEach(function(b){b.addEventListener('click',function(){var i=HHX.ages.indexOf(b.dataset.age);if(i>-1)HHX.ages.splice(i,1);else HHX.ages.push(b.dataset.age);applyHhx()})});
+/* the finder's country and household questions and the opener are one answer each */
+var _setOpt=setOpt;
+setOpt=function(q,v,btn){ _setOpt(q,v,btn); if(q==='country'){ var w=v==='either'?((WHERE==='nz'||WHERE==='au')?'explore':WHERE):v; if(w!==WHERE)setWhere(w,{fromFinder:true}); } if(q==='hh'&&v!==WHO)setWho(v,{fromFinder:true}); };
+
+/* === SKIP A STAGE ("already sorted") === */
+function loadDone(){try{return JSON.parse(localStorage.getItem(DONE_KEY)||'[]')}catch(e){return[]}}
+function applyDone(){
+  var d=loadDone();
+  document.querySelectorAll('.mv-step[id]').forEach(function(s){var on=d.indexOf(s.id)>-1; s.classList.toggle('skipped',on); var b=s.querySelector('.mv-skip'); if(b)b.textContent=on?'Skipped \u2014 show it anyway':'Already sorted? Skip this stage';});
+  document.querySelectorAll('.mv-rb[data-target],.sww-menu button[data-go]').forEach(function(b){var id=b.dataset.target||b.dataset.go; if(id&&id!=='s2'&&id!=='where'&&id!=='who'&&id!=='pack-anchor')b.classList.toggle('done',d.indexOf(id)>-1)});
+}
+document.querySelectorAll('.mv-skip').forEach(function(b){b.addEventListener('click',function(){var d=loadDone(),id=b.dataset.skip,i=d.indexOf(id); if(i===-1)d.push(id); else d.splice(i,1); try{localStorage.setItem(DONE_KEY,JSON.stringify(d))}catch(e){} applyDone();})});
+
+/* === START WHERE YOU ARE (persistent menu) === */
+var sww=document.getElementById('sww');
+document.querySelectorAll('.sww-menu button').forEach(function(b){b.addEventListener('click',function(){sww.removeAttribute('open'); if(b.dataset.go==='where'){setWhere('explore');scrollTo('where');} else if(b.dataset.go==='who'){scrollTo('who');} else scrollTo(b.dataset.go);})});
+document.addEventListener('click',function(e){if(sww&&sww.hasAttribute('open')&&!sww.contains(e.target))sww.removeAttribute('open')});
+setWhere(WHERE); setWho(WHO); applyDone();
+
+/* === STEP TRACKING (IntersectionObserver) === */
+function scrollTo(id){
+  var el=document.getElementById(id);
+  if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function scrollToPack(){
+  document.getElementById('pack-anchor').scrollIntoView({behavior:'smooth',block:'start'});
+}
+var steps=document.querySelectorAll('.mv-step');
+var btns=document.querySelectorAll('.mv-rb[data-target]');
+if('IntersectionObserver' in window){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id=e.target.id;
+        btns.forEach(function(b){b.classList.toggle('active',b.dataset.target===id)});
+        e.target.classList.add('active');
+      }
+    });
+  },{rootMargin:'-30% 0px -60% 0px',threshold:0});
+  steps.forEach(function(s){obs.observe(s)});
+}
+</script>
+</body>
+</html>

@@ -19,6 +19,11 @@
   function pad(n) { return n < 10 ? '0' + n : String(n); }
   var LSK = 'ethicare_pathway_checker_draft_v1';
   var SENT = 'ethicare_pathway_checker_sent_v1';
+  /* The "email this to me" route promises delivery — and until a transactional sender exists
+     nothing delivers it: Netlify Forms notifies Ethicare, never the candidate. Rather than
+     rewrite the copy (and rewrite it back), the route is gated. Flip this to true the moment
+     the send-result function is live and the whole flow returns exactly as written. */
+  var EMAIL_SENDER_LIVE = false;
   var A0 = { profession: '', destination: '', qualCountry: '', qualLevel: '', recentCountry: '', registered: '', regCountry: '', practising: '', lastPractised: '', regProgress: '', english: '', doctorStage: '', doctorSpecialist: '', doctorSpecQual: '', odpExp: '', odpStanding: '' };
   /* Profession question fields are declared in the DATA file, so derive them here rather than
      keeping a parallel list by hand. The hand-kept version had already fallen behind twice:
@@ -31,7 +36,18 @@
       (q[k].questions || []).forEach(function (x) { if (x.field && !(x.field in A0)) A0[x.field] = ''; });
     });
   })();
-  var L0 = { name: '', email: '', phone: '', country: '', dest: '', timeframe: '', consent: false, priorities: [], party: '' };
+  var L0 = { name: '', email: '', phone: '', country: '', dest: '', timeframe: '', optRoles: false, optUpdate: false, priorities: [], party: '' };
+
+  /* ---------------- consent ----------------
+     Two opt-ins, both unticked, neither a condition of getting the result. The exact wording is
+     held here rather than inline because what someone agreed to is only meaningful alongside the
+     words they read: if this copy changes, CONSENT_V changes with it, and both are submitted. A
+     consent record without its wording cannot be reconstructed after the fact. */
+  var CONSENT_V = '2026-09-01';
+  var OPTS = {
+    optRoles: 'Email me when a role comes up in my profession — New Zealand or Australia',
+    optUpdate: 'Send me the quarterly update — what’s changed in registration, visas and pay, and anything new we’ve built'
+  };
 
   var st = { step: 1, answers: assign({}, A0), err: '', errKeys: [], lead: assign({}, L0), leadErr: '', leadDone: false, emailMe: false };
   var moveFocus = false;   // set on step changes only — never while someone is typing
@@ -41,6 +57,41 @@
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   var DRAFT_MAX_AGE = 30 * 24 * 60 * 60 * 1000; // a month-old draft is dropped rather than shown as current
   function save() { try { localStorage.setItem(LSK, JSON.stringify({ answers: st.answers, step: st.step, ts: Date.now() })); } catch (e) {} }
+
+  /* ---------------- resumable link ----------------
+     The checker is deterministic: the same answers always resolve to the same route. So a link
+     back into a result needs to carry the ANSWERS, not the result — a few hundred bytes in the
+     URL rather than a stored row. Nothing is kept server-side, there is no record to expire or
+     to breach, and reopening the link recomputes against TODAY'S registry, so someone returning
+     in six months sees current guidance rather than a cached verdict that has quietly gone stale.
+     Empty answers are dropped before encoding to keep the link short enough to survive email
+     clients that wrap long URLs. */
+  function encodeAnswers() {
+    var slim = {};
+    Object.keys(st.answers).forEach(function (k) { if (st.answers[k]) slim[k] = st.answers[k]; });
+    try {
+      return btoa(unescape(encodeURIComponent(JSON.stringify(slim))))
+        .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    } catch (e) { return ''; }
+  }
+  function decodeAnswers(s) {
+    try {
+      var b = s.replace(/-/g, '+').replace(/_/g, '/');
+      while (b.length % 4) b += '=';
+      var o = JSON.parse(decodeURIComponent(escape(atob(b))));
+      if (!o || typeof o !== 'object') return null;
+      var keep = {};
+      /* Only keys the CURRENT form defines, and only strings — an old link whose fields have
+         since been retired degrades to a partial answer set rather than injecting dead keys. */
+      Object.keys(A0).forEach(function (k) { if (typeof o[k] === 'string') keep[k] = o[k]; });
+      return keep;
+    } catch (e) { return null; }
+  }
+  function resumeLink() {
+    var c = encodeAnswers();
+    if (!c) return '';
+    return location.origin + '/pathway-checker?r=' + c;
+  }
 
   /* ---------------- state ---------------- */
   function setA(k, v) {
@@ -841,7 +892,7 @@
     if (isOther) {
       return assign(base, {
         headline: fill(nr.headline), paras: nr.paras.map(fill), steps: [], notes: [],
-        why: ['You told us you are ' + who + ' looking at ' + country + '. That sits outside the professions we recruit there, and we do not hold verified guidance for it either \u2014 so rather than guess, we point you at the official register.']
+        why: ['You told us you are ' + who + ' looking at ' + country + '. We do not hold verified registration guidance for that yet \u2014 so rather than guess, we point you at the official register, and you are welcome to ask us directly.']
       });
     }
     /* No role, but the route still stands. The pill still says the honest thing. */
@@ -1376,7 +1427,7 @@
     if (served.length) {
       links.push({ href: served[0].jobsHref, k: 'Roles', t: 'See the roles we are recruiting', n: 'What is actually open for your profession right now, and where.' });
     } else {
-      links.push({ href: '/jobs/professions', k: 'Roles', t: 'The professions we recruit', n: 'We do not place every profession. This is the list, honestly.' });
+      links.push({ href: '/jobs/professions', k: 'Roles', t: 'The professions we recruit', n: 'Every profession in New Zealand, and medical imaging and radiation therapy in Australia \u2014 with the guides built so far.' });
     }
     links.push({ href: '/cost-calculator', k: 'Money', t: 'Could we afford the move?', n: 'Set-up costs, the flights, the first months\u2019 rent \u2014 before you commit to anything.' });
     var au = res.some(function (r) { return r.cc === 'au'; }), nz = res.some(function (r) { return r.cc === 'nz'; });
@@ -1447,12 +1498,22 @@
       '</div></div>';
   }
 
+  /* One opt-in. Unticked by default — a pre-ticked box is not consent, and on a page whose
+     whole argument is that we do not overstate, it is the detail that costs the most trust. */
+  function optTick(key, l) {
+    var on = !!l[key];
+    return '<button type="button" class="pw-consent' + (on ? ' is-sel' : '') + '" role="checkbox" aria-checked="' + (on ? 'true' : 'false') + '" data-act="opt" data-v="' + key + '"><i>' +
+      (on ? '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>' : '') +
+      '</i><span>' + esc(OPTS[key]) + '</span></button>';
+  }
+
   function leadPanel(res) {
     var d = D() || {}, l = st.lead;
     if (st.leadDone) {
       return '<div class="pw-done"><span class="pw-donei"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>' +
         '<div><h3>Thanks, ' + esc((l.name.trim().split(/\s+/)[0]) || 'there') + ' — we\u2019ve got it</h3>' +
-        '<p>' + (st.emailMe ? 'Your starting point is on its way to you, and ' : 'Someone from the team will be in touch shortly. In the meantime, your starting point above links straight to the official regulator — and ') + 'our <a href="/guides/australia-registration">Australia</a> and <a href="/guides/new-zealand-registration">New Zealand</a> registration guides walk the whole journey.</p></div></div>';
+        '<p>' + (st.emailMe ? 'Your starting point is on its way to you, and ' : 'Someone from the team will be in touch shortly. In the meantime, your starting point above links straight to the official regulator — and ') + 'our <a href="/guides/australia-registration">Australia</a> and <a href="/guides/new-zealand-registration">New Zealand</a> registration guides walk the whole journey.</p>' +
+        '<p class="pw-leadpriv">Keep this link and you can reopen your starting point any time — it recomputes against the current rules, so it will not go stale. <button type="button" class="pw-b2" data-act="copylink">Copy a link back to this</button></p></div></div>';
     }
     var chips = (d.priorities || []).map(function (p) {
       return '<button type="button" class="pw-chip' + (l.priorities.indexOf(p) >= 0 ? ' is-sel' : '') + '" data-act="priority" data-v="' + esc(p) + '">' + esc(p) + '</button>';
@@ -1477,8 +1538,9 @@
       '</div>' +
       '<div class="pw-q">What matters most about your move? <span class="pw-opt-note">(choose up to three)</span></div><div class="pw-row wrap">' + chips + '</div>' +
       '<div class="pw-q">Who would be moving with you?</div><div class="pw-row wrap">' + party + '</div>' +
-      '<button type="button" class="pw-consent' + (l.consent ? ' is-sel' : '') + '" data-act="consent"><i>' + (l.consent ? '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>' : '') + '</i>' +
-      '<span>I\u2019d like Ethicare to contact me about relevant opportunities. See our <a href="/privacy-policy">privacy policy</a>.' + (st.emailMe ? ' <em>Optional — we\u2019ll email your starting point either way.</em>' : '') + '</span></button>' +
+      '<div class="pw-q">What would you like from us? <span class="pw-opt-note">(both optional)</span></div>' +
+      optTick('optRoles', l) + optTick('optUpdate', l) +
+      '<p class="pw-leadpriv">' + (st.emailMe ? 'We’ll email your starting point either way. ' : '') + 'Unsubscribe from either at any time. See our <a href="/privacy-policy">privacy policy</a>.</p>' +
       '<div class="pw-leadbtns"><button type="button" class="pw-b1" data-act="submit">' + (st.emailMe ? 'Send me my starting point' : 'Send to the Ethicare team') + '</button>' +
       '<a class="pw-b2" href="/apply">Register fully &amp; send your CV \u2192</a>' +
       (st.leadErr ? '<span class="pw-err" role="alert">' + esc(st.leadErr) + '</span>' : '') + '</div></div>';
@@ -1524,7 +1586,8 @@
       '<p class="pw-rsum">' + esc(bits.length ? 'Based on what you told us: ' + bits.join(' \u00b7 ') : 'Based on what you told us') + '</p></div>' +
       '<div class="pw-resacts"><button type="button" class="pw-b2" data-act="back">Change my answers</button>' +
       '<button type="button" class="pw-b2" data-act="print">Print or save as PDF</button>' +
-      (st.leadDone || allOutside ? '' : '<button type="button" class="pw-b2" data-act="emailme">Email this to me</button>') +
+      '<button type="button" class="pw-b2" data-act="copylink">Copy a link back to this</button>' +
+      (st.leadDone || allOutside || !EMAIL_SENDER_LIVE ? '' : '<button type="button" class="pw-b2" data-act="emailme">Email this to me</button>') +
       '<button type="button" class="pw-b3" data-act="restart">Start again</button></div></div>' +
       confirmBlock(res) +
       compareBlock(res) +
@@ -1545,23 +1608,53 @@
     readLead();
     var l = st.lead;
     if (!l.name.trim() || !/.+@.+\..+/.test(l.email)) { st.leadErr = 'A first name and a valid email are needed.'; render(); return; }
-    // marketing consent is never the price of getting your own result — only the
-    // "contact me about opportunities" route requires the tick
-    if (!st.emailMe && !l.consent) { st.leadErr = 'Please tick the consent box so we\u2019re allowed to contact you.'; render(); return; }
+    /* Neither tick is the price of your own result — but with no tick and no request for the
+       result by email there is nothing to send and no permission to act on, so the submit would
+       collect an address we could never use. */
+    if (!st.emailMe && !l.optRoles && !l.optUpdate) { st.leadErr = 'Choose at least one of the two options, so we know what you\u2019d like from us.'; render(); return; }
     var form = document.getElementById('pw-netlify-form');
     if (!form) { st.leadDone = true; st.leadErr = ''; render(); return; }
     var res = results().map(function (r) { return r.country + ': ' + r.statusLabel + ' — ' + r.regulator + (r.outlook ? ' — outlook: ' + r.outlook.label : ''); }).join(' | ');
     var payload = assign({}, st.answers, {
       name: l.name, email: l.email, phone: l.phone, country: l.country, dest: l.dest,
       timeframe: l.timeframe, priorities: l.priorities.join(', '), party: l.party,
-      consent: l.consent ? 'yes' : 'no', result_summary: res,
+      opt_roles: l.optRoles ? 'yes' : 'no',
+      opt_quarterly: l.optUpdate ? 'yes' : 'no',
+      consent_version: CONSENT_V,
+      consent_wording: [l.optRoles ? OPTS.optRoles : null, l.optUpdate ? OPTS.optUpdate : null].filter(Boolean).join(' | ') || 'none ticked',
+      resume_link: resumeLink(),
+      result_summary: res,
       email_copy: st.emailMe ? 'yes — candidate asked for their starting point by email' : 'no'
     });
+    /* Never skip a key. The old version did `if (el) el.value = ...`, so any answer without a
+       matching hidden input in pathway-checker.html was dropped in silence — which is exactly
+       what happened to every profession-specific field (psychAuArea, docIntent, sltAssoc and
+       19 others): captured on screen, shown in the result, never delivered. The hidden form was
+       a third hand-kept copy of a list the data file owns, and it had fallen behind. Creating
+       the input on demand makes that class of bug impossible; the static list is kept in step
+       so Netlify still registers each column at deploy time. */
     Object.keys(payload).forEach(function (k) {
       var el = form.elements[k];
-      if (el) el.value = payload[k];
+      if (!el) {
+        el = document.createElement('input');
+        el.type = 'hidden'; el.name = k;
+        form.appendChild(el);
+      }
+      el.value = payload[k];
     });
     try { localStorage.setItem(SENT, '1'); } catch (e) {}
+    /* Fire-and-forget, with keepalive: the native form submit navigates immediately and would
+       cancel an ordinary fetch mid-flight. The candidate's copy must not depend on the Netlify
+       Forms round trip, and a failed send must never block the submission that reaches us. */
+    if (EMAIL_SENDER_LIVE) {
+      try {
+        fetch('/.netlify/functions/send-result', {
+          method: 'POST', keepalive: true,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: l.name, email: l.email, summary: res, resumeLink: resumeLink() })
+        }).catch(function () {});
+      } catch (e) {}
+    }
     HTMLFormElement.prototype.submit.call(form);
   }
 
@@ -1594,6 +1687,7 @@
     } else if (act === 'print') {
       window.print();
     } else if (act === 'emailme') {
+      if (!EMAIL_SENDER_LIVE) return;
       readLead(); st.emailMe = true; moveFocus = true; render();
     } else if (act === 'restart') {
       try { localStorage.removeItem(LSK); localStorage.removeItem(SENT); } catch (er) {}
@@ -1610,8 +1704,24 @@
       var pv = b.getAttribute('data-v');
       st.lead.party = st.lead.party === pv ? '' : pv;
       render();
-    } else if (act === 'consent') {
-      readLead(); st.lead.consent = !st.lead.consent; st.leadErr = ''; render();
+    } else if (act === 'opt') {
+      readLead();
+      var ok = b.getAttribute('data-v');
+      st.lead[ok] = !st.lead[ok]; st.leadErr = ''; render();
+    } else if (act === 'copylink') {
+      var link = resumeLink();
+      if (!link) return;
+      var done = function () {
+        b.textContent = 'Link copied';
+        setTimeout(function () { b.textContent = 'Copy a link back to this'; }, 2600);
+      };
+      /* A present clipboard API is not a working one — permissions policy, a non-secure context
+         and some Safari paths all REJECT rather than being absent. The fallback therefore hangs
+         off the rejection, not off feature detection, or a blocked copy leaves the person with
+         no link and no error. */
+      var manual = function () { window.prompt('Copy your link:', link); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(link).then(done, manual);
+      else manual();
     } else if (act === 'submit') {
       submitLead();
     }
@@ -1625,13 +1735,26 @@
 
   function goResult() {
     var map = { australia: 'Australia', 'new-zealand': 'New Zealand', both: 'Either', unsure: 'Not sure yet' };
-    if (window.track) window.track('pathway_completed', {
-      profession: st.answers.profession, country: st.answers.destination, reg_progress: st.answers.regProgress
-    });
     st.step = RESULT; st.err = '';
+    /* Fired AFTER the step advances, because results() returns [] off the result step \u2014 so the
+       spec's `outcome` prop (what the checker actually concluded) can only be read from here.
+       It previously sent reg_progress instead, which is where the person said they were, not
+       what the tool told them: the drop-off question the spec asks cannot be answered with it. */
+    if (window.track) window.track('pathway_completed', {
+      profession: st.answers.profession,
+      country: st.answers.destination,
+      outcome: results().map(function (r) { return r.statusLabel; }).filter(Boolean).join(' / ')
+    });
     st.lead.dest = st.lead.dest || map[st.answers.destination] || '';
     moveFocus = true;
-    save(); render();
+    save();
+    /* A short, honest pause before the result: each line names work the checker has just done
+       (site/loading-lines.js, set "checker"). Reduced-motion users see the lines without the pulse. */
+    if (window.EthicareLoading) {
+      app.innerHTML = '<div style="min-height:220px;display:grid;place-items:center;padding:40px 22px"><span data-pw-wait></span></div>';
+      var stopWait = window.EthicareLoading.start(app.querySelector('[data-pw-wait]'), 'checker', { interval: 550 });
+      setTimeout(function () { stopWait(); render(); }, 1100);
+    } else render();
   }
 
   /* One render path. On a step change (never on a keystroke) focus moves to the new
@@ -1730,6 +1853,21 @@
     if (qd) {
       var dst = decodeURIComponent(qd);
       if (['australia', 'new-zealand', 'both', 'unsure'].indexOf(dst) >= 0 && st.answers.profession) { st.answers.destination = dst; st.step = 3; }
+    }
+  } catch (e) {}
+  try {
+    /* A resumable link wins over both the saved draft and ?profession= — it is the most
+       specific intent on the page. Unlike the draft restore, this DOES land straight on the
+       result: the answers came from us, and the verdict is recomputed live against the current
+       registry, so what they see is today's guidance rather than a cached one. */
+    var rq = (location.search.match(/[?&]r=([^&]+)/) || [])[1];
+    if (rq) {
+      var restored = decodeAnswers(decodeURIComponent(rq));
+      if (restored && restored.profession) {
+        st.answers = assign({}, A0, restored);
+        st.step = RESULT;
+        if (window.track) window.track('pathway_resumed', { profession: st.answers.profession });
+      }
     }
   } catch (e) {}
   try {
