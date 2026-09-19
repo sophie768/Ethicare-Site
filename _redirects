@@ -11,7 +11,13 @@
 /move	/move.html	200
 /move.html	/move	301
 /plan	/move.html	200
-/my-move	/move#doing	301
+# My Move — the PRIVATE, invitation-only candidate portal + staff admin (19 Sep 2026).
+# Distinct from the public Ethicare Move planner at /move. Served from my-move/;
+# the old /my-move → /move#doing alias is retired because the name now belongs
+# to the private portal (design handoff, 19 Sep 2026).
+/my-move	/my-move/index.html	200
+/my-move/	/my-move/index.html	200
+/my-move/help	/my-move/help.html	200
 /portal	/move	301
 /portal.html	/move	301
 /build-your-cv	/build-your-cv.html	200

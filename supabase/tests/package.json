@@ -1,0 +1,7 @@
+{
+  "name": "my-move-rls-checks",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node rls-check.mjs" },
+  "dependencies": { "@supabase/supabase-js": "^2.58.0" }
+}

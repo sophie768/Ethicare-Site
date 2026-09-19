@@ -39,6 +39,21 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
 
+# My Move (private portal): never cached, never indexed. Every response also
+# carries a CSP scoped to the pinned CDN scripts and the Supabase project.
+[[headers]]
+  for = "/my-move/*"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Referrer-Policy = "no-referrer"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+
+[[headers]]
+  for = "/.netlify/functions/mymove/*"
+  [headers.values]
+    Cache-Control = "no-store"
+
 [[headers]]
   for = "/assets/*"
   [headers.values]

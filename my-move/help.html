@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to use My Move | Ethicare staff guide</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/my-move/portal.css">
+<link rel="icon" href="/assets/logo-mark.png">
+<style>
+.hp{max-width:780px;margin:0 auto;padding:clamp(28px,5vw,56px) 20px 80px}
+.hp h1{font-size:clamp(28px,4vw,36px);margin:10px 0 8px}
+.hp h2{font-size:22px;margin:40px 0 10px;padding-top:24px;border-top:1px solid var(--mm-line)}
+.hp h3{font-size:17px;margin:22px 0 6px}
+.hp p,.hp li{font-size:16px;line-height:1.6;color:var(--mm-ink)}
+.hp p{margin:0 0 12px}
+.hp ol,.hp ul{margin:0 0 14px;padding-left:22px}
+.hp li{margin-bottom:6px}
+.hp .toc{background:#fff;border:1px solid var(--mm-line);border-radius:var(--mm-r-lg);padding:18px 22px;margin:20px 0 10px}
+.hp .toc a{display:block;padding:4px 0;font-weight:600;font-family:'Work Sans',sans-serif}
+.hp .box{background:var(--mm-sage);border-radius:var(--mm-r);padding:14px 18px;margin:14px 0}
+.hp .box.warn{background:#FFF7E9;border:1px solid #F0DDB4}
+.hp b{font-weight:600}
+.hp kbd{font-family:'Work Sans',sans-serif;font-weight:600;background:var(--mm-mint);border-radius:6px;padding:1px 7px;font-size:14px;color:var(--mm-teal)}
+.hp a{border-bottom:1px solid var(--mm-fern)}
+.hp .top{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+</style>
+</head>
+<body class="mm">
+<main class="hp" id="main-content">
+  <div class="top"><a class="mm-brand" href="/my-move/" style="color:var(--mm-teal)"><img src="/assets/logo-mark.png" alt="" style="background:var(--mm-mint)"><span><span class="bt" style="color:var(--mm-teal)">Ethicare</span><span class="bs" style="color:var(--mm-fern-text)">My Move · staff guide</span></span></a></div>
+  <span class="mm-eyebrow"><i></i>For Ethicare staff</span>
+  <h1>How to use My Move</h1>
+  <p class="mm-lead">My Move is the private, invitation-only space a candidate gets after they accept an Ethicare-supported role. You build and maintain it from the admin area at <a href="/my-move/">ethicareresourcing.com/my-move</a>. No code, no developer, no hosting dashboard for day-to-day updates.</p>
+
+  <div class="toc" aria-label="On this page">
+    <a href="#how">1. How it works in one minute</a>
+    <a href="#signin">2. Signing in as staff</a>
+    <a href="#add">3. Adding a candidate</a>
+    <a href="#update">4. Updating a candidate's record</a>
+    <a href="#read">5. Giving a candidate something to read</a>
+    <a href="#tasks">6. Tasks, statuses and "staff-controlled"</a>
+    <a href="#access">7. Invitations, suspending, archiving, deleting</a>
+    <a href="#candidate">8. What the candidate sees and can do</a>
+    <a href="#team">9. Team &amp; access</a>
+    <a href="#trouble">10. If something goes wrong</a>
+  </div>
+
+  <h2 id="how">1. How it works in one minute</h2>
+  <ol>
+    <li>You <b>add a candidate</b> and fill in what you know. Anything you don't know yet stays "To be confirmed" — never guess.</li>
+    <li>You <b>apply a template</b> (a starting set of tasks and guides for their destination and profession) and <b>personalise</b> it.</li>
+    <li>You <b>preview</b> exactly what they will see, then <b>publish &amp; send the invitation</b>. Until you publish, everything is a draft only staff can see.</li>
+    <li>The candidate signs in with an emailed link, sees their space, updates their own arrangements and self-reported steps, and swaps notes with you.</li>
+    <li>Whenever something changes (a start date, a visa decision), you edit the record and press <b>Publish changes</b>. They see it on their next visit.</li>
+  </ol>
+  <div class="box">Two copies exist for every candidate: your <b>draft</b> and the <b>published</b> version they can see. Edits save automatically into the draft as you type (watch for <kbd>Saved</kbd>). Nothing reaches the candidate until you publish.</div>
+
+  <h2 id="signin">2. Signing in as staff</h2>
+  <ol>
+    <li>Go to <a href="/my-move/">/my-move</a> and choose <b>Ethicare staff</b>.</li>
+    <li>Enter your work email and password.</li>
+    <li>Enter the 6-digit code from your authenticator app (Microsoft Authenticator, Google Authenticator or 1Password). The first time, you'll be shown a QR code to scan. This second step is required — without it the database refuses to show any case.</li>
+  </ol>
+  <p>Forgotten your password? Use <b>Forgotten password</b> on the staff tab. Lost your authenticator? An admin has to reset it in the Supabase dashboard (Authentication → Users → your account → remove the factor).</p>
+
+  <h2 id="add">3. Adding a candidate</h2>
+  <ol>
+    <li>On <b>Candidates</b>, press <kbd>Add candidate</kbd>. A draft record opens with a reference like <b>EC-7K4M2Q</b>. The reference identifies the case in conversation; it never gives access.</li>
+    <li><b>Details</b> — first name, last name and email (the email is where the invitation goes, so check it carefully), destination, region, profession, job title, employer, expected start date, working pattern, the assigned Ethicare contact, confirmed relocation support and the welcome message. Leave "To be confirmed" where it is true.</li>
+    <li><b>Template</b> — pick the closest starting set. Before anything changes you'll see what would be added, kept and removed. For a new candidate just press <kbd>Apply</kbd>.</li>
+    <li><b>Personalise</b> — edit the next steps for their home page (up to three), the tasks in each phase, travel &amp; accommodation details, and tick the guides you want them to have. The live preview on the right shows their home page as you work.</li>
+    <li><b>Preview</b> — click through every tab exactly as they will see it. Check for anything invented, out of date or missing.</li>
+    <li><b>Publish &amp; invite</b> — tick the two confirmations (offer accepted; email correct) and press <kbd>Publish &amp; send invitation</kbd>. The candidate receives an email with a sign-in link and nothing else — no case details travel by email.</li>
+  </ol>
+
+  <h2 id="update">4. Updating a candidate's record</h2>
+  <ol>
+    <li>Open the candidate from the list (search by name, employer, reference or place).</li>
+    <li>Change whatever you need on <b>Details</b> or <b>Personalise</b>. Edits save automatically — the status near the top reads <kbd>Saving…</kbd> then <kbd>Saved</kbd>. If it says <b>Not saved</b>, your edits are still on screen: press <b>Retry</b> and don't close the tab until it says Saved.</li>
+    <li>The list and the editor show <b>Unpublished edits</b> while your draft is ahead of what the candidate sees.</li>
+    <li>Go to <b>Publish &amp; invite</b> and press <kbd>Publish changes</kbd>. That's it — they'll see the update next time they open My Move.</li>
+  </ol>
+  <h3>Common updates</h3>
+  <ul>
+    <li><b>A date is confirmed</b> — Details → Expected start date; or a task's Due date on Personalise. Publish.</li>
+    <li><b>A regulator or immigration decision comes through</b> — on Personalise, find the task (e.g. "Work visa decision"), set its status to <b>Complete</b>. Because it is staff-controlled, the candidate sees "Confirmed by Ethicare". Publish.</li>
+    <li><b>The candidate says they've submitted something</b> — they can mark it themselves; it shows to them as "Self-reported — not yet verified". You'll see their reported status on Personalise with a <b>Use this</b> button once you've checked it.</li>
+    <li><b>Flights, accommodation, car</b> — Personalise → Travel &amp; accommodation details. These save straight away (no publish needed). Tick "The candidate can update this themselves" unless it is something Ethicare is arranging.</li>
+    <li><b>A quick message</b> — use <b>Shared notes</b> on the case. Both of you can see every note; it's dated and attributed automatically.</li>
+  </ul>
+
+  <h2 id="read">5. Giving a candidate something to read</h2>
+  <p>There are three ways, from most to least structured:</p>
+  <ol>
+    <li><b>Site guides</b> — on Personalise, tick any of the Ethicare guides (registration, visa, money, renting, driving, destination pages). They appear under the candidate's <b>My guides</b> tab with a working link. Use "Show all guides" to see the full list.</li>
+    <li><b>An official link on a task</b> — every task has an <b>Official link</b> field (regulator, immigration, employer page, a form) and a label. It appears on the task with an arrow. Links must start with <b>https://</b>.</li>
+    <li><b>A link in a shared note</b> — for anything ad hoc, post a note with the address. The candidate is told notes are shared with Ethicare staff, so keep them practical.</li>
+  </ol>
+  <div class="box warn"><b>Uploading documents (PDFs, offer letters, forms) is not in this release.</b> Before we add an upload button, the portal needs private storage with per-candidate access rules and expiring download links, so that a file can only ever be opened by the right person and access ends when their space is revoked. Until then, send documents by your usual secure route and link to public pages from the task or the notes. Do not paste sensitive medical, financial or identity details into notes or tasks.</div>
+
+  <h2 id="tasks">6. Tasks, statuses and "staff-controlled"</h2>
+  <ul>
+    <li><b>Phases</b> — Registration &amp; visa steps, Preparing to travel, Arrival &amp; settling in. They map to the candidate's tabs.</li>
+    <li><b>Owner</b> — who does it: You (the candidate), Ethicare, Employer or Regulator. Shown as a tag.</li>
+    <li><b>Status</b> — Not started, In progress, Waiting (add "Waiting on" so they know who), Complete, Not applicable. Not-applicable tasks don't count towards progress.</li>
+    <li><b>Staff-controlled</b> — tick this for milestones only Ethicare or an authority can confirm (a visa grant, a registration decision). The candidate cannot tick these. They see "Updated by Ethicare", and "Confirmed by Ethicare" once you set it to Complete. Untick it for things the candidate does themselves — those show as self-reported until you verify them.</li>
+    <li><b>Progress count</b> — "N of M steps" is a plain count, not a readiness score. Don't promise dates through it.</li>
+    <li><b>Templates never overwrite silently.</b> Applying one shows exactly what is added, kept and removed. Kept tasks keep their status and the candidate's progress. If a template would remove tasks they've worked on, you'll be told, and you can choose "Add new tasks only".</li>
+  </ul>
+
+  <h2 id="access">7. Invitations, suspending, archiving, deleting</h2>
+  <p>All of these are on the <b>Publish &amp; invite</b> step under <b>Case lifecycle</b>, and each is recorded in the audit trail.</p>
+  <ul>
+    <li><b>Resend sign-in link</b> — the candidate lost or never received the email. Sends a fresh, expiring link to the same address.</li>
+    <li><b>Revoke invitation</b> — ends their access immediately (they are signed out on every device). Use if the email was wrong or the placement falls through. You can re-invite later.</li>
+    <li><b>Suspend access</b> / <b>Reactivate</b> — a pause. They see "Access paused" if they sign in.</li>
+    <li><b>Archive case</b> — the move is over. Access ends; the record is kept under the retention policy. Archived cases are hidden from the list unless you filter for them.</li>
+    <li><b>Export case</b> — downloads everything held about the candidate as one file (for a subject-access request, or to check the record). Recorded in the audit.</li>
+    <li><b>Delete permanently</b> (admins only) — erases their personal details after you type the case reference. A de-identified audit trail remains. This is separate from archiving and cannot be undone.</li>
+  </ul>
+  <p>To change a candidate's email after inviting them: revoke the invitation, edit the email on Details, then re-invite.</p>
+
+  <h2 id="candidate">8. What the candidate sees and can do</h2>
+  <ul>
+    <li><b>Home</b> — welcome message, up to three next steps, the move at a glance, progress, and their Ethicare contact.</li>
+    <li><b>My role</b> — the role details you maintain; unknowns show "To be confirmed".</li>
+    <li><b>Registration &amp; visa</b>, <b>Preparing &amp; settling in</b> — their tasks. They can change the status of tasks that are not staff-controlled.</li>
+    <li><b>Travel &amp; accommodation</b> — their own arrangements: they can add, edit and mark Planned / Booked / Awaiting confirmation.</li>
+    <li><b>My guides</b> — the guides you ticked.</li>
+    <li><b>Shared notes</b> — the running conversation, visible to them and to staff on the case.</li>
+  </ul>
+  <p>They cannot see your draft, other candidates, staff notes outside their case, or anything you haven't published. That isn't just hidden in the screen — the database refuses it.</p>
+
+  <h2 id="team">9. Team &amp; access</h2>
+  <p>Admins can invite colleagues from <b>Team &amp; access</b>. Choose <b>Admin</b> (every case, team and templates) or <b>Support</b> (only the cases assigned to them). Each colleague sets a password and an authenticator app before they can see any case. <b>Remove access</b> ends their sessions immediately and can be restored later.</p>
+
+  <h2 id="trouble">10. If something goes wrong</h2>
+  <ul>
+    <li><b>"Not saved"</b> — connection or session problem. Your edits are still on screen. Press Retry; if it keeps failing, copy any long text somewhere safe, sign out and back in, and paste it back.</li>
+    <li><b>"Two-factor sign-in is required"</b> — sign out and sign in again, entering your authenticator code.</li>
+    <li><b>The candidate can't sign in</b> — check the email on Details is exactly right, that the case is Active (not suspended, archived or revoked) and that it has been published. Use Resend sign-in link. Links work once and expire; they should open the link on the device they want to use.</li>
+    <li><b>The candidate says they can't see a change</b> — check for "Unpublished edits" and press Publish changes.</li>
+    <li><b>A candidate has sent sensitive information in a note</b> — notes can't be edited or deleted from the screen. Tell the developer/admin so it can be handled under the privacy procedure.</li>
+  </ul>
+  <p style="margin-top:32px"><a href="/my-move/">Back to My Move</a></p>
+</main>
+</body>
+</html>

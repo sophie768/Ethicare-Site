@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /my-move/
 
 Sitemap: https://ethicareresourcing.com/sitemap.xml
