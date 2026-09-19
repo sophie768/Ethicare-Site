@@ -63,8 +63,10 @@ Staff instructions (plain English) live at **`/my-move/help`** and are linked fr
    - Site URL: `https://ethicareresourcing.com`. Redirect URLs: `https://ethicareresourcing.com/my-move/**`,
      the staging/preview host, and `mymove.ethicareresourcing.com/**` if that subdomain is adopted.
    - Email templates (Invite user, Magic Link, Reset Password): keep to a greeting and the
-     sign-in button. **No case detail in any email.** Use a UK/EU custom SMTP sender if
-     Supabase's default sender or region is not acceptable (see Privacy below).
+     sign-in button. **No case detail in any email.**
+   - **Email is sent through Resend** (chosen 19 Sep 2026) as Supabase's SMTP provider — see
+     the Resend section below. Do this before inviting anyone: Supabase's built-in sender is
+     for development only and is heavily rate-limited.
 4. **Optional access-token hook**: Authentication → Hooks → Customize Access Token → select
    `public.custom_access_token_hook`. (The app works without it.)
 5. **Create the first admin** (Sophie): Authentication → Users → *Add user* with email + a
@@ -89,6 +91,26 @@ Staff instructions (plain English) live at **`/my-move/help`** and are linked fr
 9. Deploy. Open `/my-move`, sign in as staff, add a candidate, invite a **test mailbox**, and
    walk the acceptance checks below on two devices.
 
+### Resend (email) — one-off setup
+
+Supabase Auth composes and sends every My Move email (invitation, sign-in link, password
+reset); Resend is only the delivery pipe. Nothing in this repo calls Resend directly.
+
+1. In Resend, **add and verify the sending domain** (`ethicareresourcing.com`, or a subdomain
+   such as `mail.ethicareresourcing.com` to keep My Move's reputation separate from marketing).
+   Add the DKIM, SPF and return-path DNS records Resend shows, and choose the **EU (Ireland)
+   region** for the domain when prompted.
+2. Create an **API key with "Sending access" only**, restricted to that domain.
+3. In Supabase: Authentication → Settings → **SMTP settings → Enable custom SMTP**:
+   - Host `smtp.resend.com`, port `465` (SSL) or `587` (STARTTLS)
+   - Username `resend`, password = the API key
+   - Sender email e.g. `mymove@ethicareresourcing.com`, sender name `Ethicare My Move`
+4. Raise the Auth **email rate limit** (Authentication → Rate limits) from the built-in
+   default to something like 30 per hour; the default is sized for the shared sender.
+5. Send a test invitation to a mailbox you control and check it lands in the inbox, not spam.
+6. Keep the templates minimal (step 3 above). Resend keeps delivery logs; the less that is in
+   the email, the less that is in the log.
+
 Netlify functions bundle with no dependencies (the function uses `fetch` only), so there is no
 `package.json` at the repo root and no build step, as before.
 
@@ -112,13 +134,14 @@ Netlify functions bundle with no dependencies (the function uses `fetch` only), 
 ## Privacy notes to confirm (Ethicare decides; the code implements)
 
 - **Do not promise "stored in the UK/EU" unconditionally.** Supabase (London) holds the database
-  and Auth. **Email delivery depends on the sender you choose**: Supabase's built-in sender and
-  Resend's EU region still keep account/log metadata in the US per their documentation. Either
-  pick a sender that keeps metadata in the UK/EU, or word the privacy text as the wording in
-  `my-move/data.js` now does ("stored with our technology providers; our database and sign-in are
-  hosted in London; our email provider may process delivery records outside the UK/EU").
-  Update `/how-we-use-your-information` and the privacy policy to match the providers actually
-  selected, and review each DPA and sub-processor list.
+  and Auth. **Email goes through Resend**: sending from its EU region keeps message delivery in
+  Ireland, but Resend's own documentation says account data, email metadata, logs and API
+  records are stored in the US. The draft wording in `my-move/data.js` already says this
+  ("our database and sign-in service are hosted in London (UK); our website host and email
+  provider may process delivery records and logs outside the UK/EU"). Name Resend (and
+  Netlify, Supabase) in the processor list on `/how-we-use-your-information` and the privacy
+  policy, note the US transfer for email metadata with the safeguard relied on (Resend's DPA
+  and standard contractual clauses / UK addendum), and review each provider's sub-processor list.
 - **Consent records: one rule, not two.** This build **retains `consent_events` and
   `access_audit` de-identified** after `delete-case` (the case row is scrubbed; those tables keep
   only the case id). If Ethicare prefers deletion with the case, change `mm_erase_case`.
