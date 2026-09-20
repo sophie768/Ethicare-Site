@@ -47,7 +47,7 @@
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
   var CSS =
-    '.jn-bar{max-width:1180px;margin:clamp(34px,4.5vw,52px) auto 0;padding:22px clamp(22px,3vw,32px) 0;border-top:1px solid rgba(2,97,93,.65);' +
+    '.jn-bar{max-width:1180px;margin:clamp(34px,4.5vw,52px) auto 0;padding:22px clamp(22px,3vw,32px) clamp(40px,5vw,64px);border-top:1px solid rgba(2,97,93,.65);' +
       'display:grid;grid-template-columns:1fr auto 1fr;gap:14px 20px;align-items:center}' +
     '.jn-bar a,.jn-bar button{font-family:"Work Sans",ui-sans-serif,sans-serif;text-decoration:none;color:#02615D}' +
     '.jn-step{display:flex;flex-direction:column;gap:3px;min-height:48px;justify-content:center;font-size:15.5px;font-weight:600;line-height:1.3}' +
@@ -57,7 +57,7 @@
     '.jn-mid{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}' +
     '.jn-pos{font-family:"Work Sans",ui-sans-serif,sans-serif;font-size:12.5px;font-weight:600;color:#555}' +
     '.jn-all{font-size:13.5px;font-weight:600;text-decoration:underline!important;text-underline-offset:3px}' +
-    '.jn-save{display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:12px 20px;border-radius:999px;' +
+    '.jn-save{display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:12px 20px;border-radius:999px;white-space:nowrap;' +
       'border:1.5px solid rgba(2,97,93,.45);background:#FCFBF8;font-size:14.5px;font-weight:600;color:#02615D;cursor:pointer}' +
     '.jn-save:hover{border-color:#02615D}' +
     '.jn-save .tick{width:16px;height:16px;border-radius:4px;border:1.5px solid rgba(2,97,93,.5);display:grid;place-items:center;font-size:11px;line-height:1;color:transparent}' +
@@ -67,10 +67,10 @@
     '@media(max-width:700px){.jn-bar{grid-template-columns:1fr;padding-left:20px;padding-right:20px}' +
       '.jn-step.next{text-align:left;grid-column:1}.jn-mid{align-items:flex-start;text-align:left}}' +
     /* saved list, used on /move */
-    '.jn-saved{display:grid;gap:2px;background:rgba(2,97,93,.14);border-radius:14px;overflow:hidden}' +
-    '.jn-saved .row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:#fff;padding:14px 18px}' +
+    '.jn-saved{display:grid;gap:3px;background:rgba(2,97,93,.14);border-radius:14px;overflow:hidden}' +
+    '.jn-saved .row{display:grid;grid-template-columns:1fr auto;gap:12px 20px;align-items:center;background:#fff;padding:20px 22px}' +
     '.jn-saved .row a{font-family:"Work Sans",ui-sans-serif,sans-serif;font-weight:600;font-size:15.5px;color:#02615D;text-decoration:none;line-height:1.35}' +
-    '.jn-saved .row .k{display:block;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-bottom:3px}' +
+    '.jn-saved .row .k{display:block;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-bottom:6px}' +
     '.jn-saved .row button{min-height:44px;min-width:44px;border:0;background:none;color:#2F5E49;font-family:"Work Sans",ui-sans-serif,sans-serif;font-weight:600;font-size:13.5px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}' +
     '.jn-saved .row button:hover{color:#A34438}' +
     '.jn-empty{font-family:"Manrope",ui-sans-serif,sans-serif;font-size:15.5px;line-height:1.6;color:#555;margin:0}';
@@ -195,7 +195,7 @@
     el.querySelector('.jn-mid').appendChild(saveBtn());
     var note = document.createElement('p');
     note.className = 'jn-note';
-    note.textContent = 'Saved pages are kept on this device and listed in your plan. There is no account yet \u2014 when there is, your saved list comes with you.';
+    note.textContent = 'Saving adds this page to your list on Move. It is stored in this browser, on this device \u2014 so it will not follow you to your phone, and clearing your browsing data clears it.';
     el.appendChild(note);
     main.appendChild(el);
   }

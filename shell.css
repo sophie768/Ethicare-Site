@@ -66,18 +66,34 @@
   --ethicare-teal:var(--teal); --accent-lime:var(--lime); --accent-fern:var(--nz); --accent-apricot:var(--au);
   --surface-white:var(--white); --surface-sage:var(--soft); --surface-warm:var(--warm); --nz-highlight:var(--soft-green);
   --text-muted:var(--muted); --rule:var(--mint);
+  /* —— Section 18 foundation (D08/D09/D10): additive role tokens; mirrors site.css. Inert until components migrate. —— */
+  --space-4:4px;--space-8:8px;--space-12:12px;--space-16:16px;--space-20:20px;--space-24:24px;--space-32:32px;--space-40:40px;--space-48:48px;--space-56:56px;--space-64:64px;--space-72:72px;--space-80:80px;
+  --gutter:40px;--w-hero-intro:620px;--w-home-h1:960px;--band-pad:64px;--section-gap:72px;
+  --r-card:16px;--r-input:var(--r-sm);--r-panel:var(--r-lg);
+  --control-h:48px;--input-px:16px;--btn-px:24px;--textarea-h:144px;--header-h:80px;--header-h-compact:68px;
+  --ls-heading:-.02em;--ls-card-title:-.01em;--ls-eyebrow:.08em;
+  --fs-home-h1:5rem;--lh-home-h1:1.05;--fs-country-h1:4rem;--lh-country-h1:1.1;--fs-employer-h1:3.5rem;--lh-employer-h1:1.1;
+  --fs-page-title:3rem;--lh-page-title:1.16;--fs-tool-title:2.75rem;--lh-tool-title:1.18;--fs-section:2.5rem;--lh-section:1.2;
+  --fs-article-h:1.875rem;--lh-article-h:1.27;--fs-card-title:1.375rem;--lh-card-title:1.27;
+  --fs-home-lead:1.375rem;--lh-home-lead:1.55;--fs-lead:1.25rem;--lh-lead-r:1.6;--fs-body:1.0625rem;--lh-body-r:1.65;--fs-card-body:1rem;--lh-card-body:1.625;
+  --fs-label:.9375rem;--lh-label:1.47;--fs-button:1rem;--lh-button:1.5;--fs-caption:.875rem;--lh-caption:1.57;--fs-eyebrow:.8125rem;--lh-eyebrow:1.54;
+  --fs-quote:1.75rem;--lh-quote:1.36;--fs-vacancy-h1:2.625rem;--lh-vacancy-h1:1.19;--fs-apply-intro:2rem;--lh-apply-intro:1.25;--fs-budget:3rem;--lh-budget:1.16;
 
 }
+/* Section 18 responsive token overrides (tablet <=1199, mobile <=767, tiny <=374) */
+@media(max-width:1199px){:root{--gutter:32px;--band-pad:48px;--section-gap:56px;--fs-home-h1:4rem;--fs-country-h1:3rem;--fs-employer-h1:3rem;--fs-page-title:2.625rem;--fs-tool-title:2.5rem;--fs-section:2.125rem;--fs-article-h:1.75rem;--fs-home-lead:1.25rem;--fs-lead:1.1875rem;--fs-quote:1.625rem;--fs-vacancy-h1:2.375rem}}
+@media(max-width:767px){:root{--gutter:20px;--band-pad:40px;--section-gap:40px;--btn-px:20px;--fs-home-h1:3rem;--fs-country-h1:2.5rem;--fs-employer-h1:2.5rem;--fs-page-title:2.25rem;--fs-tool-title:2.125rem;--fs-section:1.875rem;--fs-article-h:1.625rem;--fs-card-title:1.25rem;--fs-home-lead:1.125rem;--fs-lead:1.125rem;--fs-body:1rem;--fs-quote:1.5rem;--fs-vacancy-h1:2rem;--fs-apply-intro:1.75rem;--fs-budget:2.5rem}}
+@media(max-width:374px){:root{--gutter:16px;--fs-home-h1:2.625rem;--fs-country-h1:2.25rem;--fs-employer-h1:2.25rem}}
 .shell{max-width:920px;margin:0 auto;padding:0 24px}
 /* link reset — mirrors site.css so shell.css-only pages don't leak UA blue (e.g. .v-hero .crumb a) */
 a{color:inherit;text-decoration:none}
 
 /* header */
 .site-header{position:sticky;top:0;z-index:50;background:#FCFBF8;border-bottom:1px solid #C9DED3;font-family:'Work Sans','DM Sans',ui-sans-serif,system-ui,sans-serif}
-.site-header .shell{display:flex;align-items:center;gap:24px;height:74px}
+.site-header .shell{display:flex;align-items:center;gap:24px;height:74px;max-width:var(--w-shell,1180px)}
 .site-header .brand{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.site-header .brand img{width:42px;height:42px;object-fit:contain}
-.site-header .brand span{font-weight:600;font-size:19px;color:#02615D;letter-spacing:-.02em;white-space:nowrap}
+.site-header .brand img{width:36px;height:36px;object-fit:contain}
+.site-header .brand span{font-weight:600;font-size:18px;color:#02615D;letter-spacing:-.02em;white-space:nowrap}
 .site-header .brand span strong{font-weight:500;color:#02615D}
 .site-nav{display:flex;align-items:center;gap:4px;margin-left:auto}
 .site-nav a{position:relative;font-weight:600;font-size:14px;color:#02615D;padding:8px 12px;border-radius:var(--r-sm);transition:background .15s ease,color .15s ease;text-decoration:none}
@@ -90,17 +106,17 @@ a{color:inherit;text-decoration:none}
 .site-nav .nav-cta{position:relative;background:#02615D;color:#fff;margin-left:14px;padding:10px 20px;font-weight:600;border-radius:var(--r-pill);box-shadow:var(--sh-sm)}
 .site-nav .nav-cta::before{content:"";position:absolute;left:-14px;top:50%;transform:translateY(-50%);width:1px;height:22px;background:#C9DED3}
 .site-nav .nav-cta:hover{background:#014E4B;color:#fff;box-shadow:var(--sh-sm)}
-.nav-toggle{display:none;margin-left:auto;width:44px;height:44px;border:1px solid #C9DED3;border-radius:var(--r-sm);background:#fff;cursor:pointer;flex-direction:column;gap:4px;align-items:center;justify-content:center}
+.nav-toggle{display:none;flex:none;margin-left:auto;width:44px;height:44px;border:1px solid #C9DED3;border-radius:var(--r-sm);background:#fff;cursor:pointer;flex-direction:column;gap:4px;align-items:center;justify-content:center}
 .nav-toggle span{width:20px;height:2px;background:#02615D;border-radius:2px;transition:.2s}
 .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
 .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media (max-width:980px){
+@media (max-width:1199px){
   .nav-toggle{display:flex}
-  .site-nav{position:fixed;inset:78px 0 auto 0;flex-direction:column;align-items:stretch;gap:4px;background:#FCFBF8;border-bottom:1px solid #C9DED3;padding:14px 24px 22px;margin:0;transform:translateY(-130%);transition:transform .25s ease;box-shadow:var(--sh-md);max-height:calc(100svh - 78px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .site-nav{position:fixed;inset:68px 0 auto 0;flex-direction:column;align-items:stretch;gap:4px;background:#FCFBF8;border-bottom:1px solid #C9DED3;padding:14px 24px 22px;margin:0;transform:translateY(-130%);transition:transform .25s ease;box-shadow:var(--sh-md);max-height:calc(100svh - 68px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
   body.nav-open{overflow:hidden}
   .site-nav.open{transform:translateY(0)}
-  .site-nav a{padding:13px 12px;font-size:16px}
+  .site-nav a{padding:13px 12px;font-size:16px;line-height:24px;min-height:48px}
   .site-nav .nav-cta{margin:8px 0 0;text-align:center}
 }
 
@@ -109,7 +125,7 @@ a{color:inherit;text-decoration:none}
    ends on a teal CTA doesn't merge into the footer. Darker also lifts every footer text
    contrast: .82 white goes 5.8:1 → 8.4:1, .72 white 4.6:1 → 6.7:1. */
 .site-footer{background:#013F3C;color:rgba(255,255,255,.82);font-family:'Work Sans','DM Sans',ui-sans-serif,system-ui,sans-serif}
-.site-footer .shell{padding-top:54px;padding-bottom:30px}
+.site-footer .shell{padding-top:54px;padding-bottom:30px;max-width:var(--w-shell,1180px)}
 .site-footer .brand{display:flex;align-items:center;gap:8px;text-decoration:none}
 .site-footer .brand img{width:44px;height:44px;object-fit:contain}
 .site-footer .brand span{font-weight:600;font-size:18px;color:#fff}
@@ -142,7 +158,7 @@ a{color:inherit;text-decoration:none}
 .site-nav .navitem:hover .subnav,.site-nav .navitem:focus-within .subnav,.site-nav .navitem.open .subnav{display:flex}
 .subnav a{padding:10px 14px;border-radius:var(--r-sm);font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;font-size:14px;color:#333333;text-decoration:none}
 .subnav a:hover{background:#E4E9E5;color:#02615D}
-@media (max-width:980px){
+@media (max-width:1199px){
   .site-nav .navitem{flex-direction:column;align-items:stretch}
   .subnav{position:static;display:none;box-shadow:none;border:none;border-radius:0;padding:0 0 6px 12px;min-width:0;background:transparent}
   .site-nav .navitem.open .subnav{display:flex}
@@ -154,14 +170,15 @@ a{color:inherit;text-decoration:none}
 .site-nav .navitem:hover .subnav.mega,.site-nav .navitem:focus-within .subnav.mega,.site-nav .navitem.open .subnav.mega{display:flex}
 .megacol{display:flex;flex-direction:column;min-width:180px}
 .megah{font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;padding:6px 14px 8px}
-@media (max-width:980px){
+@media (max-width:1199px){
   .subnav.mega{flex-direction:column;min-width:0;padding:0 0 6px 12px;gap:0}
   .megacol{min-width:0}
   .megah{padding:10px 12px 4px;color:#02615D}
 }
 
 /* premium header */
-.site-header .shell{height:78px}
+.site-header .shell{height:var(--header-h,80px)}
+@media(max-width:1199px){.site-header .shell{height:var(--header-h-compact,68px)}}
 .site-header{border-bottom-color:#E4E9E5}
 .site-nav a{letter-spacing:.01em}
 .site-nav .nav-cta{letter-spacing:.02em}
@@ -173,7 +190,7 @@ a{color:inherit;text-decoration:none}
 /* professions mega 3-group */
 .subnav.mega3{min-width:600px}
 .subnav.mega3 .megacol{min-width:178px}
-@media (max-width:980px){.subnav.mega3{min-width:0}}
+@media (max-width:1199px){.subnav.mega3{min-width:0}}
 .f-base a{color:rgba(255,255,255,.72);text-decoration:none;transition:color .15s ease}
 .f-base a:hover{color:#fff;text-decoration:underline}
 .f-base .f-sep{margin:0 9px;opacity:.9}
@@ -195,13 +212,13 @@ a{color:inherit;text-decoration:none}
 .nzmega .rj a:hover,.nzmega .pg a:hover{color:#2F5E49}
 .aumega .megah,.aumega .rj .n,.aumega .explore{color:#A34438}
 .aumega .rj a:hover,.aumega .pg a:hover{color:#A34438}
-@media(min-width:981px){
+@media(min-width:1200px){
   /* stretch nav items to full header height so hover bridges to the panel with no gap */
   .site-nav .navitem{align-self:stretch}
-  .subnav.regionmega{position:fixed;left:0;right:0;top:78px;min-width:0;padding:34px 0;background:#fff;border:none;border-top:1px solid #E4E9E5;border-bottom:1px solid #C9DED3;border-radius:0;box-shadow:var(--sh-lg)}
+  .subnav.regionmega{position:fixed;left:0;right:0;top:80px;min-width:0;padding:34px 0;background:#fff;border:none;border-top:1px solid #E4E9E5;border-bottom:1px solid #C9DED3;border-radius:0;box-shadow:var(--sh-lg)}
   .regionmega .mega-inner{max-width:920px;margin:0 auto;padding:0 24px}
 }
-@media(max-width:980px){
+@media(max-width:1199px){
   .subnav.regionmega{min-width:0;padding:0 0 6px 12px}
   .regionmega .mega-inner{display:block}
   .regionmega .rj,.regionmega .pg{grid-template-columns:1fr}
@@ -216,7 +233,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 h1,h2,h3,h4,blockquote{text-wrap:balance}
 p,li,figcaption,dd,summary{text-wrap:pretty}
 
-@media(max-width:980px){.site-nav .cv{font-size:13px}/* the pathway checker lives in both country megas (beside "Explore …") and in the footer
+@media(max-width:1199px){.site-nav .cv{font-size:13px}/* the pathway checker lives in both country megas (beside "Explore …") and in the footer
    Candidates column on every page — it is a routing tool, not a nav section of its own */
 .regionmega .explore.tool{margin-right:20px}
 .regionmega .explore{margin:8px 0 8px}}
@@ -260,8 +277,12 @@ p,li,figcaption,dd,summary{text-wrap:pretty}
   .wf-onward .wf-hub{min-width:0;order:3}
 }
 
-/* mid-width compressed nav (901-1250px) so the full menu stays across */
-@media(min-width:981px) and (max-width:1250px){.site-header .brand span{font-size:15px}.site-header .brand img{width:28px}.site-nav a{font-size:12px;padding:8px 6px;white-space:nowrap}.site-nav .navitem>a{gap:4px}.site-nav .nav-cta{padding:9px 12px;margin-left:6px}.site-nav .nav-cta::before{left:-6px}}
+
+/* narrow-screen header (<=400px): the brand is 42px mark + a nowrap wordmark,
+   so at 306px the row needed 345px and the 44px toggle overflowed. Same
+   compression idea as the 981-1250px block above, applied at the bottom end. */
+@media(max-width:767px){.site-header .brand img{width:32px;height:32px}.site-header .brand span{font-size:16px}}
+@media(max-width:400px){.site-header .shell{gap:12px;padding-left:16px;padding-right:16px}.site-header .brand span{font-size:16px}.site-header .brand img{width:32px;height:32px}}
 
 /* ==========================================================================
    DESTINATION HERO SCRIM — one measured value for all destination chapters.
@@ -330,21 +351,13 @@ figure.voice figcaption{margin-top:16px;font-family:'Work Sans',ui-sans-serif,sa
    Seven direct links replaced eight items plus two mega-menus, so the old
    gap:4px is no longer necessary. Spacing comes from GAP; padding stays real so
    the hover pill, the active marker and the click target keep their size.
-   Upper breakpoint aligned to the pre-existing 1250px boundary rather than
-   introducing a competing 1199/1200 edge. */
-@media (min-width:1251px){
-  .site-nav{gap:24px}
-  .site-nav>a{padding:10px 12px;font-size:14.5px}
+   D10: full navigation shows at 1200px and up; the compact hamburger takes over below. */
+@media (min-width:1200px){
+  .site-nav{gap:12px}
+  .site-nav>a{padding:10px 12px;font-size:15px}
   .site-nav>a[aria-current="page"]::after{left:12px;right:12px}
   .site-nav .nav-cta{margin-left:28px;padding:11px 22px}
   .site-nav .nav-cta::before{left:-28px;height:24px}
-}
-@media (min-width:981px) and (max-width:1250px){
-  .site-nav{gap:10px}
-  .site-nav>a{padding:8px 8px;font-size:13px;white-space:nowrap}
-  .site-nav>a[aria-current="page"]::after{left:8px;right:8px}
-  .site-nav .nav-cta{margin-left:16px;padding:10px 16px}
-  .site-nav .nav-cta::before{left:-16px}
 }
 
 
@@ -463,6 +476,12 @@ p:last-child{margin-bottom:0}
    tall. Both parents are flex/grid with align-items:center, so a min-height
    raises the hit area without touching inline flow or type size. */
 nav.wf-crumb a,nav.ch-nav a,nav.crumb a{min-height:24px;display:flex;align-items:center}
+/* The country-landing breadcrumbs are classless inline-styled navs, so the
+   class list above could not reach them and their links measured 21px at
+   320px. Select on the accessible name instead — that is stable whether or
+   not the nav is classed, the same select-by-condition logic prose-links.css
+   uses. inline-flex so it stays on the crumb line. */
+nav[aria-label="Breadcrumb"] a{min-height:24px;display:inline-flex;align-items:center}
 
 /* The .side-cta panel is currently display:none on the chapter pages. Its pill
    was lime with deep-teal text (3.83:1, and lime is never a fill per the brand
@@ -489,7 +508,7 @@ nav.wf-crumb a,nav.ch-nav a,nav.crumb a{min-height:24px;display:flex;align-items
    mobile panel a pill reads as a button and confuses the hierarchy. Selected on the
    href so no page markup changes (the header is hand-maintained on ~400 pages).
    Teal #02615D on the blended tint measures ~6.5:1 — clears AA. */
-@media(min-width:981px){
+@media(min-width:1200px){
 .site-nav .navitem>a[href="/move"]{border:1.5px solid #72A471;border-radius:999px;padding-left:15px;padding-right:15px;color:#02615D;transition:border-color .15s ease,background .15s ease}
 .site-nav .navitem>a[href="/move"]:hover{border-color:#02615D;background:rgba(2,97,93,.06)}
 }
@@ -528,3 +547,22 @@ main .fcard h3{font-size:18px}
 main .ans p,main .ans li{font-size:16.5px;line-height:1.7}
 main .wf-step p,main .wf-hub p,main .locator figcaption,main figcaption{font-size:15px;line-height:1.6}
 main .editorial{line-height:1.75}
+/* MIRROR of site.css: read-next nav — shell-only pages must not re-declare it locally */
+.art-next{margin-top:40px;padding-top:34px;border-top:1px solid var(--mint)}
+.art-next .an-lbl{display:block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-text);margin-bottom:16px}
+.art-next .an-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.art-next .an-card{display:flex;flex-direction:column;gap:8px;padding:22px 24px 20px;border:1px solid #E4E9E5;border-radius:var(--r-lg);background:#fff;box-shadow:var(--sh-sm);text-decoration:none;transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+.art-next .an-card:hover{border-color:var(--mint);box-shadow:var(--sh-md);transform:translateY(-2px)}
+.art-next .an-cat{font-family:var(--display);font-weight:600;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-text)}
+.art-next .an-ttl{font-family:var(--display);font-weight:600;font-size:17.5px;line-height:1.3;letter-spacing:-.01em;color:var(--teal)}
+.art-next .an-sub{font-size:14.5px;line-height:1.6;color:var(--muted)}
+.art-next .an-go{margin-top:auto;padding-top:4px;font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--sage-text)}
+.art-next .an-card:hover .an-go{color:var(--teal)}
+.art-next .an-go::after{content:" →";color:#2F5E49;display:inline-block;transition:transform .18s ease}
+.art-next .an-card:hover .an-go::after{transform:translateX(3px)}
+.art-next .an-hub{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-top:16px;padding:18px 24px;border-radius:var(--r-lg);background:var(--soft-green)}
+.art-next .an-hub p{font-family:var(--display);font-weight:600;font-size:15px;color:var(--teal);margin:0}
+.art-next .an-hub a{display:inline-flex;align-items:center;min-height:24px;font-family:var(--display);font-weight:600;font-size:14px;color:var(--teal);text-decoration:none;white-space:nowrap}
+.art-next .an-hub a:hover{text-decoration:underline;text-underline-offset:3px}
+.art-next .an-hub a::before{content:"← ";color:#2F5E49}
+@media(max-width:760px){.art-next .an-grid{grid-template-columns:1fr}}

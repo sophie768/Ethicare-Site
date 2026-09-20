@@ -47,7 +47,7 @@
 .pt-rt .rt-g{grid-row:1/3;grid-column:2;font-size:19px;color:#72A471;transition:transform .16s}
 .pt-rt:hover .rt-g{transform:translateX(3px);color:#02615D}
 @media(max-width:520px){.pt-rt{padding:15px 17px}.pt-rt .rt-l{font-size:16px}}
-.pt-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(28px,4vw,56px);align-items:start;margin-top:8px}.pt-cols[hidden]{display:none}
+.pt-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(28px,4vw,56px);align-items:start;margin-top:8px}.pt-cols[hidden]{display:none}
 .pt-card{background:#fff;border:1px solid var(--e);border-radius:var(--r-lg,16px);padding:clamp(24px,3vw,34px)}
 .pt-k{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2F5E49;margin-bottom:16px}
 .pt-ben{padding:16px 0;border-top:1px solid rgba(2,97,93,.65)}
@@ -77,13 +77,24 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-btn:hover{background:#014A47}
 .pt-btn.ghost{background:none;border:2px solid var(--teal);color:var(--teal)}
 .pt-btn.ghost:hover{background:var(--soft)}
-.pt-err{font-size:14.5px;line-height:1.6;color:#9E4A22;background:#F5E4D8;border-radius:10px;padding:12px 16px}
+.pt-err{font-size:14.5px;line-height:1.6;color:#A34438;background:#F7F4EE;border-radius:10px;padding:12px 16px}
 .pt-next{display:block;background:var(--teal);border-radius:var(--r-lg,16px);padding:clamp(28px,3.6vw,40px);text-decoration:none}
 .pt-next:hover{background:#014A47}
 .pt-next .k{font-family:var(--display);font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C6E084;margin-bottom:12px}
 .pt-next h2{font-family:var(--display);font-size:clamp(23px,2.8vw,32px);font-weight:600;line-height:1.2;color:#fff;margin-bottom:10px;text-wrap:pretty}
 .pt-next p{font-size:16px;line-height:1.65;color:rgba(255,255,255,.84);max-width:62ch;margin-bottom:18px;text-wrap:pretty}
 .pt-next span.go{font-family:var(--display);font-size:15px;font-weight:600;color:#C6E084}
+/* The relocation half of the offer. Shown only at the offer/accepted stages and only where
+   Ethicare actually recruits that profession (move.js gates it), so it never invites someone
+   into a service we cannot give them. Deliberately a soft card, not a second teal block — it
+   sits beside the next step, it does not compete with it. */
+.pt-space{display:block;background:var(--soft);border:1px solid #C9DED3;border-radius:var(--r-lg,16px);padding:clamp(22px,3vw,32px);margin-top:16px;text-decoration:none}
+.pt-space:hover{border-color:#02615D}
+.pt-space .k{font-family:var(--display);font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#2F5E49;margin-bottom:10px}
+.pt-space h3{font-family:var(--display);font-size:clamp(20px,2.4vw,26px);font-weight:600;line-height:1.2;color:var(--teal);margin-bottom:8px}
+.pt-space p{font-size:15.5px;line-height:1.65;color:var(--text);max-width:62ch;margin-bottom:14px;text-wrap:pretty}
+.pt-space span.go{font-family:var(--display);font-size:14.5px;font-weight:600;color:#02615D}
+.pt-space:hover span.go{text-decoration:underline;text-underline-offset:3px}
 .pt-sec{padding:clamp(40px,5vw,60px) 0 0}
 .pt-sec h2{font-family:var(--display);font-size:clamp(22px,2.6vw,28px);font-weight:600;color:var(--teal);margin-bottom:6px}
 .pt-sec p.note{font-size:15.5px;line-height:1.6;color:var(--muted);max-width:64ch;margin-bottom:22px;text-wrap:pretty}
@@ -106,8 +117,8 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-badge.live{background:var(--soft);color:#2F5E49}
 .pt-step p{font-size:14.5px;line-height:1.6;color:var(--muted);max-width:64ch;margin-bottom:14px;text-wrap:pretty}
 .pt-links{display:flex;flex-wrap:wrap;gap:10px 22px}
-.pt-links a{font-family:var(--display);font-size:14px;font-weight:600}
-.pt-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.pt-links a{min-height:24px;font-family:var(--display);font-size:14px;font-weight:600}
+.pt-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px}
 .pt-list{display:grid;gap:12px;margin-top:16px}
 .pt-list a{font-family:var(--display);font-size:15px;font-weight:600}
 .pt-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 24px;align-items:center;padding:15px 0;border-top:1px solid rgba(2,97,93,.65)}
@@ -119,7 +130,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-reg p{font-size:16px;line-height:1.6;color:var(--text);max-width:64ch;margin-bottom:10px;text-wrap:pretty}
 .pt-details{background:var(--warm);padding:clamp(48px,6vw,72px) 0 clamp(52px,7vw,80px);margin-top:clamp(40px,5vw,64px)}
 .pt-signrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:24px}
-.pt-quiet{background:none;border:0;padding:0;font-family:var(--display);font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.pt-quiet{background:none;border:0;padding:0;min-height:24px;font-family:var(--display);font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .pt-quiet:hover{color:#A34438}
 @media (max-width:640px){.pt-step{grid-template-columns:1fr;gap:10px}.pt-row{grid-template-columns:1fr}}.eyebrow{display:flex;align-items:center;gap:16px}.eyebrow::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:0 0 auto}
 .pt-topbar{background:var(--warm,#FCFBF8);border-bottom:1px solid #C9DED3}
@@ -142,7 +153,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-topbar .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:500;font-size:17px;color:#02615D;text-decoration:none}
 .pt-topbar .brand strong{font-weight:600}
 .pt-topbar .brand img{display:block;width:34px;height:34px;border-radius:7px}
-.pt-q4{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:30px}
+.pt-q4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px;margin-top:30px}
 .pt-q{display:flex;flex-direction:column;gap:8px;background:var(--warm,#FCFBF8);border:1px solid #C9DED3;border-radius:16px;padding:22px 22px 20px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
 .pt-q:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(1,49,47,.10);border-color:#2F5E49}
 .pt-q .n{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;color:#2F5E49}
@@ -150,7 +161,21 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-q p{font-size:14.5px;line-height:1.6;color:var(--muted);margin:0;text-wrap:pretty}
 .pt-q .go{margin-top:auto;padding-top:6px;font-family:var(--display);font-weight:600;font-size:14px;color:#02615D}
 .pt-q:hover .go i{display:inline-block;transform:translateX(3px);transition:transform .18s ease}
-.pt-hint{display:block;font-size:13px;line-height:1.5;color:var(--muted);margin-top:7px}.pt-cov{display:grid;gap:0}.pt-cgrp{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2F5E49;margin:22px 0 2px}.pt-cgrp:first-child{margin-top:0}.pt-crow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 20px;align-items:center;padding:14px 0;border-top:1px solid rgba(2,97,93,.65)}.pt-crow b{display:block;font-family:var(--display);font-size:15.5px;font-weight:600;color:var(--teal);margin-bottom:3px}.pt-crow span.reg{display:block;font-size:13px;line-height:1.55;color:var(--muted);text-wrap:pretty}.pt-crow.mine{background:var(--soft);border-radius:var(--r-md,12px);border-top-color:transparent;padding:16px;margin:8px 0}.pt-cacts{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;justify-self:end}.pt-cacts a{font-family:var(--display);font-size:13.5px;font-weight:600;white-space:nowrap}.pt-chip{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.03em;border-radius:999px;padding:5px 12px;white-space:nowrap}.pt-chip.rec{background:var(--teal);color:#fff}.pt-chip.soon{background:var(--warm);color:var(--muted)}.pt-yours{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--teal);border-radius:999px;padding:3px 9px;margin-left:8px}@media (max-width:640px){.pt-crow{grid-template-columns:1fr}.pt-cacts{justify-self:start}}</style>
+.pt-hint{display:block;font-size:13px;line-height:1.5;color:var(--muted);margin-top:7px}.pt-cov{display:grid;gap:0}.pt-cgrp{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2F5E49;margin:22px 0 2px}.pt-cgrp:first-child{margin-top:0}.pt-crow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 20px;align-items:center;padding:14px 0;border-top:1px solid rgba(2,97,93,.65)}.pt-crow b{display:block;font-family:var(--display);font-size:15.5px;font-weight:600;color:var(--teal);margin-bottom:3px}.pt-crow span.reg{display:block;font-size:13px;line-height:1.55;color:var(--muted);text-wrap:pretty}.pt-crow.mine{background:var(--soft);border-radius:var(--r-md,12px);border-top-color:transparent;padding:16px;margin:8px 0}.pt-cacts{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;justify-self:end}.pt-cacts a{font-family:var(--display);font-size:13.5px;font-weight:600;white-space:nowrap}.pt-chip{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.03em;border-radius:999px;padding:5px 12px;white-space:nowrap}.pt-chip.rec{background:var(--teal);color:#fff}.pt-chip.soon{background:var(--warm);color:var(--muted)}.pt-yours{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--teal);border-radius:999px;padding:3px 9px;margin-left:8px}@media (max-width:640px){.pt-crow{grid-template-columns:1fr}.pt-cacts{justify-self:start}}.pt-phases{display:flex;gap:10px;list-style:none;margin:26px 0 4px;padding:0}.pt-phase{flex:1 1 0;min-width:0}.pt-phase .bar{display:block;height:6px;border-radius:3px;background:rgba(2,97,93,.16)}.pt-phase .lab{display:block;margin-top:9px;font-family:var(--display);font-size:12.5px;font-weight:600;line-height:1.3;color:var(--muted);text-wrap:pretty}.pt-phase.done .bar{background:#72A471}.pt-phase.done .lab{color:#2F5E49}.pt-phase.now .bar{background:#02615D}.pt-phase.now .lab{color:#02615D}.pt-jcount{display:inline-block;white-space:nowrap;vertical-align:middle;margin-left:12px;font-family:var(--display);font-size:12.5px;font-weight:700;letter-spacing:.02em;color:#2F5E49;background:var(--soft);border-radius:999px;padding:4px 12px}
+/* Journey as a timeline: number nodes carry state (traversed teal, current lime, ahead
+   outlined), and a short connector sits in the 14px grid gap under each card. The connector
+   is anchored to the card's own bottom edge (top:100%) so it spans exactly the gap regardless
+   of how tall the card's content is — no measurement, stable on resize. Suppressed under the
+   last card of each stage group (.ge) so no tick pokes into a stage header, and dropped on
+   mobile where the lead column reflows to the top-left and the x no longer lines up. */
+.pt-step{position:relative}
+.pt-num{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:2px solid rgba(2,97,93,.3);background:#fff;font-size:13px;color:var(--muted)}
+.pt-step.past .pt-num{background:var(--teal);border-color:var(--teal);color:#fff}
+.pt-step.now .pt-num{background:#A6C84A;border-color:var(--teal);color:#01312F}
+.pt-step::after{content:"";position:absolute;top:100%;left:calc(clamp(20px,2.6vw,28px) + 22px);transform:translateX(-50%);width:3px;height:14px;background:rgba(2,97,93,.16)}
+.pt-step.past::after{background:var(--teal)}
+.pt-step.ge::after{display:none}
+@media(max-width:640px){.pt-step::after{display:none}}</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Ethicare Move","item":"https://ethicareresourcing.com/move"},{"@type":"ListItem","position":3,"name":"Your plan"}]}</script>
 <link rel="stylesheet" href="my-move.css">
 <link rel="stylesheet" href="prose-links.css">
@@ -183,15 +208,18 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 
 <section class="pt-hero" data-screen="welcome">
   <div class="shell">
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap">
-      <p class="eyebrow">Ethicare Move &middot; free, no account</p>
-      <img src="assets/heroes/move-plan.svg" alt="A clipboard checklist and a pencil" width="176" height="132" style="width:176px;height:auto;flex:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:clamp(20px,4vw,56px);flex-wrap:wrap">
+      <div style="flex:1 1 420px;min-width:min(100%,420px)">
+        <p class="eyebrow">Ethicare Move &middot; free, no account</p>
+        <h2>Your move. All in one place.</h2>
+        <p class="pt-glad">A relocation planner for healthcare professionals moving to New Zealand or Australia.</p>
+      </div>
+      <img src="assets/heroes/move-plan.svg" alt="A clipboard checklist and a pencil" width="176" height="132" style="width:300px;max-width:100%;height:auto;flex:none">
     </div>
-    <h2>Your move. All in one place.</h2>
-    <p class="pt-glad">A relocation planner for healthcare professionals moving to New Zealand or Australia.</p>
     <div class="pt-cols">
       <div>
-        <p class="pt-lead">Registration, the offer, the visa, the money, the move and your first month &mdash; sequenced around your profession, where you are heading and how far along you are. <strong>Placed by Ethicare, hired directly by an employer, signed through another agency, or still working out whether to go at all: this is yours either way.</strong></p>
+        <p class="pt-lead">Registration, the job, the visa, the money, the move and your first month &mdash; put in the right order for your profession, destination and stage of the journey.</p>
+        <p class="pt-lead" style="margin-top:14px">Whether you find your job through Ethicare, apply directly or use another recruiter, your plan is yours.</p>
         <p class="pt-rq">Where are you in this?</p>
         <div class="pt-router" data-router></div>
         <p class="pt-sub">One tap and we name the one thing worth doing next &mdash; you are never asked it twice. Free, and open well beyond the professions we recruit into. We say plainly which is which.</p>
@@ -200,7 +228,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
       </div>
       <div class="pt-card">
         <p class="pt-k">How it works</p>
-        <div class="pt-ben"><b>One question, then your next step</b><span>Tap where you are in the move and we name what to do next, before asking anything else. Answer six more &mdash; destination, profession, registration, timing, who is coming with you &mdash; and the whole page shapes itself around them. No email, and a first name only if you would like one on your plan.</span></div>
+        <div class="pt-ben"><b>Start where you are. We&rsquo;ll build from there.</b><span>Tell us where you are in your move. We&rsquo;ll show you what to do next, then build your personalised relocation plan around your profession, destination, timing and circumstances.</span></div>
         <div class="pt-ben"><b>Then every tool knows</b><span>Your regulator, your registration route, your profession&rsquo;s guide and the right destination pages, without being asked again.</span></div>
         <div class="pt-ben"><b>And it waits for you</b><span>Come back in a fortnight and nothing is lost. One next step at a time, rather than six tools and no idea which to open first.</span></div>
         <p class="pt-fine">Your plan is saved in this browser on this device. Nothing is sent to us and there is no password &mdash; so use a device that is yours, and don&rsquo;t put anything confidential in it.</p>
@@ -215,7 +243,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 <section class="pt-sec" data-screen="welcome" style="background:var(--soft)">
   <div class="shell">
     <p class="eyebrow">What it answers</p>
-    <h2 style="max-width:24ch">Four questions, and nobody hands you all four in one place.</h2>
+    <h2 style="max-width:24ch">Four questions your plan helps you answer.</h2>
     <div class="pt-q4">
       <a class="pt-q" href="/pathway-checker"><span class="n">01</span><h3>Can I actually work there?</h3><p>Your regulator, the route most likely to apply to you, and what it asks for. Nineteen New Zealand councils; fifteen Australian boards through Ahpra.</p><span class="go">Check your pathway <i aria-hidden="true">&rarr;</i></span></a>
       <a class="pt-q" href="/guides/australia-vs-new-zealand"><span class="n">02</span><h3>Should we go &mdash; and where?</h3><p>Two countries, thirty-two destinations, and an honest account of the trade-offs rather than a brochure. Written for the whole household, not just the clinician.</p><span class="go">Compare the two <i aria-hidden="true">&rarr;</i></span></a>
@@ -272,7 +300,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
         <div class="pt-two">
           <div class="pt-f"><label for="ptFirst">Your first name <span class="pt-opt">optional</span></label><input id="ptFirst" type="text" autocomplete="given-name" maxlength="40" spellcheck="false" placeholder="Leave blank if you would rather not"><span class="pt-hint">Only so the plan reads as yours.</span></div>
         </div>
-        <p class="pt-err" data-err role="alert" hidden></p>
+        <p class="pt-err" id="pt-err" data-err role="alert" hidden></p>
         <div><button class="pt-btn" type="button" data-save>Show my plan</button></div>
         <p class="pt-fine" style="border:0;padding:0;margin:0">Your answers are here when you come back.</p>
       </div>
@@ -287,6 +315,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
       <h2 data-greeting>Kia ora</h2>
       <p class="pt-lead" data-hubintro></p>
       <p class="pt-sub" style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px 22px"><a href="#setup" style="font-family:var(--display);font-weight:600;color:#02615D;text-decoration:underline;text-underline-offset:3px">Change my answers</a><a href="#welcome" style="font-family:var(--display);font-weight:600;color:#02615D;text-decoration:underline;text-underline-offset:3px">What Ethicare Move is</a></p>
+      <ol class="pt-phases" data-phases aria-label="Where you are in the move"></ol>
     </div>
   </section>
 
@@ -300,9 +329,18 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
     <p class="pt-fine" style="border:0;padding:0;margin:18px 0 0"><a href="#doing" style="font-family:var(--display);font-weight:600;color:#02615D;text-decoration:underline;text-underline-offset:3px">Open everything still to arrange &rarr;</a> &mdash; every task, what it costs and what you get back, in one place. Built from the answers above; you will not be asked again.</p>
   </div>
 
+  <div class="shell" data-space hidden>
+    <a class="pt-space" href="/your-ethicare-space">
+      <p class="k" data-space-eyebrow>When you accept</p>
+      <h3>Your Ethicare Space</h3>
+      <p data-space-note></p>
+      <span class="go">See an example &rarr;</span>
+    </a>
+  </div>
+
   <section class="pt-sec">
     <div class="shell">
-      <h2>Your journey</h2>
+      <h2>Your journey<span class="pt-jcount" data-jcount></span></h2>
       <p class="note">Nothing is locked. This is the order most people find easiest, with where you said you are marked, and anything you have already started shown as started.</p>
       <div class="pt-steps" data-steps></div>
     </div>

@@ -244,12 +244,13 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -281,6 +282,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
       <input type="hidden" name="dependents" value="">
       <input type="hidden" name="preferred_areas" value="">
       <input type="hidden" name="relocation_cost_help" value="">
+      <input type="hidden" name="role_of_interest" value="">
 
       <!-- ===== ASIDE ===== -->
       <aside class="reg-aside">
@@ -453,6 +455,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
             <div><div class="reg-ey">Step 4 of 4</div><h2>Your CV</h2></div>
           </div>
           <p class="reg-sub">Upload your CV and we&rsquo;ll take it from here.</p>
+          <p class="reg-why" style="margin:0 0 14px">Your CV is seen only by the Ethicare team. We never send it to an employer without asking you first, for that specific role. <a href="/how-we-use-your-information">How we use your information</a></p>
           <p class="reg-why" style="margin:0 0 20px">No CV ready? <a href="/build-your-cv">Build one</a> in about twenty minutes, or <a href="/cv-checker">check the one you have</a> first. Both run on your device and give you a file to attach here &mdash; this registration is the step that sends it to us.</p>
 
           <label class="reg-lab" style="margin-bottom:10px">Your CV <span class="rq">*</span></label>
@@ -594,6 +597,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 
 <script src="site.js"></script>
 <script src="analytics.js"></script>
+<script src="candidate-context.js"></script>
 <script src="apply-form.js"></script>
 
 <!-- ============================================================
@@ -614,7 +618,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
     Step 4 · employer visibility panel  → no link; optional preference (field "employer_visibility"). Explained in full at /privacy-policy#sharing → "Introductions to employers". Preference only — the sharing consent is captured per introduction, later.
     Success · Talk to the team          → /contact
     Success · Register another          → resets the form (no navigation)
-    Form submission                     → Netlify Forms ("candidate-registration"); CV + fields land in the Netlify dashboard (Forms tab). Set notification email there. To switch to an ATS later (e.g. Vincere), point the form action / submit at its endpoint.
+    Form submission                     → Netlify Forms ("candidate-registration"); CV + fields land in the Netlify dashboard (Forms tab). Hidden field role_of_interest carries the vacancy slug when the form is reached from a role page (/apply?role=slug[&intent=later]). Set notification email there. To switch to an ATS later (e.g. Vincere), point the form action / submit at its endpoint.
    FOOTER (site-wide) — Destinations: /new-zealand · /australia · /destinations · /destinations/australia | Candidates: /jobs · /resources · /insights · /apply | Company: /about-ethicare · /employers · /submit-a-vacancy · /contact | hello@ email · Privacy (/privacy-policy)
     Careers in New Zealand → /new-zealand · Careers in Australia → /australia · For employers → /employers · About Ethicare → /about-ethicare
     Contact us → /contact · Apply / submit your CV → /apply · hello@ethicareresourcing.com → mailto

@@ -51,7 +51,7 @@ strong{color:var(--green)}
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-family:var(--display);font-weight:600;font-size:16px;padding:13px 26px;border-radius:12px;transition:transform .15s ease,background .15s ease;color:var(--teal);cursor:pointer}
 .btn:hover{transform:translateY(-1px)}
-.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#014E4B}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#01312F}
 .btn-secondary{background:#fff;border:1.5px solid var(--sage);color:var(--teal)}.btn-secondary:hover{background:var(--soft-green)}
 .btn-ghost{background:transparent;border:1.5px solid var(--sage);color:var(--teal)}.btn-ghost:hover{background:var(--soft-green)}
 .btn-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
@@ -77,7 +77,7 @@ strong{color:var(--green)}
 .glance{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:26px 30px}
 .glance .gl-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px}
 .glance .gl-top .eyebrow{margin-bottom:0}
-.glance .gl-top .note{font-size:13.5px;color:var(--muted)}
+.glance .gl-top .note{font-size:13.5px;color:var(--muted)}.glance .gl-read{display:inline-flex;align-items:center;gap:10px;max-width:48ch;margin-left:auto}.glance .gl-read img{flex:0 0 auto;width:34px;height:auto}.glance .gl-read .rt{font-size:13px;line-height:1.45;color:#2F5E49}.glance .gl-read .rt b{font-family:'Work Sans',sans-serif;font-weight:700}@media (max-width:520px){.glance .gl-read{margin-left:0}}
 .glance ol{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 24px}
 .glance li{counter-increment:g;border-top:1px solid var(--mint)}
 .glance a{display:flex;align-items:baseline;gap:8px;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);padding:11px 4px;transition:color .15s ease}
@@ -131,7 +131,7 @@ strong{color:var(--green)}
 .reg-col.au .k{color:var(--au-text,#A34438)} .reg-col.nz .k{color:#A34438}
 .reg-col h3{color:var(--green);font-size:19px;margin-bottom:8px}
 .reg-col p{font-size:14.5px;color:var(--muted)}
-ul.ticks{list-style:none;display:grid;gap:8px;margin:16px 0 0}
+ul.ticks{list-style:none;display:grid;gap:8px;margin:16px 0 0;padding:0}
 ul.ticks li{position:relative;padding-left:28px;font-size:14.5px;color:var(--text)}
 ul.ticks li::before{content:"";position:absolute;left:0;top:8px;width:15px;height:15px;border-radius:6px;background:var(--soft-green);border:1px solid var(--mint)}
 ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;height:9px;border:2px solid var(--teal);border-top:0;border-left:0;transform:rotate(45deg)}
@@ -194,7 +194,7 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
 .final .small{margin-top:16px;font-size:13.5px;color:rgba(255,255,255,.7)}
 
 /* everyday list */
-.every{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px 28px;margin:32px 0 0;max-width:920px}
+.every{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:10px 28px;margin:32px 0 0;max-width:920px}
 .every li{position:relative;padding:12px 0 12px 22px;border-top:1px solid var(--mint);font-size:16px;line-height:1.55;color:var(--text)}
 .every li::before{content:"";position:absolute;left:0;top:20px;width:8px;height:8px;border-radius:50%;background:#72A471}
 /* what matters to you */
@@ -267,12 +267,13 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move" aria-current="page">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -315,7 +316,7 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
     <nav class="glance" id="glance" aria-label="On this page">
       <div class="gl-top">
         <span class="eyebrow">Page at a glance</span>
-        <span class="note">Read the whole thing, or jump to the part that is on your mind.</span>
+        <span class="gl-read"><img decoding="async" src="../assets/kettle-52-sage.png" alt=""><span class="rt"><b>Kettle on.</b> A longer read &mdash; about 9 min</span></span>
       </div>
       <ol>
         <li><a href="#pitch">Beyond the pitch</a></li>

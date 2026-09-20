@@ -66,7 +66,7 @@
 .rv-pill{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap}
 .rv-pill.good{background:#DCE9DF;color:#1F5E4E}
 .rv-pill.watch{background:#F0F2EF;color:#5F6E66}
-.rv-pill.fix{background:#F5E4D8;color:#9E4A22}
+.rv-pill.fix{background:#F7F4EE;color:#A34438}
 .rv-card p{font-size:15.5px;line-height:1.66;color:var(--text);max-width:70ch;margin:0;text-wrap:pretty}
 .rv-card.good p{color:var(--muted)}
 .rv-list{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:8px}
@@ -92,6 +92,23 @@
 @media (max-width:640px){.rv-box textarea{min-height:220px;padding:14px 15px}}
 .eyebrow{display:flex;align-items:center;gap:16px}.eyebrow::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:0 0 auto}
 a{color:#2F5E49}a:hover{color:var(--teal)}
+.rv-racts{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-top:26px;max-width:900px}
+.rv-racts[hidden]{display:none}
+.rv-ractsnote{font-size:14px;line-height:1.55;color:var(--muted);max-width:46ch;text-wrap:pretty}
+.rv-printmeta{display:none}
+/* ---------- print / save as PDF: the result IS the document ---------- */
+@media print{
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+  html,body{background:#fff !important}
+  .site-header,.site-footer,.skip-link,.rv-hero,.rv-paste,.rv-flow,.rv-end,.nav-toggle,.site-nav,.rv-racts,page-feedback{display:none !important}
+  .rv-res{background:#fff !important;padding:0 !important}
+  .rv-res .shell{max-width:none !important;padding:0 !important}
+  .rv-res .eyebrow{color:#2F5E49 !important}
+  .rv-list-wrap{max-width:none !important;margin-top:20px !important}
+  .rv-card{border:1px solid #C9DED3 !important;border-radius:0 !important;break-inside:avoid;page-break-inside:avoid}
+  .rv-list li{background:#F3F7F4 !important;break-inside:avoid}
+  .rv-printmeta{display:block !important;margin-top:16px;font-size:10.5px;line-height:1.5;color:#555555}
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"CV checker"}]}</script>
 <link rel="stylesheet" href="./prose-links.css">
@@ -118,12 +135,13 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move" aria-current="page">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -142,10 +160,7 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
 
 <section class="rv-hero">
   <div class="shell">
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap">
-      <p class="eyebrow">CV checker</p>
-      <img src="assets/heroes/job-search-cv.svg" alt="A video interview on a laptop, beside a notebook" width="176" height="132" style="width:176px;height:auto;flex:none">
-    </div>
+    <p class="eyebrow">CV checker</p>
     <h1>Check the CV you already have</h1>
     <p>Most clinicians find out their CV does not read well in New Zealand or Australia after they have been turned down, and nobody tells them why. This tells you first. Paste it in and you will see what a hiring manager here would notice, in the order they would notice it.</p>
     <p class="fine">Ten checks, and none of them is a score. It is your CV, and you are welcome to disagree with any of it.</p>
@@ -184,6 +199,11 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
     <h2 data-headline>Your results</h2>
     <p class="lead">Ordered the way a hiring manager reads: what stops them first, then what they would query, then what already works. Nothing here is a score.</p>
     <div class="rv-list-wrap" data-results></div>
+    <div class="rv-racts" data-racts hidden>
+      <button type="button" class="rv-btn quiet" data-print>Print or save as PDF</button>
+      <span class="rv-ractsnote">Runs in your browser &mdash; save a copy to work from. Nothing is sent to us.</span>
+    </div>
+    <p class="rv-printmeta" data-printmeta></p>
   </div>
 </section>
 

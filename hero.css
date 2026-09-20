@@ -153,7 +153,8 @@
 .hero.duo .crumb{display:flex;flex-wrap:wrap;align-items:center;column-gap:8px;row-gap:4px;line-height:1.5;margin-bottom:16px;}
 .hero.duo h1{text-wrap:balance;}
 .hero.duo h1,.hero.duo h1 em{color:#fff;}
-.hero.duo .eyebrow{color:#EFC3AA;}
+.hero.duo .eyebrow{color:#C6E084;}
+.hero.duo.au .eyebrow{color:#EFC3AA;}
 .hero.duo .hero-sub{color:rgba(255,255,255,.88);}
 .hero.duo .crumb,.hero.duo .crumb a{color:rgba(255,255,255,.85);}
 .hero.duo .crumb a:hover,.hero.duo .crumb .here{color:#fff;}

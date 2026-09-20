@@ -37,6 +37,10 @@
 /my-move	/move#doing	301
 /portal	/move	301
 /portal.html	/move	301
+# Your Ethicare Space — private post-offer candidate area (noindex). Clean URL serves the file;
+# the .html form is forced (301!) so each candidate space has one address, same as /move.
+/your-ethicare-space	/your-ethicare-space.html	200
+/your-ethicare-space.html	/your-ethicare-space	301!
 /build-your-cv	/build-your-cv.html	200
 /build-your-cv.html	/build-your-cv	301!
 /destinations/auckland-new-zealand	/destinations/Auckland_Destination_Guide.html	200
@@ -570,6 +574,21 @@
 /destinations/Bunbury_Destination_Guide	/destinations/bunbury-australia	301
 /destinations/Bunbury_Destination_Guide.html	/destinations/bunbury-australia	301!
 
+# Mandurah city guide (Sep 2026) — new hub + nine chapters
+/destinations/mandurah-australia	/destinations/Mandurah_Destination_Guide.html	200
+/destinations/mandurah-australia/welcome	/destinations/mandurah/welcome.html	200
+/destinations/mandurah-australia/why	/destinations/mandurah/why.html	200
+/destinations/mandurah-australia/glance	/destinations/mandurah/glance.html	200
+/destinations/mandurah-australia/healthcare	/destinations/mandurah/healthcare.html	200
+/destinations/mandurah-australia/suburbs	/destinations/mandurah/suburbs.html	200
+/destinations/mandurah-australia/transport	/destinations/mandurah/transport.html	200
+/destinations/mandurah-australia/cost	/destinations/mandurah/cost.html	200
+/destinations/mandurah-australia/food	/destinations/mandurah/food.html	200
+/destinations/mandurah-australia/weekends	/destinations/mandurah/weekends.html	200
+/destinations/mandurah	/destinations/mandurah-australia	301
+/destinations/Mandurah_Destination_Guide	/destinations/mandurah-australia	301
+/destinations/Mandurah_Destination_Guide.html	/destinations/mandurah-australia	301!
+
 # Newcastle city guide (Aug 2026) — new guide, no previous single page existed
 /destinations/newcastle-australia	/destinations/Newcastle_Destination_Guide.html	200
 /destinations/newcastle-australia/welcome	/destinations/newcastle/welcome.html	200
@@ -643,6 +662,16 @@
 /destinations/geelong-australia/cost	/destinations/geelong/cost.html	200
 /destinations/geelong-australia/food	/destinations/geelong/food.html	200
 /destinations/geelong-australia/weekends	/destinations/geelong/weekends.html	200
+
+# Candidates' private welcome spaces — /pack/<slug> (see site/pack/README.md). The link we email a
+# candidate is the CLEAN, extensionless URL and it is the credential, so it must resolve to the file
+# on every Netlify configuration, not only when "Pretty URLs" happens to be on. New packs are covered
+# by the wildcard — no per-slug rule to add. pack.css and pack.js exist as real files, so the
+# non-forced 200 below never overrides them (Netlify serves an existing file before a 200 rewrite).
+# The .html form is forced (301!) to the clean URL so each pack has one address; /pack/ itself has no
+# file and no index, so it 404s, which is what we want — the directory must never be browsable.
+/pack/*.html	/pack/:splat	301!
+/pack/*	/pack/:splat.html	200
 
 # Profession comparison guides folded into the profession pages (#compared) on 8 Sep 2026 — programme item 2: seven comparison guides become two.
 /guides/gp-australia-vs-new-zealand	/guides/australia-vs-new-zealand	301

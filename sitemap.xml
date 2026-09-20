@@ -306,6 +306,7 @@
   <url><loc>https://ethicareresourcing.com/destinations/western-australia-australia/welcome</loc><lastmod>2026-08-04</lastmod></url>
   <url><loc>https://ethicareresourcing.com/destinations/western-australia-australia/why</loc><lastmod>2026-08-04</lastmod></url>
   <url><loc>https://ethicareresourcing.com/employers</loc><lastmod>2026-07-20</lastmod></url>
+  <!-- Not listed until signed off (Gold Standard Decision 3, 15 Sep 2026): the eight board registration guides (/guides/*-registration-{mrtb,mcnz,asar,mrpba,nzpb,pbnz,otbnz,mscnz}), both finding-a-role guides and /jobs/psychologist-australia. They are noindex; a noindex URL in a sitemap contradicts itself. Add each back in the same change that removes its robots meta. -->
   <url><loc>https://ethicareresourcing.com/guides/about-australia</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://ethicareresourcing.com/guides/about-new-zealand</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://ethicareresourcing.com/guides/aotearoa-in-short</loc><lastmod>2026-08-04</lastmod></url>
@@ -484,4 +485,14 @@
   <url><loc>https://ethicareresourcing.com/destinations/geelong-australia/weekends</loc><lastmod>2026-09-08</lastmod></url>
   <url><loc>https://ethicareresourcing.com/clinical-standard</loc><lastmod>2026-09-08</lastmod></url>
   <url><loc>https://ethicareresourcing.com/guides/why-people-move</loc><lastmod>2026-09-09</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/welcome</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/why</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/glance</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/healthcare</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/suburbs</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/transport</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/cost</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/food</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/weekends</loc><lastmod>2026-09-19</lastmod></url>
 </urlset>

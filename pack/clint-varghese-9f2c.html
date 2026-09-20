@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="en-NZ"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<!-- Emailed to the candidate and opened on a phone or tablet: brand the browser chrome and make
+     a home-screen save look like ours. Standalone mode is deliberately NOT set — Safari chrome
+     stays, so the URL bar and back button are there for someone reading mid-move. -->
+<meta name="theme-color" content="#02615D">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta name="apple-mobile-web-app-title" content="Your Ethicare">
+<title>Your Ethicare · Ethicare Resourcing</title>
+<!-- PRIVATE SPACE for one family. Unlisted, noindex, absent from sitemap.xml, linked from
+     nowhere on the site. It names the hospital, the hotel and the family because it goes to
+     them and to nobody else — the site-wide rule (never name an employer other than Health
+     New Zealand / Te Whatu Ora) stands everywhere else. Do not lift this copy onto a public
+     page.
+
+     Everything specific to this family is in the PACK object at the foot of this file. To
+     build another, copy this file to a new slug and rewrite that object; pack.css and
+     pack.js are shared and never need touching. See README.md. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pack.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="top">
+  <div class="in">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt="" width="42" height="42"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <div class="who">
+      <span class="l"><b>Your Ethicare</b><span data-whoname>Candidate space</span></span>
+      <span class="av" data-av aria-hidden="true">A</span>
+    </div>
+  </div>
+</header>
+<div class="strip">
+  <div class="in">
+    <span>Made for you, and not listed anywhere on our site</span>
+    <span>Your notes stay on this device</span>
+    <span>Ask us to change anything on it</span>
+  </div>
+</div>
+
+<div class="shell">
+  <nav class="rail" aria-label="Your space">
+    <p class="k">Your move, your space</p>
+    <ul data-rail></ul>
+  </nav>
+
+  <main id="main-content" tabindex="-1">
+    <noscript><p class="nojs"><b>This page needs JavaScript to show your space.</b> If it stays blank, email <a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a> and we will send you the printed pack instead.</p></noscript>
+    <div class="head">
+      <p class="route" data-route></p>
+      <h1 data-h1 tabindex="-1"></h1>
+      <p class="sub" data-sub></p>
+    </div>
+
+    <!-- YOUR SPACE -->
+    <section class="panel" data-panel="space" hidden>
+      <div class="letter" data-letter>
+        <span class="eyebrow">A note from Sophie</span>
+        <div class="sig">
+          <img src="../assets/photo-sophie.jpg" alt="">
+          <div>
+            <div class="n" data-signname></div>
+            <div class="r" data-signrole></div>
+          </div>
+        </div>
+      </div>
+      <div data-facts-block>
+        <h2>Where things stand</h2>
+        <p class="lede">The things we both need to hand. If any of it changes, tell us and we&rsquo;ll change it here.</p>
+        <div class="facts" data-facts></div>
+      </div>
+    </section>
+
+    <!-- YOUR PLAN -->
+    <section class="panel" data-panel="plan" hidden>
+      <div class="card">
+        <h2>What you&rsquo;re working on</h2>
+        <p class="hint">Add anything at all &mdash; a question for us, something to book, something to ask the department. Tick it off when it&rsquo;s done, or delete it if it stops mattering. There is no right number of items.</p>
+        <ul class="plan" data-plan></ul>
+        <p class="empty" data-plan-empty>Nothing here yet.</p>
+        <form class="addrow" data-plan-form>
+          <label class="skip-link" for="plan-new">Add something to your plan</label>
+          <input id="plan-new" type="text" data-plan-input placeholder="e.g. Ask about the first roster" autocomplete="off" maxlength="160">
+          <button type="submit" class="btn">Add</button>
+        </form>
+        <div data-suggest-block>
+          <h3 style="margin-top:24px">Things other people have found useful</h3>
+          <p class="hint">Only if they&rsquo;re relevant to you. Tap to add one.</p>
+          <div class="acts" data-suggest style="margin-top:0"></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Notes</h2>
+        <p class="hint">Anything you want to keep in one place. It saves as you type.</p>
+        <label class="skip-link" for="pack-notes">Your notes</label>
+        <textarea id="pack-notes" data-notes placeholder="Questions, addresses, names, things to look up&hellip;"></textarea>
+        <p class="saved" data-saved aria-live="polite"></p>
+        <div class="acts">
+          <button type="button" class="btn ghost" data-copy>Copy everything</button>
+          <button type="button" class="btn ghost" data-download>Download as a file</button>
+        </div>
+      </div>
+      <p class="privacy"><b>Where this lives.</b> Your notes and your plan are saved in this browser, on this device only. Nothing is sent to us and we cannot read them &mdash; which also means they will not follow you to your phone, and clearing your browser data clears them. If you want them somewhere safer, copy or download them.</p>
+    </section>
+
+    <!-- TRAVEL & STAY -->
+    <section class="panel" data-panel="travel" hidden>
+      <p class="lede" data-travel-lede></p>
+      <div class="rows" data-travel></div>
+    </section>
+
+    <!-- GUIDES & PACKING -->
+    <section class="panel" data-panel="guides" hidden>
+      <p class="lede" data-guides-why></p>
+      <div class="glist" data-guides></div>
+    </section>
+
+    <!-- FILES & RECEIPTS -->
+    <section class="panel" data-panel="files" hidden>
+      <div class="rows" data-files></div>
+      <p class="privacy"><b>We can&rsquo;t hold your documents here yet.</b> This is the list of what to keep together and where each one came from &mdash; not the documents themselves. Keep the originals somewhere you control, and email us if you cannot find one of ours.</p>
+    </section>
+
+    <div class="close">
+      <h2>We&rsquo;re still here</h2>
+      <p>Not only until you land. If something on this page is out of date, or you want something added to it, just say and we&rsquo;ll change it &mdash; that is easier for us than you think.</p>
+      <p class="ccontact"><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a><span aria-hidden="true">&middot;</span><a href="tel:+442046266580">+44 20 4626 6580</a></p>
+      <p class="fmeta">Ethicare Resourcing Ltd &middot; Company No 14646354 &middot; Office 1, One Coldbath Square, London EC1R 5HL</p>
+    </div>
+  </main>
+</div>
+
+<script>
+window.PACK = {
+  slug: 'clint-varghese-9f2c',
+  first: 'Clint',
+  country: 'nz',
+  title: 'Your Ethicare',
+  spaceLabel: 'Candidate space',
+  route: 'Kochi \u2192 Wellington',
+
+  /* One heading per section. The h1 changes with the section, so there is always exactly
+     one, and each standfirst says what that section is for. */
+  headings: {
+    space:  { title: 'Kia ora, Clint.', sub: 'Everything we have put together for your move, in one place \u2014 and somewhere to keep your own notes as you go.' },
+    plan:   { title: 'Your plan', sub: 'Yours to write in. Nobody is marking it.' },
+    travel: { title: 'Travel & stay', sub: 'Where you land, where you sleep, and how far the hospital is from the front door.' },
+    guides: { title: 'Guides & packing', sub: 'The parts of the site worth your time, and why each one.' },
+    files:  { title: 'Files & receipts', sub: 'What to keep together, and where each one came from.' }
+  },
+
+  letter: [
+    'We have been working on this move with you for two years, and on the 30th you actually get on the plane. Before you do, we wanted to put everything in one place \u2014 not another list of things to do, but the things we would tell you if we were sitting with you.',
+    'Two years is a long time to work on anything. Somewhere in the middle of it you stopped being someone we were helping and became someone we know. Almost everything anyone has sent you over those two years has been about the job. This is about everything around it.',
+    'Wellington is personal for us, too. Sophie lived there and it has a very special place in her heart, so much of what follows comes from having lived it and not from a guidebook.',
+    'Your first few months have an unusual shape, and we should be straight about it. You go on your own, and Biby, Caitlyn and Haddin follow once you are settled. You also arrive just as Wellington is coming out of winter \u2014 the days start getting longer, and you have time to get to know the city before your family sees it.',
+    'Dip into this rather than reading it end to end. And if something you want is not here, email us and we will find it out for you.'
+  ],
+  signoff: { name: 'Sophie and the Ethicare team', role: 'Ethicare Resourcing' },
+
+  facts: [
+    ['Moving to', 'Wellington'],
+    ['You fly', '30 August'],
+    ['Biby, Caitlyn & Haddin', 'Within six months'],
+    ['Your status', 'Residence from the outset']
+  ],
+
+  travelLede: 'Booked and confirmed. Anything with a date on it we will keep current here \u2014 if you change a booking, tell us and we will change this.',
+  travel: [
+    { k: 'Your flight', v: '30 August, Kochi to Wellington via Singapore',
+      note: 'Around twenty-four hours door to door with the stop.' },
+    { k: 'Where you stay first', v: 'Sojourn Apartment Hotel, 22 Riddiford Street, Newtown, Wellington 6021',
+      note: 'Booked from 2 September for four weeks. Self-catering, so you are not eating out for a month.' },
+    { k: 'Getting to work', v: 'Wellington Regional Hospital, 49 Riddiford Street, Newtown',
+      note: 'Across the road from the hotel. You genuinely will not need a car for the first month.' },
+    { k: 'Ringing home', v: 'Wellington runs six and a half to seven and a half hours ahead of Kerala',
+      note: 'Your evening is early afternoon at home \u2014 which lands better than almost any other posting.' },
+    { k: 'The season you arrive into', v: 'The end of winter, with spring coming',
+      note: 'The days get longer from here. Wellington houses are colder inside than the temperature suggests.' }
+  ],
+
+  guidesWhy: 'Because you are arriving alone ahead of Biby and the children, and all four of you hold residence from the outset, these are the ones that actually change what you do. The rest of the library is there when you want it.',
+  guides: [
+    { title: 'Your first month in New Zealand', href: '/guides/nz/your-first-month',
+      why: 'The paperwork in the order that actually works. Only the IRD number is genuinely urgent.' },
+    { title: 'Preparing to move \u2014 housing, money and admin', href: '/guides/new-zealand-relocation',
+      why: 'The national picture. We do not have a New Zealand renting guide yet, so the Wellington-specific part \u2014 how cold a timber house feels in winter, and why sun and insulation beat size \u2014 is in your printed pack rather than behind this link.' },
+    { title: 'Moving with your family', href: '/guides/new-zealand-family',
+      why: 'For when Biby, Caitlyn and Haddin follow \u2014 schools, zoning, and childcare for an under-two.' },
+    { title: 'Education and schools', href: '/guides/new-zealand-education',
+      why: 'Caitlyn is past the compulsory-enrolment age, so zoning is the part worth understanding early.' },
+    { title: 'Bringing pets and belongings', href: '/guides/nz/bringing-pets-and-belongings',
+      why: 'Biosecurity, the container inspection, and what gets held at the border.' },
+    { title: 'Pay, and which agreement sets it', href: '/guides/new-zealand-pay-agreements',
+      why: 'The published scales your offer was built from.' },
+    { title: 'Ethicare Move \u2014 your plan', href: '/move',
+      why: 'The whole move sequenced, if you would rather work from a list than a page.' }
+  ],
+
+  suggested: [
+    'Get an IRD number in the first week',
+    'Open a New Zealand bank account',
+    'Get a New Zealand mobile number',
+    'Enrol with a doctor',
+    'Check the date my licence stops being valid',
+    'Walk the schools near anywhere we might rent'
+  ],
+
+  files: [
+    { k: 'Passports and visas', v: 'All four of you', note: 'Yours travels with you; keep scans somewhere you can reach from a phone.' },
+    { k: 'Registration documents', v: 'Your MRTB registration and practising certificate', note: 'The department will ask on day one.' },
+    { k: 'Immunisation records', v: 'Caitlyn and Haddin', note: 'Needed for school and for the Well Child service.' },
+    { k: 'School reports', v: 'Caitlyn\u2019s most recent', note: 'Schools here ask for them when you enrol.' },
+    { k: 'Shipping inventory', v: 'Your container list', note: 'You will be asked to attend the biosecurity inspection when it lands.' },
+    { k: 'Marriage and birth certificates', v: 'Originals, not photocopies', note: 'On paper rather than as a photo on your phone.' }
+  ]
+};
+</script>
+<script src="pack.js"></script>
+</body></html>

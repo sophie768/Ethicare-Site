@@ -60,6 +60,23 @@
   status = 301
   force = true
 
+# Internal-only surfaces: the Netlify Forms declaration page and the design
+# prototypes are reachable but must never be indexed (14 Sep 2026).
+[[headers]]
+  for = "/_forms/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/prototypes/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/thank-you"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
 # Security + caching headers
 [[headers]]
   for = "/*"
@@ -95,3 +112,15 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+# Candidates' private spaces (/pack/<slug>, see site/pack/README.md). The link is the
+# credential — decided 15 Sep 2026, same position as the named PDFs — so the page must
+# never sit in a shared cache or a back-button history on a hospital or library machine,
+# and never be indexed even if a <meta> tag is lost. Kept last so it wins over /*.css and
+# /*.js for pack.css and pack.js too; no-store is the stricter directive either way.
+[[headers]]
+  for = "/pack/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Cache-Control = "private, no-store"
+    Referrer-Policy = "no-referrer"

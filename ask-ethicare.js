@@ -5,8 +5,17 @@
 (function () {
   var form = document.querySelector('[data-aske-form]');
   if (!form || !window.ASK_ETHICARE_KB) return;
-  /* Loading lines rotate while the model thinks (site/loading-lines.js). Lazy-loaded so no page needs another tag. */
-  if (!window.EthicareLoading) { var ls = document.createElement('script'); ls.src = '/loading-lines.js'; ls.defer = true; document.head.appendChild(ls); }
+  /* Loading lines rotate while the model thinks (loading-lines.js). Lazy-loaded so no page
+     needs another tag. Resolved RELATIVE TO THIS SCRIPT, not from "/": the site's own root
+     is the deploy root in production but not in preview or any sub-path host, so the
+     absolute form 404ed everywhere except the live domain — and because the call site
+     degrades safely to a no-op, nothing broke loudly enough to notice. */
+  if (!window.EthicareLoading) {
+    var me = document.querySelector('script[src*="ask-ethicare.js"]');
+    var base = me ? me.getAttribute('src').replace(/ask-ethicare\.js.*$/, '') : '/';
+    var ls = document.createElement('script'); ls.src = base + 'loading-lines.js'; ls.defer = true;
+    document.head.appendChild(ls);
+  }
   var KB = window.ASK_ETHICARE_KB;
   var input = form.querySelector('textarea');
   var goBtn = form.querySelector('.aske-go');
@@ -124,6 +133,11 @@
   function actionsHtml(ids, handoff) {
     var h = '';
     if (handoff) h += '<div class="aske-handoff"><p><strong>This might be worth discussing with us.</strong> Some situations need a person, not a summary.</p><a href="/contact">Talk to the Ethicare team &rarr;</a></div>';
+    /* The model can only be TOLD the id list; it can still return one that is not in the
+       browser map (a typo, a hallucination, or the two lists drifting apart). Unfiltered,
+       that threw on r.u and the whole answer vanished behind a catch. Drop unknown ids and
+       render what is left. */
+    ids = ids.filter(function (id) { return !!KB.resources[id]; });
     if (ids.length) h += '<div class="aske-acts">' + ids.map(function (id) {
       var r = KB.resources[id];
       return '<a class="aske-act" href="' + r.u + '"><span class="at">' + r.t + '</span><span class="ad">' + r.d + '</span><span class="ag" aria-hidden="true">&rarr;</span></a>';
@@ -155,6 +169,10 @@
       var p = parse(raw);
       /* An answer with nothing to click is the one outcome the whole feature exists to avoid,
          so a parse miss or an omitted block falls back rather than ending in a dead stop. */
+      /* Filter BEFORE the routed test, not only at render time: an answer whose ids are all
+         unknown is not routed, and counting it as routed both skips the fallback and files
+         a misleading `routed: yes` against it. */
+      p.ids = p.ids.filter(function (id) { return !!KB.resources[id]; });
       var routed = p.ids.length > 0;
       if (!routed) p.ids = ['pathway_checker', 'talk_to_team'].filter(function (id) { return KB.resources[id]; });
       track('assistant_answered', { routed: routed ? 'yes' : 'no', handoff: p.handoff ? 'yes' : 'no' });

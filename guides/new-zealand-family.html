@@ -48,7 +48,7 @@ strong{color:var(--green)}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-family:var(--display);font-weight:600;font-size:16px;padding:13px 26px;border-radius:12px;transition:transform .15s ease,background .15s ease;color:var(--teal);cursor:pointer}
 .btn:hover{transform:translateY(-1px)}
-.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#014E4B}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#01312F}
 .btn-secondary{background:#fff;border:1.5px solid var(--sage);color:var(--teal)}.btn-secondary:hover{background:var(--soft-green)}
 .btn-ghost{background:transparent;border:1.5px solid var(--sage);color:var(--teal)}.btn-ghost:hover{background:var(--soft-green)}
 .btn-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
@@ -73,7 +73,7 @@ strong{color:var(--green)}
 .glance{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:26px 30px}
 .glance .gl-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px}
 .glance .gl-top .eyebrow{margin-bottom:0}
-.glance .gl-top .note{font-size:13.5px;color:var(--muted)}
+.glance .gl-top .note{font-size:13.5px;color:var(--muted)}.glance .gl-read{display:inline-flex;align-items:center;gap:10px;max-width:48ch;margin-left:auto}.glance .gl-read img{flex:0 0 auto;width:34px;height:auto}.glance .gl-read .rt{font-size:13px;line-height:1.45;color:#2F5E49}.glance .gl-read .rt b{font-family:'Work Sans',sans-serif;font-weight:700}@media (max-width:520px){.glance .gl-read{margin-left:0}}
 .glance ol{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 24px}
 .glance li{counter-increment:g;border-top:1px solid var(--mint)}
 .glance a{display:flex;align-items:baseline;gap:8px;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);padding:11px 4px;transition:color .15s ease}
@@ -115,7 +115,7 @@ strong{color:var(--green)}
 
 /* feature */
 .feature{background:var(--teal);border-radius:24px;padding:clamp(32px,4.5vw,52px);color:#fff;margin-top:4px}
-.feature .eyebrow.eyebrow{color:#C9DED3}
+.feature .eyebrow.eyebrow{color:#C6E084}
 .feature h2{color:#fff}
 .feature .lead{color:rgba(255,255,255,.86);max-width:64ch}
 .feature .pts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
@@ -251,12 +251,13 @@ strong{color:var(--green)}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -318,7 +319,7 @@ strong{color:var(--green)}
     <nav class="glance" aria-label="On this page">
       <div class="gl-top">
         <span class="eyebrow">Page at a glance</span>
-        <span class="note">Jump to any part. This guide is made to return to.</span>
+        <span class="gl-read"><img decoding="async" src="../assets/kettle-52-sage.png" alt=""><span class="rt"><b>Kettle on.</b> A longer read &mdash; about 22 min</span></span>
       </div>
       <ol>
         <li><a href="#partner-work">Can my partner work?</a></li>
@@ -353,7 +354,7 @@ strong{color:var(--green)}
   </div>
 </section>
 
-<style id="household-css">.hh-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:34px 0 8px}
+<style id="household-css">.hh-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:16px;margin:34px 0 8px}
 .hh-card{background:#fff;border:1px solid var(--mint,#C9DED3);border-radius:16px;padding:26px 28px}
 .hh-card .k{display:block;font-family:var(--display,'Work Sans',sans-serif);font-weight:700;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#2F5E49;margin-bottom:9px}
 .hh-card h3{font-size:19px;line-height:1.28;margin:0 0 9px;color:#02615D}

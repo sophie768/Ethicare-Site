@@ -55,6 +55,23 @@ const RESOURCES = {
   apply: 'Register your interest',
   resources_library: 'Guides & resources',
   employer_support: 'For employers',
+  /* Added 15 Sep 2026 (ASK-ETHICARE.md §3): schools, pets, renting, community, driving, the
+     move itself and the first month had no id, so those questions could only route to a
+     near-miss. THIS LIST AND `resources` IN site/ask-ethicare-knowledge.js ARE ONE PAIR —
+     the model may only return ids from here, and the browser renders from there. An id in
+     one and not the other is a crash or a dead suggestion. Change both, always. */
+  nz_education: 'Schools in New Zealand',
+  au_education: 'Schools in Australia',
+  au_school_fees: 'Will I pay school fees in Australia?',
+  nz_pets: 'Bringing pets to New Zealand',
+  au_pets: 'Bringing pets to Australia',
+  au_renting: 'Renting in Australia',
+  nz_community: 'Community & belonging in New Zealand',
+  au_community: 'Community & belonging in Australia',
+  au_driving: 'Driving & licences in Australia',
+  moving_checklist: 'Moving checklist',
+  nz_first_month: 'Your first month in New Zealand',
+  au_first_month: 'Living & thriving in Australia',
   nz_country: 'Working in New Zealand',
   au_country: 'Working in Australia'
 };

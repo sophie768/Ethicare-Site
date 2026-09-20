@@ -14,7 +14,7 @@
 :root{
   --primary:#02615D; --secondary:#72A471; --highlight:#A6C84A;
   --sage:#C9DED3; --bg:#FCFBF8; --white:#FFFFFF; --text:#333333; --text2:#2F5E49;
-  --divider:#E4E9E5; --border:#C9DED3; --accent:#02615D;
+  --divider:#D6E1DA; --border:#C9DED3; --accent:#02615D;
   --maxw:1180px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -318,7 +318,7 @@ a{color:var(--accent);text-decoration:none}
 .mph span{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);white-space:nowrap}
 .mph i{flex:1;height:1px;background:var(--divider);display:block}
 a.mrow{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:19px 16px;margin:0 -16px;border-bottom:1px solid var(--divider);border-radius:6px;text-decoration:none;color:inherit;background:var(--sage);transition:background .18s}
-a.mrow:hover{background:#DCE8DF;text-decoration:none}
+a.mrow:hover{background:#D6E1DA;text-decoration:none}
 a.mrow .mn{font-family:'Work Sans',sans-serif;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--primary)}
 a.mrow .mt{display:flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-size:19px;font-weight:500;color:var(--primary);margin-bottom:4px}
 a.mrow .mdot{width:6px;height:6px;border-radius:999px;background:var(--highlight);display:inline-block;flex:none}
@@ -378,7 +378,7 @@ a.mrow .mg{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;l
 .gb-l button{font-family:'Work Sans',sans-serif;font-size:13px;font-weight:500;color:var(--primary);background:transparent;border:1px solid var(--primary);border-radius:999px;padding:8px 16px;cursor:pointer;white-space:nowrap}
 .gb-l button:hover{background:var(--sage)}
 .wrapx{max-width:1180px;margin:0 auto;padding:0 32px}
-.mwel{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:64px;align-items:start;padding:112px 0 24px}
+.mwel{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:64px;align-items:start;padding:112px 0 24px}
 .mkick{display:flex;align-items:center;gap:16px;margin-bottom:24px;font-family:'Work Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--primary)}
 .mkick i{display:block;width:28px;height:2px;background:var(--highlight);flex:none}
 .mwel h2{font-size:clamp(30px,3.4vw,44px);font-weight:600;line-height:1.16;color:var(--primary);margin:0 0 24px;max-width:22ch}
@@ -405,7 +405,7 @@ a.mrow .mg{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;l
 .mhow-h{max-width:64ch;margin-bottom:40px}
 .mhow-h h2{font-size:clamp(28px,3vw,38px);font-weight:600;line-height:1.2;color:var(--primary);margin:0 0 16px}
 .mhow-h p{font-size:18px;line-height:1.66;color:var(--text2);margin:0}
-.mlayers{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.mlayers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px}
 .mlayers article{background:#fff;border-radius:14px;padding:38px 34px 34px;box-shadow:0 26px 54px rgba(1,49,47,.12)}
 .mlayers .l1{border-top:3px solid var(--primary)}
 .mlayers .l2{border-top:3px solid var(--accent)}
@@ -414,15 +414,15 @@ a.mrow .mg{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;l
 .mlayers p{font-size:16.5px;line-height:1.64;color:var(--text2);margin:0 0 24px}
 .mlayers .fin{font-size:16px;line-height:1.6;color:var(--text);margin:0;padding-top:20px;border-top:1px solid var(--divider)}
 .mcon{padding:112px 0 96px}
-.mch{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:end;margin-bottom:64px}
+.mch{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:40px;align-items:end;margin-bottom:64px}
 .mch h2{font-size:clamp(30px,3.4vw,44px);font-weight:600;line-height:1.14;color:var(--primary);margin:0}
 .mch p{font-size:17px;line-height:1.62;color:var(--text2);margin:0;max-width:50ch}
 .mparts{display:flex;flex-direction:column;gap:64px}
 .mph{display:flex;align-items:center;gap:16px;margin-bottom:8px}
 .mph span{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);white-space:nowrap}
 .mph i{flex:1;height:1px;background:var(--divider);display:block}
-a.mrow{display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;margin:0 -16px;border-bottom:1px solid var(--divider);border-radius:6px;text-decoration:none;color:inherit;background:var(--sage);transition:background .18s}
-a.mrow:hover{background:#DCE8DF;text-decoration:none}
+a.mrow{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;margin:0 -16px;border-bottom:1px solid var(--divider);border-radius:6px;text-decoration:none;color:inherit;background:var(--sage);transition:background .18s}
+a.mrow:hover{background:#D6E1DA;text-decoration:none}
 a.mrow.soon{background:transparent}
 a.mrow.soon:hover{background:var(--bg)}
 .mrow .n{font-family:'Work Sans',sans-serif;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--primary)}
@@ -436,12 +436,12 @@ a.mrow.soon:hover{background:var(--bg)}
    as a link, and no hover state implies a destination that does not exist yet.
    The child rules above are element-agnostic (.mrow, not a.mrow) so the div
    inherits all of them; only layout and hover stay scoped to the anchor. */
-div.mrow.soon{display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;margin:0 -16px;border-bottom:1px solid var(--divider);border-radius:6px;color:inherit;background:transparent}
+div.mrow.soon{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;margin:0 -16px;border-bottom:1px solid var(--divider);border-radius:6px;color:inherit;background:transparent}
 .mcity{background:#FAF7F3;padding:96px 0}
 .mcity-h{max-width:64ch;margin-bottom:40px}
 .mcity-h h2{font-size:clamp(28px,3.2vw,40px);font-weight:600;line-height:1.18;color:var(--primary);margin:0 0 16px}
 .mcity-h p{font-size:18px;line-height:1.66;color:var(--text2);margin:0}
-.mcity-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:24px}
+.mcity-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(288px,100%),1fr));gap:24px}
 .mcity-g>*{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 26px 54px rgba(1,49,47,.12);text-decoration:none;display:flex;flex-direction:column}
 a.mcity-c:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.12);text-decoration:none}
 .mcity-g img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
@@ -465,7 +465,7 @@ a.mcity-c:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.
 .msoph-by strong{display:block;font-family:'Work Sans',sans-serif;font-weight:500;font-size:15px;color:var(--text)}
 .msoph-by span{display:block;font-size:13px;color:var(--text2)}
 .mclose{background:var(--primary);color:#FCFBF8;padding:104px 0}
-.mclose-in{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:64px;align-items:start}
+.mclose-in{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:64px;align-items:start}
 .mclose .mkick{color:#C6E084}
 .mclose h2{font-size:clamp(28px,3.2vw,40px);font-weight:600;line-height:1.16;color:#FCFBF8;margin:0 0 16px;max-width:20ch}
 .mclose>.mclose-in>div>p{font-size:17.5px;line-height:1.65;color:rgba(252,251,248,.8);margin:0;max-width:50ch}
@@ -502,12 +502,13 @@ a.mcity-c:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>

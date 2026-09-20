@@ -24,6 +24,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../family-eco.css">
 <link rel="stylesheet" href="../family-hub.css">
+<style id="hero-photo-frame">/* focal point for THIS photograph: her face sits ~30% down a square frame; the sheet's default 22% crops to the window above her */
+.hsplit .art img{object-position:center 34%}</style>
 <link rel="stylesheet" href="../prose-links.css">
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"New Zealand","item":"https://ethicareresourcing.com/new-zealand"},{"@type":"ListItem","position":3,"name":"Professions","item":"https://ethicareresourcing.com/new-zealand#professions"},{"@type":"ListItem","position":4,"name":"Mental health","item":"https://ethicareresourcing.com/jobs/mental-health-new-zealand"}]}]</script>
 </head>
@@ -49,8 +51,8 @@
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/move">Your plan</a>
           <a href="/resources">Guides &amp; resources</a>
@@ -71,7 +73,10 @@
 </header>
 <!-- /@shared-header -->
 <main id="main-content" tabindex="-1">
-<header class="hsplit nophoto">
+<header class="hsplit">
+  <div class="art" aria-hidden="true">
+    <picture><source srcset="../assets/professions/web/psychologist-nz.webp" type="image/webp"><img src="../assets/professions/psychologist-nz.png" alt="A clinician with a notebook listening to a client in a consulting room" width="1254" height="1254" loading="eager"></picture>
+  </div>
   <div class="in">
     <div class="copy">
       <nav class="crumb" aria-label="Breadcrumb"><a href="/new-zealand">New Zealand</a><span class="sep">&#8250;</span><a href="/new-zealand#professions">Professions</a><span class="sep">&#8250;</span><span class="here">Mental health</span></nav>
@@ -214,14 +219,15 @@
       <h2>Current opportunities</h2>
       <p class="lead" style="margin-top:var(--sp-sm,18px)">Understanding the career comes first on this page. This is where it leads, if you want it.</p>
     </div>
-    <div id="live-roles" data-profession="Psychologist" data-country="New Zealand" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:clamp(24px,3vw,32px)"></div>
-    <div class="btn-row" style="margin-top:26px"><a class="btn btn-primary" href="/jobs/">View all vacancies</a><a class="btn btn-ghost" href="/apply">Register your interest</a></div>
+    <div id="live-roles" data-profession="Psychologist" data-country="New Zealand" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px;margin-top:clamp(24px,3vw,32px)"></div>
+    <div class="btn-row" style="margin-top:26px"><a class="btn btn-primary" href="/jobs/">View all vacancies</a><a class="btn btn-ghost" href="/apply">Register with Ethicare</a></div>
   </div>
 </section>
 
 <section class="section" data-screen-label="Mental health NZ &middot; talk to us">
   <div class="wrap">
     <div class="ctapanel">
+      <span class="eyebrow">Nau mai, haere mai</span>
       <h2>Not sure which of these fits you?</h2>
       <p>Tell us what you hold and where you trained, and we will give you an honest read before you spend money on anything.</p>
       <div class="btn-row"><a class="btn btn-lime" href="/pathway-checker?destination=new-zealand">Find your pathway</a><a class="btn btn-out" href="/move">Build your plan</a><a class="btn btn-out" href="/contact">Talk it through with us</a></div>
@@ -231,7 +237,7 @@
       <a href="/new-zealand">New Zealand</a>
       <a href="/resources">Guides &amp; resources</a>
       <a href="/jobs/">Current vacancies</a>
-      <a class="end" href="/jobs/coming-to-australia">This family in Australia &mdash; brewing &rarr;</a>
+      <a class="end" href="/jobs/coming-to-australia">This family in Australia &rarr;</a>
     </nav>
   </div>
 </section>

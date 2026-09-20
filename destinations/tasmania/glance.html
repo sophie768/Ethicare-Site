@@ -14,7 +14,7 @@
 :root{
   --primary:#02615D; --secondary:#D9A084; --highlight:#A6C84A;
   --sage:#C9DED3; --bg:#FCFBF8; --white:#FFFFFF; --text:#333333; --text2:#2F5E49;
-  --divider:#E4E9E5; --border:#C9DED3; --accent:#02615D;
+  --divider:#D6E1DA; --border:#C9DED3; --accent:#02615D;
   --maxw:1180px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -358,7 +358,7 @@ a{color:var(--accent);text-decoration:none}
 .cnote{font-size:15px;color:var(--text2);margin:0 0 16px;max-width:64ch}
 .chaps{display:flex;flex-direction:column;gap:4px}
 a.chap{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px 14px;border-bottom:1px solid var(--divider);border-radius:12px;background:var(--sage);transition:background .18s,transform .18s;color:inherit;text-decoration:none}
-a.chap:hover{background:#DCE8DF;transform:translateX(2px)}
+a.chap:hover{background:#D6E1DA;transform:translateX(2px)}
 a.chap.nat{background:transparent}
 a.chap.nat:hover{background:var(--bg)}
 a.chap .n{font-family:'Work Sans',sans-serif;font-size:14px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
@@ -377,12 +377,12 @@ a.chap.nat .go{color:var(--text2);font-weight:500}
 .ch-nav .up{font-size:13px;color:var(--text2);white-space:nowrap}
 @media(max-width:640px){a.chap{grid-template-columns:32px minmax(0,1fr);gap:8px}a.chap .go{display:none}.ch-nav{grid-template-columns:1fr;gap:16px}.ch-nav .next{text-align:left}}
 .ith{margin:24px 0 40px}
-.ith-map{position:relative;aspect-ratio:5/4;max-height:520px;border-radius:20px;background:linear-gradient(170deg,#D5E4E2 0%,#DCE9E4 42%,#F7F4EE 62%,#D5E4E2 100%);border:1px solid var(--divider);overflow:hidden}
-.ith-map::before{content:"";position:absolute;left:6%;right:6%;top:38%;height:26%;background:#EDF2EC;border-radius:46% 54% 40% 60%/60% 44% 56% 40%;box-shadow:0 0 0 1px rgba(2,97,93,.08)}
+.ith-map{position:relative;aspect-ratio:5/4;max-height:520px;border-radius:20px;background:linear-gradient(170deg,#D6E1DA 0%,#D6E1DA 42%,#F7F4EE 62%,#D6E1DA 100%);border:1px solid var(--divider);overflow:hidden}
+.ith-map::before{content:"";position:absolute;left:6%;right:6%;top:38%;height:26%;background:#E3ECE5;border-radius:46% 54% 40% 60%/60% 44% 56% 40%;box-shadow:0 0 0 1px rgba(2,97,93,.08)}
 .ith-h{position:absolute;font-family:'Work Sans',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#A34438;pointer-events:none}
 .ith-map button{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--divider);border-radius:999px;padding:7px 13px 7px 9px;cursor:pointer;font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;color:var(--primary);white-space:nowrap;box-shadow:0 16px 38px rgba(1,49,47,.09);transition:background .18s,transform .18s}
 .ith-map button:hover{transform:translate(-50%,-50%);box-shadow:0 26px 54px rgba(1,49,47,.12)}
-.ith-map button i{width:7px;height:7px;border-radius:999px;background:var(--border,#C3D2C7);display:block;flex:none}
+.ith-map button i{width:7px;height:7px;border-radius:999px;background:var(--border,#D6E1DA);display:block;flex:none}
 .ith-map button[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:#fff}
 .ith-map button[aria-pressed="true"] i{background:var(--highlight)}
 .ith-cap{font-size:12.5px;color:var(--text2);margin:8px 0 0;text-align:center}
@@ -453,8 +453,8 @@ h1,h2,h3{break-after:avoid !important}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/move">Your plan</a>
           <a href="/resources">Guides &amp; resources</a>
@@ -523,7 +523,7 @@ h1,h2,h3{break-after:avoid !important}
   <p>Cool temperate, with four real seasons &mdash; closer to England or the South Island of New Zealand than to mainland Australia. Summers are mild and long-lit, with evenings that stay cool; winters are cold, crisp and often blue-skied, with snow settling on kunanyi and the highlands. The weather changes fast in any month: layers and a good jacket are year-round equipment, and the UV is fierce despite the cool air.</p>
   <div class="seasons">
     <div class="season" style="background:#2F5E49"><div class="s">Summer</div><div class="m">Dec &ndash; Feb</div><div class="t">17&ndash;23&deg;</div><div class="tl">Mild &middot; light till late</div></div>
-    <div class="season" style="background:#A9654F"><div class="s">Autumn</div><div class="m">Mar &ndash; May</div><div class="t">12&ndash;18&deg;</div><div class="tl">Still, gold, clear</div></div>
+    <div class="season" style="background:#A34438"><div class="s">Autumn</div><div class="m">Mar &ndash; May</div><div class="t">12&ndash;18&deg;</div><div class="tl">Still, gold, clear</div></div>
     <div class="season" style="background:#02615D"><div class="s">Winter</div><div class="m">Jun &ndash; Aug</div><div class="t">4&ndash;12&deg;</div><div class="tl">Cold &middot; snow on the tops</div></div>
     <div class="season" style="background:#A34438"><div class="s">Spring</div><div class="m">Sep &ndash; Nov</div><div class="t">11&ndash;17&deg;</div><div class="tl">Fresh, blustery, green</div></div>
   </div>

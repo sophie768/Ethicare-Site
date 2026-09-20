@@ -27,6 +27,23 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}/* playfair-h
 <meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
 <style id="mint-eyebrow">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
 <style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}</style>
+<style id="svn">
+.svn{background:#E6F1ED;padding:clamp(52px,7vw,84px) 0}
+.svn .in{max-width:1080px;margin:0 auto;padding:0 24px}
+.svn h2{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(24px,3vw,33px);letter-spacing:-.02em;line-height:1.14;color:#02615D;margin:0 0 12px;max-width:24ch}
+.svn .lead{font-size:17px;line-height:1.6;color:#555;max-width:62ch;margin:0}
+.svn .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(28px,3.6vw,46px)}
+.svn .st{padding:24px clamp(14px,1.6vw,22px) 0;border-top:2px solid #02615D}
+.svn .st:nth-child(n+3){border-top-color:var(--sage,#C9DED3)}
+.svn .st .k{display:block;font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;color:#2F5E49;margin-bottom:10px}
+.svn .st h3{font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;color:#02615D;margin:0 0 8px;line-height:1.28}
+.svn .st p{font-size:14px;color:#555;line-height:1.55;margin:0}
+.svn .note{margin:clamp(28px,3.4vw,42px) 0 0;padding:22px 26px;background:#fff;border:1px solid #C9DED3;border-left:3px solid #72A471;border-radius:0 14px 14px 0;font-size:15.5px;line-height:1.62;color:#333;max-width:74ch}
+.svn .note a{color:#02615D;text-decoration:underline;text-decoration-color:#72A471;text-underline-offset:3px}
+.svn .note a:hover{text-decoration-color:#02615D}
+@media(max-width:900px){.svn .steps{grid-template-columns:repeat(2,1fr);gap:28px 24px}}
+@media(max-width:560px){.svn .steps{grid-template-columns:1fr;gap:0}.svn .st{padding:22px 0;border-top:1px solid rgba(2,97,93,.16)}.svn .st:first-child{border-top:2px solid #02615D}}
+</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Submit a vacancy"}]}</script>
 <link rel="stylesheet" href="./prose-links.css">
 </head>
@@ -52,12 +69,13 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}/* playfair-h
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -77,12 +95,12 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}/* playfair-h
 <section class="intro-band">
   <div class="formwrap" style="padding-bottom:clamp(96px,11vw,140px);text-align:left">
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap">
-      <div style="text-align:left">
+      <div style="text-align:left;flex:1 1 360px;min-width:0">
         <span class="eyebrow">For employers</span>
         <h1>Submit a vacancy</h1>
         <p class="lead">Tell us about the role you&rsquo;re hiring for.</p>
       </div>
-      <img src="assets/heroes/submit-a-vacancy.svg" alt="A completed document folding into a paper plane, sent toward an inbox tray" width="176" height="132" style="width:176px;height:auto;flex:none">
+      <img src="assets/heroes/submit-a-vacancy.svg" alt="A completed document folding into a paper plane, sent toward an inbox tray" width="400" height="300" style="width:100%;max-width:clamp(220px,26vw,320px);height:auto;flex:none;align-self:center">
     </div>
   </div>
 </section>
@@ -132,6 +150,21 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}/* playfair-h
   </div>
 </section>
 
+<section class="svn" data-screen-label="Submit a vacancy · what happens next">
+  <div class="in">
+    <span class="eyebrow">What happens next</span>
+    <h2>After you hit submit</h2>
+    <p class="lead">No auto-responder, no silence. A person reads what you send and replies &mdash; usually within a working day &mdash; with an honest answer before either of us spends real time.</p>
+    <div class="steps">
+      <div class="st"><span class="k">01</span><h3>A person reads it</h3><p>Within a working day: whether it&rsquo;s a role we can fill, and a realistic timeline. If it isn&rsquo;t right for us, we&rsquo;ll say so plainly.</p></div>
+      <div class="st"><span class="k">02</span><h3>A short conversation</h3><p>We talk through the service, the team and the constraints &mdash; supervision, budget and what the role really needs.</p></div>
+      <div class="st"><span class="k">03</span><h3>Search &amp; prepare</h3><p>A targeted search, then the checks that matter: where each candidate stands with the board, the visa route, and whether the move is realistic for their family.</p></div>
+      <div class="st"><span class="k">04</span><h3>Shortlist, offer, arrival</h3><p>A short, relevant shortlist for your process; then offer, registration and relocation held in one place, with support through the first year.</p></div>
+    </div>
+    <p class="note">One person stays accountable from your first message to the clinician&rsquo;s first year. New to hiring internationally? The <a href="/insights/international-recruitment-toolkit">recruitment toolkit</a> walks through what it takes &mdash; or, if you&rsquo;d rather talk it through before writing anything, <a href="/employers#enquiry">start a conversation</a>.</p>
+  </div>
+</section>
+
 </main>
 <footer class="site-footer">
   <div class="shell">
@@ -161,10 +194,11 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}/* playfair-h
 <script src="site.js"></script>
 <script src="nav.js" defer></script>
 
-<!-- INTERNAL LINK MAP — /submit-a-vacancy (generated 29 Aug 2026 from the rendered markup)
+<!-- INTERNAL LINK MAP — /submit-a-vacancy (updated 18 Sep 2026)
   HEADER NAV + FOOTER — site-wide (see /site/_header.html and the shared footer)
   MAIN CONTENT:
-  (no links in main)
+  Vacancy form → POST to Netlify Forms, then Thank you (/thank-you)
+  What happens next → recruitment toolkit (/insights/international-recruitment-toolkit) · start a conversation (/employers#enquiry)
 -->
 <!-- SEO
   Page Title: Submit a vacancy

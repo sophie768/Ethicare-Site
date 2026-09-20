@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="../shell.css">
 <style>
 :root{
-  --teal:#02615D; --green:#02615D; --sage:#72A471; --sage-text:#5C6B57; --lime:#A6CB94;
+  --teal:#02615D; --green:#02615D; --sage:#72A471; --sage-text:#5C6B57; --lime:#A6C84A;
   --nz:#72A471; --mint:#C9DED3; --soft:#E3ECE5; --soft-green:#E3ECE5; --warm:#FCFBF8;
   --white:#fff; --text:#333333; --muted:#555555;
   --display:'Work Sans',sans-serif; --body:'Manrope',sans-serif;
@@ -50,7 +50,7 @@ p{margin-bottom:18px}strong{color:var(--green)}
 .hero .wrap{position:relative;z-index:2;padding-top:clamp(46px,6vw,82px);padding-bottom:clamp(46px,6vw,82px)}
 .hero-copy{max-width:540px;padding-right:28px}
 .hero h1{color:#fff;margin-bottom:18px}
-.hero .eyebrow{color:#A6CB94}
+.hero .eyebrow{color:#A6C84A}
 .hero .crumb{color:rgba(255,255,255,.9)}.hero .crumb a:hover,.hero .crumb .here{color:#fff}
 .hero-sub{font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(19px,2.3vw,25px);line-height:1.4;color:rgba(255,255,255,.92);max-width:42ch;margin-bottom:8px}
 .hero .btn-primary{background:#fff;color:var(--teal)}.hero .btn-primary:hover{background:var(--warm)}
@@ -67,7 +67,7 @@ p{margin-bottom:18px}strong{color:var(--green)}
 .glance a{font-family:var(--display);font-weight:600;font-size:14px;color:var(--green);padding:6px 2px;border-bottom:2px solid transparent;transition:.15s}
 .glance a:hover{color:var(--teal);border-color:#72A471}
 
-ul.ticks{list-style:none;margin:6px 0 0;display:grid;gap:10px}
+ul.ticks{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px}
 ul.ticks li{position:relative;padding-left:30px;font-size:15.5px;color:var(--text)}
 ul.ticks li::before{content:"";position:absolute;left:0;top:8px;width:16px;height:16px;border-radius:5px;background:var(--soft-green);border:1px solid var(--mint)}
 ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;height:9px;border:2px solid var(--teal);border-top:0;border-left:0;transform:rotate(45deg)}
@@ -95,7 +95,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 .doccard .doc-b{min-width:0}
 .doccard .doc-t{font-family:var(--display);font-weight:600;font-size:15.5px;color:var(--green);line-height:1.3;display:block}
 .doccard .doc-m{font-family:var(--display);font-weight:600;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-text);margin-top:3px;display:block}
-.doccard .doc-go{font-family:var(--display);font-weight:700;font-size:18px;color:var(--sage);flex-shrink:0}
+.doccard .doc-go{font-family:var(--display);font-weight:700;font-size:18px;color:#2F5E49;flex-shrink:0}
 .doccard:hover .doc-go{color:var(--teal)}
 @media (max-width:680px){.docgrid{grid-template-columns:1fr}}
 </style>
@@ -136,11 +136,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 <style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
 <style id="cmp-faq-base">
 
-
-
-
 .faq summary::after{content:"+";font-size:24px;font-weight:400;color:var(--sage);transition:transform .2s ease;line-height:1}
-
 
 .faq .ans p{margin-bottom:12px}.faq .ans p:last-child{margin-bottom:0}
 </style>
@@ -232,7 +228,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
         </div>
       </div>
       <a href="/jobs/">Jobs</a>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/move">Your plan</a>
           <a href="/resources">Guides &amp; resources</a>
@@ -266,7 +262,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
       <h1>The posts at this level are rarely advertised.</h1>
       <p class="hero-sub">House officer, SHO, registrar and senior registrar roles — general registration rather than a vocational scope, and a market that runs on conversations rather than listings.</p>
       <div class="btn-row">
-        <a href="/apply" class="btn btn-primary">Register your interest</a>
+        <a href="/apply" class="btn btn-primary">Register with Ethicare</a>
         <a href="/contact" class="btn btn-ghost">Talk to the team</a>
       </div>
     </div>
@@ -279,7 +275,6 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
     </div>
   </div>
 </header>
-<section class="glance-wrap"><div class="wrap"><nav class="glance" aria-label="Three ways into this page"><span class="lbl">Three ways in</span><a href="#essential">Essential &mdash; what actually matters</a><a href="#deeper">Dig deeper &mdash; the full detail</a><a href="/#ask">Ask Ethicare &mdash; your situation</a></nav></div></section>
 <section class="section" id="essential"><div class="wrap"><span class="eyebrow">Essential</span><h2>What actually matters, in five minutes</h2><p class="lead">Seven questions that decide whether this move is worth exploring — answers first. The full detail sits one click below, and nothing has been removed.</p>
 <div class="essgrid">
 <div class="essq"><span class="q">Can I work there?</span><span class="k">Yes &mdash; general registration, not a vocational scope</span><p class="a">This is the main thing that differs from the consultant pages here. A consultant applies for a vocational scope in a named specialty; at this level you apply for <strong>general registration</strong> with the Medical Council of New Zealand. Which route applies is decided by your qualification and recent practice &mdash; <strong>not</strong> by the level of the job you are applying for.</p><a class="go" href="#registration">How registration works &rarr;</a></div>
@@ -289,13 +284,12 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 <div class="essq"><span class="q">Can I bring my family?</span><span class="k">Yes &mdash; most people do</span><p class="a">Partners and children can usually join you on visas linked to yours, and partners can usually work. Schools, childcare and the family logistics are explained once, properly, in the family guide.</p><a class="go" href="/guides/new-zealand-family">Family moves, explained &rarr;</a></div>
 <div class="essq"><span class="q">What will moving cost?</span><span class="k">Verification is the real spend</span><p class="a">Council fees, primary-source verification of your qualifications, certificates of good standing from every authority you have registered with, visa fees for everyone moving, flights and shipping. The paperwork discipline is the same as at consultant level.</p><a class="go" href="/guides/new-zealand-relocation">The move, costed &rarr;</a></div>
 <div class="essq"><span class="q">Already hold a fellowship?</span><span class="k">Then you&rsquo;re on the wrong page</span><p class="a">Specialists apply for a vocational scope in a named specialty, and both the route and the timeline differ by specialty. We write those up one at a time &mdash; and if yours isn&rsquo;t listed, tell us what you hold and we&rsquo;ll give you an honest read.</p><a class="go" href="#specialties">Consultant pages &rarr;</a></div>
-<div class="essq act"><div class="hd"><span class="q">Ready to explore?</span><p class="a">Three doors, no sign-up, no pressure.</p></div><div class="btn-row"><a class="btn btn-primary" href="/apply">Register your interest</a><a class="btn btn-secondary" href="/pathway-checker?destination=new-zealand">Check my pathway</a><a class="btn btn-secondary" href="/destinations/">Explore places</a></div></div>
 </div>
 </div></section>
 <details class="ddwrap" id="deeper"><summary class="ddbtn"><span class="t">Want the detail? Dig deeper</span><span class="s">Why there&rsquo;s no vacancy list, the levels explained, registration, pay, life here, the consultant pages, what we can&rsquo;t promise and the FAQs &mdash; everything, one click down.</span><span class="pm" aria-hidden="true"></span></summary>
 <section class="section" id="how"><div class="wrap"><span class="eyebrow">Being straight with you</span><h2 class="moment">We don&rsquo;t run a vacancy list at this level.</h2><p class="lead editorial">Every other profession page on this site has a roles section. This one does not, and it would be easy to fake. Here is what actually happens instead.</p>
 <div class="reading" style="margin-top:clamp(30px,3.4vw,44px)"><p>Services outside the main centres come to us when they need a senior registrar, a registrar or a house officer &mdash; often at short notice, and usually for posts that were never advertised nationally. There is no board to watch and no listing to refresh. There is a list of doctors who told us where they are and what they are after, and we work from it when something lands.</p><p><strong>So the useful thing you can do is register your interest.</strong> It takes a few minutes, it costs nothing, and it is genuinely how these posts get filled. If nothing suitable comes up we will say so rather than keep you warm.</p></div>
-<div class="btn-row"><a class="btn btn-primary" href="/apply">Register your interest</a><a class="btn btn-secondary" href="/contact">Talk to the team</a></div>
+<div class="btn-row"><a class="btn btn-primary" href="/apply">Register with Ethicare</a><a class="btn btn-secondary" href="/contact">Talk to the team</a></div>
 </div></section>
 <section class="section" id="levels" style="background:var(--soft)"><div class="wrap"><span class="eyebrow">The levels</span><h2>Where you would fit</h2><p class="lead editorial">Titles differ between systems, so it is worth being explicit about what these words mean here rather than assuming they map onto the ones you use now.</p>
 <div class="cols3"><div class="c"><span class="k">Senior registrar</span><h3>Post-fellowship and final-year posts</h3><p>Most often in regional services, and frequently a step towards a consultant appointment in the same place. If that is what you are after, say so early &mdash; it changes which posts we put in front of you.</p></div><div class="c"><span class="k">Registrar</span><h3>Service registrar roles</h3><p>In regional and provincial hospitals. Rarely advertised nationally, and more often filled through a conversation than an application form. Broad exposure, and a shorter distance to the consultants than you may be used to.</p></div><div class="c"><span class="k">House officer &amp; SHO</span><h3>Fewer of these come our way</h3><p>And almost all of them sit outside the metro centres. Worth registering your interest rather than waiting for a listing, because a listing is unlikely to appear.</p></div></div>
@@ -321,7 +315,7 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 <section class="section" id="faq" style="background:var(--soft)"><div class="wrap reading"><span class="eyebrow">Common questions</span><h2>Frequently asked</h2><div class="faq" style="margin-top:32px"><details open><summary>Do you have a list of registrar jobs?</summary><div class="ans"><p>No, and we would rather say so than pretend otherwise. We do not run a vacancy list at this level.</p><p>What happens instead is quieter: services outside the main centres come to us when they need a senior registrar, a registrar or a house officer, often at short notice and for posts that were never advertised widely. Register your interest and you are on the list we actually work from.</p></div></details><details><summary>Is registration different from the consultant route?</summary><div class="ans"><p>Yes, and it is the main thing to understand. A consultant applies for a <strong>vocational scope</strong> in a named specialty. At this level you are applying for <strong>general registration</strong>, and which route applies depends on where you trained and where you have been practising.</p><p>It is the same regulator and the same paperwork discipline, but a different question is being asked of you. The pathway checker will tell you which route is likely to apply before you spend anything.</p></div></details><details><summary>Will a registrar post lead to a consultant job?</summary><div class="ans"><p>Sometimes, and more often in regional services than in the main centres — a senior registrar post in a smaller hospital is frequently a step towards a consultant appointment in the same place.</p><p>We will be straight with you about whether a specific post is genuinely that, or simply service cover. The two look identical in an advert and are very different careers.</p></div></details><details><summary>Why don&rsquo;t you publish pay for these roles?</summary><div class="ans"><p>Because the package depends on the service, the roster and the agreement that covers it, and we would rather confirm the real number with you than print a range that turns out not to apply.</p><p>Ask us for the actual figure on an actual post and you will get it.</p></div></details></div></div></section>
 </details>
 <section class="section"><div class="wrap"><nav class="wf-onward nz" style="margin-bottom:clamp(30px,3.6vw,46px)" aria-label="More professions"><a class="wf-step wf-prev" href="/jobs/paediatrician-new-zealand"><span class="wf-lbl"><span class="arw">&#8592;</span>Previous</span><span class="wf-ttl">Paediatricians</span></a><a class="wf-hub" href="/jobs/medicine-new-zealand"><span class="wf-ht">All New&nbsp;Zealand doctor roles</span><span class="wf-hs">Consultants, registrars and SHOs</span></a><a class="wf-step wf-next" href="/jobs/occupational-therapist-new-zealand"><span class="wf-lbl">Next<span class="arw">&#8594;</span></span><span class="wf-ttl">Occupational Therapists</span></a></nav>
-<div class="final"><span class="eyebrow">Nau mai, haere mai &middot; If you&rsquo;re weighing it up</span><h2>Tell us where you are and what you&rsquo;re after.</h2><p>Relocating to a new country can feel overwhelming at times, and you won&rsquo;t be doing it on your own. Tell us where you trained and what you&rsquo;re weighing up, and we&rsquo;ll help you think it through.</p><div class="btn-row"><a href="/pathway-checker?destination=new-zealand" class="btn btn-primary">Find your pathway</a><a href="/apply" class="btn btn-secondary">Register your interest</a><a href="/contact" class="btn btn-secondary">Talk to the team</a></div><p class="small">Ethicare Resourcing &middot; your guide to a life and career in New Zealand.</p></div></div></section>
+<div class="final"><span class="eyebrow">Nau mai, haere mai &middot; If you&rsquo;re weighing it up</span><h2>Tell us where you are and what you&rsquo;re after.</h2><p>Relocating to a new country can feel overwhelming at times, and you won&rsquo;t be doing it on your own. Tell us where you trained and what you&rsquo;re weighing up, and we&rsquo;ll help you think it through.</p><div class="btn-row"><a href="/pathway-checker?destination=new-zealand" class="btn btn-primary">Find your pathway</a><a href="/apply" class="btn btn-secondary">Register with Ethicare</a><a href="/contact" class="btn btn-secondary">Talk to the team</a></div><p class="small">Ethicare Resourcing &middot; your guide to a life and career in New Zealand.</p></div></div></section>
 
 <div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
@@ -353,13 +347,11 @@ ul.ticks li::after{content:"";position:absolute;left:5px;top:11px;width:5px;heig
 <script src="profession-cards.js"></script>
 <script src="../essential.js" defer></script>
 
-
 <!-- ============================================================
      INTERNAL LINK MAP — /jobs/rmo-registrar-new-zealand
      ============================================================
   HEADER NAV — Brand/Home → / · Australia ▾ (/australia · /australia#professions · /australia#destinations) · New Zealand ▾ (/new-zealand · /new-zealand#professions · /new-zealand#destinations) · Jobs → /jobs/ · Move ↗ ▾ (/move · /resources · /pathway-checker) · About ▾ (/about-ethicare · /insights) · For Employers → /employers · Contact → /contact
   HERO — Breadcrumb: New Zealand → /new-zealand · Doctors → /jobs/medicine-new-zealand · RMO, SHO & registrar [current]. Register your interest → /apply · Talk to the team → /contact
-  THREE WAYS IN (glance) — Essential → #essential · Dig deeper → #deeper (opens the disclosure) · Ask Ethicare → /#ask
   ESSENTIAL (#essential) — How registration works → #registration · Why we don't print a band → #pay · Why there's no vacancy list → #how · The levels → #levels · Consultant pages → #specialties · Family moves → /guides/new-zealand-family · The move, costed → /guides/new-zealand-relocation · Register your interest → /apply · Check my pathway → /pathway-checker?destination=new-zealand
   DIG DEEPER (#deeper, disclosure wrapping #how → #faq; essential.js opens it for anchor links)
   ON THIS PAGE (inside dig deeper) → #levels · #how · #registration · #pay · #life · #specialties

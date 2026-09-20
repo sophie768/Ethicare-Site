@@ -49,6 +49,39 @@
   function getVal(name) { var el = hidden(name); return el ? el.value : ''; }
   function setVal(name, v) { var el = hidden(name); if (el) el.value = v; }
 
+  /* ONE onboarding (candidate-journey review, 14 Sep 2026). Move already asked which country;
+     do not ask again here. Only the destination is carried — it is the one answer whose label
+     is identical in both places — and only into an EMPTY field on a form with no draft, so a
+     person who has already answered here is never overruled. The option card is selected the
+     same way loadDraft reflects a saved answer. */
+  function seedFromContext() {
+    try {
+      var ctx = window.EthicareContext;
+      if (!ctx || !ctx.has() || getVal('destination')) return;
+      var d = ctx.applyDestination(); if (!d) return;
+      setVal('destination', d);
+      $all('[data-group="destination"] .reg-opt').forEach(function (o) { o.classList.toggle('is-selected', o.getAttribute('data-value') === d); });
+    } catch (e) {}
+  }
+
+  /* Arriving from a vacancy: /apply?role=<slug>[&intent=later]. The role is kept with the
+     submission (hidden field role_of_interest, so the team knows which advert) and named in the
+     aside, so \"Apply through Ethicare\" on a role page is an application for THAT role rather
+     than a generic registration. intent=later is the \"interested but not ready\" door: same form,
+     no different promise \u2014 the copy just says so. */
+  function readRole() {
+    try {
+      var m = /[?&]role=([a-z0-9-]+)/.exec(location.search); if (!m) return;
+      var slug = m[1], title = slug.replace(/-/g, ' ').replace(/\b[a-z]/g, function (c) { return c.toUpperCase(); });
+      var later = /[?&]intent=later/.test(location.search);
+      setVal('role_of_interest', slug + (later ? ' (interested, not ready yet)' : ''));
+      var lede = document.querySelector('.reg-aside .lede');
+      if (lede) lede.innerHTML = (later
+        ? 'You said you\u2019re interested in <b>' + title.replace(/</g, '&lt;') + '</b> but not ready to apply. Tell us where you\u2019re up to and we\u2019ll keep the role in mind \u2014 no CV needed yet, and nothing goes to the employer.'
+        : 'You\u2019re applying for <b>' + title.replace(/</g, '&lt;') + '</b>. Tell us a little about you and where you\u2019re up to \u2014 about three minutes. The employer is not named or contacted until you say so.');
+    } catch (e) {}
+  }
+
   function prettySize(bytes) {
     if (!bytes) return '';
     var kb = bytes / 1024;
@@ -471,6 +504,8 @@
     try { history.replaceState(null, '', location.pathname); } catch (e) {}
   } else {
     loadDraft();
+    seedFromContext();
+    readRole();
   }
   syncCheckUI(); showCv(); toggleDependents(); renderAreas();
   paint();

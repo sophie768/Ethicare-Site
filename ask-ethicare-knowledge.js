@@ -46,6 +46,25 @@ window.ASK_ETHICARE_KB = {
     resources_library: { t: 'Guides & resources', d: 'The full library', u: '/resources' },
     employer_support: { t: 'For employers', d: 'Recruit, relocate, retain', u: '/employers' },
     nz_country: { t: 'Working in New Zealand', d: 'The country hub', u: '/new-zealand' },
-    au_country: { t: 'Working in Australia', d: 'The country hub', u: '/australia' }
+    au_country: { t: 'Working in Australia', d: 'The country hub', u: '/australia' },
+    /* Added 15 Sep 2026, from ASK-ETHICARE.md §3. Six of the fifteen question types in the
+       brief — schools, pets, renting, the move itself, the first month, driving — had NO
+       destination in this map, so the model could only route them to a near-miss (usually
+       the family guide) or return nothing and fall through to the checker. Every path below
+       was confirmed to exist before it was added; an id pointing at a 404 is worse than a
+       near-miss. Where a country has no guide of its own the nearest true owner is used and
+       the description says so, rather than inventing a symmetrical URL. */
+    nz_education: { t: 'Schools in New Zealand', d: 'How enrolment, zoning and the school year work', u: '/guides/new-zealand-education' },
+    au_education: { t: 'Schools in Australia', d: 'Enrolment, the state systems, and what they cost', u: '/guides/australia-education' },
+    au_school_fees: { t: 'Will I pay school fees in Australia?', d: 'What your visa decides about state school fees', u: '/guides/australia-school-fees' },
+    nz_pets: { t: 'Bringing pets to New Zealand', d: 'Import rules, lead times and what travels with you', u: '/guides/nz/bringing-pets-and-belongings' },
+    au_pets: { t: 'Bringing pets to Australia', d: 'Import permits, quarantine and the real timeline', u: '/guides/australia-pets' },
+    au_renting: { t: 'Renting in Australia', d: 'Applications, bond, and the rules in your state', u: '/guides/australia-renting' },
+    nz_community: { t: 'Community & belonging in New Zealand', d: 'How people actually meet people here', u: '/guides/new-zealand-community' },
+    au_community: { t: 'Community & belonging in Australia', d: 'How people actually meet people here', u: '/guides/australia-community' },
+    au_driving: { t: 'Driving & licences in Australia', d: 'Converting your licence, and whether you need a car', u: '/guides/australia-driving' },
+    moving_checklist: { t: 'Moving checklist', d: 'Everything to arrange before you fly, filtered to your household', u: '/moving-checklist' },
+    nz_first_month: { t: 'Your first month in New Zealand', d: 'The paperwork in the order that actually works', u: '/guides/nz/your-first-month' },
+    au_first_month: { t: 'Living & thriving in Australia', d: 'The first weeks, and settling in beyond them', u: '/guides/living-in-australia' }
   }
 };

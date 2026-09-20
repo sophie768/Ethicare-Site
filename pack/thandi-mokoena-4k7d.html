@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en-AU"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<!-- Emailed to the candidate and opened on a phone or tablet: brand the browser chrome and make
+     a home-screen save look like ours. Standalone mode is deliberately NOT set. -->
+<meta name="theme-color" content="#02615D">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta name="apple-mobile-web-app-title" content="Your Ethicare">
+<title>Your Ethicare · Ethicare Resourcing</title>
+<!-- WORKED EXAMPLE — a fictional candidate, written to prove two things the NZ example
+     cannot: the Australian palette (PACK.country = 'au') and a section dropping out
+     (no `travel` key — registration is pending, so nothing is booked). Not a real person;
+     replace or delete before anyone could take it for one.
+
+     Same rules as clint-varghese-9f2c.html: unlisted, noindex, absent from sitemap.xml,
+     linked from nowhere. Everything specific to this candidate is in the PACK object at the
+     foot of this file; pack.css and pack.js are shared. See README.md. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pack.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="top">
+  <div class="in">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt="" width="42" height="42"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <div class="who">
+      <span class="l"><b>Your Ethicare</b><span data-whoname>Candidate space</span></span>
+      <span class="av" data-av aria-hidden="true">T</span>
+    </div>
+  </div>
+</header>
+<div class="strip">
+  <div class="in">
+    <span>Made for you, and not listed anywhere on our site</span>
+    <span>Your notes stay on this device</span>
+    <span>Ask us to change anything on it</span>
+  </div>
+</div>
+
+<div class="shell">
+  <nav class="rail" aria-label="Your space">
+    <p class="k">Your move, your space</p>
+    <ul data-rail></ul>
+  </nav>
+
+  <main id="main-content" tabindex="-1">
+    <noscript><p class="nojs"><b>This page needs JavaScript to show your space.</b> If it stays blank, email <a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a> and we will send you the printed pack instead.</p></noscript>
+    <div class="head">
+      <p class="route" data-route></p>
+      <h1 data-h1 tabindex="-1"></h1>
+      <p class="sub" data-sub></p>
+    </div>
+
+    <!-- YOUR SPACE -->
+    <section class="panel" data-panel="space" hidden>
+      <div class="letter" data-letter>
+        <span class="eyebrow">A note from Sophie</span>
+        <div class="sig">
+          <img src="../assets/photo-sophie.jpg" alt="">
+          <div>
+            <div class="n" data-signname></div>
+            <div class="r" data-signrole></div>
+          </div>
+        </div>
+      </div>
+      <div data-facts-block>
+        <h2>Where things stand</h2>
+        <p class="lede">The things we both need to hand. If any of it changes, tell us and we&rsquo;ll change it here.</p>
+        <div class="facts" data-facts></div>
+      </div>
+    </section>
+
+    <!-- YOUR PLAN -->
+    <section class="panel" data-panel="plan" hidden>
+      <div class="card">
+        <h2>What you&rsquo;re working on</h2>
+        <p class="hint">Add anything at all &mdash; a question for us, something to book, something to ask the department. Tick it off when it&rsquo;s done, or delete it if it stops mattering. There is no right number of items.</p>
+        <ul class="plan" data-plan></ul>
+        <p class="empty" data-plan-empty>Nothing here yet.</p>
+        <form class="addrow" data-plan-form>
+          <label class="skip-link" for="plan-new">Add something to your plan</label>
+          <input id="plan-new" type="text" data-plan-input placeholder="e.g. Ask about the first roster" autocomplete="off" maxlength="160">
+          <button type="submit" class="btn">Add</button>
+        </form>
+        <div data-suggest-block>
+          <h3 style="margin-top:24px">Things other people have found useful</h3>
+          <p class="hint">Only if they&rsquo;re relevant to you. Tap to add one.</p>
+          <div class="acts" data-suggest style="margin-top:0"></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Notes</h2>
+        <p class="hint">Anything you want to keep in one place. It saves as you type.</p>
+        <label class="skip-link" for="pack-notes">Your notes</label>
+        <textarea id="pack-notes" data-notes placeholder="Questions, addresses, names, things to look up&hellip;"></textarea>
+        <p class="saved" data-saved aria-live="polite"></p>
+        <div class="acts">
+          <button type="button" class="btn ghost" data-copy>Copy everything</button>
+          <button type="button" class="btn ghost" data-download>Download as a file</button>
+        </div>
+      </div>
+      <p class="privacy"><b>Where this lives.</b> Your notes and your plan are saved in this browser, on this device only. Nothing is sent to us and we cannot read them &mdash; which also means they will not follow you to your phone, and clearing your browser data clears them. If you want them somewhere safer, copy or download them.</p>
+    </section>
+
+    <!-- TRAVEL & STAY — no data yet, so pack.js removes this panel and its rail link.
+         When the Board decides and flights are booked, add a `travel` array to PACK and
+         the section appears with no other change. -->
+    <section class="panel" data-panel="travel" hidden>
+      <p class="lede" data-travel-lede></p>
+      <div class="rows" data-travel></div>
+    </section>
+
+    <!-- GUIDES & PACKING -->
+    <section class="panel" data-panel="guides" hidden>
+      <p class="lede" data-guides-why></p>
+      <div class="glist" data-guides></div>
+    </section>
+
+    <!-- FILES & RECEIPTS -->
+    <section class="panel" data-panel="files" hidden>
+      <div class="rows" data-files></div>
+      <p class="privacy"><b>We can&rsquo;t hold your documents here yet.</b> This is the list of what to keep together and where each one came from &mdash; not the documents themselves. Keep the originals somewhere you control, and email us if you cannot find one of ours.</p>
+    </section>
+
+    <div class="close">
+      <h2>We&rsquo;re still here</h2>
+      <p>Through the waiting as much as after it. If something on this page is out of date, or you want something added to it, just say and we&rsquo;ll change it &mdash; that is easier for us than you think.</p>
+      <p class="ccontact"><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a><span aria-hidden="true">&middot;</span><a href="tel:+442046266580">+44 20 4626 6580</a></p>
+      <p class="fmeta">Ethicare Resourcing Ltd &middot; Company No 14646354 &middot; Office 1, One Coldbath Square, London EC1R 5HL</p>
+    </div>
+  </main>
+</div>
+
+<script>
+window.PACK = {
+  slug: 'thandi-mokoena-4k7d',
+  first: 'Thandi',
+  country: 'au',
+  /* Renders a visible "Worked example" band and prefixes the tab title. Never set on a real pack. */
+  demo: true,
+  title: 'Your Ethicare',
+  spaceLabel: 'Candidate space',
+  route: 'Durban \u2192 Brisbane',
+
+  /* No `travel` heading because there is no travel section yet. A dropped section needs
+     nothing written for it anywhere in this object. */
+  headings: {
+    space:  { title: 'Hello, Thandi.', sub: 'Everything we know so far about your move, in one place \u2014 and somewhere to keep your own notes while the rest is decided.' },
+    plan:   { title: 'Your plan', sub: 'Yours to write in. Nobody is marking it.' },
+    guides: { title: 'Guides & packing', sub: 'The parts of the site worth your time right now, and why each one.' },
+    files:  { title: 'Files & receipts', sub: 'What to keep together, and where each one came from.' }
+  },
+
+  letter: [
+    'We have worked with you since March, and for most of that time the honest answer to \u201cwhen\u201d has been \u201cwe don\u2019t know yet\u201d. It still is. Your application is with the Board, the visa cannot be lodged until the Board decides, and there is no date on a flight because there cannot be one. This page exists so that everything we do know is in one place while we wait for the rest.',
+    'What we do know: you and Sipho are going together, you are going to Brisbane, and the department knows exactly where your registration sits and is planning around it. None of that is in doubt.',
+    'Two of you and no children changes the shape of the first months. A small unit near the hospital is realistic for the first lease, and the decision about a car can wait until you have seen how the city works from there. Brisbane in the months you are likely to arrive is warm and humid; Durban will have prepared you for that better than most.',
+    'The hard part is Sipho. The visa carries him, but the job, the department and the reason to be there are yours, and the first months are longer for the person who arrives without a desk to go to. We say that now because it is the thing people are least prepared for, and because there is a lot that can be done about it before you fly.',
+    'Dip into this as you need it. When the Board decides, the travel section appears here the same day, and the rest of the page changes with it.'
+  ],
+  signoff: { name: 'Sophie and the Ethicare team', role: 'Ethicare Resourcing' },
+
+  facts: [
+    ['Moving to', 'Brisbane'],
+    ['Registration', 'With the Board \u2014 decision awaited'],
+    ['Visa', 'Lodged once registration is granted'],
+    ['Sipho', 'Travelling with you']
+  ],
+
+  guidesWhy: 'Because your registration is still with the Board and the visa waits on it, the timing of everything else follows those two. These are the ones that change what you do now; the rest of the library is there when you want it.',
+  guides: [
+    { title: 'Registration with the Medical Radiation Practice Board', href: '/guides/australia-registration-mrpba',
+      why: 'Where your application is in the process, and what the Board can still ask for. The checklist at the end is the one we worked from together.' },
+    { title: 'The visa, once registration is granted', href: '/guides/australia-visa',
+      why: 'Why the two run in this order for you, what the employer lodges and what you do, and where Sipho fits on the application.' },
+    { title: 'Renting in Australia', href: '/guides/australia-renting',
+      why: 'How applications, bonds and inspections work, and what can be done from Durban before either of you has an Australian address.' },
+    { title: 'Money \u2014 bank accounts, tax and superannuation', href: '/guides/australia-money',
+      why: 'Which of these you can start before you fly, and which have to wait until you are in the country.' },
+    { title: 'Moving with your partner', href: '/guides/australia-family',
+      why: 'The part written for the person who is not the applicant \u2014 work, healthcare cover, and the first months without a workplace to walk into.' },
+    { title: 'Driving in Australia', href: '/guides/australia-driving',
+      why: 'Brisbane is a driving city. What converting a South African licence involves once you have a Queensland address.' },
+    { title: 'Ethicare Move \u2014 your plan', href: '/move',
+      why: 'The whole move sequenced, if you would rather work from a list than a page.' }
+  ],
+
+  suggested: [
+    'Check the Ahpra application portal',
+    'Ask the department about the start-date window',
+    'Get police clearance certificates for both of us',
+    'Ask which bank accounts can be opened from Durban',
+    'List what comes in the container and what is sold',
+    'Find out what Sipho\u2019s registration would involve, if he wants to work in his field'
+  ],
+
+  files: [
+    { k: 'Passports', v: 'Both of you', note: 'Check both expiry dates before the visa is lodged \u2014 renewing mid-application is slow.' },
+    { k: 'Registration documents', v: 'Everything you sent the Board, in the order you sent it', note: 'The decision letter joins this pile when it comes. The department will ask for it on day one.' },
+    { k: 'Qualification and transcripts', v: 'Certified copies, plus the originals', note: 'The Board has copies; the employer may ask to see the originals.' },
+    { k: 'Police clearance certificates', v: 'Both of you', note: 'For the visa. They have a validity period, so the timing follows the lodgement.' },
+    { k: 'Relationship evidence', v: 'For Sipho\u2019s place on the visa', note: 'Joint lease, shared accounts, photographs with dates. More is better here.' },
+    { k: 'Employment references', v: 'From your current and previous departments', note: 'Signed and dated, on letterhead.' }
+  ]
+};
+</script>
+<script src="pack.js"></script>
+</body></html>

@@ -45,7 +45,7 @@
   function isAU() { return st.dest === 'au'; }
   function cc() { return isAU() ? 'au' : 'nz'; }
   function code() { return D().currency.code[st.dest]; }
-  function save() { try { localStorage.setItem(LSK, JSON.stringify({ st: st, ts: Date.now() })); } catch (e) {} summary(); }
+  function save() { try { var o = assign({}, st); delete o.seeded; localStorage.setItem(LSK, JSON.stringify({ st: o, ts: Date.now() })); } catch (e) {} summary(); }
   /* A compact read-only summary for My Move's money line (my-move reads SUMMARY_KEY, never LSK).
      Written only once the estimate has been reached, so a half-answered stage 1 never shows as a budget. */
   var SUMMARY_KEY = 'ethicare_cost_summary_v1';
@@ -410,6 +410,7 @@
     var origins = [];
     for (var k in d.flights) if (Object.prototype.hasOwnProperty.call(d.flights, k)) origins.push({ value: k, label: d.flights[k].label });
     var s = '<div class="cc-stage"><div class="cc-shead"><span class="cc-stepn">Step 1 of 4</span><h2 tabindex="-1">Your move</h2><p class="cc-ssub">Where you are going, where you are coming from, and who is coming with you.</p></div>';
+    if (st.seeded) s += '<p class="cc-hint" style="margin:-6px 0 18px">Prefilled from your plan on <a href="/move" style="color:#02615D;font-weight:600">Move</a>. Change anything that is not right.</p>';
 
     s += '<div class="cc-card"><h3>Where are you moving?</h3><div class="cc-choices two">'
       + '<button type="button" class="cc-dest' + (isAU() ? ' is-sel' : '') + '" data-set="dest" data-val="au"><span class="cc-flag au">AU</span><span class="cc-dl">Australia</span><span class="cc-dd">Fees, visa charges and tenancy rules by state or territory</span></button>'
@@ -484,7 +485,7 @@
       + '<div class="cc-fields"><div><label class="cc-lab" for="cc-rent">Expected weekly rent</label><div class="cc-money"><span class="cc-sym" aria-hidden="true">$</span><input id="cc-rent" type="text" inputmode="numeric" value="' + esc(String(r)) + '" data-ov="rent"></div></div>'
       + '<div class="cc-tagwrap">' + tag(ov('rent') === null ? 'estimate' : 'yours') + '</div></div>'
       + '<div class="cc-inset lg"><p class="cc-bond">Cash required to secure the rental: ' + fmt(r * t.bondWeeks + r * t.advanceWeeks) + '</p>'
-      + '<p class="cc-bondrule">' + esc(t.rule) + ' Most of this comes back to you at the end of the tenancy.</p>'
+      + '<p class="cc-bondrule">' + esc(t.rule) + ' The bond is refundable at the end of the tenancy, less anything properly owed; rent in advance pays for part of your tenancy and is not a refundable deposit.</p>'
       + '<div class="cc-racts"><a href="' + esc(t.href) + '" target="_blank" rel="noopener">' + esc(t.source) + ' &rarr;</a><span class="cc-stamp">Last checked ' + esc(d.lastChecked) + '</span></div></div></div>';
 
     s += '<div class="cc-card"><h3>Will your accommodation be furnished?</h3><div class="cc-row-pills">' + pills([
@@ -498,7 +499,7 @@
     if (h.kidsSchool > 0) {
       var sch = isAU() ? (d.school482[st.region] || d.school482.AUNS) : null;
       s += '<div class="cc-panel"><span class="eyebrow">Schooling</span>'
-        + '<p class="cc-ph">' + (isAU() ? esc(regionLabel()) + ' \u2014 ' + esc(sch.verdict) : 'State-school tuition: NZ$0') + '</p>'
+        + '<p class="cc-ph">' + (isAU() ? esc(regionLabel()) + ' \u2014 ' + esc(sch.verdict) : 'State-school tuition: depends on your visa') + '</p>'
         + '<p class="cc-pb">' + esc(isAU() ? sch.line : d.nzSchool.line) + '</p>'
         + '<p class="cc-pc">' + (isAU()
           ? 'This is the likely position based on what you have entered, for dependent children of a subclass 482 holder. Where we cannot determine your eligibility, school tuition stays out of your total until you confirm it.'
@@ -766,6 +767,24 @@
   if (q) { st.dest = q[1].charAt(0) === 'a' ? 'au' : 'nz'; if (D() && !D().regions[st.dest].some(function (r) { return r.value === st.region; })) st.region = st.dest === 'au' ? 'QLD' : 'akl'; }
   var qp = new RegExp('[?&]profession=([a-z]+)').exec(window.location.search);
   if (qp && D() && D().registration.labels[qp[1]]) st.profession = qp[1];
+
+  /* ONE onboarding (candidate-journey review, 14 Sep 2026): a fresh visit with no saved estimate
+     and no URL intent starts from what Move already knows — destination, origin, who is coming,
+     and the profession where the key exists in this tool's own list. S0's defaults (Australia,
+     QLD, UK, just me, imaging) are otherwise asserted on the reader's behalf; a plan they wrote is
+     a better default than one we guessed. Every field stays editable. */
+  try {
+    var ctx = window.EthicareContext, saved = !!localStorage.getItem(LSK);
+    if (ctx && ctx.has() && !saved && !q && !qp) {
+      var p = ctx.read() || {}, dd = ctx.dest();
+      if (dd) { st.dest = dd; st.region = dd === 'au' ? 'QLD' : 'akl'; }
+      if (p.origin && D() && D().flights[p.origin]) st.origin = p.origin;
+      if (p.profession && D() && D().registration.labels[p.profession]) st.profession = p.profession;
+      var w = p.hh && p.hh['with'];
+      if (w === 'alone') st.who = 'me'; else if (w === 'partner') st.who = 'partner'; else if (w === 'kids') st.who = 'kids'; else if (w === 'both') st.who = 'family';
+      st.seeded = true;
+    }
+  } catch (e) {}
 
   if (!D()) {
     var tries = 0, poll = setInterval(function () {

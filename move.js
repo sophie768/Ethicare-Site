@@ -522,90 +522,198 @@
 
   /* THE DOCUMENT. Built entirely in the browser, from data already on this device —
      no network round trip, no server. It is for downloading or printing on THIS device;
-     the shareable link is the thing that travels. Do not conflate the two. */
+     the shareable link is the thing that travels. Do not conflate the two.
+
+     Rebuilt 15 Sep 2026 in three parts, all shared by both renderers below so the Word
+     file and the print view can never drift:
+       1. A real document header — what this is, who it was built for, when, and the one
+          line that says it is not immigration advice. A plan that leaves the device has
+          to introduce itself.
+       2. "At a glance" — the answers read back. Three weeks later a reader cannot
+          otherwise tell whether the plan is stale or which household it was built for,
+          and the old header carried only profession and destination.
+       3. The journey grouped BY STAGE, with the stage named once per group. The old
+          version repeated the stage label on all six cards, so a roadmap read as six
+          equal tasks. "You are here" is carried across from the hub, found by key for
+          the same reason it is there — household steps splice in at earlier positions,
+          so an index test marks the wrong step. */
   function docHTML(forWord) {
     var jr = journey(S.dest);
-    var who = (S.first ? esc(S.first) + '\u2019s' : 'Your') + ' plan for ' + esc(destLabel());
+    var au = S.dest === 'au';
+    /* Country-keyed, not hardcoded. Both of these were fixed clay/apricot, so every New
+       Zealand plan printed its stage labels in the Australian palette. */
+    var accInk = au ? '#A34438' : '#2F5E49';
+    var coverInk = au ? '#EFC3AA' : '#C6E084';
+    var who = (S.first ? esc(S.first) + '’s' : 'Your') + ' plan for ' + esc(destLabel());
     var when = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-    var meta = esc(profLabel()) + (hhPhrase() ? ', ' + esc(hhPhrase()) : '');
     var c = C(S.dest);
+    var stageDef = STAGES.filter(function (x) { return x.value === S.stage; })[0] || STAGES[0];
+    var here = 0;
+    for (var hi = 0; hi < jr.length; hi++) { if (jr[hi].key === (stageDef.atKey || 'fit')) { here = hi; break; } }
+    var next = tool(stageDef.next);
+    var originLabel = (origins().filter(function (x) { return x.value === S.origin; })[0] || {}).label || '';
+    var hh = hhPhrase();
+    var facts = [['Profession', profLabel()], ['Moving to', destLabel()]];
+    if (originLabel) facts.push(['Moving from', originLabel]);
+    if (S.regStatus) facts.push(['Registration', S.regStatus]);
+    facts.push(['Household', hh ? 'M' + hh.slice(1) : 'Moving on your own']);
+    if (S.period) facts.push(['Hoping to move', S.period]);
+    facts.push(['Where you are now', stageDef.label]);
+    /* Runs of consecutive steps sharing a stage. Consecutive, not bucketed: the journey
+       is ordered, and a stage that legitimately reappears later should print again
+       rather than pull a later step up into an earlier group. */
+    var groups = [];
+    jr.forEach(function (st, i) {
+      var g = groups[groups.length - 1];
+      if (!g || g.stage !== st.stage) { g = { stage: st.stage, steps: [] }; groups.push(g); }
+      g.steps.push({ st: st, i: i });
+    });
     var guides = [['Moving to ' + destLabel(), '/guides/moving-to-' + c], ['Registration', '/guides/' + c + '-registration'],
       ['Visas and immigration', '/guides/' + c + '-visa'], ['Salary and pay', '/guides/' + c + '-salary'],
       ['How healthcare works', '/guides/' + c + '-healthcare'], ['Bringing your family', '/guides/' + c + '-family']];
     var saved = savedItems();
-    var next = tool((STAGES.filter(function (x) { return x.value === S.stage; })[0] || STAGES[0]).next).note;
+    var abs = function (h) { return /^https?:/.test(h) ? h : location.origin + h; };
+    var foot = 'Ethicare Resourcing Ltd · Company No 14646354 · Office 1, One Coldbath Square, London EC1R 5HL · +44 20 4626 6580 · hello@ethicareresourcing.com';
+    var standing = 'Built on your device from the answers you gave on ' + when + '. Nothing here was sent anywhere. We explain and sequence the steps — this is not immigration advice, and the decisions stay with the regulator and the immigration authority.';
+
     if (forWord) {
       /* Word cannot render flexbox/grid or most CSS — the "HTML saved as .doc" trick only
          survives simple block markup and inline styles. Tables stand in for layout. */
       var td = 'style="padding:14px 18px;border-bottom:1px solid #EBDFD3"';
+      var h2 = function (t) {
+        return '<h2 style="font-family:Calibri,Arial,sans-serif;font-size:15pt;color:#02615D;border-bottom:2px solid #A6C84A;padding-bottom:6px;margin:30px 0 14px">' + t + '</h2>';
+      };
       var out = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>" + who + "</title></head>" +
         '<body style="font-family:Calibri,Arial,sans-serif;color:#222;font-size:11pt;line-height:1.6;margin:0">' +
         '<table width="100%" cellpadding="0" cellspacing="0" style="background:#02615D"><tr><td style="padding:34px 40px">' +
-        '<div style="width:22px;height:3px;background:#A6C84A;margin-bottom:14px"></div>' +
-        '<div style="font-family:Georgia,serif;font-size:26px;color:#fff;margin-bottom:6px">' + who + '</div>' +
-        '<div style="color:#EFC3AA;font-size:12pt">' + meta + ' &middot; ' + when + '</div>' +
+        '<div style="color:' + coverInk + ';font-size:9pt;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px">Ethicare Move · Your plan</div>' +
+        '<div style="width:26px;height:3px;background:#A6C84A;margin-bottom:14px"></div>' +
+        '<h1 style="font-family:Georgia,serif;font-weight:normal;font-size:26px;color:#fff;margin:0 0 8px">' + who + '</h1>' +
+        '<div style="color:' + coverInk + ';font-size:11pt">Prepared ' + when + ' · ethicareresourcing.com/move</div>' +
         '</td></tr></table>' +
         '<table width="100%" cellpadding="0" cellspacing="0" style="margin-top:26px"><tr><td style="padding:0 40px 40px">';
-      out += '<h2 style="font-family:Calibri,Arial,sans-serif;font-size:15pt;color:#02615D;border-bottom:2px solid #A6C84A;padding-bottom:6px;margin:28px 0 14px">Your journey</h2>';
-      jr.forEach(function (st) {
-        out += '<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:2px"><tr>' +
-          '<td width="6" style="background:#A6C84A"></td><td ' + td + '>' +
-          '<div style="font-weight:bold;color:#02615D">' + esc(st.title) + '</div>' +
-          '<div style="font-size:9pt;color:#A34438;text-transform:uppercase;letter-spacing:.06em;margin:2px 0 6px">' + esc(st.stage) + '</div>' +
-          '<div>' + esc(st.note) + '</div></td></tr></table>';
+
+      /* class names on the Word markup are inert in Word itself and are what lets the
+         probe measure this document structurally instead of by string-matching prose. */
+      out += h2('At a glance') + '<table class="facts" width="100%" cellpadding="0" cellspacing="0">';
+      facts.forEach(function (f) {
+        out += '<tr><td width="34%" style="padding:11px 18px 11px 0;border-bottom:1px solid #EBDFD3;color:' + accInk + ';font-size:9pt;letter-spacing:.06em;text-transform:uppercase;vertical-align:top">' + esc(f[0]) + '</td>' +
+          '<td style="padding:11px 0;border-bottom:1px solid #EBDFD3;color:#02615D;font-weight:bold;vertical-align:top">' + esc(f[1]) + '</td></tr>';
       });
-      out += '<h2 style="font-family:Calibri,Arial,sans-serif;font-size:15pt;color:#02615D;border-bottom:2px solid #A6C84A;padding-bottom:6px;margin:28px 0 14px">Guides matched to your answers</h2><table width="100%" cellpadding="0" cellspacing="0">';
-      guides.forEach(function (g) { out += '<tr><td ' + td + '><a href="' + location.origin + g[1] + '" style="color:#02615D;font-weight:bold;text-decoration:none">' + esc(g[0]) + '</a><br><span style="color:#555;font-size:9pt">' + location.origin + g[1] + '</span></td></tr>'; });
+      out += '</table>';
+
+      out += h2('Your journey');
+      groups.forEach(function (g) {
+        out += '<h3 class="sh" style="color:' + accInk + ';font-size:9pt;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;margin:22px 0 8px">' + esc(g.stage) + '</h3>';
+        g.steps.forEach(function (row) {
+          var st = row.st, isNow = row.i === here;
+          out += '<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:2px"><tr>' +
+            '<td width="6" style="background:' + (isNow ? '#02615D' : '#A6C84A') + '"></td><td ' + td + '>' +
+            (isNow ? '<div style="margin-bottom:6px"><span style="background:#02615D;color:#fff;font-size:8pt;padding:2px 8px">You are here</span></div>' : '') +
+            '<div style="font-weight:bold;color:#02615D">' + esc(st.title) + '</div>' +
+            '<div style="margin:6px 0">' + esc(st.note) + '</div>';
+          if (st.links && st.links.length) {
+            out += '<div style="font-size:9.5pt">' + st.links.map(function (l) {
+              return '<a href="' + abs(l.href) + '" style="color:' + accInk + ';font-weight:bold">' + esc(l.label) + '</a>';
+            }).join(' &nbsp;·&nbsp; ') + '</div>';
+          }
+          out += '</td></tr></table>';
+        });
+      });
+
+      out += h2('Go deeper') + '<table width="100%" cellpadding="0" cellspacing="0">';
+      guides.forEach(function (g) { out += '<tr><td ' + td + '><a href="' + abs(g[1]) + '" style="color:#02615D;font-weight:bold;text-decoration:none">' + esc(g[0]) + '</a><br><span style="color:#555;font-size:9pt">' + location.origin + g[1] + '</span></td></tr>'; });
       out += '</table>';
       if (saved.length) {
-        out += '<h2 style="font-family:Calibri,Arial,sans-serif;font-size:15pt;color:#02615D;border-bottom:2px solid #A6C84A;padding-bottom:6px;margin:28px 0 14px">Pages you saved</h2><table width="100%" cellpadding="0" cellspacing="0">';
-        saved.forEach(function (it) { out += '<tr><td ' + td + '><a href="' + location.origin + it.u + '" style="color:#02615D;font-weight:bold;text-decoration:none">' + esc(it.t) + '</a></td></tr>'; });
+        out += h2('Pages you saved') + '<table width="100%" cellpadding="0" cellspacing="0">';
+        saved.forEach(function (it) { out += '<tr><td ' + td + '><a href="' + abs(it.u) + '" style="color:#02615D;font-weight:bold;text-decoration:none">' + esc(it.t) + '</a></td></tr>'; });
         out += '</table>';
       }
-      out += '<table width="100%" cellpadding="0" cellspacing="0" style="margin-top:30px"><tr><td style="background:#F7F4EE;padding:20px 24px">' +
-        '<div style="font-weight:bold;color:#02615D;margin-bottom:6px">Next step</div><div>' + esc(next) + '</div></td></tr></table>';
+      out += h2('What next?') +
+        '<table width="100%" cellpadding="0" cellspacing="0"><tr><td style="background:#F7F4EE;padding:20px 24px">' +
+        '<div style="font-weight:bold;color:#02615D;margin-bottom:6px">' + esc(next.title) + '</div>' +
+        '<div>' + esc(next.note) + '</div>' +
+        '<div style="margin-top:8px;font-size:9.5pt"><a href="' + abs(next.href) + '" style="color:' + accInk + ';font-weight:bold">' + location.origin + next.href + '</a></div></td></tr></table>';
+      out += '<div style="margin-top:30px;padding-top:16px;border-top:1px solid #EBDFD3;color:#555;font-size:9.5pt">' + esc(standing) + '</div>' +
+        '<div style="margin-top:8px;color:#555;font-size:9.5pt">' + esc(foot) + '</div>';
       out += '</td></tr></table></body></html>';
       return out;
     }
 
-    /* Browser view: full brand system — deep teal cover with the lime eyebrow rule,
-       cream body, cards for each journey step, a real guide grid, print styles so this
-       doubles as the save-to-PDF path. */
-    var o2 = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + who + '</title>' +
+    /* Browser view: full brand system — deep teal header with the lime eyebrow rule,
+       cream body, the stage groups as a roadmap, print styles so this doubles as the
+       save-to-PDF path. */
+    var o2 = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + who + '</title>' +
       '<style>*{box-sizing:border-box}body{margin:0;background:#FCFBF8;color:#333;font-family:Manrope,system-ui,sans-serif;line-height:1.65}' +
-      'h2{font-family:"Work Sans",sans-serif;color:#02615D;font-size:20px;margin:0 0 16px}' +
+      'h2{font-family:"Work Sans",sans-serif;color:#02615D;font-size:20px;margin:0 0 18px;padding-bottom:8px;border-bottom:2px solid #A6C84A}' +
       '.cover{background:#02615D;color:#fff;padding:clamp(32px,5vw,56px) clamp(24px,5vw,56px)}' +
+      '.cover .eb{color:' + coverInk + ';font-family:"Work Sans",sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}' +
       '.cover .rule{width:26px;height:3px;background:#A6C84A;margin-bottom:16px}' +
-      '.cover h1{font-family:Georgia,serif;font-weight:600;font-size:clamp(28px,4vw,40px);margin:0 0 8px}' +
-      '.cover .meta{color:#EFC3AA;font-size:15px}' +
+      '.cover h1{font-family:Georgia,serif;font-weight:600;font-size:clamp(28px,4vw,40px);margin:0 0 10px}' +
+      '.cover .meta{color:' + coverInk + ';font-size:15px}' +
       '.wrap{max-width:760px;margin:0 auto;padding:clamp(28px,4vw,48px) clamp(20px,4vw,32px) 60px}' +
-      'section{margin-bottom:38px}' +
-      '.step{display:grid;grid-template-columns:4px 1fr;gap:16px;background:#fff;border:1px solid #EBDFD3;border-radius:12px;overflow:hidden;margin-bottom:10px}' +
-      '.step .bar{background:#A6C84A}.step .body{padding:16px 20px 16px 4px}' +
-      '.step .stage{font-family:"Work Sans",sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A34438;margin-bottom:4px}' +
+      'section{margin-bottom:40px}' +
+      '.facts{width:100%;border-collapse:collapse}' +
+      '.facts th{width:34%;text-align:left;padding:11px 18px 11px 0;border-bottom:1px solid #EBDFD3;color:' + accInk + ';font-family:"Work Sans",sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;vertical-align:top}' +
+      '.facts td{padding:11px 0;border-bottom:1px solid #EBDFD3;color:#02615D;font-weight:600;vertical-align:top}' +
+      '.sgroup{margin-bottom:26px;break-inside:avoid}' +
+      '.sgroup>.sh{font-family:"Work Sans",sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:' + accInk + ';margin:0 0 10px}' +
+      '.step{display:grid;grid-template-columns:4px 1fr;gap:16px;background:#fff;border:1px solid #EBDFD3;border-radius:12px;overflow:hidden;margin-bottom:10px;break-inside:avoid}' +
+      '.step .bar{background:#A6C84A}.step.now .bar{background:#02615D}.step .body{padding:16px 20px 16px 4px}' +
       '.step .t{font-family:"Work Sans",sans-serif;font-weight:600;color:#02615D;margin-bottom:6px;font-size:16px}' +
-      '.glist{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}' +
+      /* Its own line, not inline after the title: inline, the pill wrapped between "You are"
+         and "here" as soon as the title filled the row. */
+      '.step .here{display:inline-block;background:#02615D;color:#fff;font-family:"Work Sans",sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;border-radius:20px;padding:3px 10px;margin-bottom:8px}' +
+      '.step .lk{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px}' +
+      '.step .lk a{color:' + accInk + ';font-weight:600;text-decoration:underline;text-underline-offset:3px}' +
+      '.step .lk a:hover{color:#02615D}' +
+      '.glist{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:12px}' +
       '.glist a{display:block;background:#fff;border:1px solid #EBDFD3;border-radius:10px;padding:14px 16px;color:#02615D;font-weight:600;text-decoration:none;font-size:14.5px}' +
       '.glist a:hover{border-color:#02615D}' +
-      '.next{background:#F7F4EE;border-radius:14px;padding:22px 26px}.next .k{font-family:"Work Sans",sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px}' +
+      '.next{background:#F7F4EE;border-radius:14px;padding:22px 26px}' +
+      '.next .t{font-family:"Work Sans",sans-serif;font-weight:600;font-size:17px;color:#02615D;margin-bottom:6px}' +
+      '.next a{color:' + accInk + ';font-weight:600;text-decoration:underline;text-underline-offset:3px}' +
+      '.foot{border-top:1px solid #EBDFD3;padding-top:18px;color:#555;font-size:13.5px}.foot p{margin:0 0 8px}' +
       '.printbar{max-width:760px;margin:14px auto 0;padding:0 clamp(20px,4vw,32px);text-align:right}' +
-      '.printbar button{font-family:"Work Sans",sans-serif;font-weight:600;font-size:13.5px;color:#02615D;background:#fff;border:1.5px solid rgba(2,97,93,.35);border-radius:8px;padding:9px 16px;cursor:pointer}' +
-      '@media print{.printbar{display:none}body{background:#fff}.step,.glist a{border-color:#ddd}}</style></head><body>' +
-      '<div class="cover"><div class="rule"></div><h1>' + who + '</h1><div class="meta">' + meta + ' &middot; ' + when + '</div></div>' +
-      '<div class="printbar"><button onclick="print()">Print or save as PDF</button></div>' +
-      '<div class="wrap"><section><h2>Your journey</h2>';
-    jr.forEach(function (st) {
-      o2 += '<div class="step"><div class="bar"></div><div class="body"><div class="stage">' + esc(st.stage) + '</div><div class="t">' + esc(st.title) + '</div><div>' + esc(st.note) + '</div></div></div>';
+      '.printbar button{font-family:"Work Sans",sans-serif;font-weight:600;font-size:13.5px;color:#02615D;background:#fff;border:1.5px solid rgba(2,97,93,.35);border-radius:8px;padding:10px 16px;min-height:44px;cursor:pointer}' +
+      '.printbar button:hover{border-color:#02615D}' +
+      '@media print{.printbar{display:none}body{background:#fff}.step,.glist a{border-color:#ddd}section{break-inside:auto}}</style></head><body>' +
+      '<div class="cover"><div class="eb">Ethicare Move · Your plan</div><div class="rule"></div><h1>' + who + '</h1>' +
+      '<div class="meta">Prepared ' + when + ' · ethicareresourcing.com/move</div></div>' +
+      '<div class="printbar"><button type="button" onclick="print()">Print or save as PDF</button></div>' +
+      '<div class="wrap"><section><h2>At a glance</h2><table class="facts"><tbody>';
+    facts.forEach(function (f) { o2 += '<tr><th scope="row">' + esc(f[0]) + '</th><td>' + esc(f[1]) + '</td></tr>'; });
+    o2 += '</tbody></table></section><section><h2>Your journey</h2>';
+    groups.forEach(function (g) {
+      o2 += '<div class="sgroup"><h3 class="sh">' + esc(g.stage) + '</h3>';
+      g.steps.forEach(function (row) {
+        var st = row.st, isNow = row.i === here;
+        o2 += '<div class="step' + (isNow ? ' now' : '') + '"><div class="bar"></div><div class="body">' +
+          (isNow ? '<div class="here">You are here</div>' : '') +
+          '<div class="t">' + esc(st.title) + '</div>' +
+          '<div>' + esc(st.note) + '</div>';
+        if (st.links && st.links.length) {
+          o2 += '<div class="lk">' + st.links.map(function (l) {
+            return '<a href="' + abs(l.href) + '">' + esc(l.label) + '</a>';
+          }).join('') + '</div>';
+        }
+        o2 += '</div></div>';
+      });
+      o2 += '</div>';
     });
-    o2 += '</section><section><h2>Guides matched to your answers</h2><div class="glist">';
-    guides.forEach(function (g) { o2 += '<a href="' + location.origin + g[1] + '">' + esc(g[0]) + '</a>'; });
+    o2 += '</section><section><h2>Go deeper</h2><div class="glist">';
+    guides.forEach(function (g) { o2 += '<a href="' + abs(g[1]) + '">' + esc(g[0]) + '</a>'; });
     o2 += '</div></section>';
     if (saved.length) {
       o2 += '<section><h2>Pages you saved</h2><div class="glist">';
-      saved.forEach(function (it) { o2 += '<a href="' + location.origin + it.u + '">' + esc(it.t) + '</a>'; });
+      saved.forEach(function (it) { o2 += '<a href="' + abs(it.u) + '">' + esc(it.t) + '</a>'; });
       o2 += '</div></section>';
     }
-    o2 += '<section><div class="next"><div class="k">Next step</div><div>' + esc(next) + '</div></div></section></div></body></html>';
+    o2 += '<section><h2>What next?</h2><div class="next"><div class="t">' + esc(next.title) + '</div>' +
+      '<div>' + esc(next.note) + '</div>' +
+      '<div style="margin-top:10px"><a href="' + abs(next.href) + '">' + esc(next.title) + ' →</a></div></div></section>' +
+      '<div class="foot"><p>' + esc(standing) + '</p><p>' + esc(foot) + '</p></div>' +
+      '</div></body></html>';
     return o2;
   }
   function setupScreen() {
@@ -677,6 +785,28 @@
         ' by name yet — it will give you the general route, and your regulator is linked in the registration step below.';
     }
 
+    /* YOUR ETHICARE SPACE — the relocation half of the offer, and the one thing here that is a
+       service rather than a self-serve tool. Shown only from the offer stage on (there is nothing
+       to run before there is an offer) AND only where we actually recruit this profession in this
+       country: a space is something we set up once we are placing you, so promising it to someone
+       we are not recruiting is the same broken invitation as the share form. Same gate as paintSend. */
+    var sp = $('[data-space]');
+    if (sp) {
+      var canRun = !!(mNext && mNext.available && mNext.status === 'recruiting');
+      var atOffer = S.stage === 'offer' || S.stage === 'moving';
+      sp.hidden = !(canRun && atOffer);
+      if (canRun && atOffer) {
+        var spEb = $('[data-space-eyebrow]'), spNote = $('[data-space-note]');
+        if (S.stage === 'moving') {
+          if (spEb) spEb.textContent = 'Your move, run in one place';
+          if (spNote) spNote.textContent = 'Now you have accepted, this is where the move runs from — registration and visa, flights and accommodation, the family\u2019s side of it, and your first month. One place, one named contact, and you never chase the same thing twice. We set yours up once your placement is confirmed.';
+        } else {
+          if (spEb) spEb.textContent = 'When you accept';
+          if (spNote) spNote.textContent = 'Accept an offer through us and we set up a private space to run the move from — registration and visa, flights and accommodation, the family\u2019s side of it, and your first month. One place, one named contact, and you never chase the same thing twice.';
+        }
+      }
+    }
+
     /* the journey, with the saved stage marked and started tools flagged. `here` is found by
        key rather than by index: household steps are spliced in, so a fixed number would put
        "You are here" on the wrong step the moment someone said they were bringing anyone. */
@@ -685,6 +815,20 @@
     for (var hi = 0; hi < jr.length; hi++) { if (jr[hi].key === (stageDef.atKey || 'fit')) { here = hi; break; } }
     /* stages, printed once where they change — three headers across six steps, so the
        plan reads as a roadmap rather than six equal cards. Same wording as /resources. */
+    /* three-phase orientation rail + step counter — the whole arc at a glance, above the
+       detailed journey. The phase is the stage of the step the reader is currently on, so it
+       moves with `here` and never contradicts the "You are here" card below it. */
+    var PHASES = ['Before you apply', 'Once you have an offer', 'After you land'];
+    var curPhase = (jr[here] && jr[here].stage) || PHASES[0];
+    var ci = PHASES.indexOf(curPhase); if (ci < 0) ci = 0;
+    var ph = $('[data-phases]');
+    if (ph) ph.innerHTML = PHASES.map(function (p, i) {
+      var cls = i < ci ? ' done' : i === ci ? ' now' : '';
+      return '<li class="pt-phase' + cls + '"' + (i === ci ? ' aria-current="step"' : '') + '><span class="bar"></span><span class="lab">' + esc(p) + '</span></li>';
+    }).join('');
+    var jc = $('[data-jcount]');
+    if (jc) jc.textContent = 'Step ' + (here + 1) + ' of ' + jr.length;
+
     var seenStage = '';
     $('[data-steps]').innerHTML = jr.map(function (st, i) {
       var isNow = i === here;
@@ -731,7 +875,8 @@
       }
       var stepIcon = { fit: 'deciding', registration: 'registration-and-pay', cv: 'job-search-cv', visa: 'visa-and-immigration', move: 'packing-and-shipping', arrive: 'settling-in-move', household: 'family', partnerreg: 'partner-registration', children: 'schools-and-education', soloparent: 'family' }[st.key];
       var iconHtml = stepIcon ? '<img class="pt-icon" src="assets/heroes/' + stepIcon + '.svg" alt="">' : '';
-      return head + '<div class="pt-step' + (isNow ? ' now' : '') + '">' +
+      var stepCls = (isNow ? ' now' : (i < here ? ' past' : '')) + ((!jr[i + 1] || jr[i + 1].stage !== st.stage) ? ' ge' : '');
+      return head + '<div class="pt-step' + stepCls + '">' +
         '<div class="pt-lead-col">' + iconHtml + '<span class="pt-num">' + String(i + 1).padStart(2, '0') + '</span></div>' +
         '<div><div class="pt-ttl"><h3>' + esc(st.title) + '</h3><span class="pt-badge' + cls + '">' + badge + '</span></div>' +
         '<p>' + esc(note) + '</p><div class="pt-links">' +
@@ -788,6 +933,12 @@
     var h = location.hash;
     if (h === '#welcome') return screen('welcome');
     if (h === '#setup') return screen('setup');
+    /* The eight-stage bars on 26 guide pages link Stage 02 "Choose your destination" to /move#s2
+       — an anchor that exists only in move-steps.html, which replaces this page on the September
+       swap. Until then a #s1…#s8 hash must land somewhere true: the destination question (setup)
+       for a first visit, the plan itself once one exists. Never the blank default screen. */
+    var sN = /^#s[1-8]$/.test(h);
+    if (sN) return screen(S.set ? 'hub' : (h === '#s2' ? 'setup' : 'welcome'));
     if (!S.set) return;
     screen(h === '#doing' ? 'doing' : 'hub');
   }
@@ -800,7 +951,7 @@
     window.addEventListener('hashchange', route);
     if (demo) {
       screen(demo);
-    } else if (S.set) {
+    } else if (S.set || /^#s[1-8]$/.test(location.hash)) {
       route();
     } else {
       screen('welcome');
@@ -834,6 +985,25 @@
       if (t.hasAttribute('data-save')) {
         var err = $('[data-err]');
         var prof = $('#ptProf').value, orig = $('#ptOrigin').value;
+        /* The box announced (role="alert") and focus moved, but nothing tied the message to the
+           control that failed: no aria-invalid, no aria-describedby. A screen-reader user heard
+           the sentence once and then landed on a field that reported itself as valid and
+           undescribed. DESIGN-SYSTEM.md:80-97 is implemented in full in apply-form.js; this is
+           the same five parts, scoped to one shared error box. */
+        if (!err.id) err.id = 'pt-err';
+        var markInvalid = function (el) {
+          if (!el) return;
+          el.setAttribute('aria-invalid', 'true');
+          el.setAttribute('aria-describedby', err.id);
+          if (el.focus) { try { el.focus({ preventScroll: true }); } catch (er) { el.focus(); } }
+        };
+        var clearInvalid = function () {
+          Array.prototype.forEach.call(document.querySelectorAll('[aria-describedby="' + err.id + '"]'), function (el) {
+            el.removeAttribute('aria-invalid');
+            el.removeAttribute('aria-describedby');
+          });
+        };
+        clearInvalid();
         /* Two answers the plan cannot honestly invent. Everything else has a visible,
            deliberate default or is genuinely optional. Destination is asked FIRST in the
            error order because it changes more of the plan than profession does — every
@@ -842,15 +1012,13 @@
         if (!S.dest) {
           err.hidden = false;
           err.textContent = 'Choose New Zealand or Australia first \u2014 the regulator, the visa route and every guide in the plan are different in each, so we would rather ask than assume.';
-          var destEl = $('[data-destpills] .pt-pill');
-          if (destEl && destEl.focus) destEl.focus();
+          markInvalid($('[data-destpills] .pt-pill'));
           return;
         }
         if (!prof) {
           err.hidden = false;
           err.textContent = 'We need your profession before we can build the plan \u2014 the regulator, the route and the guides all follow from it.';
-          var focusEl = $('#ptProf');
-          if (focusEl && focusEl.focus) focusEl.focus();
+          markInvalid($('#ptProf'));
           return;
         }
         err.hidden = true;
@@ -921,6 +1089,15 @@
     });
 
     document.addEventListener('change', function (e) {
+      /* Cleanup on correction: the moment the field that failed has a value, drop the invalid
+         state and hide the message. Leaving aria-invalid on a corrected field is the half of
+         the standard most often missed. */
+      if (e.target && e.target.hasAttribute && e.target.hasAttribute('aria-invalid') && e.target.value) {
+        e.target.removeAttribute('aria-invalid');
+        e.target.removeAttribute('aria-describedby');
+        var eb = document.querySelector('[data-err]');
+        if (eb && !document.querySelector('[aria-invalid="true"]')) eb.hidden = true;
+      }
       if (e.target.id === 'ptProf2') { S.profession = e.target.value; save(); paintHub(); }
       if (e.target.id === 'ptStage2') { S.stage = e.target.value; save(); paintHub(); }
       if (e.target.id === 'ptProf') { S.profession = e.target.value; profHint(); }

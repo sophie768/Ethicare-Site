@@ -252,6 +252,21 @@ strong{color:var(--green);font-weight:600}
 .connect-note p{font-size:16.5px;line-height:1.66;color:var(--text);max-width:64ch;margin:0 0 14px;text-wrap:pretty}
 .connect-note a{font-family:var(--display);font-weight:600;font-size:15.5px;color:#2F5E49;text-decoration:none}
 .connect-note a:hover{color:var(--teal);text-decoration:underline}
+.sophie-more{margin-top:22px}
+.sophie-more>summary{display:inline-flex;align-items:center;gap:9px;cursor:pointer;list-style:none;font-family:var(--display);font-weight:600;font-size:15.5px;color:var(--teal);border:1.5px solid var(--sage);border-radius:12px;padding:11px 22px;transition:background .15s ease}
+.sophie-more>summary::-webkit-details-marker{display:none}
+.sophie-more>summary:hover{background:var(--soft-green)}
+.sophie-more[open]>summary .cvx{transform:rotate(180deg)}
+.sophie-more .cvx{transition:transform .18s ease}
+.statstrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:20px;max-width:920px}
+.stat-c{background:#fff;border:1px solid var(--mint);border-radius:14px;padding:24px 26px}
+.stat-c .n{font-family:var(--display);font-weight:300;font-size:clamp(30px,4vw,44px);line-height:1;letter-spacing:-.02em;color:var(--teal)}
+.stat-c>p{font-size:14.5px;line-height:1.5;color:var(--muted);margin-top:10px}
+.stat-c.places{display:flex;align-items:center}
+.stat-c.places>p{margin-top:0;font-family:var(--display);font-weight:600;font-size:15.5px;line-height:1.5;color:var(--teal)}
+.outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;max-width:1180px}
+.oc{background:#fff;border:1px solid var(--mint);border-top:3px solid #72A471;border-radius:10px;padding:22px 24px}
+.oc b{display:block;font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--teal)}
 </style>
 <style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"About Ethicare"}]}</script>
@@ -278,12 +293,13 @@ strong{color:var(--green);font-weight:600}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare" aria-current="page">About<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -335,12 +351,12 @@ strong{color:var(--green);font-weight:600}
   <div class="illus-row" style="margin-top:52px">
     <div class="tcol">
       <div class="prose">
-        <p>The role itself is the easy part. It&rsquo;s everything around it that keeps people awake at night: the registration, the schools, the money, the distance from family, the friends you&rsquo;re saying goodbye to.</p>
+        <p>Finding the right role is one part of a successful move. It&rsquo;s everything around it that keeps people awake at night: the registration, the schools, the money, the distance from family, the friends you&rsquo;re saying goodbye to.</p>
         <p>So we start there. We help you look at the whole picture honestly, before you commit to anything. Sometimes that means saying <strong>yes, this is right, let&rsquo;s go</strong>. Sometimes it means saying <strong>not yet</strong>: wait a while, sort one thing out first.</p>
         <p>Telling someone to wait almost never wins us the placement. It&rsquo;s usually the right thing to say anyway. That, far more than any list of company values, is who we are.</p>
       </div>
     </div>
-    <div class="illus"><img loading="lazy" decoding="async" src="assets/nz-life/nz-life-clinician-portrait.jpg" alt="A smiling healthcare professional in scrubs"></div>
+    <div class="illus"><img loading="lazy" decoding="async" src="assets/nz-life/clinician-scrubs-portrait.png" alt="A smiling nurse in scrubs with a stethoscope, arms folded"></div>
   </div>
 </section>
 <!-- ===================== OUR FOUNDER ===================== -->
@@ -351,12 +367,18 @@ strong{color:var(--green);font-weight:600}
     <span class="eyebrow">A note from Sophie</span>
     <h2>Why I started Ethicare</h2>
     <div class="prose">
-        <p>I never set out to build a traditional recruitment company. For years I worked inside the NHS, most recently as Senior Service Improvement/Transformation Manager at the Royal Free London NHS Foundation Trust, one of the country&rsquo;s largest teaching hospitals. I led workforce improvement programmes there: reducing temporary staffing spend, the trust&rsquo;s patient engagement strategy, waste reduction. It taught me how much depends on people staying, and how often that comes down to the human things no job description ever mentions.</p>
-        <p>I know what it&rsquo;s like to pack up your life and start again somewhere new: a year travelling around Australia, then several years living in Wellington, where I met my partner.</p>
-        <p>What bothered me was watching international recruitment treat people like a gap on a rota. Someone gets sold a role, lands on the other side of the world, and the phone goes quiet exactly when the hard part begins. That always felt backwards to me. This isn&rsquo;t a vacancy being filled. It&rsquo;s a person, often a whole family, changing their life.</p>
-        <p>So I built Ethicare the way I wish someone had done it for me. We tell people the truth, even when it costs us the placement. We stay small on purpose, so you speak to the same people the whole way through. And we don&rsquo;t disappear once you&rsquo;ve landed, because that&rsquo;s usually when you need us most.</p>
-        <p>If you&rsquo;re weighing this up, I&rsquo;d be glad to help you think it through. No pressure, no sales pitch, just an honest conversation.</p>
+        <p>I never set out to build a traditional recruitment company &mdash; I came to it from inside the NHS. Most of a decade in workforce transformation at one of the country&rsquo;s largest teaching hospitals, and my own move to the other side of the world and back, taught me the same thing: this is about people staying, not gaps being filled. Ethicare grew from both.</p>
       </div>
+      <details class="sophie-more">
+        <summary>Read my story <span class="cvx" aria-hidden="true">&#9662;</span></summary>
+        <div class="prose" style="margin-top:20px">
+          <p>I never set out to build a traditional recruitment company. For years I worked inside the NHS, most recently as Senior Service Improvement/Transformation Manager at the Royal Free London NHS Foundation Trust, one of the country&rsquo;s largest teaching hospitals. I led workforce improvement programmes there: reducing temporary staffing spend, the trust&rsquo;s patient engagement strategy, waste reduction. It taught me how much depends on people staying, and how often that comes down to the human things no job description ever mentions.</p>
+          <p>I know what it&rsquo;s like to pack up your life and start again somewhere new: a year travelling around Australia, then several years living in Wellington, where I met my partner.</p>
+          <p>What bothered me was watching international recruitment treat people like a gap on a rota. Someone gets sold a role, lands on the other side of the world, and the phone goes quiet exactly when the hard part begins. That always felt backwards to me. This isn&rsquo;t a vacancy being filled. It&rsquo;s a person, often a whole family, changing their life.</p>
+          <p>So I built Ethicare the way I wish someone had done it for me. We tell people the truth, even when it costs us the placement. We stay small on purpose, so you speak to the same people the whole way through. And we don&rsquo;t disappear once you&rsquo;ve landed, because that&rsquo;s usually when you need us most.</p>
+          <p>If you&rsquo;re weighing this up, I&rsquo;d be glad to help you think it through. No pressure &mdash; just an honest conversation.</p>
+        </div>
+      </details>
       <div class="founder-quote">"Settling in is made of small moments, not big ones. That is the part nobody prepares you for, and the part we pay the most attention to."</div>
       <div class="sign">Sophie Careem<span>Founder, Ethicare Resourcing</span></div>
     </div>
@@ -370,7 +392,7 @@ strong{color:var(--green);font-weight:600}
 </section>
 <!-- ===================== FULL-BLEED IMAGE MOMENT ===================== -->
 <section class="fullbleed" data-screen-label="About · landscape moment">
-  <div class="fb-ph" style="background:linear-gradient(180deg,rgba(1,49,47,.12),rgba(1,49,47,.6)),url('assets/nz-life/family-bike.jpg');background-size:cover;background-position:center 40%">
+  <div class="fb-ph" style="background:linear-gradient(180deg,rgba(1,49,47,.12),rgba(1,49,47,.6)),url('assets/nz-life/family-mtb-ride.jpg');background-size:cover;background-position:center 55%">
     <div class="fb-line">
       <p>From the other side of the world, to a place that becomes home.</p>
     </div>
@@ -409,6 +431,14 @@ strong{color:var(--green);font-weight:600}
         <p>Our background is <strong>NHS leadership</strong>: planning and reshaping the clinical workforce from the inside. That order matters. We think about staffing the way the people who run services do, as something that has to hold up over years rather than weeks.</p>
         <p>Done well, this is <strong>workforce transformation, not vacancy filling</strong>. A clinician who arrives prepared and stays gives a service far more than one who covers a gap for a few months and leaves, so retention is what we design for. No health system has a workforce large enough to do this alone, and the range of experience international clinicians bring makes services stronger.</p>
       </div>
+    </div>
+  </div>
+  <div class="wide" style="margin-top:40px">
+    <div class="outcomes">
+      <div class="oc"><b>Less locum reliance</b></div>
+      <div class="oc"><b>Workforce sustainability</b></div>
+      <div class="oc"><b>Retention &amp; continuity</b></div>
+      <div class="oc"><b>Better patient outcomes</b></div>
     </div>
   </div>
 </section>
@@ -492,6 +522,14 @@ strong{color:var(--green);font-weight:600}
   <div class="read">
     <h2>Where we are now</h2>
     <p class="prose" style="color:var(--muted)">A small, specialist team doing a focused thing well, across Australia and New Zealand.</p>
+    <span class="eyebrow" style="margin-top:34px">Ethicare in practice</span>
+    <!-- Figures supplied by Sophie, 18 Sep 2026 (About review). Confirm and keep current before each deploy — SOP 23, no unsourced fact. -->
+    <div class="statstrip">
+      <div class="stat-c"><div class="n">40+</div><p>healthcare professionals placed in New Zealand</p></div>
+      <div class="stat-c"><div class="n">30+</div><p>medical imaging professionals supported</p></div>
+      <div class="stat-c"><div class="n">25+</div><p>anaesthetic technicians recruited in six months</p></div>
+      <div class="stat-c places"><p>Clinicians from the UK &amp; South Africa, placed across New Zealand &amp; Australia</p></div>
+    </div>
     <div class="proofbig">
       <div class="n">Every professional we&rsquo;ve placed is still there.</div>
       <p>We measure ourselves on retention, not placements. The clinicians we have helped relocate have stayed, because the move was the right one and well supported. It is the only number we care about.</p>
@@ -543,7 +581,7 @@ strong{color:var(--green);font-weight:600}
 </section>
 
 
-<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
+<div class="shell" style="padding:clamp(40px,6vw,72px) 0 clamp(44px,6vw,72px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
 <script src="page-feedback.js" defer></script>
 <footer class="site-footer">

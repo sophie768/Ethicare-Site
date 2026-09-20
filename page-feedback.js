@@ -1,6 +1,6 @@
 /* <page-feedback> — "Was this page useful?" for every content page. Two buttons, then one
    optional line, posted to the Netlify form `page-feedback` with the page path and an anonymous
-   context line (profession · destination · stage from ethicare_profile_v1 — never a name or an
+   context line (profession · destination · stage from the Move plan, via candidate-context.js — never a name or an
    email). Remembers the answer per page. Analytics go through window.track like Ask Ethicare.
    The static form Netlify needs at build time lives in site/_forms/page-feedback.html.
    Usage: <script src="/page-feedback.js" defer></script> … <page-feedback></page-feedback>
@@ -11,29 +11,34 @@
   var DOWN = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 14V2"/><path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z"/></svg>';
   var REASONS = ['Out of date', 'Didn\u2019t answer my question', 'Too generic', 'Hard to find things', 'Something else'];
   var CSS = ':host{display:block;font-family:Manrope,ui-sans-serif,system-ui,sans-serif;color:#333}*{box-sizing:border-box}' +
-    '.card{background:#fff;border:1px solid #C9DED3;border-radius:16px;padding:18px 22px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}' +
+    '.card{background:#fff;border:1px solid #C9DED3;border-radius:16px;padding:20px 22px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px 24px}' +
+    '.card>.q{grid-column:1;align-self:center}.card>.row{grid-column:2;justify-self:end}.card>.more,.card>.done,.card>.fine{grid-column:1/-1}' +
+    '@media(max-width:600px){.card{grid-template-columns:1fr}.card>.row{grid-column:1;justify-self:start}}' +
     '.q{font-family:"Work Sans",ui-sans-serif,sans-serif;font-weight:600;font-size:16.5px;color:#02615D;margin:0}' +
     '.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}' +
     'button{font:inherit;cursor:pointer}' +
     '.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 16px;border-radius:999px;border:1.5px solid #02615D;background:#fff;color:#02615D;font-family:"Work Sans",ui-sans-serif,sans-serif;font-weight:600;font-size:14.5px}' +
     '.pill:hover{background:#E6F1ED}.pill[aria-pressed="true"]{background:#02615D;color:#fff}' +
     '.pill.sm{min-height:40px;padding:8px 14px;font-size:13.5px}' +
-    '.more{flex-basis:100%;display:grid;gap:10px}' +
+    '.more{display:grid;gap:10px}' +
     '.more p{margin:0;font-size:15px;line-height:1.55;color:#555}' +
     'label{font-family:"Work Sans",ui-sans-serif,sans-serif;font-weight:600;font-size:14.5px;color:#02615D}' +
     'textarea{width:100%;min-height:56px;padding:12px 14px;border-radius:12px;border:1.5px solid rgba(2,97,93,.65);font:inherit;font-size:15px;color:#333;resize:vertical}' +
     '.send{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border-radius:12px;border:0;background:#02615D;color:#fff;font-family:"Work Sans",ui-sans-serif,sans-serif;font-weight:600;font-size:15px}.send:hover{background:#01312F}' +
     '.skip{border:0;background:none;padding:10px 4px;color:#02615D;font-family:"Work Sans",ui-sans-serif,sans-serif;font-weight:600;font-size:14.5px;text-decoration:underline;text-decoration-color:#72A471;text-underline-offset:4px}' +
-    '.done{font-size:15.5px;line-height:1.55;color:#2F5E49;margin:0}.fine{flex-basis:100%;font-size:13.5px;line-height:1.5;color:#555;margin:0}' +
+    '.done{font-size:15.5px;line-height:1.55;color:#2F5E49;margin:0}.fine{font-size:13.5px;line-height:1.5;color:#555;margin:0}' +
     ':host(:focus-within) .card{border-color:#02615D}button:focus-visible,textarea:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 2px #FCFBF8}' +
     '@media print{:host{display:none}}';
 
   function track(name, props) { try { if (window.track) window.track(name, props); } catch (e) {} }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function context() {
+    /* the plan lives in ethicare_portal_v1 (move.js) and move-steps' keys — never in
+       ethicare_profile_v1, which nothing has ever written. Read through the shared reader. */
     try {
-      var p = JSON.parse(localStorage.getItem('ethicare_profile_v1') || '{}') || {};
-      return [p.profession, p.destination, p.stage, p.party, p.from].filter(Boolean).join(' \u00b7 ');
+      if (window.EthicareContext) return window.EthicareContext.summary();
+      var p = JSON.parse(localStorage.getItem('ethicare_portal_v1') || '{}') || {};
+      return [p.profession, p.dest === 'au' ? 'Australia' : p.dest === 'nz' ? 'New Zealand' : '', p.stage, p.party].filter(Boolean).join(' \u00b7 ');
     } catch (e) { return ''; }
   }
 
@@ -66,9 +71,9 @@
           '<div class="row"><button type="submit" class="send">Send</button><button type="button" class="skip" data-skip>No, that\u2019s all</button></div></form>';
       }
       if (s.step === 'done') {
-        h += '<p class="done">' + (s.again ? 'Thanks for telling us about this page.' : s.sent ? 'Thank you. It goes to ' + esc(this.to()) + ', and it helps decide what we fix next.' : 'Thank you \u2014 noted.') + '</p>';
+        h += '<p class="done">' + (s.again ? 'Thanks for telling us about this page.' : s.sent ? 'Thank you. It helps decide what we fix next.' : 'Thank you \u2014 noted.') + '</p>';
       }
-      h += '<p class="fine" aria-live="polite">' + (s.step === 'done' ? '' : 'Anonymous, and read by ' + esc(this.to()) + '.') + '</p></div>';
+      h += '<p class="fine" aria-live="polite">' + (s.step === 'done' ? '' : 'Your feedback matters to us \u2014 tell us anything. Anonymous: no name, no email.') + '</p></div>';
       this.root.innerHTML = h;
       var ta = this.root.querySelector('textarea'); if (ta && s.focus) ta.focus();
     }

@@ -32,24 +32,24 @@ strong{color:var(--green)}
 .btn-ghost{background:transparent;border:1.5px solid var(--sage);color:var(--teal)}.btn-ghost:hover{background:var(--soft-green)}
 
 /* hero (matches country pages) */
-.jb-hero{position:relative;background:var(--teal);overflow:hidden;display:flex;align-items:center;min-height:min(540px,68vh);color:#fff}
+.jb-hero{position:relative;background:var(--teal);overflow:hidden;color:#fff}
 .jb-hero .bg{position:absolute;inset:0;z-index:0}
 .jb-hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 52%}
 .jb-hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,53,51,.95) 0%,rgba(1,53,51,.8) 42%,rgba(1,53,51,.46) 74%,rgba(1,53,51,.25) 100%)}
-.jb-hero .wrap{position:relative;z-index:1;width:100%;padding:clamp(48px,7vw,84px) 24px}
+.jb-hero .wrap{position:relative;z-index:1;width:100%;padding:clamp(32px,4vw,48px) 24px clamp(24px,3vw,32px)}
 .jb-hero .copy{max-width:760px}
 .jb-hero .eyebrow{color:#fff}
-.jb-hero h1{color:#fff;font-size:clamp(40px,6vw,56px);font-weight:600;line-height:1.1;letter-spacing:-.02em;max-width:18ch;margin-bottom:16px}
+.jb-hero h1{color:#fff;font-size:var(--fs-page-title);font-weight:500;line-height:var(--lh-page-title);letter-spacing:var(--ls-heading);max-width:18ch;margin-bottom:16px}
 .jb-hero p.hero-sub{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(16.5px,2vw,19.5px);line-height:1.6;color:rgba(255,255,255,.9);max-width:50ch}
 .jb-hero .crumb{display:flex;gap:8px;font-family:var(--display);font-weight:600;font-size:13px;color:rgba(255,255,255,.72);margin-bottom:24px}
 .jb-hero .crumb a:hover{color:#fff}.jb-hero .crumb .sep{opacity:.85}.jb-hero .crumb .here{color:#fff}
 
 /* filter bar */
 .board{padding:clamp(34px,5vw,54px) 0 clamp(60px,8vw,96px);background:var(--warm)}
-.filters{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:16px;align-items:end;background:#fff;border:1px solid var(--mint);border-radius:20px;padding:20px 22px;box-shadow:0 26px 54px rgba(1,49,47,.12);margin-bottom:16px}
+.filters{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:20px 16px;align-items:end;background:#fff;border:1px solid var(--mint);border-radius:20px;padding:20px 22px;box-shadow:0 26px 54px rgba(1,49,47,.12);margin-bottom:16px}
 .filters .fld{display:flex;flex-direction:column;gap:8px;min-width:0}
-.filters label{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--sage-text)}
-.filters input,.filters select{font-family:var(--body);font-size:15px;color:var(--text);background:#fff;border:1.5px solid var(--mint);border-radius:12px;padding:12px 14px;transition:border-color .15s,box-shadow .15s}
+.filters label{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--sage-text)}
+.filters input,.filters select{font-family:var(--body);font-size:16px;min-height:48px;color:var(--text);background:#fff;border:1.5px solid var(--mint);border-radius:12px;padding:12px 14px;transition:border-color .15s,box-shadow .15s}
 .filters input:focus,.filters select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 7px rgba(167,201,87,.55)}
 .filters select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231F5E4E' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
 .fbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin:4px 2px 24px}
@@ -59,8 +59,8 @@ strong{color:var(--green)}
 .fclear:hover{border-color:#2F5E49}
 
 /* cards */
-.jobgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.jobcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--mint);border-top:4px solid var(--teal);border-radius:20px;padding:28px 28px 24px;transition:transform .15s,box-shadow .15s}
+.jobgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.jobcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--mint);border-top:4px solid var(--teal);border-radius:20px;padding:24px;transition:transform .15s,box-shadow .15s}
 .jobcard:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.12)}
 .jobcard .prof{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sage-text);margin-bottom:8px}
 .jobcard h3{font-size:22px;line-height:1.2;margin-bottom:8px}
@@ -70,7 +70,7 @@ strong{color:var(--green)}
 .jobcard .life{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:15.5px;line-height:1.5;color:var(--teal);padding:14px 0 16px;margin-bottom:16px;border-top:1px solid var(--mint);border-bottom:1px solid var(--mint)}
 .jobcard .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
 .jobcard .chip{font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.02em;color:var(--green);background:var(--soft);border-radius:999px;padding:5px 12px}
-.jobcard .sum{font-size:14.5px;line-height:1.6;color:var(--muted);margin-bottom:16px}
+.jobcard .sum{font-size:16px;line-height:1.6;color:var(--muted);margin-bottom:16px}
 /* Facets report a CONFIRMED employer commitment. Positive on Soft Sage with fern text
    (4.9:1+), negative in Clay on a warm tint (5.45:1). An unconfirmed facet is a sentence,
    not a chip: a grey chip would read as a soft no. */
@@ -99,7 +99,7 @@ strong{color:var(--green)}
 .jb-cta .btn-ghost{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.5);color:#fff}.jb-cta .btn-ghost:hover{background:rgba(255,255,255,.2)}
 .jb-cta .acts{display:flex;gap:8px;flex-wrap:wrap}
 
-@media (max-width:900px){.filters{grid-template-columns:1fr 1fr}.jobgrid{grid-template-columns:1fr}}
+@media (max-width:900px){.filters{grid-template-columns:1fr 1fr}.jobgrid{grid-template-columns:1fr}.jobcard{padding:20px}}
 @media (max-width:560px){.filters{grid-template-columns:1fr}}
 </style>
 <link rel="canonical" href="https://ethicareresourcing.com/jobs/">
@@ -143,8 +143,8 @@ strong{color:var(--green)}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/" aria-current="page">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/coming-to-australia">More professions &mdash; brewing</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/" aria-current="page">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/move">Your plan</a>
           <a href="/resources">Guides &amp; resources</a>
@@ -167,36 +167,18 @@ strong{color:var(--green)}
 <main id="main-content" tabindex="-1">
 
 <header class="jb-hero" data-screen-label="Jobs · hero">
-  <div class="bg"><img decoding="async" src="../assets/photo-lake-jetty.jpg" alt="A woman sitting on a lake jetty looking out at New Zealand mountains" fetchpriority="high"></div>
   <div class="wrap">
     <div class="copy">
       <nav class="crumb" aria-label="Breadcrumb">
         <a href="/">Home</a><span class="sep">›</span>
         <span class="here">Jobs</span>
       </nav>
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap">
-        <span class="eyebrow">Vacancies · New Zealand &amp; Australia</span>
-        <img src="../assets/heroes/live-roles.svg" alt="A fan of role cards, the front one marked live" width="176" height="132" style="width:176px;height:auto;flex:none">
-      </div>
+      <span class="eyebrow">Vacancies · New Zealand &amp; Australia</span>
       <h1>Roles in places worth moving for</h1>
-      <p class="hero-sub">Current openings for internationally trained clinicians across New Zealand and Australia, each one in a place you could genuinely love living. We recruit across every profession in New Zealand and medical imaging &amp; radiation therapy in Australia &mdash; so this list is only ever a snapshot; nothing open in your field today doesn&rsquo;t mean we can&rsquo;t help.</p>
+      <p class="hero-sub">Current openings for internationally trained clinicians across New Zealand and Australia, each one in a place you could genuinely love living. We recruit for a broad range of professions in New Zealand and for medical imaging &amp; radiation therapy in Australia &mdash; so this list is only ever a snapshot; nothing open in your field today doesn&rsquo;t mean we can&rsquo;t help.</p>
     </div>
   </div>
 </header>
-
-<!-- PATHWAY CHECKER ENTRY -->
-<section class="section" style="padding:clamp(28px,3.6vw,44px) 0 0">
-  <div class="wrap">
-    <div class="pwcta">
-      <div>
-        <span class="eyebrow">Before you apply</span>
-        <h2>Not sure you can register yet?</h2>
-        <p>You don&rsquo;t need registration in place to talk to us &mdash; but it helps to know the route. Check the official pathways that may apply to your profession and qualification.</p>
-      </div>
-      <a class="btn btn-secondary" href="/pathway-checker">Check my registration pathway <span aria-hidden="true">&rarr;</span></a>
-    </div>
-  </div>
-</section>
 
 <section class="board">
   <div class="wrap">
@@ -234,13 +216,27 @@ strong{color:var(--green)}
         <p>New vacancies come in every week, and many never make it online. Tell us where you trained and what you&rsquo;re looking for, and we&rsquo;ll match you to the right opportunity.</p>
       </div>
       <div class="acts">
-        <a href="/apply" class="btn btn-lime">Register your interest</a>
+        <a href="/apply" class="btn btn-lime">Register with Ethicare</a>
         <a href="/contact" class="btn btn-ghost">Talk to the team</a>
       </div>
     </div>
   </div>
 </section>
 
+
+<!-- PATHWAY CHECKER ENTRY (below results per D14 — board follows the intro directly) -->
+<section class="section" style="padding:0 0 clamp(28px,3.6vw,44px)">
+  <div class="wrap">
+    <div class="pwcta">
+      <div>
+        <span class="eyebrow">Not registered yet?</span>
+        <h2>Not sure you can register yet?</h2>
+        <p>You don&rsquo;t need registration in place to talk to us &mdash; but it helps to know the route. Check the official pathways that may apply to your profession and qualification.</p>
+      </div>
+      <a class="btn btn-secondary" href="/pathway-checker">Check my registration pathway <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
 
 <div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
