@@ -7,14 +7,14 @@
 <meta name="description" content="Moving to Australia, explained once and properly: Medicare, Ahpra registration, visas, pay, schools and settling in — the national guide every state page builds on.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../shell.css">
 <style>
 :root{
   --primary:#02615D; --secondary:#72A471; --highlight:#A6C84A;
   --sage:#C9DED3; --bg:#FCFBF8; --white:#FFFFFF; --text:#333333; --text2:#2F5E49;
-  --divider:#E4E9E5; --border:#C9DED3; --accent:#02615D;
+  --divider:#D6E1DA; --border:#C9DED3; --accent:#02615D;
   --maxw:1180px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -357,7 +357,7 @@ a{color:var(--accent);text-decoration:none}
 .cnote{font-size:15px;color:var(--text2);margin:0 0 16px;max-width:64ch}
 .chaps{display:flex;flex-direction:column;gap:4px}
 a.chap{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px 14px;border-bottom:1px solid var(--divider);border-radius:12px;background:var(--sage);transition:background .18s,transform .18s;color:inherit;text-decoration:none}
-a.chap:hover{background:#DCE8DF;transform:translateX(2px)}
+a.chap:hover{background:#D6E1DA;transform:translateX(2px)}
 a.chap.nat{background:transparent}
 a.chap.nat:hover{background:var(--bg)}
 a.chap .n{font-family:'Work Sans',sans-serif;font-size:14px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
@@ -407,7 +407,6 @@ h1,h2,h3{break-after:avoid !important}
 .cta{break-inside:avoid !important}
 }
 </style>
-<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
 <style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
 <style>
 :root{
@@ -417,14 +416,14 @@ h1,h2,h3{break-after:avoid !important}
   --accent-lime:#A6C84A;
   --nz-accent:#72A471;
   --nz-accent-deep:#2F5E49;
-  --nz-accent-soft:#D5E4D8;
+  --nz-accent-soft:#D6E1DA;
   --nz-highlight:#E3ECE5;
   --surface-white:#FFFFFF;
   --surface-sage:#E3ECE5;
   --bg:#FCFBF8;
   --text:#333333;
   --text-muted:#555555;
-  --rule:#E4E9E5;
+  --rule:#D6E1DA;
   --ease:cubic-bezier(.4,0,.2,1);
   }
 *{box-sizing:border-box}
@@ -433,7 +432,7 @@ h1,h2,h3,h4{font-family:var(--font-heading);font-weight:600;letter-spacing:-0.01
 a{color:var(--ethicare-teal);text-decoration:none}
 a:hover{color:var(--ethicare-teal);text-decoration:underline;text-underline-offset:3px}
 img{max-width:100%}
-::selection{background:#D9E4C9;color:#02615D}
+::selection{background:#E3ECE5;color:#02615D}
 :focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 7px rgba(167,201,87,.55)}
 @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
 @media print{[data-chrome]{display:none !important}body{background:#fff}section{break-inside:avoid}}
@@ -447,7 +446,7 @@ img{max-width:100%}
 
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/destinations/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/destinations/"><img src="../assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -464,17 +463,19 @@ img{max-width:100%}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
@@ -486,8 +487,8 @@ img{max-width:100%}
 <main id="main-content" tabindex="-1">
 
 <section id="top" data-screen-label="Cover" style="position:relative;min-height:max(620px,94vh);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate">
-  <img decoding="async" fetchpriority="high" src="../assets/au-destination-hero.jpg" alt="An Australian coastline in evening light" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2">
-  <div style="position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(2,58,55,0.50) 0%,rgba(2,58,55,0.48) 30%,rgba(2,49,47,0.76) 70%,rgba(2,44,42,0.92) 100%)"></div>
+  <img decoding="async" fetchpriority="high" src="../assets/au-destination-hero.jpg" alt="An Australian coastline in evening light" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2" width="1100" height="550">
+  <div style="position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(2,49,47,.74) 0%,rgba(2,49,47,.50) 38%,rgba(2,49,47,.08) 70%,rgba(2,49,47,0) 100%),linear-gradient(180deg,rgba(2,58,55,.12) 0%,rgba(2,58,55,.10) 40%,rgba(2,49,47,.42) 72%,rgba(2,44,42,.86) 100%)"></div>
   <div style="position:absolute;top:0;left:0;right:0;padding:36px 32px;display:flex;align-items:center;justify-content:flex-end;gap:20px">
     <span style="font-family:var(--font-heading);font-size:11.5px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:rgba(252,251,248,0.84);white-space:nowrap">Relocation Collection &middot; The Master</span>
   </div>
@@ -515,17 +516,17 @@ img{max-width:100%}
   <div style="max-width:1180px;margin:0 auto;padding:0 32px;min-height:62px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 24px">
     <span style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap">Moving to Australia &middot; the national guide</span>
     <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px">
-      <a href="#contents" style="font-family:var(--font-heading);font-size:13.5px;font-weight:500;color:var(--ethicare-teal);white-space:nowrap">Contents</a>
-      <a href="/guides/about-australia" style="font-family:var(--font-heading);font-size:13.5px;font-weight:500;color:var(--text-muted);white-space:nowrap">Start reading</a>
-      <a href="/australia" style="font-family:var(--font-heading);font-size:13.5px;font-weight:500;color:var(--text-muted);white-space:nowrap">Working in Australia</a>
-      <a href="/destinations/australia" style="font-family:var(--font-heading);font-size:13.5px;font-weight:500;color:var(--text-muted);white-space:nowrap">State &amp; city guides</a>
+      <a href="#contents" style="font-family:var(--font-heading);font-size:13.5px;font-weight:500;color:var(--ethicare-teal);white-space:nowrap;padding:6px 0;margin:-6px 0">Contents</a>
+      <a href="/guides/about-australia" style="font-family:var(--font-heading);font-size:13.5px;font-weight:500;color:var(--text-muted);white-space:nowrap;padding:6px 0;margin:-6px 0">Start reading</a>
+      <a href="/australia" style="font-family:var(--font-heading);font-size:13.5px;font-weight:500;color:var(--text-muted);white-space:nowrap;padding:6px 0;margin:-6px 0">Working in Australia</a>
+      <a href="/destinations/australia" style="font-family:var(--font-heading);font-size:13.5px;font-weight:500;color:var(--text-muted);white-space:nowrap;padding:6px 0;margin:-6px 0">State &amp; city guides</a>
       <a href="/request-a-guide?guide=australia-national" style="font-family:var(--font-heading);font-size:13px;font-weight:500;color:var(--ethicare-teal);background:transparent;border:1px solid var(--ethicare-teal);border-radius:999px;padding:8px 16px;cursor:pointer;text-decoration:none;white-space:nowrap">Request printed guide</a>
     </div>
   </div>
 </nav>
 
 <section data-screen-label="Welcome" style="max-width:1180px;margin:0 auto;padding:112px 32px 24px">
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:64px;align-items:start">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:64px;align-items:start">
     <div>
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:26px">
         <span style="display:block;width:28px;height:2px;background:var(--accent-lime)"></span>
@@ -567,7 +568,7 @@ img{max-width:100%}
 </section>
 
 <section id="contents" data-screen-label="Contents" style="max-width:1180px;margin:0 auto;padding:112px 32px 96px">
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:end;margin-bottom:64px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:40px;align-items:end;margin-bottom:64px">
     <div>
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:26px">
         <span style="display:block;width:28px;height:2px;background:var(--accent-lime)"></span>
@@ -583,17 +584,17 @@ img{max-width:100%}
         <span style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ethicare-teal);white-space:nowrap">Part one &middot; Deciding</span>
         <span style="flex:1;height:1px;background:#EBDFD3"></span>
       </div>
-      <a href="/guides/about-australia" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/about-australia" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">01</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">About Australia<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">The country in orientation &mdash; the states, the seasons, the distances and the way the place works</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
-      <a href="/guides/moving-to-australia" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/moving-to-australia" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">02</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Is it right for me &amp; my family?<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">The honest first questions, before any paperwork</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
-      <a href="/guides/australia-vs-new-zealand" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-vs-new-zealand" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">03</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Australia vs New Zealand<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">The two countries compared, for clinicians weighing both</span></span>
         <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Both countries &rarr;</span>
@@ -604,20 +605,20 @@ img{max-width:100%}
         <span style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ethicare-teal);white-space:nowrap">Part two &middot; The system</span>
         <span style="flex:1;height:1px;background:#EBDFD3"></span>
       </div>
-      <a href="/guides/australia-healthcare" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-healthcare" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">04</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">How the health system works<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Medicare, public and private, and what it means to work inside it</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
-      <a href="/guides/australia-registration" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-registration" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">05</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Eligibility &amp; registration<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Ahpra, the national boards, and the pathway for your profession</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
-      <a href="/guides/australia-visa" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-visa" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">06</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Immigration &amp; visas<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Skilled and sponsored routes, and the order things happen in</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
     </div>
     <div>
@@ -625,17 +626,17 @@ img{max-width:100%}
         <span style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ethicare-teal);white-space:nowrap">Part three &middot; Work &amp; money</span>
         <span style="flex:1;height:1px;background:#EBDFD3"></span>
       </div>
-      <a href="/guides/australia-salary" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-salary" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">07</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Pay &amp; conditions<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">How state agreements and awards actually work &mdash; and what to check before you sign</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
-      <a href="/guides/australia-interview" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-interview" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">08</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">CVs &amp; interviews<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">What Australian employers look for, and how to prepare</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
-      <a href="/guides/cost-of-relocating" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/cost-of-relocating" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">09</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">The cost of relocating<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">What the move itself costs, and where the money goes</span></span>
         <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Both countries &rarr;</span>
@@ -646,35 +647,35 @@ img{max-width:100%}
         <span style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ethicare-teal);white-space:nowrap">Part four &middot; Everyday life</span>
         <span style="flex:1;height:1px;background:#EBDFD3"></span>
       </div>
-      <a href="/guides/living-in-australia" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/living-in-australia" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">10</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Living in Australia<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Settling into working life, and building a life beyond it</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
-      <a href="/guides/australia-renting" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-renting" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">11</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Renting in Australia<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Applications with no rental history, how bond is held, your state&rsquo;s rulebook</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
-      <a href="/guides/australia-money" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-money" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">12</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Money, tax &amp; banking<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Your TFN, superannuation, the Medicare levy and tax residency</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
-      <a href="/guides/australia-driving" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-driving" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">13</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Driving &amp; licences<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Converting your licence, your state&rsquo;s deadline, and CTP insurance</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
-      <a href="/guides/australia-education" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-education" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">14</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Schools &amp; education<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">How the system works, and how to choose from overseas</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
-      <a href="/guides/australia-school-fees" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-school-fees" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">15</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">School fees on a visa<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">The cost that surprises visa holders &mdash; state by state, explained honestly</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
     </div>
     <div>
@@ -682,25 +683,25 @@ img{max-width:100%}
         <span style="font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ethicare-teal);white-space:nowrap">Part five &middot; Belonging</span>
         <span style="flex:1;height:1px;background:#EBDFD3"></span>
       </div>
-      <a href="/guides/australia-pets" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-pets" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">16</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Moving with pets<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Biosecurity, quarantine at Mickleham, costs and the flight itself &mdash; Australia-specific, start early</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
-      <a href="/guides/australia-family" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-family" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">17</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Family life<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Partners, children and the family side of the move</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
-      <a href="/guides/australia-community" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-community" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">18</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Community &amp; belonging<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">Finding your people, from the cities to regional Australia</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
-      <a href="/guides/australia-contacts" style="display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
+      <a href="/guides/australia-contacts" style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:20px 16px;border-bottom:1px solid var(--rule);text-decoration:none;background:#F3F7F4;margin:0 -16px;border-radius:6px">
         <span style="font-family:var(--font-heading);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--ethicare-teal)">19</span>
         <span><span style="display:flex;align-items:center;gap:8px;font-family:var(--font-heading);font-size:20px;font-weight:500;color:var(--ethicare-teal);margin-bottom:4px">Contacts &amp; first steps<span style="width:6px;height:6px;border-radius:999px;background:var(--accent-lime);display:inline-block"></span></span><span style="display:block;font-size:15px;line-height:1.5;color:var(--text-muted);max-width:60ch">The official bodies, the checklists, and where to start</span></span>
-        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal);white-space:nowrap">Read now &rarr;</span>
+        <span style="font-family:var(--font-heading);font-size:12.5px;font-weight:500;letter-spacing:0.04em;color:var(--ethicare-teal)">Read now &rarr;</span>
       </a>
     </div>
   </div>
@@ -712,7 +713,7 @@ img{max-width:100%}
       <div style="font-family:var(--font-heading);font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#A34438;margin-bottom:16px">Sophie&rsquo;s insight</div>
       <p style="font-size:18px;line-height:1.62;color:var(--text);margin:0;max-width:62ch">Australia rewards people who understand that it&rsquo;s one registration system and eight employment systems. Registration opens the whole country; pay, conditions and the feel of the work change at every state line. Read this guide once, then choose your state with clear eyes &mdash; that order, not the reverse.</p>
       <div style="display:flex;align-items:center;gap:16px;margin-top:24px">
-        <img loading="lazy" decoding="async" src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing" style="width:44px;height:44px;border-radius:999px;object-fit:cover;display:block;flex:none">
+        <img loading="lazy" decoding="async" src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing" style="width:44px;height:44px;border-radius:999px;object-fit:cover;display:block;flex:none" width="1254" height="1254">
         <div>
           <div style="font-family:var(--font-heading);font-weight:500;font-size:15px;color:var(--text)">Sophie Careem</div>
           <div style="font-size:13px;color:var(--text-muted)">Founder &amp; CEO, Ethicare Resourcing</div>
@@ -723,7 +724,7 @@ img{max-width:100%}
 </section>
 
 <section data-screen-label="Closing" style="background:var(--ethicare-teal);color:#FCFBF8;padding:104px 0">
-  <div style="max-width:1180px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:64px;align-items:start">
+  <div style="max-width:1180px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:64px;align-items:start">
     <div>
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:26px">
         <span style="display:block;width:28px;height:2px;background:var(--accent-lime)"></span>
@@ -741,12 +742,15 @@ img{max-width:100%}
   </div>
 </section>
 
+
+<div class="shell" style="padding:0 0 clamp(56px,7vw,96px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="../page-feedback.js" defer></script>
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">
       <div class="f-brand">
-        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
         <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>

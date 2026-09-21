@@ -74,7 +74,7 @@ window.ETHICARE_COSTS = {
   },
 
   nzSchool: {
-    line: 'Children of an Accredited Employer Work Visa holder are treated as domestic students in state schools, so there is no international tuition fee.',
+    line: 'Children of an Accredited Employer Work Visa holder are generally treated as domestic students in state schools, so no international tuition fee applies. On other visas the position can differ \u2014 confirm your family\u2019s eligibility before budgeting.',
     officialHref: 'https://parents.education.govt.nz/'
   },
 

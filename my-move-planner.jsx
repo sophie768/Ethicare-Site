@@ -157,8 +157,8 @@ function Plan({ store, set, go }) {
       <div className="mv-card"><span className="k">Your registration route</span><h3>Assessed individually</h3><p className="mv-p">Your regulator assesses your qualification and recent practice. It is the task everything else is sequenced off.</p><a className="mv-go" href="/pathway-checker">Check my pathway &rarr;</a></div>
     </div>
     <div className="mv-tl">
-      <span className="k">Roughly how it sequences</span>
-      <ol>{['Decide', 'Register', 'Find the role', 'Visa', 'Move', 'Settle'].map((s, i) => <li key={s}><span className="n">{i + 1}</span>{s}</li>)}</ol>
+      <span className="k">The eight stages, roughly in order</span>
+      <ol>{['Imagine the possibilities', 'Choose your destination', 'Find your place', 'Can I work there?', 'Make the numbers work', 'Find the right role', 'Plan your move', 'Settle into life'].map((s, i) => <li key={s}><span className="n">{i + 1}</span>{s}</li>)}</ol>
     </div>
     <div className="mv-save">
       <div><span className="k">Keep this plan</span><h3>Save it to a free Ethicare account</h3><p className="mv-p">One email, no password. Your plan, costs and progress stay in one place — and we never ask you for the same thing twice.</p></div>

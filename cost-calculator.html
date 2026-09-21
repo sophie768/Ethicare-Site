@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://ethicareresourcing.com/cost-calculator">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <link rel="icon" href="assets/logo-mark.png">
 <meta property="og:type" content="website">
@@ -21,9 +21,13 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .eyebrow{display:inline-flex;align-items:center;gap:12px}
 .eyebrow::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none}
 /* ---------- hero ---------- */
-.cc-hero{background:var(--warm);padding:clamp(52px,7vw,88px) 24px clamp(30px,4vw,44px)}
-.cc-hero .in{max-width:1180px;margin:0 auto}
-.cc-hero h1{font-weight:600;font-size:clamp(36px,5.2vw,54px);line-height:1.1;letter-spacing:-.02em;color:var(--teal);max-width:16ch;margin-bottom:var(--sp-s)}
+.cc-hero{background:var(--warm);padding:clamp(32px,4vw,48px) 24px clamp(24px,3vw,32px)}
+.cc-hero .in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,clamp(230px,30%,360px));gap:clamp(30px,5vw,64px);align-items:center}
+.cc-copy{min-width:0}
+.cc-heroart{justify-self:end;min-width:0}
+.cc-heroart img{width:100%;max-width:clamp(240px,30vw,360px);height:auto;display:block}
+@media(max-width:880px){.cc-hero .in{grid-template-columns:1fr;gap:24px}.cc-heroart{order:-1;justify-self:start}.cc-heroart img{max-width:210px}}
+.cc-hero h1{font-weight:500;font-size:var(--fs-tool-title);line-height:var(--lh-tool-title);letter-spacing:var(--ls-heading);color:var(--teal);max-width:16ch;margin-bottom:var(--sp-s)}
 .cc-hero .said{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(21px,2.6vw,27px);line-height:1.35;color:var(--text);margin-bottom:20px}
 .cc-hero .lede{font-size:18px;line-height:1.7;color:var(--muted);max-width:60ch;margin-bottom:22px}
 .cc-ticks{display:flex;flex-wrap:wrap;gap:10px 26px;margin-bottom:22px}
@@ -32,10 +36,10 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-legal{font-size:13.5px;line-height:1.6;color:var(--muted);max-width:74ch;border-top:1px solid var(--rule-tint,#C9DED3);padding-top:14px}
 /* ---------- shell ---------- */
 .cc-wrap{background:var(--warm);padding:8px 20px clamp(56px,7vw,88px);display:flex;justify-content:center}
-#cc-app{width:100%;max-width:1060px}
+#cc-app{width:100%;max-width:960px}
 .cc-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
 .cc-tab{display:inline-flex;align-items:center;gap:9px;min-height:44px;font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--text);background:#fff;border:1px solid #D6E1DA;border-radius:var(--r-pill);padding:0 17px 0 10px;cursor:pointer;transition:border-color .15s ease,background .15s ease}
-.cc-tab:hover{border-color:#C9DED3;background:#F7F8F6}
+.cc-tab:hover{border-color:#C9DED3;background:#FCFBF8}
 .cc-tab .n{width:24px;height:24px;border-radius:var(--r-pill);background:var(--soft);color:var(--teal);display:flex;align-items:center;justify-content:center;flex:none;font-size:12px;font-weight:700}
 .cc-tab.is-sel{border:2px solid var(--teal);background:rgba(2,97,93,.05);padding:0 16px 0 9px}
 .cc-tab.is-sel .n{background:var(--teal);color:#FCFBF8}
@@ -45,7 +49,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-shead h2:focus,.cc-shead h2:focus-visible{outline:3px solid #02615D;outline-offset:4px;border-radius:var(--r-xs)}
 .cc-ssub{font-size:16px;line-height:1.65;color:var(--muted);max-width:62ch;margin-top:10px}
 /* ---------- cards + questions ---------- */
-.cc-card{background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh-lg);padding:clamp(22px,2.8vw,32px);margin-bottom:18px}
+.cc-card{background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh-lg);padding:clamp(20px,2.4vw,24px);margin-bottom:18px}
 .cc-card h3{font-weight:600;font-size:19px;line-height:1.35;color:var(--teal);letter-spacing:-.01em;margin-bottom:14px}
 .cc-card h3.mt{margin-top:28px}
 .cc-hint{font-size:14.5px;line-height:1.6;color:var(--muted);max-width:62ch;margin:-8px 0 16px}
@@ -60,7 +64,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-pill.sm{font-size:13.5px;padding:11px 17px}
 .cc-pill.num{min-width:52px}
 .cc-pill.wide{text-align:left;border-radius:var(--r-md);padding:13px 18px}
-.cc-pill:hover,.cc-dest:hover{background:#F7F8F6;border-color:#C9DED3}
+.cc-pill:hover,.cc-dest:hover{background:#FCFBF8;border-color:#C9DED3}
 .cc-pill.is-sel,.cc-dest.is-sel{border:2px solid var(--teal);background:rgba(2,97,93,.05)}
 .cc-dest{text-align:left;background:#fff;border:1px solid #D6E1DA;border-radius:var(--r-lg);padding:18px;cursor:pointer;transition:border-color .15s ease,background .15s ease}
 .cc-flag{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:34px;padding:0 8px;border-radius:var(--r-sm);font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.04em;margin-bottom:12px}
@@ -125,7 +129,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-b2,.cc-b3{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;font-family:var(--display);font-weight:600;font-size:14px;border-radius:var(--r-sm);cursor:pointer;text-decoration:none}
 .cc-b2{background:var(--teal);color:#FCFBF8;border:none;padding:0 24px}
 .cc-b2:hover{filter:brightness(.93)}
-.cc-b3{background:#fff;color:var(--teal);border:1.5px solid #72A471;padding:0 20px}
+.cc-b3{background:#fff;color:var(--teal);border:1.5px solid rgba(2,97,93,.45);padding:0 20px}
 .cc-b3:hover{background:var(--soft)}
 .cc-sums{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:18px;margin-bottom:18px}
 .cc-sum{background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh-lg);padding:clamp(22px,2.4vw,28px)}
@@ -163,7 +167,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-next>p{font-size:15.5px;line-height:1.65;color:var(--text);max-width:58ch;margin-bottom:22px}
 .cc-nextgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
 .cc-nextgrid a{display:block;background:#fff;border:1px solid #D6E1DA;border-radius:var(--r-md);padding:20px 22px;text-decoration:none;transition:transform .15s ease,border-color .15s ease}
-.cc-nextgrid a:hover{transform:translateY(-3px);border-color:#72A471}
+.cc-nextgrid a:hover{transform:translateY(-3px);border-color:#02615D}
 .cc-nextgrid .t{display:block;font-family:var(--display);font-weight:600;font-size:16.5px;line-height:1.35;color:var(--teal);margin-bottom:6px}
 .cc-nextgrid .l{display:block;font-size:13.5px;line-height:1.5;color:var(--muted)}
 /* ---------- step nav ---------- */
@@ -229,8 +233,8 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-bignote{font-size:15px;line-height:1.6;color:var(--muted);max-width:52ch;margin:0}
 .cc-three{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2px;margin:clamp(28px,3.4vw,40px) 0 0;border-top:1px solid var(--rule-tint)}
 .cc-th{display:flex;flex-direction:column;gap:6px;padding:22px 24px 24px 0;border-bottom:1px solid var(--rule-tint)}
-.cc-th.lead{background:#EDF4EF;padding-left:24px}
-.cc-thk{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5C6B68}
+.cc-th.lead{background:#F3F7F4;padding-left:24px}
+.cc-thk{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#555555}
 .cc-thv{font-family:var(--display);font-weight:600;font-size:clamp(23px,2.9vw,32px);line-height:1.1;letter-spacing:-.02em;color:var(--teal)}
 .cc-th.lead .cc-thv{font-size:clamp(26px,3.4vw,38px)}
 .cc-thn{font-size:14px;line-height:1.55;color:var(--muted);text-wrap:pretty}
@@ -238,12 +242,12 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-timing h3,.cc-drivers h3{font-family:var(--display);font-weight:600;font-size:clamp(19px,2.2vw,24px);line-height:1.2;color:var(--teal);margin:0 0 16px}
 .cc-tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(20px,2.6vw,36px)}
 .cc-tgrid>div{display:flex;flex-direction:column;gap:6px;padding-top:16px;border-top:2px solid var(--teal)}
-.cc-tk{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5C6B68}
+.cc-tk{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#555555}
 .cc-tv{font-family:var(--display);font-weight:600;font-size:clamp(21px,2.5vw,27px);color:var(--teal);letter-spacing:-.015em}
 .cc-tn{font-size:14.5px;line-height:1.58;color:var(--muted);text-wrap:pretty}
 .cc-drlist{list-style:none;margin:0;padding:0}
 .cc-drlist li{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--rule-tint)}
-.cc-drn{font-family:var(--display);font-weight:300;font-size:22px;color:#72A471;line-height:1}
+.cc-drn{font-family:var(--display);font-weight:300;font-size:22px;color:#02615D;line-height:1}
 .cc-drl{font-size:16.5px;line-height:1.5;color:var(--text)}
 .cc-drv{font-family:var(--display);font-weight:600;font-size:17px;color:var(--teal);white-space:nowrap}
 .cc-drnote{font-size:15px;line-height:1.62;color:var(--muted);margin:14px 0 0;max-width:66ch;text-wrap:pretty}
@@ -256,7 +260,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -273,17 +277,19 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move" aria-current="page">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
@@ -296,6 +302,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <main id="main-content">
   <section class="cc-hero" data-screen-label="Hero">
     <div class="in">
+      <div class="cc-copy">
       <span class="eyebrow">Cost of moving calculator</span>
       <h1>How much will it cost to move?</h1>
       <p class="said">Know the number before you commit to it.</p>
@@ -306,6 +313,8 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
         <span><svg viewBox="0 0 24 24" fill="none" stroke="#2F5E49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>No contact details needed</span>
       </div>
       <p class="cc-legal">This is a planning estimate, not a quotation, and it is a moving budget rather than a cost-of-living calculator. Government charges, regulator fees and tenancy rules change &mdash; always confirm the current amount against the official source before making a financial decision.</p>
+      </div>
+      <div class="cc-heroart"><img src="assets/heroes/cost-of-relocating.svg" alt="A savings jar of coins, with one more coin going in" width="400" height="300" loading="lazy"></div>
     </div>
   </section>
 
@@ -335,7 +344,10 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 
   <section class="cc-faq" data-screen-label="FAQ">
     <div class="in">
-      <span class="eyebrow">Common questions</span>
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap">
+        <span class="eyebrow">Common questions</span>
+        <img src="assets/heroes/common-questions.svg" alt="A question in one speech bubble, answered with a tick in the next" width="90" height="68" style="width:90px;height:auto;flex:none" loading="lazy">
+      </div>
       <h2>What people ask about the cost of moving</h2>
       <p class="cc-faqlede">The cost of an international move is the question we are asked earliest and most often. These are the honest answers, including the parts that are harder to pin down.</p>
       <div class="cc-faqlist">
@@ -349,13 +361,16 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
       </div>
     </div>
   </section>
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="page-feedback.js" defer></script>
 
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">
       <div class="f-brand">
-        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
         <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
@@ -380,6 +395,8 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost to move to Australia or New Zealand?","acceptedAnswer":{"@type":"Answer","text":"There is no single answer, and anyone quoting one is guessing. The cost depends on where you are moving from, who is moving with you, your profession and registration pathway, whether you ship belongings, how long you need temporary accommodation, and the rent on the home you eventually secure. That is why this tool builds the figure line by line from your own circumstances rather than offering an average."}},{"@type":"Question","name":"Which costs do people most often forget?","acceptedAnswer":{"@type":"Answer","text":"Three in particular. The cash needed to secure a rental — bond plus rent in advance — is usually the single largest cost of arriving, and most of it comes back to you later. Temporary accommodation while you look for that rental adds up quickly. And the gap before your first full salary catches almost everyone: you may arrive several weeks before you are paid properly, and you still need to eat, travel and set up a home in that time."}},{"@type":"Question","name":"Is registration or the visa the bigger cost?","acceptedAnswer":{"@type":"Answer","text":"It depends on your household and your pathway. Australian visa charges apply per person included in the application, so a family of four is a substantially larger number than one person. Registration is usually the smaller figure — unless your pathway includes an examination or clinical assessment, which can cost more than everything else in your registration put together. The calculator asks about an exam separately for exactly that reason."}},{"@type":"Question","name":"Will my employer pay for my relocation?","acceptedAnswer":{"@type":"Answer","text":"Many healthcare employers contribute, and relocation support is a reasonable thing to ask about. What matters as much as the amount is how it reaches you: paid upfront, reimbursed after you have paid, or settled directly with the supplier. A reimbursed package still means the money has to leave your account first, so the calculator shows the cash you may need available upfront as a separate figure from your eventual cost."}},{"@type":"Question","name":"Are these figures a quotation?","acceptedAnswer":{"@type":"Answer","text":"No. Every line is labelled with where it came from — an official fee, a figure calculated from an official rule, one of our planning estimates, or a number you entered yourself — and the estimate carries the date the data was last checked. Fees and tenancy rules change, and exchange rates move daily. Treat the result as a planning document and confirm each amount against the official source before you commit to it."}},{"@type":"Question","name":"Does it cover the cost of living once I arrive?","acceptedAnswer":{"@type":"Answer","text":"Only the first month or so. This is deliberately a moving budget: what it takes to get there and get established, plus a buffer for everyday expenses until your first full salary arrives. Ongoing rent, groceries, childcare, insurance and transport are a different question, and our destination guides cover them city by city with local figures."}},{"@type":"Question","name":"Do I have to give you my details to see the result?","acceptedAnswer":{"@type":"Answer","text":"No. The estimate appears as you answer, and nothing is sent to us. Your answers stay in your own browser so you can come back to them, and you can print or save the result as a PDF to keep."}}]}
 </script>
 <script src="site.js"></script>
+<script src="analytics.js"></script>
+<script src="candidate-context.js"></script>
 <script src="relocation-cost-data.js"></script>
 <script src="cost-calculator.js"></script>
 

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Why people move to Australia and New Zealand, and what they miss | Ethicare Resourcing</title>
+<meta name="robots" content="index,follow">
+<meta name="description" content="Stage 01 of the journey: why healthcare professionals move to Australia or New Zealand, what they say they love, what nobody puts in the brochure, and the distance from home. Exploration, not a pitch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   ETHICARE RESOURCING — CROSS-COUNTRY GUIDE
+   Why people move — and what they miss · STAGE 01 · Imagine the possibilities (draft, 8 Sep 2026)
+   ================================================================ */
+:root{
+  --teal:#02615D; --green:#02615D; --sage:#72A471; --lime:#A6C84A;
+  --nz:#72A471; --au:#D9A084;
+  --mint:#C9DED3; --soft:#E6F1ED; --soft-green:#E6F1ED; --warm:#FCFBF8;
+  --white:#FFFFFF; --text:#333333; --muted:#555555;
+  --display:'Work Sans',sans-serif; --body:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+body{font-family:var(--body);font-size:16px;line-height:1.72;color:var(--text);background:var(--warm);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,.btn:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 7px rgba(167,201,87,.55)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.18;color:var(--teal)}
+h1{font-size:clamp(40px,6vw,56px);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+h2{font-size:clamp(30px,4vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin-bottom:24px}
+h3{font-size:18px;margin-bottom:8px}
+p{margin-bottom:16px}
+strong{color:var(--green)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.reading{max-width:1180px}.reading>*{max-width:760px}
+.section{padding:var(--sp-major,clamp(60px,8vw,96px)) 0;position:relative}
+.eyebrow{display:block;font-family:var(--display);font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:16px}
+.lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:50ch}
+
+/* breadcrumb */
+.crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:13px;color:var(--muted);margin-bottom:24px}
+.crumb a:hover{color:var(--teal)}
+.crumb .sep{opacity:.85}
+.crumb .here{color:var(--teal)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-family:var(--display);font-weight:600;font-size:16px;padding:13px 26px;border-radius:12px;transition:transform .15s ease,background .15s ease;color:var(--teal);cursor:pointer}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#01312F}
+.btn-secondary{background:#fff;border:1.5px solid var(--sage);color:var(--teal)}.btn-secondary:hover{background:var(--soft-green)}
+.btn-ghost{background:transparent;border:1.5px solid var(--sage);color:var(--teal)}.btn-ghost:hover{background:var(--soft-green)}
+.btn-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+
+/* ---------------- HERO ---------------- */
+.hero{background:var(--teal);position:relative;overflow:hidden;min-height:calc(88svh - 78px);display:grid;align-content:center}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 46%,rgba(169,101,79,.55) 46% 54%,rgba(95,143,120,.55) 54%);opacity:.5;pointer-events:none}
+.hero .wrap{position:relative;z-index:1;padding-top:clamp(46px,6vw,72px);padding-bottom:clamp(46px,6vw,72px)}
+.hero-copy{max-width:760px}
+.hero h1{color:#fff;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:#A34438}
+.hero .eyebrow{color:#C6E084}
+.hero .crumb{color:rgba(255,255,255,.9)}
+.hero .crumb a:hover,.hero .crumb .here{color:#fff}
+.hero .btn-primary{background:#fff;color:var(--teal)}
+.hero .btn-primary:hover{background:var(--warm)}
+.hero .btn-ghost{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5);color:#fff}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.2)}
+.hero-sub{font-size:clamp(16.5px,2vw,20px);line-height:1.6;color:rgba(255,255,255,.88);max-width:50ch;margin-bottom:8px}
+
+/* page at a glance */
+.glance-wrap{background:var(--warm);padding:clamp(34px,5vw,50px) 0 0}
+.glance{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:26px 30px}
+.glance .gl-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.glance .gl-top .eyebrow{margin-bottom:0}
+.glance .gl-top .note{font-size:13.5px;color:var(--muted)}.glance .gl-read{display:inline-flex;align-items:center;gap:10px;max-width:48ch;margin-left:auto}.glance .gl-read img{flex:0 0 auto;width:34px;height:auto}.glance .gl-read .rt{font-size:13px;line-height:1.45;color:#2F5E49}.glance .gl-read .rt b{font-family:'Work Sans',sans-serif;font-weight:700}@media (max-width:520px){.glance .gl-read{margin-left:0}}
+.glance ol{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 24px}
+.glance li{counter-increment:g;border-top:1px solid var(--mint)}
+.glance a{display:flex;align-items:baseline;gap:8px;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);padding:11px 4px;transition:color .15s ease}
+.glance a::before{content:counter(g,decimal-leading-zero);font-size:11.5px;font-weight:600;color:#A34438;flex-shrink:0}
+.glance a:hover{color:var(--teal)}
+@media (max-width:760px){.glance ol{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.glance ol{grid-template-columns:1fr}}
+
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px}
+.how{background:#fff;border:1px solid var(--mint);border-radius:20px;padding:28px 28px;transition:transform .15s ease,box-shadow .15s ease}
+.how:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(1,49,47,.09)}
+.how .k{display:block;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px}
+.how h3{color:var(--teal);font-size:19px;margin-bottom:8px}
+.how p{font-size:15.5px;line-height:1.6;color:var(--muted);margin:0}
+.section .duo .cc.nz .k{color:#2F5E49}
+.section .duo .cc.plain{border-top:3px solid var(--mint)}
+.section .duo .cc.plain .k{color:#2F5E49}
+.insight p.src,.reg-col p.src,p.src{font-size:13.5px;line-height:1.5;color:#555555;margin:12px 0 0}
+/* intro reassurance */
+.reassure{background:var(--soft-green);border:1px solid var(--mint);border-radius:14px;padding:24px 26px;margin:24px 0 0}
+.reassure p{margin:0;font-size:16.5px}
+
+/* duo mirror cards */
+.section .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.section .duo .cc{background:#fff;border:1px solid var(--mint);border-radius:20px;padding:30px 30px;transition:transform .15s ease,box-shadow .15s ease}
+.section .duo .cc:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(1,49,47,.09)}
+.section .duo .cc.au{border-top:5px solid var(--au)}
+.section .duo .cc.nz{border-top:5px solid var(--nz)}
+.section .duo .cc .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.section .duo .cc.au .k{color:var(--au-text,#A34438)} .duo .cc.nz .k{color:#A34438}
+.section .duo .cc h3{color:var(--green);font-size:20px;margin-bottom:8px}
+.section .duo .cc p{font-size:15px;color:var(--muted);margin:0 0 8px}
+.section .duo .cc p:last-child{margin-bottom:0}
+
+/* comparison table */
+.cmp-wrap{margin-top:40px;overflow-x:auto;border:1px solid var(--mint);border-radius:20px}
+.cmp{width:100%;border-collapse:collapse;font-size:15px;min-width:640px;background:#fff}
+.cmp thead th{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.13em;text-transform:uppercase;text-align:left;padding:18px 22px 14px;color:#2F5E49;background:none}
+.cmp thead th:first-child{width:18%}
+.cmp thead th.au{color:#A34438;box-shadow:inset 0 3px 0 #D9A084} .cmp thead th.nz{color:#2F5E49;box-shadow:inset 0 3px 0 #72A471}
+.cmp tbody th{font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);text-align:left;padding:18px 22px;background:var(--soft);vertical-align:top;width:18%;border-top:1px solid var(--mint)}
+.cmp td{padding:18px 22px;color:var(--text);vertical-align:top;border-top:1px solid var(--mint);line-height:1.6}
+.cmp td.au{background:rgba(169,101,79,.05)}
+.cmp td.nz{background:rgba(95,143,120,.05)}
+
+/* registration two-up + ticks */
+.reg-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.reg-col{background:#fff;border:1px solid var(--mint);border-radius:20px;padding:30px 30px}
+.reg-col.au{border-top:5px solid var(--au)} .reg-col.nz{border-top:5px solid var(--nz)}
+.reg-col .k{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.reg-col.au .k{color:var(--au-text,#A34438)} .reg-col.nz .k{color:#A34438}
+.reg-col h3{color:var(--green);font-size:19px;margin-bottom:8px}
+.reg-col p{font-size:14.5px;color:var(--muted)}
+ul.ticks{list-style:none;display:grid;gap:8px;margin:16px 0 0;padding:0}
+ul.ticks li{position:relative;padding-left:28px;font-size:14.5px;color:var(--text)}
+ul.ticks li::before{content:"";position:absolute;left:0;top:8px;width:15px;height:15px;border-radius:6px;background:var(--soft-green);border:1px solid var(--mint)}
+ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;height:9px;border:2px solid var(--teal);border-top:0;border-left:0;transform:rotate(45deg)}
+
+/* insight callout */
+.insight{margin-top:40px;background:var(--soft-green);border:1px solid var(--mint);border-radius:14px;padding:26px 30px;max-width:920px}
+.insight .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px}
+.insight p{font-size:16px;color:var(--text);margin:0}
+
+.pullquote{margin:40px 0 0;padding:8px 0 8px 26px;border-left:4px solid #72A471;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(20px,2.6vw,26px);line-height:1.45;color:var(--teal);max-width:50ch}
+
+/* decide grid */
+.decide{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.decide .card{border:1px solid var(--mint);border-radius:20px;padding:30px 30px;background:#fff}
+.decide .card.au{border-top:5px solid var(--au)} .decide .card.nz{border-top:5px solid var(--nz)}
+.decide .card .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.decide .card.au .k{color:var(--au-text,#A34438)} .decide .card.nz .k{color:#A34438}
+.decide .card ul{list-style:none;display:grid;gap:8px}
+.decide .card li{position:relative;padding-left:24px;font-size:15px;color:var(--text)}
+.decide .card li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%}
+.decide .card.au li::before{background:var(--au)} .decide .card.nz li::before{background:var(--nz)}
+
+/* Sophie insight */
+.sophie{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:clamp(28px,4vw,40px);display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:start;max-width:920px}
+.sophie .photo{width:120px;height:140px;border-radius:14px;overflow:hidden;border:1px solid var(--mint);background:linear-gradient(150deg,var(--mint),var(--soft-green))}
+.sophie .photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.sophie .k{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A34438;margin-bottom:8px}
+.sophie p{font-size:16.5px;color:var(--text);margin-bottom:0}
+.sophie .sign{font-family:var(--display);font-style:italic;font-weight:600;font-size:18px;color:var(--teal);margin-top:16px}
+.sophie .sign span{display:block;font-style:normal;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* FAQ */
+.faq{margin-top:40px;max-width:920px}
+.faq details{background:#fff;border:1px solid var(--mint);border-radius:14px;margin-bottom:16px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--teal);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;font-weight:400;color:#A34438;transition:transform .2s ease;line-height:1}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .ans{padding:0 24px 22px;font-size:15.5px;color:var(--muted)}
+.faq .ans p{margin-bottom:8px}.faq .ans p:last-child{margin-bottom:0}
+
+/* related */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.rel{position:relative;background:#fff;border:1px solid var(--mint);border-left:5px solid var(--sage);border-radius:14px;padding:24px 24px;transition:background .15s ease,transform .15s ease}
+.rel:hover{background:var(--soft-green);transform:translateY(-2px)}
+.rel .k{font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#A34438;margin-bottom:8px;display:block}
+.rel h3{font-size:16.5px;color:var(--green);margin-bottom:4px}
+.rel p{font-size:13.5px;color:var(--muted);margin:0}
+.rel .go{margin-top:16px;font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--teal);display:inline-flex;align-items:center;gap:8px}
+.rel .go::after{content:"\2192";color:#A34438}
+
+/* final CTA */
+.final{background:var(--teal);border-radius:24px;padding:clamp(34px,5vw,52px);text-align:left;color:#fff}
+.final .eyebrow{color:#C6E084}
+.final h2{margin-bottom:16px;color:#fff}
+.final p{max-width:64ch;color:rgba(255,255,255,.85);font-size:17px}
+.final .btn-row{justify-content:flex-start}
+.final .btn-light{background:#fff;color:var(--teal)}.final .btn-light:hover{background:var(--warm)}
+.final .btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff}.final .btn-outline:hover{background:rgba(255,255,255,.12)}
+.final .small{margin-top:16px;font-size:13.5px;color:rgba(255,255,255,.7)}
+
+/* everyday list */
+.every{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:10px 28px;margin:32px 0 0;max-width:920px}
+.every li{position:relative;padding:12px 0 12px 22px;border-top:1px solid var(--mint);font-size:16px;line-height:1.55;color:var(--text)}
+.every li::before{content:"";position:absolute;left:0;top:20px;width:8px;height:8px;border-radius:50%;background:#72A471}
+/* what matters to you */
+.matters{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;max-width:920px}
+.matters button{appearance:none;cursor:pointer;min-height:44px;padding:10px 18px;border-radius:999px;border:1.5px solid rgba(2,97,93,.45);background:#fff;font-family:var(--display);font-weight:600;font-size:15px;color:var(--teal);transition:background .15s ease,border-color .15s ease,color .15s ease}
+.matters button:hover{border-color:var(--teal);background:var(--soft-green)}
+.matters button[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.matters-note{display:none;margin:24px 0 0;max-width:62ch;font-size:16px;color:var(--text)}
+.matters-note.show{display:block}
+.duo .cc .go{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-family:var(--display);font-weight:600;font-size:15px;color:var(--teal);border-bottom:2px solid #72A471}
+.duo .cc.au .go{border-bottom-color:#D9A084}
+.duo .cc .go:hover{border-bottom-color:var(--teal)}
+@media (max-width:880px){
+  .duo,.reg-cols,.decide,.related-grid{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .section{padding:54px 0}
+  .sophie{grid-template-columns:1fr;gap:24px}
+  .sophie .photo{margin:0 auto}
+  .btn{width:100%}
+}
+</style>
+<link rel="stylesheet" href="../shell.css">
+<style>/* playfair-hero */ .hero-sub{font-family:'Playfair Display',Georgia,serif;font-weight:500}</style>
+<link rel="stylesheet" href="../guide-mobile.css">
+<link rel="canonical" href="https://ethicareresourcing.com/guides/why-people-move">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Could life look different? Why people move to Australia and New Zealand | Ethicare Resourcing">
+<meta property="og:description" content="Why healthcare professionals move to Australia or New Zealand, what they love, what they miss, and the distance from home. Exploration, not a pitch.">
+<meta property="og:url" content="https://ethicareresourcing.com/guides/why-people-move">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Could life look different? | Ethicare Resourcing">
+<meta name="twitter:description" content="Why healthcare professionals move to Australia or New Zealand, what they love, what they miss, and the distance from home.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="au-orange-accent">.hero .eyebrow{color:#C6E084}.hero .eyebrow::before{background:#A6C84A}.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style id="au-palette-tune">:root{--teal:#02615D;--green:#02615D;--sage:#72A471}h1,h2,h3{color:#02615D}</style>
+<style id="nz-fern-accent">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style id="au-hero-teal"></style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}
+</style>
+<link rel="stylesheet" href="../hero.css">
+<link rel="stylesheet" href="../guide-cover.css">
+<link rel="stylesheet" href="../guide-print.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Guides & resources","item":"https://ethicareresourcing.com/resources"},{"@type":"ListItem","position":3,"name":"Why people move"}]}</script>
+<link rel="stylesheet" href="../disclose.css">
+<link rel="stylesheet" href="../prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/move">Your relocation plan</a>
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<!-- ============ HERO (tier 2 stacked cover, both countries) ============ -->
+<section class="cover">
+  <div class="cov-bg" aria-hidden="true"><img decoding="async" src="../assets/nz-life/lakeside-cycle.jpg" alt="Two cyclists riding a gravel trail through tall pines" fetchpriority="high" width="1600" height="1067"><img decoding="async" src="../assets/wa/wa-bike-path.jpg" alt="A shared cycle and pedestrian path winding through gum trees" fetchpriority="high" width="1500" height="1000"></div>
+  <div class="cov-top"><span class="cov-ct"><i class="nz"></i>New Zealand</span><span class="cov-ct">Australia<i class="au"></i></span></div>
+  <div class="cov-in">
+    <div class="cov-eb"><i></i>Stage 01 &middot; Imagine the possibilities</div>
+    <h1>Could life <em>look different?</em></h1>
+    <p class="cov-sub">Why healthcare professionals move to Australia or New Zealand &mdash; and what they say they miss</p>
+    <p class="cov-lead">You have seen the pitch: work-life balance, beaches, space. Much of it is true. This is the rest of the picture &mdash; what people gain, what they trade and what they miss &mdash; so you can decide whether the trade is right for you.</p>
+    <div class="cov-btns"><a class="cov-a" href="#why">Start with why people go <span aria-hidden="true">&rarr;</span></a><a class="cov-b" href="/contact">Talk it through with us</a></div>
+    <div class="cov-meta"><span>8 short sections</span><span>Reviewed September 2026</span><span>Free &middot; no sign-up</span></div>
+  </div>
+</section>
+<nav class="guidebar" aria-label="Guide">
+  <div class="gb-in">
+    <span class="gb-t">Why people move &mdash; and what they miss</span>
+    <div class="gb-l"><a class="gb" href="/resources">All guides</a><a class="gb" href="/new-zealand">Careers in New Zealand</a><a class="gb" href="/australia">Careers in Australia</a><a class="gb" href="/guides/australia-vs-new-zealand">Australia or New Zealand?</a><a class="gb" href="/contact">Contact</a></div>
+  </div>
+</nav>
+
+<!-- ============ PAGE AT A GLANCE ============ -->
+<section class="glance-wrap">
+  <div class="wrap">
+    <nav class="glance" id="glance" aria-label="On this page">
+      <div class="gl-top">
+        <span class="eyebrow">Page at a glance</span>
+        <span class="gl-read"><img decoding="async" src="../assets/kettle-52-sage.png" alt="" width="170" height="192" loading="lazy"><span class="rt"><b>Kettle on.</b> A longer read &mdash; about 9 min</span></span>
+      </div>
+      <ol>
+        <li><a href="#pitch">Beyond the pitch</a></li>
+        <li><a href="#why">Why people go</a></li>
+        <li><a href="#two">Two countries, two offers</a></li>
+        <li><a href="#love">What people say they love</a></li>
+        <li><a href="#brochure">What nobody puts in the brochure</a></li>
+        <li><a href="#distance">The distance</a></li>
+        <li><a href="#you">What matters most to you?</a></li>
+        <li><a href="#next">Still curious?</a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- ============ BEYOND THE PITCH ============ -->
+<section class="section" id="pitch">
+  <div class="wrap reading">
+    <span class="eyebrow">Before anything else</span>
+    <h2>It shouldn&rsquo;t start with a vacancy</h2>
+    <p class="lead">Better work-life balance, beautiful beaches, more space, an outdoor lifestyle. You have seen it on LinkedIn and in recruitment adverts, and much of it is true.</p>
+    <p>But when you are thinking about moving your life &mdash; and possibly your family&rsquo;s &mdash; to the other side of the world, there is more you probably want to know. What do the healthcare professionals who made the move genuinely love? What surprised them? And what do they miss, six months or ten years later?</p>
+    <p>Not to persuade you to go, and not to put you off. Deciding whether to move shouldn&rsquo;t start with a vacancy. <strong>It should start with whether you can see a life there.</strong></p>
+    <div class="reassure">
+      <p>You don&rsquo;t need to have decided anything yet &mdash; not the country, not the timing, not whether you are going at all. This is exploration. Every other part of the site is open without it, and this page is here whenever the question comes back.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY PEOPLE GO ============ -->
+<section class="section" id="why" data-mobile-collapse style="background:var(--soft-green)">
+  <div class="wrap">
+    <span class="eyebrow">Section 01 &middot; The reasons</span>
+    <h2>Why people go</h2>
+    <p class="lead">Sometimes it is work. More often, work is what makes the move possible. And for many people life at home is good &mdash; they are simply curious what another version of it could look like.</p>
+    <div class="how-grid">
+      <div class="how"><span class="k">Time</span><h3>More life around the working day</h3><p>Finishing a shift with daylight left. Weekends that are not spent recovering. Wanting work to take up a smaller share of life.</p></div>
+      <div class="how"><span class="k">Work</span><h3>A different working life</h3><p>Another health system, other ways of working, a specialist opening, or simply a change. Not easier by definition &mdash; different.</p></div>
+      <div class="how"><span class="k">Family</span><h3>Children who grow up outside</h3><p>Space, schooling, and wanting children to know another country while they are young enough for it to become theirs.</p></div>
+      <div class="how"><span class="k">Money</span><h3>Earning potential</h3><p>Real in some Australian professions and places. The headline salary is only part of it &mdash; <a href="/is-it-worth-it">Make the numbers work</a> is where that gets tested.</p></div>
+      <div class="how"><span class="k">Space</span><h3>Room to live</h3><p>A garden. A shorter drive to work. Coast or hills as part of an ordinary week rather than a holiday. Not everyone gets a house by the beach.</p></div>
+      <div class="how"><span class="k">Adventure</span><h3>Doing something extraordinary</h3><p>Some people simply want to, while they can. Wonder about it for ten years and there comes a point where you either do it or accept you probably never will.</p></div>
+      <div class="how"><span class="k">The system</span><h3>Tired of the one you are in</h3><p>Some people are: the workload, the waits, the pay conversation, a service that runs on goodwill. A real reason. A move changes a great deal and does not fix what would travel with you &mdash; and both these systems are under pressure too. Different pressure, not none.</p></div>
+      <div class="how"><span class="k">Precedent</span><h3>Someone you know has done it</h3><p>A friend, a colleague, a cousin already there. Often the thing that turns an idea into something that feels possible.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TWO COUNTRIES ============ -->
+<section class="section" id="two" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 02 &middot; Not one destination</span>
+    <h2>Two countries, two different offers</h2>
+    <p class="lead">Australia and New Zealand are not one place, and neither is one place inside itself.</p>
+    <div class="duo">
+      <div class="cc nz">
+        <div class="k">New Zealand</div>
+        <h3>Pace, nature, scale</h3>
+        <p>Smaller communities, the outdoors close to ordinary life, and a different scale of living. People come for family life and adventure more than for earning potential.</p>
+        <p>Auckland, Wellington, Christchurch, Palmerston North and rural New Zealand are very different lives.</p>
+        <a class="go" href="/new-zealand">Explore New Zealand <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="cc au">
+        <div class="k">Australia</div>
+        <h3>Warmth, size, opportunity</h3>
+        <p>A warmer climate, larger cities, a bigger health system and job market, long-established migrant communities, and stronger earning potential in some professions.</p>
+        <p>Perth, Melbourne, Hobart, Bundaberg and regional Western Australia are not interchangeable.</p>
+        <a class="go" href="/australia">Explore Australia <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+    <p style="margin-top:28px;font-size:15.5px;color:var(--muted)">Weighing the two at once? <a href="/guides/australia-vs-new-zealand">Australia or New Zealand?</a> sets them side by side.</p>
+  </div>
+</section>
+
+<!-- ============ WHAT PEOPLE LOVE ============ -->
+<section class="section" id="love" data-mobile-collapse style="background:var(--soft-green)">
+  <div class="wrap reading">
+    <span class="eyebrow">Section 03 &middot; After the move</span>
+    <h2>What people say they love</h2>
+    <p class="lead">It is rarely the dramatic things that make people stay. Mountains on the drive to work are wonderful. Everyday life matters more.</p>
+    <ul class="every">
+      <li>The children being outside &mdash; after school, not just on holiday.</li>
+      <li>The barbecue that isn&rsquo;t saved for the one sunny Saturday in August.</li>
+      <li>A walk after work, in daylight.</li>
+      <li>A beach the tourists don&rsquo;t know about.</li>
+      <li>Room for a dog.</li>
+      <li>Being known in a smaller community.</li>
+      <li>In parts of Australia, how much of life happens outdoors.</li>
+      <li>In New Zealand, how quickly you are out of the city and into coast, bush or hills.</li>
+      <li>A shorter, calmer commute &mdash; for some people, in some places.</li>
+      <li>The first Christmas on a beach. A child&rsquo;s accent you weren&rsquo;t expecting.</li>
+    </ul>
+    <p style="margin-top:32px">Eventually the extraordinary becomes ordinary. People tell us that is when somewhere starts to feel like home.</p>
+    <p class="src">What is here is what the people we have placed tell us. Named stories appear as people agree to them &mdash; <a href="/insights/manchester-to-the-sunshine-coast">Megan&rsquo;s, from Manchester to the Sunshine Coast</a>, is the first.</p>
+  </div>
+</section>
+
+<!-- ============ THE BROCHURE ============ -->
+<section class="section" id="brochure" data-mobile-collapse>
+  <div class="wrap">
+    <span class="eyebrow">Section 04 &middot; The other side</span>
+    <h2>The things nobody puts in the brochure</h2>
+    <p class="lead">Moving across the world can give you an extraordinary new life. It also means leaving parts of your old one behind. Knowing that first is not negativity; it is how the decision gets made with your eyes open.</p>
+    <div class="reassure" style="max-width:760px">
+      <p>Written first for people leaving the UK, because that is who most of our candidates are today. Coming from South Africa, Ireland, India or the Philippines? What you would gain and miss is different, and we would rather write it with people who have done it. <a href="/contact">Tell us what you would want here.</a></p>
+    </div>
+    <div class="how-grid">
+      <div class="how"><span class="k">The ordinary choice</span><h3>Food, and streets that change every few blocks</h3><p>Chinese, Indian, Turkish, Caribbean or Vietnamese within a walk; the family-run place you have been going to for years. Both countries are multicultural, most of all in the big cities &mdash; a smaller city or regional town will feel the difference.</p></div>
+      <div class="how"><span class="k">Old things</span><h3>Terraces, stone walls, the pub</h3><p>Victorian brick, villages where none of the houses line up, a pub that has been there for 300 years. And the pub itself &mdash; the local, the fire, the roast &mdash; is its own culture. Both countries have pubs; they are not that.</p></div>
+      <div class="how"><span class="k">Europe</span><h3>Another country two hours away</h3><p>Lisbon for a long weekend, Paris by train, the Alps. Even if you rarely went, you could. From here the near world is the Pacific and Asia, and Britain is a day&rsquo;s flying away.</p></div>
+      <div class="how"><span class="k">Culture and choice</span><h3>The exhibition, the theatre, the tour</h3><p>Melbourne and Sydney are major cultural cities and New Zealand has real arts and music scenes &mdash; but moving from a global city to a smaller centre is still a trade. If this is part of what makes you happy, it is not superficial.</p></div>
+      <div class="how"><span class="k">Seasons</span><h3>A crisp October morning</h3><p>The first cold day, autumn leaves, long light evenings. Christmas at 28 degrees delights some people and never feels right to others. New Zealand and southern Australia have real seasons; the tropical north does not. &ldquo;Better weather&rdquo; isn&rsquo;t the question &mdash; what weather makes you happy is.</p></div>
+      <div class="how"><span class="k">Familiarity</span><h3>Knowing how things work</h3><p>Which supermarket, which form, which queue. For the first while, nothing is instinctive, and that is tiring in a way people don&rsquo;t expect. It passes; it is worth knowing it is coming.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DISTANCE ============ -->
+<section class="section" id="distance" data-mobile-collapse style="background:var(--soft-green)">
+  <div class="wrap reading">
+    <span class="eyebrow">Section 05 &middot; The real trade-off</span>
+    <h2>How does being this far from home feel to you?</h2>
+    <p class="lead">Food can be found and you can travel for a concert. Family is harder. You will not be there for everything: parents get older, friends have babies, someone you love has a terrible week and you cannot drive round with a cup of tea.</p>
+    <p>Worth thinking through now rather than after:</p>
+    <ul class="ticks">
+      <li>A full day in the air each way, and what the flights cost for a family.</li>
+      <li>How much of your annual leave a visit home uses.</li>
+      <li>Long-haul with small children.</li>
+      <li>Ageing parents, and what an emergency would actually look like from there.</li>
+      <li>Keeping relationships alive across a time difference that turns your evening into their morning.</li>
+      <li>How often you could realistically afford to go back.</li>
+    </ul>
+    <p style="margin-top:28px">Video calls help enormously. They are not the same as being there. For some people the life they gain makes the distance worthwhile; for others it eventually brings them home. <strong>Neither means the move failed.</strong></p>
+    <p class="src">The cost of visits belongs with everything else that has a number &mdash; <a href="/is-it-worth-it">Make the numbers work</a>.</p>
+  </div>
+</section>
+
+<!-- ============ WHAT MATTERS TO YOU ============ -->
+<section class="section" id="you" data-mobile-collapse>
+  <div class="wrap reading">
+    <span class="eyebrow">Section 06 &middot; Your own list</span>
+    <h2>What matters most to you?</h2>
+    <p class="lead">Pick as many as are true. There is no score and nothing is sent anywhere &mdash; it stays on this device, for you.</p>
+    <div class="matters" id="matters" role="group" aria-label="What matters most to you">
+      <button type="button" aria-pressed="false" data-v="time">More time outside work</button>
+      <button type="button" aria-pressed="false" data-v="money">Better earning potential</button>
+      <button type="button" aria-pressed="false" data-v="family">Family life</button>
+      <button type="button" aria-pressed="false" data-v="sun">Sunshine</button>
+      <button type="button" aria-pressed="false" data-v="career">Career opportunities</button>
+      <button type="button" aria-pressed="false" data-v="space">Space</button>
+      <button type="button" aria-pressed="false" data-v="adventure">Adventure</button>
+      <button type="button" aria-pressed="false" data-v="coast">Living near the coast</button>
+      <button type="button" aria-pressed="false" data-v="small">A smaller community</button>
+      <button type="button" aria-pressed="false" data-v="city">A major city</button>
+      <button type="button" aria-pressed="false" data-v="home">Being able to visit home regularly</button>
+    </div>
+    <p class="matters-note" id="mattersNote" aria-live="polite">Hold on to those. <a href="/where-would-we-live">Find your place</a> asks the same question about actual places, and the answers tend to point somewhere.</p>
+  </div>
+</section>
+
+<!-- ============ STILL CURIOUS ============ -->
+<section class="section final-cta" id="next">
+  <div class="wrap">
+    <div class="final">
+      <span class="eyebrow">Still curious?</span>
+      <h2>You don&rsquo;t have to decide whether you are moving yet</h2>
+      <p>The next question is simply which country might suit the life you are looking for.</p>
+      <div class="btn-row"><a class="btn btn-light" href="/guides/australia-vs-new-zealand">Choose your destination <span aria-hidden="true">&rarr;</span></a><a class="btn btn-outline" href="/contact">Talk it through with us</a></div>
+      <p class="small">Already know? <a href="/new-zealand" style="color:#C6E084;text-decoration:underline;text-underline-offset:3px">New Zealand</a> &middot; <a href="/australia" style="color:#C6E084;text-decoration:underline;text-underline-offset:3px">Australia</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RELATED ============ -->
+<section class="section" id="related">
+  <div class="wrap">
+    <span class="eyebrow">Read a little deeper</span>
+    <h2>Where to go next</h2>
+    <div class="related-grid">
+      <a href="/guides/moving-to-new-zealand" class="rel">
+        <span class="k">Stage 01 &middot; New Zealand</span>
+        <h3>Is New Zealand right for us?</h3>
+        <p>An honest look at the life and the trade-offs, for you and the people coming with you.</p>
+        <span class="go">Read the guide</span>
+      </a>
+      <a href="/guides/moving-to-australia" class="rel">
+        <span class="k">Stage 01 &middot; Australia</span>
+        <h3>Is Australia right for us?</h3>
+        <p>The case for Australia, and the parts worth thinking twice about.</p>
+        <span class="go">Read the guide</span>
+      </a>
+      <a href="/guides/moving-with-teenagers" class="rel">
+        <span class="k">A reality check</span>
+        <h3>Moving with children and teenagers</h3>
+        <p>The exam-year problem, what families would have done differently, and the conversation to have first.</p>
+        <span class="go">Read the guide</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
+</main>
+<script src="../page-feedback.js" defer></script>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="../site.js"></script>
+<script>
+(function(){
+  var KEY='ethicare_matters_v1', host=document.getElementById('matters'), note=document.getElementById('mattersNote');
+  if(!host) return;
+  var on={}; try{ on=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ on={}; }
+  function paint(){ var any=false; [].forEach.call(host.querySelectorAll('button'),function(b){ var v=b.getAttribute('data-v'); b.setAttribute('aria-pressed',on[v]?'true':'false'); if(on[v]) any=true; }); note.classList.toggle('show',any); }
+  host.addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return; var v=b.getAttribute('data-v'); if(on[v]) delete on[v]; else on[v]=Date.now(); try{ localStorage.setItem(KEY,JSON.stringify(on)); }catch(e){} paint(); if(window.track) window.track('matters_toggled',{value:v,on:!!on[v]}); });
+  paint();
+})();
+</script>
+
+<!-- ============================================================
+     INTERNAL LINK MAP
+     ============================================================
+  HEADER (site-wide) — brand → Home (/) · Australia (/australia) · New Zealand (/new-zealand) ·
+   Jobs (/jobs/) · Move (/move) · Guides & resources (/resources) · Employers (/employers) · About (/about-ethicare) · Contact (/contact)
+  HERO — Start with why people go → #why (same page) · Talk it through with us → Contact (/contact)
+  GUIDE BAR — All guides (/resources) · Careers in New Zealand (/new-zealand) · Careers in Australia (/australia) ·
+   Australia or New Zealand? (/guides/australia-vs-new-zealand) · Contact (/contact)
+  PAGE AT A GLANCE (same-page anchors) → #pitch · #why · #two · #love · #brochure · #distance · #you · #next
+  WHY PEOPLE GO (#why) — Make the numbers work → Is it worth it? router (/is-it-worth-it)
+  TWO COUNTRIES (#two) — Explore New Zealand → New Zealand hub (/new-zealand) · Explore Australia → Australia hub (/australia) ·
+   Australia or New Zealand? → the comparison guide (/guides/australia-vs-new-zealand)
+  WHAT PEOPLE LOVE (#love) — Megan's story → Insight: Manchester to the Sunshine Coast (/insights/manchester-to-the-sunshine-coast)
+  BROCHURE (#brochure) — Tell us what you would want here → Contact (/contact)
+  DISTANCE (#distance) — Make the numbers work → Is it worth it? router (/is-it-worth-it)
+  WHAT MATTERS (#you) — Find your place → Where would we live? router (/where-would-we-live)
+  STILL CURIOUS (#next) — Choose your destination → Australia or New Zealand? (/guides/australia-vs-new-zealand) ·
+   Talk it through with us → Contact (/contact) · New Zealand → /new-zealand · Australia → /australia
+  READ A LITTLE DEEPER — Is New Zealand right for us? → /guides/moving-to-new-zealand ·
+   Is Australia right for us? → /guides/moving-to-australia · Moving with children and teenagers → /guides/moving-with-teenagers
+  FOOTER (site-wide) — /new-zealand · /australia · /destinations/ · /destinations/australia · /jobs/ · /jobs/professions ·
+   /resources · /pathway-checker · /apply · /about-ethicare · /employers · /submit-a-vacancy · /contact ·
+   /privacy-policy · /how-we-use-your-information · /equality-diversity-and-inclusion · /modern-slavery-statement
+  STATUS — signed off by Sophie 9 Sep 2026: indexed, in sitemap.xml, linked from the homepage hero (first click), both
+   country hubs' "Why …?" section, the library's Stage 01 group (Both countries) and Move Stage 01. Stage 01 entry page for
+   both countries (Gold Standard Pathway, "What each stage is for", 8 Sep 2026). No figures on the page, so nothing to
+   source; the origin note is UK-first by design with other origins invited, never hard-coded.
+     ============================================================ -->
+<!-- ============================================================
+     SEO
+     ============================================================
+   Page Title:       Why people move — and what they miss
+   URL Slug:         /guides/why-people-move
+   SEO Title:        Why people move to Australia and New Zealand, and what they miss | Ethicare Resourcing
+   Meta Description: Stage 01 of the journey: why healthcare professionals move to Australia or New Zealand, what
+                     they say they love, what nobody puts in the brochure, and the distance from home. Exploration,
+                     not a pitch.
+     ============================================================ -->
+<script src="../nav.js" defer></script>
+<script src="../journey-nav.js" defer></script>
+</body>
+</html>

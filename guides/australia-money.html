@@ -19,7 +19,10 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 /* No photograph on this reference hero, so collapse guide-au.css's two-column
    hero grid — otherwise the copy is squeezed into 1.05fr and the second column
    sits empty. Same defect the renting hero had, different cause. */
-.hero.cream .wrap{display:block;grid-template-columns:none}
+/* This reference hero now carries a family illustration in the second column, so the
+   grid stays on — weighted towards the copy so it is never squeezed, which is why the
+   grid used to be collapsed here. .hero-copy keeps its own measure. */
+.hero.cream .wrap{grid-template-columns:1.45fr .55fr}
 .hero.cream .hero-copy{max-width:56ch}
 .hero.cream .hero-sub::after{content:"";display:block;width:44px;height:3px;border-radius:2px;background:#D9A084;margin:24px 0 4px}
 .steps{counter-reset:s;margin:36px 0 0;padding:0;list-style:none;max-width:760px}
@@ -56,7 +59,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .src li:last-child{margin-bottom:0}
 .src li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#02615D}
 @media(max-width:640px){.steps li{padding-left:50px}}
-</style>
+.glance .gl-read{display:inline-flex;align-items:center;gap:10px;max-width:48ch;margin-left:auto}.glance .gl-read img{flex:0 0 auto;width:34px;height:auto}.glance .gl-read .rt{font-size:13px;line-height:1.45;color:#2F5E49}.glance .gl-read .rt b{font-family:'Work Sans',sans-serif;font-weight:700}@media (max-width:520px){.glance .gl-read{margin-left:0}}</style>
 <link rel="canonical" href="https://ethicareresourcing.com/guides/australia-money">
 <link rel="icon" href="/assets/logo-mark.png">
 <link rel="apple-touch-icon" href="/assets/logo-mark.png">
@@ -79,12 +82,13 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Australia","item":"https://ethicareresourcing.com/australia"},{"@type":"ListItem","position":2,"name":"Guides & Resources","item":"https://ethicareresourcing.com/resources"},{"@type":"ListItem","position":3,"name":"Money, tax & banking"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a TFN and when should I apply for one?","acceptedAnswer":{"@type":"Answer","text":"A Tax File Number is your permanent personal reference with the Australian Taxation Office. You can apply once you have arrived and hold a visa with work rights, and it is free — you never need to pay an agent for one. Without it your employer must withhold tax at the top rate, so applying in your first week is worth doing. The number stays with you for life, even if you leave Australia and return years later."}},{"@type":"Question","name":"What is superannuation and can I choose my own fund?","acceptedAnswer":{"@type":"Answer","text":"Superannuation is Australia's compulsory retirement saving. Your employer must pay a percentage of your earnings into a super fund on top of your salary, and that rate is set by law rather than negotiated. In most cases you can choose the fund. If you do not choose, your employer uses your existing stapled fund if you have one, or their default. Health sector employers commonly offer an industry fund, and industry funds are generally low-fee — but the choice is yours to make rather than to accept by default."}},{"@type":"Question","name":"Do I have to pay the Medicare levy as a temporary resident?","acceptedAnswer":{"@type":"Answer","text":"It depends on whether you are entitled to Medicare. The levy is a percentage of taxable income paid by most residents for tax purposes. If your country has a reciprocal health care agreement with Australia you may be enrolled in Medicare and liable for the levy; if you are not entitled to Medicare you can apply to Services Australia for a Medicare Entitlement Statement and claim an exemption in your tax return. This is one of the most commonly missed refunds among arriving clinicians."}},{"@type":"Question","name":"What is the Medicare levy surcharge and how do I avoid it?","acceptedAnswer":{"@type":"Answer","text":"It is an additional charge on higher earners who do not hold an appropriate level of private hospital cover. Many clinicians earn above the threshold, so taking private hospital cover often costs less than the surcharge it avoids — which is why so many Australian households hold it. Run your own numbers rather than assuming, and note that the cover has to be hospital cover, not extras."}},{"@type":"Question","name":"Am I a resident for tax purposes in Australia?","acceptedAnswer":{"@type":"Answer","text":"Tax residency is separate from your visa and separate from citizenship. It turns on your circumstances — where you live, work and intend to remain — rather than on the visa label. Most clinicians who arrive on a skilled or employer-sponsored visa, take a lease and start work become residents for tax purposes, which generally means a tax-free threshold and resident rates rather than the higher non-resident rates. It is worth confirming your own position with the ATO or an accountant in your first year, because it changes what you pay."}},{"@type":"Question","name":"Can I open an Australian bank account before I arrive?","acceptedAnswer":{"@type":"Answer","text":"Usually yes, and it is worth doing. The major banks let you open a transaction account online from overseas before you land, then verify your identity at a branch with your passport once you arrive. Having an account open before you fly means your first salary and your rental bond have somewhere to go, and it saves a queue in a week when you will have plenty else to do."}}]}]</script>
 <link rel="stylesheet" href="../disclose.css">
 <link rel="stylesheet" href="../prose-links.css">
+<link rel="stylesheet" href="../guide-hero-split.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia" aria-current="page">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -101,8 +105,8 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
@@ -111,6 +115,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
@@ -122,6 +127,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <main id="main-content" tabindex="-1">
 
 <header class="hero cream au">
+  <div class="hero-art"><img decoding="async" src="../assets/au-life/au-banknotes.jpg" alt="Australian banknotes fanned out on a table" fetchpriority="high" width="2400" height="1662"></div>
   <div class="wrap">
     <div class="hero-copy">
       <nav class="crumb" aria-label="Breadcrumb">
@@ -145,7 +151,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
     <nav class="glance" aria-label="On this page">
       <div class="gl-top">
         <span class="eyebrow">Page at a glance</span>
-        <span class="note">Jump to any part. This guide is made to return to.</span>
+        <span class="gl-read"><img decoding="async" src="../assets/kettle-52-sage.png" alt="" width="170" height="192" loading="lazy"><span class="rt"><b>Kettle on.</b> A longer read &mdash; about 17 min</span></span>
       </div>
       <ol>
         <li><a href="#order">The order to do things in</a></li>
@@ -248,7 +254,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   <div class="wrap reading">
     <span class="eyebrow">How it works</span>
     <h2>Income tax, in outline</h2>
-    <p class="lead">Australian income tax is progressive and administered federally. Unlike tenancy law, there is no state income tax to learn. We do not print rates or thresholds here, because they change with each federal budget and a stale figure is worse than none.</p>
+    <p class="lead">Australian income tax is progressive and administered federally &mdash; unlike tenancy law, there is no state income tax to learn. We do not print rates or thresholds here, because they change with each federal budget.</p>
     <p>Tax is withheld from your pay by your employer under a system called PAYG. Pay as you go, so for most employed clinicians the amount arriving in your account is already net. The financial year runs from <strong>1 July to 30 June</strong>, which catches people out in a small but persistent way: it is not the calendar year and it is not the April year some of you are used to.</p>
     <p>You lodge a return after 30 June, and for a straightforward salaried position this is simple: much of it arrives pre-filled, and the ATO&rsquo;s own online service is free. Most clinicians in their second year onwards do it themselves in under an hour.</p>
     <p>Two things that are worth an accountant in your <em>first</em> year specifically: a part-year residency position, and any income or assets still generating money in your home country. Both are ordinary situations, both have a right answer, and both are easier to get right once than to unpick later.</p>
@@ -330,7 +336,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   <div class="wrap reading">
     <span class="eyebrow">The other end</span>
     <h2>What you leave behind at home</h2>
-    <p class="lead">We are not qualified to advise on the tax system you are leaving, and neither is any recruiter who tells you otherwise. What we can do is tell you which questions to ask before you go, while the people who can answer them are still a local phone call away.</p>
+    <p class="lead">We are not qualified to advise on the tax system you are leaving, and neither is any recruiter who says otherwise. What we can do is tell you which questions to ask while the people who can answer them are still a local phone call away.</p>
     <p><strong>Your pension.</strong> Whatever scheme you are in, find out before you leave what happens to it when you stop contributing, whether it can be transferred, and whether transferring is actually a good idea. Frequently it is not. Get this in writing while you are still in the country.</p>
     <p><strong>Property you are keeping.</strong> If you rent out a home at home, that income may be declarable in both countries. Double tax agreements exist precisely so you are not taxed twice, but they do not apply themselves.</p>
     <p><strong>Your final part-year return.</strong> Most systems require one for the year you leave, and it is often the year you are owed a refund. Easy to forget from twelve thousand miles away.</p>
@@ -413,12 +419,15 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   </div>
 </section>
 
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="../page-feedback.js" defer></script>
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">
       <div class="f-brand">
-        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
         <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>

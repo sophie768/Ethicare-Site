@@ -16,20 +16,21 @@
 h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .section.cool{background:#F3F7F4}
 .section.warm{background:#F7F4EE}
-/* No photograph on this reference hero, so collapse guide-au.css's two-column hero grid. */
-.hero.cream .wrap{display:block;grid-template-columns:none}
+/* This reference hero now carries a family illustration in the second column, so the
+   grid stays on — weighted towards the copy so it is never squeezed. */
+.hero.cream .wrap{grid-template-columns:1.45fr .55fr}
 .hero.cream .hero-copy{max-width:56ch}
 .hero.cream .hero-sub::after{content:"";display:block;width:44px;height:3px;border-radius:2px;background:#D9A084;margin:24px 0 4px}
 .rtable-wrap{overflow-x:auto;margin:32px 0 8px}
 .rtable{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border:1px solid #EBDFD3;border-radius:14px;overflow:hidden}
 .rtable th,.rtable td{text-align:left;padding:13px 16px;border-bottom:1px solid rgba(2,97,93,.65);vertical-align:top}
 .rtable thead th{background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.02em}
-.rtable td:first-child{font-weight:600;color:#014E4B;white-space:nowrap}
+.rtable td:first-child{font-weight:600;color:#01312F;white-space:nowrap}
 .rtable tbody tr:last-child td{border-bottom:none}
-.rtable .act{font-size:13px;color:#5C6B57;display:block;margin-top:3px}
+.rtable .act{font-size:13px;color:#2F5E49;display:block;margin-top:3px}
 .rtable a{font-weight:600;color:#02615D;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;text-decoration-color:#D9A084}
 .rtable a:hover{text-decoration-color:#02615D}
-.tnote{font-size:13.5px;color:#5C6B57;font-style:italic;margin-top:10px}
+.tnote{font-size:13.5px;color:#2F5E49;font-style:italic;margin-top:10px}
 .steps{counter-reset:s;margin:36px 0 0;padding:0;list-style:none;max-width:760px}
 .steps li{counter-increment:s;position:relative;padding:0 0 26px 60px;border-left:1px solid rgba(2,97,93,.28);margin-left:16px}
 .steps li:last-child{border-left-color:transparent;padding-bottom:0}
@@ -63,7 +64,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .src li:last-child{margin-bottom:0}
 .src li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#02615D}
 @media(max-width:640px){.rtable{font-size:13px}.rtable th,.rtable td{padding:10px 12px}.steps li{padding-left:50px}}
-</style>
+.glance .gl-read{display:inline-flex;align-items:center;gap:10px;max-width:48ch;margin-left:auto}.glance .gl-read img{flex:0 0 auto;width:34px;height:auto}.glance .gl-read .rt{font-size:13px;line-height:1.45;color:#2F5E49}.glance .gl-read .rt b{font-family:'Work Sans',sans-serif;font-weight:700}@media (max-width:520px){.glance .gl-read{margin-left:0}}</style>
 <link rel="canonical" href="https://ethicareresourcing.com/guides/australia-driving">
 <link rel="icon" href="/assets/logo-mark.png">
 <link rel="apple-touch-icon" href="/assets/logo-mark.png">
@@ -86,12 +87,13 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Australia","item":"https://ethicareresourcing.com/australia"},{"@type":"ListItem","position":2,"name":"Guides & Resources","item":"https://ethicareresourcing.com/resources"},{"@type":"ListItem","position":3,"name":"Driving & licences"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I drive in Australia on my overseas licence?","acceptedAnswer":{"@type":"Answer","text":"Usually yes, at first. Most states let a visitor drive on a valid overseas licence, in English or with an official translation, for a defined period. The catch is that the period is set by each state and territory separately, and in several of them the clock starts when you become a permanent resident rather than when you land. Check your own state's road authority in your first week rather than assuming a number you read elsewhere."}},{"@type":"Question","name":"Do I have to take a driving test to convert my licence in Australia?","acceptedAnswer":{"@type":"Answer","text":"It depends on where your licence is from. Australia recognises a list of countries as having comparable licensing standards, and holders of a full licence from one of those can generally convert without a practical driving test. If your licence is from a country not on that list you may need to sit knowledge, hazard perception and practical tests. The lists are set by each state, so confirm with your own road authority."}},{"@type":"Question","name":"What is CTP insurance and is it compulsory?","acceptedAnswer":{"@type":"Answer","text":"Compulsory third party insurance covers injury to people in a motor accident, and it is compulsory everywhere in Australia — you cannot legally drive without it. How you buy it differs by state: in some it is included in your vehicle registration, in others you choose an insurer separately before you can register. CTP does not cover damage to vehicles or property, which is why most drivers also hold separate comprehensive or third party property cover."}},{"@type":"Question","name":"Should I ship my car to Australia?","acceptedAnswer":{"@type":"Answer","text":"Almost never. Australia has strict vehicle import rules and compliance requirements, and between shipping, duty, compliance work and modifications the total commonly exceeds what the same car is worth locally. The second-hand market is large and unsnobbish. In our experience the clinicians who ship a car regret it, and the ones who sell at home and buy on arrival do not."}},{"@type":"Question","name":"Do I need a car in Australia?","acceptedAnswer":{"@type":"Answer","text":"In the inner suburbs of the largest cities, often no — public transport is good and parking is expensive. Almost everywhere else, yes, and in regional and outer-suburban areas a household frequently needs two. Hospital shift patterns are the deciding factor: if you finish a late shift when buses have stopped, a car stops being a convenience. Decide after you know your roster and your suburb, not before."}}]}]</script>
 <link rel="stylesheet" href="../disclose.css">
 <link rel="stylesheet" href="../prose-links.css">
+<link rel="stylesheet" href="../guide-hero-split.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia" aria-current="page">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -108,8 +110,8 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
@@ -118,6 +120,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
@@ -129,6 +132,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <main id="main-content" tabindex="-1">
 
 <header class="hero cream au">
+  <div class="hero-art"><img decoding="async" src="../assets/vic/vic-kangaroos.jpg" alt="Kangaroos standing in long grass at the edge of the bush" fetchpriority="high" width="1500" height="1000"></div>
   <div class="wrap">
     <div class="hero-copy">
       <nav class="crumb" aria-label="Breadcrumb">
@@ -152,7 +156,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
     <nav class="glance" aria-label="On this page">
       <div class="gl-top">
         <span class="eyebrow">Page at a glance</span>
-        <span class="note">Jump to any part. This guide is made to return to.</span>
+        <span class="gl-read"><img decoding="async" src="../assets/kettle-52-sage.png" alt="" width="170" height="192" loading="lazy"><span class="rt"><b>Kettle on.</b> A longer read &mdash; about 16 min</span></span>
       </div>
       <ol>
         <li><a href="#deadline">The deadline nobody mentions</a></li>
@@ -422,12 +426,15 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   </div>
 </section>
 
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="../page-feedback.js" defer></script>
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">
       <div class="f-brand">
-        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
         <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>

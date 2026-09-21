@@ -30,6 +30,58 @@
   status = 301
   force = true
 
+# Australia launched medical-imaging-first (Sep 2026). The non-imaging AU family
+# routers are not built yet; their single canonical surface is the brewing hub,
+# which captures interest. force=true so the redirect wins even if a stale file
+# lingers. Remove a line here when that family's AU offering goes live.
+[[redirects]]
+  from = "/jobs/medicine-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/jobs/nursing-midwifery-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/jobs/mental-health-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/jobs/allied-health-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/jobs/theatre-perioperative-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/jobs/psychologist-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+
+# Internal-only surfaces: the Netlify Forms declaration page and the design
+# prototypes are reachable but must never be indexed (14 Sep 2026).
+[[headers]]
+  for = "/_forms/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/prototypes/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/thank-you"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
 # Security + caching headers
 [[headers]]
   for = "/*"
@@ -38,8 +90,42 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
 
+# Content-addressed assets (images, fonts, downloads) never change under the
+# same filename — cache them for a year.
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Stylesheets and scripts are NOT fingerprinted (site.css, shell.css, move.js),
+# so an immutable year would strand users on a stale build. Revalidate hourly
+# but serve the cached copy instantly for a week while that happens.
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=604800"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=604800"
+
+# HTML must always be checked — content and pricing change.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Candidates' private spaces (/pack/<slug>, see site/pack/README.md). The link is the
+# credential — decided 15 Sep 2026, same position as the named PDFs — so the page must
+# never sit in a shared cache or a back-button history on a hospital or library machine,
+# and never be indexed even if a <meta> tag is lost. Kept last so it wins over /*.css and
+# /*.js for pack.css and pack.js too; no-store is the stricter directive either way.
+[[headers]]
+  for = "/pack/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Cache-Control = "private, no-store"
+    Referrer-Policy = "no-referrer"

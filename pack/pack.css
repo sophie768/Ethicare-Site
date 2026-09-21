@@ -1,0 +1,172 @@
+/* Your Ethicare — a candidate's private space at /pack/<slug>.
+   Sectioned, not one long page: a left rail of sections, one panel at a time.
+   Literal colour values throughout — these pages sit outside site.css/shell.css, and an
+   unresolved custom property fails silently (CLAUDE.md), which on a private page nobody
+   audits is the worst possible place for it. The NZ palette is the default; the AU block
+   at the foot of this sheet overrides on html[data-country=au], which pack.js sets from
+   PACK.country. Deep teal never changes between the two. */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#FCFBF8;color:#333;font-family:Manrope,system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.6}
+.skip-link{position:absolute;left:-9999px;top:0;background:#02615D;color:#fff;padding:12px 18px;z-index:99}
+.skip-link:focus{left:8px;top:8px}
+:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 2px #FCFBF8}
+a{color:#02615D}
+a:hover{color:#014E4B}
+
+/* masthead */
+.top{background:#fff;border-bottom:1px solid #E3ECE5}
+/* Was nowrap: brand at 228.8px with flex-shrink:0, plus the label block at 118.7px, plus a
+   20px gap needs 367.5px inside 306, so the avatar sat off-screen. */
+.top .in{max-width:1180px;margin:0 auto;padding:18px clamp(18px,3vw,32px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 20px}
+/* Mirrors shell.css:78-81 exactly, plus the 44px hit floor from shell.css:318. */
+.brand{display:flex;align-items:center;gap:8px;flex-shrink:0;min-height:44px;text-decoration:none}
+.brand img{width:42px;height:42px;object-fit:contain}
+.brand span{font-family:'Work Sans',sans-serif;font-weight:600;font-size:19px;color:#02615D;letter-spacing:-.02em;white-space:nowrap}
+.brand span strong{font-weight:500;color:#02615D}
+.who{display:flex;align-items:center;gap:12px;min-width:0;text-align:right}
+/* Below the brand's own width the label is the first thing to go - the wordmark and the
+   avatar are what identify the page. Same compress-at-narrow pattern as shell.css. */
+@media(max-width:400px){.top .in{justify-content:flex-start}.who .l{display:none}}
+.who .l{font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;line-height:1.35;color:#2F5E49}
+.who .l b{display:block;font-weight:600;color:#02615D}
+.who .av{width:42px;height:42px;border-radius:50%;background:#02615D;color:#fff;display:grid;place-items:center;font-family:'Work Sans',sans-serif;font-weight:600;font-size:17px;flex:none}
+
+/* the private-page notice. Honest and quiet: it is not a warning, it is an explanation. */
+.strip{background:#E6F1ED;color:#02615D;font-size:13.5px}
+.strip .in{max-width:1180px;margin:0 auto;padding:10px clamp(18px,3vw,32px);display:flex;flex-wrap:wrap;gap:4px 18px}
+.strip span{display:inline-flex;align-items:center;gap:8px}
+.strip span::before{content:"";width:5px;height:5px;border-radius:50%;background:#2F5E49;flex:none}
+
+/* the worked-example band. Deliberately not brand furniture: dashed teal edge, no country
+   accent, so it cannot be read as part of the design. Prints too. */
+.demo{background:#fff;border-top:2px dashed #02615D;border-bottom:2px dashed #02615D;color:#02615D;font-size:14.5px;line-height:1.5}
+.demo .in{max-width:1180px;margin:0 auto;padding:10px clamp(18px,3vw,32px)}
+.demo b{font-family:'Work Sans',sans-serif;font-weight:700}
+/* no-JS fallback: without pack.js the page has an empty h1 and every panel hidden. */
+.nojs{background:#F7F4EE;border-radius:14px;padding:18px 20px;font-size:15.5px;line-height:1.6;color:#333;margin-bottom:24px}
+.nojs b{font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D}
+
+/* shell */
+.shell{max-width:1180px;margin:0 auto;padding:clamp(22px,3.4vw,38px) clamp(18px,3vw,32px) 64px;display:grid;grid-template-columns:248px minmax(0,1fr);gap:clamp(24px,3.6vw,48px);align-items:start}
+/* ROOT CAUSE, recorded so it is not re-tweaked: plain 1fr is minmax(auto,1fr), and that
+   auto minimum is the MAX-CONTENT size of the track's largest item. The rail is a
+   max-content horizontal scroller whose five columns total about 818px, so the track sized
+   to 818px, the scroller never became a scroller (scrollWidth === clientWidth), and main
+   inherited the same over-wide track. minmax(0,1fr) removes the floor. */
+@media(max-width:860px){.shell{grid-template-columns:minmax(0,1fr);gap:20px}}
+
+/* the rail */
+.rail{position:sticky;top:20px}
+@media(max-width:860px){.rail{position:static}}
+.rail .k{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin:0 0 14px;padding:0 14px}
+.rail ul{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+@media(max-width:860px){.rail ul{grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto;min-width:0;gap:6px;padding-bottom:6px}.rail .k{display:none}}
+.rail a{display:flex;align-items:center;gap:12px;min-height:48px;padding:11px 14px;border-radius:12px;text-decoration:none;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;color:#02615D;white-space:nowrap}
+.rail a:hover{background:#F7F4EE}
+.rail a[aria-current="page"]{background:#E3ECE5}
+.rail svg{width:19px;height:19px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* content */
+.head{margin-bottom:clamp(22px,3vw,32px)}
+.route{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#2F5E49;margin:0 0 12px}
+h1{font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(30px,4.6vw,46px);line-height:1.06;letter-spacing:-.03em;color:#02615D;margin:0 0 10px}
+/* Focus is moved to the heading on navigation so a screen reader announces the new section.
+   The heading is not operable, so suppressing its ring removes no indicator from anything a
+   user can act on — and left in, every mouse click on the rail drew a box round the title. */
+h1[tabindex="-1"]:focus,h1[tabindex="-1"]:focus-visible{outline:none;box-shadow:none}
+.head .sub{font-size:clamp(16.5px,1.9vw,18.5px);line-height:1.55;color:#555;margin:0;max-width:56ch;text-wrap:pretty}
+.panel[hidden]{display:none}
+.panel>*+*{margin-top:clamp(18px,2.4vw,26px)}
+h2{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(19px,2.4vw,23px);line-height:1.2;letter-spacing:-.015em;color:#02615D;margin:0 0 6px}
+h3{font-family:'Work Sans',sans-serif;font-weight:600;font-size:17px;color:#02615D;margin:0 0 6px}
+.lede{font-size:16.5px;line-height:1.6;color:#555;margin:0 0 18px;max-width:62ch;text-wrap:pretty}
+.eyebrow{display:block;font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin:0 0 10px}
+.card{background:#fff;border:1px solid #C9DED3;border-radius:16px;padding:clamp(18px,2.8vw,28px)}
+.card .hint{font-size:14.5px;line-height:1.55;color:#555;margin:0 0 16px;text-wrap:pretty}
+
+/* the letter */
+.letter{background:#F7F4EE;border-radius:18px;padding:clamp(20px,3.4vw,34px)}
+.letter p{margin:0 0 15px;text-wrap:pretty}
+.letter p:last-of-type{margin-bottom:0}
+.sig{display:flex;align-items:center;gap:15px;margin-top:24px;padding-top:19px;border-top:1px solid #EBDFD3}
+.sig img{width:54px;height:54px;border-radius:50%;object-fit:cover;object-position:center top;flex:none}
+.sig .n{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:21px;color:#02615D;line-height:1.1}
+.sig .r{font-size:14px;color:#555}
+
+/* at a glance */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:2px;background:#C9DED3;border:1px solid #C9DED3;border-radius:16px;overflow:hidden}
+.facts>div{background:#fff;padding:16px 18px}
+.facts b{display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:#2F5E49;margin-bottom:5px;line-height:1.35}
+.facts span{font-family:'Work Sans',sans-serif;font-weight:500;font-size:16.5px;color:#02615D;line-height:1.35}
+
+/* rows: travel, stay, files */
+.rows{display:grid;gap:2px;background:#E3ECE5;border:1px solid #C9DED3;border-radius:16px;overflow:hidden}
+.rows>div{background:#fff;padding:16px 18px;display:grid;gap:4px}
+.rows .rk{font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;color:#02615D}
+.rows .rv{font-size:15.5px;line-height:1.55;color:#333;text-wrap:pretty}
+.rows .rn{font-size:14.5px;line-height:1.55;color:#555}
+
+/* guides */
+.glist{display:grid;gap:12px}
+.gcard{display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 16px;background:#fff;border:1px solid #C9DED3;border-radius:14px;padding:16px 18px;text-decoration:none;min-height:44px}
+.gcard:hover{border-color:#02615D}
+.gcard .gt{font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;color:#02615D;line-height:1.3}
+.gcard .gw{grid-column:1/-1;font-size:14.5px;line-height:1.55;color:#555;text-wrap:pretty}
+.gcard .ar{font-size:18px;color:#2F5E49}
+
+/* plan + notes */
+textarea{width:100%;min-height:200px;resize:vertical;border:1px solid #C9DED3;border-radius:10px;background:#FCFBF8;padding:14px 16px;font-family:Manrope,system-ui,sans-serif;font-size:16.5px;line-height:1.6;color:#333}
+textarea:focus{outline:3px solid #02615D;outline-offset:1px;border-color:#02615D}
+.addrow{display:flex;flex-wrap:wrap;gap:10px}
+.addrow input{flex:1 1 220px;min-width:0;border:1px solid #C9DED3;border-radius:10px;background:#FCFBF8;padding:12px 14px;font-family:Manrope,system-ui,sans-serif;font-size:16.5px;color:#333;min-height:48px}
+.addrow input:focus{outline:3px solid #02615D;outline-offset:1px;border-color:#02615D}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 22px;border:none;border-radius:10px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;cursor:pointer}
+.btn:hover{background:#014E4B}
+.btn.ghost{background:#fff;color:#02615D;border:1.5px solid rgba(2,97,93,.4)}
+.btn.ghost:hover{background:#F7F4EE;border-color:#02615D}
+.plan{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:2px}
+.plan li{display:grid;grid-template-columns:auto 1fr auto;align-items:start;gap:12px;padding:12px 0;border-bottom:1px solid #E3ECE5}
+.plan li:last-child{border-bottom:none}
+.plan input[type=checkbox]{width:22px;height:22px;margin:1px 0 0;accent-color:#02615D;flex:none}
+.plan .t{font-size:16.5px;line-height:1.5;color:#333;text-wrap:pretty}
+.plan li.done .t{color:#555;text-decoration:line-through}
+.plan .x{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;background:none;border:none;color:#2F5E49;font-size:19px;line-height:1;cursor:pointer;border-radius:8px}
+.plan .x:hover{background:#E6F1ED;color:#02615D}
+.empty{font-size:15.5px;color:#555;margin:0 0 16px}
+.saved{font-size:14px;color:#2F5E49;min-height:1.4em;margin:12px 0 0}
+.acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.privacy{background:#E6F1ED;border-radius:14px;padding:18px 20px;font-size:14.5px;line-height:1.6;color:#333}
+.privacy b{font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D}
+
+/* the closing panel, on every section */
+.close{background:#02615D;color:#fff;border-radius:18px;padding:clamp(20px,3.4vw,32px);margin-top:clamp(26px,3.6vw,40px)}
+.close h2{color:#fff}
+.close p{color:#fff;max-width:56ch;margin:0 0 14px;text-wrap:pretty}
+.close a{color:#C6E084;font-weight:600}
+.close a:hover{color:#fff}
+.ccontact{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;margin:0}
+.ccontact a{display:inline-flex;align-items:center;min-height:24px}
+.fmeta{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.3);font-size:13px;color:#fff}
+/* Print: every section on one sheet, each under its own heading (set by pack.js as
+   data-print-title; the cover panel needs none - its letter and facts carry their own). Guide
+   cards print their address, since a card on paper has nothing to tap. */
+@media print{.rail,.strip,.acts,.addrow,.saved,.skip-link,.empty[hidden]{display:none}.shell{display:block}.panel[hidden]{display:block}.panel{margin-top:30px;break-inside:auto}.panel::before{content:attr(data-print-title);display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:22px;line-height:1.2;color:#02615D;margin:0 0 14px}.panel[data-panel="space"]::before{display:none}.card,.letter,.facts>div,.rows>div,.gcard,.close{break-inside:avoid}.gcard::after{content:"ethicareresourcing.com" attr(href);grid-column:1/-1;font-size:12.5px;color:#555}.gcard .ar{display:none}textarea{min-height:0;height:auto;border-color:#999}.close{background:#fff;color:#02615D;border:1px solid #02615D}.close h2,.close p,.close a,.fmeta{color:#02615D}.fmeta{border-top-color:#02615D}}
+
+/* Australia. Only the country accent moves: Clay #A34438 for every piece of small text that
+   was fern-text (measured AA on cream, white, Soft Sand and Pale Eucalyptus — apricot itself
+   never carries text on light), #EBDFD3 hairlines, Soft Sand and Pale Eucalyptus surfaces,
+   and apricot at .3 alpha as the current-section fill (deep teal on it measures ~5.7:1;
+   solid apricot would be 3.3 and fail). Alpha variants of token colours are already part
+   of the vocabulary (--rule-tint); a new hex would not be. */
+html[data-country=au] .who .l,html[data-country=au] .rail .k,html[data-country=au] .route,html[data-country=au] .eyebrow,html[data-country=au] .facts b,html[data-country=au] .gcard .ar,html[data-country=au] .plan .x,html[data-country=au] .saved{color:#A34438}
+html[data-country=au] .strip span::before{background:#A34438}
+html[data-country=au] .top{border-bottom-color:#EBDFD3}
+html[data-country=au] .strip,html[data-country=au] .privacy{background:#F3F7F4}
+html[data-country=au] .rail a:hover{background:#FAF7F3}
+html[data-country=au] .rail a[aria-current="page"]{background:rgba(217,160,132,.3)}
+html[data-country=au] .card,html[data-country=au] .gcard,html[data-country=au] textarea,html[data-country=au] .addrow input{border-color:#EBDFD3}
+html[data-country=au] .gcard:hover,html[data-country=au] textarea:focus,html[data-country=au] .addrow input:focus{border-color:#02615D}
+html[data-country=au] .facts,html[data-country=au] .rows{background:#EBDFD3;border-color:#EBDFD3}
+html[data-country=au] .plan li{border-bottom-color:#EBDFD3}
+html[data-country=au] .plan .x:hover{background:#F7F4EE}

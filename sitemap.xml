@@ -306,6 +306,7 @@
   <url><loc>https://ethicareresourcing.com/destinations/western-australia-australia/welcome</loc><lastmod>2026-08-04</lastmod></url>
   <url><loc>https://ethicareresourcing.com/destinations/western-australia-australia/why</loc><lastmod>2026-08-04</lastmod></url>
   <url><loc>https://ethicareresourcing.com/employers</loc><lastmod>2026-07-20</lastmod></url>
+  <!-- Not listed until signed off (Gold Standard Decision 3, 15 Sep 2026): the eight board registration guides (/guides/*-registration-{mrtb,mcnz,asar,mrpba,nzpb,pbnz,otbnz,mscnz}), both finding-a-role guides and /jobs/psychologist-australia. They are noindex; a noindex URL in a sitemap contradicts itself. Add each back in the same change that removes its robots meta. -->
   <url><loc>https://ethicareresourcing.com/guides/about-australia</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://ethicareresourcing.com/guides/about-new-zealand</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://ethicareresourcing.com/guides/aotearoa-in-short</loc><lastmod>2026-08-04</lastmod></url>
@@ -327,7 +328,6 @@
   <url><loc>https://ethicareresourcing.com/guides/before-you-leave</loc><lastmod>2026-08-04</lastmod></url>
   <url><loc>https://ethicareresourcing.com/guides/cost-of-relocating</loc><lastmod>2026-07-29</lastmod></url>
   <url><loc>https://ethicareresourcing.com/guides/driving-and-licences</loc><lastmod>2026-08-04</lastmod></url>
-  <url><loc>https://ethicareresourcing.com/guides/gp-australia-vs-new-zealand</loc><lastmod>2026-07-29</lastmod></url>
   <url><loc>https://ethicareresourcing.com/guides/living-in-australia</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://ethicareresourcing.com/guides/living-in-new-zealand</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://ethicareresourcing.com/guides/money-tax-and-banking</loc><lastmod>2026-08-04</lastmod></url>
@@ -350,9 +350,7 @@
   <url><loc>https://ethicareresourcing.com/guides/new-zealand-salary</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://ethicareresourcing.com/guides/new-zealand-visa</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://ethicareresourcing.com/guides/nz/bringing-pets-and-belongings</loc><lastmod>2026-08-03</lastmod></url>
-  <url><loc>https://ethicareresourcing.com/guides/radiologist-australia-vs-new-zealand</loc><lastmod>2026-07-29</lastmod></url>
   <url><loc>https://ethicareresourcing.com/guides/renting-in-new-zealand</loc><lastmod>2026-08-04</lastmod></url>
-  <url><loc>https://ethicareresourcing.com/guides/sonographer-australia-vs-new-zealand</loc><lastmod>2026-07-29</lastmod></url>
   <url><loc>https://ethicareresourcing.com/guides/te-ao-maori-at-work</loc><lastmod>2026-08-04</lastmod></url>
   <url><loc>https://ethicareresourcing.com/insights</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://ethicareresourcing.com/insights/case-studies</loc><lastmod>2026-07-20</lastmod></url>
@@ -397,11 +395,7 @@
   <url><loc>https://ethicareresourcing.com/jobs/occupational-therapist-new-zealand</loc><lastmod>2026-08-20</lastmod></url>
   <url><loc>https://ethicareresourcing.com/jobs/physiotherapist-new-zealand</loc><lastmod>2026-08-20</lastmod></url>
   <url><loc>https://ethicareresourcing.com/jobs/nursing-midwifery-new-zealand</loc><lastmod>2026-08-29</lastmod></url>
-  <url><loc>https://ethicareresourcing.com/jobs/nursing-midwifery-australia</loc><lastmod>2026-08-29</lastmod></url>
-  <url><loc>https://ethicareresourcing.com/jobs/allied-health-australia</loc><lastmod>2026-08-29</lastmod></url>
-  <url><loc>https://ethicareresourcing.com/jobs/mental-health-australia</loc><lastmod>2026-08-29</lastmod></url>
-  <url><loc>https://ethicareresourcing.com/jobs/medicine-australia</loc><lastmod>2026-08-29</lastmod></url>
-  <url><loc>https://ethicareresourcing.com/jobs/theatre-perioperative-australia</loc><lastmod>2026-08-29</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/jobs/coming-to-australia</loc><lastmod>2026-09-09</lastmod></url>
   <url><loc>https://ethicareresourcing.com/jobs/professions</loc><lastmod>2026-08-23</lastmod></url>
   <url><loc>https://ethicareresourcing.com/jobs/psychologist-new-zealand</loc><lastmod>2026-08-20</lastmod></url>
   <url><loc>https://ethicareresourcing.com/jobs/radiation-therapist-australia</loc><lastmod>2026-08-20</lastmod></url>
@@ -460,4 +454,45 @@
 <url><loc>https://ethicareresourcing.com/destinations/bunbury-australia/food</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
 <url><loc>https://ethicareresourcing.com/destinations/bunbury-australia/weekends</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
 <url><loc>https://ethicareresourcing.com/webinar-medical-imaging-australia</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ethicareresourcing.com/move</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/before-you-accept</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/can-i-work-here</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/is-it-worth-it</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/where-would-we-live</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/settling-in</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/guides/australia-driving</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/guides/australia-money</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/guides/australia-renting</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/guides/moving-with-teenagers</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/insights/manchester-to-the-sunshine-coast</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/bundaberg-australia/welcome</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/bundaberg-australia/why</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/bundaberg-australia/glance</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/bundaberg-australia/healthcare</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/bundaberg-australia/suburbs</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/bundaberg-australia/transport</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/bundaberg-australia/cost</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/bundaberg-australia/food</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/bundaberg-australia/weekends</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/geelong-australia/welcome</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/geelong-australia/why</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/geelong-australia/glance</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/geelong-australia/healthcare</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/geelong-australia/suburbs</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/geelong-australia/transport</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/geelong-australia/cost</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/geelong-australia/food</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/geelong-australia/weekends</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/clinical-standard</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/guides/why-people-move</loc><lastmod>2026-09-09</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/welcome</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/why</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/glance</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/healthcare</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/suburbs</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/transport</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/cost</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/food</loc><lastmod>2026-09-19</lastmod></url>
+  <url><loc>https://ethicareresourcing.com/destinations/mandurah-australia/weekends</loc><lastmod>2026-09-19</lastmod></url>
 </urlset>

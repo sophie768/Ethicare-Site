@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthcare careers in New Zealand &amp; Australia | Ethicare</title>
+<meta name="description" content="Tell us where you are in your move and we'll show you what you need — registration, pay, where to live, jobs and the move itself. Free to use, whether or not we place you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+/* ===== Router-led front door — the 70% cut. Four sections: promise+router, ask, proof, employers.
+   Reuses site.css header/footer/eyebrow/tokens. Homepage = lime eyebrow rule. ===== */
+h1,h2,h3{font-family:'Work Sans',sans-serif}
+.skip-link{position:absolute;left:-9999px;top:0;background:#02615D;color:#fff;padding:12px 18px;z-index:99;border-radius:0 0 8px 0}
+.skip-link:focus{left:0;top:0}
+.wrapx{max-width:1180px;margin:0 auto;padding:0 clamp(22px,5vw,64px)}
+.ed{padding:clamp(56px,8vh,104px) 0}
+.ed-tight{padding:clamp(44px,6vh,84px) 0}
+.disp{font-family:'Work Sans',sans-serif;font-weight:300;letter-spacing:-.035em;line-height:1.03;color:#02615D;text-wrap:balance;margin:0}
+.body-n{font-size:clamp(16.5px,1.4vw,18px);line-height:1.7;color:#555;max-width:600px;text-wrap:pretty;margin:0}
+.txtlink{display:inline-flex;align-items:center;gap:9px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;color:#02615D;border-bottom:2px solid #A6C84A;padding-bottom:3px;transition:gap .18s ease,border-color .18s ease}
+.txtlink:hover{gap:14px;border-color:#02615D}
+.txtlink i{font-style:normal;transition:transform .18s ease}.txtlink:hover i{transform:translateX(3px)}
+
+/* hero — tier-1 immersive overlay (allowed on homepage). Shorter than before so the router shows sooner. */
+.hero{position:relative;min-height:min(66svh,620px);display:flex;align-items:center;overflow:hidden;background:#02615D}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 26%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,49,47,.17),rgba(1,49,47,.21) 40%,rgba(1,49,47,.34)),linear-gradient(100deg,rgba(1,49,47,.65) 0%,rgba(1,49,47,.30) 44%,rgba(1,49,47,.08) 100%)}
+.hero .wrapx{position:relative;z-index:1;width:100%;padding-top:clamp(84px,10vh,120px);padding-bottom:clamp(40px,6vh,72px)}
+.hero .eyebrow{color:#C6E084}
+.hero h1{color:#fff;font-family:'Work Sans',sans-serif;font-weight:300;letter-spacing:-.035em;line-height:1.04;font-size:clamp(34px,6vw,74px);margin:0;max-width:16ch}
+.hero .sub{font-size:clamp(16.5px,1.6vw,19px);line-height:1.55;color:rgba(255,255,255,.9);max-width:540px;margin:22px 0 26px;text-wrap:pretty}
+.hero-links{display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center}
+.hero .txtlink{color:#fff;border-color:#C6E084}.hero .txtlink:hover{border-color:#fff}
+.hero-emp{font-family:'Work Sans',sans-serif;font-weight:600;font-size:14.5px;color:#fff;border-bottom:1px solid rgba(255,255,255,.65);padding-bottom:2px}
+.hero-emp:hover{color:#fff;border-color:#fff}
+
+/* the router — the centrepiece */
+.router{background:#E6F1ED}
+.router-head{max-width:760px;margin-bottom:clamp(26px,3.4vw,44px)}
+.router-head h2{font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(28px,4vw,50px);letter-spacing:-.03em;line-height:1.05;color:#02615D;margin:14px 0 14px;text-wrap:balance}
+.router-head p{font-size:clamp(16px,1.4vw,18px);line-height:1.6;color:#555;max-width:60ch;margin:0;text-wrap:pretty}
+.qlist{display:grid;gap:0;border-top:1px solid var(--rule-tint,rgba(2,97,93,.28))}
+.qrow{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) auto;align-items:center;gap:12px clamp(20px,3vw,48px);padding:clamp(20px,2.6vw,30px) clamp(14px,2vw,22px);border-bottom:1px solid var(--rule-tint,rgba(2,97,93,.28));text-decoration:none;border-radius:14px;transition:background .16s ease,transform .16s ease}
+.qrow:hover{background:#FCFBF8;transform:translateX(4px)}
+.qrow:focus-visible{outline:3px solid #02615D;outline-offset:-3px}
+.qq{font-family:'Work Sans',sans-serif;font-weight:400;font-size:clamp(22px,2.8vw,34px);letter-spacing:-.02em;line-height:1.08;color:#02615D}
+.qp{font-size:15.5px;line-height:1.5;color:#555;text-wrap:pretty}
+.qgo{font-family:'Work Sans',sans-serif;font-weight:600;font-size:22px;color:#2F5E49;justify-self:end;transition:transform .18s ease}
+.qrow:hover .qgo{transform:translateX(5px);color:#02615D}
+@media(max-width:720px){.qrow{grid-template-columns:1fr auto;gap:6px 16px}.qp{grid-column:1/-1}.qgo{grid-row:1;align-self:start}}
+.router-foot{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 26px;margin-top:clamp(26px,3vw,40px)}
+.router-foot .rk{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D}
+.router-foot a:not(.txtlink){font-size:15px;color:#555;border-bottom:1px solid rgba(2,97,93,.3);padding-bottom:1px}
+.router-foot a:not(.txtlink):hover{color:#02615D;border-color:#02615D}
+
+/* proof — compressed to one strip */
+.proof-lead{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(23px,3.2vw,40px);line-height:1.3;color:#02615D;max-width:20ch;margin:16px 0 0}
+.proof-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:center;margin-top:clamp(28px,3.4vw,44px)}
+@media(max-width:760px){.proof-grid{grid-template-columns:1fr;gap:26px}}
+.proof-q blockquote{margin:0;font-size:clamp(17px,1.6vw,19px);line-height:1.62;color:#333;text-wrap:pretty}
+.proof-q .who{display:block;margin-top:14px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13.5px;color:#2F5E49}
+.proof-q .rate{margin-top:18px;font-size:13.5px;color:#555}
+.founder{display:flex;align-items:center;gap:20px;background:#fff;border:1px solid var(--mint);border-radius:18px;padding:clamp(20px,2.6vw,28px)}
+.founder .fph{width:clamp(72px,8vw,92px);height:clamp(72px,8vw,92px);border-radius:50%;overflow:hidden;flex:none}
+.founder .fph img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.founder .fe{display:block;font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-bottom:7px}
+.founder p{font-size:15px;line-height:1.55;color:#333;margin:0;text-wrap:pretty}
+.founder p a{font-weight:600;color:#02615D;border-bottom:2px solid #A6C84A;padding-bottom:1px}
+
+/* employers — the one dark break, compact */
+.emp{background:#013B39}
+.emp .wrapx{padding-top:clamp(50px,7vh,86px);padding-bottom:clamp(50px,7vh,86px)}
+.emp .eyebrow{color:#C6E084}
+.emp h2{color:#fff;font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(28px,4vw,50px);letter-spacing:-.03em;line-height:1.05;margin:14px 0 18px;max-width:20ch}
+.emp p{color:rgba(255,255,255,.88);font-size:clamp(16.5px,1.4vw,18.5px);line-height:1.65;max-width:640px;margin:0}
+.emp .txtlink{color:#fff;border-color:#C6E084;margin-top:24px}.emp .txtlink:hover{border-color:#fff}
+
+/* Ask Ethicare — markup + data-attrs preserved for ask-ethicare.js */
+.aske .eyebrow{margin-bottom:14px}
+.aske h2{font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(28px,4vw,50px);letter-spacing:-.03em;line-height:1.05;color:#02615D;margin:0 0 14px}
+.aske-sub{font-size:clamp(16.5px,1.5vw,19px);line-height:1.6;color:#555;max-width:600px;margin:0 0 26px}
+.aske-head{margin-bottom:clamp(18px,2.2vw,28px)}
+.aske .inr{max-width:720px}
+.aske-box{display:flex;gap:10px;align-items:stretch;background:#fff;border:1px solid #C9DED3;border-radius:8px;padding:10px}
+.aske-box:focus-within{border-color:#02615D;box-shadow:0 0 0 3px rgba(2,97,93,.1)}
+.aske-box textarea{flex:1;min-width:0;border:none;outline:none;resize:none;background:none;font-family:'Manrope',sans-serif;font-size:17px;line-height:1.5;color:#333;padding:10px 8px 10px 12px;min-height:52px}
+.aske-box textarea::placeholder{color:#8A9691}
+.aske-go{align-self:flex-end;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;min-height:52px;padding:14px 24px;border:none;border-radius:6px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;cursor:pointer;transition:background .15s ease}
+.aske-go:hover{background:#014E4B}
+.aske-go:disabled{opacity:.55;cursor:wait}
+.aske-go:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 2px #FCFBF8}
+.aske-chips{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:16px}
+.aske-chips button{background:none;border:none;padding:6px 0;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#02615D;border-bottom:2px solid transparent;cursor:pointer}
+.aske-chips button:hover{border-color:#A6C84A}
+.aske-priv{margin:16px 0 0;font-size:13px;line-height:1.5;color:#555;max-width:72ch}
+.aske-thread{margin-top:clamp(22px,2.6vw,32px);display:grid;gap:18px}
+.aske-turn{border-top:1px solid rgba(2,97,93,.22);padding-top:18px}
+.aske-you{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(18px,2vw,22px);line-height:1.35;color:#02615D;margin:0 0 14px;max-width:60ch}
+.aske-you span{display:block;font-family:'Work Sans',sans-serif;font-style:normal;font-weight:700;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:#2F5E49;margin-bottom:6px}
+.aske-ans{background:#fff;border:1px solid #C9DED3;border-radius:8px;padding:clamp(20px,2.4vw,28px)}
+.aske-ans p{font-size:16px;line-height:1.66;color:#333;margin:0 0 12px;max-width:66ch}
+.aske-ans p:last-child{margin-bottom:0}
+.aske-ans ul{margin:0 0 12px 18px}
+.aske-ans li{font-size:16px;line-height:1.6;margin-bottom:6px;max-width:62ch}
+.aske-ans strong{font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D}
+.aske-wait{color:#555;font-style:italic}
+.aske-acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:16px}
+.aske-act{display:flex;flex-direction:column;gap:4px;background:#EAF1EC;border-radius:8px;padding:14px 16px;text-decoration:none}
+.aske-act .at{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D}
+.aske-act .ad{font-size:13px;line-height:1.45;color:#2F5E49}
+.aske-act .ag{font-family:'Work Sans',sans-serif;font-size:16px;color:#2F5E49;margin-top:2px}
+.aske-handoff{margin-top:16px;padding:16px 18px;background:#F7F4EE;border-left:3px solid #A34438;border-radius:0 8px 8px 0}
+.aske-handoff p{font-size:15px;margin:0 0 8px}
+.aske-handoff a{font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D;text-decoration:underline;text-underline-offset:3px}
+.aske-fb{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:16px;padding-top:14px;border-top:1px solid #E6F1ED;font-size:13.5px;color:#555}
+.aske-fb button{min-height:40px;padding:6px 14px;background:none;border:1px solid #C9DED3;border-radius:999px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;color:#02615D;cursor:pointer}
+.aske-fb button:hover{border-color:#72A471}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media(max-width:640px){.aske-box{flex-direction:column}.aske-go{align-self:stretch;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.hero>img,.qrow{transition:none}.qrow:hover{transform:none}}
+</style>
+<link rel="canonical" href="https://ethicareresourcing.com/">
+<link rel="icon" href="/assets/logo-mark.png">
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}</style>
+<link rel="stylesheet" href="essential.css">
+<link rel="stylesheet" href="prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<template id="__bundler_thumbnail" data-bg-color="#02615D">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#02615D"/><rect x="500" y="300" width="200" height="200" rx="44" fill="#72A471"/><text x="600" y="472" font-family="'Work Sans',sans-serif" font-size="150" font-weight="700" fill="#02615D" text-anchor="middle">er</text></svg>
+</template>
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav"><a href="/australia">Working in Australia</a><a href="/australia#professions">Find your profession</a><a href="/australia#destinations">Explore destinations</a></div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav"><a href="/new-zealand">Working in New Zealand</a><a href="/new-zealand#professions">Find your profession</a><a href="/new-zealand#destinations">Explore destinations</a></div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav"><a href="/move">Your plan</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a></div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav"><a href="/about-ethicare">About Ethicare</a><a href="/clinical-standard">Our clinical standard</a><a href="/insights">Insights</a></div>
+      </div>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content" tabindex="-1">
+
+<section class="hero" data-screen-label="Home &middot; hero">
+  <img decoding="async" fetchpriority="high" src="assets/photo-hero-nurse.jpg" alt="A healthcare professional arriving for a shift at a hospital" width="2400" height="1500">
+  <div class="wrapx">
+    <span class="eyebrow">Australia &amp; New Zealand</span>
+    <h1>Tell us where you are. We&rsquo;ll show you what you need.</h1>
+    <p class="sub">Independent tools, honest guidance and specialist healthcare recruitment &mdash; free to use, whether or not your job comes from us.</p>
+    <div class="hero-links">
+      <a class="txtlink" href="/new-zealand">Explore New Zealand <i aria-hidden="true">&rarr;</i></a>
+      <a class="txtlink" href="/australia">Explore Australia <i aria-hidden="true">&rarr;</i></a>
+      <a class="hero-emp" href="/employers">Recruiting internationally? For employers &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="router ed" id="start" data-screen-label="Home &middot; the router">
+  <div class="wrapx">
+    <div class="router-head">
+      <span class="eyebrow">Start with your question</span>
+      <h2>What do you need to work out?</h2>
+      <p>You don&rsquo;t have to start at the beginning. Pick the question that&rsquo;s yours right now &mdash; we&rsquo;ll take you straight to a plain-English answer and the tools behind it. Everything else stays one click away in the menu.</p>
+    </div>
+    <div class="qlist">
+      <a class="qrow" href="/can-i-work-here"><span class="qq">Can I work there?</span><span class="qp">Your likely registration route, the board that decides it, and whether you&rsquo;re eligible.</span><span class="qgo" aria-hidden="true">&rarr;</span></a>
+      <a class="qrow" href="/is-it-worth-it"><span class="qq">Is it worth it?</span><span class="qp">What you could earn, what the move and daily life cost, and the honest trade-offs.</span><span class="qgo" aria-hidden="true">&rarr;</span></a>
+      <a class="qrow" href="/where-would-we-live"><span class="qq">Where would we live?</span><span class="qp">Regions and cities compared &mdash; hospitals, housing, schools and everyday family life.</span><span class="qgo" aria-hidden="true">&rarr;</span></a>
+      <a class="qrow" href="/jobs/"><span class="qq">What roles are out there?</span><span class="qp">Live vacancies and the professions we recruit into &mdash; and what to do when nothing fits yet.</span><span class="qgo" aria-hidden="true">&rarr;</span></a>
+      <a class="qrow" href="/move"><span class="qq">How do we actually move?</span><span class="qp">One plan for registration, the visa, the money, the move and your first month.</span><span class="qgo" aria-hidden="true">&rarr;</span></a>
+    </div>
+    <div class="router-foot">
+      <span class="rk">Not sure yet?</span>
+      <a href="/guides/why-people-move">Why people move</a>
+      <a href="/guides/australia-vs-new-zealand">Australia or New Zealand?</a>
+      <a href="/settling-in">Already have an offer? Settling in</a>
+    </div>
+  </div>
+</section>
+
+<section class="aske ed-tight" id="ask" data-screen-label="Home &middot; Ask Ethicare">
+  <div class="wrapx">
+    <div class="aske-head">
+      <span class="eyebrow">Or ask in your own words</span>
+      <h2>Ask us anything about this move</h2>
+      <p class="aske-sub">Registration, visas, pay, schools, shipping, what to do first &mdash; a straight answer, drawn from our own guides and the official sources behind them, with the source shown.</p>
+    </div>
+    <div class="inr">
+      <form class="aske-box" data-aske-form>
+        <label class="sr-only" for="aske-in">Ask anything about working or moving to Australia or New Zealand</label>
+        <textarea id="aske-in" rows="2" maxlength="1200" placeholder="Can I work in New Zealand as a UK radiographer?"></textarea>
+        <button type="submit" class="aske-go">Ask Ethicare <span aria-hidden="true">&rarr;</span></button>
+      </form>
+      <div class="aske-chips" data-aske-chips>
+        <button type="button">Can I register?</button>
+        <button type="button" data-q="What could I earn in my profession?">What could I earn?</button>
+        <button type="button" data-q="Where should we live?">Where should we live?</button>
+        <button type="button" data-q="Should we choose New Zealand or Australia?">NZ or Australia?</button>
+        <button type="button" data-q="How much will the move cost?">How much will moving cost?</button>
+      </div>
+      <p class="aske-priv">AI-assisted, checked against official sources &mdash; regulators and immigration authorities make the final decisions. Please don&rsquo;t include passport, financial or other sensitive personal information.</p>
+      <div class="aske-thread" data-aske-thread hidden aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="ed" data-screen-label="Home &middot; proof">
+  <div class="wrapx">
+    <span class="eyebrow">They were where you are now</span>
+    <p class="proof-lead">Most arrived never having set foot in either country.</p>
+    <div class="proof-grid">
+      <div class="proof-q">
+        <blockquote>Sophie was always responsive, honest, and genuinely cared about helping us succeed. Thanks to her dedication, both my wife and I secured positions &mdash; giving us the chance to build our careers together and reunite our family.</blockquote>
+        <span class="who">Amal Job &middot; Anaesthetic Technician, Health New Zealand</span>
+        <p class="rate">5.0 on Google. Adapted from written recommendations, shared with permission. <a class="txtlink" href="/contact" style="font-size:14.5px">Talk to someone who&rsquo;s made the move <i aria-hidden="true">&rarr;</i></a></p>
+      </div>
+      <div class="founder">
+        <div class="fph"><img loading="lazy" decoding="async" src="assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing" width="1254" height="1254"></div>
+        <div>
+          <span class="fe">Who we are</span>
+          <p>Founded by Sophie Careem, a former NHS transformation manager, with clinical oversight from senior NHS consultants. Never a fee to a candidate. <a href="/about-ethicare">Our story and the board &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="emp" data-screen-label="Home &middot; employers">
+  <div class="wrapx">
+    <span class="eyebrow">For employers</span>
+    <h2>Recruiting internationally?</h2>
+    <p>Finding the right professional is only the beginning. Ethicare brings recruitment and mobilisation together &mdash; registration, immigration, relocation and those first months &mdash; so the people you bring halfway around the world actually arrive, and stay.</p>
+    <a class="txtlink" href="/employers">Explore Ethicare for employers <i aria-hidden="true">&rarr;</i></a>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves. Most of what we&rsquo;ve built is free to use, whether we place you or not.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/move">Ethicare Move</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="ask-ethicare-knowledge.js"></script>
+<script src="ask-ethicare.js" defer></script>
+<script src="candidate-context.js"></script>
+<script src="site.js"></script>
+<script src="nav.js" defer></script>
+<script src="essential.js" defer></script>
+
+<!-- INTERNAL LINK MAP — / (router-led homepage, cut version 16 Sep 2026)
+  HEADER NAV — Brand/Home → / · Australia ▾ (/australia · /australia#professions · /australia#destinations) · New Zealand ▾ (/new-zealand · /new-zealand#professions · /new-zealand#destinations) · Jobs ▾ (mega: NZ + AU family hubs /jobs/* · /jobs/ · /jobs/professions · /pathway-checker) · Move ▾ (/move · /resources · /pathway-checker) · About ▾ (/about-ethicare · /clinical-standard · /insights) · For Employers → /employers · Contact → /contact
+  Structure: hero (promise) → the router (five questions) → Ask Ethicare → proof + founder → employers. The 70% cut: removed the second "where are you in your move" states block, the verb row, "Beyond the relocation pitch", the long "What Ethicare is" prose, the two country doors (folded into hero links + router foot), and the three-quote proof + big photo (compressed to one quote + founder line).
+  HERO — Explore New Zealand → /new-zealand · Explore Australia → /australia · For employers → /employers
+  THE ROUTER (#start) — Can I work there? → /can-i-work-here · Is it worth it? → /is-it-worth-it · Where would we live? → /where-would-we-live · What roles are out there? → /jobs/ · How do we actually move? → /move · foot: Why people move → /guides/why-people-move · Australia or New Zealand? → /guides/australia-vs-new-zealand · Settling in → /settling-in
+  ASK ETHICARE (#ask) — conversational; answers link resources from ask-ethicare-knowledge.js; fallback → /pathway-checker · /resources · /contact
+  PROOF — Talk to someone who's made the move → /contact · Our story and the board → /about-ethicare
+  EMPLOYERS — Explore Ethicare for employers → /employers
+  FOOTER (site-wide) — Destinations: /new-zealand · /australia · /destinations/ · /destinations/australia | Candidates: /jobs/ · /jobs/professions · /resources · /pathway-checker · /move · /apply | Company: /about-ethicare · /employers · /submit-a-vacancy · /contact | Legal: /privacy-policy · /how-we-use-your-information · /equality-diversity-and-inclusion · /modern-slavery-statement
+-->
+<!-- SEO
+  Page Title: Healthcare careers in New Zealand & Australia | Ethicare
+  URL Slug: /
+  SEO Title: Healthcare Careers in New Zealand & Australia | Ethicare Resourcing
+  Meta Description: Tell us where you are in your move and we'll show you what you need — registration, pay, where to live, jobs and the move itself. Free to use, whether or not we place you.
+-->
+</body>
+</html>

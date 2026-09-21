@@ -8,7 +8,7 @@
 <meta name="description" content="Every Ethicare guide for moving to New Zealand or Australia — registration, visas, CVs, costs, schools and settling in. Free to read online or take away as a PDF.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <style>
 h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
@@ -17,7 +17,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
    padding:clamp(48px,7vw,96px) 24px — 130px of vertical air that belongs on a section, not
    on a sticky bar, and which took this one to 281px (66% of a laptop viewport, header
    included). Kill the vertical padding, keep the horizontal. Country + search share a row;
-   the step chips take the second as ONE scrolling row — at seven chips they wrapped to two
+   the stage chips take the second as ONE scrolling row — at seven chips they wrapped to two
    rows below ~960px and the bar grew back by 40px. Background is SOLID: the old
    rgba(255,255,255,.92) let cards scroll through it as faint ghosts, which read as broken
    rather than as glass. top is 79px because the header measures 78.7px — 78 leaves a
@@ -98,13 +98,13 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .hero{position:relative;background:var(--teal);overflow:hidden;display:flex;align-items:center;min-height:clamp(320px,43vw,428px)}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 46%}
-.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(1,53,51,.94) 0%,rgba(1,53,51,.78) 42%,rgba(1,53,51,.4) 74%,rgba(1,53,51,.12) 100%)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(1,53,51,.80) 0%,rgba(1,53,51,.39) 42%,rgba(1,53,51,.20) 74%,rgba(1,53,51,.06) 100%)}
 .hero .hero-wrap{position:relative;z-index:1;width:100%;padding-top:clamp(40px,6vw,66px);padding-bottom:clamp(40px,6vw,66px)}
 .hero .eyebrow{color:#fff}
 .hero .eyebrow::before{background:#A6C84A}
 .hero h1{color:#fff;margin-bottom:16px}
 .hero .hero-sub{font-size:clamp(16.5px,2vw,19px);line-height:1.6;color:rgba(255,255,255,.9);max-width:50ch;margin:0}
-@media (max-width:640px){.hero{min-height:290px}.hero .bg::after{background:linear-gradient(158deg,rgba(1,53,51,.7) 0%,rgba(1,53,51,.9) 100%)}}
+@media (max-width:640px){.hero{min-height:290px}.hero .bg::after{background:linear-gradient(158deg,rgba(1,53,51,.35) 0%,rgba(1,53,51,.77) 100%)}}
 /* ---- start here on-ramp ---- */
 
 
@@ -166,12 +166,12 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <style id="journey-spine">
 .sectlabel{position:relative;display:flex;align-items:center;gap:0;font-family:var(--display);font-weight:600;font-size:clamp(19px,2.2vw,24px);letter-spacing:-.015em;text-transform:none;color:var(--teal);margin:0 0 0 27px;padding:clamp(48px,5.6vw,72px) 0 10px 57px;min-height:56px;border-left:1px solid var(--rule-tint)}
 .sectlabel::before{display:none}
-.sectlabel#step-01{padding-top:10px;border-left-color:transparent}
-.sectlabel#step-01::after{content:"";position:absolute;left:-1px;top:50%;bottom:0;width:1px;background:var(--rule-tint)}
-.sectlabel#step-01 .sn{padding-top:0}
+.sectlabel#stage-01{padding-top:10px;border-left-color:transparent}
+.sectlabel#stage-01::after{content:"";position:absolute;left:-1px;top:50%;bottom:0;width:1px;background:var(--rule-tint)}
+.sectlabel#stage-01 .sn{padding-top:0}
 .sectlabel .sn{position:absolute;z-index:1;left:-27px;top:50%;transform:translateY(-50%);width:54px;text-align:center;font-family:var(--display);font-weight:300;font-size:clamp(30px,3.6vw,44px);line-height:1;letter-spacing:-.03em;color:#2F5E49;background:var(--warm);padding:10px 0}
 .catgroup{margin-top:0;margin-left:27px;padding:0 0 clamp(14px,1.6vw,22px) 57px;border-left:1px solid var(--rule-tint)}
-.catgroup[data-group="settling"]{border-left-color:transparent}
+.catgroup[data-group="settle"]{border-left-color:transparent}
 .cathead{border-bottom:0;padding-bottom:0;margin-bottom:22px;display:block}
 .cathead h2{display:block;font-size:var(--t-h3);margin:0 0 8px}
 .cathead .ct{display:block;max-width:62ch;line-height:var(--lh-body)}
@@ -179,9 +179,11 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .lib-filtered .stepnext{display:none}
 .stepnext a{font-family:var(--display);font-weight:600;color:var(--teal);border-bottom:2px solid #72A471}
 .stepnext a:hover{border-bottom-color:var(--teal)}
-/* Which stage of the move each step belongs to. The library is open from the
-   start — nothing here is gated — but the sequencing is real, and saying it out
-   loud stops six equal-looking steps reading as a flat shelf of guides. */
+/* When in the move each stage tends to matter. The library is open from the
+   start — nothing here is gated, and the eight stages are a map, not a funnel —
+   but an offer really does set the pace from stage 07, and saying so stops eight
+   equal-looking stages reading as a flat shelf of guides. Regrouped from the six
+   steps to the eight agreed stages on 8 Sep 2026. */
 .stg{flex:none;margin-left:14px;font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.01em;text-transform:none;color:#2F5E49;background:var(--warm);border:1px solid var(--rule-tint);border-radius:999px;padding:5px 12px;white-space:nowrap}
 .stagenote{position:relative;margin:0 0 0 27px;padding:clamp(40px,4.6vw,60px) 0 0 57px;border-left:1px solid var(--rule-tint)}
 .stagenote .sni{background:var(--soft);border:1px solid var(--mint);border-radius:var(--r-lg);padding:clamp(22px,2.8vw,30px);max-width:62ch}
@@ -205,7 +207,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -222,17 +224,19 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move" aria-current="page">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
@@ -246,15 +250,15 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <style id="hero-guides-css">.hero-guides .ctry{transition:transform .18s ease}.hero-guides .ctry:hover{transform:translateY(-2px)}.hero-guides .ctry .go svg{transition:transform .18s ease}.hero-guides .ctry:hover .go svg{transform:translateX(3px)}</style>
 <header class="hero-guides" style="background:var(--warm,#FCFBF8);font-family:var(--body),'Manrope',system-ui,sans-serif;color:#02615D">
   <div style="max-width:1180px;margin:0 auto;padding:clamp(38px,4.4vw,58px) 22px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(28px,3.6vw,56px);align-items:center">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(28px,3.6vw,56px);align-items:center">
       <div>
         <div style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:var(--t-eyebrow);letter-spacing:.16em;text-transform:uppercase;color:#2F5E49;margin-bottom:20px">Guides &amp; resources</div>
         <h1 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:var(--t-h1);line-height:1.04;letter-spacing:var(--ls-display);color:#02615D;margin:0 0 24px;text-wrap:balance">Every guide, in one place</h1>
         <p style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:var(--t-lead);line-height:1.5;color:#333333;margin:0;max-width:48ch">Registration, visas, the CV, the costs, the schools and the first few weeks, brought together in one place. Choose your country to begin.</p>
-        <p style="font-family:var(--body),Manrope,system-ui,sans-serif;font-style:normal;font-size:14.5px;line-height:1.6;color:#2F5E49;margin:14px 0 0;max-width:52ch">Free to read online, and the longer ones can be downloaded as a PDF. Useful stuff. No sales pitch.</p>
+        <p style="font-family:var(--body),Manrope,system-ui,sans-serif;font-style:normal;font-size:14.5px;line-height:1.6;color:#2F5E49;margin:14px 0 0;max-width:52ch">Free to read online, and the longer ones can be downloaded as a PDF.</p>
         <div style="width:48px;height:3px;border-radius:2px;background:#A6C84A;margin:30px 0 0"></div>
       </div>
-      <div style="display:flex;justify-content:center;align-items:center"><img loading="lazy" decoding="async" src="assets/oceania-map-teal.png" alt="Map of New Zealand and Australia, the two countries Ethicare recruits into" style="width:100%;max-width:300px;max-height:260px;height:auto;object-fit:contain;display:block"></div>
+      <div style="display:flex;justify-content:center;align-items:center"><img loading="lazy" decoding="async" src="assets/oceania-map-teal.png" alt="Map of New Zealand and Australia, the two countries Ethicare recruits into" style="width:100%;max-width:300px;max-height:260px;height:auto;object-fit:contain;display:block" width="900" height="900"></div>
     </div>
   </div>
 </header>
@@ -297,12 +301,14 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
     </div>
     <div class="lib-chips" id="libChips">
       <button class="lib-chip on" data-cat="all">All</button>
-      <button class="lib-chip" data-cat="deciding">01 Deciding</button>
-      <button class="lib-chip" data-cat="registration">02 Registration &amp; pay</button>
-      <button class="lib-chip" data-cat="cv">03 CV &amp; interviews</button>
-      <button class="lib-chip" data-cat="visas">04 Visas</button>
-      <button class="lib-chip" data-cat="preparing">05 Preparing to move</button>
-      <button class="lib-chip" data-cat="settling">06 Settling in</button>
+      <button class="lib-chip" data-cat="imagine">01 Imagine</button>
+      <button class="lib-chip" data-cat="choose">02 Choose</button>
+      <button class="lib-chip" data-cat="place">03 Find your place</button>
+      <button class="lib-chip" data-cat="work">04 Can I work there?</button>
+      <button class="lib-chip" data-cat="numbers">05 The numbers</button>
+      <button class="lib-chip" data-cat="role">06 The right role</button>
+      <button class="lib-chip" data-cat="move">07 Plan your move</button>
+      <button class="lib-chip" data-cat="settle">08 Settle in</button>
     </div>
   </div>
 </div>
@@ -312,42 +318,106 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 
     <p class="lib-empty" id="libEmpty">Nothing matches that yet. Try a different word or filter, or <a href="/contact">ask us directly</a>. We&rsquo;re happy to point you to the right place.</p>
 
-    <!-- ============ 01 DECIDING ============ -->
-<p class="sectlabel" id="step-01"><span class="sn">01</span>Deciding<span class="stg">Before you apply</span></p>
-<div class="catgroup" data-group="deciding">
-  <div class="cathead"><h2>Is this actually right for us?</h2><span class="ct">The honest picture of each country, how they compare, and what the healthcare system is like before you commit to anything.</span></div>
+    <!-- ============ 01 IMAGINE THE POSSIBILITIES ============ -->
+<p class="sectlabel" id="stage-01"><span class="sn">01</span>Imagine the possibilities<span class="stg">Before you decide</span></p>
+<div class="catgroup" data-group="imagine">
+  <div class="cathead"><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:nowrap"><h2 style="margin:0;min-width:0">Where people start</h2><img src="assets/heroes/deciding.svg" alt="" aria-hidden="true" width="34" height="26" style="width:34px;height:auto;flex:none" loading="lazy"></div><span class="ct" style="display:block;margin-top:10px">Why people move, the honest picture of each country, how care works there, and what practising here asks of you.</span></div>
+    <div class="cc-block" data-cc="all"><p class="cc-label cc-all">Both countries</p>
+      <div class="dl-grid">
+        <a class="lib-item lib-card" data-country="all" data-cat="imagine" data-text="stage 01 imagine the possibilities why people move what they love what they miss distance from home brochure could life look different start here" href="/guides/why-people-move">
+          <span class="k">Start here</span>
+          <h3>Could life look different?</h3>
+          <p>Why healthcare professionals move, what they say they love, what nobody puts in the brochure, and how being this far from home feels. Exploration, not a pitch.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
     <div class="cc-block" data-cc="nz"><p class="cc-label cc-nz">New Zealand</p>
       <div class="dl-grid">
-        <a class="lib-item dl-tile" data-country="nz" data-cat="deciding" data-text="step 1 is new zealand right for me family decide" href="/guides/moving-to-new-zealand">
+        <a class="lib-item dl-tile" data-country="nz" data-cat="imagine" data-text="stage 01 imagine the possibilities is new zealand right for me family decide" href="/guides/moving-to-new-zealand">
           <span class="ic num">01</span>
           <span class="tx"><span class="tt">Is New Zealand right for us?</span><span class="st">An honest look at the life and the trade-offs</span></span>
           <span class="ext">NZ</span>
         </a>
-        <a class="lib-item lib-card" data-country="nz" data-cat="deciding" data-text="about new zealand aotearoa culture te reo treaty history tikanga" href="/guides/about-new-zealand">
+        <a class="lib-item lib-card" data-country="nz" data-cat="imagine" data-text="about new zealand aotearoa culture te reo treaty history tikanga" href="/guides/about-new-zealand">
           <span class="k">Orientation</span>
           <h3>About New Zealand</h3>
           <p>A gentle introduction to Aotearoa: its history, Te Tiriti, tikanga and a few words of te reo.</p>
           <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="lib-item lib-card" data-country="nz" data-cat="deciding" data-text="healthcare system te whatu ora eligibility costs maternity how care works" href="/guides/new-zealand-healthcare">
+        <a class="lib-item lib-card" data-country="nz" data-cat="imagine" data-text="healthcare system te whatu ora eligibility costs maternity how care works" href="/guides/new-zealand-healthcare">
           <span class="k">The system</span>
           <h3>Healthcare in New Zealand</h3>
           <p>How care is organised, who is eligible, what everyday care costs and where to find support.</p>
           <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="lib-item lib-card" data-country="au" data-cat="deciding" data-text="practising practice culture cultural safety closing the gap aboriginal torres strait islander equity state enterprise agreement medicare ndis remote rural what feels different clinician orientation" href="/guides/australia-practice">
-          <span class="k">The practice</span>
-          <h3>Practising in Australia</h3>
-          <p>Who funds care, eight systems under one registration, cultural safety and Closing the Gap, remote practice, and what feels different for a clinician arriving from another system.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="lib-item lib-card" data-country="nz" data-cat="deciding" data-text="practising practice culture cultural safety te tiriti equity whanau centred multidisciplinary rural what feels different clinician orientation" href="/guides/new-zealand-practice">
+        <a class="lib-item lib-card" data-country="nz" data-cat="imagine" data-text="practising practice culture cultural safety te tiriti equity whanau centred multidisciplinary rural what feels different clinician orientation" href="/guides/new-zealand-practice">
           <span class="k">The practice</span>
           <h3>Practising in Aotearoa New Zealand</h3>
           <p>The priorities you would be expected to work to, culture and care, rural practice, and what feels different for a clinician arriving from another system.</p>
           <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="lib-item lib-card" data-country="nz" data-cat="deciding" data-text="destination guides regions explore where to live auckland wellington christchurch" href="/new-zealand#destinations">
+      </div>
+    </div>
+    <div class="cc-block" data-cc="au"><p class="cc-label cc-au">Australia</p>
+      <div class="dl-grid">
+        <a class="lib-item dl-tile" data-country="au" data-cat="imagine" data-text="stage 01 imagine the possibilities is australia right for me family decide moving to australia" href="/guides/moving-to-australia">
+          <span class="ic num">01</span>
+          <span class="tx"><span class="tt">Is Australia right for us?</span><span class="st">An honest look at the life and the trade-offs</span></span>
+          <span class="ext">AU</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="au" data-cat="imagine" data-text="regional australia life geelong bunbury toowoomba ballarat hobart commute lifestyle housing community beach country town" href="/guides/australia-regional-life">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Life in regional Australia</span><span class="st">What it&rsquo;s really like beyond the big cities</span></span>
+          <span class="ext">AU</span>
+        </a>
+        <a class="lib-item lib-card" data-country="au" data-cat="imagine" data-text="healthcare system medicare public hospital eligibility costs how care works australia" href="/guides/australia-healthcare">
+          <span class="k">The system</span>
+          <h3>Healthcare in Australia</h3>
+          <p>How Medicare and the public hospital system are organised, who&rsquo;s eligible, what everyday care costs and where to find support.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lib-item lib-card" data-country="au" data-cat="imagine" data-text="practising practice culture cultural safety closing the gap aboriginal torres strait islander equity state enterprise agreement medicare ndis remote rural what feels different clinician orientation" href="/guides/australia-practice">
+          <span class="k">The practice</span>
+          <h3>Practising in Australia</h3>
+          <p>Who funds care, eight systems under one registration, cultural safety and Closing the Gap, remote practice, and what feels different for a clinician arriving from another system.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  <p class="stepnext"><a href="#stage-02">Next &middot; 02 Choose your destination <span aria-hidden="true">&rarr;</span></a></p>
+</div>
+
+<!-- ============ 02 CHOOSE YOUR DESTINATION ============ -->
+<p class="sectlabel" id="stage-02"><span class="sn">02</span>Choose your destination<span class="stg">Before you decide</span></p>
+<div class="catgroup" data-group="choose">
+  <div class="cathead"><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:nowrap"><h2 style="margin:0;min-width:0">Australia or New Zealand?</h2><img src="assets/heroes/common-questions.svg" alt="" aria-hidden="true" width="34" height="26" style="width:34px;height:auto;flex:none" loading="lazy"></div><span class="ct" style="display:block;margin-top:10px">One comparison for the people genuinely weighing the two, and the money side of the same question. Profession-specific differences sit on each profession page.</span></div>
+    <div class="cc-block" data-cc="all"><p class="cc-label cc-all">Both countries</p>
+      <div class="dl-grid">
+        <a class="lib-item lib-card" data-country="all" data-cat="choose" data-text="stage 02 choose your destination australia vs new zealand compare comparison choose which country decide both systems registration visas pay lifestyle" href="/guides/australia-vs-new-zealand">
+          <span class="k">Decision guide</span>
+          <h3>Australia or New Zealand?</h3>
+          <p>An honest, side-by-side look at the health systems, registration, visas, pay and lifestyle, so you can decide which country fits you and your family.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lib-item lib-card" data-country="all" data-cat="choose" data-text="salary pay compare cost of living superannuation kiwisaver housing commute relocation where does salary go further australia new zealand" href="/guides/australia-vs-new-zealand-salary">
+          <span class="k">The money guide</span>
+          <h3>Where will your salary go further?</h3>
+          <p>Australia usually pays more, but a higher salary isn&rsquo;t more money. Super and KiwiSaver, housing, commuting, family costs and relocation support, weighed honestly.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  <p class="stepnext"><a href="#stage-03">Next &middot; 03 Find your place <span aria-hidden="true">&rarr;</span></a></p>
+</div>
+
+<!-- ============ 03 FIND YOUR PLACE ============ -->
+<p class="sectlabel" id="stage-03"><span class="sn">03</span>Find your place<span class="stg">Before you decide</span></p>
+<div class="catgroup" data-group="place">
+  <div class="cathead"><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:nowrap"><h2 style="margin:0;min-width:0">Where within the country would suit us?</h2><img src="assets/heroes/relocation-guides.svg" alt="" aria-hidden="true" width="34" height="26" style="width:34px;height:auto;flex:none" loading="lazy"></div><span class="ct" style="display:block;margin-top:10px">Cities, coast and regional life: help working out what fits you, then the destination guide for each place.</span></div>
+    <div class="cc-block" data-cc="nz"><p class="cc-label cc-nz">New Zealand</p>
+      <div class="dl-grid">
+        <a class="lib-item lib-card" data-country="nz" data-cat="place" data-text="destination guides regions explore where to live auckland wellington christchurch" href="/new-zealand#destinations">
           <span class="k">All regions</span>
           <h3>Explore the regions</h3>
           <p>Ten destination guides: what daily life, housing and costs look like, from the big cities to the quieter corners.</p>
@@ -357,23 +427,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
     </div>
     <div class="cc-block" data-cc="au"><p class="cc-label cc-au">Australia</p>
       <div class="dl-grid">
-        <a class="lib-item dl-tile" data-country="au" data-cat="deciding" data-text="step 1 is australia right for me family decide moving to australia" href="/guides/moving-to-australia">
-          <span class="ic num">01</span>
-          <span class="tx"><span class="tt">Is Australia right for us?</span><span class="st">An honest look at the life and the trade-offs</span></span>
-          <span class="ext">AU</span>
-        </a>
-        <a class="lib-item dl-tile" data-country="au" data-cat="deciding" data-text="regional australia life geelong bunbury toowoomba ballarat hobart commute lifestyle housing community beach country town" href="/guides/australia-regional-life">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          <span class="tx"><span class="tt">Life in regional Australia</span><span class="st">What it&rsquo;s really like beyond the big cities</span></span>
-          <span class="ext">AU</span>
-        </a>
-        <a class="lib-item lib-card" data-country="au" data-cat="deciding" data-text="healthcare system medicare public hospital eligibility costs how care works australia" href="/guides/australia-healthcare">
-          <span class="k">The system</span>
-          <h3>Healthcare in Australia</h3>
-          <p>How Medicare and the public hospital system are organised, who&rsquo;s eligible, what everyday care costs and where to find support.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="lib-item lib-card" data-country="au" data-cat="deciding" data-text="destination guides states territories explore where to live sydney melbourne brisbane perth adelaide hobart canberra darwin australia" href="/australia#destinations">
+        <a class="lib-item lib-card" data-country="au" data-cat="place" data-text="destination guides states territories explore where to live sydney melbourne brisbane perth adelaide hobart canberra darwin australia" href="/australia#destinations">
           <span class="k">All states</span>
           <h3>Explore the states &amp; territories</h3>
           <p>Eight state and territory guides: what daily life, housing and costs look like, from the big cities to the outback.</p>
@@ -383,58 +437,128 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
     </div>
     <div class="cc-block" data-cc="all"><p class="cc-label cc-all">Both countries</p>
       <div class="dl-grid">
-        <a class="lib-item lib-card" data-country="all" data-cat="deciding" data-text="australia vs new zealand compare comparison choose which country decide both systems registration visas pay lifestyle" href="/guides/australia-vs-new-zealand">
-          <span class="k">Decision guide</span>
-          <h3>Australia or New Zealand?</h3>
-          <p>An honest, side-by-side look at the health systems, registration, visas, pay and lifestyle, so you can decide which country fits you and your family.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="lib-item lib-card" data-country="all" data-cat="deciding" data-text="gp general practitioner family medicine australia vs new zealand compare billings medicare capitation salaried registration" href="/guides/gp-australia-vs-new-zealand">
-          <span class="k">Decision guide &middot; GPs</span>
-          <h3>GPs: Australia or New Zealand?</h3>
-          <p>How general practice is funded and organised in each country, what you can earn, the registration pathways, and where you could realistically live.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="lib-item lib-card" data-country="all" data-cat="deciding" data-text="radiologist radiology imaging ranzcr australia vs new zealand compare private public subspecialty msk expedited specialist pathway" href="/guides/radiologist-australia-vs-new-zealand">
-          <span class="k">Decision guide &middot; Radiologists</span>
-          <h3>Radiologists: Australia or New Zealand?</h3>
-          <p>Market scale, public versus private practice, earning potential, subspecialty scope and the RANZCR registration pathways in each country.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="lib-item lib-card" data-country="all" data-cat="deciding" data-text="sonographer sonography ultrasound asmirt asar medicare mrt board registration australia vs new zealand compare scanning volumes" href="/guides/sonographer-australia-vs-new-zealand">
-          <span class="k">Decision guide &middot; Sonographers</span>
-          <h3>Sonographers: Australia or New Zealand?</h3>
-          <p>Two different regulatory systems, two different markets. ASMIRT and ASAR accreditation against MRT Board registration, and what each means for your week.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="lib-item lib-card" data-country="all" data-cat="deciding" data-text="salary pay compare cost of living superannuation kiwisaver housing commute relocation where does salary go further australia new zealand" href="/guides/australia-vs-new-zealand-salary">
-          <span class="k">The money guide</span>
-          <h3>Where will your salary go further?</h3>
-          <p>Australia usually pays more, but a higher salary isn&rsquo;t more money. Super and KiwiSaver, housing, commuting, family costs and relocation support, weighed honestly.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <a class="lib-item dl-tile" data-country="all" data-cat="place" data-text="stage 03 find your place where would we live city coast regional finder" href="/where-would-we-live">
+          <span class="ic num">03</span>
+          <span class="tx"><span class="tt">Where would we live?</span><span class="st">Big city, compact city or regional &mdash; what fits, then the guide</span></span>
+          <span class="ext">Both</span>
         </a>
       </div>
     </div>
-  <p class="stepnext"><a href="#step-02">Next &middot; 02 Registration &amp; pay <span aria-hidden="true">&rarr;</span></a></p>
+  <p class="stepnext"><a href="#stage-04">Next &middot; 04 Can I work there? <span aria-hidden="true">&rarr;</span></a></p>
 </div>
 
-<!-- ============ 02 REGISTRATION & PAY ============ -->
-<p class="sectlabel" id="step-02"><span class="sn">02</span>Registration &amp; pay<span class="stg">Before you apply</span></p>
-<div class="catgroup" data-group="registration">
-  <div class="cathead"><h2>Can I work there, and what would I earn?</h2><span class="ct">Your regulator, the route for your profession, and what the published pay scales actually say.</span></div>
+<!-- ============ 04 CAN I WORK THERE? ============ -->
+<p class="sectlabel" id="stage-04"><span class="sn">04</span>Can I work there?<span class="stg">Before you apply</span></p>
+<div class="catgroup" data-group="work">
+  <div class="cathead"><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:nowrap"><h2 style="margin:0;min-width:0">Am I eligible, and what do I need to do?</h2><img src="assets/heroes/registration-pathway.svg" alt="" aria-hidden="true" width="34" height="26" style="width:34px;height:auto;flex:none" loading="lazy"></div><span class="ct" style="display:block;margin-top:10px">Your regulator, the route for your profession, the board&rsquo;s own procedure and checklist, and the eligibility checks that sit alongside registration.</span></div>
     <div class="cc-block" data-cc="nz"><p class="cc-label cc-nz">New Zealand</p>
       <div class="dl-grid">
-        <a class="lib-item dl-tile" data-country="nz" data-cat="registration" data-text="step 2 can i work registration licensing" href="/guides/new-zealand-registration">
-          <span class="ic num">02</span>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="work" data-text="stage 04 can i work there registration licensing eligibility new zealand" href="/guides/new-zealand-registration">
+          <span class="ic num">04</span>
           <span class="tx"><span class="tt">Can I work in New Zealand?</span><span class="st">Registration, licensing &amp; eligibility</span></span>
           <span class="ext">NZ</span>
         </a>
-        <a class="lib-item dl-tile" data-country="nz" data-cat="registration" data-text="salary pay wages collective agreement apex unions insurance acc kiwisaver take home tax" href="/guides/new-zealand-salary">
+        <a class="lib-item dl-tile" data-country="nz" data-cat="work" data-text="mrtb medical radiation technologists board registration guide radiographer sonographer nuclear medicine radiation therapist scope supervision examination references good standing" href="/assets/downloads/ethicare-mrtb-registration-guide.pdf">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h16M4 19h10"/></svg></span>
+          <span class="tx"><span class="tt">MRTB registration guide</span><span class="st">Medical imaging &amp; radiation therapy, in twelve sections</span></span>
+          <span class="ext">NZ</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="work" data-text="mrtb registration checklist tickable documents references good standing english submit apc" href="/assets/downloads/ethicare-mrtb-registration-checklist.pdf">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+          <span class="tx"><span class="tt">MRTB registration checklist</span><span class="st">36 items, tickable, remembers where you got to</span></span>
+          <span class="ext">NZ</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="work" data-text="pbnz physiotherapy board registration guide express ttmr general pathway practice thresholds cultural competency courses three-month rule mypbnz" href="/assets/downloads/ethicare-pbnz-registration-guide.pdf">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h16M4 19h10"/></svg></span>
+          <span class="tx"><span class="tt">PBNZ registration guide</span><span class="st">Physiotherapy &mdash; three pathways, the Practice Thresholds, in thirteen sections</span></span>
+          <span class="ext">NZ</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="work" data-text="nzpb psychologists board registration guide self-assessment seven scopes 1500 hours internship in-residence ielts 7.5 transitional condition" href="/assets/downloads/ethicare-psychologist-nzpb-registration-guide.pdf">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h16M4 19h10"/></svg></span>
+          <span class="tx"><span class="tt">NZPB registration guide</span><span class="st">Psychology &mdash; individual assessment, the 1,500 hours, in twelve sections</span></span>
+          <span class="ext">NZ</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="work" data-text="mscnz medical sciences council anaesthetic technician odp registration guide hcpc 3680 hours expanded scope" href="/assets/downloads/Anaesthetic_Technician_MSCNZ_Registration_Guide.pdf">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h16M4 19h10"/></svg></span>
+          <span class="tx"><span class="tt">MSCNZ registration guide</span><span class="st">Anaesthetic technicians &amp; ODPs &mdash; two routes, the 3,680-hour benchmark, in twelve sections</span></span>
+          <span class="ext">NZ</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="work" data-text="otbnz occupational therapy board registration guide abridged standard self-assessment recertification" href="/assets/downloads/Occupational_Therapy_OTBNZ_Registration_Guide.pdf">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h16M4 19h10"/></svg></span>
+          <span class="tx"><span class="tt">OTBNZ registration guide</span><span class="st">Occupational therapy &mdash; abridged or standard, the desktop self-assessment, in twelve sections</span></span>
+          <span class="ext">NZ</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="work" data-text="mscnz anaesthetic technician registration checklist tickable pathway certificates police checks apc" href="/assets/downloads/Anaesthetic_Technician_MSCNZ_Registration_Checklist.pdf">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+          <span class="tx"><span class="tt">MSCNZ registration checklist</span><span class="st">Anaesthetic technician &mdash; pathway, two certificates of character, the six-month rules</span></span>
+          <span class="ext">NZ</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="work" data-text="otbnz occupational therapy registration checklist tickable self-assessment referees hard copies oet ielts" href="/assets/downloads/Occupational_Therapy_OTBNZ_Registration_Checklist.pdf">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+          <span class="tx"><span class="tt">OTBNZ registration checklist</span><span class="st">Occupational therapy &mdash; self-assessment first, three referees, hard copies</span></span>
+          <span class="ext">NZ</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="work" data-text="pbnz physiotherapy board registration checklist cultural competency practice thresholds express ttmr general pathway" href="/assets/downloads/ethicare-pbnz-registration-checklist.pdf">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+          <span class="tx"><span class="tt">PBNZ registration checklist</span><span class="st">Physiotherapy &mdash; pathway, two cultural courses, the three-month rule</span></span>
+          <span class="ext">NZ</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="work" data-text="nzpb psychologists board registration checklist internship 1500 hours scopes ielts" href="/assets/downloads/ethicare-psychologist-nzpb-registration-checklist.pdf">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+          <span class="tx"><span class="tt">NZPB registration checklist</span><span class="st">Psychology &mdash; self-assessment, internship hours, equivalence</span></span>
+          <span class="ext">NZ</span>
+        </a>
+      </div>
+    </div>
+    <div class="cc-block" data-cc="au"><p class="cc-label cc-au">Australia</p>
+      <div class="dl-grid">
+        <a class="lib-item dl-tile" data-country="au" data-cat="work" data-text="stage 04 can i work there registration ahpra national board licensing eligibility australia" href="/guides/australia-registration">
+          <span class="ic num">04</span>
+          <span class="tx"><span class="tt">Can I work in Australia?</span><span class="st">Ahpra registration &amp; eligibility</span></span>
+          <span class="ext">AU</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="au" data-cat="work" data-text="mrpba ahpra medical radiation practice board registration checklist diagnostic radiographer asmirt 482 state licence" href="/assets/downloads/ethicare-radiographer-australia-registration-checklist.pdf">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+          <span class="tx"><span class="tt">MRPBA checklist &mdash; radiographer</span><span class="st">Ahpra registration, the MRP exam, the state licence</span></span>
+          <span class="ext">AU</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="au" data-cat="work" data-text="mrpba ahpra registration checklist radiation therapist" href="/assets/downloads/ethicare-radiation-therapist-australia-registration-checklist.pdf">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+          <span class="tx"><span class="tt">MRPBA checklist &mdash; radiation therapist</span><span class="st">Ahpra registration, the MRP exam, the state licence</span></span>
+          <span class="ext">AU</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="au" data-cat="work" data-text="mrpba ahpra registration checklist nuclear medicine technologist" href="/assets/downloads/ethicare-nuclear-medicine-australia-registration-checklist.pdf">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+          <span class="tx"><span class="tt">MRPBA checklist &mdash; nuclear medicine</span><span class="st">Ahpra registration, the MRP exam, the state licence</span></span>
+          <span class="ext">AU</span>
+        </a>
+      </div>
+    </div>
+    <div class="cc-block" data-cc="all"><p class="cc-label cc-all">Both countries</p>
+      <div class="dl-grid">
+        <a class="lib-item dl-tile" data-country="all" data-cat="work" data-text="pathway checker check my pathway registration eligibility regulator route profession country trained" href="/pathway-checker">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Check my pathway</span><span class="st">Your regulator and the route most likely to apply, in a few questions</span></span>
+          <span class="ext">Tool</span>
+        </a>
+      </div>
+    </div>
+  <p class="stepnext"><a href="#stage-05">Next &middot; 05 Make the numbers work <span aria-hidden="true">&rarr;</span></a></p>
+</div>
+
+<p class="stagenote">Looking for a different healthcare profession? The board guides above cover the professions we recruit into. If yours is not one of them, you can go straight to the body that registers you &mdash; <a href="/resources/healthcare-regulators">view official healthcare regulators</a>.</p>
+<!-- ============ 05 MAKE THE NUMBERS WORK ============ -->
+<p class="sectlabel" id="stage-05"><span class="sn">05</span>Make the numbers work<span class="stg">Before you apply</span></p>
+<div class="catgroup" data-group="numbers">
+  <div class="cathead"><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:nowrap"><h2 style="margin:0;min-width:0">Can I realistically afford this?</h2><img src="assets/heroes/salary-and-pay.svg" alt="" aria-hidden="true" width="34" height="26" style="width:34px;height:auto;flex:none" loading="lazy"></div><span class="ct" style="display:block;margin-top:10px">How pay is set and what lands in your account, what the move itself costs, and the one register where the exact scales live.</span></div>
+    <div class="cc-block" data-cc="nz"><p class="cc-label cc-nz">New Zealand</p>
+      <div class="dl-grid">
+        <a class="lib-item dl-tile" data-country="nz" data-cat="numbers" data-text="stage 05 make the numbers work salary pay wages collective agreement apex unions insurance acc kiwisaver take home tax" href="/guides/new-zealand-salary">
+          <span class="ic num">05</span>
           <span class="tx"><span class="tt">Salary &amp; pay, explained</span><span class="st">Agreements, steps, tax &amp; what sits on top</span></span>
           <span class="ext">NZ</span>
         </a>
-        <a class="lib-item dl-tile" data-country="nz" data-cat="registration" data-text="collective agreements register apex te whatu ora which agreement sets my pay terms current expired scales steps" href="/guides/new-zealand-pay-agreements">
+        <a class="lib-item dl-tile" data-country="nz" data-cat="numbers" data-text="collective agreements register apex te whatu ora which agreement sets my pay terms current expired scales steps" href="/guides/new-zealand-pay-agreements">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           <span class="tx"><span class="tt">Which agreement sets your pay</span><span class="st">Every collective agreement, its term &amp; where to read it</span></span>
           <span class="ext">NZ</span>
@@ -443,290 +567,311 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
     </div>
     <div class="cc-block" data-cc="au"><p class="cc-label cc-au">Australia</p>
       <div class="dl-grid">
-        <a class="lib-item dl-tile" data-country="au" data-cat="registration" data-text="step 2 can i work registration ahpra national board licensing eligibility australia" href="/guides/australia-registration">
-          <span class="ic num">02</span>
-          <span class="tx"><span class="tt">Can I work in Australia?</span><span class="st">Ahpra registration &amp; eligibility</span></span>
-          <span class="ext">AU</span>
-        </a>
-        <a class="lib-item dl-tile" data-country="au" data-cat="registration" data-text="salary pay wages award ma000027 fair work enterprise agreement superannuation penalties tax take home medicare levy" href="/guides/australia-salary">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <a class="lib-item dl-tile" data-country="au" data-cat="numbers" data-text="stage 05 make the numbers work salary pay wages award ma000027 fair work enterprise agreement superannuation penalties tax take home medicare levy" href="/guides/australia-salary">
+          <span class="ic num">05</span>
           <span class="tx"><span class="tt">Salary &amp; pay, explained</span><span class="st">The award floor, state agreements, super &amp; tax</span></span>
           <span class="ext">AU</span>
         </a>
-      </div>
-    </div>
-    <div class="cc-block" data-cc="all"><p class="cc-label cc-all">Both countries</p>
-      <div class="dl-grid">
-        <a class="lib-item lib-card" data-country="all" data-cat="registration" data-text="negotiate salary offer negotiation package relocation assistance sessions collective agreement placement step counter offer" href="/guides/negotiating-your-offer">
-          <span class="k">The offer guide</span>
-          <h3>Should you negotiate?</h3>
-          <p>Where the figure came from, what public and private employers can actually flex, what else is negotiable, how to ask, and when not to push.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-      </div>
-    </div>
-  <p class="stepnext"><a href="#step-03">Next &middot; 03 CV &amp; interviews <span aria-hidden="true">&rarr;</span></a></p>
-</div>
-
-<!-- ============ 03 CV & INTERVIEWS ============ -->
-<p class="stagenote">Looking for a different healthcare profession? The guides above cover the professions we recruit into. If yours is not one of them, you can go straight to the body that registers you &mdash; <a href="/resources/healthcare-regulators">view official healthcare regulators</a>.</p>
-<p class="sectlabel" id="step-03"><span class="sn">03</span>CV &amp; interviews<span class="stg">Before you apply</span></p>
-<div class="catgroup" data-group="cv">
-  <div class="cathead"><h2>How do I present my experience?</h2><span class="ct">What employers in each country expect, and tools to check your CV before you send it.</span></div>
-    <div class="cc-block" data-cc="nz"><p class="cc-label cc-nz">New Zealand</p>
-      <div class="dl-grid">
-        <a class="lib-item dl-tile" data-country="nz" data-cat="cv" data-text="step 3 cv interview preparation" href="/guides/new-zealand-interview">
-          <span class="ic num">03</span>
-          <span class="tx"><span class="tt">CV &amp; interview preparation</span><span class="st">Present your experience well</span></span>
-          <span class="ext">NZ</span>
-        </a>
-        <a class="lib-item dl-tile" data-country="nz" data-cat="cv" data-text="cv checker check my cv review my cv feedback what a reader notices paste cv band 6 date of birth photograph" href="/cv-checker">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          <span class="tx"><span class="tt">Check your CV</span><span class="st">Ten checks on the CV you already have</span></span>
-          <span class="ext">Tool</span>
-        </a>
-        <a class="lib-item dl-tile" data-country="nz" data-cat="cv" data-text="build your cv curriculum vitae clinical cv nine sections word docx export referees expertise summary" href="/build-your-cv">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          <span class="tx"><span class="tt">Build your CV</span><span class="st">Nine sections, live A4 preview, Word &amp; PDF export</span></span>
-          <span class="ext">Tool</span>
-        </a>
-        <a class="lib-item dl-tile" data-country="nz" data-cat="cv" data-text="interview prep preparation questions star examples readiness checklist cv referees practise am i ready to apply" href="/interview-prep">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          <span class="tx"><span class="tt">Am I ready to apply?</span><span class="st">Readiness check, question bank &amp; your own examples</span></span>
-          <span class="ext">Tool</span>
-        </a>
-      </div>
-    </div>
-    <div class="cc-block" data-cc="au"><p class="cc-label cc-au">Australia</p>
-      <div class="dl-grid">
-        <a class="lib-item dl-tile" data-country="au" data-cat="cv" data-text="step 3 cv interview preparation resume australia" href="/guides/australia-interview">
-          <span class="ic num">03</span>
-          <span class="tx"><span class="tt">CV &amp; interview preparation</span><span class="st">Present your experience well</span></span>
-          <span class="ext">AU</span>
-        </a>
-        <a class="lib-item dl-tile" data-country="au" data-cat="cv" data-text="cv checker check my cv review my cv feedback what a reader notices paste cv band 6 date of birth photograph" href="/cv-checker">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          <span class="tx"><span class="tt">Check your CV</span><span class="st">Ten checks on the CV you already have</span></span>
-          <span class="ext">Tool</span>
-        </a>
-        <a class="lib-item dl-tile" data-country="au" data-cat="cv" data-text="build your cv curriculum vitae clinical cv nine sections word docx export referees expertise summary" href="/build-your-cv">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          <span class="tx"><span class="tt">Build your CV</span><span class="st">Nine sections, live A4 preview, Word &amp; PDF export</span></span>
-          <span class="ext">Tool</span>
-        </a>
-        <a class="lib-item dl-tile" data-country="au" data-cat="cv" data-text="interview prep preparation questions star examples readiness checklist cv referees practise am i ready to apply australia" href="/interview-prep?destination=au">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          <span class="tx"><span class="tt">Am I ready to apply?</span><span class="st">Readiness check, question bank &amp; your own examples</span></span>
-          <span class="ext">Tool</span>
-        </a>
-      </div>
-    </div>
-    <div class="cc-block" data-cc="all"><p class="cc-label cc-all">Both countries</p>
-      <div class="dl-grid">
-        <a class="lib-item dl-tile" data-country="all" data-cat="cv" data-text="interview preparation guide cv questions prepare universal" href="assets/downloads/ethicare-interview-preparation-guide.pdf" target="_blank" rel="noopener">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg></span>
-          <span class="tx"><span class="tt">Interview preparation guide</span><span class="st">Structure, preparation &amp; steadying nerves</span></span>
-          <span class="ext">PDF</span>
-        </a>
-      </div>
-    </div>
-  <p class="stepnext"><a href="#step-04">Next &middot; 04 Visas <span aria-hidden="true">&rarr;</span></a></p>
-</div>
-
-<!-- ============ 04 VISAS ============ -->
-<div class="stagenote"><div class="sni"><h3>From here, an offer sets the pace</h3><p>The first three steps are yours to do at your own pace, and they are worth doing early, registration especially. Everything from here is triggered by an offer: the visa application needs one, and so does a real shipping quote. If you are at that point, a plan beats a library &mdash; <a href="/move">build your plan</a> and we will keep the steps in order for you.</p></div></div>
-<p class="sectlabel" id="step-04"><span class="sn">04</span>Visas<span class="stg">Once you have an offer</span></p>
-<div class="catgroup" data-group="visas">
-  <div class="cathead"><h2>Which route applies to me and my family?</h2><span class="ct">The main pathways, what they mean for a partner and children, and how residence follows.</span></div>
-    <div class="cc-block" data-cc="nz"><p class="cc-label cc-nz">New Zealand</p>
-      <div class="dl-grid">
-        <a class="lib-item dl-tile" data-country="nz" data-cat="visas" data-text="step 4 immigration visas green list work family visa" href="/guides/new-zealand-visa">
-          <span class="ic num">04</span>
-          <span class="tx"><span class="tt">Immigration &amp; visas</span><span class="st">Green List, work &amp; family visas</span></span>
-          <span class="ext">NZ</span>
-        </a>
-      </div>
-    </div>
-    <div class="cc-block" data-cc="au"><p class="cc-label cc-au">Australia</p>
-      <div class="dl-grid">
-        <a class="lib-item dl-tile" data-country="au" data-cat="visas" data-text="step 4 immigration visas skilled sponsored work family visa subclass australia" href="/guides/australia-visa">
-          <span class="ic num">04</span>
-          <span class="tx"><span class="tt">Immigration &amp; visas</span><span class="st">Skilled &amp; employer-sponsored pathways</span></span>
-          <span class="ext">AU</span>
-        </a>
-      </div>
-    </div>
-  <p class="stepnext"><a href="#step-05">Next &middot; 05 Preparing to move <span aria-hidden="true">&rarr;</span></a></p>
-</div>
-
-<!-- ============ 05 PREPARING TO MOVE ============ -->
-<p class="sectlabel" id="step-05"><span class="sn">05</span>Preparing to move<span class="stg">Once you have an offer</span></p>
-<div class="catgroup" data-group="preparing">
-  <div class="cathead"><h2>What do I actually have to organise?</h2><span class="ct">Costs, shipping, flights, pets, schools and the paperwork that has to happen before you fly.</span></div>
-    <div class="cc-block" data-cc="nz"><p class="cc-label cc-nz">New Zealand</p>
-      <div class="dl-grid">
-        <a class="lib-item lib-card" data-country="nz" data-cat="preparing" data-text="pets dog cat relocation quarantine biosecurity import permit mpi rabies microchip pet friendly rental airpets petair belongings shipping" href="/guides/nz/bringing-pets-and-belongings">
-          <span class="k">New Zealand &middot; the pet relocation guide</span>
-          <h3>Bringing pets to New Zealand</h3>
-          <p>MPI import health standards, the rabies and microchip timeline, quarantine at Auckland, what the flight is like, and finding a pet-friendly rental.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="lib-item dl-tile" data-country="nz" data-cat="preparing" data-text="step 5 preparing to move flights banking schools first weeks" href="/guides/new-zealand-relocation">
-          <span class="ic num">05</span>
-          <span class="tx"><span class="tt">Preparing to move</span><span class="st">Flights, banking, schools &amp; first weeks</span></span>
-          <span class="ext">NZ</span>
-        </a>
-        <a class="lib-item dl-tile" data-country="nz" data-cat="preparing" data-text="new zealand national relocation guide whole country move" href="/destinations/new-zealand-relocation-guide">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          <span class="tx"><span class="tt">Moving to New Zealand</span><span class="st">Healthcare, banking, housing &amp; first weeks</span></span>
-          <span class="ext">Guide</span>
-        </a>
-      </div>
-    </div>
-    <div class="cc-block" data-cc="au"><p class="cc-label cc-au">Australia</p>
-      <div class="dl-grid">
-        <a class="lib-item lib-card" data-country="au" data-cat="preparing" data-text="pets dog cat relocation quarantine biosecurity import permit rabies microchip pet friendly rental mickleham" href="/guides/australia-pets">
-          <span class="k">Australia &middot; the pet relocation guide</span>
-          <h3>Bringing pets to Australia</h3>
-          <p>Department of Agriculture import permits, the rabies titre timeline, mandatory quarantine at Mickleham, restricted breeds, costs and the flight itself.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="lib-item dl-tile" data-country="au" data-cat="preparing" data-text="step 5 preparing to move flights banking schools first weeks relocation australia" href="/guides/australia-relocation">
-          <span class="ic num">05</span>
-          <span class="tx"><span class="tt">Preparing to move</span><span class="st">Flights, banking, schools &amp; first weeks</span></span>
-          <span class="ext">AU</span>
-        </a>
-        <a class="lib-item dl-tile" data-country="au" data-cat="preparing" data-text="school fees temporary visa 482 tuition state education department enrolment catchment children" href="/guides/australia-school-fees">
+        <a class="lib-item dl-tile" data-country="au" data-cat="numbers" data-text="school fees temporary visa 482 tuition state education department enrolment catchment children" href="/guides/australia-school-fees">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           <span class="tx"><span class="tt">Will I pay school fees?</span><span class="st">Temporary visas, state by state</span></span>
           <span class="ext">AU</span>
         </a>
-        <a class="lib-item dl-tile" data-country="au" data-cat="preparing" data-text="australia national relocation guide whole country move states" href="/destinations/australia-relocation-guide">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          <span class="tx"><span class="tt">Moving to Australia</span><span class="st">Healthcare, visas, the eight states &amp; first weeks</span></span>
-          <span class="ext">Guide</span>
-        </a>
       </div>
     </div>
     <div class="cc-block" data-cc="all"><p class="cc-label cc-all">Both countries</p>
       <div class="dl-grid">
-        <a class="lib-item lib-card" data-country="all" data-cat="preparing" data-text="cost of relocating relocation costs registration visa flights shipping temporary accommodation rental bond car first pay day relocation fund savings" href="/guides/cost-of-relocating">
+        <a class="lib-item lib-card" data-country="all" data-cat="numbers" data-text="cost of relocating relocation costs registration visa flights shipping temporary accommodation rental bond car first pay day relocation fund savings" href="/guides/cost-of-relocating">
           <span class="k">The relocation cost guide</span>
           <h3>What does it really cost to get there?</h3>
           <p>Not earnings, not cost of living: the cash you need in hand. Seven stages from registration to your first pay day, and how to build your own relocation fund.</p>
           <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
+        <a class="lib-item dl-tile" data-country="all" data-cat="numbers" data-text="cost calculator work out what it will cost moving budget flights shipping bond upfront cash" href="/cost-calculator">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Work out what it will cost</span><span class="st">The upfront cash the move asks for, as a personal budget</span></span>
+          <span class="ext">Tool</span>
+        </a>
       </div>
     </div>
-  <p class="stepnext"><a href="#step-06">Next &middot; 06 Settling in <span aria-hidden="true">&rarr;</span></a></p>
+  <p class="stepnext"><a href="#stage-06">Next &middot; 06 Find the right role <span aria-hidden="true">&rarr;</span></a></p>
 </div>
 
-<!-- ============ 06 SETTLING IN ============ -->
-<p class="sectlabel" id="step-06"><span class="sn">06</span>Settling in<span class="stg">After you land</span></p>
-<div class="catgroup" data-group="settling">
-  <div class="cathead"><h2>What are the first months like?</h2><span class="ct">Everyday life, schools, community and the people who make a new country feel like yours.</span></div>
+<!-- ============ 06 FIND THE RIGHT ROLE ============ -->
+<p class="sectlabel" id="stage-06"><span class="sn">06</span>Find the right role<span class="stg">Applying</span></p>
+<div class="catgroup" data-group="role">
+  <div class="cathead"><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:nowrap"><h2 style="margin:0;min-width:0">How do I actually get a good job?</h2><img src="assets/heroes/job-search-cv.svg" alt="" aria-hidden="true" width="34" height="26" style="width:34px;height:auto;flex:none" loading="lazy"></div><span class="ct" style="display:block;margin-top:10px">How hiring works in each country, what a panel expects, the offer in front of you, and the live list.</span></div>
     <div class="cc-block" data-cc="nz"><p class="cc-label cc-nz">New Zealand</p>
       <div class="dl-grid">
-        <a class="lib-item dl-tile" data-country="nz" data-cat="settling" data-text="step 6 living thriving settling community life that lasts" href="/guides/living-in-new-zealand">
+        <a class="lib-item dl-tile" data-country="nz" data-cat="role" data-text="stage 06 find the right role cv interview preparation" href="/guides/new-zealand-interview">
           <span class="ic num">06</span>
-          <span class="tx"><span class="tt">Living &amp; thriving</span><span class="st">Settling in and building community</span></span>
+          <span class="tx"><span class="tt">CV &amp; interview preparation</span><span class="st">Present your experience well</span></span>
           <span class="ext">NZ</span>
         </a>
-        <a class="lib-item lib-card" data-country="nz" data-cat="settling" data-text="renting rental application bond letting fee tenancy healthy homes standards viewing new zealand" href="/guides/renting-in-new-zealand">
-          <span class="k">Everyday life</span>
-          <h3>Renting in New Zealand</h3>
-          <p>Your application pack, bond, tenancy rights and the Healthy Homes standards, plus the scams to watch for.</p>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="role" data-text="cv checker check my cv review my cv feedback what a reader notices paste cv band 6 date of birth photograph" href="/cv-checker">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Check your CV</span><span class="st">Ten checks on the CV you already have</span></span>
+          <span class="ext">Tool</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="role" data-text="build your cv curriculum vitae clinical cv nine sections word docx export referees expertise summary" href="/build-your-cv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Build your CV</span><span class="st">Nine sections, live A4 preview, Word &amp; PDF export</span></span>
+          <span class="ext">Tool</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="role" data-text="interview prep preparation questions star examples readiness checklist cv referees practise am i ready to apply" href="/interview-prep">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Am I ready to apply?</span><span class="st">Readiness check, question bank &amp; your own examples</span></span>
+          <span class="ext">Tool</span>
+        </a>
+      </div>
+    </div>
+    <div class="cc-block" data-cc="au"><p class="cc-label cc-au">Australia</p>
+      <div class="dl-grid">
+        <a class="lib-item dl-tile" data-country="au" data-cat="role" data-text="stage 06 find the right role cv interview preparation resume australia" href="/guides/australia-interview">
+          <span class="ic num">06</span>
+          <span class="tx"><span class="tt">CV &amp; interview preparation</span><span class="st">Present your experience well</span></span>
+          <span class="ext">AU</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="au" data-cat="role" data-text="cv checker check my cv review my cv feedback what a reader notices paste cv band 6 date of birth photograph" href="/cv-checker">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Check your CV</span><span class="st">Ten checks on the CV you already have</span></span>
+          <span class="ext">Tool</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="au" data-cat="role" data-text="build your cv curriculum vitae clinical cv nine sections word docx export referees expertise summary" href="/build-your-cv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Build your CV</span><span class="st">Nine sections, live A4 preview, Word &amp; PDF export</span></span>
+          <span class="ext">Tool</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="au" data-cat="role" data-text="interview prep preparation questions star examples readiness checklist cv referees practise am i ready to apply australia" href="/interview-prep?destination=au">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Am I ready to apply?</span><span class="st">Readiness check, question bank &amp; your own examples</span></span>
+          <span class="ext">Tool</span>
+        </a>
+      </div>
+    </div>
+    <div class="cc-block" data-cc="all"><p class="cc-label cc-all">Both countries</p>
+      <div class="dl-grid">
+        <a class="lib-item lib-card" data-country="all" data-cat="role" data-text="negotiate salary offer negotiation package relocation assistance sessions collective agreement placement step counter offer" href="/guides/negotiating-your-offer">
+          <span class="k">The offer guide</span>
+          <h3>Should you negotiate?</h3>
+          <p>Where the figure came from, what public and private employers can actually flex, what else is negotiable, how to ask, and when not to push.</p>
           <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="lib-item lib-card" data-country="nz" data-cat="settling" data-text="money tax banking ird number paye kiwisaver bank account acc levy transfer savings new zealand" href="/guides/money-tax-and-banking">
-          <span class="k">Everyday life</span>
-          <h3>Money, tax &amp; banking</h3>
-          <p>Your IRD number, opening an account, KiwiSaver and the early tasks that get your finances running.</p>
+        <a class="lib-item dl-tile" data-country="all" data-cat="role" data-text="before you accept offer contract check questions to ask employer supervision hours package" href="/before-you-accept">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Before you accept</span><span class="st">The offer in front of you, checked line by line before you say yes</span></span>
+          <span class="ext">Tool</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="all" data-cat="role" data-text="interview preparation guide cv questions prepare universal" href="assets/downloads/ethicare-interview-preparation-guide.pdf" target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg></span>
+          <span class="tx"><span class="tt">Interview preparation guide</span><span class="st">Structure, preparation &amp; steadying nerves</span></span>
+          <span class="ext">PDF</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="all" data-cat="role" data-text="live roles current vacancies jobs professions" href="/jobs/">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Current roles</span><span class="st">The live list, then the profession guides behind it</span></span>
+          <span class="ext">Both</span>
+        </a>
+      </div>
+    </div>
+  <p class="stepnext"><a href="#stage-07">Next &middot; 07 Plan your move <span aria-hidden="true">&rarr;</span></a></p>
+</div>
+
+<div class="stagenote"><div class="sni"><h3>From here, an offer sets the pace</h3><p>The first six stages are yours to do at your own pace, and they are worth doing early, registration especially. Everything from here is triggered by an offer: the visa application needs one, and so does a real shipping quote. If you are at that point, a plan beats a library &mdash; <a href="/move">build your journey</a> and we will keep the stages in order for you.</p></div></div>
+<!-- ============ 07 PLAN YOUR MOVE ============ -->
+<p class="sectlabel" id="stage-07"><span class="sn">07</span>Plan your move<span class="stg">Once you have an offer</span></p>
+<div class="catgroup" data-group="move">
+  <div class="cathead"><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:nowrap"><h2 style="margin:0;min-width:0">I&rsquo;ve decided to go &mdash; what happens now?</h2><img src="assets/heroes/packing-and-shipping.svg" alt="" aria-hidden="true" width="34" height="26" style="width:34px;height:auto;flex:none" loading="lazy"></div><span class="ct" style="display:block;margin-top:10px">The visa process, everything national in the master guide, pets, schools, the people coming with you, and the plan that keeps it in order.</span></div>
+    <div class="cc-block" data-cc="nz"><p class="cc-label cc-nz">New Zealand</p>
+      <div class="dl-grid">
+        <a class="lib-item dl-tile" data-country="nz" data-cat="move" data-text="stage 07 plan your move immigration visas green list work family visa" href="/guides/new-zealand-visa">
+          <span class="ic num">07</span>
+          <span class="tx"><span class="tt">Immigration &amp; visas</span><span class="st">Green List, work &amp; family visas</span></span>
+          <span class="ext">NZ</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="move" data-text="new zealand national relocation guide whole country move" href="/destinations/new-zealand-relocation-guide">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Moving to New Zealand</span><span class="st">Healthcare, banking, housing &amp; first weeks</span></span>
+          <span class="ext">Guide</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="nz" data-cat="move" data-text="preparing to move flights banking schools first weeks" href="/guides/new-zealand-relocation">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Preparing to move</span><span class="st">Flights, banking, schools &amp; first weeks</span></span>
+          <span class="ext">NZ</span>
+        </a>
+        <a class="lib-item lib-card" data-country="nz" data-cat="move" data-text="pets dog cat relocation quarantine biosecurity import permit mpi rabies microchip pet friendly rental airpets petair belongings shipping" href="/guides/nz/bringing-pets-and-belongings">
+          <span class="k">New Zealand &middot; the pet relocation guide</span>
+          <h3>Bringing pets to New Zealand</h3>
+          <p>MPI import health standards, the rabies and microchip timeline, quarantine at Auckland, what the flight is like, and finding a pet-friendly rental.</p>
           <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="lib-item lib-card" data-country="nz" data-cat="settling" data-text="driving licence convert overseas licence car insurance not compulsory buying a car roads new zealand" href="/guides/driving-and-licences">
-          <span class="k">Everyday life</span>
-          <h3>Driving &amp; licences</h3>
-          <p>Driving on your overseas licence, converting to a New Zealand one, and what the roads here are actually like.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="lib-item lib-card" data-country="nz" data-cat="settling" data-text="useful contacts regulators immigration links official phone numbers community" href="/guides/new-zealand-contacts">
-          <span class="k">Reference</span>
-          <h3>Useful contacts &amp; community</h3>
-          <p>The official bodies, regulators and everyday-life links worth bookmarking, all in one place.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="lib-item lib-card" data-country="nz" data-cat="settling" data-text="schools education children ncea enrolment zones early childhood kids learning" href="/guides/new-zealand-education">
+        <a class="lib-item lib-card" data-country="nz" data-cat="move" data-text="schools education children ncea enrolment zones early childhood kids learning" href="/guides/new-zealand-education">
           <span class="k">Education</span>
           <h3>Education in New Zealand</h3>
           <p>Schools, enrolment zones, NCEA and early childhood: how learning works for children of every age.</p>
           <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="lib-item lib-card" data-country="nz" data-cat="settling" data-text="moving with your family partner work rights childcare schools single parent children flight first weeks settling" href="/guides/new-zealand-family">
+        <a class="lib-item lib-card" data-country="nz" data-cat="move" data-text="moving with your family partner work rights childcare schools single parent children flight first weeks settling" href="/guides/new-zealand-family">
           <span class="k">Family life</span>
           <h3>Moving with your family</h3>
-          <p>Reassuring tips for the long flight and the first weeks, helping little ones find their feet.</p>
+          <p>Partner work rights, childcare, single parents, the long flight and the first weeks.</p>
           <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="lib-item lib-card" data-country="nz" data-cat="settling" data-text="religion community belonging faith culture full guide finding your people" href="/guides/new-zealand-community">
-          <span class="k">Full guide</span>
-          <h3>Religion, community &amp; belonging</h3>
-          <p>The complete guide to finding your people: faith, culture, an inclusive welcome, a taste of home and how to settle into a community.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        
       </div>
     </div>
     <div class="cc-block" data-cc="au"><p class="cc-label cc-au">Australia</p>
       <div class="dl-grid">
-        <a class="lib-item dl-tile" data-country="au" data-cat="settling" data-text="step 6 living thriving settling community life that lasts australia" href="/guides/living-in-australia">
-          <span class="ic num">06</span>
-          <span class="tx"><span class="tt">Living &amp; thriving</span><span class="st">Settling in and building community</span></span>
+        <a class="lib-item dl-tile" data-country="au" data-cat="move" data-text="stage 07 plan your move immigration visas skilled sponsored work family visa subclass australia" href="/guides/australia-visa">
+          <span class="ic num">07</span>
+          <span class="tx"><span class="tt">Immigration &amp; visas</span><span class="st">Skilled &amp; employer-sponsored pathways</span></span>
           <span class="ext">AU</span>
         </a>
-        <a class="lib-item lib-card" data-country="au" data-cat="settling" data-text="renting rental application bond agent lease tenancy state rules unfurnished fridge washing machine ctp australia" href="/guides/australia-renting">
-          <span class="k">Everyday life</span>
-          <h3>Renting in Australia</h3>
-          <p>No national tenancy law: your state&rsquo;s rulebook, competing for a lease with no Australian rental history, and what &ldquo;unfurnished&rdquo; really means.</p>
+        <a class="lib-item dl-tile" data-country="au" data-cat="move" data-text="australia national relocation guide whole country move states" href="/destinations/australia-relocation-guide">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Moving to Australia</span><span class="st">Healthcare, visas, the eight states &amp; first weeks</span></span>
+          <span class="ext">Guide</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="au" data-cat="move" data-text="preparing to move flights banking schools first weeks relocation australia" href="/guides/australia-relocation">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Preparing to move</span><span class="st">Flights, banking, schools &amp; first weeks</span></span>
+          <span class="ext">AU</span>
+        </a>
+        <a class="lib-item lib-card" data-country="au" data-cat="move" data-text="pets dog cat relocation quarantine biosecurity import permit rabies microchip pet friendly rental mickleham" href="/guides/australia-pets">
+          <span class="k">Australia &middot; the pet relocation guide</span>
+          <h3>Bringing pets to Australia</h3>
+          <p>Department of Agriculture import permits, the rabies titre timeline, mandatory quarantine at Mickleham, restricted breeds, costs and the flight itself.</p>
           <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="lib-item lib-card" data-country="au" data-cat="settling" data-text="money tax banking tfn tax file number superannuation super fund medicare levy surcharge residency transfer savings australia" href="/guides/australia-money">
-          <span class="k">Everyday life</span>
-          <h3>Money, tax &amp; banking</h3>
-          <p>Your TFN, choosing a super fund, the Medicare levy exemption people miss, and why tax residency is not the same as your visa.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="lib-item lib-card" data-country="au" data-cat="settling" data-text="driving licence convert overseas licence deadline ctp compulsory third party insurance buying a car shipping registration australia" href="/guides/australia-driving">
-          <span class="k">Everyday life</span>
-          <h3>Driving &amp; licences</h3>
-          <p>Converting your licence state by state, the deadline tied to permanent residency, and how compulsory third party insurance works.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="lib-item lib-card" data-country="au" data-cat="settling" data-text="useful contacts regulators ahpra immigration links official phone numbers community australia" href="/guides/australia-contacts">
-          <span class="k">Reference</span>
-          <h3>Useful contacts &amp; community</h3>
-          <p>The official bodies, regulators and everyday-life links worth bookmarking, all in one place.</p>
-          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a class="lib-item lib-card" data-country="au" data-cat="settling" data-text="schools education children atar enrolment public private early learning kids australia" href="/guides/australia-education">
+        <a class="lib-item lib-card" data-country="au" data-cat="move" data-text="schools education children atar enrolment public private early learning kids australia" href="/guides/australia-education">
           <span class="k">Education</span>
           <h3>Education in Australia</h3>
           <p>Schools, enrolment, the senior years and early learning: how education works for children of every age.</p>
           <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="lib-item lib-card" data-country="au" data-cat="settling" data-text="moving with your family partner work rights childcare schools single parent children flight first weeks settling australia" href="/guides/australia-family">
+        <a class="lib-item lib-card" data-country="au" data-cat="move" data-text="moving with your family partner work rights childcare schools single parent children flight first weeks settling australia" href="/guides/australia-family">
           <span class="k">Family life</span>
           <h3>Moving with your family</h3>
-          <p>Reassuring tips for the long flight and the first weeks, helping little ones find their feet.</p>
+          <p>Partner work rights, childcare costs, schools, and the practical shape of the first few weeks.</p>
           <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="lib-item lib-card" data-country="au" data-cat="settling" data-text="australia communities support networks directory diaspora professional groups lgbtqia faith worship accessibility disability wellbeing mental health sport festivals language schools curated links finding your people belonging" href="/guides/australia-community#links">
+      </div>
+    </div>
+    <div class="cc-block" data-cc="all"><p class="cc-label cc-all">Both countries</p>
+      <div class="dl-grid">
+        <a class="lib-item lib-card" data-country="all" data-cat="move" data-text="moving with teenagers teenage children exams NCEA HSC VCE ATAR school year repeat friendships settling reality check honest hardest part" href="/guides/moving-with-teenagers">
+          <span class="k">A reality check</span>
+          <h3>Moving with children and teenagers</h3>
+          <p>The exam-year problem, what families tell us they would have done differently, what helped, and the conversation to have before you decide.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lib-item dl-tile" data-country="all" data-cat="move" data-text="ethicare move build my journey plan order dates household pack" href="/move">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Build my journey</span><span class="st">Your plan: the order, the dates, the people coming with you</span></span>
+          <span class="ext">Tool</span>
+        </a>
+        <a class="lib-item dl-tile" data-country="all" data-cat="move" data-text="moving checklist build my moving checklist tasks timeline" href="/moving-checklist">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="tx"><span class="tt">Build my moving checklist</span><span class="st">What applies to you, in order, ticked off as you go</span></span>
+          <span class="ext">Tool</span>
+        </a>
+      </div>
+    </div>
+  <p class="stepnext"><a href="#stage-08">Next &middot; 08 Settle into life <span aria-hidden="true">&rarr;</span></a></p>
+</div>
+
+<!-- ============ 08 SETTLE INTO LIFE ============ -->
+<p class="sectlabel" id="stage-08"><span class="sn">08</span>Settle into life<span class="stg">After you land</span></p>
+<div class="catgroup" data-group="settle">
+  <div class="cathead"><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:nowrap"><h2 style="margin:0;min-width:0">How do we build a life once we&rsquo;re there?</h2><img src="assets/heroes/settling-in.svg" alt="" aria-hidden="true" width="34" height="26" style="width:34px;height:auto;flex:none" loading="lazy"></div><span class="ct" style="display:block;margin-top:10px">The first month, everyday life, community and the people who make a new country feel like yours.</span></div>
+    <div class="cc-block" data-cc="nz"><p class="cc-label cc-nz">New Zealand</p>
+      <div class="dl-grid">
+        <a class="lib-item dl-tile" data-country="nz" data-cat="settle" data-text="stage 08 settle into life living thriving settling community life that lasts" href="/guides/living-in-new-zealand">
+          <span class="ic num">08</span>
+          <span class="tx"><span class="tt">Living &amp; thriving</span><span class="st">Settling in and building community</span></span>
+          <span class="ext">NZ</span>
+        </a>
+        <a class="lib-item lib-card" data-country="nz" data-cat="settle" data-text="first month arriving first week address bank account ird number phone order sequence new zealand" href="/guides/new-zealand-first-month">
+          <span class="k">Arriving</span>
+          <h3>Your first month</h3>
+          <p>Four weeks in the order that actually works &mdash; address, bank account, IRD number, phone &mdash; and why doing them out of sequence costs you money.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lib-item lib-card" data-country="nz" data-cat="settle" data-text="renting rental application bond letting fee tenancy healthy homes standards viewing new zealand" href="/guides/renting-in-new-zealand">
+          <span class="k">Everyday life</span>
+          <h3>Renting in New Zealand</h3>
+          <p>Your application pack, bond, tenancy rights and the Healthy Homes standards, plus the scams to watch for.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lib-item lib-card" data-country="nz" data-cat="settle" data-text="money tax banking ird number paye kiwisaver bank account acc levy transfer savings new zealand" href="/guides/money-tax-and-banking">
+          <span class="k">Everyday life</span>
+          <h3>Money, tax &amp; banking</h3>
+          <p>Your IRD number, opening an account, KiwiSaver and the early tasks that get your finances running.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lib-item lib-card" data-country="nz" data-cat="settle" data-text="driving licence convert overseas licence car insurance not compulsory buying a car roads new zealand" href="/guides/driving-and-licences">
+          <span class="k">Everyday life</span>
+          <h3>Driving &amp; licences</h3>
+          <p>Driving on your overseas licence, converting to a New Zealand one, and what the roads here are actually like.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lib-item lib-card" data-country="nz" data-cat="settle" data-text="te ao maori at work te reo pronunciation te tiriti o waitangi te whare tapa wha marae etiquette ward clinicians" href="/guides/te-ao-maori-at-work">
+          <span class="k">Working here</span>
+          <h3>Te ao M&#257;ori at work</h3>
+          <p>Pronunciation, the words you will hear on the ward, Te Tiriti o Waitangi, Te Whare Tapa Wh&#257; and marae etiquette &mdash; what to know before your first shift.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lib-item lib-card" data-country="nz" data-cat="settle" data-text="useful contacts regulators immigration links official phone numbers community" href="/guides/new-zealand-contacts">
+          <span class="k">Reference</span>
+          <h3>Useful contacts &amp; community</h3>
+          <p>The official bodies, regulators and everyday-life links worth bookmarking, all in one place.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lib-item lib-card" data-country="nz" data-cat="settle" data-text="religion community belonging faith culture full guide finding your people" href="/guides/new-zealand-community">
+          <span class="k">Full guide</span>
+          <h3>Religion, community &amp; belonging</h3>
+          <p>The complete guide to finding your people: faith, culture, an inclusive welcome, a taste of home and how to settle into a community.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+    <div class="cc-block" data-cc="au"><p class="cc-label cc-au">Australia</p>
+      <div class="dl-grid">
+        <a class="lib-item dl-tile" data-country="au" data-cat="settle" data-text="stage 08 settle into life living thriving settling community life that lasts australia" href="/guides/living-in-australia">
+          <span class="ic num">08</span>
+          <span class="tx"><span class="tt">Living &amp; thriving</span><span class="st">Settling in and building community</span></span>
+          <span class="ext">AU</span>
+        </a>
+        <a class="lib-item lib-card" data-country="au" data-cat="settle" data-text="renting rental application bond agent lease tenancy state rules unfurnished fridge washing machine ctp australia" href="/guides/australia-renting">
+          <span class="k">Everyday life</span>
+          <h3>Renting in Australia</h3>
+          <p>No national tenancy law: your state&rsquo;s rulebook, competing for a lease with no Australian rental history, and what &ldquo;unfurnished&rdquo; really means.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lib-item lib-card" data-country="au" data-cat="settle" data-text="money tax banking tfn tax file number superannuation super fund medicare levy surcharge residency transfer savings australia" href="/guides/australia-money">
+          <span class="k">Everyday life</span>
+          <h3>Money, tax &amp; banking</h3>
+          <p>Your TFN, choosing a super fund, the Medicare levy exemption people miss, and why tax residency is not the same as your visa.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lib-item lib-card" data-country="au" data-cat="settle" data-text="driving licence convert overseas licence deadline ctp compulsory third party insurance buying a car shipping registration australia" href="/guides/australia-driving">
+          <span class="k">Everyday life</span>
+          <h3>Driving &amp; licences</h3>
+          <p>Converting your licence state by state, the deadline tied to permanent residency, and how compulsory third party insurance works.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lib-item lib-card" data-country="au" data-cat="settle" data-text="useful contacts regulators ahpra immigration links official phone numbers community australia" href="/guides/australia-contacts">
+          <span class="k">Reference</span>
+          <h3>Useful contacts &amp; community</h3>
+          <p>The official bodies, regulators and everyday-life links worth bookmarking, all in one place.</p>
+          <span class="foot">Read online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="lib-item lib-card" data-country="au" data-cat="settle" data-text="australia communities support networks directory diaspora professional groups lgbtqia faith worship accessibility disability wellbeing mental health sport festivals language schools curated links finding your people belonging" href="/guides/australia-community#links">
           <span class="k">Directory</span>
           <h3>Communities &amp; support networks</h3>
           <p>A curated directory for Australia: professional groups, diaspora, festivals, LGBTQIA+, faith, accessibility and wellbeing support, gathered in one place.</p>
           <span class="foot">Browse the directory <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="lib-item lib-card" data-country="au" data-cat="settling" data-text="australia religion community belonging faith culture full guide finding your people diversity by place first nations inclusive welcome taste of home" href="/guides/australia-community">
+        <a class="lib-item lib-card" data-country="au" data-cat="settle" data-text="australia religion community belonging faith culture full guide finding your people diversity by place first nations inclusive welcome taste of home" href="/guides/australia-community">
           <span class="k">Full guide</span>
           <h3>Religion, community &amp; belonging</h3>
           <p>The complete Australia guide to finding your people: faith, culture, an honest look at diversity by place, an inclusive welcome and a taste of home.</p>
@@ -739,7 +884,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 
     <!-- BEYOND THE GUIDES -->
     <div style="margin-top:64px;padding-top:44px;border-top:1px solid var(--rule-tint,rgba(2,97,93,.65))">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3.5vw,48px);align-items:start">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(24px,3.5vw,48px);align-items:start">
         <div>
           <span class="eyebrow">Beyond the guides</span>
           <h2 style="font-family:var(--display);font-weight:600;font-size:clamp(24px,2.7vw,31px);line-height:1.16;letter-spacing:-.018em;color:var(--teal);margin:0 0 14px;text-wrap:balance">Some questions are better answered by a person</h2>
@@ -771,12 +916,15 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   </div>
 </section>
 
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="page-feedback.js" defer></script>
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">
       <div class="f-brand">
-        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
         <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
@@ -864,8 +1012,10 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   });
 
   // deep-link: resources.html#registration etc. pre-selects that category
-  var validCats = {compare:1,journey:1,profession:1,relocation:1,registration:1,cv:1,healthcare:1,family:1,community:1,visas:1,destinations:1};
+  var validCats = {imagine:1,choose:1,place:1,work:1,numbers:1,role:1,move:1,settle:1};
+  var alias = {deciding:'imagine',compare:'choose',destinations:'place',registration:'work',salary:'numbers',cv:'role',visas:'move',relocation:'move',preparing:'move',family:'move',settling:'settle',community:'settle'};
   var h = (location.hash || '').replace('#','');
+  if(alias[h]) h = alias[h];
   if(validCats[h]){
     cat = h;
     [].forEach.call(chips.querySelectorAll('.lib-chip'), function(c){ c.classList.toggle('on', c.getAttribute('data-cat') === h); });
@@ -890,14 +1040,13 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   Start here: "Work out what it will cost" → Cost of moving calculator (/cost-calculator)
   Hero: New Zealand badge → /new-zealand (JS: filters library to NZ) · Australia badge → /australia (JS: filters library to AU)
   Start here band: Australia or New Zealand? → /guides/australia-vs-new-zealand · Start the New Zealand journey → /guides/moving-to-new-zealand · Start the Australia journey → /guides/moving-to-australia
-  Compare: Australia or New Zealand? → /guides/australia-vs-new-zealand · GPs → /guides/gp-australia-vs-new-zealand · Radiologists → /guides/radiologist-australia-vs-new-zealand
-  Journey NZ 01–06 → /guides/moving-to-new-zealand · new-zealand-registration · new-zealand-interview · new-zealand-visa · new-zealand-relocation · living-in-new-zealand · Salary → /guides/new-zealand-salary
-  Journey AU 01–06 → /guides/moving-to-australia · australia-registration · australia-interview · australia-visa · australia-relocation · living-in-australia · Salary → /guides/australia-salary
+  Compare: Australia or New Zealand? → /guides/australia-vs-new-zealand · the GP, radiologist and sonographer comparisons folded into their profession pages (#compared) on 8 Sep 2026
+  Journey NZ / AU, eight stages → see the stage-by-stage map below (regrouped 8 Sep 2026)
   Profession guides → assets/downloads/*.pdf (NZ) · /jobs/{role}-australia (AU)
   Relocation guides → /destinations/{region}-relocation-guide
   CV & interview → assets/downloads/ethicare-interview-preparation-guide.pdf
   Going deeper → /guides/about-new-zealand · new-zealand-healthcare · /new-zealand#registration · new-zealand-contacts · australia-healthcare · australia-contacts
-  Family → /guides/new-zealand-education · new-zealand-family · australia-education · australia-family
+  Family → /guides/new-zealand-education · new-zealand-family · australia-education · australia-family · moving-with-teenagers (both countries, added 3 Sep 2026)
   Community → /guides/australia-community(#links) · new-zealand-community
   Destinations → /new-zealand#destinations · /australia#destinations
   Closing: Ask us a question → /contact · Explore New Zealand → /new-zealand
@@ -907,19 +1056,16 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   ============================================================
   HEADER NAV — Brand/Home → / · Australia ▾ (Working in Australia → /australia · Find your profession → /australia#professions · Explore destinations → /australia#destinations) · New Zealand ▾ (Working in New Zealand → /new-zealand · Find your profession → /new-zealand#professions · Explore destinations → /new-zealand#destinations) · Jobs → /jobs/ · Move ↗ ▾ (Your plan → /move · Guides & resources → /resources [current] · Registration pathway checker → /pathway-checker) · About ▾ (About Ethicare → /about-ethicare · Insights → /insights) · For Employers → /employers · Contact → /contact
   TOOLS — Check my registration pathway → /pathway-checker (primary) · Set up my plan → /move · quiet links: /cv-checker · /build-your-cv · /interview-prep · /moving-checklist · /cost-calculator
-  FILTERS — search box (libSearch) · six area chips (libChips) · country segmented control (libCountries: all / nz / au)
-  01 DECIDING — /guides/moving-to-new-zealand · /guides/moving-to-australia · /guides/about-new-zealand · /guides/new-zealand-healthcare · /guides/new-zealand-practice · /guides/australia-practice · /guides/australia-healthcare · /guides/australia-vs-new-zealand · /guides/gp-australia-vs-new-zealand · /guides/radiologist-australia-vs-new-zealand · /guides/sonographer-australia-vs-new-zealand · /guides/australia-vs-new-zealand-salary · /guides/australia-regional-life · /new-zealand#destinations · /australia#destinations
-  02 REGISTRATION &amp; PAY — /guides/new-zealand-registration · /guides/australia-registration · /guides/new-zealand-salary · /guides/australia-salary · /guides/new-zealand-pay-agreements · /guides/negotiating-your-offer
-  03 CV &amp; INTERVIEWS — /guides/new-zealand-interview · /guides/australia-interview · /cv-checker · /build-your-cv · /interview-prep · /interview-prep?destination=au · interview preparation guide (PDF)
-  04 VISAS — /guides/new-zealand-visa · /guides/australia-visa
-  05 PREPARING TO MOVE — /guides/new-zealand-relocation · /guides/australia-relocation · /destinations/new-zealand-relocation-guide · /destinations/australia-relocation-guide · /guides/cost-of-relocating · /guides/nz/bringing-pets-and-belongings · /guides/australia-pets · /guides/australia-school-fees
-  06 SETTLING IN — /guides/living-in-new-zealand · /guides/living-in-australia
-    NEW 25 Aug 2026 — the six national everyday-life guides added to this category:
-      NZ  /guides/renting-in-new-zealand · /guides/money-tax-and-banking · /guides/driving-and-licences
-      AU  /guides/australia-renting · /guides/australia-money · /guides/australia-driving
-    The AU three were written 24 Aug (Australia had no national owner for those topics); the
-    NZ three already existed as master chapters but had never been listed in this library, so
-    neither country was discoverable here. Both are now, and symmetrically. · /guides/new-zealand-education · /guides/australia-education · /guides/new-zealand-family · /guides/australia-family · /guides/new-zealand-community · /guides/australia-community · /guides/australia-community#links · /guides/new-zealand-contacts · /guides/australia-contacts · /guides/new-zealand-stories
+  FILTERS — search box (libSearch) · eight stage chips (libChips: imagine / choose / place / work / numbers / role / move / settle; old six-step hashes alias in) · country segmented control (libCountries: all / nz / au)
+  REGROUPED 8 Sep 2026 — six steps (#step-01…06) → the eight agreed stages (#stage-01…08). Every tile kept; tiles moved to the stage that owns the topic (Gold Standard Pathway).
+  01 IMAGINE THE POSSIBILITIES (#stage-01) — Both countries: Could life look different? → /guides/why-people-move (listed 9 Sep 2026 on sign-off) · /guides/moving-to-new-zealand · /guides/moving-to-australia · /guides/about-new-zealand · /guides/new-zealand-healthcare · /guides/new-zealand-practice · /guides/australia-regional-life · /guides/australia-healthcare · /guides/australia-practice
+  02 CHOOSE YOUR DESTINATION (#stage-02) — /guides/australia-vs-new-zealand · /guides/australia-vs-new-zealand-salary (the three profession comparisons retired 8 Sep 2026 → 301 to the general comparison; their differences live on the profession pages as #compared)
+  03 FIND YOUR PLACE (#stage-03) — /new-zealand#destinations · /australia#destinations · Where would we live? → /where-would-we-live
+  04 CAN I WORK THERE? (#stage-04) — /guides/new-zealand-registration · /guides/australia-registration · the NZ board guide + checklist PDFs (MRTB, PBNZ, NZPB, MSCNZ, OTBNZ) · the three MRPBA checklists · Check my pathway → /pathway-checker · regulators note → /resources/healthcare-regulators
+  05 MAKE THE NUMBERS WORK (#stage-05) — /guides/new-zealand-salary · /guides/new-zealand-pay-agreements · /guides/australia-salary · /guides/australia-school-fees · /guides/cost-of-relocating · Work out what it will cost → /cost-calculator
+  06 FIND THE RIGHT ROLE (#stage-06) — /guides/new-zealand-interview · /guides/australia-interview · /cv-checker · /build-your-cv · /interview-prep · /interview-prep?destination=au · /guides/negotiating-your-offer · Before you accept → /before-you-accept · interview preparation guide (PDF) · Current roles → /jobs/
+  07 PLAN YOUR MOVE (#stage-07) — /guides/new-zealand-visa · /guides/australia-visa · /destinations/new-zealand-relocation-guide · /destinations/australia-relocation-guide · /guides/new-zealand-relocation · /guides/australia-relocation · /guides/nz/bringing-pets-and-belongings · /guides/australia-pets · /guides/new-zealand-education · /guides/australia-education · /guides/new-zealand-family · /guides/australia-family · /guides/moving-with-teenagers · Build my journey → /move · Build my moving checklist → /moving-checklist
+  08 SETTLE INTO LIFE (#stage-08) — /guides/living-in-new-zealand · /guides/living-in-australia · /guides/new-zealand-first-month (new to the library) · /guides/renting-in-new-zealand · /guides/money-tax-and-banking · /guides/driving-and-licences · /guides/te-ao-maori-at-work (new to the library) · /guides/new-zealand-contacts · /guides/new-zealand-community · /guides/australia-renting · /guides/australia-money · /guides/australia-driving · /guides/australia-contacts · /guides/australia-community#links · /guides/australia-community
   BEYOND THE GUIDES — An introduction to someone who has done it → /apply · A question you would rather just ask → /contact
   FOOTER — site-wide footer links
   NOT HERE BY DESIGN — the 19 destination guides live on /new-zealand#destinations and /australia#destinations; the profession guides and PDFs live on the six profession-family pages under /jobs/

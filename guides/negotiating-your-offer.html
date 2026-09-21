@@ -8,7 +8,7 @@
 <meta name="description" content="How salary negotiation actually works for clinicians relocating to Australia or New Zealand: what's flexible, how to ask, when not to push.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 <style>
 /* ================================================================
    ETHICARE RESOURCING — CROSS-COUNTRY GUIDE
@@ -50,7 +50,7 @@ strong{color:var(--green)}
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-family:var(--display);font-weight:600;font-size:16px;padding:13px 26px;border-radius:12px;transition:transform .15s ease,background .15s ease;color:var(--teal);cursor:pointer}
 .btn:hover{transform:translateY(-1px)}
-.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#014E4B}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#01312F}
 .btn-secondary{background:#fff;border:1.5px solid var(--sage);color:var(--teal)}.btn-secondary:hover{background:var(--soft-green)}
 .btn-ghost{background:transparent;border:1.5px solid var(--sage);color:var(--teal)}.btn-ghost:hover{background:var(--soft-green)}
 .btn-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
@@ -76,7 +76,7 @@ strong{color:var(--green)}
 .glance{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:26px 30px}
 .glance .gl-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px}
 .glance .gl-top .eyebrow{margin-bottom:0}
-.glance .gl-top .note{font-size:13.5px;color:var(--muted)}
+.glance .gl-top .note{font-size:13.5px;color:var(--muted)}.glance .gl-read{display:inline-flex;align-items:center;gap:10px;max-width:48ch;margin-left:auto}.glance .gl-read img{flex:0 0 auto;width:34px;height:auto}.glance .gl-read .rt{font-size:13px;line-height:1.45;color:#2F5E49}.glance .gl-read .rt b{font-family:'Work Sans',sans-serif;font-weight:700}@media (max-width:520px){.glance .gl-read{margin-left:0}}
 .glance ol{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 24px}
 .glance li{counter-increment:g;border-top:1px solid var(--mint)}
 .glance a{display:flex;align-items:baseline;gap:8px;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);padding:11px 4px;transition:color .15s ease}
@@ -120,7 +120,7 @@ strong{color:var(--green)}
 .reg-col.au .k{color:var(--au-text,#A34438)} .reg-col.nz .k{color:#A34438}
 .reg-col h3{color:var(--green);font-size:19px;margin-bottom:8px}
 .reg-col p{font-size:14.5px;color:var(--muted)}
-ul.ticks{list-style:none;display:grid;gap:8px;margin:16px 0 0}
+ul.ticks{list-style:none;display:grid;gap:8px;margin:16px 0 0;padding:0}
 ul.ticks li{position:relative;padding-left:28px;font-size:14.5px;color:var(--text)}
 ul.ticks li::before{content:"";position:absolute;left:0;top:8px;width:15px;height:15px;border-radius:6px;background:var(--soft-green);border:1px solid var(--mint)}
 ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;height:9px;border:2px solid var(--teal);border-top:0;border-left:0;transform:rotate(45deg)}
@@ -212,7 +212,6 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
 <style id="au-palette-tune">:root{--teal:#02615D;--green:#02615D;--sage:#72A471}h1,h2,h3{color:#02615D}</style>
 <style id="nz-fern-accent">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
 <style id="au-hero-teal"></style>
-<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
 <style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}
 </style>
 <link rel="stylesheet" href="../hero.css">
@@ -226,7 +225,7 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -243,17 +242,19 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move" aria-current="page">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
@@ -266,7 +267,7 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
 
 <!-- ============ HERO ============ -->
 <section class="cover">
-  <div class="cov-bg" aria-hidden="true"><img decoding="async" src="../assets/nz-life/lake-from-high-track.jpg" alt="A lake and mountain range seen from a high walking track" fetchpriority="high"><img decoding="async" src="../assets/nsw/reloc/cover-opera-house.jpg" alt="The Opera House forecourt and the Harbour Bridge on a busy afternoon" fetchpriority="high"></div>
+  <div class="cov-bg" aria-hidden="true"><img decoding="async" src="../assets/nz-life/lake-from-high-track.jpg" alt="A lake and mountain range seen from a high walking track" fetchpriority="high" width="1500" height="512"><img decoding="async" src="../assets/nsw/reloc/cover-opera-house.jpg" alt="The Opera House forecourt and the Harbour Bridge on a busy afternoon" fetchpriority="high" width="1500" height="700"></div>
   <div class="cov-top"><span class="cov-ct"><i class="nz"></i>New Zealand</span><span class="cov-ct">Australia<i class="au"></i></span></div>
   <div class="cov-in">
     <div class="cov-eb"><i></i>The offer guide</div>
@@ -290,7 +291,7 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
     <nav class="glance" id="glance" aria-label="On this page">
       <div class="gl-top">
         <span class="eyebrow">Page at a glance</span>
-        <span class="note">Jump to any part, read the whole thing, or just what matters to you.</span>
+        <span class="gl-read"><img decoding="async" src="../assets/kettle-52-sage.png" alt="" width="170" height="192" loading="lazy"><span class="rt"><b>Kettle on.</b> A longer read &mdash; about 12 min</span></span>
       </div>
       <ol>
         <li><a href="#how-set">How was the figure set?</a></li>
@@ -313,7 +314,7 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
   <div class="wrap reading">
     <span class="eyebrow">The uncomfortable bit</span>
     <h2>Asking a reasonable question rarely has to be confrontational</h2>
-    <p class="lead">For healthcare professionals moving to Australia or New Zealand, this moment can feel particularly uncomfortable. You may already have spent months on registration, interviews and planning an international move. The last thing you want is to jeopardise the opportunity by appearing difficult.</p>
+    <p class="lead">This moment can feel particularly uncomfortable after months of registration, interviews and planning. Most people we work with are wary of jeopardising the opportunity by appearing difficult.</p>
     <p>The good news is that a well-framed question about salary is a normal professional conversation, not a confrontation. But whether you <em>can</em> negotiate, and how much flexibility the employer actually has, depends heavily on your profession, your employer and your employment model.</p>
     <p>So the first job isn&rsquo;t deciding what to ask for. It&rsquo;s working out which situation you&rsquo;re in.</p>
   </div>
@@ -493,7 +494,7 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
 <section class="section">
   <div class="wrap">
     <div class="sophie">
-      <div class="photo"><img loading="lazy" decoding="async" src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing"></div>
+      <div class="photo"><img loading="lazy" decoding="async" src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing" width="1254" height="1254"></div>
       <div>
         <span class="k">Sophie&rsquo;s insight</span>
         <p>Our role isn&rsquo;t to push every offer higher. If an employer has recognised your experience properly and the figure is at the top of what they can do, I&rsquo;d rather tell you that than manufacture a negotiation to look useful. Where there is room, we&rsquo;ll have the conversation with the employer on your behalf, which is often easier for everyone than doing it yourself in the same week you&rsquo;re trying to make a good first impression. What I care about is that both sides understand exactly what&rsquo;s being agreed, and that the opportunity still feels right once the excitement of receiving the offer has passed.</p>
@@ -546,7 +547,7 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
       <p>Send us the detail and we&rsquo;ll tell you honestly how the figure was set, whether there&rsquo;s likely to be room, and what else in the package is worth asking about. Even if the role isn&rsquo;t one of ours.</p>
       <div class="btn-row">
         <a href="/contact" class="btn btn-light">Ask us about your offer</a>
-        <a href="/apply" class="btn btn-outline">Browse current opportunities</a>
+        <a href="/jobs/" class="btn btn-outline">Browse current opportunities</a>
       </div>
       <p class="small">Ethicare Resourcing, healthcare careers across Australia &amp; New Zealand.</p>
     </div>
@@ -578,12 +579,15 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
   </div>
 </section>
 
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="../page-feedback.js" defer></script>
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">
       <div class="f-brand">
-        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
         <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>

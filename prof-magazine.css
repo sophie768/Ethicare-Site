@@ -1,0 +1,86 @@
+/* ==========================================================================
+   ETHICARE RESOURCING — PROFESSION PAGE, MAGAZINE LAYOUT (pilot: paediatrician NZ)
+   Rhythm after the hero: split (photo left) → stat band → five-minute index →
+   split (photo right) → registration → pay → life → where → Sophie → honest bit
+   → roles → FAQ → one closing call to action → onward links.
+   Everything is open on the page; nothing sits behind "dig deeper".
+   ========================================================================== */
+
+/* ---------- photo + text split ---------- */
+.ed-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(36px,5.4vw,88px);align-items:center}
+.ed-split.rev{grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)}
+.ed-split.rev .ed-ph{order:2}
+.ed-ph{margin:0;position:relative;isolation:isolate}
+.ed-ph img{width:100%;height:auto!important;aspect-ratio:4/5;object-fit:cover;border-radius:20px;display:block;box-shadow:0 30px 60px -34px rgba(1,49,47,.45)}
+.ed-ph.land img{aspect-ratio:5/4}
+.ed-ph figcaption{font-family:var(--display);font-weight:600;font-size:12.5px;letter-spacing:.02em;color:var(--sage-text,#5C6B57);margin-top:14px}
+.ed-ph::before{content:"";position:absolute;z-index:-1;width:52%;height:52%;border-radius:20px;background:#C9DED3;left:-22px;bottom:12px}
+.ed-split.rev .ed-ph::before{left:auto;right:-22px}
+.ed-tx .moment{font-size:clamp(34px,4.2vw,52px);margin:14px 0 20px}
+.ed-tx .lead{margin:0 0 18px}
+.ed-tx p{max-width:56ch}
+.ed-tx p+p{margin-top:16px}
+.ed-tx h2.ed-h{font-size:clamp(28px,3vw,38px);line-height:1.12;margin:14px 0 20px;letter-spacing:-.015em}
+@media (max-width:900px){
+  .ed-split,.ed-split.rev{grid-template-columns:1fr;gap:34px}
+  .ed-split.rev .ed-ph{order:0}
+  .ed-ph img{aspect-ratio:4/3}
+  .ed-ph::before{display:none}
+}
+
+/* ---------- stat band ---------- */
+.ed-stats{background:#02615D;color:#fff;padding:clamp(52px,6.4vw,88px) 0}
+.ed-stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.ed-stats .s{padding:0 clamp(20px,3vw,44px);border-left:1px solid rgba(255,255,255,.22)}
+.ed-stats .s:first-child{padding-left:0;border-left:0}
+.ed-stats .n{display:block;font-family:var(--display);font-weight:300;font-size:clamp(42px,5vw,66px);line-height:1;letter-spacing:-.03em;color:#fff;margin-bottom:16px}
+.ed-stats .n small{font-size:.36em;font-weight:500;letter-spacing:0;margin-left:8px;color:#C6E084}
+.ed-stats .l{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:#C6E084;display:block;margin-bottom:8px}
+.ed-stats p{font-size:15.5px;line-height:1.6;color:#DCEAE5;margin:0;max-width:34ch}
+.ed-stats p a{color:#fff;border-bottom:1px solid #A6C84A}
+@media (max-width:820px){.ed-stats .wrap{grid-template-columns:1fr;gap:30px}.ed-stats .s{padding:26px 0 0;border-left:0;border-top:1px solid rgba(255,255,255,.22)}.ed-stats .s:first-child{padding-top:0;border-top:0}}
+
+/* ---------- five-minute index (replaces the card grid) ---------- */
+.ed-index{margin-top:clamp(30px,3.6vw,48px);border-top:2px solid #02615D}
+.ed-index .row{display:grid;grid-template-columns:minmax(150px,.62fr) minmax(0,2fr) 190px;gap:10px clamp(24px,3.4vw,56px);padding:clamp(22px,2.6vw,30px) 0;border-bottom:1px solid #C9DED3;align-items:start}
+.ed-index .q{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;padding-top:6px}
+.ed-index .k{display:block;font-family:var(--display);font-weight:600;font-size:clamp(19px,1.8vw,22px);line-height:1.25;letter-spacing:-.01em;color:#02615D;margin-bottom:8px}
+.ed-index .a{font-size:15.5px;line-height:1.65;color:var(--muted,#555);margin:0;max-width:66ch}
+.ed-index .a strong{color:#02615D}
+.ed-index .go{font-family:var(--display);font-weight:600;font-size:14px;color:#2F5E49;padding-top:6px;justify-self:end;text-align:right}
+.ed-index .go:hover{color:#02615D;text-decoration:underline}
+@media (max-width:760px){.ed-index .row{grid-template-columns:1fr;gap:6px}.ed-index .q,.ed-index .go{padding-top:0}.ed-index .go{margin-top:6px;justify-self:start;text-align:left}}
+
+/* ---------- full-width quote band ---------- */
+.ed-quote{position:relative;min-height:clamp(380px,44vw,600px);display:flex;align-items:flex-end;background-size:cover;background-position:center 55%;color:#fff}
+.ed-quote::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,49,47,0) 35%,rgba(1,49,47,.63) 100%)}
+.ed-quote .wrap{position:relative;z-index:1;padding-bottom:clamp(36px,4.4vw,60px);width:100%}
+.ed-quote blockquote{margin:0;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(26px,3.4vw,44px);line-height:1.22;max-width:22ch;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.25)}
+.ed-quote cite{display:block;margin-top:16px;font-family:var(--display);font-style:normal;font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#C6E084}
+
+/* ---------- one closing call to action ---------- */
+.ed-close{background:#02615D;border-radius:24px;padding:clamp(40px,5.4vw,72px);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(30px,4vw,60px);align-items:end;color:#fff}
+.ed-close .eyebrow{color:#C6E084!important}
+.ed-close h2{color:#fff;font-size:clamp(30px,3.6vw,46px);line-height:1.1;letter-spacing:-.02em;margin:16px 0 16px}
+.ed-close p{color:#DCEAE5;font-size:17px;line-height:1.65;margin:0;max-width:52ch}
+.ed-close .acts{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.ed-close .btn{justify-content:center;text-align:center}
+.ed-close .btn-lime{background:#A6C84A;color:#01312F;border:0}
+.ed-close .btn-lime:hover{filter:brightness(.94)}
+.ed-close .btn-out{background:transparent;border:2px solid rgba(255,255,255,.6);color:#fff}
+.ed-close .btn-out:hover{background:rgba(255,255,255,.1)}
+.ed-close .txt{font-family:var(--display);font-weight:600;font-size:14.5px;color:#fff;text-align:center;align-self:center;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:2px;margin-top:4px}
+@media (max-width:860px){.ed-close{grid-template-columns:1fr}}
+.ed-onward{margin-top:clamp(30px,3.6vw,46px)}
+
+/* ---------- no photo available: text-led versions (a photo is never repeated to fill a slot) ---------- */
+.ed-solo .moment{max-width:18ch;margin:14px 0 18px}
+.ed-solo .say{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(19px,1.9vw,23px);line-height:1.5;color:#2F5E49;max-width:44ch;margin:0}
+.ed-cols2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,64px);margin-top:clamp(28px,3.4vw,44px);padding-top:clamp(24px,3vw,36px);border-top:1px solid #C9DED3}
+.ed-cols2 p{margin:0;font-size:16.5px;line-height:1.7;color:var(--text,#333);max-width:none}
+@media (max-width:760px){.ed-cols2{grid-template-columns:1fr}}
+.ed-quote.plain{min-height:0;background:#02615D;align-items:center}
+.ed-quote.plain::before{display:none}
+.ed-quote.plain .wrap{padding:clamp(56px,7vw,100px) 22px}
+.ed-quote.plain blockquote{max-width:26ch;text-shadow:none;position:relative;padding-left:clamp(24px,3vw,40px);border-left:3px solid #A6C84A}
+.ed-quote.plain cite{padding-left:clamp(24px,3vw,40px)}

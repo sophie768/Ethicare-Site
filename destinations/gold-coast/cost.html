@@ -7,7 +7,7 @@
 <meta name="description" content="What a fast-growing housing market means for a month on the Gold Coast, and the lines that catch people out.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../../shell.css">
 <link rel="stylesheet" href="../../guide-graphics.css">
@@ -15,7 +15,7 @@
 :root{
   --primary:#02615D; --secondary:#D9A084; --highlight:#A6C84A;
   --sage:#C9DED3; --bg:#FCFBF8; --white:#FFFFFF; --text:#333333; --text2:#2F5E49;
-  --divider:#E4E9E5; --border:#C9DED3; --accent:#02615D;
+  --divider:#D6E1DA; --border:#C9DED3; --accent:#02615D;
   --maxw:1180px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -359,7 +359,7 @@ a{color:var(--accent);text-decoration:none}
 .cnote{font-size:15px;color:var(--text2);margin:0 0 16px;max-width:64ch}
 .chaps{display:flex;flex-direction:column;gap:4px}
 a.chap{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px 14px;border-bottom:1px solid var(--divider);border-radius:12px;background:var(--sage);transition:background .18s,transform .18s;color:inherit;text-decoration:none}
-a.chap:hover{background:#DCE8DF;transform:translateX(2px)}
+a.chap:hover{background:#D6E1DA;transform:translateX(2px)}
 a.chap.nat{background:transparent}
 a.chap.nat:hover{background:var(--bg)}
 a.chap .n{font-family:'Work Sans',sans-serif;font-size:14px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
@@ -378,12 +378,12 @@ a.chap.nat .go{color:var(--text2);font-weight:500}
 .ch-nav .up{font-size:13px;color:var(--text2);white-space:nowrap}
 @media(max-width:640px){a.chap{grid-template-columns:32px minmax(0,1fr);gap:8px}a.chap .go{display:none}.ch-nav{grid-template-columns:1fr;gap:16px}.ch-nav .next{text-align:left}}
 .ith{margin:24px 0 40px}
-.ith-map{position:relative;aspect-ratio:5/4;max-height:520px;border-radius:20px;background:linear-gradient(170deg,#D5E4E2 0%,#DCE9E4 42%,#F7F4EE 62%,#D5E4E2 100%);border:1px solid var(--divider);overflow:hidden}
-.ith-map::before{content:"";position:absolute;left:6%;right:6%;top:38%;height:26%;background:#EDF2EC;border-radius:46% 54% 40% 60%/60% 44% 56% 40%;box-shadow:0 0 0 1px rgba(2,97,93,.08)}
+.ith-map{position:relative;aspect-ratio:5/4;max-height:520px;border-radius:20px;background:linear-gradient(170deg,#D6E1DA 0%,#D6E1DA 42%,#F7F4EE 62%,#D6E1DA 100%);border:1px solid var(--divider);overflow:hidden}
+.ith-map::before{content:"";position:absolute;left:6%;right:6%;top:38%;height:26%;background:#E3ECE5;border-radius:46% 54% 40% 60%/60% 44% 56% 40%;box-shadow:0 0 0 1px rgba(2,97,93,.08)}
 .ith-h{position:absolute;font-family:'Work Sans',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#A34438;pointer-events:none}
 .ith-map button{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--divider);border-radius:999px;padding:7px 13px 7px 9px;cursor:pointer;font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;color:var(--primary);white-space:nowrap;box-shadow:0 16px 38px rgba(1,49,47,.09);transition:background .18s,transform .18s}
 .ith-map button:hover{transform:translate(-50%,-50%);box-shadow:0 26px 54px rgba(1,49,47,.12)}
-.ith-map button i{width:7px;height:7px;border-radius:999px;background:var(--border,#C3D2C7);display:block;flex:none}
+.ith-map button i{width:7px;height:7px;border-radius:999px;background:var(--border,#D6E1DA);display:block;flex:none}
 .ith-map button[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:#fff}
 .ith-map button[aria-pressed="true"] i{background:var(--highlight)}
 .ith-cap{font-size:12.5px;color:var(--text2);margin:8px 0 0;text-align:center}
@@ -425,7 +425,6 @@ h1,h2,h3{break-after:avoid !important}
 .cta{break-inside:avoid !important}
 }
 </style>
-<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
 <style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
 <style>.costgrid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}.costgrid h3{margin-top:0}@media(max-width:860px){.costgrid{grid-template-columns:1fr;gap:24px}}</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Australia","item":"https://ethicareresourcing.com/australia"},{"@type":"ListItem","position":3,"name":"Gold Coast","item":"https://ethicareresourcing.com/destinations/gold-coast-australia"},{"@type":"ListItem","position":4,"name":"Cost of living"}]}</script>
@@ -437,7 +436,7 @@ h1,h2,h3{break-after:avoid !important}
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="../../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="../../assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia" aria-current="page">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -454,17 +453,19 @@ h1,h2,h3{break-after:avoid !important}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
@@ -551,7 +552,7 @@ h1,h2,h3{break-after:avoid !important}
   <div class="shell">
     <div class="f-cols">
       <div class="f-brand">
-        <a class="brand light" href="/"><img decoding="async" src="../../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <a class="brand light" href="/"><img decoding="async" src="../../assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
         <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>

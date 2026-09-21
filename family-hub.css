@@ -8,10 +8,10 @@
    property that made the stacked cover safe (contrast independent of the photo), just
    rotated 90deg — so any portrait or landscape asset can be swapped in without
    re-checking AA. It is NOT the tier-1 immersive overlay: there is no scrim over text. */
-.hsplit{position:relative;overflow:hidden;background:var(--warm)}
+.hsplit{position:relative;overflow:hidden;background:#F7F4EE}
 .hsplit .art{position:absolute;top:0;right:0;bottom:0;width:54%;z-index:0}
 .hsplit .art img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
-.hsplit .art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#FCFBF8 0,rgba(252,251,248,.98) 40px,rgba(252,251,248,.82) 120px,rgba(252,251,248,.36) 210px,rgba(252,251,248,0) 300px)}
+.hsplit .art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#F7F4EE 0,rgba(247,244,238,.98) 40px,rgba(247,244,238,.82) 120px,rgba(247,244,238,.36) 210px,rgba(247,244,238,0) 300px)}
 .hsplit .in{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:52px 22px 44px}
 .hsplit .copy{max-width:min(50%,600px)}
 .hsplit h1{font-family:var(--display);font-weight:600;font-size:clamp(36px,4.4vw,54px);line-height:1.06;letter-spacing:-.02em;color:var(--teal);margin:0 0 18px}
@@ -116,6 +116,7 @@
 .ctapanel{background:var(--teal);color:#fff;border-radius:22px;padding:60px 44px 64px;text-align:center}
 .ctapanel h2{font-family:var(--display);font-weight:600;font-size:clamp(27px,3.2vw,38px);line-height:1.15;letter-spacing:-.015em;margin:0 0 16px;color:#fff}
 .ctapanel p{font-size:17.5px;line-height:1.7;color:rgba(255,255,255,.88);max-width:56ch;margin:0 auto 32px}
+.ctapanel .eyebrow{justify-content:center;color:#C6E084}
 .ctapanel .btn-row{justify-content:center}
 .ctapanel .btn-lime{background:#A6C84A;color:#01312F;border:0}
 .ctapanel .btn-lime:hover{filter:brightness(.93)}
@@ -189,7 +190,7 @@
 
 @media(max-width:1000px){
 .hsplit .art{position:relative;width:100%;height:250px}
-.hsplit .art::after{background:linear-gradient(0deg,#FCFBF8 0,rgba(252,251,248,.7) 36px,rgba(252,251,248,0) 62%)}
+.hsplit .art::after{background:linear-gradient(0deg,#F7F4EE 0,rgba(247,244,238,.7) 36px,rgba(247,244,238,0) 62%)}
 .hsplit .copy{max-width:100%}
 .hrail .in{grid-template-columns:1fr}
 .hrail .c+.c{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.24);padding-top:14px;margin-top:14px}
@@ -213,4 +214,16 @@
 .scen5{grid-template-columns:1fr}
 .faq{grid-template-columns:1fr}
 .tline{grid-template-columns:1fr}
+}
+
+/* FRAMED PHOTO (Sep 2026) — hub heroes match the profession pages: white page,
+   photograph whole in a rounded frame, no fade. */
+.hsplit{background:#FFFFFF}
+.hsplit .art{top:clamp(28px,3vw,40px)!important;bottom:calc(var(--rail-h,58px) + clamp(28px,3vw,40px))!important;right:max(22px,calc((100vw - 1200px)/2 + 22px))!important;width:min(47%,580px)!important;border-radius:20px!important;overflow:hidden!important;box-shadow:0 30px 60px -38px rgba(1,49,47,.45)!important}
+.hsplit .art img{border-radius:20px}
+.hsplit .art::after{display:none!important}
+.hsplit:not(.nophoto)>.in{min-height:clamp(420px,40vw,520px);display:flex;align-items:center}
+@media (max-width:1000px){
+  .hsplit .art{position:relative!important;top:auto!important;bottom:auto!important;right:auto!important;width:auto!important;margin:18px 22px 0;height:clamp(220px,52vw,360px);border-radius:18px}
+  .hsplit:not(.nophoto)>.in{min-height:0;display:block;padding-top:24px}
 }

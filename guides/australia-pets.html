@@ -8,7 +8,7 @@
 <meta name="description" content="What relocating a pet to Australia involves: biosecurity rules, import permits, quarantine, costs, restricted breeds and pet-friendly rentals.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 <style>
 /* ================================================================
    ETHICARE RESOURCING — CROSS-COUNTRY GUIDE
@@ -50,7 +50,7 @@ strong{color:var(--green)}
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-family:var(--display);font-weight:600;font-size:16px;padding:13px 26px;border-radius:12px;transition:transform .15s ease,background .15s ease;color:var(--teal);cursor:pointer}
 .btn:hover{transform:translateY(-1px)}
-.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#014E4B}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:#01312F}
 .btn-secondary{background:#fff;border:1.5px solid var(--sage);color:var(--teal)}.btn-secondary:hover{background:var(--soft-green)}
 .btn-ghost{background:transparent;border:1.5px solid var(--sage);color:var(--teal)}.btn-ghost:hover{background:var(--soft-green)}
 .btn-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
@@ -76,7 +76,7 @@ strong{color:var(--green)}
 .glance{background:var(--soft-green);border:1px solid var(--mint);border-radius:20px;padding:26px 30px}
 .glance .gl-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px}
 .glance .gl-top .eyebrow{margin-bottom:0}
-.glance .gl-top .note{font-size:13.5px;color:var(--muted)}
+.glance .gl-top .note{font-size:13.5px;color:var(--muted)}.glance .gl-read{display:inline-flex;align-items:center;gap:10px;max-width:48ch;margin-left:auto}.glance .gl-read img{flex:0 0 auto;width:34px;height:auto}.glance .gl-read .rt{font-size:13px;line-height:1.45;color:#2F5E49}.glance .gl-read .rt b{font-family:'Work Sans',sans-serif;font-weight:700}@media (max-width:520px){.glance .gl-read{margin-left:0}}
 .glance ol{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 24px}
 .glance li{counter-increment:g;border-top:1px solid var(--mint)}
 .glance a{display:flex;align-items:baseline;gap:8px;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--green);padding:11px 4px;transition:color .15s ease}
@@ -120,7 +120,7 @@ strong{color:var(--green)}
 .reg-col.au .k{color:var(--au-text,#A34438)} .reg-col.nz .k{color:#A34438}
 .reg-col h3{color:var(--green);font-size:19px;margin-bottom:8px}
 .reg-col p{font-size:14.5px;color:var(--muted)}
-ul.ticks{list-style:none;display:grid;gap:8px;margin:16px 0 0}
+ul.ticks{list-style:none;display:grid;gap:8px;margin:16px 0 0;padding:0}
 ul.ticks li{position:relative;padding-left:28px;font-size:14.5px;color:var(--text)}
 ul.ticks li::before{content:"";position:absolute;left:0;top:8px;width:15px;height:15px;border-radius:6px;background:var(--soft-green);border:1px solid var(--mint)}
 ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;height:9px;border:2px solid var(--teal);border-top:0;border-left:0;transform:rotate(45deg)}
@@ -212,7 +212,6 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
 <style id="au-palette-tune">:root{--teal:#02615D;--green:#02615D;--sage:#72A471}h1,h2,h3{color:#02615D}</style>
 <style id="nz-fern-accent">.eyebrow{color:#A34438}.eyebrow::before{background:#72A471}</style>
 <style id="au-hero-teal"></style>
-<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
 <style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
 <style id="pet-contacts">
 .prov{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
@@ -245,19 +244,20 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
 .hero.duo h1{font-weight:300;font-size:clamp(40px,5.6vw,68px);letter-spacing:-.03em;line-height:1.04}
 .hero.duo .duo-tags{margin-top:24px}
 </style>
-<style id="ch-rail">.ch-rail{background:var(--soft-green,#F1F6F2);border-bottom:1px solid color-mix(in srgb,var(--teal,#02615D) 12%,transparent)}.ch-rail .in{max-width:1180px;margin:0 auto;padding:13px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px}.ch-rail .lb{font-family:var(--display,'Work Sans',sans-serif);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal,#02615D)}.ch-rail .lb b{font-weight:600;opacity:.68}.ch-rail a{font-family:var(--display,'Work Sans',sans-serif);font-size:13.5px;font-weight:500;color:var(--teal,#02615D);text-decoration:none}.ch-rail a:hover{text-decoration:underline}
+<style id="ch-rail">.ch-rail{background:var(--soft-green,#E3ECE5);border-bottom:1px solid color-mix(in srgb,var(--teal,#02615D) 12%,transparent)}.ch-rail .in{max-width:1180px;margin:0 auto;padding:13px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px}.ch-rail .lb{font-family:var(--display,'Work Sans',sans-serif);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal,#02615D)}.ch-rail .lb b{font-weight:600;opacity:.68}.ch-rail a{font-family:var(--display,'Work Sans',sans-serif);font-size:13.5px;font-weight:500;color:var(--teal,#02615D);text-decoration:none}.ch-rail a:hover{text-decoration:underline}
 .ch-foot{max-width:1180px;margin:0 auto;padding:44px 28px 64px;display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;border-top:1px solid color-mix(in srgb,var(--teal,#02615D) 14%,transparent)}.ch-foot a{font-family:var(--display,'Work Sans',sans-serif);text-decoration:none;color:var(--teal,#02615D);font-size:16px;font-weight:500;line-height:1.35}.ch-foot a span{display:block;font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--muted,#555);margin-bottom:4px}.ch-foot .next{text-align:right}.ch-foot .up{font-size:13px;color:var(--muted,#555);white-space:nowrap}.ch-foot a:hover{color:var(--sage,#72A471)}
 @media(max-width:720px){.ch-foot{grid-template-columns:1fr;gap:24px}.ch-foot .next{text-align:left}.ch-rail .in{padding:12px 20px}}</style>
 <link rel="stylesheet" href="../guide-print.css">
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Guides & Resources","item":"https://ethicareresourcing.com/resources"},{"@type":"ListItem","position":2,"name":"Moving with pets"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How far in advance should I start?","acceptedAnswer":{"@type":"Answer","text":"As soon as the move becomes a serious possibility. Several of the veterinary steps have to happen in a particular order and within specified windows, and quarantine facilities have finite availability — so the timeline is set by regulation rather than by how organised you are. Starting early costs nothing and prevents the most common delays."}},{"@type":"Question","name":"Will my dog definitely have to go into quarantine?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily — it depends on the destination, the animal and your country of origin, since Australia categorises countries by biosecurity risk. Where quarantine does apply, treat facility availability as part of your relocation timeline rather than an afterthought."}},{"@type":"Question","name":"Can my pet travel on the same flight as me?","acceptedAnswer":{"@type":"Answer","text":"Sometimes, but don’t assume it. Depending on the route and airline, your pet may travel in a specially designed crate in an appropriate part of the aircraft rather than in the cabin, and there may be stopovers or transfers. A reputable specialist or the airline should walk you through where your animal will be at each stage."}},{"@type":"Question","name":"Should my pet be sedated for the journey?","acceptedAnswer":{"@type":"Answer","text":"That’s a decision for your vet and the transport company, not something to arrange yourself. Sedation can carry additional risks in air travel and may not be permitted or recommended depending on the animal and the carrier’s requirements."}},{"@type":"Question","name":"My dog is a restricted breed — is that the end of it?","acceptedAnswer":{"@type":"Answer","text":"Check the official rules before assuming either way, and before spending anything. Australia restricts certain breeds or types, and there can be restrictions on hybrid animals. Don’t rely on appearance, breeder descriptions or informal advice — this is one to confirm at the source."}},{"@type":"Question","name":"What about a rabbit, bird or reptile?","acceptedAnswer":{"@type":"Answer","text":"Considerably more complicated, and for some species and countries of origin importing simply isn’t possible. The dog-and-cat process doesn’t transfer. Confirm whether your animal can legally be imported before making any relocation plans around it."}},{"@type":"Question","name":"Will an employer pay for pet relocation?","acceptedAnswer":{"@type":"Answer","text":"It isn’t a standard benefit, so never assume it. But if the employer offers a general relocation allowance rather than reimbursing only specified expenses, you may have flexibility over how it’s used. Ask what the contribution can and can’t cover before you book."}}]}]</script>
 <link rel="stylesheet" href="../disclose.css">
 <link rel="stylesheet" href="../prose-links.css">
+<style id="au-link-tokens">:root{--link-ink:#A34438;--link-rule:#D9A084}</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia" aria-current="page">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -274,17 +274,19 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
@@ -297,8 +299,8 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
 <main id="main-content" tabindex="-1">
 
 <!-- ============ HERO ============ -->
-<header class="hero duo">
-  <div class="duo-bg" aria-hidden="true" style="grid-template-columns:1fr"><img decoding="async" src="../assets/guides/australia-pets.jpg" alt="A tabby cat sitting on the floor beside an open packing box on moving day" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;object-position:center 40%"></div>
+<header class="hero duo au">
+  <div class="duo-bg" aria-hidden="true" style="grid-template-columns:1fr"><img decoding="async" src="../assets/guides/australia-pets.jpg" alt="A tabby cat sitting on the floor beside an open packing box on moving day" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;object-position:center 40%" width="1600" height="1067"></div>
   <div class="wrap">
     <div class="hero-copy">
       <nav class="crumb" aria-label="Breadcrumb">
@@ -325,7 +327,7 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
     <nav class="glance" id="glance" aria-label="On this page">
       <div class="gl-top">
         <span class="eyebrow">Page at a glance</span>
-        <span class="note">Jump to any part, read the whole thing, or just what matters to you.</span>
+        <span class="gl-read"><img decoding="async" src="../assets/kettle-52-sage.png" alt="" width="170" height="192" loading="lazy"><span class="rt"><b>Kettle on.</b> A longer read &mdash; about 13 min</span></span>
       </div>
       <ol>
         <li><a href="#early">Start planning early</a></li>
@@ -565,7 +567,7 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
 <section class="section">
   <div class="wrap">
     <div class="sophie">
-      <div class="photo"><img loading="lazy" decoding="async" src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing"></div>
+      <div class="photo"><img loading="lazy" decoding="async" src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing" width="1254" height="1254"></div>
       <div>
         <span class="k">Sophie&rsquo;s insight</span>
         <p>I should declare an interest: we are all completely soft about animals here, and there are two dogs in the Ethicare office on any given day. So when someone tells me they won&rsquo;t move without their dog, I don&rsquo;t treat that as a complication to be worked around. It&rsquo;s just one of the things that has to work. What I&rsquo;d say honestly is that this is the part of a relocation people leave latest and regret most, because the timings are fixed by regulation and no amount of goodwill speeds them up. Raise it with us in the first conversation, not the last. It&rsquo;s far easier to build the whole move around your pet&rsquo;s timeline than to discover six weeks before departure that the sequence doesn&rsquo;t work.</p>
@@ -622,7 +624,7 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
       <p>Where you&rsquo;ll live, where the children will go to school, when the family should travel, and how and when your pets make the journey. These aren&rsquo;t small details to sort out once the job is secured. They&rsquo;re part of whether the relocation works for everybody.</p>
       <div class="btn-row">
         <a href="/contact" class="btn btn-light">Ask us about your pets</a>
-        <a href="/apply" class="btn btn-outline">Browse current opportunities</a>
+        <a href="/jobs/" class="btn btn-outline">Browse current opportunities</a>
       </div>
       <p class="small">Ethicare Resourcing, healthcare careers across Australia &amp; New Zealand.</p>
     </div>
@@ -655,12 +657,15 @@ ul.ticks li::after{content:"";position:absolute;left:4.5px;top:10px;width:5px;he
 </section>
 
 <nav class="ch-foot" aria-label="Chapter navigation"><a class="prev" href="/guides/new-zealand-visa"><span>Previous</span>Your move, step by step</a><a class="up" href="/destinations/new-zealand-relocation-guide">All chapters</a><a class="next" href="/guides/before-you-leave"><span>Next</span>Before you leave home</a></nav>
+
+<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="../page-feedback.js" defer></script>
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">
       <div class="f-brand">
-        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
         <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>

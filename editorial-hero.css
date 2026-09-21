@@ -1,0 +1,118 @@
+/* ETHICARE RESOURCING — EDITORIAL HERO (light, illustrated)
+   --------------------------------------------------------------------------
+   Load LAST in <head>, after hero.css / guide-hero-split.css / stacked-hero.css,
+   so it standardises whatever hero geometry the page already carries inline.
+
+   WHERE THIS APPLIES
+   Guides and product/tool pages — relocation guides, topic guides, checkers and
+   calculators. A process is better drawn than photographed, and a drawing carries
+   the same weight in both editions, which is why one teal-and-lime file serves NZ
+   and AU with no country variant.
+
+   WHAT KEEPS ITS PHOTOGRAPH — do not link this sheet on any of these:
+   · Country landing pages (/, /new-zealand, /australia) — tier 1 immersive overlay.
+     The place itself is the promise, and that photography is curated against the scrim.
+   · Destination hubs and all nine chapters — tier 2 stacked cover. A place has to be
+     shown; a line drawing of a city is a map, and a map is wayfinding, not a hero.
+   · Profession pages — unchanged. A real clinician is the point of those pages, and a
+     drawing cannot stand in for the person the reader is being asked to imagine being.
+
+   POLICY PAGES ARE THE OTHER EXCEPTION and stay on flat deep teal — they carry
+   .hero.policy. A policy is the firm speaking in its own voice about its own
+   obligations, so it gets the constant brand colour rather than an illustrated welcome.
+
+   WHY LIGHT AND NOT A TEAL BAND
+   These pages open on a question the reader is actually asking. A dark band reads
+   as an announcement; cream with a drawn answer beside it reads as consultancy.
+   Contrast is also easier to hold: deep teal on Warm Cream measures 7.07:1, so the
+   headline, the eyebrow and the CTA all clear AA with room, and nothing depends on
+   an image behind the text.
+
+   Self-contained: literal values only (with var() fallbacks where a page token is
+   likely), so it works on any page regardless of which token block it declares. */
+
+/* No border-bottom here. Whatever section follows a hero on these pages draws
+   its own top rule (.journey-band, .section), so a border here stacks two
+   hairlines in two different colours and reads as a rendering error. */
+.hero,.hero.cream{background:var(--warm,#FCFBF8)!important;min-height:0!important;height:auto!important;overflow:visible!important;position:relative;display:block!important;border-bottom:0!important}
+.hero::before,.hero::after,.hero .scrim,.hero .photo{display:none!important}
+
+/* Copy left, drawing right, both vertically centred. Selectors are raised to
+   .hero.cream and forced, because guide-hero-split.css (.hero.cream .hero-art,
+   0,3,0) and hero.css both already own this element and would otherwise win on
+   specificity no matter what order this sheet loads in. Pages moving to this
+   hero should also DROP guide-hero-split.css — that sheet exists to bleed a
+   photograph off the right edge, which is the one thing we no longer want. */
+.hero>.wrap,.hero.cream>.wrap{display:grid!important;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)!important;gap:clamp(32px,5vw,72px)!important;align-items:center!important;padding-top:clamp(44px,5.4vw,72px)!important;padding-bottom:clamp(44px,5.4vw,72px)!important}
+.hero .hero-art,.hero.cream .hero-art,.hero .hero-badge,.hero.cream .hero-badge{position:static!important;inset:auto!important;width:auto!important;height:auto!important;grid-column:2!important;grid-row:1!important;display:flex!important;align-items:center!important;justify-content:center!important;align-self:center!important;margin:0!important;padding:0!important;order:2!important;background:none!important}
+.hero .hero-copy,.hero.cream .hero-copy{grid-column:1!important;grid-row:1!important;min-width:0;width:auto!important;max-width:none!important;padding-right:0!important}
+/* guide-hero-split.css puts a fern rule under the standfirst; the eyebrow rule
+   already carries that job here, and two rules in one hero is one too many. */
+.hero.cream .hero-sub::after{display:none!important}
+
+/* The drawing. No crop, no frame, no rounding, and NO white plate behind it —
+   hero.css sets background:#fff on this img for photographs, which turns a
+   transparent SVG into a hard-edged white card on the cream ground. Every box
+   property here is forced for the specificity reason above. */
+/* Two markup shapes exist in the wild and both are supported rather than
+   rewritten: `.hero-art > img` (the pages converted from a photograph) and
+   `.hero-badge > img.hero-illus` (the pages that already carried a drawing).
+   Aliasing them here means a page needs the <link>, not a markup change. */
+.hero .hero-art img,.hero.cream .hero-art img,.hero .hero-art svg,.hero .hero-art object,.hero .hero-badge img,.hero.cream .hero-badge img,.hero .hero-illus{width:100%!important;max-width:clamp(240px,30vw,400px)!important;height:auto!important;max-height:none!important;aspect-ratio:4/3!important;object-fit:contain!important;background:none!important;border:0!important;border-radius:0!important;box-shadow:none!important;filter:none!important;clip-path:none!important;mask:none!important}
+
+/* Type. Deep teal headline on cream is the 7.07:1 pairing; the standfirst uses
+   deep fern rather than the pale accent, which never carries text on light.
+   The standfirst is SANS here, deliberately overriding the site-wide Playfair
+   hero-subhead convention: on a photographic hero the serif is a flourish over
+   an image, but this hero opens on a question and the standfirst is the working
+   answer to it — a sentence to be read, not a caption to be admired. */
+.hero h1{color:var(--teal,#02615D)!important;text-shadow:none!important;margin-bottom:18px;max-width:22ch}
+.hero .hero-sub,.hero.cream .hero-sub{font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif!important;font-weight:400!important;color:#2F5E49!important;font-size:clamp(17px,1.9vw,19.5px);line-height:1.62;max-width:46ch;margin-bottom:26px}
+.hero .eyebrow{color:#2F5E49!important;display:flex;align-items:center;gap:14px;font-weight:700;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.hero .eyebrow::before{content:"";flex:none;width:28px;height:3px;background:#A6C84A!important;display:block}
+.hero .crumb{color:#555!important;margin-bottom:22px}
+/* stacked-hero.css learned this the hard way: once the crumb sits on a solid
+   band, a long label wraps mid-word and the trail stops reading as a trail. */
+.hero .crumb a,.hero .crumb .here{white-space:nowrap}
+.hero .crumb a{color:#555!important}
+.hero .crumb a:hover,.hero .crumb .here{color:var(--teal,#02615D)!important}
+
+/* CTA. One underlined text link with an arrow, not a pill: on a page that opens
+   with a question, the next step is a sentence the reader finishes, and a filled
+   button here would compete with the headline for the only strong colour.
+   min-height is forced to 0: the page stylesheets give .btn a 48px hit-target
+   box, which would drop the underline 17px below the text it belongs to. The
+   hit area is restored below with a ::before overlay instead. */
+.hero .btn-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 32px;margin:0}
+.hero .btn-row .btn,.hero .btn-row .btn-primary,.hero .btn-row .btn-ghost{position:relative;min-height:0!important;height:auto!important;background:none!important;border:0!important;border-radius:0!important;padding:0!important;box-shadow:none!important;color:var(--teal,#02615D)!important;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;font-size:16.5px;letter-spacing:0;display:inline-flex;align-items:center;gap:12px;white-space:nowrap;border-bottom:2px solid #72A471!important;padding-bottom:5px!important;transition:border-color .18s,color .18s}
+/* SC 2.5.8 — keep the 24px+ target without inflating the visible box. */
+.hero .btn-row .btn::before{content:"";position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);height:44px;min-height:100%}
+.hero .btn-row .btn::after{content:"\2192";font-size:17px;line-height:1;transition:transform .18s}
+.hero .btn-row .btn:hover{border-bottom-color:var(--teal,#02615D)!important;background:none!important;color:var(--teal,#02615D)!important}
+.hero .btn-row .btn:hover::after{transform:translateX(4px)}
+.hero .btn-row .btn:focus-visible{outline:3px solid #02615D;outline-offset:4px;box-shadow:0 0 0 2px #FCFBF8}
+
+/* Australian editions: clay carries small text and rules on every light surface.
+   The drawing itself is unchanged — colour identity lives in the page chrome. */
+.hero.au .eyebrow,.hero.au .hero-sub{color:#A34438!important}
+.hero.au .btn-row .btn{border-bottom-color:#D9A084!important}
+
+/* Policy and legal pages keep the flat deep-teal band. */
+.hero.policy{background:#02615D!important;border-bottom:0}
+.hero.policy h1,.hero.policy .hero-sub,.hero.policy .eyebrow{color:#fff!important}
+.hero.policy .eyebrow{color:#C6E084!important}
+.hero.policy .crumb,.hero.policy .crumb a{color:rgba(252,251,248,.9)!important}
+.hero.policy .crumb a:hover,.hero.policy .crumb .here{color:#fff!important}
+.hero.policy .btn-row .btn{color:#fff!important;border-bottom-color:#C6E084!important}
+.hero.policy .btn-row .btn:hover{border-bottom-color:#fff!important;color:#fff!important}
+.hero.policy .btn-row .btn:focus-visible{outline-color:#FCFBF8;box-shadow:0 0 0 2px #02615D}
+
+@media(max-width:880px){
+  .hero>.wrap,.hero.cream>.wrap{grid-template-columns:1fr!important;gap:32px!important}
+  .hero .hero-art,.hero.cream .hero-art,.hero .hero-badge,.hero.cream .hero-badge{grid-column:1!important;grid-row:1!important;order:0!important;justify-content:flex-start!important}
+  .hero .hero-copy,.hero.cream .hero-copy{grid-column:1!important;grid-row:2!important}
+  .hero .hero-art img,.hero.cream .hero-art img,.hero .hero-badge img,.hero .hero-illus{max-width:220px!important}
+  .hero h1,.hero .hero-sub{max-width:none}
+  .hero .btn-row .btn{white-space:normal}
+}
+@media print{.hero{border-bottom:1px solid #ccc}.hero .hero-art{display:none!important}}

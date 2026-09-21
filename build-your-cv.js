@@ -4,19 +4,26 @@
 (function () {
   var KEY = 'ethicare-cv-builder-v1';
 
-  /* Only professions Ethicare actually recruits (scope change, Aug 2026).
-     Nursing, midwifery, pharmacy and SLT were removed: offering a tailored CV
-     for a profession we cannot place is the lead-capture problem in another
-     form. Anyone outside this list is pointed at /resources/healthcare-regulators. */
+  /* One list, the same as the pathway checker's (rule agreed 8 Sep 2026): Ethicare
+     provides information and guidance to every profession the checker covers, whether
+     or not we currently place roles in it. Guide, do not gate. Values are stable keys —
+     they drive GROUPS and EQUIP below and are saved in the candidate's browser. */
   var PROFESSIONS = [
-    { value: 'radiography', label: 'Medical imaging, radiography & nuclear medicine' },
+    { value: 'radiography', label: 'Medical imaging \u2014 radiography, MRI & nuclear medicine' },
     { value: 'sonography', label: 'Sonography' },
     { value: 'radiation', label: 'Radiation therapy' },
-    { value: 'medicine', label: 'Medicine \u2014 radiology or general practice' },
-    { value: 'anaesthetics', label: 'Anaesthetic technology / theatre' },
-    { value: 'psychology', label: 'Psychology' },
     { value: 'physio', label: 'Physiotherapy' },
-    { value: 'ot', label: 'Occupational therapy' }
+    { value: 'ot', label: 'Occupational therapy' },
+    { value: 'psychology', label: 'Psychology' },
+    { value: 'slt', label: 'Speech & language therapy' },
+    { value: 'dietetics', label: 'Dietetics' },
+    { value: 'socialwork', label: 'Social work' },
+    { value: 'anaesthetics', label: 'Anaesthetic technology / ODP' },
+    { value: 'nursing', label: 'Nursing \u2014 registered or enrolled' },
+    { value: 'midwifery', label: 'Midwifery' },
+    { value: 'gp', label: 'General practice' },
+    { value: 'medicine', label: 'Hospital medicine \u2014 consultant, specialist or registrar' },
+    { value: 'other', label: 'Another profession' }
   ];
 
   var GROUPS = {
@@ -25,7 +32,10 @@
     radiation: ['Planning', 'Treatment delivery', 'Site groups', 'Brachytherapy', 'Quality assurance'],
     nursing: ['Clinical skills', 'Patient groups', 'Emergency and deteriorating patients', 'Medicines management', 'Teaching and supervision'],
     midwifery: ['Antenatal', 'Labour and birth', 'Postnatal', 'Neonatal', 'Complex and high risk'],
-    medicine: ['Clinical presentations', 'Procedures', 'Acute and on call', 'Outpatients', 'Teaching and supervision'],
+    gp: ['Clinical presentations', 'Long-term conditions', 'Procedures and minor surgery', 'Practice systems and teamwork', 'Teaching, supervision and audit'],
+    medicine: ['Clinical presentations', 'Procedures', 'Acute and on call', 'Outpatients and clinics', 'Leadership, teaching and governance'],
+    dietetics: ['Clinical dietetics and nutrition support', 'Patient groups and conditions', 'Enteral and parenteral nutrition', 'Community and food service', 'Education, audit and research'],
+    socialwork: ['Assessment and care planning', 'Safeguarding and risk', 'Client groups and settings', 'Discharge and community', 'Statutory frameworks and supervision'],
     anaesthetics: ['Anaesthetic techniques', 'Regional', 'Airway management', 'Case mix', 'Critical care and pain'],
     psychology: ['Assessment', 'Therapeutic models', 'Client groups', 'Risk and safeguarding', 'Consultation and supervision'],
     physio: ['Musculoskeletal', 'Neurological', 'Respiratory', 'Rehabilitation settings', 'Assessment and outcome measures'],
@@ -41,7 +51,10 @@
     radiation: { title: 'Equipment and systems used', lead: 'Linacs, planning systems and record-and-verify by name and version where you know it.' },
     nursing: { title: 'Systems and equipment used', lead: 'Clinical systems and equipment by name — the electronic record, the observation and escalation system, the pumps and monitors you are signed off on.' },
     midwifery: { title: 'Systems and equipment used', lead: 'Clinical systems and equipment by name — the maternity record, the monitoring you use, the equipment you are signed off on.' },
+    gp: { title: 'Systems and procedures', lead: 'Practice management and clinical systems by name, and the procedures you are independently signed off to perform.' },
     medicine: { title: 'Systems and procedures', lead: 'Clinical systems by name, and the procedures you are independently signed off to perform.' },
+    dietetics: { title: 'Assessments and systems used', lead: 'Named assessment tools, nutrition support products and regimens, and the clinical record systems you have worked on.' },
+    socialwork: { title: 'Frameworks and systems used', lead: 'The assessment frameworks, statutory processes and case-management systems you have worked in, by name.' },
     anaesthetics: { title: 'Equipment and systems used', lead: 'Anaesthetic machines, airway and monitoring equipment, and the record systems.' },
     psychology: { title: 'Assessments and systems used', lead: 'Named assessment tools and outcome measures, plus the clinical record system.' },
     physio: { title: 'Equipment and systems used', lead: 'Equipment, outcome measures and clinical systems by name.' },
@@ -118,11 +131,11 @@
     var missing = head.filter(function (k) { return !filled(f[k]); });
     if (missing.length === head.length) push('01', 'The header block', 'empty', 'Nothing yet. This is the first thing anyone reads.');
     else if (missing.length) push('01', 'The header block', 'thin', 'Still missing ' + missing.map(function (k) { return names[k]; }).join(', ') + '.');
-    else if (!filled(f.regLine)) push('01', 'The header block', 'thin', 'No registration line. A reader looks for this on page one and reads its absence as not started.');
+    else if (!filled(f.regLine)) push('01', 'The header block', 'thin', 'No registration line yet. Add your current registration, and the stage of your destination application if relevant.');
     else push('01', 'The header block', 'ready', 'Complete, and the registration line is where it belongs.');
 
     var w = words(summaryText());
-    if (!w) push('02', 'Candidate summary', 'empty', 'Empty. This is the part most likely to be read in full.');
+    if (!w) push('02', 'Candidate summary', 'empty', 'A short summary is optional. If you use one, describe your profession, experience and the role you are seeking.');
     else if (w > 200) push('02', 'Candidate summary', 'thin', w + ' words. The limit is two hundred, and the cut usually improves it.');
     else if (w < 80) push('02', 'Candidate summary', 'thin', 'Only ' + w + ' words. Aim for 80 to 130 — there is room to say what you bring.');
     else if (!filled(f.sumWhy)) push('02', 'Candidate summary', 'thin', 'No line on why this country. Everyone reading it is wondering.');
@@ -131,7 +144,7 @@
     else push('02', 'Candidate summary', 'ready', w + ' words, and it says something only you could say.');
 
     var groups = f.expertise.filter(function (r) { return filled(r.group) && filled(r.items); });
-    if (!groups.length) push('03', 'Clinical expertise', 'empty', 'Empty, and this is the section shortlisting actually happens in.');
+    if (!groups.length) push('03', 'Clinical expertise', 'empty', 'Not added yet. Group your clinical skills and name the procedures you are confident in.');
     else if (groups.length < 3) push('03', 'Clinical expertise', 'thin', (groups.length === 1 ? 'One grouping' : 'Two groupings') + '. Most people have three or four.');
     else push('03', 'Clinical expertise', 'ready', groups.length + ' groupings, each with named procedures.');
 
@@ -145,8 +158,8 @@
 
     var roles = f.roles.filter(function (r) { return filled(r.title) || filled(r.org); });
     var thin = roles.filter(function (r) { return r.kind !== 'gap' && !lines(r.bullets).length; });
-    if (!roles.length) push('05', 'Employment history', 'empty', 'No roles yet.');
-    else if (roles.some(function (r) { return !filled(r.dates); })) push('05', 'Employment history', 'thin', 'A role has no dates. Missing dates read as a gap being hidden.');
+    if (!roles.length) push('05', 'Employment history', 'empty', 'Add your relevant roles, starting with the most recent. You can explain any career breaks in the timeline.');
+    else if (roles.some(function (r) { return !filled(r.dates); })) push('05', 'Employment history', 'thin', 'A role has no dates. Add the month and year; you can note any breaks in the timeline.');
     else if (thin.length) push('05', 'Employment history', 'thin', thin.length === 1 ? 'One role has a title but nothing under it.' : thin.length + ' roles have titles but nothing under them.');
     else push('05', 'Employment history', 'ready', roles.length + ' entries, all dated, each with detail under it.');
 
@@ -159,14 +172,14 @@
 
     var cpd = f.cpd.filter(function (r) { return filled(r.title); });
     var undated = cpd.filter(function (r) { return !filled(r.date); });
-    if (!cpd.length) push('07', 'Professional development', 'empty', 'Empty, which a reader takes as nothing since you qualified.');
+    if (!cpd.length) push('07', 'Professional development', 'empty', 'Not added yet. Add recent training or CPD if it is relevant to your application.');
     else if (cpd.length < 3) push('07', 'Professional development', 'thin', cpd.length === 1 ? 'One entry. Recency matters more than length, but one is thin.' : 'Two entries.');
     else if (undated.length) push('07', 'Professional development', 'thin', undated.length + (undated.length === 1 ? ' entry has no date. Undated training is assumed old.' : ' entries have no dates. Undated training is assumed old.'));
     else push('07', 'Professional development', 'ready', cpd.length + ' entries, all dated.');
 
     var eq = lines(f.equipment);
     var eqt = EQUIP[eqKey()].title;
-    if (!eq.length) push('08', eqt, 'empty', 'Empty. A department running what you have used notices this before anything else.');
+    if (!eq.length) push('08', eqt, 'empty', 'Not added yet. List the equipment and systems you have used, named specifically.');
     else if (eq.length < 3) push('08', eqt, 'thin', eq.length === 1 ? 'One line.' : 'Two lines. Add the information systems as well as the hardware.');
     else push('08', eqt, 'ready', eq.length + ' lines, named specifically.');
 
@@ -544,6 +557,8 @@
   }
 
   function init() {
+    /* Page-scoped: the design-system bundle compiles this file too, so bail where the CV builder is not on the page. */
+    if (!document.getElementById('cvProf')) return;
     /* selects */
     var ps = $('#cvProf');
     ps.innerHTML = PROFESSIONS.map(function (p) { return '<option value="' + p.value + '">' + esc(p.label) + '</option>'; }).join('');

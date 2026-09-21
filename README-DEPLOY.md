@@ -4,49 +4,43 @@ This `site/` folder is the deployable website. Plain HTML/CSS, no build step. Ev
 
 ## 1. Deploy
 
-### Current state — manual, and it has already cost us (1 Sep 2026)
+### Current state — git-based, live since 1 Sep 2026
 
-The live site is deployed by **manual upload**. It is not built from git. All three
-GitHub repos on the account (`sophie768/Ethicare`, `Ethicare-`, `Ethicaresite`) are flat
-dumps — every file at the repo root, zero subdirectories — while the live site serves real
-`/destinations/`, `/guides/` and `/jobs/` folders. No base-directory setting on any of them
-could produce the deployed tree, so none is the source.
+Netlify builds the live site from **`sophie768/Ethicare-Site`**, branch `main`, publish
+directory `.` — the repo root IS the website, so `netlify.toml`, `_redirects` and
+`netlify/functions/` already sit where Netlify expects them. Pushing to `main` redeploys
+automatically. A bad deploy is revertible from *Netlify → Deploys → Publish deploy*.
 
-That is not a filing quibble. On 1 September the destinations index was uploaded as the site
-root, so `https://ethicareresourcing.com/` served "New Zealand Destination Guides" with a
-canonical of `/destinations/`. Nothing in the source was wrong; the wrong file was dragged.
-With no git history there was no diff to catch it and no revert — it was found by a human
-looking at the homepage.
+`site/` in the authoring project is the source of truth. Changes are made there, mirrored
+into the local clone, then pushed.
 
-**Do not add more manual uploads. Migrate to git (§1a).**
+### 1a. Publish a change (the routine)
 
-### 1a. Migrate to git (do this once)
+The clone is a **mirror of `site/`**, not a merge target. Copy the whole tree over it rather
+than cherry-picking files — a hand-picked file set is how the 1 September homepage incident
+happened (the destinations index was uploaded as the site root, and with no history there was
+no diff to catch it).
 
-GitHub's *web* uploader caps at 100 files per drag and cannot preserve a tree this size —
-that is why the `github-batches/` folders exist, and the batch-to-target mapping they require
-is exactly the error class that caused the incident. Use a real git client instead; there are
-no limits and one commit does the whole tree.
+With GitHub Desktop:
+
+1. Download the current `site/` zip and unzip it.
+2. Copy **the contents** of the unzipped folder over your `Ethicare-Site` clone, replacing
+   everything. Leave `.git/` and `.gitattributes` alone.
+3. GitHub Desktop shows the changed files. Write a one-line summary, **Commit to main**, then
+   **Push origin**.
+4. Netlify builds within a minute or two. Check *Deploys* for a green "Published", then load
+   `/` and confirm it reads "Healthcare careers in New Zealand & Australia".
+
+Command line equivalent, from inside the clone after copying the files in:
 
 ```bash
-# from a local copy of this site/ folder
-git init
-git add .
-git commit -m "Ethicare site — full tree"
-git branch -M main
-git remote add origin https://github.com/sophie768/<new-repo>.git
-git push -u origin main
+git add -A
+git commit -m "Content pass — <what changed>"
+git push
 ```
 
-Use a **new, empty repo**. Do not push into the three existing flat ones — their history is
-not this tree and merging them would be worse than starting clean.
-
-Then in Netlify: *Site configuration → Build & deploy → Link repository* → pick the repo,
-branch `main`, **publish directory = `.`** (this folder IS the repo root, so `netlify.toml`,
-`_redirects` and `netlify/functions/` are already in the right place). Every push then
-redeploys automatically, every change is diffable, and any bad deploy is one click to revert.
-
-After linking, retire `github-batches/` and `batches/` — they only exist to work around the
-web uploader.
+`github-batches/` and `batches/` in the authoring project are retired. They only existed to
+work around GitHub's 100-file web uploader; ignore them.
 
 ### 1b. Environment variables (required — Ask Ethicare is currently down)
 
@@ -90,6 +84,8 @@ All **eight** forms use **Netlify Forms** — no third-party account, works from
 | `apply.html` | `candidate-registration` (CV upload) | in-page confirmation |
 | `pathway-checker.html` | `pathway-checker-lead` | in-page confirmation |
 | `move.html` | `plan-share` (plan summary) | `/thank-you` |
+| every content page, via `<page-feedback>` (`page-feedback.js`) | `page-feedback` — declared statically in `_forms/index.html` | in-place thanks |
+| `/move/pack` (Personal Pack template) | `personal-pack` — declared statically in `_forms/index.html` | in-place confirmation |
 
 Every form carries `data-netlify="true"`, a hidden `form-name` input and a `bot-field` honeypot.
 
@@ -103,6 +99,23 @@ Every form carries `data-netlify="true"`, a hidden `form-name` input and a `bot-
 - `_redirects` maps the canonical destination slugs (e.g. `/destinations/auckland-new-zealand`) onto the underlying guide files and 301s legacy names. Don't rename files in `destinations/` without updating it.
 - `404.html` is served automatically for any missing URL.
 - `sitemap.xml` lists every canonical URL; `robots.txt` points to it. After go-live, submit the sitemap in Google Search Console.
+
+### Routing audit — 8 September 2026 (pre-launch)
+
+Full re-check of every link, asset ref, `_redirects` rule and sitemap entry across all 504 pages, resolved
+against canonical URLs — see `Go-Live Link Audit - 8 Sep 2026.html` at the project root. Two things worth
+knowing permanently:
+
+1. **Netlify will not apply a redirect when a file exists at the source path unless the status is forced.**
+   Every `page.html → /page 301` rule here was inert until 8 Sep; they now carry `301!`. Any new
+   `.html → clean URL` rule must too.
+2. **Relative asset paths break under rewritten URLs.** A chapter served at
+   `/destinations/bunbury-australia/cost` from `destinations/bunbury/cost.html` resolves `chapter.css` to
+   `/destinations/bunbury-australia/chapter.css`, which does not exist. `../../x` survives because URL depth
+   equals file depth; a sibling reference does not. Use root-relative paths for anything a rewritten page loads.
+
+Also: `/plan` is now a 301 to `/move` (the page's canonical); `/guides/moving-to-new-zealand` is the
+"Is New Zealand right for my family?" guide and no longer redirects to the national master.
 
 ### Routing audit — 20 August 2026
 

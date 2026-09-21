@@ -126,10 +126,14 @@
 .hero.cream .btn-ghost:hover{background:rgba(2,97,93,.08);}
 .hero.cream .hero-badge{order:2;display:flex;justify-content:center;align-items:center;min-width:0;}
 .hero.cream .hero-badge img{width:100%;max-width:clamp(184px,20vw,272px);height:auto;display:block;filter:drop-shadow(0 16px 32px rgba(2,49,47,.16));}
+/* Family hero illustration (assets/heroes/*.svg) — flat line drawing, so it runs
+   wider than the country brand mark and takes no drop shadow. */
+.hero.cream .hero-badge img.hero-illus{max-width:clamp(252px,28vw,380px);filter:none;}
 @media (max-width:880px){
   .hero.cream .wrap{grid-template-columns:1fr;gap:24px;}
   .hero.cream .hero-badge{justify-content:flex-start;}
   .hero.cream .hero-badge img{max-width:150px;}
+  .hero.cream .hero-badge img.hero-illus{max-width:296px;}
 }
 /* Australia accent — terracotta divider + eyebrow on the cream hero */
 .hero.cream.au{--hero-rule:#D9A084;}
@@ -144,12 +148,13 @@
 .hero.duo{background:#01413E;}
 .hero.duo .duo-bg{position:absolute;inset:0;z-index:0;display:grid;grid-template-columns:1fr 1fr;gap:4px;background:#01312F;}
 .hero.duo .duo-bg img{width:100%;height:100%;object-fit:cover;display:block;}
-.hero.duo::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(105deg,rgba(1,49,47,.80) 0%,rgba(1,49,47,.68) 46%,rgba(1,49,47,.54) 74%,rgba(1,49,47,.46) 100%);}
+.hero.duo::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(105deg,rgba(1,49,47,.68) 0%,rgba(1,49,47,.34) 46%,rgba(1,49,47,.27) 74%,rgba(1,49,47,.23) 100%);}
 .hero.duo .wrap{position:relative;z-index:2;grid-template-columns:1.35fr .65fr;}
 .hero.duo .crumb{display:flex;flex-wrap:wrap;align-items:center;column-gap:8px;row-gap:4px;line-height:1.5;margin-bottom:16px;}
 .hero.duo h1{text-wrap:balance;}
 .hero.duo h1,.hero.duo h1 em{color:#fff;}
-.hero.duo .eyebrow{color:#EFC3AA;}
+.hero.duo .eyebrow{color:#C6E084;}
+.hero.duo.au .eyebrow{color:#EFC3AA;}
 .hero.duo .hero-sub{color:rgba(255,255,255,.88);}
 .hero.duo .crumb,.hero.duo .crumb a{color:rgba(255,255,255,.85);}
 .hero.duo .crumb a:hover,.hero.duo .crumb .here{color:#fff;}
@@ -163,5 +168,5 @@
 .hero.duo .duo-tags i.au{background:#D9A084;}
 .hero.duo .duo-tags .orsep{color:rgba(255,255,255,.78);font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:15px;}
 @media (max-width:880px){
-  .hero.duo::before{background:linear-gradient(180deg,rgba(1,49,47,.80) 0%,rgba(1,49,47,.58) 100%);}
+  .hero.duo::before{background:linear-gradient(180deg,rgba(1,49,47,.40) 0%,rgba(1,49,47,.58) 100%);}
 }
