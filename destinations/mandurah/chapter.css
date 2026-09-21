@@ -232,3 +232,9 @@ figure img{height:auto!important;max-height:115mm!important}
 h1,h2,h3{break-after:avoid!important}
 .backtop{display:none!important}
 }
+
+/* Match the standard chapter index (21 Sep 2026): the markup uses h2, which
+   nothing here styled, so it rendered as a large heading. */
+.otp{background:#C9DED3;border-color:#D6E1DA}
+.otp h2{font-family:'Work Sans',sans-serif;font-size:12px;line-height:1.3;letter-spacing:.12em;text-transform:uppercase;color:#02615D;margin:0 0 16px;font-weight:700;grid-column:1/-1}
+.otp a{border-top-color:#D6E1DA}

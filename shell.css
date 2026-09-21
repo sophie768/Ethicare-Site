@@ -566,3 +566,24 @@ main .editorial{line-height:1.75}
 .art-next .an-hub a:hover{text-decoration:underline;text-underline-offset:3px}
 .art-next .an-hub a::before{content:"← ";color:#2F5E49}
 @media(max-width:760px){.art-next .an-grid{grid-template-columns:1fr}}
+
+/* Chapter footer repair (21 Sep 2026). The 24px target-size rule above made
+   .ch-nav links flex rows, so the small "Previous"/"Next" label ran into the
+   title ("PREVIOUSCost of living") and the Next link lost its right alignment.
+   Stack them again; the 24px minimum still holds. */
+nav.ch-nav a{flex-direction:column;align-items:flex-start;justify-content:center}
+nav.ch-nav a.up{align-items:center}
+nav.ch-nav a.next{align-items:flex-end}
+@media(max-width:640px){nav.ch-nav a.next,nav.ch-nav a.up{align-items:flex-start}}
+/* The print-guide link sits in a <p>, so .content p capped it at 64ch and it
+   centred inside that narrow box instead of under the chapter nav. */
+.content p.ch-print,main p.ch-print{max-width:none}
+/* Takeaway boxes on 17 Christchurch, Northland and Auckland chapter pages use
+   a .pt title + <ul> that nothing styled: bare title, bullets hanging outside
+   the box. Same look as the .tt + <p> takeaway used everywhere else. */
+.takeaway .pt{display:flex;align-items:center;gap:8px;font-weight:600;font-size:19px;margin-bottom:12px;color:#fff}
+.takeaway .pt::before{content:"";width:11px;height:11px;background:var(--highlight,#A6C84A);border-radius:50%;flex:none}
+.content .takeaway ul,.takeaway ul{list-style:none;margin:0;padding:0;max-width:64ch}
+.content .takeaway li,.takeaway li{position:relative;padding-left:24px;margin:0 0 8px;color:rgba(255,255,255,.92)}
+.takeaway li:last-child{margin-bottom:0}
+.takeaway li::before{content:"";position:absolute;left:0;top:.66em;width:8px;height:8px;border-radius:50%;background:var(--highlight,#A6C84A)}
