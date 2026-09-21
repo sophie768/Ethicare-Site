@@ -215,3 +215,15 @@
 .faq{grid-template-columns:1fr}
 .tline{grid-template-columns:1fr}
 }
+
+/* FRAMED PHOTO (Sep 2026) — hub heroes match the profession pages: white page,
+   photograph whole in a rounded frame, no fade. */
+.hsplit{background:#FFFFFF}
+.hsplit .art{top:clamp(28px,3vw,40px)!important;bottom:calc(var(--rail-h,58px) + clamp(28px,3vw,40px))!important;right:max(22px,calc((100vw - 1200px)/2 + 22px))!important;width:min(47%,580px)!important;border-radius:20px!important;overflow:hidden!important;box-shadow:0 30px 60px -38px rgba(1,49,47,.45)!important}
+.hsplit .art img{border-radius:20px}
+.hsplit .art::after{display:none!important}
+.hsplit:not(.nophoto)>.in{min-height:clamp(420px,40vw,520px);display:flex;align-items:center}
+@media (max-width:1000px){
+  .hsplit .art{position:relative!important;top:auto!important;bottom:auto!important;right:auto!important;width:auto!important;margin:18px 22px 0;height:clamp(220px,52vw,360px);border-radius:18px}
+  .hsplit:not(.nophoto)>.in{min-height:0;display:block;padding-top:24px}
+}

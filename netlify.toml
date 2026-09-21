@@ -59,6 +59,11 @@
   to = "/jobs/coming-to-australia"
   status = 301
   force = true
+[[redirects]]
+  from = "/jobs/psychologist-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
 
 # Internal-only surfaces: the Netlify Forms declaration page and the design
 # prototypes are reachable but must never be indexed (14 Sep 2026).

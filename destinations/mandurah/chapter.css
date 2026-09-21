@@ -35,7 +35,7 @@ p,li,figcaption{text-wrap:pretty}
 .hero{position:relative;display:flex;align-items:flex-end;overflow:hidden;background:#02615D;min-height:clamp(340px,50vh,470px)}
 .hero.hub{min-height:clamp(420px,64svh,600px)}
 .hero .photo{position:absolute;inset:0;background-size:cover;background-position:center 50%}
-.hero .scrim{display:block;position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,49,47,.30) 0%,rgba(1,49,47,.16) 42%,rgba(1,49,47,.80) 100%)}
+.hero .scrim{display:block;position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,49,47,.15) 0%,rgba(1,49,47,.08) 42%,rgba(1,49,47,.68) 100%)}
 .hero .photo::after,.hero::after,.hero::before{display:none}
 .hero .inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:clamp(40px,6vw,76px) 28px clamp(34px,4.4vw,54px);width:100%}
 .hero .eyebrow{color:#EFC3AA}

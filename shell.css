@@ -295,7 +295,7 @@ p,li,figcaption,dd,summary{text-wrap:pretty}
    Range stays inside the brand .46-.80 ceiling; the top quarter stays light so
    the photograph reads.
    ========================================================================== */
-.hero .photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(1,49,47,.46) 0%,rgba(1,49,47,.66) 27%,rgba(1,49,47,.74) 62%,rgba(1,49,47,.80) 100%)}
+.hero .photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(1,49,47,.23) 0%,rgba(1,49,47,.33) 27%,rgba(1,49,47,.37) 62%,rgba(1,49,47,.68) 100%)}
 
 /* ==========================================================================
    CHAPTER NAV — Previous / All chapters / Next, closing a guide chapter.
@@ -587,3 +587,73 @@ nav.ch-nav a.next{align-items:flex-end}
 .content .takeaway li,.takeaway li{position:relative;padding-left:24px;margin:0 0 8px;color:rgba(255,255,255,.92)}
 .takeaway li:last-child{margin-bottom:0}
 .takeaway li::before{content:"";position:absolute;left:0;top:.66em;width:8px;height:8px;border-radius:50%;background:var(--highlight,#A6C84A)}
+
+/* ==========================================================================
+   WHITE PAGE (Sep 2026) — the page itself is white; colour comes from the teal,
+   the photographs and deliberate tinted bands (Soft Sage NZ / Pale Eucalyptus AU).
+   html:root outranks the :root token blocks inlined on individual pages.
+   ========================================================================== */
+html:root{--warm:#FFFFFF;--surface-warm:#FFFFFF}
+html body{background:#FFFFFF}
+html .site-header{background:#FFFFFF}
+@media (max-width:980px){html .site-nav{background:#FFFFFF}}
+
+/* ==========================================================================
+   PHOTO LAYOUT SYSTEM (Sep 2026) — six layouts for every photo below the hero.
+   pl-wide · pl-split (l / r) · pl-pair · pl-inset · pl-band. Rules: never the same
+   layout twice in a row; splits alternate; portrait photos never go wide; one band
+   per page; wide photos cap at ~520px; everything stacks to 4:3 on phones.
+   `html` prefix outranks the per-page inline <style> blocks that load after this file.
+   ========================================================================== */
+html .pl-wide{margin:40px 0}
+html .pl-wide img{width:100%;aspect-ratio:21/9;max-height:520px;height:auto;object-fit:cover;border-radius:18px;display:block}
+html .pl-split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;margin:48px 0}
+html .pl-split.r{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+html .pl-split.r>figure{order:2}
+html .pl-split figure{margin:0}
+html .pl-split img{width:100%;aspect-ratio:4/5;height:auto;object-fit:cover;border-radius:18px;display:block}
+html .pl-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:40px 0;align-items:start}
+html .pl-pair figure{margin:0}
+html .pl-pair img{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:16px;display:block}
+html .pl-inset{float:right;width:min(38%,340px);margin:6px 0 20px 32px}
+html .pl-inset.l{float:left;margin:6px 32px 20px 0}
+html .pl-inset img{width:100%;height:auto;border-radius:14px;display:block}
+html .pl-band{position:relative;margin:56px 0;min-height:clamp(300px,34vw,480px);overflow:hidden;border-radius:0}
+html .pl-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+html :is(.pl-wide,.pl-split,.pl-pair,.pl-inset) figcaption{font-size:13px;color:#555;margin-top:8px;font-weight:600}
+
+/* --- repairs to the existing chapter photo blocks, driven by the photo's own shape --- */
+/* portrait photos that were squeezed into wide strips become side insets, alternating */
+html .photo-fig.pt{float:right;clear:right;width:min(38%,360px);margin:8px 0 24px 36px}
+html .photo-fig.pt.l{float:left;clear:left;margin:8px 36px 24px 0}
+html .photo-fig.pt img{width:100%;display:block;border-radius:18px;height:auto;aspect-ratio:4/5;object-fit:cover}
+html .photo-fig.pt figcaption{font-size:13px;color:#555;margin-top:8px;font-weight:600}
+html .photo-fig.pt figcaption{text-align:left}
+/* photos shown at natural height never run taller than the screen */
+html .photo-fig img[style*="height:auto"]{max-height:min(560px,70vh);width:auto;max-width:100%;margin:0 auto}
+/* pairs with a portrait photo give the portrait a narrower column instead of a hard crop */
+html .photo-pair:has(figure.pt){grid-template-columns:1.8fr 1fr}
+html .photo-pair:has(figure.pt:first-child){grid-template-columns:1fr 1.8fr}
+html .photo-pair:has(figure.pt) img{height:380px}
+/* maps and locators sit at a readable size, not full column width */
+html figure.locator{max-width:560px;margin-left:auto!important;margin-right:auto!important}
+@media (max-width:760px){
+  html .pl-split,html .pl-split.r,html .pl-pair{grid-template-columns:1fr}
+  html .pl-split.r>figure{order:0}
+  html .pl-split img,html .pl-pair img{aspect-ratio:4/3}
+  html .pl-inset,html .pl-inset.l,html .photo-fig.pt,html .photo-fig.pt.l{float:none;width:auto;margin:32px 0}
+  html .photo-fig.pt img{aspect-ratio:4/3}
+  html .photo-pair:has(figure.pt),html .photo-pair:has(figure.pt:first-child){grid-template-columns:1fr}
+  html .photo-pair:has(figure.pt) img{height:260px}
+}
+/* portrait photo that stands on its own between paragraphs (no text wrap) */
+html .photo-fig.pt.solo{float:none;clear:both;width:min(440px,100%);margin:44px auto}
+html .photo-fig.pt.solo figcaption{text-align:center}
+/* portrait photo beside a whole section of text (left or right, alternating) */
+html .pl-split.pl-side{align-items:start;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr)}
+html .pl-split.pl-side.r{grid-template-columns:minmax(0,1.28fr) minmax(0,.72fr)}
+html .pl-split.pl-side>figure{position:sticky;top:96px}
+html .pl-split.pl-side .pl-tx>*:first-child{margin-top:0}
+html .pl-split.pl-side .pl-tx .facts,html .pl-split.pl-side .pl-tx .cards,html .pl-split.pl-side .pl-tx [class*="grid"]{grid-template-columns:1fr!important}
+html .pl-split.pl-side figcaption{font-size:13px;color:#555;margin-top:10px;font-weight:600}
+@media (max-width:760px){html .pl-split.pl-side>figure{position:static}}

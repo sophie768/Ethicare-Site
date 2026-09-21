@@ -64,7 +64,7 @@ strong{color:var(--green);font-weight:600}
 .hero{background:var(--teal);color:#fff;position:relative;overflow:hidden;display:flex;align-items:center;min-height:calc(100svh - 78px)}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
-.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,53,51,.95) 0%,rgba(1,53,51,.8) 42%,rgba(1,53,51,.46) 74%,rgba(1,53,51,.25) 100%)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,53,51,.81) 0%,rgba(1,53,51,.40) 42%,rgba(1,53,51,.23) 74%,rgba(1,53,51,.12) 100%)}
 .hero .wide{position:relative;z-index:1;width:100%;padding-top:48px;padding-bottom:48px}
 .hero .crumb{color:rgba(255,255,255,.7)}.hero .crumb a:hover{color:#fff}
 .hero .eyebrow{color:#fff}
@@ -144,10 +144,13 @@ strong{color:var(--green);font-weight:600}
 
 /* full-bleed image moment */
 .fullbleed{position:relative}
-.fb-ph{position:relative;min-height:clamp(360px,54vh,580px);display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(1,49,47,.25),rgba(1,49,47,.66)),url('assets/photo-sounds-track.jpg');background-size:cover;background-position:center}
+.fb-ph{position:relative;min-height:clamp(360px,54vh,580px);display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(1,49,47,.12),rgba(1,49,47,.62)),url('assets/photo-sounds-track.jpg');background-size:cover;background-position:center}
 .fb-ph .tag{position:absolute;top:18px;left:18px;display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.82)}
 .fb-ph .tag::before{content:"";width:14px;height:14px;border-radius:6px;background:rgba(255,255,255,.5)}
 .fb-line{max-width:1180px;margin:0 auto;padding:0 24px 44px;width:100%}
+.fb-line.right{display:flex;justify-content:flex-end;text-align:right}
+@media(min-width:721px){.fb-line.right{max-width:none;padding-right:clamp(24px,4vw,64px)}.fb-line.right p{max-width:300px;font-size:clamp(22px,2.1vw,30px)}}
+@media(max-width:720px){.fb-line.right{justify-content:flex-start;text-align:left}}
 .fb-line p{font-family:var(--display);font-style:italic;font-weight:600;font-size:clamp(24px,3.4vw,40px);line-height:1.3;color:#fff;max-width:20ch;text-shadow:0 2px 24px rgba(0,0,0,.25)}
 
 /* CTA */
@@ -392,8 +395,8 @@ strong{color:var(--green);font-weight:600}
 </section>
 <!-- ===================== FULL-BLEED IMAGE MOMENT ===================== -->
 <section class="fullbleed" data-screen-label="About · landscape moment">
-  <div class="fb-ph" style="background:linear-gradient(180deg,rgba(1,49,47,.12),rgba(1,49,47,.6)),url('assets/nz-life/family-mtb-ride.jpg');background-size:cover;background-position:center 55%">
-    <div class="fb-line">
+  <div class="fb-ph" style="background:linear-gradient(100deg,rgba(1,49,47,0) 0%,rgba(1,49,47,0) 48%,rgba(1,49,47,.28) 100%),linear-gradient(180deg,rgba(1,49,47,0) 55%,rgba(1,49,47,.35) 100%),url('assets/nz-life/family-mtb-ride-wide.jpg');background-size:cover;background-position:center 40%;min-height:clamp(420px,50vw,760px)">
+    <div class="fb-line right">
       <p>From the other side of the world, to a place that becomes home.</p>
     </div>
   </div>
