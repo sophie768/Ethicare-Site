@@ -179,7 +179,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -212,11 +212,13 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
           <a href="/insights">Insights</a>
         </div>
       </div>
+      <a href="/ask">Ask Ethicare</a>
       <a href="/employers">For Employers</a>
       <a class="nav-cta" href="/contact">Contact</a>
     </nav>
   </div>
 </header>
+
 
 <main id="main-content">
   <section class="mc-wrap" data-screen-label="Checklist">
@@ -298,41 +300,6 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   Guides & Resources, and neither tool has a matching top-level nav item. If you build another page
   by copying this header, strip it again — otherwise the wrong nav item lights up and assistive
   tech announces the wrong current page.
--->
-<!-- INTERNAL LINK MAP — /moving-checklist
-  Header: Ethicare logo → Home (/) · Home → / · Australia → /australia (mega: AU journey guides /guides/*, AU professions /jobs/*-australia,
-    /destinations/australia, "Check your registration pathway" → /pathway-checker) · New Zealand → /new-zealand (same pattern)
-    · About → /about-ethicare · Insights → /insights · Contact → /contact · Register your interest → /apply
-  Step 1 / Step 2: no outbound links (choices only)
-  Checklist — section CTAs, generated from moving-checklist-data.js and resolved by destination:
-    The move itself → /destinations · /pathway-checker · /guides/{country}-visa · official immigration site (immi.homeaffairs.gov.au / immigration.govt.nz, new tab)
-    Money → /guides/{country}-salary · /guides/cost-of-relocating · /guides/negotiating-your-offer
-    Housing → /guides/nz/renting-in-new-zealand (NZ-only) or /guides/moving-to-australia
-    Healthcare → /guides/{country}-healthcare
-    Practical preparation → /guides/nz/money-tax-and-banking (NZ-only) or /guides/moving-to-australia
-    Moving on your own (solo) → /destinations · /guides/{country}-community
-    Your partner (couple / family / moving first) → official immigration site · /pathway-checker · /guides/living-in-{country}
-    Moving with children (school age) → /guides/australia-school-fees (AU) and/or /guides/new-zealand-education · /guides/{country}-education
-    Childcare (under 5) → /guides/{country}-family · official immigration site
-    Managing it as the only adult → /guides/cost-of-relocating · /guides/living-in-{country}
-    Moving before your family → official immigration site · /guides/cost-of-relocating
-    Bringing your pet → /guides/nz/bringing-pets-and-belongings (NZ) or /guides/australia-pets
-    Building a life once you land → /guides/{country}-community · /guides/nz/your-first-month (NZ) or /guides/australia-relocation
-  Completion band (all items considered): /pathway-checker · /guides/cost-of-relocating · /destinations · /jobs
-  Three tools: /pathway-checker · /cost-calculator · /guides/nz/relocation-checklist
-  No-JS fallback: /guides/moving-to-new-zealand · /guides/moving-to-australia · /guides/nz/relocation-checklist
-  Footer: Destinations → /new-zealand, /australia, /destinations, /destinations/australia · Candidates → /jobs, /resources, /pathway-checker, /insights, /apply
-    · Company → /about-ethicare, /employers, /submit-a-vacancy, /contact · /privacy-policy
-  Entry points elsewhere: /resources (Tools row) · /guides/moving-to-australia + /guides/moving-to-new-zealand · both country hubs
-    · ?destination=au|nz|both preselects step 1, so any country page can deep-link
-
-  ARCHITECTURE — this page owns NO topic.
-  It is a roadmap, like the Six Steps: it says what applies to you, then links to the guide that
-  explains each topic once. Two boundaries are deliberate:
-   · School fees: /guides/australia-school-fees is the master and deliberately publishes NO fee
-     figures ("a stale number is worse than no number"). This page states the question and links out.
-   · /guides/nz/relocation-checklist is a TIMELINE of errands (chapter 13 of the NZ guide). This is a
-     DECISION checklist personalised by household. They cross-link and must not merge.
 -->
 
 <!-- SEO

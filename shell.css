@@ -657,3 +657,63 @@ html .pl-split.pl-side .pl-tx>*:first-child{margin-top:0}
 html .pl-split.pl-side .pl-tx .facts,html .pl-split.pl-side .pl-tx .cards,html .pl-split.pl-side .pl-tx [class*="grid"]{grid-template-columns:1fr!important}
 html .pl-split.pl-side figcaption{font-size:13px;color:#555;margin-top:10px;font-weight:600}
 @media (max-width:760px){html .pl-split.pl-side>figure{position:static}}
+/* locator maps beside the "shape of the place" chapter: a touch wider than a photo, never cropped */
+html .pl-split.pl-side.map-side.r{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)}
+html .pl-split.pl-side.map-side .map-fig img{aspect-ratio:4/5;object-fit:contain;height:auto;background:#EAF1EE;border-radius:18px}
+/* suburb maps: map + numbered key; key drops below the map on small screens */
+html .submap{margin:34px 0 46px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:26px 34px;align-items:start}
+html .submap picture,html .submap img{display:block;width:100%;height:auto;border-radius:18px}
+html .submap img{box-shadow:0 24px 50px -34px rgba(1,49,47,.4);background:#EAF1EE}
+html .submap .sm-key{font-family:'Work Sans',sans-serif}
+html .submap .sm-k{font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#A34438;margin:4px 0 14px}
+html .submap .sm-g{margin:0 0 16px}
+html .submap .sm-h{display:flex;align-items:center;gap:10px;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#333;margin:0 0 8px}
+html .submap .sm-h::before{content:"";width:18px;height:4px;border-radius:2px;background:var(--c);flex:none}
+html .submap ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;counter-reset:none}
+html .submap li{display:flex;align-items:center;gap:8px;font-size:14.5px;line-height:1.3;color:#333;margin:0;padding:0}
+html .submap li::before{content:attr(data-n);flex:none;width:22px;height:22px;border-radius:50%;background:var(--c);color:#fff;font-weight:700;font-size:11px;display:grid;place-items:center}
+html .submap .sm-also{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:13.5px;color:#333;margin:18px 0 10px;padding-top:14px;border-top:1px solid #D6E1DA}
+html .submap .sm-i{width:16px;height:16px;border-radius:50%;display:inline-block;margin-left:6px}
+html .submap .sm-i:first-child{margin-left:0}
+html .submap .sm-i.park{background:#5E9A5C}html .submap .sm-i.beach{background:#D9A084}html .submap .sm-i.mark{background:#01312F}
+html .submap .sm-note{font-size:13px;line-height:1.5;color:#56645F;margin:0}
+html .submap figcaption{grid-column:1/-1;font-size:11.5px;color:#7F9A92;margin-top:-14px}
+@media (max-width:900px){html .submap{grid-template-columns:1fr}html .submap figcaption{margin-top:-10px}}
+@media (max-width:420px){html .submap ol{grid-template-columns:1fr 1fr;gap:6px 10px}html .submap li{font-size:13.5px}}
+/* healthcare chapters: no photograph, one consistent healthcare mark on the teal banner */
+html .hero{position:relative}
+html .hero .hc-icon{position:absolute;z-index:1;right:max(28px,calc((100vw - 1200px)/2 + 28px));top:50%;transform:translateY(-50%);width:clamp(110px,11vw,150px);height:auto;pointer-events:none}
+html .hero:has(.hc-icon) .inner{position:relative;z-index:2}
+@media (max-width:760px){html .hero .hc-icon{top:auto;bottom:18px;transform:none;right:18px;width:56px}html .hero:has(.hc-icon) .inner{padding-right:0!important;padding-bottom:72px!important}}
+/* mobile: every side-by-side photo layout stacks to one column (the pl-side rules above are more specific
+   than the earlier mobile collapse, so they are restated here) */
+@media (max-width:760px){
+  html .pl-split.pl-side,html .pl-split.pl-side.r,html .pl-split.pl-side.map-side.r{grid-template-columns:1fr}
+  html .pl-split.pl-side>figure{position:static;order:0;max-width:440px}
+  html .pl-split.pl-side.map-side>figure{margin:0 auto;width:100%}
+  html .pl-split.pl-side img{aspect-ratio:4/5}
+}
+html select{max-width:100%}
+
+/* ---------------------------------------------------------------------------
+   KEY INSIGHT — one genuinely useful line, between the headline and the
+   supporting copy. Editorial pull-quote weight: heavier than the supporting
+   copy, lighter than the H1, with the country accent as a left rule. (24 Sep 2026)
+   --------------------------------------------------------------------------- */
+header .keyline{
+  margin:0 0 17px;
+  padding:1px 0 2px 17px;
+  border-left:3px solid #A6C84A;
+  font-family:'Work Sans',sans-serif;
+  font-weight:600;
+  font-size:clamp(17.5px,1.85vw,21px);
+  line-height:1.33;
+  letter-spacing:-.008em;
+  color:#02615D;
+  max-width:34ch;
+}
+header.phero.au .keyline{border-left-color:#D9A084}
+header h1:has(+ .keyline){margin-bottom:15px}
+@media (max-width:760px){
+  header .keyline{padding-left:14px;max-width:none}
+}

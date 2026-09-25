@@ -227,7 +227,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <!-- ============ HEADER ============ -->
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -260,11 +260,13 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
           <a href="/insights">Insights</a>
         </div>
       </div>
+      <a href="/ask">Ask Ethicare</a>
       <a href="/employers">For Employers</a>
       <a class="nav-cta" href="/contact">Contact</a>
     </nav>
   </div>
 </header>
+
 <div id="main-content" tabindex="-1"></div>
 
 <!-- ============ WIZARD ============ -->
@@ -600,35 +602,6 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <script src="candidate-context.js"></script>
 <script src="apply-form.js"></script>
 
-<!-- ============================================================
-  INTERNAL LINK MAP — /apply (Candidate registration)
-   HEADER (shared nav)
-    Ethicare Resourcing (logo)        → Home (/)
-    Home                              → /
-    Australia ▾ + submenu             → /australia (+ #journey #professions #destinations #opportunities #download #contacts)
-    New Zealand ▾ + submenu           → /new-zealand (+ #journey #professions #destinations #registration #opportunities #download)
-    Jobs                              → /jobs
-    Guides & Resources                → /resources
-    Insights                          → /insights
-    About ▾ + submenu                 → /about-ethicare (+ #sophie #why-ethicare #different #leaders) · For employers → /employers
-    Contact (CTA)                     → /contact
-   WIZARD
-    Aside · Questions? Talk to the team → /contact
-    Step 4 · privacy policy (consent)   → /privacy-policy
-    Step 4 · employer visibility panel  → no link; optional preference (field "employer_visibility"). Explained in full at /privacy-policy#sharing → "Introductions to employers". Preference only — the sharing consent is captured per introduction, later.
-    Success · Talk to the team          → /contact
-    Success · Register another          → resets the form (no navigation)
-    Form submission                     → Netlify Forms ("candidate-registration"); CV + fields land in the Netlify dashboard (Forms tab). Hidden field role_of_interest carries the vacancy slug when the form is reached from a role page (/apply?role=slug[&intent=later]). Set notification email there. To switch to an ATS later (e.g. Vincere), point the form action / submit at its endpoint.
-   FOOTER (site-wide) — Destinations: /new-zealand · /australia · /destinations · /destinations/australia | Candidates: /jobs · /resources · /insights · /apply | Company: /about-ethicare · /employers · /submit-a-vacancy · /contact | hello@ email · Privacy (/privacy-policy)
-    Careers in New Zealand → /new-zealand · Careers in Australia → /australia · For employers → /employers · About Ethicare → /about-ethicare
-    Contact us → /contact · Apply / submit your CV → /apply · hello@ethicareresourcing.com → mailto
-  ============================================================
-  SEO
-  Page Title: Register your interest & send your CV | Ethicare Resourcing
-  URL Slug: /apply
-  SEO Title: Register with Ethicare | Healthcare Careers in Australia & New Zealand
-  Meta Description: Register with Ethicare Resourcing in a few minutes — tell us about you, your destination and registration stage, and send your CV. Free, honest, no obligation.
-  ============================================================ -->
 <script src="nav.js" defer></script>
 </body>
 </html>

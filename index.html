@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="ask-ethicare.css">
 <style>
 /* ===== Homepage — emotional arc (final brief, 16 Sep 2026; ruthless cut 16 Sep).
    DREAM -> COULD THIS BE US? -> REALITY -> COULD IT WORK? -> ASK -> TRUST -> EMPLOYERS.
@@ -86,49 +87,10 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 .act .go{margin-top:auto;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;color:#2F5E49;display:inline-flex;align-items:center;gap:8px}
 .act:hover .go{color:#02615D}.act .go i{font-style:normal;transition:transform .18s ease}.act:hover .go i{transform:translateX(4px)}
 
-/* 5 — PERSONALISE. Ask Ethicare as a product. Markup preserved for ask-ethicare.js. */
-.aske{background:#E6F1ED}
-.aske .eyebrow{margin-bottom:14px}
-.aske h2{font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(30px,4.6vw,58px);letter-spacing:-.03em;line-height:1.02;color:#02615D;margin:0 0 8px}
-.aske-q{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(19px,2.2vw,26px);color:#02615D;margin:0 0 24px}
-.aske-head{margin-bottom:clamp(18px,2.2vw,28px)}
-.aske .inr{max-width:740px}
-.aske-box{display:flex;gap:10px;align-items:stretch;background:#fff;border:1px solid #C9DED3;border-radius:8px;padding:10px}
-.aske-box:focus-within{border-color:#02615D;box-shadow:0 0 0 3px rgba(2,97,93,.1)}
-.aske-box textarea{flex:1;min-width:0;border:none;outline:none;resize:none;background:none;font-family:'Manrope',sans-serif;font-size:17px;line-height:1.5;color:#333;padding:10px 8px 10px 12px;min-height:54px}
-.aske-box textarea::placeholder{color:#8A9691}
-.aske-go{align-self:flex-end;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;min-height:54px;padding:14px 24px;border:none;border-radius:6px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;cursor:pointer;transition:background .15s ease}
-.aske-go:hover{background:#014E4B}
-.aske-go:disabled{opacity:.55;cursor:wait}
-.aske-go:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 2px #FCFBF8}
-.aske-chips{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:16px}
-.aske-chips button{background:none;border:none;padding:6px 0;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#02615D;border-bottom:2px solid transparent;cursor:pointer}
-.aske-chips button:hover{border-color:#A6C84A}
-.aske-priv{margin:16px 0 0;font-size:13px;line-height:1.5;color:#555;max-width:72ch}
-.aske-thread{margin-top:clamp(22px,2.6vw,32px);display:grid;gap:18px}
-.aske-turn{border-top:1px solid rgba(2,97,93,.22);padding-top:18px}
-.aske-you{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(18px,2vw,22px);line-height:1.35;color:#02615D;margin:0 0 14px;max-width:60ch}
-.aske-you span{display:block;font-family:'Work Sans',sans-serif;font-style:normal;font-weight:700;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:#2F5E49;margin-bottom:6px}
-.aske-ans{background:#fff;border:1px solid #C9DED3;border-radius:8px;padding:clamp(20px,2.4vw,28px)}
-.aske-ans p{font-size:16px;line-height:1.66;color:#333;margin:0 0 12px;max-width:66ch}
-.aske-ans p:last-child{margin-bottom:0}
-.aske-ans ul{margin:0 0 12px 18px}
-.aske-ans li{font-size:16px;line-height:1.6;margin-bottom:6px;max-width:62ch}
-.aske-ans strong{font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D}
-.aske-wait{color:#555;font-style:italic}
-.aske-acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:16px}
-.aske-act{display:flex;flex-direction:column;gap:4px;background:#DCEAE0;border-radius:8px;padding:14px 16px;text-decoration:none}
-.aske-act .at{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D}
-.aske-act .ad{font-size:13px;line-height:1.45;color:#2F5E49}
-.aske-act .ag{font-family:'Work Sans',sans-serif;font-size:16px;color:#2F5E49;margin-top:2px}
-.aske-handoff{margin-top:16px;padding:16px 18px;background:#F7F4EE;border-left:3px solid #A34438;border-radius:0 8px 8px 0}
-.aske-handoff p{font-size:15px;margin:0 0 8px}
-.aske-handoff a{font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D;text-decoration:underline;text-underline-offset:3px}
-.aske-fb{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:16px;padding-top:14px;border-top:1px solid #cfe0d6;font-size:13.5px;color:#555}
-.aske-fb button{min-height:40px;padding:6px 14px;background:none;border:1px solid #C9DED3;border-radius:999px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;color:#02615D;cursor:pointer}
-.aske-fb button:hover{border-color:#72A471}
+/* 5 — PERSONALISE. Ask Ethicare as a product. The component's own styles now live in
+   ask-ethicare.css, shared with /ask so the two cannot drift. Markup here is read by
+   ask-ethicare.js — change the two together. */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-@media(max-width:640px){.aske-box{flex-direction:column}.aske-go{align-self:stretch;justify-content:center}}
 
 /* 6 — TRUST. One strong story + two short quotes + Google + founder. Real people. */
 .trust{background:#FCFBF8}
@@ -266,27 +228,46 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 </template>
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav"><a href="/australia">Working in Australia</a><a href="/australia#professions">Find your profession</a><a href="/australia#destinations">Explore destinations</a></div>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
       </div>
       <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav"><a href="/new-zealand">Working in New Zealand</a><a href="/new-zealand#professions">Find your profession</a><a href="/new-zealand#destinations">Explore destinations</a></div>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
       </div>
       <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
       <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav"><a href="/move">Your plan</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a></div>
+        <div class="subnav">
+          <a href="/move">Your relocation plan</a>
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
+        </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav"><a href="/about-ethicare">About Ethicare</a><a href="/clinical-standard">Our clinical standard</a><a href="/insights">Insights</a></div>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
       </div>
+      <a href="/ask">Ask Ethicare</a>
       <a href="/employers">For Employers</a>
       <a class="nav-cta" href="/contact">Contact</a>
     </nav>
   </div>
 </header>
+
 <main id="main-content" tabindex="-1">
 
 <!-- 1 — DREAM -->
@@ -345,8 +326,8 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
       <p>What a normal Tuesday, and a normal weekend, could feel like.</p>
     </div>
     <div class="tiles">
-      <div class="tile"><img loading="lazy" decoding="async" src="assets/nz-life/lakeside-cycle.jpg" alt="A person cycling beside a lake in the early evening light" width="1600" height="1067"><div class="cap"><p>Finish work with daylight to spare.</p></div></div>
-      <div class="tile"><img loading="lazy" decoding="async" src="assets/nz-life/family-beach-walk.jpg" alt="A family walking together along a wide, empty beach" width="1600" height="1067"><div class="cap"><p>Somewhere different for the kids to grow up.</p></div></div>
+      <div class="tile"><img loading="lazy" decoding="async" src="assets/wellington/reloc/wellington-harbour-aerial.jpg" alt="Wellington harbour and the city from the air" width="1500" height="999"><div class="cap"><p>Finish work with daylight to spare.</p></div></div>
+      <div class="tile"><img loading="lazy" decoding="async" src="assets/nz-life/banks-peninsula-sheep.jpg" alt="Sheep on the hills of Banks Peninsula" width="2400" height="1662"><div class="cap"><p>Somewhere different for the kids to grow up.</p></div></div>
       <div class="tile"><img loading="lazy" decoding="async" src="assets/au-life/women-surfers.jpg" alt="Surfers walking down to the water on an Australian surf coast" width="1500" height="1000"><div class="cap"><p>Weekends that feel like weekends again.</p></div></div>
     </div>
   </div>
@@ -542,22 +523,6 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 <script src="nav.js" defer></script>
 <script src="essential.js" defer></script>
 
-<!-- INTERNAL LINK MAP — / (homepage, emotional-arc redesign 16 Sep 2026)
-  Arc: DREAM (hero) → trust bar → two countries → THE EVERYDAY (lifestyle tiles) → REALITY (clichés, tightened) → COULD IT WORK? (five action cards) → ASK ETHICARE → TRUST (one story + Google) → ROLES OPEN NOW → EMPLOYERS → FAQ. Aspiration first, tools earned. 70% = cognitive load per screen, deeper knowledge lives on hubs/deep pages.
-  HEADER NAV — Brand/Home → / · Australia ▾ (/australia · /australia#professions · /australia#destinations) · New Zealand ▾ (/new-zealand · /new-zealand#professions · /new-zealand#destinations) · Jobs ▾ (mega: NZ + AU family hubs /jobs/* · /jobs/ · /jobs/professions · /pathway-checker) · Move ▾ (/move · /resources · /pathway-checker) · About ▾ (/about-ethicare · /clinical-standard · /insights) · For Employers → /employers · Contact → /contact
-  DREAM (hero) — Explore New Zealand → /new-zealand · Explore Australia → /australia · Not sure? Compare them → /guides/australia-vs-new-zealand
-  TRUST BAR — no links (credibility: NHS-founded, clinical oversight, never a fee)
-  TWO COUNTRIES (#explore) — New Zealand → /new-zealand · Australia → /australia · Compare → /guides/australia-vs-new-zealand
-  THE EVERYDAY — no links (photography-led; three lifestyle tiles)
-  REALITY — no links (positioning + Ethicare intro)
-  COULD IT WORK (#start) — Can I register? → /pathway-checker · What could I earn? → /is-it-worth-it · Could we afford it? → /cost-calculator · Where could we live? → /where-would-we-live · What jobs could I get? → /jobs/ · How do we plan it all? → /move
-  ASK ETHICARE (#ask) — conversational; answers link resources from ask-ethicare-knowledge.js; fallback → /pathway-checker · /resources · /contact
-  TRUST — Our story and the board → /about-ethicare
-  ROLES OPEN NOW — role cards → /jobs/vacancy/{slug} (live, from jobs/jobs-data.js) · See all live roles → /jobs/
-  EMPLOYERS — Ethicare for employers → /employers
-  FAQ (#faq, 8 Q&A accordion + FAQPage schema) — inline: register your interest → /apply · pathway checker → /pathway-checker · Australia professions → /jobs/coming-to-australia · talk to us → /contact · closer: Ask Ethicare → #ask · talk to the team → /contact
-  FOOTER (site-wide) — Destinations: /new-zealand · /australia · /destinations/ · /destinations/australia | Candidates: /jobs/ · /jobs/professions · /resources · /pathway-checker · /move · /apply | Company: /about-ethicare · /employers · /submit-a-vacancy · /contact | Legal: /privacy-policy · /how-we-use-your-information · /equality-diversity-and-inclusion · /modern-slavery-statement
--->
 <!-- SEO
   Page Title: Healthcare careers in New Zealand & Australia | Ethicare
   URL Slug: /

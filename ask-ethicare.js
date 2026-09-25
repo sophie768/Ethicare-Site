@@ -194,6 +194,25 @@
     input.value = b.getAttribute('data-q') || b.textContent;
     input.focus(); ask(input.value);
   });
+  /* A question handed over in the URL: /ask?q=… — this is how the foot of a long page
+     sends a reader here with their question already framed. The value is read as a string
+     and only ever placed with .value (never innerHTML), and it is capped to the same
+     length the textarea enforces, so a crafted link can do nothing a typed question
+     could not. The parameter is then dropped from the address bar so a reload or a
+     shared link doesn't silently re-ask. */
+  (function fromURL() {
+    var q;
+    try { q = new URLSearchParams(window.location.search).get('q'); } catch (err) { return; }
+    if (!q) return;
+    q = String(q).trim().slice(0, 1200);
+    if (!q) return;
+    input.value = q;
+    try {
+      window.history.replaceState(null, '', window.location.pathname + window.location.hash);
+    } catch (err) { /* replaceState unavailable — harmless, the question still asks */ }
+    ask(q);
+  })();
+
   thread.addEventListener('click', function (e) {
     var fb = e.target.closest('.aske-fb'); if (!fb) return;
     if (e.target.hasAttribute('data-fb-yes')) { track('assistant_rated', { verdict: 'useful' }); fb.innerHTML = '<span>Thanks \u2014 noted.</span>'; }

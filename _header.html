@@ -2,35 +2,47 @@
      ETHICARE — CANONICAL SITE HEADER  (single source of truth)
      ============================================================
   Every page's header is GENERATED from this fragment. Do not hand-edit a
-  header inside a page: edit this file, then re-run the header sync so each
-  page is rewritten from it. The markup stays inline in each page on purpose —
-  the nav must be crawlable and must work with JavaScript off — so this file is
-  the author-time source, not a runtime include.
+  header inside a page: edit this file, then re-run sync-header.py so each page
+  is rewritten from it. The markup stays inline in each page on purpose — the
+  nav must be crawlable and must work with JavaScript off — so this file is the
+  author-time source, not a runtime include.
 
-  Placeholders
-    {{BASE}}        relative prefix to the site root for assets: "" at the root,
-                    "../" one level down, "../../" two.
-    {{CUR:<href>}}  expands to ' aria-current="page"' on the ONE top-level item
-                    matching the page's declared current key, '' on the others.
+  Placeholder
+    {{CUR:<href>}}  expands to ' aria-current="page"' on the ONE link matching
+                    the page's current key, '' on the others. The key is taken
+                    from the page's existing aria-current, so re-running the
+                    sync never changes which item is marked.
 
-  In each page the generated block is fenced by:
-    <!-- @shared-header current="/new-zealand" -->  …  <!-- /@shared-header -->
-  The sync finds that fence (or, on a page not yet folded in, the bare site-header element itself) and
-  replaces everything between. The sync must locate the fragment by the LAST
-  occurrence of the opening tag in this file, not the first.
+  There is no {{BASE}} any more. Every URL in this header, the logo included, is
+  root-absolute. The old relative logo path was the only relative URL in the
+  block and it produced three faults at once: a wrong prefix at depth, a logo
+  that broke on directory-index pages, and — on 56 destination pages — a brand
+  link pointing at /destinations/ instead of home. Root-absolute removes the
+  whole class, and makes the header byte-identical on every page except for the
+  one aria-current, which is what lets the sync be verified.
+
+  How the sync finds the block
+    The first <header class="site-header" …> through its matching </header>.
+    No fence comments: internal build comments are stripped from shipped HTML
+    (Sept 2026), and the tag is unambiguous on its own.
 
   Rules that go with this markup
-    · Seven top-level items. Four carry a sub-menu of at most three links.
-      Home is the brand mark. Mirrors components/site/nav-data.js PRIMARY_NAV —
-      change both together, never one alone.
+    · Seven top-level items. Four carry a sub-menu. Ask Ethicare and For
+      Employers are plain links; Contact is the single pill.
     · Dropdown markup needs BOTH classes: .navitem drives the CSS, .has-sub
       drives nav.js's mobile tap-to-expand.
     · Any page rendering this header MUST also load nav.js, or the hamburger is
-      inert on mobile. The sync adds it.
+      inert on mobile.
+    · AUSTRALIA IS MEDICAL IMAGING ONLY. The Careers in Australia column lists
+      medical imaging and nothing else. Six pages used to list Medicine,
+      Nursing & midwifery, Mental health and Theatre here — every one of them
+      redirected to /jobs/coming-to-australia, so the nav was offering work we
+      cannot yet place. Do not put a profession back in that column until its
+      redirect comes out of netlify.toml.
      ============================================================ -->
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="{{BASE}}assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia"{{CUR:/australia}}>Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -63,6 +75,7 @@
           <a href="/insights">Insights</a>
         </div>
       </div>
+      <a href="/ask"{{CUR:/ask}}>Ask Ethicare</a>
       <a href="/employers"{{CUR:/employers}}>For Employers</a>
       <a class="nav-cta" href="/contact"{{CUR:/contact}}>Contact</a>
     </nav>

@@ -505,39 +505,6 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 <script src="journey-nav.js"></script>
 <script src="move.js"></script>
 
-<!-- ================= INTERNAL LINK MAP =================
-  Header / footer navigation is the shared site shell (see interview-prep.html).
-
-  WELCOME
-  "Set up your plan"              -> in-page, reveals the setup screen
-  "Just check my registration"    -> Registration Pathway Checker (/pathway-checker)
-
-  HUB (all destination- and profession-aware, rendered by move.js)
-  "Your next step" panel          -> whichever tool matches the saved stage
-  Journey 01 fit                  -> /new-zealand | /australia · /destinations | /destinations/australia · profession page (/jobs/<role>-<country>)
-  Journey 02 registration         -> /pathway-checker · /guides/new-zealand-registration | /guides/australia-registration
-  Journey 03 CV and interviews    -> /build-your-cv · /interview-prep · /guides/new-zealand-interview | /guides/australia-interview · /jobs
-  Journey 04 the offer            -> /guides/negotiating-your-offer · /guides/new-zealand-salary | /guides/australia-salary
-  Journey 05 visas                -> /guides/new-zealand-visa | /guides/australia-visa · Immigration NZ | Home Affairs (external) · /cost-calculator
-  Journey 06 the move             -> /cost-calculator · /moving-checklist · /guides/new-zealand-relocation | /guides/australia-relocation
-  Journey 07 first thirty days    -> /guides/nz/your-first-month | /guides/living-in-australia
-  Profession coverage list        -> per profession: its regulator (external, from portal-professions.js)
-                                     and, where one exists, that profession page (/jobs/<role>-<country>)
-  Tools panel                     -> /pathway-checker · /build-your-cv · /interview-prep · /cost-calculator · /moving-checklist
-  Guides panel                    -> destination-aware guide set
-  "Your regulator"                -> the board's own fees page (external, from relocation-cost-data.js)
-  SEND MY PLAN (#send)            -> Netlify form "plan-share" -> /thank-you
-                                     SHOWN ONLY where Ethicare recruits that profession in that
-                                     country (me().status === 'recruiting'). Everywhere else the
-                                     form is replaced by a plain note saying we cannot help into a
-                                     role yet — collecting a lead we cannot act on is worse than
-                                     not asking, and the tools work either way.
-                                     Carries only the summary shown beside it: destination, profession,
-                                     stage, where you qualified, which tools you have started. Written into
-                                     the hidden field at submit time, never before.
-  "privacy policy"                -> /privacy-policy
-  "Send us your CV"               -> /apply
-===================================================== -->
 
 <!-- ================= SEO =================
   Page Title: Ethicare Move

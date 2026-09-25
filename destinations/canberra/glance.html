@@ -477,8 +477,8 @@ h1,h2,h3{break-after:avoid !important}
 <div id="main-content" tabindex="-1"></div>
 
 <a id="top"></a>
-<div class="hero">
-  <div class="photo" style="background:url('../../assets/act/act-lake-burley-griffin-fountain-aerial.jpg') center 50%/cover no-repeat"></div>
+<div class="hero nophoto">
+  <img class="hc-icon" src="../../assets/icons/topics/glance-light.svg" alt="" aria-hidden="true" width="160" height="160">
   <div class="inner">
     <nav class="wf-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">&#8250;</span><a href="/australia">Australia</a><span class="sep">&#8250;</span><a href="/destinations/canberra-australia">Canberra</a><span class="sep">&#8250;</span><span class="here">Canberra at a glance</span></nav>
     <div class="eyebrow">The bush capital</div>
@@ -507,16 +507,18 @@ h1,h2,h3{break-after:avoid !important}
   <p class="lead">Before the practical chapters, orientation. Canberra is the most deliberately planned city in the country: a lake at the centre, a ring of hills and reserves around it, and town centres built to a human scale that, mostly, still works.</p>
 
   <h2>How the city is laid out</h2>
+  <div class="pl-split pl-side r map-side"><figure class="map-fig"><img src="../../assets/maps/canberra-locator.webp" alt="Map showing where Canberra is, with Sydney" loading="lazy" decoding="async" width="960" height="1200"><figcaption>Where Canberra sits, with the straight-line distance to Sydney</figcaption></figure><div class="pl-tx">
   <h3>The lake and the Parliamentary Triangle</h3>
   <p>Lake Burley Griffin, an artificial lake completed in 1964, sits exactly where Griffin&rsquo;s plan put it &mdash; the geometric heart of the city. The Parliamentary Triangle runs along its southern shore: Parliament House, Old Parliament House, the national gallery, library, museum and war memorial, all within walking distance of each other and the water.</p>
   <h3>The town centres</h3>
   <p>Canberra grew as a series of planned town centres rather than one sprawling suburb: the inner north around Braddon, Dickson, O&rsquo;Connor and Ainslie; the inner south around Kingston and Manuka; then Belconnen, Woden, Weston Creek and Tuggeranong ringing further out, with Gungahlin and the Molonglo Valley the newest growth areas. Each has its own shops, schools and town square, by design.</p>
   <h3>The reserves</h3>
   <p>Namadgi National Park covers close to half the ACT&rsquo;s land area, immediately south of the city, and Canberra Nature Park threads smaller reserves through the suburbs themselves &mdash; Black Mountain and Mount Ainslie sit inside the built-up area, not a drive from it.</p>
+  </div></div>
+
 
   <figure class="photo-fig"><img src="../../assets/act/act-the-australian-parliament-house-in-2401314965.jpg" alt="Parliament House's flag mast and colonnade" loading="lazy" width="1500" height="844"><figcaption>The Parliamentary Triangle: national institutions within walking distance of the lake.</figcaption></figure>
-
-  <h2>Four real seasons</h2>
+<h2>Four real seasons</h2>
   <p>Unlike the coastal capitals, Canberra runs a genuine four-season continental climate &mdash; warm to hot, dry summers and cold, often frosty winters, more extreme in both directions than Sydney or Melbourne despite sitting between them. Spring brings Floriade and the blossom; autumn, thanks to the deciduous exotic trees planted through the original plan, is the most photographed season in the country.</p>
   <div class="seasons"><div class="season" style="background:#A34438"><div class="s">Summer</div><div class="m">Dec &ndash; Feb</div><div class="t">13&ndash;28&deg;</div><div class="tl">Dry heat &middot; the odd 35&deg;+ day</div></div><div class="season" style="background:#A34438"><div class="s">Autumn</div><div class="m">Mar &ndash; May</div><div class="t">7&ndash;19&deg;</div><div class="tl">The famous colour</div></div><div class="season" style="background:#02615D"><div class="s">Winter</div><div class="m">Jun &ndash; Aug</div><div class="t">1&ndash;12&deg;</div><div class="tl">Frequent frost &middot; rare city snow</div></div><div class="season" style="background:#2F5E49"><div class="s">Spring</div><div class="m">Sep &ndash; Nov</div><div class="t">6&ndash;20&deg;</div><div class="tl">Floriade &middot; blossom season</div></div></div>
   <p>Two practical notes. Frost is a genuine morning routine for much of winter &mdash; scraping a windscreen is normal, and older rentals can be draughty, so check heating before you sign. And the dry heat of summer brings real fire-weather days each year; take total fire ban warnings seriously.</p>
@@ -582,20 +584,6 @@ h1,h2,h3{break-after:avoid !important}
 
 
 
-<!-- INTERNAL LINK MAP &mdash; Canberra guide, chapter 03 of 9
-  Breadcrumb: Home (/) &gt; Australia (/australia) &gt; Canberra (/destinations/canberra-australia) &gt; Canberra at a glance
-  Sidebar: all 9 Canberra chapters | CTA: Moving to Australia->../Australia_Relocation_Guide.html
-  
-  Foot nav: Previous->why.html | All chapters->../Canberra_Destination_Guide.html | Next->healthcare.html | Request printed guide->/request-a-guide?guide=canberra
-  ARCHITECTURE &mdash; Level 3 destination chapter, CITY tier. Canberra-only; the ACT has no separate state brief (per the 4 Aug 2026 direction, the ACT and NT are never converted as states) &mdash; national topics live once in the master (Golden Rule).
-  PAY RULE &mdash; no salary figures; living costs indicative and dated.
-  EMPLOYER RULE &mdash; no employers or hospitals named; described structurally only.
-  SEO
-  Page Title: Canberra at a glance &middot; Canberra Guide &middot; Ethicare Resourcing
-  URL Slug: /destinations/canberra-australia/glance
-  SEO Title: Canberra at a glance: the lake, the seasons and the diplomatic city | Ethicare
-  Meta Description: The lake and the town centres, four real seasons, and the diplomatic community hiding in plain sight.
-  -->
 
 
 <script>(function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var st=document.createElement('style');st.textContent='@media screen{.rv{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}.rv.in{opacity:1;transform:none}}@media print{.rv{opacity:1;transform:none}}';document.head.appendChild(st);addEventListener('beforeprint',function(){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})});var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});[].slice.call(document.querySelectorAll('.content section')).forEach(function(el){if(el.getBoundingClientRect().top>innerHeight*0.85){el.classList.add('rv');io.observe(el)}});})();</script>

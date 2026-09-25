@@ -477,8 +477,8 @@ h1,h2,h3{break-after:avoid !important}
 <div id="main-content" tabindex="-1"></div>
 
 <a id="top"></a>
-<div class="hero">
-  <div class="photo" style="background:url('../../assets/qld/qld-waterfront-homes.jpg') center 50%/cover no-repeat"></div>
+<div class="hero nophoto">
+  <img class="hc-icon" src="../../assets/icons/topics/suburbs-light.svg" alt="" aria-hidden="true" width="160" height="160">
   <div class="inner">
     <nav class="wf-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">&#8250;</span><a href="/australia">Australia</a><span class="sep">&#8250;</span><a href="/destinations/brisbane-australia">Brisbane</a><span class="sep">&#8250;</span><span class="here">Where clinicians live</span></nav>
     <div class="eyebrow">The river city</div>
@@ -506,16 +506,19 @@ h1,h2,h3{break-after:avoid !important}
 <section id="suburbs">
   <p class="lead">In a metro area a hundred kilometres across, the suburb decides the life. The good news is that Brisbane&rsquo;s inner ring is unusually generous &mdash; character housing four kilometres from tertiary campuses &mdash; and the honest news is that it is no longer cheap. Here is the map as we&rsquo;d draw it over coffee.</p>
 
+    <figure class="submap">
+    <picture><source media="(max-width: 700px)" srcset="../../assets/maps/brisbane-suburbs-mobile.webp" width="880" height="1240"><img src="../../assets/maps/brisbane-suburbs.webp" alt="Map of Brisbane showing the suburbs named in this chapter, with parks, beaches and landmarks" loading="lazy" decoding="async" width="1520" height="1600"></picture>
+    <div class="sm-key"><p class="sm-k">On the map</p><div class="sm-g" style="--c:#2B8A84"><p class="sm-h">The inner north</p><ol start="1"><li data-n="1">New Farm</li><li data-n="2">Teneriffe</li><li data-n="3">Wilston</li><li data-n="4">Windsor</li><li data-n="5">Ashgrove</li><li data-n="6">Paddington</li><li data-n="7">Bardon</li></ol></div><div class="sm-g" style="--c:#2F5E49"><p class="sm-h">The inner south</p><ol start="8"><li data-n="8">West End</li><li data-n="9">Highgate Hill</li><li data-n="10">Dutton Park</li><li data-n="11">Annerley</li><li data-n="12">Moorooka</li><li data-n="13">Tarragindi</li></ol></div><div class="sm-g" style="--c:#A34438"><p class="sm-h">East, west &amp; bayside</p><ol start="14"><li data-n="14">Bulimba</li><li data-n="15">Hawthorne</li><li data-n="16">Norman Park</li><li data-n="17">Wynnum</li><li data-n="18">Manly</li><li data-n="19">Indooroopilly</li><li data-n="20">Kenmore</li><li data-n="21">Ipswich</li></ol></div><div class="sm-g" style="--c:#B9774F"><p class="sm-h">The two coasts</p><ol start="22"><li data-n="22">Gold Coast</li><li data-n="23">Sunshine Coast</li></ol></div><p class="sm-also"><span class="sm-i park"></span>Parks &amp; nature<span class="sm-i beach"></span>Beaches<span class="sm-i mark"></span>Landmarks</p><p class="sm-note">Shaded areas are the suburbs named in this chapter. Arrows point to places beyond the map edge, with the straight-line distance from the city centre.</p></div>
+    <figcaption>Suburb boundaries &copy; Geoscape Australia, CC BY 4.0 &middot; Natural Earth</figcaption>
+  </figure>
+
   <h2>The inner north</h2>
   <p>New Farm and Teneriffe sit on the river bend: converted woolstores, the best restaurant strip in the city, a ferry terminal and prices to match. Behind them, Wilston, Windsor and Ashgrove are the classic Queenslander family suburbs &mdash; timber houses on stumps, good state schools, ten to fifteen minutes from the inner campuses. Paddington and Bardon climb the western ridges: antique shops, steep streets, views, and a village feel five minutes from the CBD.</p>
 
   <h2>The inner south</h2>
   <p>West End is the city&rsquo;s most characterful pocket &mdash; markets, Greek and Vietnamese food, a bend of the river and a stubbornly independent streak. Highgate Hill and Dutton Park sit above it, close to the southern tertiary cluster and the university. Further out, Annerley, Moorooka and Tarragindi are the sensible-value belt: solid houses, decent buses, and change from the inner-north price.</p>
 
-  <div class="photo-pair">
-    <figure><img src="../../assets/qld/qld-high-angle-drone-shot-showing-2777366885.jpg" alt="An aerial view of a Queensland suburb, backyard pools and solar panels on the roofs" loading="lazy" width="1500" height="844"><figcaption>The suburban bargain &mdash; pool, solar and a carport each</figcaption></figure>
-    <figure class="pt"><img src="../../assets/brisbane/brisbane-story-bridge-from-riverbank.jpg" alt="The Story Bridge from the river bank with city towers behind" loading="lazy" width="1281" height="1920"><figcaption>Inner-city living, four kilometres from the wards</figcaption></figure>
-  </div>
+  
 
   <h2>East, west and bayside</h2>
   <p>Bulimba, Hawthorne and Norman Park run east along the river &mdash; family-heavy, ferry-served, quietly expensive. Keep going and you reach the bayside proper: Wynnum and Manly, where the water is Moreton Bay rather than surf, the pace drops noticeably, and the money goes considerably further. West, Indooroopilly and Kenmore give big blocks and good schools with a longer commute; further out, Ipswich is a city in its own right with its own hospital and the most affordable housing in the metro area.</p>
@@ -603,20 +606,6 @@ h1,h2,h3{break-after:avoid !important}
 (function(){var b=document.querySelector('[data-backtop]');if(!b)return;b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});window.addEventListener('scroll',function(){b.classList.toggle('show',window.scrollY>600);},{passive:true});})();
 </script>
 
-<!-- INTERNAL LINK MAP &mdash; Brisbane guide, chapter 05 of 9
-  Breadcrumb: Home (/) > Australia (/australia) > Brisbane (/destinations/brisbane-australia) > Where clinicians live
-  Sidebar: all 9 Brisbane chapters | CTA: Moving to Australia->../Australia_Relocation_Guide.html
-  In-body: Living in Australia (renting, national)->../../guides/living-in-australia.html
-  Foot nav: Previous->healthcare.html | All chapters->../Brisbane_Destination_Guide.html | Next->transport.html | Request printed guide->/request-a-guide?guide=brisbane
-  ARCHITECTURE &mdash; Level 3 destination chapter, CITY tier. Brisbane-only; state topics sit in the Queensland brief, national topics in the master (Golden Rule).
-  PAY RULE &mdash; no salary figures; qualitative only, pending verification against the relevant awards.
-  EMPLOYER RULE &mdash; no employers or hospitals named; described structurally only.
-  SEO
-  Page Title: Where clinicians live &middot; Brisbane Guide &middot; Ethicare Resourcing
-  URL Slug: /destinations/brisbane-australia/suburbs
-  SEO Title: Where to live in Brisbane: a clinician&rsquo;s guide | Ethicare
-  Meta Description: The inner north and south, the western ridges, bayside and the two coasts &mdash; where healthcare people settle, and what each trade-off costs.
-  -->
 
 
 

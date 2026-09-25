@@ -477,8 +477,8 @@ h1,h2,h3{break-after:avoid !important}
 <div id="main-content" tabindex="-1"></div>
 
 <a id="top"></a>
-<div class="hero">
-  <div class="photo" style="background:url('../../assets/act/act-national-arboretum-village-centre.jpg') center 50%/cover no-repeat"></div>
+<div class="hero nophoto">
+  <img class="hc-icon" src="../../assets/icons/topics/suburbs-light.svg" alt="" aria-hidden="true" width="160" height="160">
   <div class="inner">
     <nav class="wf-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">&#8250;</span><a href="/australia">Australia</a><span class="sep">&#8250;</span><a href="/destinations/canberra-australia">Canberra</a><span class="sep">&#8250;</span><span class="here">Where clinicians live</span></nav>
     <div class="eyebrow">The bush capital</div>
@@ -506,6 +506,12 @@ h1,h2,h3{break-after:avoid !important}
 <section id="suburbs">
   <p class="lead">Canberra&rsquo;s town-centre plan makes this decision more geographic than most cities&rsquo;: you&rsquo;re choosing a district built to a human scale, not a suburb lost inside a much bigger map. Here&rsquo;s how we&rsquo;d draw it over coffee.</p>
 
+    <figure class="submap">
+    <picture><source media="(max-width: 700px)" srcset="../../assets/maps/canberra-suburbs-mobile.webp" width="880" height="1240"><img src="../../assets/maps/canberra-suburbs.webp" alt="Map of Canberra showing the suburbs named in this chapter, with parks, beaches and landmarks" loading="lazy" decoding="async" width="1520" height="1600"></picture>
+    <div class="sm-key"><p class="sm-k">On the map</p><div class="sm-g" style="--c:#2B8A84"><p class="sm-h">Inner north &amp; inner south</p><ol start="1"><li data-n="1">Braddon</li><li data-n="2">Dickson</li><li data-n="3">O&#x27;Connor</li><li data-n="4">Ainslie</li><li data-n="5">Turner</li><li data-n="6">Kingston</li><li data-n="7">Griffith</li><li data-n="8">Forrest</li><li data-n="9">Narrabundah</li></ol></div><div class="sm-g" style="--c:#2F5E49"><p class="sm-h">Belconnen &amp; Gungahlin</p><ol start="10"><li data-n="10">Belconnen</li><li data-n="11">Gungahlin</li></ol></div><div class="sm-g" style="--c:#A34438"><p class="sm-h">Woden, Weston Creek &amp; Tuggeranong</p><ol start="12"><li data-n="12">Woden</li><li data-n="13">Weston Creek</li><li data-n="14">Tuggeranong</li></ol></div><div class="sm-g" style="--c:#B9774F"><p class="sm-h">Molonglo &amp; the border</p><ol start="15"><li data-n="15">Molonglo Valley</li><li data-n="16">Queanbeyan</li></ol></div><p class="sm-also"><span class="sm-i park"></span>Parks &amp; nature<span class="sm-i beach"></span>Beaches<span class="sm-i mark"></span>Landmarks</p><p class="sm-note">Shaded areas are the suburbs named in this chapter. Arrows point to places beyond the map edge, with the straight-line distance from the city centre.</p></div>
+    <figcaption>Suburb boundaries &copy; Geoscape Australia, CC BY 4.0 &middot; Natural Earth</figcaption>
+  </figure>
+
   <h2>The inner north and inner south</h2>
   <p>Braddon, Dickson, O&rsquo;Connor, Ainslie and Turner to the north; Kingston, Griffith, Manuka, Forrest and Narrabundah to the south &mdash; these are Canberra&rsquo;s original, most walkable districts, close to the lake, the Parliamentary Triangle and both hospital campuses. Character housing sits alongside newer apartments, cafés and small bars, and this is where a lot of clinicians choose to start.</p>
 
@@ -517,8 +523,6 @@ h1,h2,h3{break-after:avoid !important}
 
   <h2>Molonglo and the border</h2>
   <p>Molonglo Valley is Canberra&rsquo;s newest development front, still filling in; and a genuinely large number of people who work in Canberra live just over the border in Queanbeyan, in New South Wales, where housing costs less and the drive in is short. It&rsquo;s a real option worth pricing before you rule it out.</p>
-
-  <figure class="photo-fig"><img src="../../assets/act/act-parliament-house-aerial.jpg" alt="Parliament House, the land axis and Lake Burley Griffin, seen from the air" loading="lazy" width="1002" height="672"><figcaption>The lake links the inner districts &mdash; many residents commute along its foreshore path.</figcaption></figure>
 
   <div class="imgph"><svg class="ph-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 15l-5-5-11 9"/></svg><div class="ph-t">Photography needed &mdash; a Canberra street</div><div class="ph-s">Braddon, Kingston or a Gungahlin streetscape</div></div>
 
@@ -581,20 +585,6 @@ h1,h2,h3{break-after:avoid !important}
 
 
 
-<!-- INTERNAL LINK MAP &mdash; Canberra guide, chapter 05 of 9
-  Breadcrumb: Home (/) &gt; Australia (/australia) &gt; Canberra (/destinations/canberra-australia) &gt; Where clinicians live
-  Sidebar: all 9 Canberra chapters | CTA: Moving to Australia->../Australia_Relocation_Guide.html
-  
-  Foot nav: Previous->healthcare.html | All chapters->../Canberra_Destination_Guide.html | Next->transport.html | Request printed guide->/request-a-guide?guide=canberra
-  ARCHITECTURE &mdash; Level 3 destination chapter, CITY tier. Canberra-only; the ACT has no separate state brief (per the 4 Aug 2026 direction, the ACT and NT are never converted as states) &mdash; national topics live once in the master (Golden Rule).
-  PAY RULE &mdash; no salary figures; living costs indicative and dated.
-  EMPLOYER RULE &mdash; no employers or hospitals named; described structurally only.
-  SEO
-  Page Title: Where clinicians live &middot; Canberra Guide &middot; Ethicare Resourcing
-  URL Slug: /destinations/canberra-australia/suburbs
-  SEO Title: Where clinicians live in Canberra: the districts compared | Ethicare
-  Meta Description: Inner north, inner south, the lake suburbs and the valleys — compared honestly, including what each costs.
-  -->
 
 
 <script>(function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var st=document.createElement('style');st.textContent='@media screen{.rv{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}.rv.in{opacity:1;transform:none}}@media print{.rv{opacity:1;transform:none}}';document.head.appendChild(st);addEventListener('beforeprint',function(){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})});var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});[].slice.call(document.querySelectorAll('.content section')).forEach(function(el){if(el.getBoundingClientRect().top>innerHeight*0.85){el.classList.add('rv');io.observe(el)}});})();</script>

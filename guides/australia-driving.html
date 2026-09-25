@@ -93,7 +93,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia" aria-current="page">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -113,8 +113,10 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
       <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
       <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -124,15 +126,17 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
           <a href="/insights">Insights</a>
         </div>
       </div>
+      <a href="/ask">Ask Ethicare</a>
       <a href="/employers">For Employers</a>
       <a class="nav-cta" href="/contact">Contact</a>
     </nav>
   </div>
 </header>
+
 <main id="main-content" tabindex="-1">
 
 <header class="hero cream au">
-  <div class="hero-art"><img decoding="async" src="../assets/vic/vic-kangaroos.jpg" alt="Kangaroos standing in long grass at the edge of the bush" fetchpriority="high" width="1500" height="1000"></div>
+  <div class="hero-art"><img decoding="async" src="../assets/au-life/outback-range-dusk.jpg" alt="An outback range at dusk" fetchpriority="high" width="2400" height="1662"></div>
   <div class="wrap">
     <div class="hero-copy">
       <nav class="crumb" aria-label="Breadcrumb">
@@ -458,80 +462,5 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <script src="../nav.js" defer></script>
 <script src="../journey-nav.js" defer></script>
 
-<!-- ============================================================
-  INTERNAL LINK MAP — /guides/australia-driving
-
-  WHY THIS PAGE EXISTS (24 Aug 2026)
-    Third and last of the Australian national guides that had no owner. New Zealand explains
-    driving once at /guides/driving-and-licences; Australia explained it nowhere, which is why
-    the Bunbury and Geelong hubs had invented /guides/australia-driving. Siblings built the
-    same day: /guides/australia-renting and /guides/australia-money. Gap now closed.
-
-  HERO — tier-3 flat cream, NO photograph, so no .hero-art and no guide-hero-split.css, and
-    guide-au.css's two-column hero grid is collapsed in this page's own <style>. If a photo is
-    ever added it MUST follow the renting-guide pattern exactly (.hero-art a direct child of
-    .hero OUTSIDE .wrap, guide-hero-split.css loaded LAST after hero.css, LANDSCAPE asset).
-
-  Breadcrumb: Australia (/australia) › Guides & Resources (/resources) › Driving & licences
-
-  ON-PAGE ANCHORS (glance nav, 10 rows)
-    #deadline · #authorities · #converting · #ctp · #other · #buying · #shipping · #roads
-    #need · #faq
-
-  IN-BODY INTERNAL LINKS
-    Renting in Australia (contents cover, related)  -> /guides/australia-renting
-    Money, tax & banking (#other, related)          -> /guides/australia-money#insurance
-    Destination guides (#need, related)             -> /destinations/australia
-    Moving to Australia master (final CTA)          -> /destinations/australia-relocation-guide
-    Contact (hero, final)                           -> /contact
-
-  EXTERNAL · state road authorities + federal imports (all target=_blank rel=noopener)
-    Transport for NSW        -> nsw.gov.au/driving-boating-and-transport
-    VicRoads                 -> vicroads.vic.gov.au
-    TMR Queensland           -> qld.gov.au/transport
-    Dept of Transport WA     -> transport.wa.gov.au/licensing/
-    Service SA               -> sa.gov.au/topics/driving-and-transport
-    Transport Tasmania       -> transport.tas.gov.au
-    Access Canberra (ACT)    -> accesscanberra.act.gov.au
-    NT Motor Vehicle Registry-> nt.gov.au/driving
-    Dept of Infrastructure   -> infrastructure.gov.au/infrastructure-transport-vehicles/vehicles
-    No insurers, dealers, motoring clubs or shipping companies are named — described by
-    function ("the motoring club in your state") so the page cannot read as endorsement.
-
-  PROSE LINK RULE — the loaded sheets set a global a{color:inherit} and style anchors only in
-    navs, buttons and card grids, so an <a> inside a <p> renders as invisible body text. This
-    page defines its own scoped prose-link rule (clay #A34438, apricot underline, teal hover).
-    Any new AU guide needs the same block. Worth lifting into a shared sheet.
-
-  INSURANCE OWNERSHIP — this page owns CTP and the optional motor tiers ONLY.
-    Home contents            -> /guides/australia-renting
-    Life / TPD / income prot -> /guides/australia-money#insurance
-    Private health + levy    -> /guides/australia-healthcare and /guides/australia-money#medicare
-    Professional indemnity   -> /guides/australia-registration (an Ahpra registration standard)
-    The #ctp section states the NZ/ACC contrast as a CLAIM plus the mechanism that replaces it;
-    it must not re-explain ACC, which is owned by /guides/new-zealand-healthcare.
-
-  RULES OBSERVED
-    EMPLOYER RULE — no employer, hospital, trust or private provider named. Hospital staff
-      parking is referenced generically.
-    COST RULE — no dollar figures. Stamp duty, tolls, fuel and the cost of a second car are
-      described as mechanisms and routed to the destination cost chapters. Do not add figures.
-    PAY RULE — no salary figures.
-    LEGAL DEADLINES — deliberately NOT stated as numbers. Grace periods differ by state and
-      several are tied to permanent residency rather than arrival; printing "three months"
-      would be wrong somewhere and dangerous everywhere. The page routes to the authority
-      and tells the reader to diarise their own deadline. Keep it that way.
-    INTERNATIONAL — recognised-country lists described generally; UK and Ireland mentioned as
-      examples only, with South Africa, the Gulf and Asia implicitly covered by "not on the list".
-
-  PUBLISHED 25 Aug 2026 — _redirects row live, listed in the Australia master contents,
-  and the Bunbury and Geelong hub rows point here.
-
-  SEO
-  Page Title: Driving & licences in Australia | Ethicare Resourcing
-  URL Slug: /guides/australia-driving
-  SEO Title: Driving & licences in Australia — converting your licence, state by state
-  Meta Description: Converting your overseas licence state by state, why the deadline is different everywhere, how compulsory third party insurance works, and what buying a car actually involves.
-  ============================================================ -->
 </body>
 </html>

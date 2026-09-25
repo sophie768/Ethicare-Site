@@ -88,7 +88,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia" aria-current="page">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -108,8 +108,10 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
       <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
       <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -119,11 +121,13 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
           <a href="/insights">Insights</a>
         </div>
       </div>
+      <a href="/ask">Ask Ethicare</a>
       <a href="/employers">For Employers</a>
       <a class="nav-cta" href="/contact">Contact</a>
     </nav>
   </div>
 </header>
+
 <main id="main-content" tabindex="-1">
 
 <header class="hero cream au">
@@ -451,75 +455,5 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <script src="../nav.js" defer></script>
 <script src="../journey-nav.js" defer></script>
 
-<!-- ============================================================
-  INTERNAL LINK MAP — /guides/australia-money
-
-  WHY THIS PAGE EXISTS (24 Aug 2026)
-    Second of three Australian national guides that had no owner. New Zealand explains
-    money, tax and banking once at /guides/money-tax-and-banking; Australia explained it
-    nowhere, which is why the Bunbury and Geelong hubs had invented /guides/australia-money.
-    Sibling: /guides/australia-renting (built same day). Still to write: australia-driving.
-
-  HERO — tier-2 flat cream, NO photograph, so no .hero-art and no guide-hero-split.css.
-    Deliberate: this is a reference page, and there is no honest photograph of a tax system.
-    If a photo is ever added it MUST follow the renting-guide pattern exactly (.hero-art a
-    direct child of .hero OUTSIDE .wrap, guide-hero-split.css loaded LAST after hero.css,
-    and a LANDSCAPE asset). Mixing those two patterns is what broke the renting hero.
-
-  Breadcrumb: Australia (/australia) › Guides & Resources (/resources) › Money, tax & banking
-
-  ON-PAGE ANCHORS (glance nav, 11 rows)
-    #order · #tfn · #banking · #super · #insurance · #tax · #residency · #medicare
-    #moving · #home · #faq
-    #insurance is an h3 INSIDE the #super section, not its own section — insurance held
-    inside a super fund is a super topic, and splitting it out would break one-topic-one-source.
-
-  INSURANCE OWNERSHIP (decided 24 Aug 2026) — insurance is not one topic, it distributes:
-    Private health cover, waiting periods, Lifetime Health Cover loading -> /guides/australia-healthcare
-    Medicare levy + surcharge arithmetic                                 -> THIS PAGE, #medicare
-    Life / TPD / income protection (default cover inside super)          -> THIS PAGE, #insurance
-    Professional indemnity (an Ahpra registration standard)              -> /guides/australia-registration
-    Compulsory third party motor insurance (state-based)                 -> /guides/australia-driving
-    Home contents                                                        -> /guides/australia-renting
-    Do NOT create a standalone insurance guide — it would duplicate healthcare and pull
-    indemnity content out of registration, where it is a condition of practice.
-
-  IN-BODY INTERNAL LINKS
-    How the health system works (#medicare)  -> /guides/australia-healthcare
-    Renting in Australia (related)           -> /guides/australia-renting
-    Pay & conditions (related)               -> /guides/australia-salary
-    Moving to Australia master (final CTA)   -> /destinations/australia-relocation-guide
-    Contact (hero, final)                    -> /contact
-
-  EXTERNAL · official sources only (all target=_blank rel=noopener)
-    ATO                     -> ato.gov.au
-    ATO superannuation      -> ato.gov.au/individuals-and-families/super-for-individuals-and-families/super
-    Moneysmart              -> moneysmart.gov.au
-    Services Australia      -> servicesaustralia.gov.au/medicare
-    No banks, super funds, transfer services or insurers are named anywhere — naming a
-    financial product would read as advice we are not licensed to give. Described by
-    function ("the major banks", "a specialist transfer service") instead.
-
-  RULES OBSERVED
-    EMPLOYER RULE — no employer, hospital, trust or private provider named.
-    COST RULE — no dollar figures anywhere. Tax rates, thresholds, the super guarantee
-      percentage, levy and surcharge rates are all described as MECHANISMS and routed to
-      the ATO for current numbers. The #tax lead states this policy explicitly. Federal
-      budgets change these annually — do NOT add figures to this page.
-    PAY RULE — no salary figures.
-    NOT ADVICE — the page repeatedly says we are recruiters not accountants, and the
-      #home section explicitly declines to advise on the reader's home tax system.
-    INTERNATIONAL — "your country", "the system you are leaving", reciprocal health care
-      agreements framed generally; never UK-only.
-
-  PUBLISHED 25 Aug 2026 — _redirects row live, listed in the Australia master contents,
-  and the Bunbury and Geelong hub rows point here.
-
-  SEO
-  Page Title: Money, tax & banking in Australia | Ethicare Resourcing
-  URL Slug: /guides/australia-money
-  SEO Title: Money, tax & banking in Australia — TFN, super, Medicare levy and residency
-  Meta Description: Your TFN, superannuation and the choice of fund, the Medicare levy and its surcharge, what tax residency actually means, and the order to do things in when you arrive.
-  ============================================================ -->
 </body>
 </html>

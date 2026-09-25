@@ -475,8 +475,8 @@ h1,h2,h3{break-after:avoid !important}
 <div id="main-content" tabindex="-1"></div>
 
 <a id="top"></a>
-<div class="hero">
-  <div class="photo" style="background:url('../../assets/wellington/reloc/city-centre-dusk.jpg') center 45%/cover no-repeat"></div>
+<div class="hero nophoto">
+  <img class="hc-icon" src="../../assets/icons/topics/healthcare-light.svg" alt="" aria-hidden="true" width="160" height="160">
   <div class="inner">
     <nav class="wf-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">&#8250;</span><a href="/new-zealand">New Zealand</a><span class="sep">&#8250;</span><a href="/destinations/wellington-new-zealand">Wellington</a><span class="sep">&#8250;</span><span class="here">Healthcare in Wellington</span></nav>
     <div class="eyebrow">Where the work is</div>
@@ -653,17 +653,6 @@ h1,h2,h3{break-after:avoid !important}
 (function(){var b=document.querySelector('[data-backtop]');if(!b)return;b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});window.addEventListener('scroll',function(){b.classList.toggle('show',window.scrollY>600);},{passive:true});})();
 </script>
 
-<!-- INTERNAL LINK MAP — Wellington guide, chapter 04 of 9
-  Breadcrumb: Home > New Zealand > Wellington (/destinations/wellington-new-zealand) > Healthcare in Wellington
-  Sidebar: all 9 Wellington chapters | CTA: Moving to New Zealand->../Moving_to_New_Zealand.html
-  Foot nav: Previous->glance.html | All chapters->../Wellington_Destination_Guide.html | Next->suburbs.html
-  ARCHITECTURE — Level 3 destination chapter. Wellington-only material; national topics link out.
-  SEO
-  Page Title: Healthcare in Wellington: the hospitals and the catchment · Ethicare Resourcing
-  URL Slug: /destinations/wellington-new-zealand/healthcare
-  SEO Title: Healthcare in Wellington: the hospitals and the catchment
-  Meta Description: A tertiary hospital serving the lower North Island from a city of 215,000 — the four public hospitals, the private sector, and what works differently here.
-  -->
 
 
 
@@ -680,10 +669,6 @@ var st=document.createElement('style');st.textContent='.otp a.read .tick{backgro
 links.forEach(function(a){if(rd[a.getAttribute('data-sec')]&&a!==act)a.classList.add('read')});
 }catch(e){}})();</script>
 <script src="../../nav.js" defer></script>
-<!-- EMPLOYER RULE &mdash; no employer, hospital, trust or private provider is named as a place of work.
-  Where a public body appears (Health New Zealand | Te Whatu Ora, a university), it is a REFERENCE POINT for
-  how the system is organised, not an employer reference, and the chapter says so on the page. Facilities are
-  described structurally ("the region's tertiary hospital"), never by name. -->
 <script src="../../journey-nav.js" defer></script>
 </body>
 </html>

@@ -135,27 +135,46 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 </template>
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav"><a href="/australia">Working in Australia</a><a href="/australia#professions">Find your profession</a><a href="/australia#destinations">Explore destinations</a></div>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
       </div>
       <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav"><a href="/new-zealand">Working in New Zealand</a><a href="/new-zealand#professions">Find your profession</a><a href="/new-zealand#destinations">Explore destinations</a></div>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
       </div>
       <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
       <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav"><a href="/move">Your plan</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a></div>
+        <div class="subnav">
+          <a href="/move">Your relocation plan</a>
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
+        </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav"><a href="/about-ethicare">About Ethicare</a><a href="/clinical-standard">Our clinical standard</a><a href="/insights">Insights</a></div>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
       </div>
+      <a href="/ask">Ask Ethicare</a>
       <a href="/employers">For Employers</a>
       <a class="nav-cta" href="/contact">Contact</a>
     </nav>
   </div>
 </header>
+
 <main id="main-content" tabindex="-1">
 
 <section class="hero" data-screen-label="Home &middot; hero">
@@ -283,16 +302,6 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 <script src="nav.js" defer></script>
 <script src="essential.js" defer></script>
 
-<!-- INTERNAL LINK MAP — / (router-led homepage, cut version 16 Sep 2026)
-  HEADER NAV — Brand/Home → / · Australia ▾ (/australia · /australia#professions · /australia#destinations) · New Zealand ▾ (/new-zealand · /new-zealand#professions · /new-zealand#destinations) · Jobs ▾ (mega: NZ + AU family hubs /jobs/* · /jobs/ · /jobs/professions · /pathway-checker) · Move ▾ (/move · /resources · /pathway-checker) · About ▾ (/about-ethicare · /clinical-standard · /insights) · For Employers → /employers · Contact → /contact
-  Structure: hero (promise) → the router (five questions) → Ask Ethicare → proof + founder → employers. The 70% cut: removed the second "where are you in your move" states block, the verb row, "Beyond the relocation pitch", the long "What Ethicare is" prose, the two country doors (folded into hero links + router foot), and the three-quote proof + big photo (compressed to one quote + founder line).
-  HERO — Explore New Zealand → /new-zealand · Explore Australia → /australia · For employers → /employers
-  THE ROUTER (#start) — Can I work there? → /can-i-work-here · Is it worth it? → /is-it-worth-it · Where would we live? → /where-would-we-live · What roles are out there? → /jobs/ · How do we actually move? → /move · foot: Why people move → /guides/why-people-move · Australia or New Zealand? → /guides/australia-vs-new-zealand · Settling in → /settling-in
-  ASK ETHICARE (#ask) — conversational; answers link resources from ask-ethicare-knowledge.js; fallback → /pathway-checker · /resources · /contact
-  PROOF — Talk to someone who's made the move → /contact · Our story and the board → /about-ethicare
-  EMPLOYERS — Explore Ethicare for employers → /employers
-  FOOTER (site-wide) — Destinations: /new-zealand · /australia · /destinations/ · /destinations/australia | Candidates: /jobs/ · /jobs/professions · /resources · /pathway-checker · /move · /apply | Company: /about-ethicare · /employers · /submit-a-vacancy · /contact | Legal: /privacy-policy · /how-we-use-your-information · /equality-diversity-and-inclusion · /modern-slavery-statement
--->
 <!-- SEO
   Page Title: Healthcare careers in New Zealand & Australia | Ethicare
   URL Slug: /

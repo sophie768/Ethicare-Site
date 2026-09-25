@@ -475,8 +475,8 @@ h1,h2,h3{break-after:avoid !important}
 <div id="main-content" tabindex="-1"></div>
 
 <a id="top"></a>
-<div class="hero">
-  <div class="photo" style="background:url('../../assets/waikato/waikato-taupo-marina-on-the-waikato-359581541.jpg') center 50%/cover no-repeat"></div>
+<div class="hero nophoto">
+  <img class="hc-icon" src="../../assets/icons/topics/healthcare-light.svg" alt="" aria-hidden="true" width="160" height="160">
   <div class="inner">
     <nav class="wf-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">&#8250;</span><a href="/new-zealand">New Zealand</a><span class="sep">&#8250;</span><a href="/destinations/waikato-new-zealand">Waikato</a><span class="sep">&#8250;</span><span class="here">Healthcare in the Waikato</span></nav>
     <div class="eyebrow">Where you would work</div>
@@ -614,14 +614,6 @@ h1,h2,h3{break-after:avoid !important}
 (function(){var b=document.querySelector('[data-backtop]');if(!b)return;b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});window.addEventListener('scroll',function(){b.classList.toggle('show',window.scrollY>600);},{passive:true});})();
 </script>
 
-<!-- INTERNAL LINK MAP — Waikato guide, chapter: Healthcare in the Waikato
-  Sidebar: nine Waikato chapters + Moving to New Zealand (../Moving_to_New_Zealand.html)
-  Breadcrumb: Home > New Zealand > Waikato (../Waikato_Destination_Guide.html) > this chapter
-  Body: How the health system works (../../guides/new-zealand-healthcare.html)
-  ARCHITECTURE — Level 3 destination chapter. Local content only; national topics link to the master guides.
-  SEO
-  URL Slug: /destinations/waikato-new-zealand/healthcare
-  -->
 
 
 
@@ -638,10 +630,6 @@ var st=document.createElement('style');st.textContent='.otp a.read .tick{backgro
 links.forEach(function(a){if(rd[a.getAttribute('data-sec')]&&a!==act)a.classList.add('read')});
 }catch(e){}})();</script>
 <script src="../../nav.js" defer></script>
-<!-- EMPLOYER RULE &mdash; no employer, hospital, trust or private provider is named as a place of work.
-  Where a public body appears (Health New Zealand | Te Whatu Ora, a university), it is a REFERENCE POINT for
-  how the system is organised, not an employer reference, and the chapter says so on the page. Facilities are
-  described structurally ("the region's tertiary hospital"), never by name. -->
 <script src="../../journey-nav.js" defer></script>
 </body>
 </html>

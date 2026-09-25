@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Your first month in New Zealand: the order that actually works · Ethicare Resourcing</title>
+<meta name="description" content="Four weeks in the order that actually works — address, bank account, IRD number, phone — and why doing them out of sequence costs you money.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../shell.css">
+<style>
+:root{
+  --primary:#02615D; --secondary:#72A471; --highlight:#A6C84A;
+  --sage:#C9DED3; --bg:#FCFBF8; --white:#FFFFFF; --text:#333333; --text2:#2F5E49;
+  --divider:#D6E1DA; --border:#C9DED3; --accent:#02615D;
+  --maxw:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
+body{
+  font-family:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color:var(--text); background:var(--bg); line-height:1.65;
+  font-size:17px; letter-spacing:-0.003em; -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+/* ---------- TOP BAR ---------- */
+.topbar{
+  position:sticky;top:0;z-index:60;background:rgba(252,251,248,0.88);
+  backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--divider);
+}
+.topbar .inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.brand{display:flex;align-items:center;gap:8px}
+.brand img{height:34px;border-radius:6px}
+.brand .bn{font-weight:600;font-size:14px;color:var(--accent);letter-spacing:-0.01em}
+.topbar nav{display:flex;gap:24px}
+.topbar nav a{font-size:13px;font-weight:600;color:var(--text2);letter-spacing:0.01em}
+.topbar nav a:hover{color:var(--accent)}
+.topcta{background:var(--accent);color:#fff!important;padding:9px 18px;border-radius:999px;font-size:13px;font-weight:600}
+
+/* dropdown */
+.topbar nav .has-drop{position:relative}
+.topbar nav .has-drop>a{cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.topbar nav .has-drop>a svg{width:10px;height:10px;transition:transform .15s}
+.topbar nav .has-drop:hover>a svg{transform:rotate(180deg)}
+.dropmenu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);background:var(--white);border:1px solid var(--divider);border-radius:14px;box-shadow:0 26px 54px rgba(1,49,47,.12);padding:10px;min-width:320px;opacity:0;visibility:hidden;transition:.15s;display:grid;grid-template-columns:1fr 1fr;gap:4px;z-index:80}
+.has-drop:hover .dropmenu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px)}
+.dropmenu a{display:block;padding:9px 12px;border-radius:12px;font-size:13.5px;font-weight:600;color:var(--text)!important}
+.dropmenu a:hover{background:var(--sage);color:var(--accent)!important}
+.dropmenu a .mi{display:block;font-size:11px;font-weight:500;color:var(--text2);margin-top:4px}
+.dropmenu a.allguides{grid-column:1/-1;background:var(--sage);color:var(--accent)!important;text-align:center;margin-top:4px;font-weight:600}
+
+/* hamburger */
+.hamb{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:4px}
+.hamb span{display:block;width:24px;height:2px;background:var(--accent);border-radius:2px}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:90;background:var(--bg)}
+.mobile-menu.open{display:block}
+.mobile-menu .mhead{display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 28px;border-bottom:1px solid var(--divider)}
+.mobile-menu .mclose{background:none;border:none;font-size:30px;line-height:1;color:var(--accent);cursor:pointer}
+.mobile-menu .mbody{padding:18px 28px 60px;overflow-y:auto;height:calc(100% - 64px)}
+.mobile-menu .mbody a{display:block;padding:13px 0;font-size:17px;font-weight:600;color:var(--accent);border-bottom:1px solid var(--divider)}
+.mobile-menu .mbody .mlabel{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);font-weight:700;margin:24px 0 4px}
+.mobile-menu .mbody .mregion{padding:11px 0;font-size:15.5px;font-weight:600;color:var(--text)!important;border-bottom:1px solid var(--divider)}
+@media(max-width:980px){.topbar nav{display:none}.hamb{display:flex}}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:calc(100svh - 64px);display:flex;align-items:flex-end;overflow:hidden}
+.hero .photo{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(2,97,93,0.05) 0%, rgba(2,97,93,0.55) 100%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 22px, rgba(255,255,255,0) 22px 44px),
+    linear-gradient(155deg,var(--secondary) 0%,var(--accent) 65%,var(--primary) 100%);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;color:rgba(255,255,255,0.9)
+}
+.hero .photo .ph-ico{width:54px;height:54px;opacity:.7;margin-bottom:8px}
+.hero .photo .ph-t{font-weight:600;font-size:15px;letter-spacing:.02em}
+.hero .photo .ph-s{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-top:4px}
+.hero .inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 28px 64px;width:100%}
+.hero .eyebrow{color:#fff}
+.hero .eyebrow::before{background:#A6C84A}
+.hero h1{
+  color:#fff;font-weight:300;font-size:clamp(40px,6vw,72px);line-height:1.04;text-wrap:balance;
+  letter-spacing:-0.025em;max-width:15ch;margin-top:16px;
+  text-shadow:0 2px 24px rgba(0,0,0,0.18)
+}
+.hero .sub{color:rgba(255,255,255,0.92);font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-top:16px}
+
+/* ---------- EYEBROW ---------- */
+.eyebrow{font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--highlight)}
+
+/* ---------- LAYOUT: SIDEBAR + CONTENT ---------- */
+.shell{max-width:var(--maxw);margin:0 auto;padding:56px 28px 0;display:block}
+.sidebar{position:static;margin-bottom:40px}
+.otp{background:var(--sage);border:1px solid var(--divider);border-radius:20px;padding:26px 32px 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px}
+.otp :is(h2,h3,h4){font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;font-weight:700;grid-column:1/-1}
+.otp a{display:flex;align-items:center;gap:8px;padding:12px 0;border-top:1px solid var(--divider);font-size:14.5px;color:var(--text);font-weight:500;transition:color .15s}
+.otp a .tick{width:6px;height:6px;border-radius:50%;background:var(--secondary);flex:none;transition:all .15s}
+.otp a:hover{color:var(--accent)}
+.otp a.active{color:var(--primary);font-weight:600}
+.otp a.active .tick{background:var(--highlight);width:9px;height:9px}
+.side-cta{display:none}
+.side-cta .t{font-weight:600;font-size:15px;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.side-cta .t .dot{width:9px;height:9px;border-radius:50%;background:var(--highlight)}
+.side-cta p{font-size:13px;color:rgba(255,255,255,0.9);line-height:1.55}
+.side-cta a{display:inline-block;margin-top:8px;background:var(--highlight);color:var(--primary)!important;font-weight:600;font-size:13px;padding:8px 15px;border-radius:999px}
+
+/* ---------- CONTENT ---------- */
+.content section{padding:var(--sp-major,74px) 0;border-bottom:1px solid var(--divider);scroll-margin-top:clamp(56px,7vw,78px)}
+.content section:last-child{border-bottom:none}
+.content h2{font-weight:600;font-size:clamp(26px,3.4vw,36px);line-height:1.08;letter-spacing:-0.02em;color:var(--accent);margin-bottom:8px;max-width:20ch}
+.content h3{font-weight:600;font-size:19px;color:var(--accent);margin:24px 0 8px;letter-spacing:-0.01em}
+.content p{margin-bottom:16px;max-width:64ch;line-height:1.7}
+.content .lead{font-size:20px;color:var(--text2);max-width:50ch;margin-bottom:24px;line-height:1.6}
+.cols{column-count:2;column-gap:40px}
+.cols p{max-width:none}
+@media(max-width:900px){.cols{column-count:1}}
+
+/* ---------- IMAGE PLACEHOLDER ---------- */
+.imgph{
+  position:relative;width:100%;border-radius:20px;overflow:hidden;margin:40px 0;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 16px, rgba(255,255,255,0) 16px 32px),
+    linear-gradient(150deg,var(--secondary),var(--accent));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:28px;min-height:300px
+}
+.imgph .ph-ico{width:42px;height:42px;opacity:.9;margin-bottom:8px}
+.imgph .ph-t{font-weight:600;font-size:15px}
+.imgph .ph-s{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.82;margin-top:4px}
+
+/* ---------- STAT CARDS ---------- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+@media(max-width:700px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--white);border:1px solid var(--divider);border-radius:20px;padding:22px}
+.stat .num{font-weight:700;font-size:34px;color:var(--accent);letter-spacing:-0.02em;line-height:1}
+.stat .num .u{font-size:17px;font-weight:700}
+.stat .cap{font-size:11.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--text2);font-weight:600;margin-top:8px}
+.stat .bar{width:30px;height:3px;background:var(--highlight);border-radius:2px;margin-top:8px}
+
+/* ---------- PANEL ---------- */
+.panel{background:#E3ECE5;border-radius:20px;padding:26px 28px;margin:24px 0}
+.panel .pt{font-weight:600;font-size:18px;color:var(--primary);margin-bottom:8px}
+.panel ul{list-style:none}
+.panel li{position:relative;padding-left:24px;margin-bottom:8px;font-size:15.5px}
+.panel li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;background:var(--highlight)}
+
+/* ---------- QUOTE ---------- */
+.quote{margin:40px 0}
+.quote .mark{font-weight:700;font-size:64px;color:#2F5E49;line-height:.5;display:block}
+.quote .q{font-weight:600;font-size:clamp(22px,2.8vw,30px);line-height:1.3;color:var(--accent);letter-spacing:-0.015em;max-width:24ch;margin-top:8px}
+.quote .by{font-size:12.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--text2);font-weight:600;margin-top:16px}
+
+/* ---------- SEASONS ---------- */
+.seasons{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:24px 0}
+@media(max-width:700px){.seasons{grid-template-columns:repeat(2,1fr)}}
+.season{border-radius:14px;padding:18px;color:#fff}
+.season .s{font-weight:600;font-size:16px}
+.season .m{font-size:11px;letter-spacing:.07em;text-transform:uppercase;opacity:.85;margin:4px 0 16px}
+.season .t{font-weight:600;font-size:25px;letter-spacing:-0.02em}
+.season .tl{font-size:11px;letter-spacing:.07em;text-transform:uppercase;opacity:.85;margin-top:4px}
+
+/* ---------- FACTS ---------- */
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:700px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--white);border:1px solid var(--divider);border-radius:14px;padding:18px 20px}
+.fact .k{font-size:11.5px;letter-spacing:.10em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:4px}
+.fact .v{font-size:15px;line-height:1.5}
+
+/* ---------- TIMELINE ---------- */
+.timeline{position:relative;margin:16px 0;padding-left:32px}
+.timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--secondary)}
+.tl{position:relative;margin-bottom:24px}
+.tl::before{content:"";position:absolute;left:-32px;top:2px;width:20px;height:20px;border-radius:50%;background:var(--white);border:3px solid var(--highlight)}
+.tl .st{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.tl .h{font-weight:600;font-size:17px;margin:4px 0 4px}
+.tl .b{font-size:15px;color:var(--text2);max-width:64ch}
+
+/* ---------- TAKEAWAY ---------- */
+.takeaway{background:var(--accent);color:#fff;border-radius:24px;padding:30px 32px;margin:24px 0}
+.takeaway .tt{display:flex;align-items:center;gap:8px;font-weight:600;font-size:19px;margin-bottom:8px}
+.takeaway .tt .dot{width:11px;height:11px;background:var(--highlight);border-radius:50%}
+.takeaway p{color:rgba(255,255,255,0.92);margin-bottom:0;max-width:64ch}
+.takeaway .hl{color:#fff;font-weight:600}
+
+/* ---------- LINKS / RESOURCES ---------- */
+.linkgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:700px){.linkgrid{grid-template-columns:1fr}}
+.linkcard{display:block;background:var(--white);border:1px solid var(--divider);border-radius:14px;padding:18px 20px;transition:border-color .15s,transform .15s}
+.linkcard:hover{border-color:#2F5E49;transform:translateY(-2px);box-shadow:0 16px 38px rgba(1,49,47,.09)}
+.linkcard .lk{font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:var(--text2);font-weight:700;margin-bottom:4px}
+.linkcard .ln{font-weight:600;font-size:16px;color:var(--accent);display:flex;align-items:center;gap:8px}
+.linkcard .ln svg{width:14px;height:14px;flex:none}
+.linkcard .ld{font-size:13.5px;color:var(--text2);margin-top:4px;line-height:1.5}
+
+/* ---------- FOOTER ---------- */
+.footer{background:var(--primary);color:#fff;margin-top:0;padding:48px 0 40px}
+.footer .inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px}
+.footer .brand img{height:40px}
+.footer .fcol h5{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#C9DED3;margin-bottom:8px;font-weight:700}
+.footer .fcol a{display:block;color:rgba(255,255,255,0.85);font-size:14px;margin-bottom:8px;font-weight:500}
+.footer .fcol a:hover{color:#fff}
+.footer .note{width:100%;border-top:1px solid rgba(255,255,255,0.18);margin-top:24px;padding-top:18px;font-size:12px;color:rgba(255,255,255,0.6)}
+
+/* ---------- SOPHIE'S INSIGHTS ---------- */
+.sophie{background:var(--sage);border-radius:24px;padding:30px 32px;margin:24px 0;display:flex;gap:24px;align-items:flex-start}
+@media(max-width:700px){.sophie{flex-direction:column;gap:16px;padding:26px}}
+.sophie .photo{flex:none;width:104px;height:104px;border-radius:50%;overflow:hidden;
+  background:repeating-linear-gradient(135deg,rgba(255,255,255,0.12) 0 10px,rgba(255,255,255,0) 10px 20px),linear-gradient(150deg,var(--secondary),var(--accent));
+  display:flex;align-items:center;justify-content:center;color:#fff;text-align:center}
+.sophie .photo svg{width:30px;height:30px;opacity:.9}
+.sophie .photo .pl{font-size:8.5px;letter-spacing:.10em;text-transform:uppercase;opacity:.85;margin-top:4px;line-height:1.3;padding:0 6px}
+.sophie .body{flex:1}
+.sophie .kick{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.sophie .kick .dot{width:8px;height:8px;border-radius:50%;background:var(--highlight)}
+.sophie .q{font-weight:600;font-size:19px;line-height:1.45;color:var(--primary);letter-spacing:-0.01em}
+.sophie .q p{margin-bottom:8px;max-width:none}
+.sophie .q p:last-child{margin-bottom:0}
+.sophie .by{margin-top:16px;font-size:13px;color:var(--text2)}
+.sophie .by strong{color:var(--accent);font-weight:600;display:block;font-size:14px}
+.sophie .draft{display:inline-block;margin-top:16px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--text2);background:rgba(255,255,255,0.6);border:1px dashed var(--secondary);border-radius:999px;padding:4px 11px}
+
+/* ---------- CHECKLIST ---------- */
+.checklist{list-style:none;margin:16px 0;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+@media(max-width:700px){.checklist{grid-template-columns:1fr}}
+.checklist li{position:relative;padding-left:34px;font-size:15px;line-height:1.5}
+.checklist li::before{content:"";position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:6px;background:var(--sage);border:1.5px solid var(--highlight)}
+.checklist li::after{content:"";position:absolute;left:6px;top:5px;width:7px;height:11px;border:solid var(--primary);border-width:0 2px 2px 0;transform:rotate(42deg)}
+.checklist.full{grid-template-columns:1fr}
+
+/* ---------- GLOSSARY ---------- */
+.glossary{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;margin:16px 0}
+@media(max-width:700px){.glossary{grid-template-columns:1fr}}
+.gloss{display:flex;gap:8px;padding:9px 0;border-bottom:1px solid var(--divider);font-size:15px}
+.gloss .term{font-weight:600;color:var(--accent);flex:none;min-width:120px}
+.gloss .def{color:var(--text2)}
+
+/* ---------- BUDGET TABLE ---------- */
+.budget{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+.budget th{background:var(--accent);color:#fff;text-align:left;padding:11px 16px;font-weight:600;font-size:13.5px}
+.budget th:last-child,.budget td:last-child{text-align:right}
+.budget th:first-child{border-radius:12px 0 0 0}
+.budget th:last-child{border-radius:0 12px 0 0}
+.budget td{padding:10px 16px;border-bottom:1px solid var(--divider)}
+.budget tr:nth-child(even) td{background:var(--white)}
+.budget tr:nth-child(odd) td{background:var(--sage)}
+.budget tr.total td{background:var(--accent);color:#fff;font-weight:600;border:none}
+.budget tr.total td:first-child{border-radius:0 0 0 12px}
+.budget tr.total td:last-child{border-radius:0 0 12px 0}
+
+/* responsive sidebar collapse */
+@media(max-width:880px){
+  .sidebar{margin-bottom:40px}
+  .otp{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .otp{grid-template-columns:1fr}
+}
+
+/* ---------- ICON TILES (added) ---------- */
+.ic{width:42px;height:42px;border-radius:12px;background:var(--sage);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.ic svg{width:21px;height:21px;stroke:var(--accent);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.panel .pt{display:flex;align-items:center;gap:8px}
+.pti{width:34px;height:34px;border-radius:12px;background:var(--white);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.pti svg{width:18px;height:18px;stroke:var(--primary);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.stat{position:relative}
+.sic{position:absolute;top:16px;right:16px;display:inline-flex}
+.sic svg{width:26px;height:26px;stroke:var(--secondary);stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- SEE-ALSO / GO DEEPER (added) ---------- */
+.seealso{display:flex;align-items:center;gap:16px;background:var(--sage);border-radius:14px;padding:15px 20px;margin:24px 0;transition:transform .15s,box-shadow .15s}
+.seealso:hover{transform:translateY(-2px);box-shadow:0 26px 54px rgba(1,49,47,.12)}
+.seealso .sa-ic{width:40px;height:40px;border-radius:12px;background:var(--white);display:flex;align-items:center;justify-content:center;flex:none}
+.seealso .sa-ic svg{width:20px;height:20px;stroke:var(--primary);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.seealso .sa-tx{flex:1;min-width:0}
+.seealso .sa-lbl{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:4px}
+.seealso .sa-ttl{display:block;font-size:15.5px;font-weight:600;color:var(--primary);line-height:1.3}
+.seealso .sa-ar{flex:none;color:var(--accent);font-weight:600;font-size:20px;transition:transform .15s}
+.seealso:hover .sa-ar{transform:translateX(3px)}
+.cover{position:relative;min-height:max(600px,90vh);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.cover::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(2,58,55,.26) 0%,rgba(2,58,55,.24) 30%,rgba(2,49,47,.38) 70%,rgba(2,44,42,.78) 100%)}
+.cov-top{position:absolute;top:0;left:0;right:0;padding:34px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
+.cov-brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.cov-brand img{width:34px;height:34px;display:block}
+.cov-brand span{font-family:'Work Sans',sans-serif;font-weight:500;font-size:15px;color:rgba(252,251,248,.94);white-space:nowrap}
+.cov-no{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(252,251,248,.84);white-space:nowrap}
+.cov-in{max-width:var(--maxw,1200px);width:100%;margin:0 auto;padding:150px 32px 56px}
+.cov-eb{display:flex;align-items:center;gap:16px;margin-bottom:24px;font-family:'Work Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C6E084}
+.cov-eb i{display:block;width:28px;height:2px;background:var(--highlight);flex:none}
+.cover h1{font-family:'Work Sans',sans-serif;font-size:clamp(42px,7vw,96px);font-weight:300;line-height:.94;letter-spacing:-.035em;color:#FCFBF8;margin:0}
+.cov-sub{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(20px,2.5vw,31px);line-height:1.3;color:rgba(252,251,248,.82);margin:16px 0 0}
+.cov-lead{max-width:50ch;font-size:clamp(16px,1.5vw,18.5px);line-height:1.62;color:rgba(252,251,248,.86);margin:24px 0 0}
+.cov-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px}
+.cov-a,.cov-b{font-family:'Work Sans',sans-serif;font-size:15px;font-weight:500;padding:15px 26px;border-radius:12px;cursor:pointer;white-space:nowrap;text-decoration:none}
+.cov-a{display:inline-flex;align-items:center;gap:8px;background:#FCFBF8;color:var(--primary);border:none}
+.cov-a:hover{text-decoration:none;transform:translateY(-1px)}
+.cov-b{background:transparent;color:#FCFBF8;border:1px solid rgba(252,251,248,.5)}
+.cov-b:hover{background:rgba(252,251,248,.12)}
+.cov-meta{display:flex;flex-wrap:wrap;gap:8px 40px;margin-top:40px;padding-top:22px;border-top:1px solid rgba(252,251,248,.24)}
+.cov-meta span{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;letter-spacing:.05em;color:rgba(252,251,248,.78);white-space:nowrap}
+.guidebar{background:#fff;border-bottom:1px solid var(--divider)}
+.gb-in{max-width:var(--maxw,1200px);margin:0 auto;padding:0 32px;min-height:62px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px}
+.gb-t{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text2);white-space:nowrap}
+.gb-l{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px}
+.gb-l a{font-family:'Work Sans',sans-serif;font-size:13.5px;font-weight:500;color:var(--text2);white-space:nowrap;text-decoration:none}
+.gb-l a:first-child{color:var(--primary)}
+.gb-l a:hover{color:var(--primary);text-decoration:none}
+.gb-l button{font-family:'Work Sans',sans-serif;font-size:13px;font-weight:500;color:var(--primary);background:transparent;border:1px solid var(--primary);border-radius:999px;padding:8px 16px;cursor:pointer;white-space:nowrap}
+.gb-l button:hover{background:var(--sage)}
+.mparts{display:flex;flex-direction:column;gap:40px;margin-top:24px}
+.mph{display:flex;align-items:center;gap:16px;margin-bottom:4px}
+.mph span{font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);white-space:nowrap}
+.mph i{flex:1;height:1px;background:var(--divider);display:block}
+a.mrow{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:19px 16px;margin:0 -16px;border-bottom:1px solid var(--divider);border-radius:6px;text-decoration:none;color:inherit;background:var(--sage);transition:background .18s}
+a.mrow:hover{background:#D6E1DA;text-decoration:none}
+a.mrow .mn{font-family:'Work Sans',sans-serif;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--primary)}
+a.mrow .mt{display:flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-size:19px;font-weight:500;color:var(--primary);margin-bottom:4px}
+a.mrow .mdot{width:6px;height:6px;border-radius:999px;background:var(--highlight);display:inline-block;flex:none}
+a.mrow .md{display:block;font-size:14.5px;line-height:1.5;color:var(--text2);max-width:64ch}
+a.mrow .mg{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;letter-spacing:.04em;color:var(--accent);white-space:nowrap}
+.mnote{background:#fff;border:1px solid var(--divider);border-radius:20px;padding:28px 30px;margin-top:40px}
+.mnote p{max-width:64ch;margin:4px 0 16px}
+.mlinks{display:flex;flex-wrap:wrap;gap:8px 24px}
+.mlinks a{font-family:'Work Sans',sans-serif;font-size:15px;font-weight:500;color:var(--primary);text-decoration:none}
+.mlinks a:hover{color:var(--accent)}
+@media(max-width:640px){.cov-in{padding:120px 20px 40px}.cov-top{padding:22px 20px}a.mrow{grid-template-columns:34px minmax(0,1fr);gap:8px}a.mrow .mg{display:none}}
+
+.gl-read{display:inline-flex;align-items:center;gap:10px;max-width:48ch;margin:0 0 24px}.gl-read img{flex:0 0 auto;width:34px;height:auto}.gl-read .rt{font-size:13.5px;line-height:1.45;color:#2F5E49}.gl-read .rt b{font-family:'Work Sans',sans-serif;font-weight:700;color:#2F5E49}</style>
+<link rel="canonical" href="https://ethicareresourcing.com/guides/new-zealand-first-month">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Your first month in New Zealand: the order that actually works · Ethicare Resourcing">
+<meta property="og:description" content="Four weeks in the order that actually works — address, bank account, IRD number, phone — and why doing them out of sequence costs you money.">
+<meta property="og:url" content="https://ethicareresourcing.com/guides/new-zealand-first-month">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your first month in New Zealand: the order that actually works · Ethicare Resourcing">
+<meta name="twitter:description" content="Four weeks in the order that actually works — address, bank account, IRD number, phone — and why doing them out of sequence costs you money.">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<style id="mint-eyebrow">.eyebrow{color:#2F5E49}.eyebrow::before{background:#72A471}</style>
+<style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
+<style id="anchor-offsets">[id]{scroll-margin-top:clamp(56px,7vw,78px)}</style>
+<link rel="stylesheet" href="../next-step.css">
+<link rel="stylesheet" href="../guide-print.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"New Zealand","item":"https://ethicareresourcing.com/new-zealand"},{"@type":"ListItem","position":3,"name":"Moving to New Zealand","item":"https://ethicareresourcing.com/destinations/new-zealand-relocation-guide"},{"@type":"ListItem","position":4,"name":"Your first month"}]}</script>
+<link rel="stylesheet" href="../prose-links.css">
+<link rel="stylesheet" href="../stacked-hero.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand" aria-current="page">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/move">Your relocation plan</a>
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/ask">Ask Ethicare</a>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div id="main-content" tabindex="-1"></div>
+
+<a id="top"></a>
+<div class="hero">
+  <div class="photo" style="background:url('../assets/nz-life/wellington-waterfront-commute.jpg') center 45%/cover no-repeat"></div>
+  <div class="inner">
+    <nav class="wf-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">&#8250;</span><a href="/new-zealand">New Zealand</a><span class="sep">&#8250;</span><a href="/destinations/new-zealand-relocation-guide">Moving to New Zealand</a><span class="sep">&#8250;</span><span class="here">Your first month</span></nav>
+    <div class="eyebrow">Landing</div>
+    <h1>Your first month</h1>
+    <div class="sub">Moving to New Zealand &middot; Chapter 12 of 15</div>
+  </div>
+</div>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="otp"><h2>National chapters</h2>
+      <a href="/guides/aotearoa-in-short" data-sec="aotearoa-in-short"><span class="tick"></span>Aotearoa in short</a>
+      <a href="/destinations/" data-sec="choosing-where-to-live"><span class="tick"></span>Choosing where to live</a>
+      <a href="/guides/new-zealand-healthcare" data-sec="how-the-health-system-works"><span class="tick"></span>How the health system works</a>
+      <a href="/guides/te-ao-maori-at-work" data-sec="te-ao-maori-at-work"><span class="tick"></span>Te ao Māori at work</a>
+      <a href="/guides/money-tax-and-banking" data-sec="money-tax-and-banking"><span class="tick"></span>Money, tax &amp; banking</a>
+      <a href="/guides/renting-in-new-zealand" data-sec="renting-in-new-zealand"><span class="tick"></span>Renting in New Zealand</a>
+      <a href="/guides/new-zealand-education" data-sec="schools-education"><span class="tick"></span>Schools &amp; education</a>
+      <a href="/guides/driving-and-licences" data-sec="driving-and-licences"><span class="tick"></span>Driving &amp; licences</a>
+      <a href="/guides/new-zealand-visa" data-sec="your-move"><span class="tick"></span>Your move, step by step</a>
+      <a href="/guides/nz/bringing-pets-and-belongings" data-sec="bringing-pets-and-belongings"><span class="tick"></span>Bringing pets &amp; belongings</a>
+      <a href="/guides/before-you-leave" data-sec="before-you-leave"><span class="tick"></span>Before you leave home</a>
+      <a class="active" aria-current="page" href="/guides/new-zealand-first-month" data-sec="your-first-month"><span class="tick"></span>Your first month</a>
+      <a href="/guides/new-zealand-checklist" data-sec="relocation-checklist"><span class="tick"></span>The relocation checklist</a>
+      <a href="/guides/new-zealand-community" data-sec="settling-in"><span class="tick"></span>Finding your feet &amp; your people</a>
+      <a href="/guides/new-zealand-contacts" data-sec="key-numbers"><span class="tick"></span>Key numbers to know</a>
+    </div>
+    <div class="side-cta"><div class="t"><span class="dot"></span>Going to a city?</div><p>Hospitals, suburbs, commutes and rents live in the destination guides.</p><a href="/destinations/auckland-new-zealand">The Auckland guide</a></div>
+  </aside>
+  <main class="content">
+<section id="your-first-month">
+  <p class="lead">Four weeks, in the order that actually works. Some of these tasks depend on each other, and doing them out of sequence is what costs people time.</p>
+      <span class="gl-read"><img decoding="async" src="../assets/kettle-52-sage.png" alt="" width="170" height="192" loading="lazy"><span class="rt"><b>Kettle on.</b> A longer read &mdash; about 7 min</span></span>
+
+  <h2>Four things unlock everything else</h2>
+  <p>They have to happen roughly in this order, because each one is asked for by the next. Get the chain right and the first fortnight is easy. Get it wrong and you&rsquo;ll spend a month being told to come back with something you don&rsquo;t have yet.</p>
+  <div class="facts">
+    <div class="fact"><div class="k">1 &middot; A New Zealand address</div><div class="v">Everything else is asked in relation to it. A short-term rental, serviced apartment or a friend&rsquo;s spare room all count &mdash; you don&rsquo;t need the permanent one yet.</div></div>
+    <div class="fact"><div class="k">2 &middot; A bank account</div><div class="v">Open it before you fly if you can; most banks let you start the process from overseas and finish it in branch with your passport and address.</div></div>
+    <div class="fact"><div class="k">3 &middot; An IRD number</div><div class="v">Apply in your first few days. It needs the address and the bank account, and your employer needs it before your first pay run.</div></div>
+    <div class="fact"><div class="k">4 &middot; A phone number</div><div class="v">Asked for by almost every form, appointment and rental application you&rsquo;ll make. A prepay SIM at the airport is enough to start.</div></div>
+  </div>
+  <div class="panel">
+    <div class="pt">The one that costs real money</div>
+    <ul>
+      <li>Your employer will ask you to complete an <strong>IR330 tax code declaration</strong> before your first pay run. If you have no IRD number yet, you&rsquo;re taxed at the no-notification rate &mdash; considerably higher than your real rate &mdash; until you produce one.</li>
+      <li>It&rsquo;s refunded eventually, but "eventually" can mean the end of the tax year. Open the bank account before you fly, apply for the IRD number in your first few days, and this never becomes a problem.</li>
+    </ul>
+  </div>
+
+  <h2>Four weeks, roughly</h2>
+  <p>Adjust for who&rsquo;s arriving with you &mdash; the list changes quite a lot if there are children in it.</p>
+  <div class="facts">
+    <div class="fact"><div class="k">Week one &middot; Land and anchor</div><div class="v">Sleep, a SIM card, the bank account finished in branch, the IRD application in. Walk your temporary neighbourhood. Register the household with a GP near where you&rsquo;ll actually live. Feels: disorienting, and faster than you expected.</div></div>
+    <div class="fact"><div class="k">Week two &middot; Wheels and paperwork</div><div class="v">Start the licence conversion, rent or buy a car, get an a local public transport card. First shifts and orientation. If children are with you, contact schools and check the zone for any address before you sign. Feels: busy, productive, tiring.</div></div>
+    <div class="fact"><div class="k">Week three &middot; Viewings and the dip</div><div class="v">Serious house-hunting, references ready, applications in the same day. Somewhere in here the adrenaline runs out. Feels: harder than week one, and completely normal.</div></div>
+    <div class="fact"><div class="k">Week four &middot; Settle and join</div><div class="v">Lease signed, utilities and broadband connected, KiwiSaver decided. Join one thing that isn&rsquo;t work. Feels: like the beginning of an ordinary life rather than a very long trip.</div></div>
+  </div>
+
+  <h2>Around week three, most people crash a bit</h2>
+  <p>The first fortnight runs on adrenaline and admin. There&rsquo;s a list, the list gets shorter, and every day contains something new. Then the list runs out, the novelty thins, and you&rsquo;re left in a house you didn&rsquo;t choose carefully, in a city where you know six people, doing a job in a system that does things slightly differently from the one you spent your career learning.</p>
+  <p>It usually lands somewhere between day fifteen and day twenty-five. It&rsquo;s extremely common, it says nothing whatsoever about whether you made the right decision, and it passes.</p>
+  <p>What helps is knowing it&rsquo;s coming. What helps more is having something in the calendar for that week that isn&rsquo;t admin.</p>
+
+  <h2>Six things that won&rsquo;t be done in a month</h2>
+  <p>A month is enough to be functional. It isn&rsquo;t enough to be settled, and expecting otherwise is the commonest way people make the first year harder than it needs to be.</p>
+  <div class="facts">
+    <div class="fact"><div class="k">Feeling at home in the department</div><div class="v">Three to six months before the systems, the shorthand and the referral pathways stop taking conscious effort.</div></div>
+    <div class="fact"><div class="k">A settled circle of friends</div><div class="v">Six to twelve months, and it depends almost entirely on what you joined in month one.</div></div>
+    <div class="fact"><div class="k">Knowing the city</div><div class="v">A year, and a few wrong turns. You&rsquo;ll pick the right beach for the conditions eventually.</div></div>
+    <div class="fact"><div class="k">The right house</div><div class="v">Most people move once. Renting first and choosing properly second is the sensible plan, not a failure.</div></div>
+    <div class="fact"><div class="k">Residency, if that&rsquo;s the plan</div><div class="v">Measured in years rather than months, and worth starting the paperwork trail early.</div></div>
+    <div class="fact"><div class="k">Not converting every price</div><div class="v">Six months or so before you stop doing mental exchange-rate arithmetic in the supermarket.</div></div>
+  </div>
+  <figure class="voice">
+    <blockquote>&ldquo;Do one non-essential thing in your first week. A walk up a volcano, a swim, a ferry to nowhere in particular. It will feel indulgent when you have a hundred jobs on a list &mdash; that is exactly why it works. The admin will still be there on Monday, and you will have one memory of the place that is not a queue or a form. Start collecting those early.&rdquo;</blockquote>
+    <figcaption>Sophie Careem &mdash; Founder &amp; CEO, Ethicare Resourcing</figcaption>
+  </figure>
+  <p>Each of these has a chapter of its own when you need the detail: <a href="/guides/money-tax-and-banking">Money, tax &amp; banking</a> for your IRD number, first payslip and KiwiSaver; <a href="/guides/driving-and-licences">Driving &amp; licences</a> for converting your licence and buying a car; and <a href="/guides/new-zealand-education">Schools &amp; education</a> for zoning and enrolment.</p>
+
+  <h2 id="first-year">The shape of the first year</h2>
+  <p>The week-three dip is the first bend in a longer curve. Most people describe the same four phases on roughly the same timetable, and knowing the shape in advance takes most of the alarm out of the middle of it.</p>
+  <div class="timeline">
+    <div class="tl"><div class="st">First weeks</div><div class="h">The honeymoon</div><div class="b">Everything is new &mdash; the scenery, the accents, the supermarket &mdash; and the adrenaline of setting up a life carries most of it. It does not stay this heightened, and that is not a loss.</div></div>
+    <div class="tl"><div class="st">First months</div><div class="h">The dip</div><div class="b">Once the novelty thins, the distance from home, the small frustrations and the effort of starting over tend to arrive together. It is the part nobody warns people about, it is well documented, and it says nothing about whether the decision was right. Naming it takes away most of its power.</div></div>
+    <div class="tl"><div class="st">Around six months</div><div class="h">Finding your feet</div><div class="b">Routines form: a GP, a favourite beach, people you would call on a bad day. Work stops taking conscious effort, the children have friends, and the place stops feeling like somewhere you are visiting.</div></div>
+    <div class="tl"><div class="st">The first year</div><div class="h">Home</div><div class="b">You stop converting prices, you know the back roads, and you are the one giving the next arrival directions. It rarely happens in a moment. Somewhere in the first year, it has happened.</div></div>
+  </div>
+
+  <h2 id="yourself">Looking after yourself through it</h2>
+  <p>Admin and friendships are only part of it. Four things people who have been through the dip tend to say they wish they had known earlier.</p>
+  <div class="facts">
+    <div class="fact"><div class="k">Homesickness is normal, not failure</div><div class="v">Missing home does not mean the decision was wrong; it means you valued what you left. It softens as the new life fills in around it, and saying it out loud shortens the process.</div></div>
+    <div class="fact"><div class="k">Stay connected, and be here</div><div class="v">Regular calls home help. Living entirely online keeps one foot in the old life. Plan the trips back, then let yourself be fully here in between.</div></div>
+    <div class="fact"><div class="k">Judge it at a year, not at month three</div><div class="v">The first year has seasons, literally and emotionally. A &ldquo;was this a mistake?&rdquo; decision taken in the dip is taken on the worst evidence you will ever have. Most people who waited are glad they did.</div></div>
+    <div class="fact"><div class="k">Ask for help early</div><div class="v">A GP, a community group, a colleague, or us. Reaching out early is what the people who settled did, not a sign of struggling.</div></div>
+  </div>
+  <p>The people side has a chapter of its own, <a href="/guides/new-zealand-community">finding your community</a>, and if a partner or children are moving with you, so does <a href="/guides/new-zealand-family">moving with your family</a>. What we do in those months is set out once, on <a href="/about-ethicare#after-you-land">the About page</a>.</p>
+<nav class="ch-nav"><a class="prev" href="/guides/before-you-leave"><span>Previous</span>Before you leave home</a><a class="up" href="/destinations/new-zealand-relocation-guide">All chapters</a><a class="next" href="/guides/new-zealand-checklist"><span>Next</span>The relocation checklist</a></nav>
+</section>
+<section class="nextstep-band" aria-label="Next step">
+  <div class="ns-in">
+    <div class="ns-copy">
+      <p class="ns-k">Ethicare Resourcing</p>
+      <h2>This chapter is part of a bigger guide &mdash; and we&rsquo;re here for the rest of it</h2>
+      <p>We place healthcare professionals across New Zealand and Australia, and stay with the move through registration, visas and the first months after you land.</p>
+    </div>
+    <div class="ns-acts">
+      <a class="ns-a solid" href="/new-zealand">Careers in New Zealand <span aria-hidden="true">&rarr;</span></a>
+      <a class="ns-a ghost" href="/contact">Talk to us</a>
+    </div>
+  </div>
+</section>
+</main>
+</div>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="../assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/move">Ethicare Move</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+
+<script>
+// active-section tracking for the sidebar
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.otp a'));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('data-sec')] = a; });
+  var secs = links.map(function(a){ return document.getElementById(a.getAttribute('data-sec')); }).filter(Boolean);
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(l){ l.classList.remove('active'); });
+        if(map[e.target.id]) map[e.target.id].classList.add('active');
+      }
+    });
+  }, { rootMargin:'-45% 0px -50% 0px', threshold:0 });
+  secs.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+<script>(function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var st=document.createElement('style');st.textContent='@media screen{.rv{opacity:0;transform:translateY(12px);transition:opacity .55s ease,transform .55s ease}.rv.in{opacity:1;transform:none}}@media print{.rv{opacity:1;transform:none}}';document.head.appendChild(st);addEventListener('beforeprint',function(){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})});var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});[].slice.call(document.querySelectorAll('.content section')).forEach(function(el){if(el.getBoundingClientRect().top>innerHeight*0.85){el.classList.add('rv');io.observe(el)}});})();</script>
+<script src="../nav.js" defer></script>
+<script src="../journey-nav.js" defer></script>
+</body></html>
