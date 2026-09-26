@@ -81,7 +81,7 @@
 
 }
 /* Section 18 responsive token overrides (tablet <=1199, mobile <=767, tiny <=374) */
-@media(max-width:1199px){:root{--gutter:32px;--band-pad:48px;--section-gap:56px;--fs-home-h1:4rem;--fs-country-h1:3rem;--fs-employer-h1:3rem;--fs-page-title:2.625rem;--fs-tool-title:2.5rem;--fs-section:2.125rem;--fs-article-h:1.75rem;--fs-home-lead:1.25rem;--fs-lead:1.1875rem;--fs-quote:1.625rem;--fs-vacancy-h1:2.375rem}}
+@media(max-width:1299px){:root{--gutter:32px;--band-pad:48px;--section-gap:56px;--fs-home-h1:4rem;--fs-country-h1:3rem;--fs-employer-h1:3rem;--fs-page-title:2.625rem;--fs-tool-title:2.5rem;--fs-section:2.125rem;--fs-article-h:1.75rem;--fs-home-lead:1.25rem;--fs-lead:1.1875rem;--fs-quote:1.625rem;--fs-vacancy-h1:2.375rem}}
 @media(max-width:767px){:root{--gutter:20px;--band-pad:40px;--section-gap:40px;--btn-px:20px;--fs-home-h1:3rem;--fs-country-h1:2.5rem;--fs-employer-h1:2.5rem;--fs-page-title:2.25rem;--fs-tool-title:2.125rem;--fs-section:1.875rem;--fs-article-h:1.625rem;--fs-card-title:1.25rem;--fs-home-lead:1.125rem;--fs-lead:1.125rem;--fs-body:1rem;--fs-quote:1.5rem;--fs-vacancy-h1:2rem;--fs-apply-intro:1.75rem;--fs-budget:2.5rem}}
 @media(max-width:374px){:root{--gutter:16px;--fs-home-h1:2.625rem;--fs-country-h1:2.25rem;--fs-employer-h1:2.25rem}}
 .shell{max-width:920px;margin:0 auto;padding:0 24px}
@@ -111,7 +111,7 @@ a{color:inherit;text-decoration:none}
 .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
 .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media (max-width:1199px){
+@media (max-width:1299px){
   .nav-toggle{display:flex}
   .site-nav{position:fixed;inset:68px 0 auto 0;flex-direction:column;align-items:stretch;gap:4px;background:#FCFBF8;border-bottom:1px solid #C9DED3;padding:14px 24px 22px;margin:0;transform:translateY(-130%);transition:transform .25s ease;box-shadow:var(--sh-md);max-height:calc(100svh - 68px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
   body.nav-open{overflow:hidden}
@@ -158,7 +158,7 @@ a{color:inherit;text-decoration:none}
 .site-nav .navitem:hover .subnav,.site-nav .navitem:focus-within .subnav,.site-nav .navitem.open .subnav{display:flex}
 .subnav a{padding:10px 14px;border-radius:var(--r-sm);font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;font-size:14px;color:#333333;text-decoration:none}
 .subnav a:hover{background:#E4E9E5;color:#02615D}
-@media (max-width:1199px){
+@media (max-width:1299px){
   .site-nav .navitem{flex-direction:column;align-items:stretch}
   .subnav{position:static;display:none;box-shadow:none;border:none;border-radius:0;padding:0 0 6px 12px;min-width:0;background:transparent}
   .site-nav .navitem.open .subnav{display:flex}
@@ -170,7 +170,7 @@ a{color:inherit;text-decoration:none}
 .site-nav .navitem:hover .subnav.mega,.site-nav .navitem:focus-within .subnav.mega,.site-nav .navitem.open .subnav.mega{display:flex}
 .megacol{display:flex;flex-direction:column;min-width:180px}
 .megah{font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;padding:6px 14px 8px}
-@media (max-width:1199px){
+@media (max-width:1299px){
   .subnav.mega{flex-direction:column;min-width:0;padding:0 0 6px 12px;gap:0}
   .megacol{min-width:0}
   .megah{padding:10px 12px 4px;color:#02615D}
@@ -178,10 +178,31 @@ a{color:inherit;text-decoration:none}
 
 /* premium header */
 .site-header .shell{height:var(--header-h,80px)}
-@media(max-width:1199px){.site-header .shell{height:var(--header-h-compact,68px)}}
+@media(max-width:1299px){.site-header .shell{height:var(--header-h-compact,68px)}}
 .site-header{border-bottom-color:#E4E9E5}
 .site-nav a{letter-spacing:.01em}
 .site-nav .nav-cta{letter-spacing:.02em}
+
+/* ---------------------------------------------------------------------------
+   Desktop nav fit (26 Sep 2026). The header shell is a fixed-height flex row, so
+   an item whose label broke onto a second line pushed its text out of the header
+   and over the section below — "New Zealand", "Ask Ethicare" and "For Employers"
+   were all wrapping at 1200-1400px. Two parts to the fix: never break a label,
+   and tighten the row before the space runs out rather than after.
+   Below 1299px the hamburger is the compact layout, so this only governs above that. */
+.site-nav a{white-space:nowrap}
+/* The nav needs about 975px on its own and the 1180px content shell leaves it roughly 900,
+   which is what pushed it past the header's right edge. The HEADER shell alone widens; page
+   content stays at 1180 so nothing else moves. min() keeps it inside the viewport, so this
+   cannot reintroduce horizontal scrolling at the narrow end. */
+@media (min-width:1300px){.site-header .shell{max-width:min(1320px, 100% - 48px)}}
+.site-nav .navitem>a{white-space:nowrap}
+@media (min-width:1300px) and (max-width:1439px){
+  .site-nav{gap:0}
+  .site-nav a{font-size:13.5px;padding:8px 9px}
+  .site-nav .nav-cta{margin-left:10px;padding:9px 16px}
+  .site-nav .nav-cta::before{left:-10px}
+}
 
 /* nav subheads + steps */
 .subnav .subhead{display:block;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;padding:11px 14px 4px}
@@ -190,7 +211,7 @@ a{color:inherit;text-decoration:none}
 /* professions mega 3-group */
 .subnav.mega3{min-width:600px}
 .subnav.mega3 .megacol{min-width:178px}
-@media (max-width:1199px){.subnav.mega3{min-width:0}}
+@media (max-width:1299px){.subnav.mega3{min-width:0}}
 .f-base a{color:rgba(255,255,255,.72);text-decoration:none;transition:color .15s ease}
 .f-base a:hover{color:#fff;text-decoration:underline}
 .f-base .f-sep{margin:0 9px;opacity:.9}
@@ -218,7 +239,7 @@ a{color:inherit;text-decoration:none}
   .subnav.regionmega{position:fixed;left:0;right:0;top:80px;min-width:0;padding:34px 0;background:#fff;border:none;border-top:1px solid #E4E9E5;border-bottom:1px solid #C9DED3;border-radius:0;box-shadow:var(--sh-lg)}
   .regionmega .mega-inner{max-width:920px;margin:0 auto;padding:0 24px}
 }
-@media(max-width:1199px){
+@media(max-width:1299px){
   .subnav.regionmega{min-width:0;padding:0 0 6px 12px}
   .regionmega .mega-inner{display:block}
   .regionmega .rj,.regionmega .pg{grid-template-columns:1fr}
@@ -233,7 +254,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 h1,h2,h3,h4,blockquote{text-wrap:balance}
 p,li,figcaption,dd,summary{text-wrap:pretty}
 
-@media(max-width:1199px){.site-nav .cv{font-size:13px}/* the pathway checker lives in both country megas (beside "Explore …") and in the footer
+@media(max-width:1299px){.site-nav .cv{font-size:13px}/* the pathway checker lives in both country megas (beside "Explore …") and in the footer
    Candidates column on every page — it is a routing tool, not a nav section of its own */
 .regionmega .explore.tool{margin-right:20px}
 .regionmega .explore{margin:8px 0 8px}}

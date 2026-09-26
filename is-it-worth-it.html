@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
-<title>Is it worth it? Pay, costs and what the job is really like | Ethicare Resourcing</title>
-<meta name="description" content="What you would earn in New Zealand or Australia, what the move costs before your first pay, and how the work itself differs. Indicative figures, named agreements, published fees.">
+<title>What could I earn? Salaries, take-home pay and costs | Ethicare Resourcing</title>
+<meta name="description" content="What you could earn in New Zealand or Australia, what actually reaches your account after tax, and what the move costs before your first payday.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
@@ -61,13 +61,22 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
 .kick{display:flex;align-items:center;gap:12px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fern-text,#2F5E49);margin:0 0 14px}
 .kick::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none}
 .rt-note{font-size:15px;line-height:1.62;color:var(--muted,#555);max-width:66ch;margin:22px 0 0}
+
+/* country tabs — the panels are plain sections, so with JS off both simply show */
+.ct-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.ct-tab{flex:1 1 200px;min-height:52px;padding:14px 20px;border-radius:12px;border:1.5px solid var(--mint,#C9DED3);background:#fff;color:var(--teal,#02615D);font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease}
+.ct-tab:hover:not(.is-on){background:var(--soft-green,#E3ECE5)}
+.ct-tab.is-on{background:var(--teal,#02615D);border-color:var(--teal,#02615D);color:#fff}
+.ct-qs{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:11px;max-width:54ch}
+.ct-qs li{position:relative;padding-left:22px;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(17px,1.9vw,20px);line-height:1.45;color:var(--teal,#02615D)}
+.ct-qs li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:2px;background:#A6C84A}
 </style>
 <link rel="canonical" href="https://ethicareresourcing.com/is-it-worth-it">
 <link rel="icon" href="/assets/logo-mark.png">
 <link rel="apple-touch-icon" href="/assets/logo-mark.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Is it worth it? Pay, costs and what the job is really like | Ethicare Resourcing">
-<meta property="og:description" content="What you would earn, what the move costs before your first pay, and how the work itself differs. Named agreements, published fees, no promises we cannot keep.">
+<meta property="og:title" content="What could I earn? Salaries, take-home pay and costs | Ethicare Resourcing">
+<meta property="og:description" content="What you could earn in New Zealand or Australia, what actually reaches your account after tax, and what the move costs before your first payday.">
 <meta property="og:url" content="https://ethicareresourcing.com/is-it-worth-it">
 <meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -123,9 +132,9 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
 <header class="rt-hero">
   <div class="rt-wrap in">
     <div>
-      <p class="kick">The second question</p>
-      <h1>Is it worth it?</h1>
-      <p class="lede">Nobody asks this out loud very often, but almost everyone is working it out quietly. We understand that: you are weighing a salary you cannot verify against a cost you cannot yet see, for a job you have only read about. Our aim is to give you real numbers and an honest account of the work, so the decision is yours rather than ours &mdash; including the version where the answer turns out to be no.</p>
+      <p class="kick">The money question</p>
+      <h1>What could I earn?</h1>
+      <p class="lede">A new role. A different lifestyle. What could it mean for you financially? Explore salaries in New Zealand and Australia, work out what would actually reach your account, and see how the numbers fit the life you want.</p>
     </div>
     <figure><img src="assets/heroes/registration-and-pay.svg" alt="" width="400" height="300" loading="eager" decoding="async"></figure>
   </div>
@@ -133,37 +142,98 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
 
 <section class="rt-sec">
   <div class="rt-wrap">
-    <div class="rt-first">
-      <div>
-        <h2>Start with what leaves your account</h2>
-        <p>Pay is the exciting half, but the costs are the half that catches people out &mdash; assessment, registration, the visa, flights, shipping and a rental bond tend to land close together, and mostly before your first pay arrives. The calculator uses published fees for your route, shows what an employer might contribute, and keeps the figure so you can come back to it.</p>
-      </div>
-      <a class="rt-btn" href="/cost-calculator">See what it might cost <span aria-hidden="true">&rarr;</span></a>
+    <p class="kick">Where are you considering?</p>
+    <h2>Pay you can actually check</h2>
+    <p class="rt-lead">Here is something unusual about both countries: in the public systems, pay is set by collective agreement and published. Not negotiated in the dark, not dependent on how well you interview. That means we can show you indicative bands and name the agreement they come from, and it means you can verify us. We keep figures rough on purpose, rounded so neither end overstates, because a precise number against a role we have not seen would be a promise we are not in a position to make.</p>
+    <div class="ct-tabs" role="tablist" aria-label="Choose a country">
+      <button class="ct-tab is-on" type="button" role="tab" id="tab-nz" aria-controls="panel-nz" aria-selected="true" data-country="nz">New Zealand</button>
+      <button class="ct-tab" type="button" role="tab" id="tab-au" aria-controls="panel-au" aria-selected="false" data-country="au">Australia</button>
     </div>
-    <p class="rt-note">If you would rather read the whole picture first, <a href="/guides/cost-of-relocating">what a move really costs</a> goes through it line by line, including the things people forget.</p>
+    <p class="rt-note" style="margin-top:16px">Still weighing it up? <a href="/guides/australia-vs-new-zealand">Compare the two countries</a>.</p>
   </div>
 </section>
 
-<section class="rt-sec tint">
+<!-- NEW ZEALAND -->
+<section class="rt-sec tint ct-panel" id="panel-nz" role="tabpanel" aria-labelledby="tab-nz">
   <div class="rt-wrap">
-    <p class="kick">What you would earn</p>
-    <h2>Pay you can actually check</h2>
-    <p class="rt-lead">Here is something unusual about both countries: in the public systems, pay is set by collective agreement and published. Not negotiated in the dark, not dependent on how well you interview. That means we can show you indicative bands and name the agreement they come from &mdash; and it means you can verify us. We keep figures rough on purpose, rounded so neither end overstates, because a precise number against a role we have not seen would be a promise we are not in a position to make.</p>
-    <div class="rt-two">
-      <div class="rt-pane">
-        <h3>New Zealand</h3>
-        <p>APEX and the union agreements cover most allied health and technical roles; the ASMS MECA covers senior doctors. Steps are published, so you can usually work out where you would land.</p>
-        <ul><li>Indicative bands by profession, with the agreement named</li><li>How steps and progression work</li><li>What tax and KiwiSaver do to a gross figure</li></ul>
-        <p class="lk"><a href="/guides/new-zealand-salary">Pay in New Zealand</a><a href="/guides/new-zealand-pay-agreements">The pay register</a></p>
-      </div>
-      <div class="rt-pane">
-        <h3>Australia</h3>
-        <p>Awards and enterprise agreements, which differ state by state &mdash; so the same job can pay differently in Brisbane and Perth, and that is worth knowing before you choose a city.</p>
-        <ul><li>Indicative bands by profession and state</li><li>How superannuation changes the total</li><li>What tax does to a gross figure</li></ul>
-        <p class="lk"><a href="/guides/australia-salary">Pay in Australia</a><a href="/guides/australia-money">Tax, super and banking</a></p>
-      </div>
+    <h2>What could you earn in New Zealand?</h2>
+    <p class="rt-lead">Start with your profession. Your experience, your employer and the role itself decide where you sit within a range, and the agreement covering the role decides the range.</p>
+    <div class="rt-grid">
+      <a class="rt-card" href="/guides/new-zealand-salary">
+        <span class="k">Step one</span>
+        <h3>Explore salaries</h3>
+        <p>How pay is set, what decides your step, and indicative bands with the agreement named so you can check them yourself.</p>
+        <span class="go">Pay in New Zealand &rarr;</span>
+      </a>
+      <a class="rt-card" href="/take-home-pay">
+        <span class="k">Step two</span>
+        <h3>What reaches your bank account</h3>
+        <p>A salary is the starting point. Work out the estimate after income tax, the ACC earner&rsquo;s levy and your KiwiSaver contribution.</p>
+        <span class="go">Estimate my take-home pay &rarr;</span>
+      </a>
+      <a class="rt-card" href="/guides/living-in-new-zealand">
+        <span class="k">Step three</span>
+        <h3>What kind of life it supports</h3>
+        <p>Housing, transport, groceries and childcare, against the household income you would actually have. Every region guide costs it locally.</p>
+        <span class="go">Living in New Zealand &rarr;</span>
+      </a>
+      <a class="rt-card" href="/cost-calculator?destination=nz">
+        <span class="k">Step four</span>
+        <h3>What you need before your first payday</h3>
+        <p>Registration, the visa, flights, temporary accommodation and setting up a home. If relocation support is offered, check what it covers and when it is paid.</p>
+        <span class="go">Plan your moving costs &rarr;</span>
+      </a>
     </div>
-    <p class="rt-note">One boundary we hold to: on a live vacancy we say &ldquo;competitive&rdquo; and name the framework, never a figure. The package gets confirmed with you before you decide anything &mdash; putting a number against a named role would be committing on an employer&rsquo;s behalf, and that is not ours to do.</p>
+    <p class="rt-note">Look past the headline figure: check the contracted hours, how your experience will be recognised, and whether allowances, overtime or on-call payments are included. <a href="/guides/new-zealand-pay-agreements">Which agreement sets your pay</a>.</p>
+    <div class="rt-first" style="margin-top:26px">
+      <div>
+        <h2>Considering a move to New Zealand?</h2>
+        <p>Tell us about your experience and what you are hoping for. You do not need to have decided anything, and there is no cost to you either way.</p>
+      </div>
+      <a class="rt-btn" href="/apply">Register your interest <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- AUSTRALIA -->
+<section class="rt-sec tint ct-panel" id="panel-au" role="tabpanel" aria-labelledby="tab-au" hidden>
+  <div class="rt-wrap">
+    <h2>What could you earn in Australia?</h2>
+    <p class="rt-lead">Awards and enterprise agreements differ state by state, so the same job can pay differently in Brisbane and Perth. Ethicare places into medical imaging in Australia, so that is what we can speak to properly.</p>
+    <div class="rt-grid">
+      <a class="rt-card" href="/guides/australia-salary">
+        <span class="k">Step one</span>
+        <h3>Explore salaries</h3>
+        <p>Medical imaging pay by profession and by state or territory, with the framework named. Your experience, location, employer and working pattern all move the number.</p>
+        <span class="go">Pay in Australia &rarr;</span>
+      </a>
+      <a class="rt-card" href="/take-home-pay">
+        <span class="k">Step two</span>
+        <h3>What reaches your bank account</h3>
+        <p>Turn an advertised figure into an everyday budget, after income tax and the Medicare levy. It also asks whether superannuation sits on top of the package or inside it.</p>
+        <span class="go">Estimate my take-home pay &rarr;</span>
+      </a>
+      <a class="rt-card" href="/destinations/australia">
+        <span class="k">Step three</span>
+        <h3>What kind of life it supports</h3>
+        <p>Where you settle shapes your budget as much as what you earn. Housing and everyday costs, state by state, alongside what your household needs.</p>
+        <span class="go">Explore the states &rarr;</span>
+      </a>
+      <a class="rt-card" href="/cost-calculator?destination=au">
+        <span class="k">Step four</span>
+        <h3>What you need before your first payday</h3>
+        <p>Registration, licensing, the visa, flights and the first weeks of accommodation. Check whether relocation costs are paid directly or reimbursed after you arrive.</p>
+        <span class="go">Plan your moving costs &rarr;</span>
+      </a>
+    </div>
+    <p class="rt-note">Check the whole package: base pay, contracted hours, superannuation, additional payments and relocation support. If a role advertises an hourly rate, check how many paid hours the annual figure assumes. <a href="/guides/australia-money">Tax, super and banking</a>.</p>
+    <div class="rt-first" style="margin-top:26px">
+      <div>
+        <h2>Considering a medical imaging role in Australia?</h2>
+        <p>Tell us about your experience and where you would like to go. It is fine if you have not decided yet.</p>
+      </div>
+      <a class="rt-btn" href="/apply">Register your interest <span aria-hidden="true">&rarr;</span></a>
+    </div>
   </div>
 </section>
 
@@ -176,7 +246,7 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
       <div class="box"><h3>A pay rise is not always a pay rise</h3><p>If you are coming from a no-income-tax country, the gross figure can look excellent and the net one ordinary. Housing may cost more than you are used to as well. Run both against the cost of living before you get attached to the headline.</p></div>
       <div class="box"><h3>Progression is slower and flatter</h3><p>Public-system scales are transparent, which is the good news. It also means less room to negotiate, and seniority often counts for more than performance. Some people find that fairer; others find it frustrating.</p></div>
       <div class="box"><h3>You may be further from family than any map suggests</h3><p>Flights are long and expensive, and a two-week visit is not a weekend trip. This is the single most common thing people underestimate, and it is worth an honest conversation at home before anything else.</p></div>
-      <div class="box"><h3>The first year costs more than the calculator says</h3><p>Setting up a household from nothing &mdash; a car, furniture, a deposit &mdash; is real money that no relocation package covers in full. Build a buffer, not just a budget.</p></div>
+      <div class="box"><h3>The first year costs more than the calculator says</h3><p>Setting up a household from nothing, a car, furniture, a deposit, is real money that no relocation package covers in full. Build a buffer, not just a budget.</p></div>
     </div>
     <p style="font-size:15px;line-height:1.6;color:#DCEAE5;margin:20px 0 0;max-width:66ch">If any of this gives you pause, that is the page doing its job. <a class="on-dark" href="/contact">Talk it through with us</a> &mdash; we would rather have an honest conversation than a placement that unravels.</p>
   </div>
@@ -184,40 +254,35 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
 
 <section class="rt-sec">
   <div class="rt-wrap">
-    <p class="kick">The work itself</p>
-    <h2>What the job would actually be</h2>
-    <p class="rt-lead">Money is only half of &ldquo;worth it&rdquo;. The other half is the work: what your title becomes, what your scope covers, who you report to, and how a day runs. It differs more than most people expect, and it is the part a salary figure tells you nothing about.</p>
-    <div class="rt-grid">
-      <a class="rt-card" href="/jobs/professions">
-        <span class="k">Your profession</span>
-        <h3>Scope, title and where you are needed</h3>
-        <p>Written profession by profession, because a radiographer&rsquo;s move and a psychologist&rsquo;s have almost nothing in common.</p>
-        <span class="go">Every profession &rarr;</span>
-      </a>
-      <a class="rt-card" href="/guides/new-zealand-practice">
-        <span class="k">Day to day</span>
-        <h3>How practice differs from home</h3>
-        <p>Funding, referral routes, who does what in a team, and the small daily differences that add up.</p>
-        <span class="go">Working in New Zealand &rarr;</span>
-      </a>
-      <a class="rt-card" href="/guides/australia-vs-new-zealand">
-        <span class="k">Still deciding</span>
-        <h3>Australia or New Zealand?</h3>
-        <p>The same question asked of both countries: registration, pay, housing, visas and what daily life asks of you.</p>
-        <span class="go">Compare the two &rarr;</span>
-      </a>
-    </div>
+    <p class="kick">The other half of the answer</p>
+    <h2>Is it worth it for you?</h2>
+    <p class="rt-lead">The numbers matter. So does the life around them. A move might bring more time outdoors, a new direction at work, or the chance to build a different family life. It can also mean starting again, being further from people you love, and finding your feet somewhere unfamiliar.</p>
+    <ul class="ct-qs">
+      <li>Will I enjoy the actual role and working pattern?</li>
+      <li>Does the budget work if we start on one income?</li>
+      <li>What opportunities will my partner and children have?</li>
+      <li>Can we afford visits home, and the unexpected?</li>
+      <li>Does this move bring us closer to the life we want?</li>
+    </ul>
+    <p class="rt-note">You do not need every answer before you start exploring. You do deserve a clear picture before you commit to anything.</p>
   </div>
 </section>
 
 <section class="rt-sec sand">
   <div class="rt-wrap">
     <p class="kick">When there is an offer</p>
-    <h2>The moment it stops being hypothetical</h2>
-    <p class="rt-lead">If a real offer arrives, the question changes from &ldquo;is it worth it&rdquo; to &ldquo;is this one right&rdquo;. Different question, and there are two guides for it &mdash; both written to be read before you sign, not after.</p>
+    <h2>Have an offer? Look at the whole picture</h2>
+    <p class="rt-lead">Check the salary, the hours, the location, the relocation support and any conditions attached, and picture what an ordinary week would look like once the move is behind you. Both of these are written to be read before you sign, not after.</p>
     <div class="rt-two">
       <a class="rt-card" href="/before-you-accept"><span class="k">Before you sign</span><h3>What to check in an offer</h3><p>Start date, relocation support, probation, on-call, leave, and what is written down versus what was said warmly on a call.</p><span class="go">Before you accept &rarr;</span></a>
       <a class="rt-card" href="/guides/negotiating-your-offer"><span class="k">If you want to ask</span><h3>What is reasonable to negotiate</h3><p>Where there is genuine room in a collective-agreement system, and where asking simply will not move anything.</p><span class="go">Negotiating your offer &rarr;</span></a>
+    </div>
+    <div class="rt-first" style="margin-top:26px">
+      <div>
+        <h2>Weighing up an offer on your own?</h2>
+        <p>We will help you ask the practical questions and think through the trade-offs, whether or not the role came from us.</p>
+      </div>
+      <a class="rt-btn ghost" href="/contact">Talk to Ethicare <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -226,16 +291,18 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
   <div class="rt-wrap">
     <p class="kick">What next?</p>
     <h2>If the numbers work, the next question is where</h2>
-    <p class="rt-lead">Housing, the commute and how far you would be from a big hospital vary far more between regions than between the two countries &mdash; so where you land can matter more to the maths than which country you pick.</p>
+    <p class="rt-lead">Housing, the commute and how far you would be from a big hospital vary far more between regions than between the two countries, so where you land can matter more to the maths than which country you pick.</p>
     <div class="rt-grid">
       <a class="rt-card" href="/where-would-we-live"><span class="k">Question three</span><h3>Where would we live?</h3><p>Start from what matters to you rather than from a map, and see which places fit.</p><span class="go">Where would we live? &rarr;</span></a>
       <a class="rt-card" href="/can-i-work-here"><span class="k">Question one</span><h3>Can I work there?</h3><p>If you have not settled registration yet, everything here is still hypothetical. Ten minutes fixes that.</p><span class="go">Can I work there? &rarr;</span></a>
       <a class="rt-card" href="/move"><span class="k">Your plan</span><h3>Somewhere to keep all this</h3><p>A plan built around your household and your dates, with the budget you built carried into it.</p><span class="go">Build my journey &rarr;</span></a>
     </div>
+    <p class="rt-note" style="margin-top:26px">Salary ranges and calculator results are indicative. Your actual pay, deductions and costs depend on your circumstances and your confirmed employment terms. On a live vacancy we say &ldquo;competitive&rdquo; and name the framework rather than a figure: putting a number against a named role would be committing on an employer&rsquo;s behalf, and that is not ours to do.</p>
   </div>
 </section>
 
 <div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
+
 </main>
 <script src="page-feedback.js" defer></script>
 <footer class="site-footer">
@@ -272,5 +339,29 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
   SEO Title: Is Moving to New Zealand or Australia Worth It? Pay, Costs and the Real Job
   Meta Description: What you would earn in New Zealand or Australia, what the move costs before your first pay, and how the work itself differs. Indicative figures, named agreements, published fees.
 -->
+<script>
+/* Country tabs. Progressive: with JS off, `hidden` is never set and both panels show,
+   which is a longer page but a complete one. ?c=au deep-links the Australian panel. */
+(function () {
+  var tabs = [].slice.call(document.querySelectorAll('.ct-tab'));
+  if (!tabs.length) return;
+  function show(c) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('data-country') === c;
+      t.classList.toggle('is-on', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      var panel = document.getElementById('panel-' + t.getAttribute('data-country'));
+      if (panel) panel.hidden = !on;
+    });
+    if (window.track) window.track('earn_country', { country: c });
+  }
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () { show(t.getAttribute('data-country')); });
+  });
+  var q;
+  try { q = new URLSearchParams(location.search).get('c'); } catch (e) { q = null; }
+  show(q === 'au' ? 'au' : 'nz');
+})();
+</script>
 </body>
 </html>

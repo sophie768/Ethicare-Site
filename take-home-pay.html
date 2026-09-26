@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Take-home pay calculator | Ethicare Resourcing</title>
+<meta name="description" content="What a New Zealand or Australian healthcare salary actually pays into your bank account, after income tax, the ACC levy, KiwiSaver, the Medicare levy and superannuation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<link rel="canonical" href="https://ethicareresourcing.com/take-home-pay">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Take-home pay calculator | Ethicare Resourcing">
+<meta property="og:description" content="What a New Zealand or Australian healthcare salary actually pays into your bank account, after tax, levies and retirement contributions.">
+<meta property="og:url" content="https://ethicareresourcing.com/take-home-pay">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
+<style>
+:root{--teal:#02615D;--green:#2F5E49;--lime:#A6C84A;--mint:#C9DED3;--soft:#E3ECE5;--warm:#FCFBF8;--text:#333;--muted:#555;--display:'Work Sans',sans-serif;--body:'Manrope',sans-serif}
+.th-hero{background:#fff;padding:clamp(40px,5vw,72px) 0 clamp(26px,3vw,38px)}
+.th-in{max-width:1200px;margin:0 auto;padding:0 22px}
+.th-hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin:0 0 16px}
+.th-hero .eyebrow::before{content:"";width:28px;height:3px;border-radius:3px;background:var(--lime)}
+.th-hero h1{font-family:var(--display);font-weight:600;font-size:clamp(32px,4.1vw,50px);line-height:1.07;letter-spacing:-.02em;color:var(--teal);margin:0 0 18px;max-width:18ch}
+.th-hero .lede{font-size:clamp(17px,1.8vw,19px);line-height:1.6;color:var(--muted);max-width:60ch;margin:0}
+.th-wrap{background:var(--warm);padding:clamp(28px,3.4vw,44px) 0 clamp(44px,5vw,72px)}
+.th-card{background:#fff;border:1px solid var(--mint);border-radius:20px;padding:clamp(24px,3vw,36px);max-width:760px;margin:0 auto;box-shadow:0 20px 50px -40px rgba(1,49,47,.5)}
+.th-tabs{display:flex;gap:8px;margin-bottom:26px}
+.th-tab{flex:1;font-family:var(--display);font-weight:600;font-size:15px;padding:13px 14px;border-radius:11px;border:1.5px solid var(--mint);background:#fff;color:var(--teal);cursor:pointer;transition:.15s;min-height:48px}
+.th-tab.is-on{background:var(--teal);border-color:var(--teal);color:#fff}
+.th-tab:hover:not(.is-on){background:var(--soft)}
+.th-field{margin-bottom:22px}
+.th-lbl{display:block;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--teal);margin-bottom:9px}
+.th-input{display:flex;align-items:center;border:1.5px solid var(--mint);border-radius:11px;overflow:hidden;background:#fff}
+.th-input:focus-within{border-color:var(--teal)}
+.th-cur{font-family:var(--display);font-weight:700;font-size:16px;color:var(--green);padding:0 4px 0 16px}
+.th-input input{flex:1;border:0;outline:0;font-family:var(--display);font-weight:600;font-size:22px;color:var(--teal);padding:14px 16px 14px 4px;min-width:0;background:transparent}
+.th-select{width:100%;font-family:var(--body);font-size:15.5px;color:var(--text);padding:13px 14px;border:1.5px solid var(--mint);border-radius:11px;background:#fff;min-height:48px}
+.th-seg{display:flex;gap:8px;flex-wrap:wrap}
+.th-segb{flex:1;min-width:150px;font-family:var(--display);font-weight:600;font-size:14px;padding:12px 14px;border-radius:11px;border:1.5px solid var(--mint);background:#fff;color:var(--teal);cursor:pointer;min-height:46px}
+.th-segb.is-on{background:var(--soft);border-color:var(--teal)}
+.th-note{font-size:13.5px;line-height:1.55;color:var(--muted);margin:9px 0 0}
+.th-out{border-top:1px solid var(--mint);margin-top:28px;padding-top:26px}
+.th-empty{color:var(--muted);font-size:15px;margin:0}
+.th-head{margin-bottom:24px}
+.th-head .th-k{display:block;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.th-big{display:block;font-family:var(--display);font-weight:300;font-size:clamp(38px,5.6vw,58px);line-height:1;letter-spacing:-.03em;color:var(--teal)}
+.th-big small{font-size:.34em;font-weight:600;letter-spacing:0;margin-left:8px;color:var(--muted)}
+.th-alt{display:block;font-size:14.5px;color:var(--muted);margin-top:12px}
+.th-rows{display:grid;gap:0}
+.th-row{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:13px 0;border-top:1px solid var(--soft);font-size:15.5px;color:var(--text)}
+.th-row b{font-family:var(--display);font-weight:600;color:var(--teal);white-space:nowrap}
+.th-row em{display:block;font-style:normal;font-size:13px;color:var(--muted);margin-top:3px}
+.th-row.th-minus b{color:var(--muted)}
+.th-row.th-net{border-top:2px solid var(--teal);margin-top:4px;font-family:var(--display);font-weight:600;color:var(--teal)}
+.th-aside{margin-top:18px;background:var(--soft);border-radius:14px;padding:16px 18px;display:grid;gap:3px}
+.th-aside span{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--green)}
+.th-aside b{font-family:var(--display);font-weight:600;font-size:19px;color:var(--teal)}
+.th-aside em{font-style:normal;font-size:13.5px;line-height:1.55;color:var(--muted)}
+.th-src{font-size:12.5px;line-height:1.6;color:var(--muted);margin:18px 0 0}
+.th-src a{color:var(--green);border-bottom:1px solid var(--mint)}
+.th-stale h2{font-family:var(--display);color:var(--teal);font-size:22px;margin-bottom:12px}
+.th-stale p{font-size:15.5px;line-height:1.65;color:var(--muted);margin-bottom:12px}
+.th-sec{padding:clamp(44px,5.4vw,76px) 0}
+.th-sec.tint{background:var(--soft)}
+.th-sec h2{font-family:var(--display);font-weight:600;font-size:clamp(26px,3vw,36px);line-height:1.12;letter-spacing:-.02em;color:var(--teal);margin:14px 0 18px;max-width:22ch}
+.th-sec .lede{font-size:17px;line-height:1.65;color:var(--muted);max-width:62ch;margin:0 0 8px}
+.th-sec .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.th-sec .eyebrow::before{content:"";width:28px;height:3px;border-radius:3px;background:var(--lime)}
+.th-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(24px,3.4vw,52px);margin-top:clamp(28px,3.4vw,40px)}
+.th-grid .c{padding:22px 0;border-top:1px solid var(--mint)}
+.th-grid h3{font-family:var(--display);font-weight:600;font-size:17px;color:var(--teal);margin:0 0 8px}
+.th-grid p{font-size:15px;line-height:1.62;color:var(--muted);margin:0}
+@media (max-width:760px){.th-grid{grid-template-columns:1fr}}
+.th-links{display:flex;flex-wrap:wrap;gap:14px 32px;margin-top:28px}
+.th-links a{font-family:var(--display);font-weight:600;font-size:15px;color:var(--green);border-bottom:1px solid currentColor;padding-bottom:2px}
+.th-links a:hover{color:var(--teal)}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<!-- @shared-header current="/move" · generated from /site/_header.html — do not hand-edit -->
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/move">Your relocation plan</a>
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/ask">Ask Ethicare</a>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- /@shared-header -->
+<main id="main-content" tabindex="-1">
+
+<section class="th-hero"><div class="th-in">
+  <span class="eyebrow">Take-home pay</span>
+  <h1>What actually reaches your bank account</h1>
+  <p class="lede">An advertised salary is not what you get paid. This works out what comes off the top in New Zealand and Australia, so you can set a budget against a real number rather than a headline one.</p>
+</div></section>
+
+<section class="th-wrap">
+  <div id="th-app">
+    <noscript>
+      <div class="th-card">
+        <h2 style="font-family:'Work Sans',sans-serif;color:#02615D;font-size:22px;margin-bottom:12px">This calculator needs JavaScript</h2>
+        <p style="color:#555;line-height:1.65">Both tax authorities publish their own, and they work without it:
+          <a href="https://www.ird.govt.nz/calculators-and-tools" target="_blank" rel="noopener">IRD&rsquo;s calculators</a> for New Zealand and
+          <a href="https://www.ato.gov.au/calculators-and-tools" target="_blank" rel="noopener">the ATO&rsquo;s</a> for Australia.</p>
+      </div>
+    </noscript>
+  </div>
+</section>
+
+<section class="th-sec tint"><div class="th-in">
+  <span class="eyebrow">Read this before you budget</span>
+  <h2>What this figure does not include</h2>
+  <p class="lede">The estimate above is deliberately narrow. These are the things that will move your real pay, and the first one will affect almost everybody reading this.</p>
+  <div class="th-grid">
+    <div class="c">
+      <h3>Your first year is not a full year</h3>
+      <p>If you arrive in November you earn part of a tax year, not all of one. Annualising overstates the tax you will actually pay, sometimes by thousands. This tool assumes a full year in the country, so treat your arrival year as a separate question and ask us or an accountant about it.</p>
+    </div>
+    <div class="c">
+      <h3>Student loans and study debt</h3>
+      <p>A New Zealand student loan is repaid through PAYE above a threshold. An Australian HECS-HELP debt is collected the same way, and follows you even if you took it out years ago. Neither is included here, and either will reduce what lands.</p>
+    </div>
+    <div class="c">
+      <h3>Tax codes and residency in year one</h3>
+      <p>Your New Zealand tax code depends on your circumstances, and getting it wrong is the most common cause of a surprise bill. In Australia, whether you count as a resident for tax purposes in your first year changes the rates entirely.</p>
+    </div>
+    <div class="c">
+      <h3>The Medicare levy surcharge</h3>
+      <p>Australian earners above a threshold without private hospital cover pay an additional surcharge on top of the 2% levy. For a full-time clinical salary that is a live question, and it is usually cheaper to hold the cover than to pay the surcharge.</p>
+    </div>
+    <div class="c">
+      <h3>Everything that is not base salary</h3>
+      <p>Penal rates, overtime, on-call and availability allowances, higher duties and salary sacrifice all change the number. In New Zealand much of this is set by the collective agreement covering your role rather than by negotiation.</p>
+    </div>
+    <div class="c">
+      <h3>Family payments and credits</h3>
+      <p>Working for Families in New Zealand and the family payments in Australia can make a material difference to a household with children, and neither shows up in a salary calculation.</p>
+    </div>
+  </div>
+  <div class="th-links">
+    <a href="https://www.ird.govt.nz/calculators-and-tools" target="_blank" rel="noopener">IRD&rsquo;s own calculators</a>
+    <a href="https://www.ato.gov.au/calculators-and-tools" target="_blank" rel="noopener">The ATO&rsquo;s own calculators</a>
+    <a href="/contact">Ask us about your own numbers</a>
+  </div>
+</div></section>
+
+<section class="th-sec"><div class="th-in">
+  <span class="eyebrow">How this is kept honest</span>
+  <h2>Every rate here has a date on it</h2>
+  <p class="lede">A calculator on a website does not update itself. Ours holds each figure with the date it took effect and the official page it came from, and stops answering once it is due for review rather than quietly serving a stale number.</p>
+  <p class="lede" style="margin-top:14px">That matters more than it sounds. In the year to September 2026 New Zealand&rsquo;s income tax brackets did not move at all, while the ACC earner&rsquo;s levy rose from 1.67% to 1.75% and the KiwiSaver minimum went from 3% to 3.5%. Australia&rsquo;s second tax bracket fell from 16c to 15c. The headline rates are the ones everybody checks. The quiet ones are what make a calculator wrong.</p>
+  <p class="lede" style="margin-top:14px">Where a future rate is already published, it is loaded with its own start date and takes over on the day. ACC has published the 2027-28 levy, so this tool will use it from 1 April 2027 without anybody touching it.</p>
+  <div class="th-links">
+    <a href="/guides/new-zealand-salary">How pay is set in New Zealand</a>
+    <a href="/guides/australia-salary">How pay is set in Australia</a>
+    <a href="/guides/new-zealand-pay-agreements">Which agreement sets your pay</a>
+    <a href="/cost-calculator">What the move itself will cost</a>
+  </div>
+</div></section>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life's biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/move">Ethicare Move</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="site.js"></script>
+<script src="nav.js" defer></script>
+<script src="analytics.js" defer></script>
+<script src="tax-rates.js"></script>
+<script src="take-home-pay.js" defer></script>
+</body>
+</html>

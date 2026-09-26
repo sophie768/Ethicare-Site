@@ -133,14 +133,23 @@ exports.handler = async (event) => {
   const ip = h['x-nf-client-connection-ip'] || h['client-ip'] || (h['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
   if (overLimit(ip)) return out(429, { error: 'Too many requests' });
 
-  if (!SUPABASE_URL || !SERVICE_ROLE) return out(500, { error: 'Supabase env vars not set' });
-
   let msg;
   try { msg = JSON.parse(event.body || '{}'); } catch (e) { return out(400, { error: 'invalid JSON' }); }
   if (!msg || typeof msg !== 'object' || Array.isArray(msg)) return out(400, { error: 'invalid body' });
 
-  // Honeypot: looks exactly like success from the outside, writes nothing.
+  // Honeypot: looks exactly like success from the outside, writes nothing. This sits BEFORE the
+  // env check so a caught bot gets the same bland 200 whatever state the deploy is in.
   if (trapped(msg)) return out(200, { ok: true });
+
+  /* Deploy previews and branch deploys normally have no Supabase credentials — the env vars are
+     usually scoped to production so preview traffic cannot write into the real candidate tables.
+     That is the right default, and this is what it looks like from the outside: the page still
+     works, Netlify Forms still catches the submission, and only the queryable copy is skipped.
+     The response says nothing about which service or which variable is missing. */
+  if (!SUPABASE_URL || !SERVICE_ROLE) {
+    console.error('capture: SUPABASE_URL / SUPABASE_SERVICE_ROLE not set in this deploy context');
+    return out(503, { error: 'capture unavailable' });
+  }
 
   const kind = msg.kind || 'lead';
   const page = str(msg.page) || str(h.referer) || null;
