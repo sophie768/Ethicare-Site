@@ -19,7 +19,9 @@
 .hsplit .btn-row{margin-top:30px}
 
 /* the fact rail under the hero — the three things worth knowing before scrolling */
-.hrail{position:relative;z-index:3;background:var(--teal);color:#fff}
+/* One step lighter than the closing section and the footer (#01312F), so the
+   page has a hierarchy of darks rather than three identical bands. */
+.hrail{position:relative;z-index:3;background:#01413E;color:#fff}
 .hrail .in{max-width:1200px;margin:0 auto;padding:18px 22px 20px;display:grid;grid-template-columns:repeat(3,1fr)}
 .hrail .c{display:flex;flex-direction:column;gap:5px;min-width:0}
 .hrail .c+.c{padding-left:clamp(18px,3vw,38px);border-left:1px solid rgba(255,255,255,.24)}
@@ -219,12 +221,22 @@
 /* FRAMED PHOTO (Sep 2026) — hub heroes match the profession pages: white page,
    photograph whole in a rounded frame, no fade. */
 .hsplit{background:#FFFFFF}
-.hsplit .art{top:clamp(28px,3vw,40px)!important;bottom:calc(var(--rail-h,58px) + clamp(28px,3vw,40px))!important;right:max(22px,calc((100vw - 1200px)/2 + 22px))!important;width:min(47%,580px)!important;border-radius:20px!important;overflow:hidden!important;box-shadow:0 30px 60px -38px rgba(1,49,47,.45)!important}
+/* The frame was stretched from the top of the hero to the rail, so its height
+   came from however long that page’s copy happened to be: 682px on allied
+   health, 628 on medicine, 557 on nursing, 536 on theatre. Six pages in the
+   same family, six different photo shapes. Anchored at the top with a fixed
+   ratio instead, so every hub hero is the same frame (Sophie, 28 Sep 2026). */
+.hsplit .art{top:clamp(28px,3vw,40px)!important;bottom:auto!important;right:max(22px,calc((100vw - 1200px)/2 + 22px))!important;width:min(47%,580px)!important;aspect-ratio:29/32;height:auto!important;border-radius:20px!important;overflow:hidden!important;box-shadow:0 30px 60px -38px rgba(1,49,47,.45)!important}
 .hsplit .art img{border-radius:20px}
 .hsplit .art::after{display:none!important}
-.hsplit:not(.nophoto)>.in{min-height:clamp(420px,40vw,520px);display:flex;align-items:center}
+/* Tall enough that the fixed frame always clears whatever sits beneath it.
+   header.phero>.in in prof-split.css sets a shorter min-height and applies
+   to the same elements, so this one is written to outrank it rather than
+   depend on which stylesheet the page happens to load last. */
+header.hsplit:not(.nophoto)>.in,
+.hsplit:not(.nophoto)>.in{min-height:clamp(420px,calc(47vw*32/29 + 88px),728px);display:flex;align-items:center}
 @media (max-width:1000px){
-  .hsplit .art{position:relative!important;top:auto!important;bottom:auto!important;right:auto!important;width:auto!important;margin:18px 22px 0;height:clamp(220px,52vw,360px);border-radius:18px}
+  .hsplit .art{position:relative!important;top:auto!important;bottom:auto!important;right:auto!important;width:auto!important;aspect-ratio:auto!important;margin:18px 22px 0;height:clamp(220px,52vw,360px)!important;border-radius:18px}
   .hsplit:not(.nophoto)>.in{min-height:0;display:block;padding-top:24px}
 }
 

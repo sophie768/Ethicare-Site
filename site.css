@@ -145,7 +145,7 @@ p,li,figcaption,dd,summary{text-wrap:pretty}
 }
 
 /* ---------------- FOOTER ---------------- */
-.site-footer{background:var(--teal);color:rgba(255,255,255,.82);margin-top:0}
+.site-footer{background:#01312F;color:rgba(255,255,255,.82);margin-top:0}
 .site-footer .shell{padding-top:54px;padding-bottom:30px}
 .f-cols{display:grid;grid-template-columns:1.5fr .9fr .9fr .9fr;gap:40px}
 .f-contact{margin-top:16px;display:flex;flex-direction:column;gap:8px}

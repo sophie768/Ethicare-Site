@@ -126,7 +126,7 @@
    --------------------------------------------------------------------------- */
 var PROMO_ENABLED = false;
 /* ---------------------------------------------------------------------------
-   PROMO BAR — medical imaging in Australia webinar, Mon 21 September 2026.
+   PROMO BAR — medical imaging in Australia webinar. The 21 Sep 2026 session has run; the page now collects interest for the next one. Update PROMO before re-enabling.
    Edit PROMO below, or delete this whole block, to change or remove it.
    endsAfter is inclusive: the bar stops rendering the day after the event,
    so nobody has to remember to take it down.

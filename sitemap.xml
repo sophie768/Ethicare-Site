@@ -1732,7 +1732,12 @@
   </url>
   <url>
     <loc>https://ethicareresourcing.com/employers</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ethicareresourcing.com/employers/medical-imaging-australia</loc>
+    <lastmod>2026-09-28</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -2272,7 +2277,7 @@
   </url>
   <url>
     <loc>https://ethicareresourcing.com/jobs/medical-imaging-australia</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
