@@ -26,7 +26,7 @@
     applying:  { label: 'Applying or interviewing',       next: { title: 'Get ready to apply', href: '/interview-prep' } },
     offer:     { label: 'I have an offer to consider',    next: { title: 'Understand the offer in front of you', href: '/before-you-accept' } },
     moving:    { label: 'Accepted \u2014 planning the move', next: { title: 'Work out what the move will cost', href: '/cost-calculator' } },
-    arrived:   { label: 'Already here',                    next: { title: 'Your first thirty days', href: '/guides/nz/your-first-month', au: '/guides/living-in-australia' } }
+    arrived:   { label: 'Already here',                    next: { title: 'Your first thirty days', href: '/guides/new-zealand-first-month', au: '/guides/living-in-australia' } }
   };
 
   /* Move profession key → pathway-checker profession id. 1:1 only. */

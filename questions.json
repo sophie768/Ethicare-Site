@@ -1,0 +1,94 @@
+{
+  "_comment": [
+    "The six questions, and the only place their wording is decided.",
+    "",
+    "Before this file existed the homepage asked six questions, Ethicare Move",
+    "answered four, and only ONE of them was worded the same way on both:",
+    "'Can I register?' against 'Can I work there?', 'Could we afford it?'",
+    "against 'Can we afford it?' — one word apart, which reads worse than being",
+    "plainly different because it looks as though nobody checked. The same",
+    "question also pointed at two different pages depending on which surface you",
+    "arrived from. Roughly sixty pages quote one wording or another.",
+    "",
+    "So: one wording, one destination, one call to action per question.",
+    "tools/sync-questions.py rewrites every page from this file and fails the",
+    "build if a variant creeps back in.",
+    "",
+    "The I/we split is deliberate and worth keeping. 'I' is the clinician's own",
+    "career — whether they can work, what they would earn, what roles exist.",
+    "'We' is the household — what it costs, where to live, how to plan it.",
+    "A doctor decides the first three on their own; nobody decides the last",
+    "three without the person they live with.",
+    "",
+    "href is where the question goes from anywhere on the site. href_move is the",
+    "exception: on /move itself, 'How do we plan it all?' cannot link to /move,",
+    "so it points at the guide library instead — the question is canonical, the",
+    "destination adapts to where the reader already is."
+  ],
+  "questions": [
+    {
+      "id": "work",
+      "q": "Can I work there?",
+      "sub": "Registration, standing, English, character and health — and the tool that maps your route.",
+      "sub_long": "Every gate between you and practising: your regulator and the route most likely to apply to you, plus the standing, English, character and health requirements that actually set the timeline.",
+      "href": "/can-i-work-there",
+      "cta": "See what it takes",
+      "href_alt": [
+        "/pathway-checker"
+      ],
+      "_note": "Points at the hub rather than straight at /pathway-checker. The checker answers one gate — which registration route you are on. The question is bigger than that: certificates of good standing, English, criminal history, fitness to practise. Sending people to the tool first meant they met their route without ever meeting the things that delay them. The checker is the first thing on the hub."
+    },
+    {
+      "id": "earn",
+      "q": "What could I earn?",
+      "sub": "Indicative pay, and how the agreements set it.",
+      "sub_long": "What the collective agreements actually pay, what varies on top of the scale, and what the tax and the cost of living do to it once you are there.",
+      "href": "/is-it-worth-it",
+      "cta": "Explore salaries"
+    },
+    {
+      "id": "afford",
+      "q": "Can we afford it?",
+      "sub": "A real estimate of what the move costs.",
+      "sub_long": "Registration, visas, flights, shipping, temporary accommodation and the bond — what the whole move costs, what an employer usually covers, and what you need in the bank before you fly.",
+      "href": "/cost-calculator",
+      "cta": "Work out the cost"
+    },
+    {
+      "id": "live",
+      "q": "Where could we live?",
+      "sub": "Cities and regions, and the trade-offs between them.",
+      "sub_long": "Two countries, thirty-three destinations, and an honest account of the trade-offs rather than a brochure. Written for the whole household, not just the clinician.",
+      "href": "/where-would-we-live",
+      "cta": "Explore places"
+    },
+    {
+      "id": "jobs",
+      "q": "What jobs could I get?",
+      "sub": "Live roles and the professions we recruit.",
+      "sub_long": "The roles we are recruiting now, the professions we cover, and the ones we are honest about not covering yet.",
+      "href": "/jobs/",
+      "cta": "See opportunities"
+    },
+    {
+      "id": "plan",
+      "q": "How do we plan it all?",
+      "sub": "One plan for registration, visa, money and the first month.",
+      "sub_long": "Registration, the job, the visa, the money, the move and your first month, put in the order they actually happen — with a note of what you have already done.",
+      "href": "/move",
+      "href_move": "/resources",
+      "cta": "Build your plan",
+      "cta_move": "See the library"
+    }
+  ],
+  "variants": {
+    "Can I register?": "Can I work there?",
+    "Could we afford it?": "Can we afford it?",
+    "How do I organise it?": "How do we plan it all?",
+    "Where could you live?": "Where could we live?",
+    "What could you earn?": "What could I earn?",
+    "What jobs are there?": "What jobs could I get?",
+    "Can you work there?": "Can I work there?"
+  },
+  "deixis_rule": "There and here are not the same word and the difference carries meaning. 'Can I work there?' is the canonical question, asked before the reader has picked a country — it appears on the homepage and on /move and goes to the pathway checker. 'Can I work here?' is stage four of the eight-stage journey band, which only ever appears INSIDE a country's guide set, where 'here' means that country — it goes to that country's registration guide, which is itself titled 'Can I work in New Zealand?' or 'Can I work in Australia?'. The two never appear on the same page, so a reader meets one or the other, never both. Anywhere else, 'Can I work here?' is drift and sync-questions.py flags it."
+}

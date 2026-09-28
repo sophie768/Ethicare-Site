@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
-<title>What could I earn? Salaries, take-home pay and costs | Ethicare Resourcing</title>
+<title>What could I earn? Salaries and take-home pay · Ethicare</title>
 <meta name="description" content="What you could earn in New Zealand or Australia, what actually reaches your account after tax, and what the move costs before your first payday.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +27,33 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .rt-sec.sand{background:var(--warm,#FCFBF8);border-top:1px solid rgba(2,97,93,.65)}
 .rt-sec h2{font-weight:600;font-size:clamp(22px,2.6vw,30px);line-height:1.18;color:var(--teal,#02615D);margin:0 0 12px;max-width:28ch}
 .rt-lead{font-size:17px;line-height:1.68;color:var(--text,#333);max-width:66ch;margin:0 0 26px}
+/* Indicative pay, up front. The question is "what could I earn?", so the figure
+   comes before the explanation of how pay is set, not after it. Every band is
+   read off a named, dated agreement; APEX publishes the agreements in full and
+   that is where anyone who wants the step-by-step detail should go. */
+.pay{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--mint,#C9DED3);border-radius:16px;overflow:hidden;margin:0 0 14px}
+.pay th,.pay td{text-align:left;padding:13px 18px;border-bottom:1px solid var(--mint,#C9DED3);font-size:15px;line-height:1.45;vertical-align:top}
+.pay tr:last-child td{border-bottom:none}
+.pay th{font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--fern-text,#2F5E49);background:var(--warm,#FCFBF8)}
+.pay td:first-child{font-weight:600;color:var(--teal,#02615D)}
+.pay .amt{font-family:'Work Sans',sans-serif;font-weight:600;color:var(--teal,#02615D);white-space:nowrap}
+.pay .src{color:var(--muted,#555);font-size:14px}
+.payscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+/* the caption is for screen readers; the heading above already says it on screen */
+.pay caption{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media(max-width:620px){
+  /* A five-column-deep table does not survive a phone, so each row becomes a
+     small card and the header row is replaced by a label on every cell. */
+  .payscroll{overflow:visible}
+  .pay,.pay tbody,.pay tr,.pay td{display:block;width:100%}
+  .pay tr:first-child{display:none}
+  .pay tr{border-bottom:1px solid var(--mint,#C9DED3);padding:14px 16px}
+  .pay tr:last-child{border-bottom:none}
+  .pay td{border:none;padding:0;font-size:15px}
+  .pay td:first-child{font-size:16px;margin-bottom:6px}
+  .pay td[data-l]::before{content:attr(data-l);display:block;font-family:'Work Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fern-text,#2F5E49);margin-top:8px}
+  .pay .amt{font-size:17px;white-space:normal}
+}
 .rt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:14px}
 .rt-card{display:flex;flex-direction:column;gap:7px;background:#fff;border:1px solid var(--mint,#C9DED3);border-radius:16px;padding:22px 24px;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
 a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.1);border-color:var(--teal,#02615D)}
@@ -75,7 +102,7 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
 <link rel="icon" href="/assets/logo-mark.png">
 <link rel="apple-touch-icon" href="/assets/logo-mark.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="What could I earn? Salaries, take-home pay and costs | Ethicare Resourcing">
+<meta property="og:title" content="What could I earn? Salaries and take-home pay · Ethicare">
 <meta property="og:description" content="What you could earn in New Zealand or Australia, what actually reaches your account after tax, and what the move costs before your first payday.">
 <meta property="og:url" content="https://ethicareresourcing.com/is-it-worth-it">
 <meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
@@ -136,7 +163,7 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
       <h1>What could I earn?</h1>
       <p class="lede">A new role. A different lifestyle. What could it mean for you financially? Explore salaries in New Zealand and Australia, work out what would actually reach your account, and see how the numbers fit the life you want.</p>
     </div>
-    <figure><img src="assets/heroes/registration-and-pay.svg" alt="" width="400" height="300" loading="eager" decoding="async"></figure>
+    <figure><img src="assets/heroes/salary-and-pay.svg" alt="" width="400" height="300" loading="eager" decoding="async"></figure>
   </div>
 </header>
 
@@ -157,28 +184,60 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
 <section class="rt-sec tint ct-panel" id="panel-nz" role="tabpanel" aria-labelledby="tab-nz">
   <div class="rt-wrap">
     <h2>What could you earn in New Zealand?</h2>
-    <p class="rt-lead">Start with your profession. Your experience, your employer and the role itself decide where you sit within a range, and the agreement covering the role decides the range.</p>
+    <p class="rt-lead">Public pay here is published, not negotiated. So here is the answer first, and how it is arrived at underneath.</p>
+    <div class="payscroll">
+    <table class="pay">
+      <caption>Indicative public-system pay in New Zealand by profession</caption>
+      <tr><th>Profession</th><th>Indicative, steps 1&ndash;8</th><th>Set by</th></tr>
+      <tr>
+        <td>Anaesthetic technicians<br>Occupational therapists<br>Radiation therapists</td>
+        <td class="amt" data-l="Indicative, steps 1–8">NZ$79,000 &ndash; $113,000</td>
+        <td class="src" data-l="Set by">The APEX allied health scale &mdash; one ladder, several professions, the same rate wherever you work</td>
+      </tr>
+      <tr>
+        <td>Physiotherapists</td>
+        <td class="amt" data-l="Indicative, steps 1–8">NZ$78,000 &ndash; $118,000</td>
+        <td class="src" data-l="Set by">The APEX physiotherapy agreement, ten steps, current to 31 January 2027</td>
+      </tr>
+      <tr>
+        <td>Sonographers</td>
+        <td class="amt" data-l="Indicative, steps 1–8">NZ$116,000 &ndash; $162,000</td>
+        <td class="src" data-l="Set by">The APEX sonographers agreement, eleven steps. Reporting sonographers sit higher again</td>
+      </tr>
+      <tr>
+        <td>General practitioners</td>
+        <td class="amt" data-l="Indicative, steps 1–8">Around NZ$200,000</td>
+        <td class="src" data-l="Set by">No published ladder &mdash; general practice is the one career here where the number really is negotiated</td>
+      </tr>
+      <tr>
+        <td>Radiographers<br>MRI &amp; nuclear medicine<br>Nurses &amp; midwives<br>Senior medical officers</td>
+        <td class="amt" data-l="Indicative, steps 1–8">Confirmed for your role</td>
+        <td class="src" data-l="Set by">Covered by an agreement, but several are mid-bargaining. We read your rate off the signed document and tell you the step, not a guess</td>
+      </tr>
+    </table>
+    </div>
+    <p class="rt-note" style="margin-bottom:26px">Indicative and rounded, on the scales published at August 2026. Steps 1 to 7 rise automatically each year; step 8 is by agreed objectives, and the two recognition steps above it reach about NZ$119,000. Designated and senior roles sit on their own higher scales. The agreements themselves are published in full by <a href="https://apex.org.nz" target="_blank" rel="noopener">APEX</a> &mdash; we are a recruiter, not a union, so if you want the clause-by-clause detail, go to the source.</p>
     <div class="rt-grid">
       <a class="rt-card" href="/guides/new-zealand-salary">
-        <span class="k">Step one</span>
-        <h3>Explore salaries</h3>
-        <p>How pay is set, what decides your step, and indicative bands with the agreement named so you can check them yourself.</p>
+        <span class="k">Then</span>
+        <h3>How pay is set</h3>
+        <p>What decides your step, what sits on top of the base, and why the same role pays the same in Invercargill and Auckland.</p>
         <span class="go">Pay in New Zealand &rarr;</span>
       </a>
       <a class="rt-card" href="/take-home-pay">
-        <span class="k">Step two</span>
+        <span class="k">Next</span>
         <h3>What reaches your bank account</h3>
         <p>A salary is the starting point. Work out the estimate after income tax, the ACC earner&rsquo;s levy and your KiwiSaver contribution.</p>
         <span class="go">Estimate my take-home pay &rarr;</span>
       </a>
       <a class="rt-card" href="/guides/living-in-new-zealand">
-        <span class="k">Step three</span>
+        <span class="k">Then</span>
         <h3>What kind of life it supports</h3>
         <p>Housing, transport, groceries and childcare, against the household income you would actually have. Every region guide costs it locally.</p>
         <span class="go">Living in New Zealand &rarr;</span>
       </a>
       <a class="rt-card" href="/cost-calculator?destination=nz">
-        <span class="k">Step four</span>
+        <span class="k">Before you go</span>
         <h3>What you need before your first payday</h3>
         <p>Registration, the visa, flights, temporary accommodation and setting up a home. If relocation support is offered, check what it covers and when it is paid.</p>
         <span class="go">Plan your moving costs &rarr;</span>
@@ -190,7 +249,7 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
         <h2>Considering a move to New Zealand?</h2>
         <p>Tell us about your experience and what you are hoping for. You do not need to have decided anything, and there is no cost to you either way.</p>
       </div>
-      <a class="rt-btn" href="/apply">Register your interest <span aria-hidden="true">&rarr;</span></a>
+      <a class="rt-btn" href="/register-interest">Register your interest <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -232,7 +291,7 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
         <h2>Considering a medical imaging role in Australia?</h2>
         <p>Tell us about your experience and where you would like to go. It is fine if you have not decided yet.</p>
       </div>
-      <a class="rt-btn" href="/apply">Register your interest <span aria-hidden="true">&rarr;</span></a>
+      <a class="rt-btn" href="/register-interest">Register your interest <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -293,15 +352,15 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
     <h2>If the numbers work, the next question is where</h2>
     <p class="rt-lead">Housing, the commute and how far you would be from a big hospital vary far more between regions than between the two countries, so where you land can matter more to the maths than which country you pick.</p>
     <div class="rt-grid">
-      <a class="rt-card" href="/where-would-we-live"><span class="k">Question three</span><h3>Where would we live?</h3><p>Start from what matters to you rather than from a map, and see which places fit.</p><span class="go">Where would we live? &rarr;</span></a>
-      <a class="rt-card" href="/can-i-work-here"><span class="k">Question one</span><h3>Can I work there?</h3><p>If you have not settled registration yet, everything here is still hypothetical. Ten minutes fixes that.</p><span class="go">Can I work there? &rarr;</span></a>
+      <a class="rt-card" href="/where-would-we-live"><span class="k">Also worth asking</span><h3>Where could we live?</h3><p>Start from what matters to you rather than from a map, and see which places fit.</p><span class="go">Where could we live? &rarr;</span></a>
+      <a class="rt-card" href="/can-i-work-there"><span class="k">Also worth asking</span><h3>Can I work there?</h3><p>If you have not settled registration yet, everything here is still hypothetical. Ten minutes fixes that.</p><span class="go">Can I work there? &rarr;</span></a>
       <a class="rt-card" href="/move"><span class="k">Your plan</span><h3>Somewhere to keep all this</h3><p>A plan built around your household and your dates, with the budget you built carried into it.</p><span class="go">Build my journey &rarr;</span></a>
     </div>
     <p class="rt-note" style="margin-top:26px">Salary ranges and calculator results are indicative. Your actual pay, deductions and costs depend on your circumstances and your confirmed employment terms. On a live vacancy we say &ldquo;competitive&rdquo; and name the framework rather than a figure: putting a number against a named role would be committing on an employer&rsquo;s behalf, and that is not ours to do.</p>
   </div>
 </section>
 
-<div class="shell" style="padding:0 0 clamp(24px,3vw,40px)"><page-feedback to="Sophie"></page-feedback></div>
+<div class="shell" style="padding:clamp(36px,5vw,64px) 0 clamp(44px,6vw,76px)"><page-feedback to="Sophie"></page-feedback></div>
 
 </main>
 <script src="page-feedback.js" defer></script>
@@ -334,9 +393,9 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
 
 
 <!-- SEO
-  Page Title: Is it worth it? Pay, costs and what the job is really like | Ethicare Resourcing
+  Page Title: What could I earn? Salaries and take-home pay
   URL Slug: /is-it-worth-it
-  SEO Title: Is Moving to New Zealand or Australia Worth It? Pay, Costs and the Real Job
+  SEO Title: What could I earn? Salaries and take-home pay · Ethicare
   Meta Description: What you would earn in New Zealand or Australia, what the move costs before your first pay, and how the work itself differs. Indicative figures, named agreements, published fees.
 -->
 <script>

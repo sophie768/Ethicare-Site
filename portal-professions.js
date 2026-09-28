@@ -199,29 +199,32 @@ window.ETHICARE_PROFESSIONS = (function () {
     au: {}
   };
 
-  /* Published registration guide / checklist PDFs, by profession and country.
-     Presence here is what lets the planner offer a document rather than a
-     promise. */
+  /* Registration guide and checklist, by profession and country. These are
+     pages, not PDFs: each guide carries its checklist on the page so that what
+     you tick can never go stale, and the planner links straight to it. (Until
+     26 Sep 2026 this map named PDF files that were never produced — the planner
+     was offering a download that 404'd for every profession.) */
   var DOCS = {
     nz: {
-      imaging: ['ethicare-mrtb-registration-guide.pdf', 'ethicare-mrtb-registration-checklist.pdf'],
-      sonography: ['ethicare-mrtb-registration-guide.pdf', 'ethicare-mrtb-registration-checklist.pdf'],
-      radtherapy: ['ethicare-mrtb-registration-guide.pdf', 'ethicare-mrtb-registration-checklist.pdf'],
-      anaesthetic: ['Anaesthetic_Technician_MSCNZ_Registration_Guide.pdf', 'Anaesthetic_Technician_MSCNZ_Registration_Checklist.pdf'],
-      ot: ['Occupational_Therapy_OTBNZ_Registration_Guide.pdf', 'Occupational_Therapy_OTBNZ_Registration_Checklist.pdf'],
-      physio: ['ethicare-pbnz-registration-guide.pdf', 'ethicare-pbnz-registration-checklist.pdf'],
-      psychology: ['ethicare-psychologist-nzpb-registration-guide.pdf', 'ethicare-psychologist-nzpb-registration-checklist.pdf'],
-      medicine: ['GP_MCNZ_Registration_Guide.pdf', 'GP_MCNZ_Registration_Checklist.pdf', 'Radiologist_MCNZ_Registration_Guide.pdf', 'Radiologist_MCNZ_Registration_Checklist.pdf']
+      imaging:     ['/guides/new-zealand-registration-mrtb', '/guides/new-zealand-registration-mrtb#checklist'],
+      sonography:  ['/guides/new-zealand-registration-mrtb', '/guides/new-zealand-registration-mrtb#checklist'],
+      radtherapy:  ['/guides/new-zealand-registration-mrtb', '/guides/new-zealand-registration-mrtb#checklist'],
+      nuclearmed:  ['/guides/new-zealand-registration-mrtb', '/guides/new-zealand-registration-mrtb#checklist'],
+      anaesthetic: ['/guides/new-zealand-registration-mscnz', '/guides/new-zealand-registration-mscnz#checklist'],
+      ot:          ['/guides/new-zealand-registration-otbnz', '/guides/new-zealand-registration-otbnz#checklist'],
+      physio:      ['/guides/new-zealand-registration-pbnz', '/guides/new-zealand-registration-pbnz#checklist'],
+      psychology:  ['/guides/new-zealand-registration-nzpb', '/guides/new-zealand-registration-nzpb#checklist'],
+      medicine:    ['/guides/new-zealand-registration-mcnz', '/guides/new-zealand-registration-mcnz#checklist']
     },
     au: {
-      imaging: ['ethicare-radiographer-australia-registration-guide.pdf', 'ethicare-radiographer-australia-registration-checklist.pdf'],
-      radtherapy: ['ethicare-radiation-therapist-australia-registration-guide.pdf', 'ethicare-radiation-therapist-australia-registration-checklist.pdf'],
-      nuclearmed: ['ethicare-nuclear-medicine-australia-registration-guide.pdf', 'ethicare-nuclear-medicine-australia-registration-checklist.pdf'],
-      sonography: ['ethicare-sonographer-australia-accreditation-guide.pdf']
+      imaging:    ['/guides/australia-registration-mrpba', '/guides/australia-registration-mrpba#checklist'],
+      radtherapy: ['/guides/australia-registration-mrpba', '/guides/australia-registration-mrpba#checklist'],
+      nuclearmed: ['/guides/australia-registration-mrpba', '/guides/australia-registration-mrpba#checklist'],
+      sonography: ['/guides/australia-registration-asar', '/guides/australia-registration-asar#checklist']
     }
   };
 
-  var DOCS_PATH = '/assets/downloads/';
+  var DOCS_PATH = '';   // page paths are already absolute
 
   /* WHICH PROFESSIONS THE PATHWAY CHECKER ANSWERS BY NAME.
      `pathway-checker-data.js` is the source of truth for pathway coverage, and this

@@ -1,4 +1,11 @@
+# Ethicare Resourcing
+# Candidates' private spaces are unlisted rather than secret — the link is the
+# credential — so they are kept out of crawlers as well as out of the sitemap.
 User-agent: *
 Allow: /
+Disallow: /pack/
+Disallow: /prototypes/
+Disallow: /_forms/
+Disallow: /thank-you
 
 Sitemap: https://ethicareresourcing.com/sitemap.xml

@@ -75,6 +75,11 @@
       var slug = m[1], title = slug.replace(/-/g, ' ').replace(/\b[a-z]/g, function (c) { return c.toUpperCase(); });
       var later = /[?&]intent=later/.test(location.search);
       setVal('role_of_interest', slug + (later ? ' (interested, not ready yet)' : ''));
+      if (later) {
+        // the asterisk and the "upload your CV" line would contradict the aside
+        document.querySelectorAll('label.reg-lab').forEach(function (l) { if (/^\s*Your CV/.test(l.textContent)) { var s = l.querySelector('.rq'); if (s) s.remove(); } });
+        var sub = document.querySelector('#step-4 .reg-sub'); if (sub) sub.textContent = 'A CV is optional at this stage — add one if you have it handy.';
+      }
       var lede = document.querySelector('.reg-aside .lede');
       if (lede) lede.innerHTML = (later
         ? 'You said you\u2019re interested in <b>' + title.replace(/</g, '&lt;') + '</b> but not ready to apply. Tell us where you\u2019re up to and we\u2019ll keep the role in mind \u2014 no CV needed yet, and nothing goes to the employer.'
@@ -344,7 +349,9 @@
       if (getVal('relocating_with') === 'With my family' && !getVal('dependents')) e.dependents = 'How many will relocate with you?';
       if (!getVal('preferred_areas')) e.preferred_areas = 'Pick at least one area — or choose “Open to anywhere”.';
     } else if (step === 4) {
-      if (!state.cvName) e.cv = 'Please upload your CV.';
+      /* The "interested, not ready" door promises "no CV needed yet" in the
+         aside; until 27 Sep 2026 this line demanded one anyway. */
+      if (!state.cvName && !/[?&]intent=later/.test(location.search)) e.cv = 'Please upload your CV.';
       if (!form.querySelector('[name="consent"]').checked) e.consent = 'Please accept the privacy terms to continue.';
     }
     return e;

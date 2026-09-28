@@ -17,6 +17,14 @@
 
 # Retired root comparison page → canonical guides URL (301)
 [[redirects]]
+  # The page answers the question for both countries, so "here" never meant
+  # anything on it — renamed to match its own H1 on 28 Sep 2026.
+  from = "/can-i-work-here"
+  to = "/can-i-work-there"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/australia-vs-new-zealand"
   to = "/guides/australia-vs-new-zealand"
   status = 301

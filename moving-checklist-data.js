@@ -19,7 +19,7 @@
         dollar figures here — that decision is editorial, not an
         oversight, and this page must not contradict it.
    2. This is NOT the New Zealand relocation checklist. That one
-      (/guides/nz/relocation-checklist, chapter 13 of the NZ guide) is a
+      (/guides/new-zealand-checklist, chapter 13 of the NZ guide) is a
       TIMELINE — roughly forty errands across six months, before and
       after you fly. This one is a DECISION checklist, personalised by
       household shape, covering both countries. They answer different

@@ -64,7 +64,7 @@ window.ASK_ETHICARE_KB = {
     au_community: { t: 'Community & belonging in Australia', d: 'How people actually meet people here', u: '/guides/australia-community' },
     au_driving: { t: 'Driving & licences in Australia', d: 'Converting your licence, and whether you need a car', u: '/guides/australia-driving' },
     moving_checklist: { t: 'Moving checklist', d: 'Everything to arrange before you fly, filtered to your household', u: '/moving-checklist' },
-    nz_first_month: { t: 'Your first month in New Zealand', d: 'The paperwork in the order that actually works', u: '/guides/nz/your-first-month' },
+    nz_first_month: { t: 'Your first month in New Zealand', d: 'The paperwork in the order that actually works', u: '/guides/new-zealand-first-month' },
     au_first_month: { t: 'Living & thriving in Australia', d: 'The first weeks, and settling in beyond them', u: '/guides/living-in-australia' }
   }
 };

@@ -366,17 +366,14 @@
     }
     if (key === 'dietitian' && cc === 'au' && (a.dietPlacement === 'no' || a.dietPlacement === 'unsure')) out.push({ title: 'Supervised placement is assessed too', body: 'Dietitians Australia looks at supervised professional practice alongside the academic qualification. If your programme did not include a placement, or you are not certain it did, confirm it early — it is easier to evidence now than to reconstruct later.', css: 'sand' });
     /* Nursing sits in the shared builder, not in present()'s, for the same reason midwifery
-       does: registered and enrolled nurses are supported:false in both countries, so present()
+       does: nurses are supported:false in both countries, so present()
        never runs for them and anything pushed there is dead code. This builder feeds BOTH the
        recruited and the not-recruited paths, which is what "the guidance is free whether or not
        we ever place you" actually requires. Read the notes off the record so the verified
        content has exactly one home. */
     if (key === 'nursing' && cc === 'nz') {
       var nu = ((D().records || {}).nursing || {}).nz || {};
-      /* The exemption question is settled for enrolled nurses and open for everyone else, so
-         they get different notes rather than one hedged paragraph covering both. */
-      var scopeNote = a.profession === 'enrolled-nurse' ? nu.enNote : nu.selfCheckNote;
-      if (scopeNote) out.push(scopeNote);
+      if (nu.selfCheckNote) out.push(nu.selfCheckNote);
       /* Order is deliberate: the market note comes BEFORE cost and OSCE. The Council itself
          tells IQNs to explore work before paying for registration, and a candidate who reads
          only the first note should get that one rather than a fee table. */
@@ -390,18 +387,14 @@
       /* Same shared-builder reasoning as New Zealand: nurses are supported:false in both
          countries, so present() never runs for them. */
       var na = ((D().records || {}).nursing || {}).au || {};
-      if (a.profession === 'enrolled-nurse') {
-        if (na.enNote) out.push(na.enNote);
-      } else {
-        /* Pathway 2 is placed second only because Pathway 1 has to be named first for it to
-           make sense. It is the note most likely to change what someone believes. */
-        if (na.streamlinedNote) out.push(na.streamlinedNote);
-        if (na.pathway2Note) out.push(na.pathway2Note);
-        if (na.notStreamlinedNote) out.push(na.notStreamlinedNote);
-        if (na.npNote) out.push(na.npNote);
-        if (na.timingNote) out.push(na.timingNote);
-        if (na.orientationNote) out.push(na.orientationNote);
-      }
+      /* Pathway 2 is placed second only because Pathway 1 has to be named first for it to
+         make sense. It is the note most likely to change what someone believes. */
+      if (na.streamlinedNote) out.push(na.streamlinedNote);
+      if (na.pathway2Note) out.push(na.pathway2Note);
+      if (na.notStreamlinedNote) out.push(na.notStreamlinedNote);
+      if (na.npNote) out.push(na.npNote);
+      if (na.timingNote) out.push(na.timingNote);
+      if (na.orientationNote) out.push(na.orientationNote);
     }
     /* Australia, completed specialists. The Board runs three doors and the difference between
        them is worth more to a consultant than anything else on the page, so name the one that

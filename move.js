@@ -45,13 +45,13 @@
       note: 'What the whole move costs, what your employer covers, and what you need in the bank before you fly.' },
     checklist: { title: 'Organise the move itself', href: '/moving-checklist', store: 'ethicare_moving_checklist_v1',
       note: 'Everything to arrange before you go, filtered to your household.' },
-    first30: { title: 'Your first thirty days', href: '/guides/nz/your-first-month', store: null,
+    first30: { title: 'Your first thirty days', href: '/guides/new-zealand-first-month', store: null,
       note: 'The paperwork in the order it needs doing, the first days on the unit, and the ordinary things that make a place yours.' }
   };
 
   var C = function (d) { return d === 'au' ? 'australia' : 'new-zealand'; };
 
-  /* first30 is the one tool whose page differs by country — /guides/nz/your-first-month is
+  /* first30 is the one tool whose page differs by country — /guides/new-zealand-first-month is
      New Zealand's, and Australia's equivalent is /guides/living-in-australia. TOOL is a
      static table, so reading it directly sent every Australian at the "already here" stage
      to the New Zealand guide as their next step. Read tools through this, never TOOL[key],
@@ -97,7 +97,7 @@
                 { label: 'Preparing for the move', href: '/guides/' + c + '-relocation' }] },
       { key: 'arrive', title: 'Settling in', tool: 'first30', stage: 'After you land',
         note: 'Landing well. The paperwork in the order it actually needs doing, the first days on the unit, and the ordinary things that turn an arrival into a life.',
-        links: [{ label: d === 'au' ? 'Living and thriving in Australia' : 'Your first month', href: d === 'au' ? '/guides/living-in-australia' : '/guides/nz/your-first-month' }] }
+        links: [{ label: d === 'au' ? 'Living and thriving in Australia' : 'Your first month', href: d === 'au' ? '/guides/living-in-australia' : '/guides/new-zealand-first-month' }] }
     ];
     return withHousehold(base, d, immi);
   }
@@ -863,17 +863,19 @@
             ' by name yet, so this starts with your regulator instead — and tell us, because we will map the route with you.';
         }
         if (mr && mr.docs.length) links = links.concat(mr.docs.map(function (d, i) {
-          return { label: /checklist/i.test(d) ? 'Application checklist (PDF)' : 'Our registration guide (PDF)', href: d, external: true };
+          return { label: /#checklist$/.test(d) ? 'Application checklist' : 'Our registration guide', href: d };
         }));
       }
       var head = '';
       if (st.stage && st.stage !== seenStage) {
         seenStage = st.stage;
-        var stageIcon = { 'Before you apply': 'registration-and-pay', 'Once you have an offer': 'visa-and-immigration', 'After you land': 'settling-in-move' }[st.stage];
+        var stageIcon = { 'Before you apply': 'registration-and-pay', 'Once you have an offer': 'your-information', 'After you land': 'community' }[st.stage];
         var icon = stageIcon ? '<img src="assets/heroes/' + stageIcon + '.svg" alt="" width="26" height="20">' : '';
         head = '<p class="pt-stagehead">' + icon + esc(st.stage) + '</p>';
       }
-      var stepIcon = { fit: 'deciding', registration: 'registration-and-pay', cv: 'job-search-cv', visa: 'visa-and-immigration', move: 'packing-and-shipping', arrive: 'settling-in-move', household: 'family', partnerreg: 'partner-registration', children: 'schools-and-education', soloparent: 'family' }[st.key];
+      /* Every name here must exist in assets/heroes/ — five of the originals did not,
+         and the plan rendered broken-image glyphs at those steps. */
+      var stepIcon = { fit: 'deciding', registration: 'registration-and-pay', cv: 'interview-preparation', visa: 'your-information', move: 'packing-and-shipping', arrive: 'community', household: 'contact', partnerreg: 'registration-and-pay', children: 'schools-and-education', soloparent: 'contact' }[st.key];
       var iconHtml = stepIcon ? '<img class="pt-icon" src="assets/heroes/' + stepIcon + '.svg" alt="">' : '';
       var stepCls = (isNow ? ' now' : (i < here ? ' past' : '')) + ((!jr[i + 1] || jr[i + 1].stage !== st.stage) ? ' ge' : '');
       return head + '<div class="pt-step' + stepCls + '">' +
