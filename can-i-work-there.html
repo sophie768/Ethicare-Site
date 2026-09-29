@@ -61,6 +61,19 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
 .kick{display:flex;align-items:center;gap:12px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fern-text,#2F5E49);margin:0 0 14px}
 .kick::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none}
 .rt-next{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px}
+/* answer first (29 Sep 2026) */
+.ea{padding-top:clamp(28px,4vw,44px);padding-bottom:clamp(20px,3vw,32px)}
+.ea .rt-note{margin-top:16px}
+.ea-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:16px;margin-top:6px}
+.ea-card{background:var(--teal,#02615D);color:#fff;border-radius:16px;padding:clamp(22px,3vw,32px);display:flex;flex-direction:column;gap:8px}
+.ea-card .k{font-family:var(--display,'Work Sans',sans-serif);font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C6E084}
+.ea-card .v{font-family:var(--display,'Work Sans',sans-serif);font-size:clamp(22px,2.8vw,32px);font-weight:600;line-height:1.15;letter-spacing:-.02em;text-wrap:balance}
+.ea-card .s{font-size:15px;line-height:1.55;color:rgba(255,255,255,.85);max-width:52ch;text-wrap:pretty}
+.ea-card .lk{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:auto;padding-top:12px}
+.ea-card .lk a{font-family:var(--display,'Work Sans',sans-serif);font-weight:600;font-size:15px;color:#C6E084;text-decoration:none;min-height:24px}
+.ea-card .lk a:hover{color:#fff}
+.ea-card .lk a.b{background:#A6C84A;color:#01312F;border-radius:10px;padding:10px 16px}
+.ea-card .lk a.b:hover{background:#C6E084;color:#01312F}
 </style>
 <link rel="canonical" href="https://ethicareresourcing.com/can-i-work-there">
 <link rel="icon" href="/assets/logo-mark.png">
@@ -125,18 +138,30 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
     <div>
       <p class="kick">Registration</p>
       <h1>Can I work there?</h1>
-      <p class="lede">It is the question almost everyone asks first, and the one people put off answering &mdash; because it looks like paperwork and feels like judgement on a career you have already built. We understand that. So here is the honest shape of it: a Board looks at your qualification and your practice and decides whether they count. That answer shapes the visa, and the visa shapes when you could realistically fly. Which means the rest of the move is waiting on this, and getting it answered early is a kindness to yourself.</p>
+      <p class="lede">It is the question almost everyone asks first, and the one people put off answering &mdash; because it looks like paperwork and feels like judgement on a career you have already built. We understand that. The shape of it: a Board looks at your qualification and your practice and decides whether they count. That answer shapes the visa, and the visa shapes when you could realistically fly. Which means the rest of the move is waiting on this, and getting it answered early is a kindness to yourself.</p>
     </div>
     <figure><img src="assets/heroes/registration-pathway.svg" alt="" width="400" height="300" loading="eager" decoding="async"></figure>
   </div>
 </header>
 
+<!-- ANSWER FIRST (29 Sep 2026). When the shared answers already say the profession and the
+     country, the Board, whether registration applies, and the guide for it come before the
+     explanation. Filled by the script at the foot of the page from portal-professions.js. -->
+<section class="rt-sec ea" id="work-answer" data-work-answer hidden>
+  <div class="rt-wrap">
+    <p class="kick" data-wa-kick>Your answer</p>
+    <div class="ea-grid" data-wa-grid></div>
+    <p class="rt-note" data-wa-note></p>
+  </div>
+</section>
+
 <section class="rt-sec">
   <div class="rt-wrap">
+    <div id="ctx-strip" data-ctx-strip style="margin-bottom:22px"></div>
     <div class="rt-first">
       <div>
         <h2>Ten minutes, and your route has a name</h2>
-        <p>Our aim is to make this part a little less daunting, so we built the checker to ask what the Board asks &mdash; where you trained, what you are registered as now, how recently you have practised &mdash; and then tell you which pathway you would most likely be assessed under, what it costs and roughly how long it tends to take. Nothing is submitted. No fee is paid to find out. If the answer is not what you hoped, you will at least know that today rather than in four months.</p>
+        <p>The checker asks what the Board asks — where you trained, what you are registered as now, how recently you have practised &mdash; and then tell you which pathway you would most likely be assessed under, what it costs and roughly how long it tends to take. Nothing is submitted. No fee is paid to find out. If the answer is not what you hoped, you will at least know that today rather than in four months.</p>
       </div>
       <a class="rt-btn" href="/pathway-checker">Check my pathway <span aria-hidden="true">&rarr;</span></a>
     </div>
@@ -181,7 +206,7 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
         <p class="lk"><a href="/pathway-checker">Check your pathway</a><a href="/guides/new-zealand-registration">How NZ registration works</a><span>Board guides in preparation</span></p>
       </div>
     </div>
-    <p class="rt-lead" style="margin:22px 0 0">One more thing, and it is genuinely open: we are happy to read an application before the Board does, whether or not we ever place you. That includes the professions we do not recruit into. It costs you nothing and it has saved people months &mdash; <a href="/contact">just ask</a>.</p>
+    <p class="rt-lead" style="margin:22px 0 0">One more thing, and it is open: we are happy to read an application before the Board does, whether or not we ever place you. That includes the professions we do not recruit into. It costs you nothing and it has saved people months &mdash; <a href="/contact">just ask</a>.</p>
   </div>
 </section>
 
@@ -199,7 +224,7 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
       <div class="box"><h3>References that answer the question</h3><p>A thin reference is the most common reason a Board comes back with questions, and it is almost never the referee&rsquo;s fault &mdash; they simply were not told what was being looked for. A short conversation with them beforehand changes what they write.</p></div>
     </div>
     <div class="box" style="margin-top:18px"><h3>And one your employer asks, not the regulator</h3><p>Immunity and a pre-employment health declaration &mdash; measles, hepatitis B, the rest &mdash; are a condition of the job rather than of registration, handled by the employer&rsquo;s occupational health service after an offer. People routinely confuse the two and chase records they do not yet need. Worth gathering anyway, because they are far easier to obtain before you leave than afterwards.</p></div>
-    <p style="font-size:15px;line-height:1.6;color:#DCEAE5;margin:20px 0 0;max-width:66ch">Which of these bites, and how hard, is our experience rather than a rule, and we try to keep the two clearly apart. The Board&rsquo;s own document list, linked from every guide and checklist, is what actually governs your application. The specifics above were checked against the Medical Council of New Zealand and Ahpra on 28 September 2026 &mdash; both change them, so check the date before you rely on it.</p>
+    <p style="font-size:15px;line-height:1.6;color:#DCEAE5;margin:20px 0 0;max-width:66ch">Which of these bites, and how hard, is our experience rather than a rule, and we try to keep the two clearly apart. The Board&rsquo;s own document list, linked from every guide and checklist, is what governs your application. The specifics above were checked against the Medical Council of New Zealand and Ahpra on 28 September 2026 &mdash; both change them, so check the date before you rely on it.</p>
   </div>
 </section>
 
@@ -212,13 +237,13 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
       <a class="rt-card" href="/jobs/professions">
         <span class="k">Your profession</span>
         <h3>What changes about the job itself</h3>
-        <p>The title, what your scope actually covers, how pay is set, and where you would be needed. Different enough from home to be worth twenty minutes before anything else.</p>
+        <p>The title, what your scope covers, how pay is set, and where you would be needed. Different enough from home to be worth twenty minutes.</p>
         <span class="go">Every profession &rarr;</span>
       </a>
       <a class="rt-card" href="/guides/australia-vs-new-zealand">
         <span class="k">Still deciding</span>
         <h3>Australia or New Zealand?</h3>
-        <p>If you are weighing the two, this is the honest comparison. Registration, pay, housing and visas differ more than most people expect, and this choice shapes everything after it.</p>
+        <p>If you are weighing the two, this is the comparison. Registration, pay, housing and visas differ more than most people expect, and this choice shapes everything after it.</p>
         <span class="go">Compare the two &rarr;</span>
       </a>
       <a class="rt-card" href="/move">
@@ -235,10 +260,10 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
   <div class="rt-wrap">
     <p class="kick">What next?</p>
     <h2>If the answer is yes, money is usually the next question</h2>
-    <p class="rt-lead">Two halves to it: what you would earn once you are there, and what the move asks of you before you earn anything. Both have real numbers behind them, which is unusual in this industry &mdash; pay in the public systems is set by collective agreement and published, and every fee in our calculator is one you could look up yourself. <a href="/is-it-worth-it">What could I earn?</a> puts both halves together, honestly.</p>
+    <p class="rt-lead">Two halves to it: what you would earn once you are there, and what the move asks of you before you earn anything. Both have real numbers behind them, which is unusual in this industry &mdash; pay in the public systems is set by collective agreement and published, and every fee in our calculator is one you could look up yourself. <a href="/is-it-worth-it">What could I earn?</a> puts both halves together.</p>
     <div class="rt-next">
       <a class="rt-card" href="/guides/new-zealand-salary"><span class="k">New Zealand</span><h3>Indicative pay, and how it is set</h3><p>What the agreements say, and what that tends to mean for where you would land on the scale.</p><span class="go">Pay in New Zealand &rarr;</span></a>
-      <a class="rt-card" href="/guides/australia-salary"><span class="k">Australia</span><h3>Indicative pay, and how it is set</h3><p>Award and enterprise agreements, state by state, in figures you can actually use.</p><span class="go">Pay in Australia &rarr;</span></a>
+      <a class="rt-card" href="/guides/australia-salary"><span class="k">Australia</span><h3>Indicative pay, and how it is set</h3><p>Award and enterprise agreements, state by state, in figures you can use.</p><span class="go">Pay in Australia &rarr;</span></a>
       <a class="rt-card" href="/cost-calculator"><span class="k">Before the first pay</span><h3>What the move costs</h3><p>Assessment, registration, visa, flights, shipping, a rental bond. They tend to arrive together, and mostly before your first pay.</p><span class="go">Cost calculator &rarr;</span></a>
     </div>
   </div>
@@ -252,7 +277,7 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
     <div class="f-cols">
       <div class="f-brand">
         <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
-        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Support through one of life’s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
           <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
@@ -272,7 +297,51 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
   </div>
 </footer>
 <script src="site.js"></script>
+<script src="portal-professions.js"></script>
+<script src="journey.js"></script>
+<script src="candidate-context.js"></script>
 <script src="nav.js" defer></script>
+<script>
+/* Answer first: for THEIR profession in THEIR country — the Board, whether registration is
+   required, the guide we have written for it, and the checker if it covers them. Everything
+   read from portal-professions.js, the one list of Boards on the site. */
+(function () {
+  var ctx = window.EthicareContext, P = window.ETHICARE_PROFESSIONS;
+  if (!ctx || !P) return;
+  function esc(t) { return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function cap(t) { return t.charAt(0).toUpperCase() + t.slice(1); }
+  function card(key, d) {
+    var m = P.forCountry(key, d); if (!m) return '';
+    var country = d === 'nz' ? 'New Zealand' : 'Australia';
+    var v = m.regulated === true ? 'Yes \u2014 through ' + m.body : m.regulated === false ? 'Not a registered profession \u2014 ' + m.body + ' is what employers look for' : 'It depends on the Board for your profession';
+    var s = m.note || (m.regulated ? 'Registration is assessed on your qualification, your current registration and how recently you have practised. The Board decides the pathway; the guide says what each one asks for.' : 'There is no register to join, so the work is showing the credential employers ask for.');
+    var links = '';
+    if (P.inChecker(key)) links += '<a class="b" href="/pathway-checker">Check my pathway \u2192</a>';
+    var guide = (m.docs || []).filter(function (h) { return h.indexOf('#') === -1; })[0];
+    /* single-quoted hrefs: the link audit reads href="…" out of inline scripts as if they were links */
+    if (guide) links += '<a href=\'' + esc(guide) + '\'>Our registration guide for this \u2192</a>';
+    else links += '<a href=\'' + (d === 'nz' ? '/guides/new-zealand-registration' : '/guides/australia-registration') + '\'>How registration works in ' + country + ' \u2192</a>';
+    if (m.href) links += '<a href=\'' + esc(m.href) + '\' target="_blank" rel="noopener">' + esc(cap(m.body.replace(/^the /, ''))) + ' \u2197</a>';
+    return '<div class="ea-card"><span class="k">' + esc(m.label) + ' \u00b7 ' + country + '</span><span class="v">' + esc(cap(v)) + '</span><span class="s">' + esc(s) + '</span><div class="lk">' + links + '</div></div>';
+  }
+  function answer() {
+    var box = document.querySelector('[data-work-answer]'); if (!box) return;
+    var key = ctx.profession(), d = ctx.destMode();
+    if (!key || !d || key === 'other') { box.hidden = true; return; }
+    var h = '';
+    if (d === 'nz' || d === 'both') h += card(key, 'nz');
+    if (d === 'au' || d === 'both') h += card(key, 'au');
+    if (!h) { box.hidden = true; return; }
+    box.querySelector('[data-wa-grid]').innerHTML = h;
+    box.querySelector('[data-wa-kick]').textContent = d === 'both' ? 'Your answer, both countries' : 'Your answer';
+    box.querySelector('[data-wa-note]').textContent = 'From the answers on this page. Change them below and this changes with them. What a Board actually looks at, and the ten-minute checker, follow.';
+    box.hidden = false;
+  }
+  ctx.mount('#ctx-strip', { fields: ['profession', 'dest', 'household', 'stage'], intro: 'Tell us your profession and where you are thinking of, and the answer for you comes first.' });
+  ctx.onChange(answer);
+  answer();
+})();
+</script>
 
 
 <!-- SEO

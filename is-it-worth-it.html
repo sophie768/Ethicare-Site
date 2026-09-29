@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
 <title>What could I earn? Salaries and take-home pay · Ethicare</title>
-<meta name="description" content="What you could earn in New Zealand or Australia, what actually reaches your account after tax, and what the move costs before your first payday.">
+<meta name="description" content="What you could earn in New Zealand or Australia, what reaches your account after tax, and what the move costs before your first payday.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
@@ -97,13 +97,25 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
 .ct-qs{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:11px;max-width:54ch}
 .ct-qs li{position:relative;padding-left:22px;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(17px,1.9vw,20px);line-height:1.45;color:var(--teal,#02615D)}
 .ct-qs li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:2px;background:#A6C84A}
+/* answer first (29 Sep 2026) */
+.ea{padding-top:clamp(28px,4vw,44px);padding-bottom:clamp(20px,3vw,32px)}
+.ea .rt-note{margin-top:16px}
+.ea-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:16px;margin-top:6px}
+.ea-card{background:var(--teal,#02615D);color:#fff;border-radius:16px;padding:clamp(22px,3vw,32px);display:flex;flex-direction:column;gap:8px}
+.ea-card .k{font-family:var(--display,'Work Sans',sans-serif);font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C6E084}
+.ea-card .v{font-family:var(--display,'Work Sans',sans-serif);font-size:clamp(26px,3.4vw,40px);font-weight:600;line-height:1.1;letter-spacing:-.02em;text-wrap:balance}
+.ea-card .s{font-size:15px;line-height:1.55;color:rgba(255,255,255,.85);max-width:52ch;text-wrap:pretty}
+.ea-card .go{margin-top:auto;padding-top:10px;font-family:var(--display,'Work Sans',sans-serif);font-weight:600;font-size:15px;color:#C6E084;text-decoration:none}
+.ea-card .go:hover{color:#fff}
+.ea-card.quiet{background:var(--soft,#E6F1ED);color:var(--text,#333)}
+.ea-card.quiet .k{color:#2F5E49}.ea-card.quiet .v{color:var(--teal,#02615D);font-size:clamp(20px,2.4vw,26px)}.ea-card.quiet .s{color:#555}.ea-card.quiet .go{color:var(--teal,#02615D)}
 </style>
 <link rel="canonical" href="https://ethicareresourcing.com/is-it-worth-it">
 <link rel="icon" href="/assets/logo-mark.png">
 <link rel="apple-touch-icon" href="/assets/logo-mark.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="What could I earn? Salaries and take-home pay · Ethicare">
-<meta property="og:description" content="What you could earn in New Zealand or Australia, what actually reaches your account after tax, and what the move costs before your first payday.">
+<meta property="og:description" content="What you could earn in New Zealand or Australia, what reaches your account after tax, and what the move costs before your first payday.">
 <meta property="og:url" content="https://ethicareresourcing.com/is-it-worth-it">
 <meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -161,17 +173,28 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
     <div>
       <p class="kick">The money question</p>
       <h1>What could I earn?</h1>
-      <p class="lede">A new role. A different lifestyle. What could it mean for you financially? Explore salaries in New Zealand and Australia, work out what would actually reach your account, and see how the numbers fit the life you want.</p>
+      <p class="lede">A new role. A different lifestyle. What could it mean for you financially? Explore salaries in New Zealand and Australia, work out what would reach your account, and see how the numbers fit the life you want.</p>
     </div>
     <figure><img src="assets/heroes/salary-and-pay.svg" alt="" width="400" height="300" loading="eager" decoding="async"></figure>
   </div>
 </header>
 
+<!-- ANSWER FIRST (29 Sep 2026). When the shared answers already say the profession and the
+     country, the figure comes before the explanation. Filled by the script at the foot of the
+     page from the table rows below (data-profs) — one source of numbers, not two. -->
+<section class="rt-sec ea" id="earn-answer" data-earn-answer hidden>
+  <div class="rt-wrap">
+    <p class="kick" data-ea-kick>For you</p>
+    <div class="ea-grid" data-ea-grid></div>
+    <p class="rt-note" data-ea-note></p>
+  </div>
+</section>
+
 <section class="rt-sec">
   <div class="rt-wrap">
     <p class="kick">Where are you considering?</p>
-    <h2>Pay you can actually check</h2>
-    <p class="rt-lead">Here is something unusual about both countries: in the public systems, pay is set by collective agreement and published. Not negotiated in the dark, not dependent on how well you interview. That means we can show you indicative bands and name the agreement they come from, and it means you can verify us. We keep figures rough on purpose, rounded so neither end overstates, because a precise number against a role we have not seen would be a promise we are not in a position to make.</p>
+    <h2 data-ea-h2>Pay you can check</h2>
+    <p class="rt-lead">Here is something unusual about both countries: in the public systems, pay is set by collective agreement and published.  That means we can show you indicative bands and name the agreement they come from, and it means you can verify us. We keep figures rough on purpose, rounded so neither end overstates, because a precise number against a role we have not seen would be a promise we are not in a position to make.</p>
     <div id="ctx-strip" data-ctx-strip></div>
     <div class="ct-tabs" role="tablist" aria-label="Choose a country">
       <button class="ct-tab" type="button" role="tab" id="tab-both" aria-controls="panel-nz panel-au" aria-selected="false" data-country="both">Both, side by side</button>
@@ -191,17 +214,17 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
     <table class="pay">
       <caption>Indicative public-system pay in New Zealand by profession</caption>
       <tr><th>Profession</th><th>Indicative, steps 1&ndash;8</th><th>Set by</th></tr>
-      <tr>
+      <tr data-profs="anaesthetic ot radtherapy">
         <td>Anaesthetic technicians<br>Occupational therapists<br>Radiation therapists</td>
         <td class="amt" data-l="Indicative, steps 1–8">NZ$79,000 &ndash; $113,000</td>
-        <td class="src" data-l="Set by">The APEX allied health scale &mdash; one ladder, several professions, the same rate wherever you work</td>
+        <td class="src" data-l="Set by">The APEX allied health scale &mdash; one ladder, several professions</td>
       </tr>
-      <tr>
+      <tr data-profs="physio">
         <td>Physiotherapists</td>
         <td class="amt" data-l="Indicative, steps 1–8">NZ$78,000 &ndash; $118,000</td>
         <td class="src" data-l="Set by">The APEX physiotherapy agreement, ten steps, current to 31 January 2027</td>
       </tr>
-      <tr>
+      <tr data-profs="sonography">
         <td>Sonographers</td>
         <td class="amt" data-l="Indicative, steps 1–8">NZ$116,000 &ndash; $162,000</td>
         <td class="src" data-l="Set by">The APEX sonographers agreement, eleven steps. Reporting sonographers sit higher again</td>
@@ -211,14 +234,19 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
         <td class="amt" data-l="Indicative, steps 1–8">Around NZ$200,000</td>
         <td class="src" data-l="Set by">No published ladder &mdash; general practice is the one career here where the number really is negotiated</td>
       </tr>
-      <tr>
-        <td>Radiographers<br>MRI &amp; nuclear medicine<br>Nurses &amp; midwives<br>Senior medical officers</td>
+      <tr data-profs="medicine">
+        <td>Senior medical officers<br>Specialists and consultants</td>
+        <td class="amt" data-l="Indicative, steps 1–8">NZ$198,000 &ndash; $282,000</td>
+        <td class="src" data-l="Set by">The ASMS agreement, by years since specialist registration</td>
+      </tr>
+      <tr data-profs="imaging nuclearmed nursing midwifery">
+        <td>Radiographers<br>MRI &amp; nuclear medicine<br>Nurses &amp; midwives</td>
         <td class="amt" data-l="Indicative, steps 1–8">Confirmed for your role</td>
-        <td class="src" data-l="Set by">Covered by an agreement, but several are mid-bargaining. We read your rate off the signed document and tell you the step, not a guess</td>
+        <td class="src" data-l="Set by">Covered by a current agreement. We read your rate off the signed document and tell you the step, not a guess</td>
       </tr>
     </table>
     </div>
-    <p class="rt-note" style="margin-bottom:26px">Indicative and rounded, on the scales published at August 2026. Steps 1 to 7 rise automatically each year; step 8 is by agreed objectives, and the two recognition steps above it reach about NZ$119,000. Designated and senior roles sit on their own higher scales. The agreements themselves are published in full by <a href="https://apex.org.nz" target="_blank" rel="noopener">APEX</a> &mdash; we are a recruiter, not a union, so if you want the clause-by-clause detail, go to the source.</p>
+    <p class="rt-note" style="margin-bottom:26px">Indicative and rounded, from the agreements current in September 2026. Most scales rise a step a year, with the top steps by agreed objectives. Designated and senior roles sit on their own higher scales. The agreements themselves are published in full by <a href="https://apex.org.nz" target="_blank" rel="noopener">APEX</a> &mdash; we are a recruiter, not a union, so if you want the clause-by-clause detail, go to the source.</p>
     <div class="rt-grid">
       <a class="rt-card" href="/guides/new-zealand-salary">
         <span class="k">Then</span>
@@ -235,7 +263,7 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
       <a class="rt-card" href="/guides/living-in-new-zealand">
         <span class="k">Then</span>
         <h3>What kind of life it supports</h3>
-        <p>Housing, transport, groceries and childcare, against the household income you would actually have. Every region guide costs it locally.</p>
+        <p>Housing, transport, groceries and childcare, against the household income you would have. Every region guide costs it locally.</p>
         <span class="go">Living in New Zealand &rarr;</span>
       </a>
       <a class="rt-card" href="/cost-calculator?destination=nz">
@@ -306,10 +334,10 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
     <div class="rt-grid">
       <div class="box"><h3>A pay rise is not always a pay rise</h3><p>If you are coming from a no-income-tax country, the gross figure can look excellent and the net one ordinary. Housing may cost more than you are used to as well. Run both against the cost of living before you get attached to the headline.</p></div>
       <div class="box"><h3>Progression is slower and flatter</h3><p>Public-system scales are transparent, which is the good news. It also means less room to negotiate, and seniority often counts for more than performance. Some people find that fairer; others find it frustrating.</p></div>
-      <div class="box"><h3>You may be further from family than any map suggests</h3><p>Flights are long and expensive, and a two-week visit is not a weekend trip. This is the single most common thing people underestimate, and it is worth an honest conversation at home before anything else.</p></div>
+      <div class="box"><h3>You may be further from family than any map suggests</h3><p>Flights are long and expensive, and a two-week visit is not a weekend trip. This is the single most common thing people underestimate, and it is worth a conversation at home early on.</p></div>
       <div class="box"><h3>The first year costs more than the calculator says</h3><p>Setting up a household from nothing, a car, furniture, a deposit, is real money that no relocation package covers in full. Build a buffer, not just a budget.</p></div>
     </div>
-    <p style="font-size:15px;line-height:1.6;color:#DCEAE5;margin:20px 0 0;max-width:66ch">If any of this gives you pause, that is the page doing its job. <a class="on-dark" href="/contact">Talk it through with us</a> &mdash; we would rather have an honest conversation than a placement that unravels.</p>
+    <p style="font-size:15px;line-height:1.6;color:#DCEAE5;margin:20px 0 0;max-width:66ch">If any of this gives you pause, that is the page doing its job. <a class="on-dark" href="/contact">Talk it through with us</a> &mdash; we would rather have a clear conversation than a placement that unravels.</p>
   </div>
 </section>
 
@@ -354,7 +382,7 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
     <h2>If the numbers work, the next question is where</h2>
     <p class="rt-lead">Housing, the commute and how far you would be from a big hospital vary far more between regions than between the two countries, so where you land can matter more to the maths than which country you pick.</p>
     <div class="rt-grid">
-      <a class="rt-card" href="/where-would-we-live"><span class="k">Also worth asking</span><h3>Where could we live?</h3><p>Start from what matters to you rather than from a map, and see which places fit.</p><span class="go">Where could we live? &rarr;</span></a>
+      <a class="rt-card" href="/where-would-we-live"><span class="k">Also worth asking</span><h3>Where could we live?</h3><p>Say what matters to you, and see which places fit.</p><span class="go">Where could we live? &rarr;</span></a>
       <a class="rt-card" href="/can-i-work-there"><span class="k">Also worth asking</span><h3>Can I work there?</h3><p>If you have not settled registration yet, everything here is still hypothetical. Ten minutes fixes that.</p><span class="go">Can I work there? &rarr;</span></a>
       <a class="rt-card" href="/move"><span class="k">Your plan</span><h3>Somewhere to keep all this</h3><p>A plan built around your household and your dates, with the budget you built carried into it.</p><span class="go">Build my journey &rarr;</span></a>
     </div>
@@ -371,7 +399,7 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
     <div class="f-cols">
       <div class="f-brand">
         <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
-        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Support through one of life’s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
           <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
@@ -430,12 +458,41 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
   try { q = new URLSearchParams(location.search).get('c'); } catch (e) { q = null; }
   var known = ctx && ctx.destMode ? ctx.destMode() : '';
   show(q === 'au' || q === 'nz' || q === 'both' ? q : (known || 'nz'));
+  /* answer first: the figure for THEIR profession in THEIR country, read off the table rows */
+  var IMAGING = { imaging: 1, sonography: 1, radtherapy: 1, nuclearmed: 1 };
+  function esc(t) { return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function nzAnswer(key, label) {
+    var rows = [].slice.call(document.querySelectorAll('#panel-nz tr[data-profs]'));
+    var row = rows.filter(function (r) { return (' ' + r.getAttribute('data-profs') + ' ').indexOf(' ' + key + ' ') > -1; })[0];
+    if (!row) return '<div class="ea-card quiet"><span class="k">New Zealand</span><span class="v">No published figure for ' + esc(label.toLowerCase()) + ' yet</span><span class="s">Public pay is set by collective agreement and published, so it can be checked. The table below shows the professions we have costed; the guide explains how any public role\u2019s pay is set.</span><a class="go" href="/guides/new-zealand-salary">How pay is set in New Zealand \u2192</a></div>';
+    var amt = row.querySelector('.amt').textContent.trim(), src = row.querySelector('.src').textContent.trim();
+    var confirmed = /^Confirmed/.test(amt);
+    return '<div class="ea-card' + (confirmed ? ' quiet' : '') + '"><span class="k">' + esc(label) + ' \u00b7 New Zealand</span><span class="v">' + esc(confirmed ? 'We read your rate off the signed agreement' : amt) + '</span><span class="s">' + esc(confirmed ? src : 'Indicative, public system. ' + src + '.') + '</span><a class="go" href="/take-home-pay">' + (confirmed ? 'Ask us for your step \u2192' : 'What reaches your account after tax \u2192') + '</a></div>';
+  }
+  function auAnswer(key, label) {
+    if (IMAGING[key]) return '<div class="ea-card"><span class="k">' + esc(label) + ' \u00b7 Australia</span><span class="v">Set by state awards and enterprise agreements</span><span class="s">The same job pays differently in Brisbane and Perth. Our salary guide gives the figures by state and territory with the framework named, and Ethicare places into medical imaging in Australia, so we can speak to it properly.</span><a class="go" href="/guides/australia-salary">Medical imaging pay by state \u2192</a></div>';
+    return '<div class="ea-card quiet"><span class="k">' + esc(label) + ' \u00b7 Australia</span><span class="v">Ethicare places medical imaging in Australia, not ' + esc(label.toLowerCase()) + '</span><span class="s">The guide still explains how pay is set state by state, and the take-home tool works for any advertised figure.</span><a class="go" href="/guides/australia-salary">How pay is set in Australia \u2192</a></div>';
+  }
+  function answer() {
+    var box = document.querySelector('[data-earn-answer]'); if (!box) return;
+    var key = ctx && ctx.profession ? ctx.profession() : '', d = ctx && ctx.destMode ? ctx.destMode() : '';
+    if (!key || !d) { box.hidden = true; return; }
+    var label = (ctx.professionLabel && ctx.professionLabel()) || key;
+    var h = '';
+    if (d === 'nz' || d === 'both') h += nzAnswer(key, label);
+    if (d === 'au' || d === 'both') h += auAnswer(key, label);
+    box.querySelector('[data-ea-grid]').innerHTML = h;
+    box.querySelector('[data-ea-kick]').textContent = d === 'both' ? 'Your answer, both countries' : 'Your answer';
+    box.querySelector('[data-ea-note]').textContent = 'From the answers on this page: ' + label + (d === 'both' ? ', comparing both countries' : ', ' + (d === 'nz' ? 'New Zealand' : 'Australia')) + '. Change them below and this changes with them. How the figure is arrived at follows.';
+    var h2 = document.querySelector('[data-ea-h2]'); if (h2) h2.textContent = 'How that number is set';
+    box.hidden = false;
+  }
   if (ctx && ctx.mount) {
     ctx.mount('#ctx-strip', { fields: ['profession', 'dest', 'household', 'stage'], intro: 'Tell us where you are thinking of and every tool here shows only what applies to you.' });
-    ctx.onChange(function () { var d = ctx.destMode(); if (d) show(d, false); });
+    ctx.onChange(function () { var d = ctx.destMode(); if (d) show(d, false); answer(); });
   }
+  answer();
 })();
-</script>
 </script>
 </body>
 </html>

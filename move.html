@@ -184,9 +184,31 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-step:not(.now):not(.past){border-color:rgba(201,222,211,.7)}
 .pt-step.now{box-shadow:inset 0 0 0 1px var(--teal),0 14px 34px rgba(1,49,47,.10)}
 .pt-step.ge::after{display:none}
-@media(max-width:640px){.pt-step::after{display:none}}</style>
+@media(max-width:640px){.pt-step::after{display:none}}
+/* the eight stages (29 Sep 2026) */
+.pt-sec .pt-next h2{color:#fff}
+.pt-next .pt-btn{background:#A6C84A;color:#01312F;border-color:#A6C84A}.pt-next .pt-btn:hover{background:#C6E084;color:#01312F}
+.pt-stages{display:grid;gap:10px}
+.pt-stage{background:#fff;border:1px solid var(--e);border-radius:var(--r-lg,16px);overflow:hidden}
+.pt-stage.now{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+.pt-stage.done .pt-stage-t{color:var(--muted)}
+.pt-stage-h{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:none;border:0;padding:clamp(16px,2vw,20px) clamp(18px,2.4vw,26px);cursor:pointer;font:inherit;min-height:56px}
+.pt-stage-h:hover{background:var(--warm)}
+.pt-stage-t{font-family:var(--display);font-size:clamp(16px,1.9vw,18px);font-weight:600;color:var(--teal);flex:1 1 auto;min-width:0}
+.pt-stage-x{font-family:var(--display);font-size:20px;color:var(--muted);flex:none;width:24px;text-align:center}
+.pt-stage-b{padding:0 clamp(18px,2.4vw,26px) clamp(20px,2.4vw,26px);border-top:1px solid var(--e)}
+.pt-item{padding:18px 0 4px;border-bottom:1px solid var(--rule-tint)}
+.pt-item:last-of-type{border-bottom:0}
+.pt-item h3{font-family:var(--display);font-size:16px;font-weight:600;color:var(--teal);margin:0 0 6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pt-item p{font-size:14.5px;line-height:1.6;color:var(--muted);max-width:64ch;margin:0 0 12px;text-wrap:pretty}
+.pt-item .pt-btn{margin:0 0 12px}
+.pt-ask{margin-top:18px;padding:18px 20px;background:var(--soft);border-radius:14px}
+.pt-ask .pt-lbl{margin-bottom:10px}
+.pt-ask .pt-hint{margin-top:10px}
+.pt-pill.on{background:var(--teal);border-color:var(--teal);color:#fff}
+@media(max-width:640px){.pt-stage-h{gap:10px}.pt-badge{font-size:10.5px;padding:3px 8px}}
+</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Ethicare Move","item":"https://ethicareresourcing.com/move"},{"@type":"ListItem","position":3,"name":"Your plan"}]}</script>
-<link rel="stylesheet" href="my-move.css">
 <link rel="stylesheet" href="prose-links.css">
 </head>
 <body class="pt">
@@ -200,7 +222,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
      the ONLY page on the site without the shared header — so it does not load nav.js. -->
 <header class="pt-topbar">
   <div class="shell">
-    <a class="brand" href="/"><img src="assets/logo-mark.png" alt="" width="34" height="34" decoding="async"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/" aria-label="Ethicare Resourcing — home"><img src="assets/logo-mark.png" alt="" width="34" height="34" decoding="async"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <nav class="pt-menu" aria-label="Ethicare Move">
       <a href="/pathway-checker">Can I work there?</a>
       <a href="/guides/australia-vs-new-zealand">Compare</a>
@@ -215,173 +237,33 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 
 <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Ethicare Move &mdash; your move, all in one place</h1>
 
-<section class="pt-hero" data-screen="welcome">
+<!-- ONE PAGE, EIGHT STAGES (29 Sep 2026). The welcome, set-up and hub screens are gone: the
+     answers strip asks what is not yet known, the eight stages of the journey (journey.js)
+     follow, the candidate's own stage open and the rest collapsed. The React planner that
+     used to load at #doing is not here — My Move is the private space for Ethicare
+     candidates, reached from the link the team sends. -->
+<section class="pt-hero">
   <div class="shell">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:clamp(20px,4vw,56px);flex-wrap:wrap">
       <div style="flex:1 1 420px;min-width:min(100%,420px)">
         <p class="eyebrow">Ethicare Move &middot; free, no account</p>
         <h2>Your move. All in one place.</h2>
-        <p class="pt-glad">A relocation planner for healthcare professionals moving to New Zealand or Australia.</p>
+        <p class="pt-glad">The eight stages of a move to New Zealand or Australia, in the order they happen &mdash; with the one you are at open, and the tool for it.</p>
       </div>
       <img src="assets/heroes/move-plan.svg" alt="A clipboard checklist and a pencil" width="176" height="132" style="width:300px;max-width:100%;height:auto;flex:none" loading="lazy">
     </div>
-    <div class="pt-cols">
-      <div>
-        <p class="pt-lead">Registration, the job, the visa, the money, the move and your first month &mdash; put in the right order for your profession, destination and stage of the journey.</p>
-        <p class="pt-lead" style="margin-top:14px">Whether you find your job through Ethicare, apply directly or use another recruiter, your plan is yours.</p>
-        <p class="pt-rq">Where are you in this?</p>
-        <div class="pt-router" data-router></div>
-        <p class="pt-sub">One tap and we name the one thing worth doing next &mdash; you are never asked it twice. Free, and open well beyond the professions we recruit into. We say plainly which is which.</p>
-        <p class="pt-sub" style="margin-top:10px"><a href="/pathway-checker" class="pt-quiet" style="font-size:15px">Or skip this and just check my registration &rarr;</a></p>
-        <p class="pt-sub" data-returning hidden></p>
-      </div>
-      <div class="pt-card">
-        <p class="pt-k">How it works</p>
-        <div class="pt-ben"><b>Start where you are. We&rsquo;ll build from there.</b><span>Tell us where you are in your move. We&rsquo;ll show you what to do next, then build your personalised relocation plan around your profession, destination, timing and circumstances.</span></div>
-        <div class="pt-ben"><b>Then every tool knows</b><span>Your regulator, your registration route, your profession&rsquo;s guide and the right destination pages, without being asked again.</span></div>
-        <div class="pt-ben"><b>And it waits for you</b><span>Come back in a fortnight and nothing is lost. One next step at a time, rather than six tools and no idea which to open first.</span></div>
-        <p class="pt-fine">Your plan is saved in this browser on this device. Nothing is sent to us and there is no password &mdash; so use a device that is yours, and don&rsquo;t put anything confidential in it.</p>
-      </div>
-    </div>
+    <div id="ctx-strip" data-ctx-strip style="margin-top:clamp(22px,3vw,34px)"></div>
+    <p class="pt-fine" style="max-width:70ch">Your answers stay in this browser, on this device. Nothing is sent to us and there is no password &mdash; so use a device that is yours, and don&rsquo;t put anything confidential in it. Whether you find your job through Ethicare, apply directly or use another recruiter, this is yours.</p>
   </div>
 </section>
 
-<!-- The six questions a move actually turns on. Written for someone arriving cold from a
-     link who has never heard of us: each one is useful on its own, so the page earns its
-     place even for a reader who never sets up a plan. -->
-<section class="pt-sec" data-screen="welcome" style="background:var(--soft)">
+<section class="pt-sec" id="journey" style="padding-top:clamp(28px,3.6vw,44px)">
   <div class="shell">
-    <p class="eyebrow">What it answers</p>
-    <h2 style="max-width:24ch">Six questions your plan helps you answer.</h2>
-    <div class="pt-q4">
-      <a class="pt-q" href="/can-i-work-there"><span class="n">01</span><h3>Can I work there?</h3><p>Every gate between you and practising: your regulator and the route most likely to apply to you, plus the standing, English, character and health requirements that actually set the timeline.</p><span class="go">See what it takes <i aria-hidden="true">&rarr;</i></span></a>
-      <a class="pt-q" href="/is-it-worth-it"><span class="n">02</span><h3>What could I earn?</h3><p>What the collective agreements actually pay, what varies on top of the scale, and what the tax and the cost of living do to it once you are there.</p><span class="go">Explore salaries <i aria-hidden="true">&rarr;</i></span></a>
-      <a class="pt-q" href="/cost-calculator"><span class="n">03</span><h3>Can we afford it?</h3><p>Registration, visas, flights, shipping, temporary accommodation and the bond — what the whole move costs, what an employer usually covers, and what you need in the bank before you fly.</p><span class="go">Work out the cost <i aria-hidden="true">&rarr;</i></span></a>
-      <a class="pt-q" href="/where-would-we-live"><span class="n">04</span><h3>Where could we live?</h3><p>Two countries, thirty-three destinations, and an honest account of the trade-offs rather than a brochure. Written for the whole household, not just the clinician.</p><span class="go">Explore places <i aria-hidden="true">&rarr;</i></span></a>
-      <a class="pt-q" href="/jobs/"><span class="n">05</span><h3>What jobs could I get?</h3><p>The roles we are recruiting now, the professions we cover, and the ones we are honest about not covering yet.</p><span class="go">See opportunities <i aria-hidden="true">&rarr;</i></span></a>
-      <a class="pt-q" href="/resources"><span class="n">06</span><h3>How do we plan it all?</h3><p>Registration, the job, the visa, the money, the move and your first month, put in the order they actually happen — with a note of what you have already done.</p><span class="go">See the library <i aria-hidden="true">&rarr;</i></span></a>
-    </div>
-    <p class="pt-fine" style="max-width:74ch;border:0;padding-top:22px">Ethicare Resourcing is a specialist healthcare recruitment and relocation consultancy, founded by a former NHS transformation manager, with clinical oversight from senior NHS consultants. We explain, sequence and keep a file moving &mdash; we don&rsquo;t give immigration advice, and the decisions stay with you, the regulator and the immigration authority.</p>
+    <div class="pt-next" data-next hidden></div>
+    <div class="pt-stages" data-stages style="margin-top:clamp(22px,3vw,34px)"></div>
+    <p class="pt-fine" style="margin-top:18px;max-width:70ch">Every stage stays open to you whatever you have ticked off. The order is the order most people need, not a rule.</p>
   </div>
 </section>
-
-<section class="pt-hero" data-screen="setup" hidden>
-  <div class="shell">
-    <button class="pt-quiet" type="button" data-go="welcome">&larr; Back</button>
-    <a class="pt-next" href="/pathway-checker" data-routed-next hidden style="margin-top:18px">
-      <p class="k">Start here</p>
-      <h2 data-rnexttitle></h2>
-      <p data-rnextnote></p>
-      <span class="go">Open this &rarr;</span>
-    </a>
-    <h2 style="margin-top:18px" data-setuph>Set up your plan</h2>
-    <p class="pt-lead" style="margin-bottom:32px" data-setuplead>A few quick answers &mdash; no email, and your name only if you want to give it. They shape everything you see from here, and you can change any of them later.</p>
-    <div class="pt-card">
-      <div class="pt-form">
-        <div>
-          <p class="pt-lbl">Where are you heading?</p>
-          <div class="pt-pills" data-destpills></div>
-        </div>
-        <div class="pt-two">
-          <div class="pt-f"><label for="ptProf">Your profession</label><select id="ptProf"></select><span class="pt-hint" data-profhint></span></div>
-          <div class="pt-f"><label for="ptOrigin">Moving from <span class="pt-opt">optional</span></label><select id="ptOrigin"></select><span class="pt-hint">Only used to price flights and shipping. Skip it and the rest of the plan still works.</span></div>
-        </div>
-        <div data-stagefield>
-          <p class="pt-lbl">Where are you in the move?</p>
-          <div class="pt-stack" data-stagepills></div>
-        </div>
-        <div class="pt-two">
-          <div class="pt-f"><label for="ptReg">Registration</label><select id="ptReg"></select><span class="pt-hint">Where you have got to with the regulator, if you have started.</span></div>
-          <div class="pt-f"><label for="ptWhen">When you hope to move</label><select id="ptWhen"></select></div>
-        </div>
-        <div class="pt-hh" data-household>
-          <p class="pt-lbl">Who is coming with you?</p>
-          <div class="pt-stack" data-hhwith></div>
-          <span class="pt-hint">This changes the plan itself &mdash; whether your partner can work, schools, childcare, and the order things need doing in.</span>
-          <div data-hhpartner hidden>
-            <p class="pt-lbl">Will your partner want to work?</p>
-            <div class="pt-stack" data-hhwork></div>
-          </div>
-          <div data-hhkids hidden>
-            <p class="pt-lbl">How old will your children be when you move?</p>
-            <div class="pt-pills" data-hhbands role="group" aria-label="Children&rsquo;s ages"></div>
-            <span class="pt-hint">Choose every band that applies. Ages decide whether childcare, school enrolment or university fees belong in your plan.</span>
-          </div>
-        </div>
-        <div class="pt-two">
-          <div class="pt-f"><label for="ptFirst">Your first name <span class="pt-opt">optional</span></label><input id="ptFirst" type="text" autocomplete="given-name" maxlength="40" spellcheck="false" placeholder="Leave blank if you would rather not"><span class="pt-hint">Only so the plan reads as yours.</span></div>
-        </div>
-        <p class="pt-err" id="pt-err" data-err role="alert" hidden></p>
-        <div><button class="pt-btn" type="button" data-save>Show my plan</button></div>
-        <p class="pt-fine" style="border:0;padding:0;margin:0">Your answers are here when you come back.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div data-screen="hub" hidden>
-  <section class="pt-hero">
-    <div class="shell">
-      <p class="eyebrow" data-eyebrow>Your plan</p>
-      <h2 data-greeting>Kia ora</h2>
-      <p class="pt-lead" data-hubintro></p>
-      <p class="pt-sub" style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px 22px"><a href="#setup" style="font-family:var(--display);font-weight:600;color:#02615D;text-decoration:underline;text-underline-offset:3px">Change my answers</a><a href="#welcome" style="font-family:var(--display);font-weight:600;color:#02615D;text-decoration:underline;text-underline-offset:3px">What Ethicare Move is</a></p>
-      <ol class="pt-phases" data-phases aria-label="Where you are in the move"></ol>
-    </div>
-  </section>
-
-  <div class="shell">
-    <a class="pt-next" href="/pathway-checker" data-next>
-      <p class="k">Your next step</p>
-      <h2 data-nexttitle></h2>
-      <p data-nextnote></p>
-      <span class="go">Open this &rarr;</span>
-    </a>
-    <p class="pt-fine" style="border:0;padding:0;margin:18px 0 0"><a href="#doing" style="font-family:var(--display);font-weight:600;color:#02615D;text-decoration:underline;text-underline-offset:3px">Open everything still to arrange &rarr;</a> &mdash; every task, what it costs and what you get back, in one place. Built from the answers above; you will not be asked again.</p>
-  </div>
-
-  <div class="shell" data-space hidden>
-    <a class="pt-space" href="/your-ethicare-space">
-      <p class="k" data-space-eyebrow>When you accept</p>
-      <h3>Your Ethicare Space</h3>
-      <p data-space-note></p>
-      <span class="go">See an example &rarr;</span>
-    </a>
-  </div>
-
-  <section class="pt-sec">
-    <div class="shell">
-      <h2>Your journey<span class="pt-jcount" data-jcount></span></h2>
-      <p class="note">Nothing is locked. This is the order most people find easiest, with where you said you are marked, and anything you have already started shown as started.</p>
-      <div class="pt-steps" data-steps></div>
-    </div>
-  </section>
-
-  <section class="pt-sec">
-    <div class="shell">
-      <h2>Your tools and guides</h2>
-      <p class="note">Your profession and destination lifted to the top. The full library is in <a href="/resources" style="font-weight:600">guides &amp; resources</a>.</p>
-      <div class="pt-grid2">
-        <div class="pt-card">
-          <p class="pt-k">Tools</p>
-          <div data-tools></div>
-        </div>
-        <div class="pt-card">
-          <p class="pt-k">Guides for your route</p>
-          <div class="pt-list" data-guides></div>
-        </div>
-      </div>
-      <div class="pt-card" style="margin-top:clamp(18px,2.4vw,26px)">
-        <p class="pt-k">Saved by you</p>
-        <div data-saved-list></div>
-      </div>
-      <div class="pt-reg">
-        <p class="pt-k" style="margin-bottom:8px">Your regulator</p>
-        <p data-regline></p>
-        <a data-reghref href="/pathway-checker" target="_blank" rel="noopener" style="font-family:var(--display);font-size:14px;font-weight:600">Fees and requirements &rarr;</a>
-      </div>
-    </div>
-  </section>
 
   <section class="pt-sec" id="send">
     <div class="shell">
@@ -412,41 +294,33 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
       <div class="pt-card" data-send-off hidden style="max-width:760px">
         <p class="pt-k">Where this leaves you</p>
         <p class="pt-fine" data-send-off-line style="font-size:15.5px;line-height:1.65;color:#333333;margin:10px 0 0"></p>
-        <p class="pt-fine" style="margin-top:12px">Everything on this page keeps working either way &mdash; the plan, the costs, the checklist and the guides are yours whether or not we ever place you. If you have a question, <a href="/contact">ask us</a> and we will answer it honestly, including when the answer is that we cannot help.</p>
+        <p class="pt-fine" style="margin-top:12px">Everything on this page keeps working either way &mdash; the plan, the costs, the checklist and the guides are yours whether or not we ever place you. If you have a question, <a href="/contact">ask us</a> and we will answer it including when the answer is that we cannot help.</p>
       </div>
     </div>
   </section>
 
   <section class="pt-details">
     <div class="shell">
-      <h2 style="font-family:var(--display);font-size:clamp(22px,2.6vw,28px);font-weight:600;color:var(--teal);margin-bottom:6px">Your details</h2>
-      <p class="note" style="font-size:15.5px;line-height:1.6;color:var(--muted);max-width:64ch;margin-bottom:22px">Every tool reads these, so changing one here changes it everywhere.</p>
-      <div class="pt-card" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px">
-        <div>
-          <p class="pt-lbl">Destination</p>
-          <div class="pt-pills" data-destpills2></div>
-        </div>
-        <div class="pt-f"><label for="ptProf2">Profession</label><select id="ptProf2"></select></div>
-        <div class="pt-f"><label for="ptStage2">Stage</label><select id="ptStage2"></select></div>
-      </div>
-      <div class="pt-card" style="margin-top:18px">
-        <p class="pt-k">Your full plan, as a document</p>
-        <p class="note" style="max-width:64ch">Your journey, matched guides, saved pages and next step, ready to view or download.</p>
+      <h2 style="font-family:var(--display);font-size:clamp(22px,2.6vw,28px);font-weight:600;color:var(--teal);margin-bottom:6px">Keep this plan</h2>
+      <p class="note" style="font-size:15.5px;line-height:1.6;color:var(--muted);max-width:64ch;margin-bottom:22px">Your answers shape every tool on the site; change them in the strip at the top and everything follows.</p>
+      <div class="pt-card">
+        <p class="pt-k">Your plan, as a document</p>
+        <p class="note" style="max-width:64ch">The eight stages, your answers, saved pages and next step, ready to view, print or download.</p>
         <div class="pt-signrow" style="margin-top:10px">
           <button class="pt-btn ghost" type="button" data-doc="view">View as a page</button>
           <button class="pt-btn ghost" type="button" data-doc="word">Download as Word</button>
         </div>
       </div>
       <div class="pt-card" style="margin-top:18px">
-        <p class="pt-k">Save this and come back on another device</p>
-        <p class="note" style="max-width:64ch">There is no account yet, so this is a link rather than a login: it carries your plan and saved guides, and opening it anywhere restores everything exactly.</p>
+        <p class="pt-k">Open it on another device</p>
+        <p class="note" style="max-width:64ch">There is no account, so this is a link rather than a login: it carries your answers, the stages you have ticked off and your saved pages, and opening it anywhere restores them.</p>
         <div class="pt-signrow" style="margin-top:10px">
           <button class="pt-btn ghost" type="button" data-getlink>Get my link</button>
         </div>
         <div data-linkbox hidden style="margin-top:14px">
           <div class="pt-two" style="align-items:center">
             <input data-linkout type="text" readonly aria-label="Your plan link" style="font-size:14px" onclick="this.select()">
-            <div class="pt-signrow" style="margin:0"><button class="pt-quiet" type="button" data-linkcopy>Copy link<span data-linkcopied style="margin-left:8px;color:#2F5E49"></span></button><a class="pt-quiet" data-linkmail href="#">Email it to myself</a></div>
+            <div class="pt-signrow" style="margin:0"><button class="pt-quiet" type="button" data-linkcopy>Copy link<span data-linkcopied style="margin-left:8px;color:#2F5E49"></span></button></div>
           </div>
         </div>
       </div>
@@ -454,22 +328,8 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
         <a class="pt-btn ghost" href="/apply">Send us your CV</a>
         <button class="pt-quiet" type="button" data-clear>Clear my plan from this device</button>
       </div>
-      <p class="pt-fine" style="max-width:70ch">This plan lives in this browser only. There is no sign-in yet, so it will not follow you to another device &mdash; and clearing your browsing data clears it. A signed-in version &mdash; where your plan follows you to any device and our team can pick up the thread with you, is the next thing we build.</p>
     </div>
   </section>
-</div>
-
-<!-- The doing view. Was /my-move until 31 Aug 2026: a fourth door that only worked by
-     reading this page's answers, so it was a view of the plan rather than a peer of it.
-     React and the planner load lazily the first time this view is opened, so the plan
-     itself stays a vanilla page. The planner renders its own h1 — do not add one here. -->
-<div data-screen="doing" hidden>
-  <div class="shell" style="padding-top:clamp(20px,3vw,30px)">
-    <button class="pt-quiet" type="button" data-go="hub">&larr; Back to your plan</button>
-  </div>
-  <div id="root"></div>
-  <p class="pt-fine shell" data-planner-fail hidden>This part of your plan needs JavaScript to load. <a href="/moving-checklist">Your moving checklist</a> covers the same ground without it.</p>
-</div>
 
 <section class="pt-sec" id="myfile" data-myfile-dash hidden>
   <div class="shell">
@@ -478,7 +338,6 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
     <div data-myfile-list></div>
   </div>
 </section>
-
 
 <div class="shell" style="padding:clamp(36px,5vw,64px) 0 clamp(44px,6vw,76px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
@@ -489,7 +348,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
     <div class="f-cols">
       <div class="f-brand">
         <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
-        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Support through one of life’s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
           <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
@@ -513,6 +372,8 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 <script src="analytics.js"></script>
 <script src="relocation-cost-data.js"></script>
 <script src="portal-professions.js"></script>
+<script src="journey.js"></script>
+<script src="candidate-context.js"></script>
 <script src="journey-nav.js"></script>
 <script src="move.js"></script>
 
@@ -542,8 +403,9 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
   var preview = document.querySelector('[data-plan-preview]');
   var hidden = form.querySelector('[data-plan-summary]');
 
-  var STAGE = { exploring: 'Just exploring the idea', applying: 'Applying or interviewing',
-    offer: 'Has an offer to consider', moving: 'Accepted \u2014 planning the move', arrived: 'Already there' };
+  var STAGE = {};
+  (window.ETHICARE_JOURNEY || []).forEach(function (j) { STAGE[j.id] = 'Stage 0' + j.n + ' \u00b7 ' + j.there; });
+  STAGE.exploring = 'Just exploring the idea'; STAGE.applying = 'Applying or interviewing'; STAGE.offer = 'Has an offer to consider'; STAGE.moving = 'Accepted \u2014 planning the move'; STAGE.arrived = 'Already there';
   var TOOLS = {
     'ethicare_pathway_checker_draft_v1': 'Registration pathway',
     'ethicare-cv-builder-v1': 'CV builder',
@@ -561,10 +423,13 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
     return out.filter(function (v, i, a) { return a.indexOf(v) === i; });
   }
   function rows() {
-    var S = plan(), t = started(), r = [];
-    r.push(['Destination', S.dest === 'au' ? 'Australia' : 'New Zealand']);
-    r.push(['Profession', S.profession ? String(S.profession).replace(/[-_]/g, ' ') : 'not set']);
-    r.push(['Stage', STAGE[S.stage] || 'not set']);
+    var S = plan(), t = started(), r = [], ctx = window.EthicareContext;
+    r.push(['Destination', ctx && ctx.destLabel() ? ctx.destLabel() : 'not set']);
+    r.push(['Profession', ctx && (ctx.professionLabel() || ctx.profession()) ? (ctx.professionLabel() || ctx.profession()) : 'not set']);
+    r.push(['Household', ctx && ctx.householdPhrase() ? 'Moving ' + ctx.householdPhrase() : 'not set']);
+    r.push(['Stage', ctx && ctx.stageLabel() ? ctx.stageLabel() : (STAGE[S.stage] || 'not set')]);
+    var done = S.done ? Object.keys(S.done).filter(function (k) { return S.done[k]; }) : [];
+    if (done.length) r.push(['Stages sorted', done.map(function (k) { return (STAGE[k] || k); }).join(', ')]);
     if (S.origin) r.push(['Qualified in', String(S.origin).toUpperCase()]);
     r.push(['Tools started', t.length ? t.join(', ') : 'none yet']);
     return r;
@@ -581,11 +446,9 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
     if (hidden) hidden.value = rows().map(function (r) { return r[0] + ': ' + r[1]; }).join(' \u00b7 ');
   });
   paint();
+  window.addEventListener('ethicare:context', function () { setTimeout(paint, 30); });
   document.addEventListener('click', function (e) {
-    if (e.target.closest && e.target.closest('[data-save],[data-destpills2],[data-clear]')) setTimeout(paint, 60);
-  });
-  document.addEventListener('change', function (e) {
-    if (/^pt(Prof2|Stage2)$/.test(e.target.id || '')) setTimeout(paint, 60);
+    if (e.target.closest && e.target.closest('[data-done],[data-here],[data-clear]')) setTimeout(paint, 60);
   });
 })();
 </script>

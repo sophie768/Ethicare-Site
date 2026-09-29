@@ -1,4 +1,4 @@
-/* Your Ethicare — a candidate's private space at /pack/<slug>.
+/* My Move — an Ethicare candidate's private space at /pack/<slug>.
    Sectioned, not one long page: a left rail of sections, one panel at a time.
    Literal colour values throughout — these pages sit outside site.css/shell.css, and an
    unresolved custom property fails silently (CLAUDE.md), which on a private page nobody
@@ -148,6 +148,59 @@ textarea:focus{outline:3px solid #02615D;outline-offset:1px;border-color:#02615D
 .ccontact{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;margin:0}
 .ccontact a{display:inline-flex;align-items:center;min-height:24px}
 .fmeta{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.3);font-size:13px;color:#fff}
+/* "Your move" — the eight stages, painted by move.js (the public /move engine) into this
+   page. Literal values, like everything else here: move.html's version of these rules
+   reads site.css custom properties, which this page does not load. The answers strip
+   (candidate-context.js) carries its own styles. */
+/* minmax(0,1fr): plain 1fr has an auto minimum, and the answers strip's longest pill would size the track past a phone (README, same bug as the rail). */
+.mv-wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}.mv-wrap>*{min-width:0}
+.pt-next{display:block;background:#02615D;border-radius:16px;padding:clamp(22px,3vw,34px);text-decoration:none}
+.pt-next[hidden]{display:none}
+.pt-next .k{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C6E084;margin-bottom:10px}
+.pt-next h2{font-family:'Work Sans',sans-serif;font-size:clamp(21px,2.6vw,28px);font-weight:600;line-height:1.2;color:#fff;margin:0 0 8px;text-wrap:pretty}
+.pt-next p{font-size:15.5px;line-height:1.6;color:rgba(255,255,255,.84);max-width:62ch;margin:0 0 16px;text-wrap:pretty}
+.pt-btn{font-family:'Work Sans',sans-serif;font-size:15px;font-weight:600;min-height:48px;padding:12px 24px;border-radius:12px;border:0;background:#02615D;color:#fff;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.pt-btn:hover{background:#014A47}
+.pt-btn.ghost{background:none;border:2px solid #02615D;color:#02615D}
+.pt-btn.ghost:hover{background:#E6F1ED}
+.pt-next .pt-btn{background:#A6C84A;color:#01312F}.pt-next .pt-btn:hover{background:#C6E084;color:#01312F}
+.pt-btn i{font-style:normal}
+.pt-stages{display:grid;gap:10px}
+.pt-stage{background:#fff;border:1px solid #C9DED3;border-radius:16px;overflow:hidden}
+.pt-stage.now{border-color:#02615D;box-shadow:inset 0 0 0 1px #02615D}
+.pt-stage.done .pt-stage-t{color:#555}
+.pt-stage-h{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:0;padding:clamp(14px,2vw,18px) clamp(16px,2.4vw,22px);cursor:pointer;font:inherit;min-height:56px;color:inherit}
+.pt-stage-h:hover{background:#F7F4EE}
+.pt-num{display:grid;place-items:center;flex:none;width:32px;height:32px;border-radius:50%;border:2px solid rgba(2,97,93,.3);background:#fff;font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:#555}
+.pt-stage-t{font-family:'Work Sans',sans-serif;font-size:clamp(15.5px,1.9vw,17.5px);font-weight:600;color:#02615D;flex:1 1 auto;min-width:0}
+.pt-stage-x{font-family:'Work Sans',sans-serif;font-size:20px;color:#555;flex:none;width:24px;text-align:center}
+.pt-badge{font-family:'Work Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap;background:#F7F4EE;color:#555}
+.pt-badge.now{background:#02615D;color:#fff}
+.pt-badge.live{background:#E6F1ED;color:#2F5E49}
+.pt-stage-b{padding:0 clamp(16px,2.4vw,22px) clamp(18px,2.4vw,22px);border-top:1px solid #C9DED3}
+.pt-item{padding:16px 0 4px;border-bottom:1px solid rgba(2,97,93,.25)}
+.pt-item:last-of-type{border-bottom:0}
+.pt-item h3{font-family:'Work Sans',sans-serif;font-size:15.5px;font-weight:600;color:#02615D;margin:0 0 6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pt-item p{font-size:14.5px;line-height:1.6;color:#555;max-width:64ch;margin:0 0 12px;text-wrap:pretty}
+.pt-item .pt-btn{margin:0 0 12px}
+.pt-links{display:flex;flex-wrap:wrap;gap:10px 22px}
+.pt-links a{min-height:24px;font-family:'Work Sans',sans-serif;font-size:14px;font-weight:600}
+.pt-ask{margin-top:16px;padding:16px 18px;background:#E6F1ED;border-radius:14px}
+.pt-lbl{display:block;font-family:'Work Sans',sans-serif;font-size:13.5px;font-weight:600;color:#02615D;margin:0 0 10px}
+.pt-hint{display:block;font-size:13px;line-height:1.5;color:#555;margin-top:8px}
+.pt-pills{display:flex;flex-wrap:wrap;gap:8px}
+.pt-pill{font-family:'Work Sans',sans-serif;font-size:14px;font-weight:600;min-height:44px;padding:10px 18px;border-radius:999px;border:1.5px solid #C9DED3;background:#fff;color:#555;cursor:pointer}
+.pt-pill:hover{border-color:#2F5E49;color:#02615D}
+.pt-pill.on{background:#02615D;border-color:#02615D;color:#fff}
+.pt-signrow{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-top:20px}
+.pt-quiet{background:none;border:0;padding:0;min-height:24px;font-family:'Work Sans',sans-serif;font-size:14px;font-weight:600;color:#555;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.pt-quiet:hover{color:#A34438}
+.mv-foot{font-size:14px;line-height:1.6;color:#555;margin:8px 0 0;max-width:62ch}
+html[data-country=au] .pt-stage,html[data-country=au] .pt-stage-b,html[data-country=au] .pt-pill{border-color:#EBDFD3}
+html[data-country=au] .pt-stage.now{border-color:#02615D}
+html[data-country=au] .pt-ask,html[data-country=au] .pt-badge.live{background:#F3F7F4}
+@media print{.pt-next,.pt-signrow,.pt-ask,#ctx-strip{display:none}.pt-stage-b{display:block}}
+
 /* Print: every section on one sheet, each under its own heading (set by pack.js as
    data-print-title; the cover panel needs none - its letter and facts carry their own). Guide
    cards print their address, since a card on paper has nothing to tap. */

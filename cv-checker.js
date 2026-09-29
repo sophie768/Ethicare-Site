@@ -108,7 +108,7 @@
     var hits = [];
     for (var i = 0; i < PERSONAL.length; i++) { if (PERSONAL[i].re.test(t)) hits.push(PERSONAL[i].label); }
     if (!hits.length) return { s: 'good', t: 'No personal details that should not be there', p: 'No date of birth, nationality, marital status or identity number. Convention in both countries is that none of it belongs on a CV, and including it can make a reader uneasy about handling the document at all.' };
-    return { s: 'fix', t: 'Details that do not belong on the page', p: 'These are standard on a CV in some countries and are not asked for in ' + dest() + '. Take them off. Where an immigration or registration process genuinely needs them, they are collected separately and securely.', list: hits };
+    return { s: 'fix', t: 'Details that do not belong on the page', p: 'These are standard on a CV in some countries and are not asked for in ' + dest() + '. Take them off. Where an immigration or registration process needs them, they are collected separately and securely.', list: hits };
   }
 
   function checkLocal(t) {
@@ -168,7 +168,7 @@
   function checkVoice(t) {
     var lower = t.toLowerCase(), hits = found(PASSIVE, lower);
     if (!hits.length) return { s: 'good', t: 'Written in the active voice', p: 'No duty lists. Led, managed, developed, trained \u2014 that is what a reader is looking for.' };
-    if (hits.length <= 2) return { s: 'watch', t: 'A little duty-list language', p: 'A few phrases describe the job rather than what you did in it. Swap them for what you actually did: led, ran, set up, trained, redesigned.', list: hits };
+    if (hits.length <= 2) return { s: 'watch', t: 'A little duty-list language', p: 'A few phrases describe the job rather than what you did in it. Swap them for what you did: led, ran, set up, trained, redesigned.', list: hits };
     return { s: 'fix', t: 'It reads as a job description', p: 'Phrases like these describe what the post involved, not what you contributed \u2014 and a reader cannot tell a strong clinician from an average one in the same post. Rewrite each as something you did.', list: hits };
   }
 

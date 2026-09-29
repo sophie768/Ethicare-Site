@@ -172,6 +172,30 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-nextgrid .l{display:block;font-size:13.5px;line-height:1.5;color:var(--muted)}
 /* ---------- step nav ---------- */
 .cc-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:26px;flex-wrap:wrap}
+/* 29 Sep 2026 — one question at a time, then the estimate with its refinements folded under it */
+.cc-alines{padding:6px clamp(20px,2.4vw,24px)}
+.cc-aline{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding:11px 0;border-bottom:1px solid var(--soft)}
+.cc-aline:last-child{border-bottom:0}
+.cc-ak{font-family:var(--display);font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);flex:0 0 150px}
+.cc-av{font-family:var(--display);font-size:15px;font-weight:600;color:var(--teal);flex:1 1 auto}
+.cc-aline .cc-link{margin-left:auto}
+.cc-q1 h3{font-size:clamp(18px,1.9vw,21px)}
+.cc-row-pills.mt{margin-top:14px}
+.cc-groups{margin:26px 0 18px}
+.cc-gtitle{font-family:var(--display);font-size:clamp(18px,1.9vw,21px);font-weight:600;color:var(--teal);margin:0 0 12px}
+.cc-group{background:#fff;border:1px solid var(--mint);border-radius:var(--r-lg);margin-bottom:10px;overflow:hidden}
+.cc-group.is-open{border-color:var(--teal)}
+.cc-gh{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:none;border:0;padding:16px clamp(18px,2.4vw,24px);cursor:pointer;font:inherit;min-height:56px;color:inherit}
+.cc-gh:hover{background:#FCFBF8}
+.cc-gt{flex:1 1 auto;min-width:0;font-family:var(--display);font-size:16.5px;font-weight:600;color:var(--teal);display:flex;flex-direction:column;gap:3px}
+.cc-gs{font-family:var(--body);font-size:13.5px;font-weight:500;color:var(--muted);line-height:1.4}
+.cc-gv{font-family:var(--display);font-size:16px;font-weight:700;color:var(--text);white-space:nowrap}
+.cc-gx{font-family:var(--display);font-size:20px;color:var(--muted);width:22px;text-align:center;flex:none}
+.cc-gb{padding:4px clamp(18px,2.4vw,24px) 6px;border-top:1px solid var(--soft)}
+.cc-gb[hidden]{display:none}
+.cc-gb .cc-card{box-shadow:none;border:1px solid var(--soft);padding:18px;margin:16px 0}
+.cc-tab[disabled]{opacity:.45;cursor:default}
+@media print{.cc-gh{pointer-events:none}.cc-gb{display:block!important}}
 .cc-back,.cc-nextb{display:inline-flex;align-items:center;gap:9px;min-height:48px;font-family:var(--display);font-weight:600;font-size:15px;border-radius:var(--r-sm);cursor:pointer}
 .cc-back{color:var(--teal);background:none;border:none;padding:0 16px}
 .cc-back:hover{background:var(--soft)}
@@ -308,7 +332,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
       <span class="eyebrow">Cost of moving calculator</span>
       <h1>How much will it cost to move?</h1>
       <p class="said">Know the number before you commit to it.</p>
-      <p class="lede">Answer a few questions and we&rsquo;ll build a realistic estimate of the money you need to make the move and get established &mdash; registration, visas, flights, the rental bond and the gap before your first salary.</p>
+      <p class="lede">Answer a few questions and we&rsquo;ll build a likely estimate of the money you need to make the move and get established &mdash; registration, visas, flights, the rental bond and the gap before your first salary.</p>
       <div class="cc-ticks">
         <span><svg viewBox="0 0 24 24" fill="none" stroke="#2F5E49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Two to three minutes</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="#2F5E49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Every figure editable &mdash; and sourced</span>
@@ -335,7 +359,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   <section class="cc-how" data-screen-label="How the figures work">
     <div class="in">
       <span class="eyebrow">How the figures work</span>
-      <h2>An honest estimate says where each number came from</h2>
+      <h2>An estimate says where each number came from</h2>
       <p class="lede">Most relocation costs cannot be quoted in advance, so a single &ldquo;average cost to relocate&rdquo; figure is worth very little. This calculator separates what is published from what is estimated, and shows you which is which on every line.</p>
       <div class="cc-hows">
         <div><div class="n">01</div><h3>Published charges, taken from the source</h3><p>Visa charges and regulator fees are labelled as official, with a link to the schedule they came from and the date we last checked it. Bond and rent in advance are calculated from the tenancy rule where you are moving.</p></div>
@@ -374,7 +398,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
     <div class="f-cols">
       <div class="f-brand">
         <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
-        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Support through one of life’s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
           <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>

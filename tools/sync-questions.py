@@ -19,7 +19,7 @@ This script does three things with that file:
   4. (29 Sep 2026) writes the eight-stage JOURNEY BAND on every guide page from
      the `journey` list, writes journey.js for the tools and the answers strip,
      renumbers "Stage 0N" references when the order changes, and checks
-     move-steps.html against the same list. Each band carries data-stage, the
+     move.js against the same list. Each band carries data-stage, the
      id of the page's own stage; the first run inferred it from the number the
      old band left out.
 
@@ -193,18 +193,22 @@ def journey_js():
                 "journeyToMove": MIG.get("journey_to_move_stage", {})}, indent=2) + ";\n")
 
 
-def check_move_steps(problems):
-    """move-steps.html carries the eight stages as sections; their headings must be the file's,
-    in the file's order."""
-    p = ROOT / "move-steps.html"
+def check_move(problems):
+    """/move renders the eight stages from journey.js at run time, so there is nothing static to
+    compare — but move.js keys its tool table and stage items by journey id, so every id it names
+    must exist in questions.json, and it must name all eight."""
+    p = ROOT / "move.js"
     if not p.exists():
         return
     src = p.read_text(encoding="utf-8")
-    heads = re.findall(r'<section[^>]*id="s(\d)"[\s\S]*?<h[12][^>]*>([^<]+)</h[12]>', src)
-    want = [(str(j["n"]), j.get("label_there", j["label"])) for j in JOURNEY]
-    got = [(n, html.unescape(h).strip()) for n, h in heads[:8]]
-    if got != want:
-        problems.append(("move-steps.html", f"stage headings/order differ from questions.json: {got}"))
+    ids = set(re.findall(r"""case\s+'([a-z]+)'\s*:""", src))
+    want = {j["id"] for j in JOURNEY}
+    missing = want - ids
+    if missing:
+        problems.append(("move.js", f"journey stages without a case in stages(): {sorted(missing)}"))
+    unknown = ids - want - {"nz", "au", "both", "any"}
+    if unknown:
+        problems.append(("move.js", f"stage cases not in questions.json: {sorted(unknown)}"))
 
 
 NUMBERED = re.compile(r"\b[Qq]uestion (one|two|three|four|five|six|\d)\b")
@@ -311,7 +315,7 @@ def main():
     for f, t in sorted(set(numbered_hits)):
         print(f"   {f}  ·  {t}")
 
-    check_move_steps(band_problems)
+    check_move(band_problems)
     print(f"\n=== journey bands written: {len(band_pages)}")
     for f in band_pages:
         print("   ", f)

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ethicareresourcing.com/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -2577,13 +2577,8 @@
   </url>
   <url>
     <loc>https://ethicareresourcing.com/move</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ethicareresourcing.com/move-steps</loc>
-    <lastmod>2026-09-20</lastmod>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ethicareresourcing.com/moving-checklist</loc>
@@ -2647,11 +2642,6 @@
   </url>
   <url>
     <loc>https://ethicareresourcing.com/where-would-we-live</loc>
-    <lastmod>2026-09-20</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ethicareresourcing.com/your-ethicare-space</loc>
     <lastmod>2026-09-20</lastmod>
     <priority>0.6</priority>
   </url>

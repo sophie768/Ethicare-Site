@@ -86,6 +86,30 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 .act .q{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(19px,1.7vw,22px);line-height:1.18;letter-spacing:-.01em;color:#02615D}
 .act .go{margin-top:auto;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;color:#2F5E49;display:inline-flex;align-items:center;gap:8px}
 .act:hover .go{color:#02615D}.act .go i{font-style:normal;transition:transform .18s ease}.act:hover .go i{transform:translateX(4px)}
+/* the journey strip (29 Sep 2026): the eight stages under the six questions, rendered from
+   journey.js so the wording and order can only come from questions.json. Stages 3–7 ARE the
+   six questions; 1, 2 and 8 sit either side. If the person has told us where they are, that
+   stage is marked; links follow their country once they have chosen one. */
+.jstrip{margin-top:clamp(26px,3vw,40px);padding-top:clamp(18px,2vw,26px);border-top:1px solid #C9DED3}
+.jstrip[hidden]{display:none}
+.jstrip .js-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 18px;margin-bottom:12px}
+.jstrip .eyebrow{margin:0}
+.jstrip .js-note{font-size:14px;color:#555;margin:0}
+.jstrip ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
+.jstrip li{position:relative}
+.jstrip a{display:flex;flex-direction:column;gap:6px;min-height:100%;padding:12px 12px 12px;border-radius:12px;border:1px solid #E6F1ED;background:#fff;text-decoration:none;color:#01312F;transition:border-color .16s ease,transform .16s ease}
+.jstrip a,.jstrip a span{text-decoration:none!important;background-image:none}
+.jstrip a:hover{border-color:#02615D;transform:translateY(-2px)}
+.jstrip a:focus-visible{outline:3px solid #02615D;outline-offset:2px}
+.jstrip .js-n{font-family:'Work Sans',sans-serif;font-weight:600;font-size:12px;letter-spacing:.08em;color:#2F5E49}
+.jstrip .js-l{font-family:'Work Sans',sans-serif;font-weight:500;font-size:14px;line-height:1.3;letter-spacing:-.005em}
+.jstrip li.here a{background:#02615D;border-color:#02615D;color:#fff}
+.jstrip li.here .js-n{color:#C6E084}
+.jstrip li.here .js-n::after{content:" · you are here";letter-spacing:0;text-transform:none;font-weight:500}
+.jstrip li.done a{background:#E6F1ED;border-color:#E6F1ED}
+.jstrip li.done .js-l{color:#2F5E49}
+@media(max-width:900px){.jstrip ol{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:520px){.jstrip ol{grid-template-columns:repeat(2,1fr)}.jstrip a{padding:10px 11px}}
 
 /* 5 — PERSONALISE. Ask Ethicare as a product. The component's own styles now live in
    ask-ethicare.css, shared with /ask so the two cannot drift. Markup here is read by
@@ -358,8 +382,8 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
   <div class="wrapx">
     <div class="work-head">
       <span class="eyebrow">Tell us where you are</span>
-      <h2>Could this actually work for me?</h2>
-      <p class="wh-sub">Six honest questions, and a tool for each &mdash; start with whichever one matters most right now.</p>
+      <h2>Could this work for me?</h2>
+      <p class="wh-sub">Six questions, and a tool for each. Begin with whichever matters most right now.</p>
     </div>
     <div class="acts">
       <a class="act" href="/can-i-work-there"><span class="q">Can I work there?</span><span class="sub2">Registration, standing, English, character and health — and the tool that maps your route.</span><span class="go">See what it takes <i aria-hidden="true">&rarr;</i></span></a>
@@ -369,6 +393,10 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
       <a class="act" href="/jobs/"><span class="q">What jobs could I get?</span><span class="sub2">Live roles and the professions we recruit.</span><span class="go">See opportunities <i aria-hidden="true">&rarr;</i></span></a>
       <a class="act" href="/move"><span class="q">How do we plan it all?</span><span class="sub2">One plan for registration, visa, money and the first month.</span><span class="go">Build your plan <i aria-hidden="true">&rarr;</i></span></a>
     </div>
+    <nav class="jstrip" data-jstrip aria-label="The eight stages of the journey" hidden>
+      <div class="js-head"><span class="eyebrow">The whole journey, in order</span><p class="js-note" data-jstrip-note>Eight stages. The six questions are the middle of it. Start wherever you are.</p></div>
+      <ol data-jstrip-list></ol>
+    </nav>
   </div>
 </section>
 
@@ -436,7 +464,7 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
   <div class="wrapx">
     <span class="eyebrow">For employers</span>
     <h2>Recruit. Relocate. Retain.</h2>
-    <p>Finding the right professional is only the beginning. Ethicare brings recruitment and mobilisation together &mdash; so the people you bring halfway around the world actually arrive, and stay.</p>
+    <p>Finding the right professional is only the beginning. Ethicare brings recruitment and mobilisation together &mdash; so the people you bring halfway around the world arrive, and stay.</p>
     <a class="txtlink" href="/employers">Ethicare for employers <i aria-hidden="true">&rarr;</i></a>
   </div>
 </section>
@@ -464,7 +492,7 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
       </details>
       <details class="faq-item">
         <summary><span>Why are you currently focusing on medical imaging roles in Australia?</span><span class="ic" aria-hidden="true"></span></summary>
-        <div class="ans"><p>We&rsquo;re deliberately starting with the areas where we have strong employer relationships and specialist recruitment experience. In Australia, that&rsquo;s currently medical imaging &mdash; radiographers, mammographers, sonographers and other imaging professionals.</p><p>We&rsquo;d rather offer genuine expertise and realistic opportunities in a smaller number of professions than advertise roles we can&rsquo;t properly support. We expect to broaden this over time, and you can <a href="/jobs/coming-to-australia">tell us your profession</a> so we can let you know when it opens.</p></div>
+        <div class="ans"><p>We work in the areas where we have strong employer relationships and specialist recruitment experience. In Australia, that&rsquo;s currently medical imaging &mdash; radiographers, mammographers, sonographers and other imaging professionals.</p><p>We&rsquo;d rather offer genuine expertise and realistic opportunities in a smaller number of professions than advertise roles we can&rsquo;t properly support. We expect to broaden this over time, and you can <a href="/jobs/coming-to-australia">tell us your profession</a> so we can let you know when it opens.</p></div>
       </details>
     </div>
     <details class="faq-wrap">
@@ -500,7 +528,7 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
     <div class="f-cols">
       <div class="f-brand">
         <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
-        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves. Most of what we&rsquo;ve built is free to use, whether we place you or not.</p>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Support through one of life’s biggest moves. Most of what we&rsquo;ve built is free to use, whether we place you or not.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
           <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
@@ -525,6 +553,32 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 <script src="ask-ethicare.js" defer></script>
 <script src="journey.js"></script>
 <script src="candidate-context.js"></script>
+<script>(function(){
+  /* the journey strip under the six questions. Reads journey.js for the eight stages and the
+     shared answers (EthicareContext) for where the person is and which country they chose. */
+  var nav=document.querySelector('[data-jstrip]'),list=nav&&nav.querySelector('[data-jstrip-list]'),note=nav&&nav.querySelector('[data-jstrip-note]');
+  var J=window.ETHICARE_JOURNEY;if(!nav||!list||!J||!J.length)return;
+  var ctx=window.EthicareContext;
+  function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+  function paint(){
+    var dest=ctx&&ctx.has()?ctx.dest():'',stage=ctx&&ctx.has()?ctx.stage():'';
+    var cur=-1;J.forEach(function(s,i){if(s.id===stage)cur=i;});
+    list.innerHTML=J.map(function(s,i){
+      var href=(dest&&s.href[dest])||s.href.any||'/';
+      var cls=i===cur?' class="here"':(cur>i?' class="done"':'');
+      var aria=i===cur?' aria-current="step"':'';
+      return '<li'+cls+'><a href="'+esc(href)+'"'+aria+'><span class="js-n">'+(s.n<10?'0'+s.n:s.n)+'</span><span class="js-l">'+esc(s.there)+'</span></a></li>';
+    }).join('');
+    if(note){
+      if(cur>=0)note.textContent='Stage '+(cur+1)+' of 8. '+(cur<7?'What comes next is on the right; the earlier stages are still here if you need them.':'Everything before this is still here if you need it.');
+      else if(dest)note.textContent='Eight stages, with the links set to '+(ctx.destLabel?ctx.destLabel():'your country')+'. Start wherever you are.';
+      else note.textContent='Eight stages. The six questions are the middle of it. Start wherever you are.';
+    }
+    nav.hidden=false;
+  }
+  paint();
+  if(ctx&&ctx.onChange)ctx.onChange(paint);
+})();</script>
 <script src="site.js"></script>
 <script src="nav.js" defer></script>
 <script src="essential.js" defer></script>

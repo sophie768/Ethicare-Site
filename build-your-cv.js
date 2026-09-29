@@ -369,7 +369,7 @@
 
     if (p === 'radiography') {
       if (inS(/\bct\b|computed tomog/) && !inH(/\bct\b|computed tomog/)) {
-        obs.push('CT is in your skills but your employment history does not show how much of it you actually do. That is the first thing a client asks us, so it is worth answering on the page.');
+        obs.push('CT is in your skills but your employment history does not show how much of it you do. That is the first thing a client asks us, so it is worth answering on the page.');
       }
       if (!/emergency|trauma|theatre|mobile|on.call|out.of.hours/.test(both)) {
         obs.push('Nothing here says whether you cover emergency, theatre, mobile or out-of-hours work. Those four lines change which departments we can put you forward for.');
@@ -574,7 +574,7 @@
     });
     /* destination-aware placeholder */
     var why = $('[data-field="cvSumWhy"]');
-    if (why) why.placeholder = 'Why ' + country() + '? One honest sentence';
+    if (why) why.placeholder = 'Why ' + country() + '? One sentence';
 
     groupChips();
     equipCopy();
@@ -606,7 +606,7 @@
     document.addEventListener('change', function (e) {
       if (e.target.id === 'cvDest') {
         S.dest = e.target.value;
-        if (why) why.placeholder = 'Why ' + country() + '? One honest sentence';
+        if (why) why.placeholder = 'Why ' + country() + '? One sentence';
         regCopy();
         refresh();
       }
@@ -689,7 +689,7 @@
       if (pk && S.profession !== pk) { S.profession = pk; changed = true; }
       if (!changed) return;
       syncing = true;
-      try { $('#cvDest').value = S.dest; var ps = $('#cvProf'); if (ps) ps.value = S.profession; if (why) why.placeholder = 'Why ' + country() + '? One honest sentence'; regCopy(); groupChips(); equipCopy(); refresh(); save(); } catch (e) {}
+      try { $('#cvDest').value = S.dest; var ps = $('#cvProf'); if (ps) ps.value = S.profession; if (why) why.placeholder = 'Why ' + country() + '? One sentence'; regCopy(); groupChips(); equipCopy(); refresh(); save(); } catch (e) {}
       syncing = false;
     }
     if (ctx) { if (!saved.dest && !saved.profession) seedFromCtx(); ctx.onChange(seedFromCtx); ctx.mount('#ctx-strip', { intro: 'Tell us your profession and destination and the CV shapes itself around them.' }); }

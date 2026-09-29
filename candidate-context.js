@@ -29,9 +29,9 @@
        from scratch exactly as before. */
 (function () {
   var KEY = 'ethicare_portal_v1';
-  /* move-steps.html (the eight-stage rebuild that replaces /move on the September swap) keeps the
-     same answers under three keys of its own. Read those too, so a candidate who answered on either
-     page is remembered on both, and nothing has to be re-asked across the swap. */
+  /* move-steps (the eight-stage rebuild that became /move on 29 Sep 2026) kept the same answers
+     under three keys of its own. Still read them, so anyone who answered there before the swap is
+     remembered and nothing has to be re-asked. Nothing writes these keys any more. */
   var WHERE_KEY = 'ethicare_move_where_v1', WHO_KEY = 'ethicare_move_who_v1', HHX_KEY = 'ethicare_move_hh_v1';
 
   /* mirror of move.js STAGES (label) + TOOL (next step). Only what a page outside /move needs. */
@@ -55,7 +55,7 @@
     var p = null;
     try { p = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { p = null; }
     if (p && typeof p !== 'object') p = null;
-    /* fill from move-steps where the plan is silent. WHERE 'nz'|'au' → dest; WHO → party.
+    /* fill from the old move-steps keys where the plan is silent. WHERE 'nz'|'au' → dest; WHO → party.
        'compare' and 'explore' are not a destination and stay unmapped. */
     var where = '', who = '', hhx = null;
     try { where = localStorage.getItem(WHERE_KEY) || ''; who = localStorage.getItem(WHO_KEY) || ''; hhx = JSON.parse(localStorage.getItem(HHX_KEY) || 'null'); } catch (e) {}
@@ -184,7 +184,7 @@
     + '.ecx-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px}.ecx-k{font-family:var(--display,"Work Sans",sans-serif);font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-right:4px}'
     + '.ecx-v{font-family:var(--display,"Work Sans",sans-serif);font-weight:600;color:#02615D}.ecx-sep{color:#9BB9AE}.ecx-btn{margin-left:auto;background:none;border:1px solid #C9DED3;border-radius:999px;padding:5px 13px;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:13.5px;color:#02615D;cursor:pointer;min-height:32px}.ecx-btn:hover{border-color:#02615D}'
     + '.ecx-ed{display:none;margin-top:12px;padding-top:12px;border-top:1px solid #E6F1ED}.ecx.is-open .ecx-ed{display:block}.ecx-f{margin:0 0 12px}.ecx-f:last-child{margin-bottom:0}.ecx-l{display:block;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:13.5px;color:#02615D;margin:0 0 6px}'
-    + '.ecx-pills{display:flex;flex-wrap:wrap;gap:8px}.ecx-p{background:#fff;border:1px solid #C9DED3;border-radius:999px;padding:6px 13px;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:13.5px;color:#02615D;cursor:pointer;min-height:34px}.ecx-p.is-on{background:#02615D;border-color:#02615D;color:#fff}'
+    + '.ecx-pills{display:flex;flex-wrap:wrap;gap:8px}.ecx-n{color:#2F5E49;margin-right:6px}.ecx-p.is-on .ecx-n{color:#C6E084}.ecx-p{background:#fff;border:1px solid #C9DED3;border-radius:999px;padding:6px 13px;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:13.5px;color:#02615D;cursor:pointer;min-height:34px}.ecx-p.is-on{background:#02615D;border-color:#02615D;color:#fff}'
     + '.ecx select{font-family:var(--body,Manrope,sans-serif);font-size:15px;color:#333;border:1px solid #C9DED3;border-radius:10px;padding:8px 12px;min-height:40px;max-width:100%;background:#fff}'
     + '.ecx-foot{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:12px;font-size:13.5px;color:#555}.ecx-foot button{background:none;border:0;padding:0;font:inherit;color:#02615D;text-decoration:underline;text-underline-offset:3px;cursor:pointer}'
     + '.ecx-note{font-size:13.5px;color:#555;margin:0}@media(max-width:560px){.ecx-btn{margin-left:0}}';
@@ -229,8 +229,11 @@
       if (fields.indexOf('dest') >= 0) h += '<div class="ecx-f"><span class="ecx-l">Where are you thinking of?</span><div class="ecx-pills" data-f="dest">' + [['nz', 'New Zealand'], ['au', 'Australia'], ['both', 'Comparing both']].map(function (o) { return '<button type="button" class="ecx-p' + (destMode() === o[0] ? ' is-on' : '') + '" data-v="' + o[0] + '">' + o[1] + '</button>'; }).join('') + '</div></div>';
       if (fields.indexOf('profession') >= 0) { var po = profOptions(); if (po.length) { h += '<div class="ecx-f"><label class="ecx-l" for="ecx-prof">Your profession</label><select id="ecx-prof" data-f="profession"><option value="">Choose…</option>' + po.map(function (o) { return '<option value="' + esc(o.value) + '"' + (profession() === o.value ? ' selected' : '') + '>' + esc(o.label) + '</option>'; }).join('') + '</select></div>'; } }
       if (fields.indexOf('household') >= 0) h += '<div class="ecx-f"><span class="ecx-l">Who is coming with you?</span><div class="ecx-pills" data-f="household">' + HH.map(function (o) { return '<button type="button" class="ecx-p' + (household() === o.value ? ' is-on' : '') + '" data-v="' + o.value + '">' + esc(o.label) + '</button>'; }).join('') + '</div></div>';
-      if (fields.indexOf('stage') >= 0 && J().length) h += '<div class="ecx-f"><span class="ecx-l">Where are you in the move?</span><div class="ecx-pills" data-f="stage">' + J().map(function (j) { return '<button type="button" class="ecx-p' + (stage() === j.id ? ' is-on' : '') + '" data-v="' + j.id + '"><span style="opacity:.6;margin-right:6px">0' + j.n + '</span>' + esc(j.where) + '</button>'; }).join('') + '</div></div>';
-      h += '<div class="ecx-foot"><span>Saved in this browser only. Nothing is sent to us.</span>' + (known ? '<button type="button" data-clear>Clear my answers</button>' : '') + '</div></div>';
+      if (fields.indexOf('stage') >= 0 && J().length) h += '<div class="ecx-f"><span class="ecx-l">Where are you in the move?</span><div class="ecx-pills" data-f="stage">' + J().map(function (j) { return '<button type="button" class="ecx-p' + (stage() === j.id ? ' is-on' : '') + '" data-v="' + j.id + '"><span class="ecx-n">0' + j.n + '</span>' + esc(j.where) + '</button>'; }).join('') + '</div></div>';
+      /* Inside My Move (pack/pack.js) the answers ARE saved with us, so the page it sits in says
+         so through data-strip-foot; the public tools keep the device-only line. */
+      var foot = document.body.getAttribute('data-strip-foot') || 'Saved in this browser only. Nothing is sent to us.';
+      h += '<div class="ecx-foot"><span>' + esc(foot) + '</span>' + (known ? '<button type="button" data-clear>Clear my answers</button>' : '') + '</div></div>';
       el.className = 'ecx' + (open ? ' is-open' : ''); el.innerHTML = h;
     }
     el.addEventListener('click', function (e) {

@@ -1,4 +1,12 @@
-# Your Ethicare — a candidate's private space at `/pack/<slug>`
+# My Move — an Ethicare candidate's private space at `/pack/<slug>`
+
+The one private space on the site. Ethicare Move (`/move`) is public, needs no account and
+keeps its answers on the device; **My Move** is what an Ethicare candidate gets from the link
+the team sends — the same eight stages, plus the letter, the bookings and the chosen guides
+the team writes for them, and their own plan and notes saved with us so they follow them
+between devices. There are no public accounts, and nothing else on the site is private.
+(Until 29 Sep 2026 this was called "Your Ethicare"; the name is retired, the files are the
+same.)
 
 A private, sectioned space for one candidate or family. Two worked examples:
 
@@ -8,13 +16,15 @@ A private, sectioned space for one candidate or family. Two worked examples:
   written to prove the AU palette and a dropped section (registration pending, so no
   `travel`). Carries `demo: true`, which paints a dashed "Worked example" band on the page
   and in print and prefixes the tab title — the source comment alone was not enough for a
-  page that gets screenshotted. Never set `demo` on a real pack.
+  page that gets screenshotted. Never set `demo` on a real pack. It also carries **no
+  `key`**, so it runs in device-only mode — the worked example must never write rows.
 
-Five sections down a left rail, one panel at a time:
+Six sections down a left rail, one panel at a time:
 
 | Section | What it holds |
 | --- | --- |
 | **Your space** | The note from Sophie, and where things stand |
+| **Your move** | The eight stages of the journey — `move.js`, the public `/move` engine, painting into this page — with the answers strip so they can see and change what shapes it |
 | **Your plan** | Their own running list and notes — theirs to write, not ours |
 | **Travel & stay** | Flight, accommodation, the walk to work, the time difference |
 | **Guides & packing** | The guides chosen for them, each with a reason |
@@ -40,8 +50,12 @@ logo is the first thing they check.
 
 ## Making one
 
-Copy the example to a new slug and rewrite the `window.PACK` object at the foot of it.
-`pack.css` and `pack.js` are shared and never need touching.
+    python3 tools/new-pack.py "Clint" "Varghese" nz
+
+That copies the worked example for the country to `pack/<firstname>-<surname>-<6 random>.html`,
+mints the space's store key into it, and prints the link to send. Then rewrite the
+`window.PACK` object at the foot of that file. `pack.css` and `pack.js` are shared and never
+need touching.
 
 ```
 site/pack/
@@ -50,9 +64,11 @@ site/pack/
   <slug>.html              one per candidate — the only file you edit
 ```
 
-**The slug is the security.** `firstname-surname-<4 random characters>`. A guessable slug is
-an open door: these pages name the hospital, the hotel and the family. Anyone with the link
-can open it, so the link is the credential — send it directly, never post it anywhere.
+**The slug and the key are the security.** A guessable slug is an open door: these pages
+name the hospital, the hotel and the family. Anyone with the link can open it, so the link
+is the credential — send it directly, never post it anywhere. The tool generates both;
+never type either, and never change a key once the link has gone out (their saved space
+is under it).
 
 Every page carries `noindex, nofollow, noarchive`, is absent from `sitemap.xml`, and is
 linked from nowhere on the site. `netlify.toml` repeats the robots rule as a header for
@@ -67,12 +83,13 @@ carries a `<noscript>` line at the top of `main` saying so and offering the prin
 
 | Field | What it does |
 | --- | --- |
-| `slug` | Must match the filename. It keys their saved notes, so changing it loses them. |
+| `slug` | Must match the filename. It keys the device copy of their notes, so changing it loses them. |
+| `key` | The store key (32 URL-safe characters, minted by `tools/new-pack.py`). Present → the space is **saved with us** through `/.netlify/functions/my-move`. Absent → device-only, as before 29 Sep 2026. Never reuse, never change. |
 | `demo` | `true` on a worked example only. Visible band + "Example ·" tab title. Absent on every real pack. |
 | `first` | Used **once**, in the cover greeting. `Microcopy.md` rule 2. |
 | `country` | `nz` or `au`. Sets `data-country` on `<html>`, which switches the accent palette in `pack.css` — fern-text `#2F5E49` and sage for NZ, Clay `#A34438`, Soft Sand and `#EBDFD3` hairlines for AU. Deep teal never changes. The greeting is written by hand in `headings.space.title`: "Kia ora" for NZ, "Hello" for AU — the destination's word, never ours. Set `lang` on `<html>` to match (`en-NZ` / `en-AU`). |
 | `title`, `spaceLabel`, `route` | The masthead. `route` is their journey, e.g. "Kochi → Wellington". |
-| `headings` | One `{title, sub}` per section. The `h1` changes with the section, so there is always exactly one on the page. |
+| `headings` | One `{title, sub}` per section (`space`, `move`, `plan`, `travel`, `guides`, `files`). The `h1` changes with the section, so there is always exactly one on the page. |
 | `travel`, `files` | `[{k, v, note}]` rows. Omit the key entirely to drop the section. |
 | `suggested` | Plan starters they can tap to add. **Never pre-added and never pre-ticked** — a plan someone did not write is a list of instructions. |
 | `facts` | `[label, value]` pairs on the cover. Four is plenty. Leave out anything not yet decided rather than writing "TBC". |
@@ -97,20 +114,74 @@ them, say what we know about them, be straight about the hard part rather than s
 it. The banned constructions in `STANDARD.md` apply here too — `X, not Y` antithesis,
 `rather than` as rhetoric, "worth knowing", bare imperatives as headings.
 
-## Notes and plan — device-local, and the page says so
+## Where the candidate's own writing lives
 
-Saved in the candidate's browser under `ethicare_pack_<slug>_v1`. Nothing reaches us and we
-cannot read it. That is deliberate and it matches the rest of the product (`/move`, the
-checklist, the calculator): **notes a candidate writes about their own move are the last
-thing to start collecting server-side** without the processing basis, notice, access and
-retention settled first — `ASK-ETHICARE.md` §6.
+Two modes, decided by `PACK.key`, and **the privacy line on the page is written by `pack.js`
+from the mode** — never by hand in the HTML — so the copy cannot say one thing while the
+code does another. (A page that says "nothing is sent to us" while sending things is worse
+than no page.)
 
-The trade-off is stated plainly on the page, because it is a real one: the notes do not
-follow them to another device and clearing browser data clears them. "Copy everything" and
-"Download as a file" are there for exactly that.
+**Saved with us** (`key` present — every pack made by the tool). What the candidate writes —
+their plan, their notes, the answers that shape the site's tools (destination, profession,
+who is coming, stage) and the stages they have ticked off — goes to one row in the
+`my_move` table, keyed to the space's key, through `netlify/functions/my-move.js`. The
+device keeps a copy (`ethicare_pack_<slug>_v1` for the plan and notes; `ethicare_portal_v1`
+for the answers, the same store every public tool reads), so the page works offline and in
+a webview that drops storage; when the two disagree the server wins unless something local
+is unsaved, and two devices writing at once are merged (plan items unioned, ticks unioned,
+notes appended) rather than one silently losing.
 
-**If this ever becomes an account with sync, that paragraph changes in the same release.**
-A page that says "nothing is sent to us" while sending things is worse than no page.
+On the **first open**, whatever the device already holds — answers given on the public
+tools, a plan started on `/move` — becomes the space, so nothing is re-asked. The pack's own
+country becomes the destination if no answer was given. That is the whole point of one
+answers store: the candidate is remembered from the public site into their private one.
+
+The page says all of this in "Where this lives": saved to your space, follows you between
+devices, the person helping you at Ethicare can see it when you ask, never shown to an
+employer, ask us and we will change or delete it. The processing basis is the relationship
+already in place (they are an Ethicare candidate with a signed privacy grant from `/apply`);
+what is stored is what they typed and nothing inferred; retention is until they ask or the
+placement closes; access is the page itself and a request to us. `ASK-ETHICARE.md` §6 asked
+for exactly those four before any candidate writing went server-side — they are settled
+here, and the "Copy everything" and "Download as a file" buttons stay for the same reason.
+
+**Device-only** (no `key`) is the pre-29-September behaviour, unchanged: the worked example
+runs this way, and any older pack still does. The page says its notes stay on the device
+and will not follow them.
+
+### The function and the table
+
+`netlify/functions/my-move.js` — GET reads a space, POST saves one. Same guards as
+`capture.js` (origin allowlist, body cap, per-IP burst limit), a key format check, and a
+**whitelist** of what a space may hold: unknown fields are dropped, strings capped,
+enumerations checked against the site's own vocabularies (the eight stage ids from
+`questions.json`, the household values the tools use). It never accepts a prompt, a file
+or free structure. The same two env vars as `capture.js` (`SUPABASE_URL`,
+`SUPABASE_SERVICE_ROLE`), never in the browser; a deploy preview without them just runs
+the page device-only and says "not connected right now".
+
+Run once in the Supabase SQL editor:
+
+```sql
+create table if not exists my_move (
+  key         text primary key,
+  slug        text,
+  data        jsonb not null default '{}'::jsonb,
+  revoked_at  timestamptz,
+  created_at  timestamptz not null default now(),
+  updated_at  timestamptz not null default now()
+);
+alter table my_move enable row level security;   -- service role only; no anon policy
+```
+
+**Reading a candidate's space** (when they ask for help): Supabase → Table editor →
+`my_move` → the row whose `slug` is theirs → `data`. Plan, notes, answers, ticks.
+
+**Closing a link** — a placement ends, a link was forwarded, they ask: set `revoked_at` on
+the row to now. The page then shows "This link has been closed" and nothing else, and the
+function refuses reads and writes (410). Their data stays in the row until you delete it —
+do that when they ask, or when the relationship closes. Deleting the pack file alone also
+takes the page down, but leaves the row; the row is the record, so revoke there first.
 
 ## Print
 
@@ -155,7 +226,9 @@ Two bugs this family shipped with, both worth not repeating:
 
 - No login, no account, no password. The link is the credential.
 - No employer visibility, no sharing, no profile.
-- Nothing is tracked on these pages.
+- Nothing is tracked on these pages (`analytics.js` is not loaded; `move.js` only calls
+  `window.track` when it exists, and here it does not).
+- Nothing is stored that the candidate did not type or tick. No inference, no scoring.
 
 ## Access — decided 15 Sep 2026
 
@@ -167,31 +240,30 @@ hardening that model gets: no cache, no referrer, no index.
 
 If it ever needs to be stronger, the next step is a Netlify function holding the page
 behind a short shared passphrase sent by a separate channel — not a bigger secret in the
-URL, and not an account (an account starts the sync conversation in "Notes and plan"
-above). Revisit if a pack ever has to carry something a hospital or a visa file would
-treat as restricted: a passport number, a medical detail, a salary figure.
+URL, and not an account. Revisit if a pack ever has to carry something a hospital or a
+visa file would treat as restricted: a passport number, a medical detail, a salary figure.
+The candidate's own writing is now saved with us (above), which raises the bar for what
+goes in the pack file, not lowers it: the row holds what they typed, the file holds what
+we wrote, and neither should carry a document number.
 
 ## Sending the link, and reading it on a phone
 
 These go to Ethicare candidates who are actively working with us — one link, one family. Email the
 candidate the **clean URL** — `https://ethicareresourcing.com/pack/<slug>` — directly, to them and
-nobody copied. `_redirects` serves that extensionless URL to the file on every Netlify
-configuration (not only when "Pretty URLs" is on) and 301s the `.html` form to it, so a pack has a
-single address; the wildcard covers every future pack with no per-slug rule to add, and `/pack/`
-itself 404s so the directory is never browsable.
+nobody copied. Netlify serves that extensionless URL to the file the same way it does every other
+page on the site, and `netlify.toml` answers `/pack/` itself with a 404 so the directory is never
+browsable.
 
 The page is one responsive column, tested at 320px, so it opens cleanly on a phone or tablet
 straight from the email. `theme-color` deep teal brands the browser chrome and an Apple touch icon
 means a home-screen save looks like ours — standalone mode is deliberately off so the URL bar and
 back button stay for someone reading mid-move.
 
-**Notes and ticks stay on the device they were typed on** (see "Where this lives" on the page). The
-same pack reads identically on a candidate's phone and tablet, but a note typed on the phone is not
-on the tablet — the honest cost of not holding their notes on our servers, and the page says so. If
-a candidate ever needs their notes to travel between devices, that is the sync conversation under
-"Notes and plan" above, not a quiet change.
+**Notes and ticks follow them** on a pack with a `key` (see "Where the candidate's own writing
+lives"): a note typed on the phone is on the laptop the next time it opens. On an older pack
+without one they stay on the device, and the page says so.
 
-**In an email app's in-app browser** (Gmail, Outlook) the pack reads fine, but some in-app
-webviews clear storage on close, so a note may not survive. Nothing is lost that we hold — but if a
-candidate says their ticks vanished, the fix is to open the link in their real browser (Safari,
-Chrome), where storage persists.
+**In an email app's in-app browser** (Gmail, Outlook) the pack reads fine. Some in-app webviews
+clear storage on close; on a saved pack that costs nothing (the space reloads from us), on a
+device-only pack a note may not survive, and the fix is to open the link in their real browser
+(Safari, Chrome).

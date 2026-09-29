@@ -58,6 +58,13 @@ Diagnosing it: ask a question, watch the POST to `/.netlify/functions/ask-ethica
 the upload — a manual-deploy failure that git migration fixes permanently).
 **503** = no key set. **502** = key set but rejected upstream.
 
+`netlify/functions/capture.js` (applications, leads) and `netlify/functions/my-move.js`
+(the My Move spaces, 29 Sep 2026) both need `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE`,
+scoped to production only so previews cannot write into the real tables. My Move also needs
+its table — the `create table my_move` statement in `pack/README.md`, run once in the
+Supabase SQL editor. Without either, a pack page still opens and says "not connected right
+now"; the candidate's writing stays on their device until it is.
+
 ### 1c. Manual deploy (legacy — only until §1a is done)
 
 1. https://app.netlify.com → the site → *Deploys* → *Deploy manually*.

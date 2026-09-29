@@ -25,6 +25,14 @@
   force = true
 
 [[redirects]]
+  # move-steps was the eight-stage rebuild; on 29 Sep 2026 /move became that
+  # page, so the rebuild's URL folds into it. Fragments (#s3) carry across.
+  from = "/move-steps"
+  to = "/move"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/australia-vs-new-zealand"
   to = "/guides/australia-vs-new-zealand"
   status = 301
@@ -75,6 +83,13 @@
 
 # Internal-only surfaces: the Netlify Forms declaration page and the design
 # prototypes are reachable but must never be indexed (14 Sep 2026).
+# /pack/ itself must never list anything: each space is reached only by its own link.
+[[redirects]]
+  from = "/pack/"
+  to = "/404.html"
+  status = 404
+  force = true
+
 [[headers]]
   for = "/_forms/*"
   [headers.values]
