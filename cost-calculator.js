@@ -707,7 +707,8 @@
     var key = el.getAttribute('data-set');
     if (key) {
       var v = el.getAttribute('data-val');
-      if (key === 'dest') return set({ dest: v, region: v === 'au' ? 'QLD' : 'akl' });
+      if (key === 'dest') { shareBack({ dest: v }); return set({ dest: v, region: v === 'au' ? 'QLD' : 'akl' }); }
+      if (key === 'who') shareBack({ who: v });
       if (key === 'followPartner') return set({ followPartner: v === 'y' });
       if (key === 'tempWeeks') return set({ tempWeeks: num(v) });
       var p = {}; p[key] = v; return set(p);
@@ -772,18 +773,38 @@
      and no URL intent starts from what Move already knows — destination, origin, who is coming,
      and the profession where the key exists in this tool's own list. S0's defaults (Australia,
      QLD, UK, just me, imaging) are otherwise asserted on the reader's behalf; a plan they wrote is
-     a better default than one we guessed. Every field stays editable. */
+     a better default than one we guessed. Every field stays editable.
+     28 Sep 2026: the shared answers can change while this page is open (the strip above the
+     calculator), so seeding is a function and runs again on every change. A shared answer of
+     'both' countries cannot seed a one-country estimate, so the destination is left as it is and
+     the candidate picks which to cost first — without that pick overwriting 'comparing both'. */
+  var WHO_FROM_CTX = { alone: 'me', partner: 'partner', children: 'kids', both: 'family', parent: 'me' };
+  var WHO_TO_CTX = { me: 'alone', partner: 'partner', kids: 'children', family: 'both' };
+  var syncing = false;
+  function seedFromContext(live) {
+    var ctx = window.EthicareContext; if (!ctx || !ctx.has()) return false;
+    var p = ctx.read() || {}, dd = ctx.dest(), patch = {};
+    if (dd && dd !== st.dest) { patch.dest = dd; patch.region = dd === 'au' ? 'QLD' : 'akl'; }
+    if (p.origin && D() && D().flights[p.origin]) patch.origin = p.origin;
+    if (p.profession && D() && D().registration.labels[p.profession]) patch.profession = p.profession;
+    var w = WHO_FROM_CTX[ctx.household ? ctx.household() : (p.hh && p.hh['with'])];
+    if (w && (live || !st.seededWho)) { patch.who = w; patch.seededWho = true; }
+    if (!Object.keys(patch).length) return false;
+    syncing = true; assign(st, patch); st.seeded = true; syncing = false;
+    return true;
+  }
+  function shareBack(o) {
+    var ctx = window.EthicareContext; if (!ctx || !ctx.write || syncing) return;
+    var patch = {};
+    if (o.dest && ctx.destMode && ctx.destMode() !== 'both') patch.dest = o.dest;
+    if (o.who && WHO_TO_CTX[o.who]) patch.household = WHO_TO_CTX[o.who];
+    if (Object.keys(patch).length) ctx.write(patch);
+  }
   try {
-    var ctx = window.EthicareContext, saved = !!localStorage.getItem(LSK);
-    if (ctx && ctx.has() && !saved && !q && !qp) {
-      var p = ctx.read() || {}, dd = ctx.dest();
-      if (dd) { st.dest = dd; st.region = dd === 'au' ? 'QLD' : 'akl'; }
-      if (p.origin && D() && D().flights[p.origin]) st.origin = p.origin;
-      if (p.profession && D() && D().registration.labels[p.profession]) st.profession = p.profession;
-      var w = p.hh && p.hh['with'];
-      if (w === 'alone') st.who = 'me'; else if (w === 'partner') st.who = 'partner'; else if (w === 'kids') st.who = 'kids'; else if (w === 'both') st.who = 'family';
-      st.seeded = true;
-    }
+    var ctx0 = window.EthicareContext, saved = !!localStorage.getItem(LSK);
+    if (ctx0 && ctx0.has() && !saved && !q && !qp) seedFromContext(false);
+    if (ctx0 && ctx0.onChange) ctx0.onChange(function () { if (seedFromContext(true)) { save(); render(); } });
+    if (ctx0 && ctx0.mount) ctx0.mount('#ctx-strip', { fields: ['profession', 'dest', 'household', 'stage'], intro: 'Tell us who is coming and where, and the estimate only asks about what applies to you.' });
   } catch (e) {}
 
   if (!D()) {

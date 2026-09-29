@@ -2,7 +2,12 @@
    The API key lives ONLY in Netlify env vars; it is never sent to the browser.
    Set ONE of:  ANTHROPIC_API_KEY  |  OPENAI_API_KEY   (Site config → Environment variables)
 
-   Contract with ask-ethicare.js:  POST {messages, jobs?} → 200 {text}
+   Contract with ask-ethicare.js:  POST {messages, jobs?, context?} → 200 {text}
+
+   28 Sep 2026: `context` is accepted as DATA, like jobs — the candidate's own answers from the
+   site's shared strip (profession, destination, who is coming, stage). Every value is matched
+   against a closed list here; anything else is dropped. It is re-wrapped in wording this file
+   controls, so the answer can start from what the person already said instead of asking again.
 
    The browser NO LONGER SENDS A SYSTEM PROMPT and this function no longer accepts one.
    Previously it passed a client-supplied `system` straight through, which made the endpoint a
@@ -140,11 +145,34 @@ function jobsBlock(jobs) {
   return 'Live Ethicare vacancies right now (' + clean.length + ' — never invent others; packages are "competitive"):\n' + clean.join('\n');
 }
 
-function buildSystem(jobs) {
+const CTX_DEST = { nz: 'New Zealand', au: 'Australia', both: 'comparing Australia and New Zealand, not yet decided' };
+const CTX_HH = { alone: 'moving alone', partner: 'moving with a partner', children: 'moving with children (a single parent)', both: 'moving with a partner and children', parent: 'a parent is coming with them' };
+const CTX_STAGE = {
+  // the eight stages of the journey (journey.js)
+  imagine: 'stage 1 of 8, just imagining it', choose: 'stage 2 of 8, choosing between Australia and New Zealand', work: 'stage 3 of 8, checking whether they can register',
+  numbers: 'stage 4 of 8, working out the money', place: 'stage 5 of 8, deciding where to live', role: 'stage 6 of 8, looking for the right role or applying',
+  plan: 'stage 7 of 8, offer accepted and planning the move', settle: 'stage 8 of 8, already arrived',
+  // Move's older five values, still accepted
+  exploring: 'just exploring the idea', applying: 'applying or interviewing', offer: 'has an offer to consider', moving: 'has accepted and is planning the move', arrived: 'already arrived' };
+function contextBlock(c) {
+  if (!c || typeof c !== 'object') return '';
+  const parts = [];
+  const prof = String(c.profession || '').replace(/[^a-z]/g, '').slice(0, 24);
+  if (prof) parts.push('profession key: ' + prof);
+  if (CTX_DEST[c.dest]) parts.push('destination: ' + CTX_DEST[c.dest]);
+  if (CTX_HH[c.household]) parts.push('household: ' + CTX_HH[c.household]);
+  if (CTX_STAGE[c.stage]) parts.push('stage: ' + CTX_STAGE[c.stage]);
+  if (!parts.length) return '';
+  return 'What this person has already told the site (use it; do not ask for it again; if their question contradicts it, follow the question):\n- ' + parts.join('\n- ') +
+    (c.dest === 'both' ? '\nThey are comparing the two countries: answer for both, side by side, unless the question names one.' : '');
+}
+
+function buildSystem(jobs, context) {
+  const ctx = contextBlock(context);
   return SYSTEM +
     '\n\nResource ids you may return under NEXT_ACTIONS:\n' +
     Object.keys(RESOURCES).map(function (k) { return k + ' = ' + RESOURCES[k]; }).join('\n') +
-    '\n\n' + jobsBlock(jobs);
+    '\n\n' + jobsBlock(jobs) + (ctx ? '\n\n' + ctx : '');
 }
 
 exports.handler = async function (event) {
@@ -170,7 +198,7 @@ exports.handler = async function (event) {
     .map(function (m) { return { role: m.role, content: m.content.slice(0, 4000) }; });
   if (!messages.length) return json(400, { error: 'No messages' });
 
-  const system = buildSystem(payload.jobs);
+  const system = buildSystem(payload.jobs, payload.context);
 
   const anthropicKey = process.env.ANTHROPIC_API_KEY;
   const openaiKey = process.env.OPENAI_API_KEY;

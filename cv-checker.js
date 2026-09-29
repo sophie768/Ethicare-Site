@@ -249,6 +249,15 @@
     ta.focus();
   });
   if (destSel) destSel.addEventListener('change', function () { if (!wrap.hidden) run(); });
+  /* 28 Sep 2026 — shared answers (candidate-context.js): seed from what the candidate has already said, write back what they say here, and show the strip. */
+  (function () {
+    var ctx = window.EthicareContext; if (!ctx || !destSel) return;
+    function seed() { var d = ctx.dest(); if (d && destSel.value !== d) { destSel.value = d; if (!wrap.hidden) run(); } }
+    seed();
+    destSel.addEventListener('change', function () { if (ctx.write && ctx.destMode() !== 'both') ctx.write({ dest: destSel.value }); });
+    ctx.onChange(seed);
+    ctx.mount('#ctx-strip', { intro: 'Tell us where you are applying and the checks that change with the destination follow.' });
+  })();
   if (racts) { var printBtn = racts.querySelector('[data-print]'); if (printBtn) printBtn.addEventListener('click', function () { window.print(); }); }
   updateMeter();
 

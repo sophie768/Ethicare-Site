@@ -272,12 +272,13 @@ function renderAll() {
   renderDest(); renderProgress(); renderChecklist(); renderStar(); renderQuestions(); renderOnward();
 }
 
+function ipShareBack() { if (window.ipShareBack) window.ipShareBack(); }
 document.addEventListener('click', function (e) {
   var t = e.target.closest ? e.target.closest('[data-dest],[data-done],[data-rate],[data-open],[data-wopen],#ip-copy,#ip-reset,#ip-print') : null;
   if (!t) { return; }
   if (t.dataset.dest) {
     if (S.dest === t.dataset.dest) { return; }
-    S.dest = t.dataset.dest; save(); renderAll(); return;
+    S.dest = t.dataset.dest; save(); renderAll(); ipShareBack(); return;
   }
   if (t.dataset.done) {
     var k = t.dataset.done;
@@ -328,7 +329,7 @@ document.addEventListener('input', function (e) {
 
 document.addEventListener('change', function (e) {
   var t = e.target;
-  if (t.id === 'ip-prof') { S.profession = t.value; save(); renderQuestions(); return; }
+  if (t.id === 'ip-prof') { S.profession = t.value; save(); renderQuestions(); ipShareBack(); return; }
   if (t.dataset && t.dataset.check) {
     var c = S.check[t.dataset.check] || (S.check[t.dataset.check] = {});
     c[t.dataset.i] = t.checked;
@@ -340,4 +341,29 @@ document.addEventListener('change', function (e) {
 
 load();
 renderAll();
+/* 28 Sep 2026 — shared answers (candidate-context.js): seed from what the candidate has already said, write back what they say here, and show the strip. */
+(function () {
+  var ctx = window.EthicareContext; if (!ctx) return;
+  var CTX2IP = { imaging: 'imaging', nuclearmed: 'imaging', sonography: 'imaging', radtherapy: 'radtherapy', physio: 'physio', ot: 'ot', psychology: 'psychology', speech: 'speech', dietetics: 'dietetics', socialwork: 'socialwork', anaesthetic: 'anaesthetic', nursing: 'nursing', midwifery: 'midwifery', medicine: 'medicine' };
+  var IP2CTX = { imaging: 'imaging', radtherapy: 'radtherapy', physio: 'physio', ot: 'ot', psychology: 'psychology', speech: 'speech', dietetics: 'dietetics', socialwork: 'socialwork', anaesthetic: 'anaesthetic', nursing: 'nursing', midwifery: 'midwifery', medicine: 'medicine', gp: 'medicine' };
+  var syncing = false;
+  window.ipShareBack = function () {
+    if (!ctx.write || syncing) return;
+    var patch = {}; if (ctx.destMode() !== 'both') patch.dest = S.dest; if (IP2CTX[S.profession]) patch.profession = IP2CTX[S.profession];
+    ctx.write(patch);
+  };
+  function seed() {
+    if (!ctx.has()) return;
+    var changed = false, d = ctx.dest(), pk = CTX2IP[ctx.profession()];
+    if (d && S.dest !== d) { S.dest = d; changed = true; }
+    if (pk && S.profession !== pk) { S.profession = pk; changed = true; }
+    if (!changed) return;
+    syncing = true; try { save(); renderAll(); var sel = document.getElementById('ip-prof'); if (sel) sel.value = S.profession; } catch (e) {} syncing = false;
+  }
+  var hadSaved = false; try { hadSaved = !!localStorage.getItem(KEY); } catch (e) {}
+  if (!hadSaved && !/[?&]destination=/.test(location.search)) seed();
+  ctx.onChange(seed);
+  ctx.mount('#ctx-strip', { intro: 'Tell us your profession and destination and the questions here are the ones that panel actually asks.' });
 })();
+})();
+

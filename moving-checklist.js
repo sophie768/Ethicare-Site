@@ -203,12 +203,41 @@
     return m;
   }
 
+/* 28 Sep 2026 — shared answers (candidate-context.js): seed from what the candidate has already said, write back what they say here, and show the strip. */
+  var WHO_FROM_CTX = { alone: 'solo', partner: 'couple', children: 'parentKids', both: 'familyKids', parent: 'solo' };
+  var WHO_TO_CTX = { solo: 'alone', couple: 'partner', parentKids: 'children', familyKids: 'both' };
+  var ctxSyncing = false;
+  function mcShareBack(k, v) {
+    var ctx = window.EthicareContext; if (!ctx || !ctx.write || ctxSyncing) return;
+    var patch = {};
+    if (k === 'dest' && (v === 'au' || v === 'nz') && ctx.destMode() !== 'both') patch.dest = v;
+    if (k === 'who' && WHO_TO_CTX[v]) patch.household = WHO_TO_CTX[v];
+    if (Object.keys(patch).length) ctx.write(patch);
+  }
+  function mcSeed() {
+    var ctx = window.EthicareContext; if (!ctx || !ctx.has()) return false;
+    var changed = false, d = ctx.destMode ? ctx.destMode() : ctx.dest(), w = WHO_FROM_CTX[ctx.household()];
+    if (d && st.answers.dest !== d) { st.answers.dest = d; changed = true; }
+    /* the destination is answered, so the checklist opens on the question it still needs */
+    if (st.answers.dest && st.step === 1) { st.step = 2; changed = true; }
+    if (w && st.answers.who !== w) { st.answers.who = w; if (w !== 'parentKids' && w !== 'familyKids') st.answers.ages = []; changed = true; }
+    return changed;
+  }
+  (function () {
+    var ctx = window.EthicareContext; if (!ctx) return;
+    var hadSaved = false; try { hadSaved = !!localStorage.getItem(LSK); } catch (e) {}
+    if (!hadSaved && mcSeed()) { ctxSyncing = true; try { save(); } catch (e) {} ctxSyncing = false; }
+    ctx.onChange(function () { if (mcSeed()) { ctxSyncing = true; try { save(); render(); } catch (e) {} ctxSyncing = false; } });
+    ctx.mount('#ctx-strip', { intro: 'Tell us who is coming and where, and the checklist keeps only what applies to your household.' });
+  })();
+
   /* ---------------- events ---------------- */
   app.addEventListener('click', function (e) {
     var p = e.target.closest('[data-pick]');
     if (p) {
       var k = p.getAttribute('data-pick'), v = p.getAttribute('data-v');
       st.answers[k] = v;
+      mcShareBack(k, v);
       if (k === 'who' && v !== 'parentKids' && v !== 'familyKids') st.answers.ages = [];
       st.err = '';
       if (k === 'dest') { st.step = 2; moveFocus = true; }

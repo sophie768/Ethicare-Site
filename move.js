@@ -222,6 +222,13 @@
   if (!S.hh.with && S.party) {
     S.hh.with = { 'On my own': 'alone', 'With a partner': 'partner', 'With children': 'children', 'Partner and children': 'both' }[S.party] || '';
   }
+  /* 28 Sep 2026 — answers can now arrive from the shared strip on any tool (candidate-context.js
+     write side). Two values it allows that this plan cannot yet build from: dest 'both' (someone
+     comparing the countries) and household 'parent'. A plan needs one country, so 'both' sends the
+     candidate to the destination question with the comparison kept as their answer elsewhere;
+     a parent coming along is, for the journey's purposes, no partner and no children. */
+  if (S.dest !== 'nz' && S.dest !== 'au') S.set = false;
+  if (S.hh.with === 'kids') S.hh.with = 'children';
 
   /* In demo mode nothing is persisted — that is the whole point of it. */
   function save() { if (demo) return; try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }

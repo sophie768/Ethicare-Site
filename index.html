@@ -523,6 +523,7 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 <script>(function(){var el=document.getElementById('home-live-roles');if(!el||!window.ETHICARE_JOBS)return;var jobs=window.ETHICARE_JOBS.slice().sort(function(a,b){return (b.posted||'').localeCompare(a.posted||'');}).slice(0,3);if(!jobs.length){var sec=el.closest('.roles');if(sec)sec.style.display='none';return;}el.innerHTML=jobs.map(function(j){var chips=(j.types||[]).slice(0,2).map(function(t){return "<span class='rc-chip'>"+t+"</span>";}).join('');return "<a class='rcard' href='"+j.detail+"'><span class='rc-prof'>"+j.profession+"</span><span class='rc-title'>"+j.title+"</span><span class='rc-loc'>"+j.location+"</span><span class='rc-chips'>"+chips+"</span><span class='rc-go'>View role <i aria-hidden=\"true\">&rarr;</i></span></a>";}).join('');})();</script>
 <script src="ask-ethicare-knowledge.js"></script>
 <script src="ask-ethicare.js" defer></script>
+<script src="journey.js"></script>
 <script src="candidate-context.js"></script>
 <script src="site.js"></script>
 <script src="nav.js" defer></script>

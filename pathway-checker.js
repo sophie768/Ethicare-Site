@@ -1933,9 +1933,28 @@
     if (ctx && ctx.has() && !draftFresh && !st.answers.profession && dC) {
       var pp = ctx.pathwayProfession();
       if (pp && dC.professions.some(function (p) { return p.id === pp; })) st.answers.profession = pp;
-      var cdst = ctx.dest() === 'au' ? 'australia' : (ctx.dest() === 'nz' ? 'new-zealand' : '');
+      var dm = ctx.destMode ? ctx.destMode() : ctx.dest();
+      var cdst = dm === 'au' ? 'australia' : dm === 'nz' ? 'new-zealand' : dm === 'both' ? 'both' : '';
       if (cdst) st.answers.destination = cdst;
       if (st.answers.profession || cdst) st.seeded = true;
+      /* 28 Sep 2026: the answers strip above the checker now shows what was carried in, so the
+         form no longer needs to re-show it — open on the first question that is still unanswered,
+         exactly as a ?profession= link does. */
+      if (st.answers.profession && st.answers.profession !== 'other') st.step = cdst ? 3 : 2;
+    }
+  } catch (e) {}
+  /* 28 Sep 2026 — shared answers (candidate-context.js): seed from what the candidate has already said, write back what they say here, and show the strip. */
+  try {
+    var ctxS = window.EthicareContext;
+    if (ctxS && ctxS.mount) {
+      ctxS.mount('#ctx-strip', { intro: 'Tell us your profession and where you are thinking of, and the checker starts from there.' });
+      ctxS.onChange(function () {
+        var dm2 = ctxS.destMode(), pp2 = ctxS.pathwayProfession(), dC2 = D(), changed = false;
+        var cd2 = dm2 === 'au' ? 'australia' : dm2 === 'nz' ? 'new-zealand' : dm2 === 'both' ? 'both' : '';
+        if (cd2 && st.answers.destination !== cd2) { st.answers.destination = cd2; changed = true; }
+        if (pp2 && dC2 && dC2.professions.some(function (p) { return p.id === pp2; }) && st.answers.profession !== pp2) { st.answers.profession = pp2; changed = true; }
+        if (changed && typeof render === 'function') render();
+      });
     }
   } catch (e) {}
   try {

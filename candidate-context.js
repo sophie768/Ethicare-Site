@@ -12,7 +12,21 @@
    2. Seed, never lock. A tool prefilled from here must still let the person change the answer.
    3. Guide, do not gate. Nothing here is required for any page to work; every consumer falls
       back to its own behaviour when there is no plan.
-   4. STAGES and NEXT mirror move.js — move.js is the source of truth; change both together. */
+   4. STAGES and NEXT mirror move.js — move.js is the source of truth; change both together.
+
+   28 Sep 2026 — the WRITE side and the answers strip. The rule Sophie set: a tool asks one thing
+   at a time, shows only what follows from the answers so far, and never asks what the candidate
+   has already answered elsewhere on the site. So every tool now (a) seeds itself from here,
+   (b) shows the answers shaping its result in a strip the candidate can change in place, and
+   (c) writes an answer back the moment it is given, so the next tool already knows.
+   Three vocabulary rules that go with it:
+     - destination may be 'both' — someone comparing the two countries is never forced to pick.
+       dest() still returns '' for 'both' (tools that can only do one country ask); destMode()
+       returns 'both' for tools that can show the two side by side.
+     - household is WHO IS COMING, never "single or not": alone | partner | children | both |
+       parent. A single parent has children. 'kids' is accepted as an alias and normalised.
+     - nothing here is required. No plan, no strip prompt beyond one quiet line; every tool works
+       from scratch exactly as before. */
 (function () {
   var KEY = 'ethicare_portal_v1';
   /* move-steps.html (the eight-stage rebuild that replaces /move on the September swap) keeps the
@@ -69,14 +83,31 @@
   }
   /* stage only when the person chose one on /move. A move-steps-only profile (country and
      household, no stage) returns '' — the homepage must not announce a stage nobody picked. */
-  function stage() { var p = read(); return p && STAGES[p.stage] ? p.stage : ''; }
-  function first() { var p = read(); return p && p.first ? String(p.first).trim().slice(0, 40) : ''; }
-  function stageLabel() { var s = stage(); return s ? STAGES[s].label : ''; }
-  function next() {
-    var s = stage(); if (!s) return null;
-    var n = STAGES[s].next, href = (s === 'arrived' && dest() === 'au') ? n.au : n.href;
-    return { title: s === 'arrived' && dest() === 'au' ? 'Living and thriving in Australia' : n.title, href: href };
+  /* 29 Sep 2026 — the stage a candidate is at is one of the EIGHT stages of the journey
+     (journey.js, generated from questions.json), not Move's five router values. Both are kept
+     in the store: `journeyStage` is the answer; `stage` is Move's own value derived from it,
+     so move.js keeps working untouched until it is rebuilt on the same spine. */
+  function J() { return window.ETHICARE_JOURNEY || []; }
+  function JMAP() { return window.ETHICARE_JOURNEY_MAP || { moveToJourney: {}, journeyToMove: {} }; }
+  function jstage(id) { var j = J(); for (var i = 0; i < j.length; i++) if (j[i].id === id) return j[i]; return null; }
+  function stage() {
+    var p = read(); if (!p) return '';
+    if (p.journeyStage && jstage(p.journeyStage)) return p.journeyStage;
+    var m = JMAP().moveToJourney[p.stage]; return m && jstage(m) ? m : '';
   }
+  function first() { var p = read(); return p && p.first ? String(p.first).trim().slice(0, 40) : ''; }
+  function stageLabel() { var j = jstage(stage()); return j ? 'Stage 0' + j.n + ' \u00b7 ' + j.there : ''; }
+  function stageWhere() { var j = jstage(stage()); return j ? j.where : ''; }
+  function stageNumber() { var j = jstage(stage()); return j ? j.n : 0; }
+  function next() {
+    var j = jstage(stage()); if (!j) return null;
+    var all = J(), nx = null; for (var i = 0; i < all.length; i++) if (all[i].n === j.n + 1) nx = all[i];
+    if (!nx) return null;
+    var d = dest(), href = nx.href[d] || nx.href.any;
+    return { title: nx.there, href: href, n: nx.n, id: nx.id };
+  }
+  /* Move's own stage value, for anything still reading it (move.js) */
+  function moveStage() { var p = read(); return p && STAGES[p.stage] ? p.stage : ''; }
   function pathwayProfession() { return PATHWAY[profession()] || ''; }
   /* /apply stores the destination as the form's own label */
   function applyDestination() { var d = dest(); return d === 'au' ? 'Australia' : d === 'nz' ? 'Aotearoa New Zealand' : ''; }
@@ -97,11 +128,132 @@
     return add.length ? href + (hasQ ? '&' : '?') + add.join('&') : href;
   }
 
+
+  /* ---- household: who is coming, canonical ------------------------------------------------ */
+  var HH = [
+    { value: 'alone',    label: 'Just me',                        phrase: 'on my own' },
+    { value: 'partner',  label: 'Me and my partner',              phrase: 'with a partner' },
+    { value: 'children', label: 'Me and my children',             phrase: 'with my children' },
+    { value: 'both',     label: 'My partner and our children',    phrase: 'with a partner and children' },
+    { value: 'parent',   label: 'A parent is coming with me',     phrase: 'with a parent coming too' }
+  ];
+  function hhNorm(v) { v = String(v || ''); if (v === 'kids') return 'children'; if (v === 'solo') return 'alone'; if (v === 'partner-children') return 'both'; return HH.some(function (h) { return h.value === v; }) ? v : ''; }
+  function household() { var p = read(); return p && p.hh ? hhNorm(p.hh['with']) : ''; }
+  function householdLabel() { var v = household(); var h = HH.filter(function (x) { return x.value === v; })[0]; return h ? h.label : ''; }
+  function householdPhrase() { var v = household(); var h = HH.filter(function (x) { return x.value === v; })[0]; return h ? h.phrase : ''; }
+  function hasChildren() { var v = household(); return v === 'children' || v === 'both'; }
+  function hasPartner() { var v = household(); return v === 'partner' || v === 'both'; }
+
+  /* ---- destination, including "comparing both" -------------------------------------------- */
+  function destMode() { var p = read(); var d = p && p.dest; return d === 'au' || d === 'nz' || d === 'both' ? d : ''; }
+  function destLabel() { var d = destMode(); return d === 'au' ? 'Australia' : d === 'nz' ? 'New Zealand' : d === 'both' ? 'Comparing both countries' : ''; }
+
+  /* ---- write side ----------------------------------------------------------------------------
+     patch: { dest, profession, household, stage, origin } — any subset. Merges into the one
+     store move.js owns, marks the plan as set, and tells every listener on the page. */
+  function write(patch) {
+    var p = null; try { p = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+    p = (p && typeof p === 'object') ? p : {};
+    if (!p.hh || typeof p.hh !== 'object') p.hh = { 'with': '', work: '', bands: [] };
+    if (patch.dest !== undefined) p.dest = (patch.dest === 'au' || patch.dest === 'nz' || patch.dest === 'both') ? patch.dest : '';
+    if (patch.profession !== undefined) p.profession = String(patch.profession || '');
+    if (patch.household !== undefined) { p.hh['with'] = hhNorm(patch.household); p.party = ''; }
+    if (patch.stage !== undefined) {
+      if (jstage(patch.stage)) { p.journeyStage = patch.stage; p.stage = JMAP().journeyToMove[patch.stage] || p.stage || ''; }
+      else if (STAGES[patch.stage]) { p.stage = patch.stage; p.journeyStage = JMAP().moveToJourney[patch.stage] || ''; }
+    }
+    if (patch.origin !== undefined) p.origin = String(patch.origin || '');
+    if (p.dest || p.profession || p.hh['with'] || p.stage || p.journeyStage) p.set = true;
+    p.updated = Date.now();
+    try { localStorage.setItem(KEY, JSON.stringify(p)); } catch (e) {}
+    try { window.dispatchEvent(new CustomEvent('ethicare:context', { detail: read() })); } catch (e) {}
+    return read();
+  }
+  function clear() {
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    try { window.dispatchEvent(new CustomEvent('ethicare:context', { detail: null })); } catch (e) {}
+  }
+  function onChange(fn) { window.addEventListener('ethicare:context', function (e) { fn(e.detail, e); }); }
+
+  /* ---- the answers strip ---------------------------------------------------------------------
+     mount(el, { fields: ['dest','profession','household','stage'], intro: '…', compact: true })
+     One line of what shapes this page, and a Change control that opens the answers in place.
+     Quiet by design: no name, no email, no "sign up". When nothing is known it shows one
+     sentence and the same control. Every change writes and fires ethicare:context. */
+  var STRIP_CSS = '.ecx{grid-column:1/-1;flex:1 1 100%;width:100%;box-sizing:border-box;font-family:var(--body,Manrope,sans-serif);background:#fff;border:1px solid #C9DED3;border-left:4px solid #A6C84A;border-radius:14px;padding:12px 16px;margin:0 0 clamp(20px,2.6vw,30px);font-size:15px;line-height:1.5;color:#333}'
+    + '.ecx-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px}.ecx-k{font-family:var(--display,"Work Sans",sans-serif);font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-right:4px}'
+    + '.ecx-v{font-family:var(--display,"Work Sans",sans-serif);font-weight:600;color:#02615D}.ecx-sep{color:#9BB9AE}.ecx-btn{margin-left:auto;background:none;border:1px solid #C9DED3;border-radius:999px;padding:5px 13px;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:13.5px;color:#02615D;cursor:pointer;min-height:32px}.ecx-btn:hover{border-color:#02615D}'
+    + '.ecx-ed{display:none;margin-top:12px;padding-top:12px;border-top:1px solid #E6F1ED}.ecx.is-open .ecx-ed{display:block}.ecx-f{margin:0 0 12px}.ecx-f:last-child{margin-bottom:0}.ecx-l{display:block;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:13.5px;color:#02615D;margin:0 0 6px}'
+    + '.ecx-pills{display:flex;flex-wrap:wrap;gap:8px}.ecx-p{background:#fff;border:1px solid #C9DED3;border-radius:999px;padding:6px 13px;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:13.5px;color:#02615D;cursor:pointer;min-height:34px}.ecx-p.is-on{background:#02615D;border-color:#02615D;color:#fff}'
+    + '.ecx select{font-family:var(--body,Manrope,sans-serif);font-size:15px;color:#333;border:1px solid #C9DED3;border-radius:10px;padding:8px 12px;min-height:40px;max-width:100%;background:#fff}'
+    + '.ecx-foot{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:12px;font-size:13.5px;color:#555}.ecx-foot button{background:none;border:0;padding:0;font:inherit;color:#02615D;text-decoration:underline;text-underline-offset:3px;cursor:pointer}'
+    + '.ecx-note{font-size:13.5px;color:#555;margin:0}@media(max-width:560px){.ecx-btn{margin-left:0}}';
+  var cssDone = false;
+  function ensureCss() { if (cssDone) return; cssDone = true; var st = document.createElement('style'); st.id = 'ecx-css'; st.textContent = STRIP_CSS; document.head.appendChild(st); }
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function profOptions() {
+    var cat = window.ETHICARE_PROFESSIONS, out = [];
+    try { var list = cat && typeof cat.listAll === 'function' ? cat.listAll() : []; for (var i = 0; i < list.length; i++) out.push({ value: list[i].key, label: list[i].label, group: list[i].group || '' }); } catch (e) {}
+    return out;
+  }
+  function mount(el, opts) {
+    if (typeof el === 'string') el = document.querySelector(el);
+    if (!el) return null;
+    opts = opts || {}; var fields = opts.fields || ['dest', 'profession', 'household', 'stage'];
+    ensureCss();
+    /* Most tools centre their app in a flex wrapper with no wrapping. A strip dropped in as a
+       sibling would then sit beside the app in a narrow column, so let the wrapper wrap and give
+       the strip the app's own width. */
+    try {
+      var par = el.parentElement, pcs = par && getComputedStyle(par);
+      if (pcs && pcs.display === 'flex' && pcs.flexWrap === 'nowrap') {
+        par.style.flexWrap = 'wrap';
+        var sib = el.nextElementSibling, mw = sib && getComputedStyle(sib).maxWidth;
+        el.style.maxWidth = (mw && mw !== 'none') ? mw : '980px';
+        if (!el.style.margin) el.style.margin = '14px auto 0';
+      }
+    } catch (e) {}
+    var open = false;
+    function paint() {
+      var p = read() || {}, parts = [];
+      if (fields.indexOf('profession') >= 0 && profession()) parts.push(professionLabel() || profession());
+      if (fields.indexOf('dest') >= 0 && destMode()) parts.push(destLabel());
+      if (fields.indexOf('household') >= 0 && household()) parts.push(householdPhrase());
+      if (fields.indexOf('stage') >= 0 && stage()) parts.push(stageLabel());
+      var known = parts.length > 0;
+      var h = '<div class="ecx-row">';
+      if (known) { h += '<span class="ecx-k">Your answers</span>' + parts.map(function (t) { return '<span class="ecx-v">' + esc(t) + '</span>'; }).join('<span class="ecx-sep">&middot;</span>'); }
+      else { h += '<span class="ecx-note">' + esc(opts.intro || 'Tell us a little and this page, and every other tool here, shows only what applies to you.') + '</span>'; }
+      h += '<button type="button" class="ecx-btn" aria-expanded="' + (open ? 'true' : 'false') + '">' + (open ? 'Done' : (known ? 'Change' : 'Set up in 30 seconds')) + '</button></div>';
+      h += '<div class="ecx-ed">';
+      if (fields.indexOf('dest') >= 0) h += '<div class="ecx-f"><span class="ecx-l">Where are you thinking of?</span><div class="ecx-pills" data-f="dest">' + [['nz', 'New Zealand'], ['au', 'Australia'], ['both', 'Comparing both']].map(function (o) { return '<button type="button" class="ecx-p' + (destMode() === o[0] ? ' is-on' : '') + '" data-v="' + o[0] + '">' + o[1] + '</button>'; }).join('') + '</div></div>';
+      if (fields.indexOf('profession') >= 0) { var po = profOptions(); if (po.length) { h += '<div class="ecx-f"><label class="ecx-l" for="ecx-prof">Your profession</label><select id="ecx-prof" data-f="profession"><option value="">Choose…</option>' + po.map(function (o) { return '<option value="' + esc(o.value) + '"' + (profession() === o.value ? ' selected' : '') + '>' + esc(o.label) + '</option>'; }).join('') + '</select></div>'; } }
+      if (fields.indexOf('household') >= 0) h += '<div class="ecx-f"><span class="ecx-l">Who is coming with you?</span><div class="ecx-pills" data-f="household">' + HH.map(function (o) { return '<button type="button" class="ecx-p' + (household() === o.value ? ' is-on' : '') + '" data-v="' + o.value + '">' + esc(o.label) + '</button>'; }).join('') + '</div></div>';
+      if (fields.indexOf('stage') >= 0 && J().length) h += '<div class="ecx-f"><span class="ecx-l">Where are you in the move?</span><div class="ecx-pills" data-f="stage">' + J().map(function (j) { return '<button type="button" class="ecx-p' + (stage() === j.id ? ' is-on' : '') + '" data-v="' + j.id + '"><span style="opacity:.6;margin-right:6px">0' + j.n + '</span>' + esc(j.where) + '</button>'; }).join('') + '</div></div>';
+      h += '<div class="ecx-foot"><span>Saved in this browser only. Nothing is sent to us.</span>' + (known ? '<button type="button" data-clear>Clear my answers</button>' : '') + '</div></div>';
+      el.className = 'ecx' + (open ? ' is-open' : ''); el.innerHTML = h;
+    }
+    el.addEventListener('click', function (e) {
+      var t = e.target.closest ? e.target.closest('button') : null; if (!t) return;
+      if (t.classList.contains('ecx-btn')) { open = !open; paint(); return; }
+      if (t.hasAttribute('data-clear')) { open = false; clear(); paint(); return; }
+      var grp = t.parentNode && t.parentNode.getAttribute ? t.parentNode.getAttribute('data-f') : null;
+      if (grp && t.classList.contains('ecx-p')) { var patch = {}; patch[grp] = t.getAttribute('data-v'); write(patch); paint(); }
+    });
+    el.addEventListener('change', function (e) {
+      var f = e.target.getAttribute && e.target.getAttribute('data-f');
+      if (f === 'profession') { write({ profession: e.target.value }); paint(); }
+    });
+    window.addEventListener('ethicare:context', function () { paint(); });
+    paint();
+    return { repaint: paint };
+  }
+
   /* Anonymous context line — profession · country · stage. Never a name, never an email. */
   function summary() {
     if (!has()) return '';
     var p = read();
-    return [professionLabel() || profession(), countryName(), stageLabel(), p.regStatus, p.party].filter(Boolean).join(' \u00b7 ');
+    return [professionLabel() || profession(), destLabel(), stageLabel(), p.regStatus, householdPhrase()].filter(Boolean).join(' \u00b7 ');
   }
 
   /* Rewrite any link marked data-ctx-link so it carries the context. Progressive: without a plan
@@ -118,7 +270,12 @@
     key: KEY, read: read, has: has, dest: dest, country: country, countryName: countryName, first: first,
     profession: profession, professionLabel: professionLabel, pathwayProfession: pathwayProfession,
     applyDestination: applyDestination, stage: stage, stageLabel: stageLabel, next: next,
-    withContext: withContext, summary: summary, decorate: decorate
+    withContext: withContext, summary: summary, decorate: decorate,
+    /* 28 Sep 2026 */
+    destMode: destMode, destLabel: destLabel, household: household, householdLabel: householdLabel, householdPhrase: householdPhrase,
+    hasChildren: hasChildren, hasPartner: hasPartner, HH: HH, write: write, clear: clear, onChange: onChange, mount: mount,
+    /* 29 Sep 2026 — the eight stages */
+    journey: J, stageWhere: stageWhere, stageNumber: stageNumber, moveStage: moveStage
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { decorate(); });

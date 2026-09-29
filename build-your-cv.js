@@ -357,7 +357,9 @@
     }
     $('[data-gaps]').innerHTML = grp('Strong', strong, '\u2713', 'ok') + grp('Worth reviewing', review, '\u25CB', 'watch');
 
-    var obs = [], p = S.prof;
+    /* 28 Sep 2026: `f` and `S.prof` were never defined here, so every refresh threw at this line and
+       the profession observations below never painted. */
+    var obs = [], p = S.profession, f = S.f;
     var imaging = ['radiography', 'sonography', 'radiation', 'nuclear'].indexOf(p) >= 0;
     var skills = f.expertise.map(function (r) { return (r.group || '') + ' ' + (r.items || ''); }).join(' ').toLowerCase();
     var history = f.roles.map(function (r) { return (r.title || '') + ' ' + (r.bullets || ''); }).join(' ').toLowerCase();
@@ -612,6 +614,7 @@
         S.profession = e.target.value;
         groupChips(); equipCopy(); refresh();
       }
+      if (e.target.id === 'cvDest' || e.target.id === 'cvProf') shareBack();
     });
 
     document.addEventListener('click', function (e) {
@@ -668,6 +671,29 @@
         } catch (err) { flash(t, 'Would not build — print instead'); }
       }
     });
+    /* 28 Sep 2026 — shared answers (candidate-context.js): seed from what the candidate has already said, write back what they say here, and show the strip. */
+    var CTX2CV = { imaging: 'radiography', nuclearmed: 'radiography', sonography: 'sonography', radtherapy: 'radiation', physio: 'physio', ot: 'ot', psychology: 'psychology', speech: 'slt', dietetics: 'dietetics', socialwork: 'socialwork', anaesthetic: 'anaesthetics', nursing: 'nursing', midwifery: 'midwifery', medicine: 'medicine' };
+    var CV2CTX = { radiography: 'imaging', sonography: 'sonography', radiation: 'radtherapy', physio: 'physio', ot: 'ot', psychology: 'psychology', slt: 'speech', dietetics: 'dietetics', socialwork: 'socialwork', anaesthetics: 'anaesthetic', nursing: 'nursing', midwifery: 'midwifery', medicine: 'medicine' };
+    var ctx = window.EthicareContext, syncing = false;
+    function shareBack() {
+      if (!ctx || !ctx.write || syncing) return;
+      var patch = {};
+      if (ctx.destMode() !== 'both') patch.dest = S.dest;
+      if (CV2CTX[S.profession]) patch.profession = CV2CTX[S.profession];
+      ctx.write(patch);
+    }
+    function seedFromCtx() {
+      if (!ctx || !ctx.has()) return;
+      var changed = false, d = ctx.dest(), pk = CTX2CV[ctx.profession()];
+      if (d && S.dest !== d) { S.dest = d; changed = true; }
+      if (pk && S.profession !== pk) { S.profession = pk; changed = true; }
+      if (!changed) return;
+      syncing = true;
+      try { $('#cvDest').value = S.dest; var ps = $('#cvProf'); if (ps) ps.value = S.profession; if (why) why.placeholder = 'Why ' + country() + '? One honest sentence'; regCopy(); groupChips(); equipCopy(); refresh(); save(); } catch (e) {}
+      syncing = false;
+    }
+    if (ctx) { if (!saved.dest && !saved.profession) seedFromCtx(); ctx.onChange(seedFromCtx); ctx.mount('#ctx-strip', { intro: 'Tell us your profession and destination and the CV shapes itself around them.' }); }
+
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

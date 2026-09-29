@@ -126,7 +126,7 @@
       var b = el('button', 'th-tab' + (state.country === c ? ' is-on' : ''), T[c].label);
       b.type = 'button';
       b.setAttribute('aria-pressed', state.country === c ? 'true' : 'false');
-      b.onclick = function () { state.country = c; render(); };
+      b.onclick = function () { state.country = c; render(); var ctx = window.EthicareContext; if (ctx && ctx.write && !state.ctxSyncing && ctx.destMode() !== 'both') ctx.write({ dest: c }); };
       tabs.appendChild(b);
     });
     card.appendChild(tabs);
@@ -243,6 +243,15 @@
 
   /* exposed so the figures can be tested without a browser */
   window.EthicareTakeHome = { progressive: progressive, nzCalc: nzCalc, auCalc: auCalc, lito: lito };
+
+  /* 28 Sep 2026 — shared answers (candidate-context.js): seed from what the candidate has already said, write back what they say here, and show the strip. */
+  (function () {
+    var ctx = window.EthicareContext; if (!ctx) return;
+    var d = ctx.dest(); if (d) state.country = d;
+    ctx.onChange(function () { var d2 = ctx.dest(); if (d2 && d2 !== state.country) { state.ctxSyncing = true; state.country = d2; render(); state.ctxSyncing = false; } });
+    var go = function () { ctx.mount('#ctx-strip', { intro: 'Tell us which country and the estimate uses that tax year, that levy and that super or KiwiSaver rule.' }); };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+  })();
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);
   else render();

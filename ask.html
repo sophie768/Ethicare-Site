@@ -69,6 +69,7 @@
     <h1>What&rsquo;s on your mind?</h1>
     <p class="keyline">It answers from our own guides, then points you at the page you needed.</p>
     <p class="sub">Most people arrive here with a question that doesn&rsquo;t fit a menu &mdash; whether their registration will transfer, what the money really looks like, whether a partner can work. Ask it the way you&rsquo;d ask a person who has done this before.</p>
+    <div id="ctx-strip" data-ctx-strip style="margin-top:18px"></div>
     <div class="inr">
       <form class="aske-box" data-aske-form>
         <label class="sr-only" for="aske-in">Ask anything about working or moving to Australia or New Zealand</label>
@@ -173,8 +174,12 @@
      liveJobs() reads to tell the assistant what is actually open. Without it the function
      is told vacancies are unavailable and the assistant routes to the jobs page rather
      than naming a role that exists. -->
+<script src="portal-professions.js"></script>
+<script src="journey.js"></script>
+<script src="candidate-context.js"></script>
 <script src="jobs/jobs-data.js"></script>
 <script src="ask-ethicare-knowledge.js"></script>
 <script src="ask-ethicare.js" defer></script>
+<script>(function(){function go(){var c=window.EthicareContext;if(c&&c.mount)c.mount("#ctx-strip",{intro:"Tell us your profession and where you are thinking of, and the answers start from there instead of asking."});}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();})();</script>
 </body>
 </html>

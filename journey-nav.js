@@ -20,7 +20,7 @@
   var KEY = 'ethicare_saved_v1';
   var MAX = 60;
 
-  /* The guide sequences, labelled against the EIGHT-STAGE journey (names agreed 8 Sep 2026;
+  /* The guide sequences, labelled against the EIGHT-STAGE journey (questions.json decides the order and names since 29 Sep 2026;
      the six-step labels retired the same day). `s` is the page's stage — visas and Preparing
      to move are both Stage 07, so the bar reads the stage, never the array index. Order is
      the reading order on the pages themselves — change it there and here together, or the
@@ -29,7 +29,7 @@
   var SEQ = [
     { name: 'Your New Zealand journey', all: '/resources', steps: [
       { u: '/guides/moving-to-new-zealand', t: 'Is it right for me?', s: 1 },
-      { u: '/guides/new-zealand-registration', t: 'Can I work here?', s: 4 },
+      { u: '/guides/new-zealand-registration', t: 'Can I work here?', s: 3 },
       { u: '/guides/new-zealand-interview', t: 'CV & interview', s: 6 },
       { u: '/guides/new-zealand-visa', t: 'Immigration & visas', s: 7 },
       { u: '/guides/new-zealand-relocation', t: 'Preparing to move', s: 7 },
@@ -37,7 +37,7 @@
     ] },
     { name: 'Your Australian journey', all: '/resources', steps: [
       { u: '/guides/moving-to-australia', t: 'Is it right for me?', s: 1 },
-      { u: '/guides/australia-registration', t: 'Can I work here?', s: 4 },
+      { u: '/guides/australia-registration', t: 'Can I work here?', s: 3 },
       { u: '/guides/australia-interview', t: 'CV & interview', s: 6 },
       { u: '/guides/australia-visa', t: 'Immigration & visas', s: 7 },
       { u: '/guides/australia-relocation', t: 'Preparing to move', s: 7 },

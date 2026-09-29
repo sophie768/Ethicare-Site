@@ -78,10 +78,17 @@
     });
   }
 
+  /* 28 Sep 2026 — the candidate's own answers from the shared strip, as DATA. The function
+     whitelists every value; nothing here can shape the prompt. */
+  function candidateContext() {
+    var ctx = window.EthicareContext; if (!ctx || !ctx.has()) return null;
+    return { profession: ctx.profession(), dest: ctx.destMode ? ctx.destMode() : ctx.dest(), household: ctx.household ? ctx.household() : '', stage: ctx.stage() };
+  }
+
   async function askLLM(messages) {
     var r = await fetch('/.netlify/functions/ask-ethicare', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: messages, jobs: liveJobs() })
+      body: JSON.stringify({ messages: messages, jobs: liveJobs(), context: candidateContext() })
     });
     if (!r.ok) throw new Error('ask-ethicare ' + r.status);
     return (await r.json()).text;

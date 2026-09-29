@@ -172,7 +172,9 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
     <p class="kick">Where are you considering?</p>
     <h2>Pay you can actually check</h2>
     <p class="rt-lead">Here is something unusual about both countries: in the public systems, pay is set by collective agreement and published. Not negotiated in the dark, not dependent on how well you interview. That means we can show you indicative bands and name the agreement they come from, and it means you can verify us. We keep figures rough on purpose, rounded so neither end overstates, because a precise number against a role we have not seen would be a promise we are not in a position to make.</p>
+    <div id="ctx-strip" data-ctx-strip></div>
     <div class="ct-tabs" role="tablist" aria-label="Choose a country">
+      <button class="ct-tab" type="button" role="tab" id="tab-both" aria-controls="panel-nz panel-au" aria-selected="false" data-country="both">Both, side by side</button>
       <button class="ct-tab is-on" type="button" role="tab" id="tab-nz" aria-controls="panel-nz" aria-selected="true" data-country="nz">New Zealand</button>
       <button class="ct-tab" type="button" role="tab" id="tab-au" aria-controls="panel-au" aria-selected="false" data-country="au">Australia</button>
     </div>
@@ -389,6 +391,9 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
   </div>
 </footer>
 <script src="site.js"></script>
+<script src="portal-professions.js"></script>
+<script src="journey.js"></script>
+<script src="candidate-context.js"></script>
 <script src="nav.js" defer></script>
 
 
@@ -400,27 +405,37 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
 -->
 <script>
 /* Country tabs. Progressive: with JS off, `hidden` is never set and both panels show,
-   which is a longer page but a complete one. ?c=au deep-links the Australian panel. */
+   which is a longer page but a complete one. ?c=au deep-links the Australian panel.
+   28 Sep 2026: the choice comes from the shared answers first (candidate-context.js) and is
+   written back when changed here, so the next tool already knows. 'both' shows the two panels
+   one after the other — someone comparing is never made to choose. */
 (function () {
   var tabs = [].slice.call(document.querySelectorAll('.ct-tab'));
   if (!tabs.length) return;
-  function show(c) {
+  var ctx = window.EthicareContext;
+  function show(c, fromUser) {
     tabs.forEach(function (t) {
       var on = t.getAttribute('data-country') === c;
       t.classList.toggle('is-on', on);
       t.setAttribute('aria-selected', on ? 'true' : 'false');
-      var panel = document.getElementById('panel-' + t.getAttribute('data-country'));
-      if (panel) panel.hidden = !on;
     });
+    ['nz', 'au'].forEach(function (k) { var panel = document.getElementById('panel-' + k); if (panel) panel.hidden = !(c === 'both' || c === k); });
+    if (fromUser && ctx && ctx.write) ctx.write({ dest: c });
     if (window.track) window.track('earn_country', { country: c });
   }
   tabs.forEach(function (t) {
-    t.addEventListener('click', function () { show(t.getAttribute('data-country')); });
+    t.addEventListener('click', function () { show(t.getAttribute('data-country'), true); });
   });
   var q;
   try { q = new URLSearchParams(location.search).get('c'); } catch (e) { q = null; }
-  show(q === 'au' ? 'au' : 'nz');
+  var known = ctx && ctx.destMode ? ctx.destMode() : '';
+  show(q === 'au' || q === 'nz' || q === 'both' ? q : (known || 'nz'));
+  if (ctx && ctx.mount) {
+    ctx.mount('#ctx-strip', { fields: ['profession', 'dest', 'household', 'stage'], intro: 'Tell us where you are thinking of and every tool here shows only what applies to you.' });
+    ctx.onChange(function () { var d = ctx.destMode(); if (d) show(d, false); });
+  }
 })();
+</script>
 </script>
 </body>
 </html>
