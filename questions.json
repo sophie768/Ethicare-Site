@@ -122,11 +122,12 @@
       "n": 2,
       "id": "choose",
       "label": "Choose your destination",
-      "where": "Choosing between the two countries",
+      "_note": "The 'any' link must not be /where-would-we-live — that is stage 5 (place), and two stages pointing at one page is the duplicate a reviewer found on 30 Sep 2026. Before a country is chosen, choosing IS the country comparison.",
+   "where": "Choosing between the two countries",
       "href": {
         "nz": "/destinations/",
         "au": "/destinations/australia",
-        "any": "/where-would-we-live"
+        "any": "/australia-vs-new-zealand"
       }
     },
     {

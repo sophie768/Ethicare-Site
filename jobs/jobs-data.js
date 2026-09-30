@@ -39,6 +39,11 @@
    pay: we do not assert them on an employer's behalf. Each is a tri-state,
    and OMITTING the field is a valid, honest answer.
 
+     hours:       a string, or undefined. The contracted commitment as the
+                  employer states it ("1.0 FTE", "80 hours a fortnight",
+                  "8 sessions a week"). Same rule as the rest: if it is not
+                  confirmed, leave it out and the page says so.
+
      sponsorship: "yes" | "no" | undefined
      relocation:  "yes" | "no" | undefined
      family:      "yes" | "no" | undefined
@@ -99,6 +104,7 @@ window.ETHICARE_JOBS = [
     region: "Manawat\u016b-Whanganui",
     location: "Palmerston North, New Zealand",
     country: "New Zealand",
+    hours: "1.0 FTE · Monday to Friday",
     types: ["Permanent", "Full-time"],
     posted: "2026-09-27",
     closes: "2026-11-06",
@@ -116,6 +122,7 @@ window.ETHICARE_JOBS = [
     region: "Manawat\u016b-Whanganui",
     location: "Palmerston North, New Zealand",
     country: "New Zealand",
+    hours: "1.0 FTE",
     types: ["Permanent", "Full-time"],
     posted: "2026-09-27",
     closes: "2026-10-23",
@@ -133,6 +140,7 @@ window.ETHICARE_JOBS = [
     region: "Manawat\u016b-Whanganui",
     location: "Whanganui, New Zealand",
     country: "New Zealand",
+    hours: "1.0 FTE",
     types: ["Permanent", "Full-time"],
     posted: "2026-09-27",
     closes: "2026-11-30",
@@ -150,6 +158,7 @@ window.ETHICARE_JOBS = [
     region: "Wairarapa",
     location: "Masterton, New Zealand",
     country: "New Zealand",
+    hours: "80 hours a fortnight",
     types: ["Permanent", "Full-time"],
     posted: "2026-09-27",
     closes: "2026-10-31",
@@ -167,6 +176,7 @@ window.ETHICARE_JOBS = [
     region: "Waikato",
     location: "Hamilton, New Zealand",
     country: "New Zealand",
+    hours: "80 hours a fortnight",
     types: ["Permanent", "Full-time"],
     posted: "2026-09-27",
     closes: "2026-10-22",
@@ -184,6 +194,7 @@ window.ETHICARE_JOBS = [
     region: "Bay of Plenty",
     location: "Tauranga, New Zealand",
     country: "New Zealand",
+    hours: "0.6 FTE · 48 hours a fortnight",
     types: ["Permanent", "Part-time"],
     posted: "2026-09-27",
     closes: "2026-10-25",
@@ -217,6 +228,7 @@ window.ETHICARE_JOBS = [
     region: "Wellington",
     location: "Wellington, New Zealand",
     country: "New Zealand",
+    hours: "8 sessions a week",
     types: ["Permanent","8 sessions per week"],
     posted: "2026-07-29",
     pay: "Competitive — confirmed with you before you decide",

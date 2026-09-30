@@ -76,6 +76,14 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 .work-head{max-width:640px;margin-bottom:clamp(28px,3.4vw,46px)}
 .work-head h2{font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(28px,4.4vw,54px);letter-spacing:-.03em;line-height:1.04;color:#02615D;margin:12px 0 0;text-wrap:balance}
 .work-head .wh-sub{font-size:clamp(15.5px,1.3vw,17px);line-height:1.6;color:#555;margin:14px 0 0;max-width:54ch;text-wrap:pretty}
+/* welcome back (30 Sep 2026): the six questions moved up for someone we already know. The cream
+   matches the trust bar above it, so the section needs its own top edge to read as a section. */
+.work.is-welcome{border-top:1px solid #C9DED3}
+.work-head .wh-sub b{font-weight:600;color:#02615D}
+.work-head .wh-clear{margin:16px 0 0}
+.work-head .wh-clear button{background:none;border:1px solid #C9DED3;border-radius:999px;padding:8px 16px;min-height:40px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14.5px;color:#02615D;cursor:pointer}
+.work-head .wh-clear button:hover{border-color:#02615D;background:#FCFBF8}
+.work-head .wh-clear button:focus-visible{outline:3px solid #02615D;outline-offset:2px}
 .acts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.4vw,16px)}
 @media(max-width:900px){.acts{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.acts{grid-template-columns:1fr}}
@@ -394,7 +402,7 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
       <a class="act" href="/move"><span class="q">How do we plan it all?</span><span class="sub2">One plan for registration, visa, money and the first month.</span><span class="go">Build your plan <i aria-hidden="true">&rarr;</i></span></a>
     </div>
     <nav class="jstrip" data-jstrip aria-label="The eight stages of the journey" hidden>
-      <div class="js-head"><span class="eyebrow">The whole journey, in order</span><p class="js-note" data-jstrip-note>Eight stages. The six questions are the middle of it. Start wherever you are.</p></div>
+      <div class="js-head"><span class="eyebrow">The whole journey, in order</span><p class="js-note" data-jstrip-note>The same six questions in order. Start wherever you are.</p></div>
       <ol data-jstrip-list></ol>
     </nav>
   </div>
@@ -552,7 +560,65 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 <script src="ask-ethicare-knowledge.js"></script>
 <script src="ask-ethicare.js" defer></script>
 <script src="journey.js"></script>
+<script src="portal-professions.js"></script>
 <script src="candidate-context.js"></script>
+<script>(function(){
+  /* Welcome back (30 Sep 2026). A first-time visitor meets the dream first — the hero, the two
+     countries, the everyday, the reality — and only then the six questions, five phone-screens
+     down. That order is right for someone deciding whether to want this at all, and wrong for
+     someone who decided weeks ago and came back to work out the numbers. So: if we already hold
+     their answers, the six questions move up to just under the trust bar and say hello. The
+     lifestyle sections still follow, in the same order, for whenever they want them again.
+     "Clear my answers" puts everything back where a first-time visitor finds it, and forgets
+     what we held — no reload, so it is obvious that it worked. */
+  var ctx = window.EthicareContext;
+  var sec = document.getElementById('start');
+  var bar = document.querySelector('.trustbar');
+  var head = sec && sec.querySelector('.work-head');
+  if (!ctx || !ctx.has || !sec || !bar || !head) return;
+  var homeSpot = sec.nextSibling;          /* where it sits for a first-time visitor */
+  var firstTime = head.innerHTML;          /* the head a first-time visitor reads */
+  function esc(t){return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function welcomeHead(){
+    var name = ctx.first ? ctx.first() : '';
+    /* say it as a sentence, not as a data dump: profession, country, and what they were doing.
+       Any piece we do not hold is simply left out. */
+    var prof = (ctx.professionLabel && ctx.professionLabel()) || '',
+        where = (ctx.destLabel && ctx.destLabel()) || '',
+        n = (ctx.stageNumber && ctx.stageNumber()) || 0,
+        j = n && window.ETHICARE_JOURNEY ? window.ETHICARE_JOURNEY[n - 1] : null;
+    var bits = [];
+    if (prof) bits.push('you work in ' + prof.toLowerCase());
+    if (where) bits.push(/[Cc]omparing/.test(where) ? 'you are weighing up both countries' : 'you are looking at ' + where);
+    var line = bits.length ? 'Last time you told us ' + bits.join(' and ') + '.' : '';
+    if (j) line += (line ? ' ' : '') + 'You were up to stage ' + j.n + ', ' + j.there.replace(/\?$/, '') + '.';
+    return '<span class="eyebrow">Welcome back</span>'
+      + '<h2>' + (name ? 'Good to see you again, ' + esc(name) + '.' : 'Good to see you again.') + '</h2>'
+      + '<p class="wh-sub">' + (line ? '<b>' + esc(line) + '</b> Your answers are already filled in across the tools below. ' : '')
+      + 'Start wherever you left off.</p>'
+      + '<p class="wh-clear"><button type="button" data-ctx-clear>Not you? Clear my answers</button></p>';
+  }
+  function apply(){
+    if (ctx.has()) {
+      if (sec.previousElementSibling !== bar) bar.parentNode.insertBefore(sec, bar.nextSibling);
+      sec.classList.add('is-welcome');
+      head.innerHTML = welcomeHead();
+    } else {
+      if (homeSpot && homeSpot.parentNode) homeSpot.parentNode.insertBefore(sec, homeSpot);
+      sec.classList.remove('is-welcome');
+      head.innerHTML = firstTime;
+    }
+  }
+  sec.addEventListener('click', function(e){
+    var t = e.target.closest ? e.target.closest('[data-ctx-clear]') : null;
+    if (!t) return;
+    e.preventDefault();
+    ctx.clear();                      /* fires ethicare:context, which repaints everything */
+    if (window.scrollTo) window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  apply();
+  if (ctx.onChange) ctx.onChange(apply);
+})();</script>
 <script>(function(){
   /* the journey strip under the six questions. Reads journey.js for the eight stages and the
      shared answers (EthicareContext) for where the person is and which country they chose. */
@@ -562,6 +628,11 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
   function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
   function paint(){
     var dest=ctx&&ctx.has()?ctx.dest():'',stage=ctx&&ctx.has()?ctx.stage():'';
+    /* 30 Sep 2026: a first-time visitor sees the six questions and nothing else. The strip
+       repeats five of those six links, which reads as a second structure to learn rather than
+       the same one in order. It appears once the person has told us a country or a stage, when
+       it stops being a duplicate and starts saying where they are. Move always shows it. */
+    if(!dest&&!stage){nav.hidden=true;return;}
     var cur=-1;J.forEach(function(s,i){if(s.id===stage)cur=i;});
     list.innerHTML=J.map(function(s,i){
       var href=(dest&&s.href[dest])||s.href.any||'/';
@@ -571,8 +642,7 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
     }).join('');
     if(note){
       if(cur>=0)note.textContent='Stage '+(cur+1)+' of 8. '+(cur<7?'What comes next is on the right; the earlier stages are still here if you need them.':'Everything before this is still here if you need it.');
-      else if(dest)note.textContent='Eight stages, with the links set to '+(ctx.destLabel?ctx.destLabel():'your country')+'. Start wherever you are.';
-      else note.textContent='Eight stages. The six questions are the middle of it. Start wherever you are.';
+      else note.textContent='The same six questions in order, with the links set to '+(ctx.destLabel?ctx.destLabel():'your country')+'. Start wherever you are.';
     }
     nav.hidden=false;
   }

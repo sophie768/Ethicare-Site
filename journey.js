@@ -3,7 +3,7 @@
    tools read this; the wording is decided in questions.json and nowhere else. */
 window.ETHICARE_JOURNEY = [
   { n: 1, id: "imagine", label: "Imagine the possibilities", there: "Imagine the possibilities", where: "Just imagining it", href: {"nz": "/new-zealand", "au": "/australia", "any": "/"}, questions: [] },
-  { n: 2, id: "choose", label: "Choose your destination", there: "Choose your destination", where: "Choosing between the two countries", href: {"nz": "/destinations/", "au": "/destinations/australia", "any": "/where-would-we-live"}, questions: [] },
+  { n: 2, id: "choose", label: "Choose your destination", there: "Choose your destination", where: "Choosing between the two countries", href: {"nz": "/destinations/", "au": "/destinations/australia", "any": "/australia-vs-new-zealand"}, questions: [] },
   { n: 3, id: "work", label: "Can I work here?", there: "Can I work there?", where: "Checking whether I can register", href: {"nz": "/guides/new-zealand-registration", "au": "/guides/australia-registration", "any": "/can-i-work-there"}, questions: ["work"] },
   { n: 4, id: "numbers", label: "Make the numbers work", there: "Make the numbers work", where: "Working out the money", href: {"nz": "/is-it-worth-it", "au": "/is-it-worth-it", "any": "/is-it-worth-it"}, questions: ["earn", "afford"] },
   { n: 5, id: "place", label: "Where could we live?", there: "Where could we live?", where: "Deciding where we would live", href: {"nz": "/where-would-we-live", "au": "/where-would-we-live", "any": "/where-would-we-live"}, questions: ["live"] },
