@@ -23,7 +23,10 @@
        strip); a default in S0 is not an answer. `whoBase` is who is coming as answered; `who`
        becomes 'first' from it when they say they are going ahead. `open` is the refine group
        open on the estimate. */
-    ans: {}, whoBase: 'me', together: 'y', open: ''
+    ans: {}, whoBase: 'me', together: 'y', open: '',
+    /* the end-of-estimate capture; never saved to the draft, so a shared link or a
+       returning visit never carries someone else's name and address */
+    lead: { name: '', email: '', timeframe: '' }, optFuture: false, leadDone: false, leadErr: ''
   };
   var st = assign({}, S0);
   var moveFocus = false;   // set on stage changes only — never while someone is typing
@@ -51,10 +54,25 @@
   function isAU() { return st.dest === 'au'; }
   function cc() { return isAU() ? 'au' : 'nz'; }
   function code() { return D().currency.code[st.dest]; }
-  function save() { try { var o = assign({}, st); delete o.seeded; localStorage.setItem(LSK, JSON.stringify({ st: o, ts: Date.now() })); } catch (e) {} summary(); }
+  /* The draft is a convenience, not a record of a person: the capture fields are stripped
+     before it is written, so a shared device or a resumed link never holds someone's name
+     and email address. */
+  function save() {
+    try {
+      var o = assign({}, st);
+      delete o.seeded; delete o.lead; delete o.leadDone; delete o.leadErr;
+      delete o.optContact; delete o.optFuture;
+      localStorage.setItem(LSK, JSON.stringify({ st: o, ts: Date.now() }));
+    } catch (e) {}
+    summary();
+  }
   /* A compact read-only summary for My Move's money line (my-move reads SUMMARY_KEY, never LSK).
      Written only once the estimate has been reached, so a half-answered stage 1 never shows as a budget. */
   var SUMMARY_KEY = 'ethicare_cost_summary_v1';
+  /* The capture submits the hidden form natively, which navigates to ?submitted=1 and
+     reloads this page. Without a flag that survives the round trip the person lands back
+     on the estimate with the same form in front of them and no sign it worked. */
+  var SENT_KEY = 'ethicare_cost_sent_v1';
   function summary() {
     try {
       if (!D() || st.stage < 5) return;
@@ -694,7 +712,118 @@
       + '<a href="' + (isAU() ? '/destinations/australia' : '/destinations/') + '"><span class="t">Destination guides</span><span class="l">Where should I live? &rarr;</span></a>'
       + '</div></div>';
 
+    s += leadBlock();
+
     return s + '</div>';
+  }
+
+  /* ---------------- email me this estimate ----------------
+     Asked at the END, never as a condition: the estimate is complete and free whether or not
+     anyone fills this in. Two opt-ins in Sophie's own words (1 Oct 2026), both unticked, and
+     the wording is stored with the submission alongside a version stamp, because what someone
+     agreed to only means something next to the words they read. */
+  var CONSENT_V = '2026-10-01';
+  /* ONE permission, and it is about being on file for roles — not an invitation to ask us
+     for relocation advice (Sophie, 1 Oct 2026). There is not always a vacancy for everyone,
+     and a box that says "contact me about my move" promises a service we cannot staff.
+     Being held on file for roles and services is something we can honour whatever the
+     vacancy list looks like this week. */
+  var OPTS = {
+    optFuture: 'I am happy for Ethicare to hold my details and contact me about future roles and services'
+  };
+  /* The same timeframes the pathway checker asks (pathway-checker-data.js TIMEFRAMES), so one
+     inbox does not end up holding two incompatible scales for the same question. */
+  var TIMEFRAMES = ['As soon as possible', 'Within 3 months', '3\u20136 months', '6\u201312 months', '12+ months', 'Just exploring'];
+  function emailLive() { return !!window.ETHICARE_EMAIL_LIVE; }
+
+  function leadBlock() {
+    if (st.leadDone) {
+      return '<div class="cc-lead is-done" data-print-hide><h3>Thank you.</h3><p>'
+        + (emailLive() ? 'Your estimate is on its way to ' + esc(st.lead.email) + '. ' : '')
+        + (st.optFuture
+            ? 'We will keep you in mind when something comes up in your profession. We do not always have a vacancy to match, so we will be in touch when we do rather than in the meantime.'
+            : 'We have not kept your details for future roles, as you did not ask us to.')
+        + '</p></div>';
+    }
+    /* With the emailed copy switched off there is no service being given, so the permission is
+       the whole point and is required. With it on, the email is the service and the permission
+       is a genuine extra someone can decline. */
+    var live = emailLive();
+    var opts = '<option value="">Choose\u2026</option>' + TIMEFRAMES.map(function (t) {
+      return '<option value="' + esc(t) + '"' + (st.lead.timeframe === t ? ' selected' : '') + '>' + esc(t) + '</option>';
+    }).join('');
+    return '<div class="cc-lead" data-print-hide>'
+      + '<h3>' + (live ? 'Want a copy, and to hear about roles?' : 'Want to hear when a role comes up?') + '</h3>'
+      + '<p class="cc-lead-sub">'
+      + (live ? 'We will email you this estimate. ' : '')
+      + 'Tell us roughly when you are thinking of moving and we will keep you in mind for roles in your profession. '
+      + '<strong>We do not always have a vacancy to match</strong>, so this is a list to be on, not a promise of a role \u2014 and the estimate above is yours either way.</p>'
+      + (st.leadErr ? '<p class="cc-err" role="alert">' + esc(st.leadErr) + '</p>' : '')
+      + '<div class="cc-f">'
+      + '<div><label class="cc-l" for="cc-name">Your name</label><input id="cc-name" type="text" autocomplete="name" data-lead="name" value="' + esc(st.lead.name) + '" placeholder="e.g. Priya Sharma"></div>'
+      + '<div><label class="cc-l" for="cc-email">Email</label><input id="cc-email" type="email" autocomplete="email" data-lead="email" value="' + esc(st.lead.email) + '" placeholder="you@example.com"></div>'
+      + '<div><label class="cc-l" for="cc-when">When are you thinking of moving?</label><select id="cc-when" data-lead="timeframe">' + opts + '</select></div>'
+      + '</div>'
+      + '<label class="cc-opt"><input type="checkbox" data-opt="optFuture"' + (st.optFuture ? ' checked' : '') + '><span>' + OPTS.optFuture + '</span></label>'
+      + '<button type="button" class="cc-send" data-sendlead>' + (live ? 'Email me my estimate' : 'Keep me in mind') + '</button>'
+      + '<p class="cc-priv">We never sell or share your details, and you can ask us to delete them at any time. <a href="/privacy-policy">How we handle them</a>.</p>'
+      + '</div>';
+  }
+
+  function submitLead() {
+    var l = st.lead, d = D(), t;
+    if (!l.name.trim()) { st.leadErr = 'Please add your name.'; return render(); }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(l.email.trim())) { st.leadErr = 'Please check your email address.'; return render(); }
+    if (!l.timeframe) { st.leadErr = 'Please tell us roughly when you are thinking of moving.'; return render(); }
+    /* Without the emailed copy there is nothing being given in return, so holding the details
+       has to be something they actively asked for, not a by-product of pressing a button. */
+    if (!emailLive() && !st.optFuture) {
+      st.leadErr = 'Please tick the box so we know we may hold your details and contact you.';
+      return render();
+    }
+    st.leadErr = '';
+    try { t = totals(); } catch (e) { t = { grand: 0, costToYou: 0, contribution: 0 }; }
+    var form = document.getElementById('cc-netlify-form');
+    if (!form) { st.leadDone = true; return render(); }
+    var summary = [
+      'Estimated total: ' + code() + ' ' + fmt(t.grand),
+      'Employer contribution: ' + code() + ' ' + fmt(t.contribution),
+      'Estimated cost to them: ' + code() + ' ' + fmt(t.costToYou),
+      'Moving to: ' + regionLabel(),
+      'From: ' + ((d && (d.flights[st.origin] || d.flights.other) || {}).label || st.origin)
+    ].join(' | ');
+    var payload = {
+      name: l.name.trim(), email: l.email.trim(),
+      destination: st.dest, region: st.region, origin: st.origin,
+      profession: (d && d.registration.labels[st.profession]) || st.profession,
+      who: st.whoBase + (st.together === 'n' ? ' (moving first)' : ''),
+      estimate_total: code() + ' ' + fmt(t.grand),
+      estimate_summary: summary,
+      timeframe: l.timeframe,
+      opt_future: st.optFuture ? 'yes' : 'no',
+      consent_version: CONSENT_V,
+      consent_wording: st.optFuture ? OPTS.optFuture : 'not ticked',
+      email_copy: emailLive() ? 'yes' : 'no',
+      page: location.pathname
+    };
+    Object.keys(payload).forEach(function (k) {
+      var el = form.elements[k];
+      if (!el) { el = document.createElement('input'); el.type = 'hidden'; el.name = k; form.appendChild(el); }
+      el.value = payload[k];
+    });
+    if (window.track) window.track('calculator_lead', { country: cc(), timeframe: l.timeframe });
+    try { sessionStorage.setItem(SENT_KEY, JSON.stringify({ email: payload.email, opt: payload.opt_future })); } catch (e) {}
+    /* keepalive: the native submit navigates away and would cancel an ordinary fetch */
+    if (emailLive()) {
+      try {
+        fetch('/.netlify/functions/send-result', {
+          method: 'POST', keepalive: true,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: payload.name, email: payload.email, summary: summary, resumeLink: location.href })
+        }).catch(function () {});
+      } catch (e) {}
+    }
+    HTMLFormElement.prototype.submit.call(form);
   }
 
   function view() {
@@ -784,8 +913,10 @@
 
     if (el.hasAttribute('data-print')) return window.print();
 
+    if (el.hasAttribute('data-sendlead')) return submitLead();
+
     if (el.hasAttribute('data-restart')) {
-      try { localStorage.removeItem(LSK); localStorage.removeItem(SUMMARY_KEY); } catch (e2) {}
+      try { localStorage.removeItem(LSK); localStorage.removeItem(SUMMARY_KEY); sessionStorage.removeItem(SENT_KEY); } catch (e2) {}
       st = assign({}, S0, { covers: {}, overrides: {}, ans: {} });
       seedFromContext(false);
       moveFocus = true; save(); return render();
@@ -795,6 +926,10 @@
   app.addEventListener('input', function (e) {
     var el = e.target;
     if (el.tagName !== 'INPUT') return;
+    /* the capture fields hold their own value and must NOT go through set(): that saves the
+       draft and re-renders on every keystroke, which would wipe what is being typed */
+    var lk = el.getAttribute('data-lead');
+    if (lk) { st.lead[lk] = el.value; return; }
     var id = el.getAttribute('data-ov');
     if (id) { setOverride(id, el.value); return render(); }
     var k = el.getAttribute('data-num');
@@ -803,6 +938,10 @@
 
   app.addEventListener('change', function (e) {
     var el = e.target;
+    var opt = el.getAttribute && el.getAttribute('data-opt');
+    if (opt) { st[opt] = !!el.checked; return; }     /* no re-render: it would drop focus */
+    var lk2 = el.getAttribute && el.getAttribute('data-lead');
+    if (lk2) { st.lead[lk2] = el.value; return; }
     if (el.tagName !== 'SELECT') return;
     var key = el.getAttribute('data-set');
     if (!key || !el.value) return;
@@ -890,6 +1029,18 @@
     if (ctx0 && ctx0.has() && !saved) seedFromContext(false);
     if (ctx0 && ctx0.onChange) ctx0.onChange(function () { if (seedFromContext(true)) { save(); render(); } });
     if (ctx0 && ctx0.mount) ctx0.mount('#ctx-strip', { fields: ['profession', 'dest', 'household', 'stage'], intro: 'Tell us who is coming and where, and the estimate only asks about what applies to you.' });
+  } catch (e) {}
+
+  /* Back from the submit: show the confirmation rather than the form again. sessionStorage,
+     not localStorage — a new visit tomorrow should get a fresh form, not a stale thank-you. */
+  try {
+    var sent = sessionStorage.getItem(SENT_KEY);
+    if (sent && /[?&]submitted=1/.test(location.search)) {
+      var sv = JSON.parse(sent);
+      st.leadDone = true; st.lead.email = sv.email || ''; st.optFuture = sv.opt === 'yes';
+      st.stage = 5;
+      try { history.replaceState(null, '', location.pathname); } catch (e) {}
+    }
   } catch (e) {}
 
   if (!D()) {

@@ -125,9 +125,17 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-badge{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap;background:var(--warm);color:var(--muted)}
 .pt-badge.now{background:var(--teal);color:#fff}
 .pt-badge.live{background:var(--soft);color:#2F5E49}
+.pt-badge.done{background:var(--soft);color:#2F5E49}
 .pt-step p{font-size:14.5px;line-height:1.6;color:var(--muted);max-width:64ch;margin-bottom:14px;text-wrap:pretty}
 .pt-links{display:flex;flex-wrap:wrap;gap:10px 22px}
-.pt-links a{min-height:24px;font-family:var(--display);font-size:14px;font-weight:600}
+/* Links that look like links (1 Oct 2026). These rendered as bold teal text with no underline
+   and no arrow, so candidates read them as headings and did not click. Teal plus weight is not
+   enough signal on a page where every heading is also teal and bold. */
+.pt-links a{display:inline-flex;align-items:center;gap:5px;min-height:24px;font-family:var(--display);font-size:14px;font-weight:600;color:#02615D;text-decoration:underline;text-decoration-color:rgba(2,97,93,.35);text-underline-offset:3px}
+.pt-links a::after{content:"→";font-size:13px;transition:transform .15s ease}
+.pt-links a:hover{text-decoration-color:#02615D}
+.pt-links a:hover::after{transform:translateX(3px)}
+.pt-links a[target="_blank"]::after{content:"↗"}
 .pt-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px}
 .pt-list{display:grid;gap:12px;margin-top:16px}
 .pt-list a{font-family:var(--display);font-size:15px;font-weight:600}
@@ -140,6 +148,36 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-reg p{font-size:16px;line-height:1.6;color:var(--text);max-width:64ch;margin-bottom:10px;text-wrap:pretty}
 .pt-details{background:var(--warm);padding:clamp(48px,6vw,72px) 0 clamp(52px,7vw,80px);margin-top:clamp(40px,5vw,64px)}
 .pt-signrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:24px}
+/* a saved draft belongs to the tool, not to the stage: quiet, under the button it describes */
+.pt-draft{margin:8px 0 0;font-size:13.5px;line-height:1.5;color:#555}
+/* "Mark as done" as a tick (1 Oct 2026). A real control rather than a text link: the box
+   carries the state, the label says what it does, and aria-pressed carries both to a screen
+   reader. Lime only once it is ticked — the colour marks an achievement, not a button. */
+.pt-tick{display:inline-flex;align-items:center;gap:10px;background:none;border:0;padding:6px 0;min-height:44px;font:inherit;cursor:pointer;color:var(--muted)}
+.pt-tick-box{display:grid;place-items:center;width:24px;height:24px;flex:none;border:2px solid rgba(2,97,93,.35);border-radius:7px;background:#fff;color:transparent;transition:background .15s ease,border-color .15s ease,color .15s ease}
+.pt-tick-box svg{width:15px;height:15px}
+.pt-tick:hover .pt-tick-box{border-color:var(--teal);color:rgba(2,97,93,.3)}
+.pt-tick.on .pt-tick-box{background:var(--teal);border-color:var(--teal);color:#C6E084}
+.pt-tick-l{font-family:var(--display);font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.pt-tick.on .pt-tick-l{color:var(--teal);text-decoration:none}
+.pt-tick:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:8px}
+
+/* ---- lime, three places and no more (1 Oct 2026) ----------------------------------------
+   The page was flat because teal-on-white repeated down every panel and nothing claimed the
+   eye. Lime is the brand's one bright note, so it is spent only where it answers "where am I"
+   and "what have I finished": the stage you are on, the number beside it, and a completed
+   tick. Everywhere else stays teal — a second bright thing would cancel out the first. */
+.pt-badge.now{background:#A6C84A;color:#01312F}
+.pt-stage.now{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+.pt-stage.now .pt-stage-h{background:linear-gradient(90deg,rgba(166,200,74,.14),rgba(166,200,74,0) 62%)}
+.pt-stage.now .pt-stage-h:hover{background:linear-gradient(90deg,rgba(166,200,74,.22),rgba(166,200,74,0) 62%)}
+.pt-stage.done .pt-stage-h{border-left:3px solid #A6C84A}
+/* The stage number, solid teal with white figures (Sophie, 1 Oct 2026). It inherited the
+   journey timeline's outlined style — a thin ring round a grey figure on white — which read as
+   a disabled control rather than a count, and left the header starting on nothing. Filled, it
+   anchors the row. Deliberately NOT lime: "where am I" is already answered by the Now badge
+   and the header wash, and a third bright thing in the same row cancels both. */
+.pt-stage .pt-num{background:var(--teal);border-color:var(--teal);color:#fff}
 .pt-quiet{background:none;border:0;padding:0;min-height:24px;font-family:var(--display);font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .pt-quiet:hover{color:#A34438}
 @media (max-width:640px){.pt-step{grid-template-columns:1fr;gap:10px}.pt-row{grid-template-columns:1fr}}.eyebrow{display:flex;align-items:center;gap:16px}.eyebrow::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:0 0 auto}
@@ -206,8 +244,14 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-stage-h:hover{background:var(--warm)}
 .pt-stage-t{font-family:var(--display);font-size:clamp(16px,1.9vw,18px);font-weight:600;color:var(--teal);flex:1 1 auto;min-width:0}
 .pt-stage-x{font-family:var(--display);font-size:20px;color:var(--muted);flex:none;width:24px;text-align:center}
-.pt-stage-b{padding:0 clamp(18px,2.4vw,26px) clamp(20px,2.4vw,26px);border-top:1px solid var(--e)}
+/* The body carries its own clearance from the header rule, rather than relying on whatever
+   happens to be first inside it (Sophie, 1 Oct 2026). The destination hint sets its own
+   margin, so on the stages that show it the first line sat hard against the 1px line. The
+   first item's top padding drops by the same amount, so a stage without the hint keeps the
+   18px it has always had. */
+.pt-stage-b{padding:14px clamp(18px,2.4vw,26px) clamp(20px,2.4vw,26px);border-top:1px solid var(--e)}
 .pt-item{padding:18px 0 4px;border-bottom:1px solid var(--rule-tint)}
+.pt-stage-b > .pt-item:first-child{padding-top:4px}
 .pt-item:last-of-type{border-bottom:0}
 .pt-item h3{font-family:var(--display);font-size:16px;font-weight:600;color:var(--teal);margin:0 0 6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .pt-item p{font-size:14.5px;line-height:1.6;color:var(--muted);max-width:64ch;margin:0 0 12px;text-wrap:pretty}

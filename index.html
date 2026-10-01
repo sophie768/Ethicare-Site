@@ -4,7 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Healthcare careers in New Zealand &amp; Australia | Ethicare</title>
-<meta name="description" content="Australia or New Zealand could change what life looks like outside work — not just your job.">
+<!-- The homepage had no Open Graph tags at all (1 Oct 2026), so sharing the link anywhere —
+     LinkedIn, WhatsApp, a message to a colleague — produced a bare URL with no title, no
+     description and no image. The old description described a feeling rather than the company,
+     which is what Google printed under the name in search results. -->
+<meta name="description" content="Helping healthcare professionals find their next role and make a new home in New Zealand or Australia. Free tools, honest guidance, never a fee to a candidate.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ethicare Resourcing">
+<meta property="og:title" content="Healthcare careers in New Zealand &amp; Australia · Ethicare Resourcing">
+<meta property="og:description" content="Find your next role and make a new home in New Zealand or Australia. Free tools, honest guidance, never a fee to a candidate.">
+<meta property="og:url" content="https://ethicareresourcing.com/">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A family walking a coastal path together on a bright evening in New Zealand">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
@@ -171,6 +185,25 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 .cdoor .cd{display:block;font-size:14.5px;line-height:1.55;color:#555;margin:0;text-wrap:pretty}
 .twoc-more{margin-top:clamp(22px,2.6vw,32px);font-size:15px;line-height:1.6;color:#3E4B47}
 .twoc-more a{font-weight:600;color:#02615D;border-bottom:2px solid #A6C84A;padding-bottom:1px}
+/* ---- What Ethicare does (1 Oct 2026) ------------------------------------------------
+   A reviewer read the homepage as a relocation information platform and only worked out
+   further down that Sophie can personally place someone. The hero leads with tools, and
+   recruitment arrived four screens later. These three cards go straight under the trust
+   bar, one screen in, and say the three things plainly: we find the role, we get you
+   there, or you take the tools and we never hear from you. No new claims — the words are
+   the site's own, moved up. */
+.whatwedo{background:#FCFBF8;border-top:1px solid rgba(2,97,93,.4)}
+.whatwedo .wrapx{padding-top:clamp(44px,6vh,72px);padding-bottom:clamp(44px,6vh,72px)}
+.whatwedo h2{color:#02615D;font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(27px,3.8vw,46px);letter-spacing:-.03em;line-height:1.05;margin:12px 0 10px;text-wrap:balance}
+.whatwedo .wd-sub{color:#555;font-size:clamp(16px,1.3vw,17.5px);line-height:1.6;max-width:62ch;margin:0 0 clamp(26px,3vw,36px)}
+.wd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,24px)}
+.wd-card{background:#fff;border:1px solid #C9DED3;border-left:4px solid #A6C84A;border-radius:16px;padding:clamp(20px,2.4vw,28px);display:flex;flex-direction:column;min-width:0}
+.wd-card h3{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(18px,1.7vw,21px);color:#02615D;line-height:1.25;margin:0 0 10px}
+.wd-card p{font-size:15.5px;line-height:1.6;color:#333;margin:0 0 14px}
+.wd-card p:last-of-type{margin-bottom:0}
+.wd-card .wd-go{margin-top:auto;padding-top:14px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;text-decoration:underline;text-underline-offset:3px}
+.whatwedo .wd-foot{margin:clamp(22px,2.6vw,30px) 0 0;font-size:15.5px;line-height:1.65;color:#555;max-width:70ch}
+.whatwedo .wd-foot a{color:#02615D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .emp{background:#FCFBF8;border-top:1px solid var(--rule-tint,rgba(2,97,93,.4))}
 .emp .wrapx{padding-top:clamp(52px,7vh,90px);padding-bottom:clamp(52px,7vh,90px)}
 .emp .eyebrow{color:#2F5E49}
@@ -308,7 +341,7 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
   <div class="wrapx">
     <span class="eyebrow">Whoever you are, wherever you&rsquo;re coming from</span>
     <h1>A healthcare career worth moving for.</h1>
-    <p class="sub">Independent tools, guidance and specialist recruitment for healthcare professionals &mdash; whether or not your job comes from us.</p>
+    <p class="sub">Specialist recruitment for healthcare professionals moving to New Zealand and Australia &mdash; and independent tools and guidance, whether or not your job comes from us.</p>
     <div class="hero-links">
       <a class="txtlink" href="/new-zealand">Explore New Zealand <i aria-hidden="true">&rarr;</i></a>
       <a class="txtlink" href="/australia">Explore Australia <i aria-hidden="true">&rarr;</i></a>
@@ -329,6 +362,36 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 </section>
 
 <!-- TWO COUNTRIES (restored, compact): honest country router straight after the trust bar -->
+
+<!-- WHAT ETHICARE DOES — the offer, plainly, one screen in -->
+<section class="whatwedo" data-screen-label="Home &middot; what we do">
+  <div class="wrapx">
+    <span class="eyebrow">What Ethicare does</span>
+    <h2>Three things. Take any one of them.</h2>
+    <p class="wd-sub">You can use everything here and never speak to us. You can also let us find you the job. Both are the point.</p>
+    <div class="wd-grid">
+      <div class="wd-card">
+        <h3>We find you the role</h3>
+        <p>Permanent healthcare roles across New Zealand, and medical imaging in Australia. We put you forward, prepare you for interview and talk to the employer on your behalf.</p>
+        <p><strong>Never a fee to a candidate.</strong> The employer pays us.</p>
+        <a class="wd-go" href="/jobs/">See what we are recruiting &rarr;</a>
+      </div>
+      <div class="wd-card">
+        <h3>We get you there</h3>
+        <p>Registration, the visa, the documents and the order they have to happen in &mdash; the part that costs people months when it is done out of sequence.</p>
+        <p>We will also tell you when a move does not add up for your family.</p>
+        <a class="wd-go" href="/move">See the eight stages &rarr;</a>
+      </div>
+      <div class="wd-card">
+        <h3>Or you use the tools and guides</h3>
+        <p>Registration checker, take-home pay, the cost of the move, thirty-three destination guides. Free, no account, and yours whether your job comes from us, from another agency or from applying direct.</p>
+        <a class="wd-go" href="/resources">All tools and guides &rarr;</a>
+      </div>
+    </div>
+    <p class="wd-foot">Not sure which you need? Tell us where you are up to &mdash; <strong>no CV needed to start</strong> &mdash; and we will tell you honestly whether we can help. You deal with the same people from that first conversation to your first day. <a href="/contact">Talk to us</a>.</p>
+  </div>
+</section>
+
 <section class="twoc ed-tight" id="explore" data-screen-label="Home &middot; two countries">
   <div class="wrapx">
     <div class="twoc-head">

@@ -23,8 +23,14 @@
      nothing delivers it: Netlify Forms notifies Ethicare, never the candidate. Rather than
      rewrite the copy (and rewrite it back), the route is gated. Flip this to true the moment
      the send-result function is live and the whole flow returns exactly as written. */
-  var EMAIL_SENDER_LIVE = false;
-  var A0 = { profession: '', destination: '', qualCountry: '', qualLevel: '', recentCountry: '', registered: '', regCountry: '', practising: '', lastPractised: '', regProgress: '', english: '', doctorStage: '', doctorSpecialist: '', doctorSpecQual: '', odpExp: '', odpStanding: '' };
+  /* one switch for both tools, in site.js — see the note there */
+  var EMAIL_SENDER_LIVE = !!window.ETHICARE_EMAIL_LIVE;
+  /* docSpecCountry is written by setA and was missing from this list — the exact failure the
+     note below describes. The draft restore and decodeAnswers both filter through
+     Object.keys(A0), so the answer survived the session, then vanished on reload and from every
+     resumable ?r= link; after that the VOC4 country test fell back to qualCountry in silence,
+     and the same link could produce a different verdict than the session that made it. */
+  var A0 = { profession: '', destination: '', qualCountry: '', qualLevel: '', recentCountry: '', registered: '', regCountry: '', practising: '', lastPractised: '', regProgress: '', english: '', doctorStage: '', doctorSpecialist: '', doctorSpecQual: '', docSpecCountry: '', odpExp: '', odpStanding: '' };
   /* Profession question fields are declared in the DATA file, so derive them here rather than
      keeping a parallel list by hand. The hand-kept version had already fallen behind twice:
      a field missing from A0 is dropped when the saved draft is restored, so the answer looks
@@ -55,6 +61,9 @@
   function assign(t) { for (var i = 1; i < arguments.length; i++) { var s = arguments[i]; for (var k in s) if (Object.prototype.hasOwnProperty.call(s, k)) t[k] = s[k]; } return t; }
   function D() { return window.ETHICARE_PATHWAYS || null; }
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  /* "A, B and C" — built from a list whose length varies with what was answered, so the copy
+     can never name a criterion the candidate did not give an answer to. */
+  function andList(l) { return l.length < 2 ? (l[0] || '') : l.slice(0, -1).join(', ') + ' and ' + l[l.length - 1]; }
   var DRAFT_MAX_AGE = 30 * 24 * 60 * 60 * 1000; // a month-old draft is dropped rather than shown as current
   function save() { try { localStorage.setItem(LSK, JSON.stringify({ answers: st.answers, step: st.step, ts: Date.now() })); } catch (e) {} }
 
@@ -94,9 +103,50 @@
   }
 
   /* ---------------- state ---------------- */
+  /* ---- answers that belong to a profession, or to a country (1 Oct 2026) ------------------
+     setA wrote one key and cleared nothing else, so changing your mind left the old answer
+     working in the background. A doctor who switched to physiotherapy kept qualLevel 'cct':
+     no option in the generic list matches it, so the select showed "Select…" while the
+     required-field check — which only tests truthiness — passed on a value the candidate could
+     not see and had not chosen. A stale doctorStage of 'smo' went on suppressing country rules
+     for a profession that never asked the question. Narrowing from both countries to one left
+     every question from the dropped country answered, hidden, and still submitted.
+
+     The lists are derived from the data file rather than hand-kept, for the same reason A0 is
+     above: a hand-kept list falls behind, and the symptom is an answer that quietly stops
+     being the candidate's. */
+  var PROF_SCOPED = ['qualLevel', 'doctorStage', 'doctorSpecialist', 'doctorSpecQual', 'docSpecCountry', 'odpExp', 'odpStanding'];
+  function profFieldCc() {
+    /* field → the country it is asked for, or '' when it is asked of both */
+    var d = D(), q = (d && d.profQuestions) || {}, out = {};
+    Object.keys(q).forEach(function (k) {
+      (q[k].questions || []).forEach(function (x) { if (x.field) out[x.field] = x.cc || ''; });
+    });
+    return out;
+  }
+  function dropStale(k) {
+    var a = st.answers, m = profFieldCc(), drop = [];
+    if (k === 'profession') {
+      drop = PROF_SCOPED.concat(Object.keys(m));
+    } else {
+      var tg = targets();
+      Object.keys(m).forEach(function (f) { if (m[f] && tg.indexOf(m[f]) < 0) drop.push(f); });
+      if (tg.indexOf('nz') < 0) drop.push('odpExp', 'odpStanding');
+    }
+    drop.forEach(function (f) { if (f in a) a[f] = ''; });
+    /* Dropping the profession's questions can shorten the form. Leaving someone on a step that
+       no longer exists strands them on a blank panel; the result step is a sentinel, not a
+       position, so it is left alone. */
+    if (st.step !== RESULT && st.step > qsteps()) st.step = qsteps();
+  }
   function setA(k, v) {
-    var a = st.answers;
+    var a = st.answers, was = a[k];
     a[k] = v;
+    if (was !== v && (k === 'profession' || k === 'destination')) dropStale(k);
+    /* The country select is hidden when the answer is not "yes", but the value persisted and
+       branches downstream read it. Clearing it at source holds even if a future branch forgets
+       to check `registered`. */
+    if (k === 'registered' && v !== 'yes') a.regCountry = '';
     st.err = '';
     save(); render();
   }
@@ -157,7 +207,14 @@
     return '<div class="pw-follow"><div class="pw-followk">' + esc(set.kicker) + '</div>' +
       set.questions.map(function (q, i) {
         var control;
-        if (q.type === 'select') {
+        /* A question is a dropdown if it HAS dropdown options, not only if someone remembered
+           the flag (1 Oct 2026). Four questions — psychAuArea, atQual, sltAssoc, sltAssocAu —
+           carry `placeholder` and `extras` but no `type: 'select'`, so this fell through to the
+           button branch and called optRow(undefined), which threw and took the whole step-six
+           panel with it. Psychologists, anaesthetic technicians and speech and language
+           therapists could not get past that step at all. Inferring from the shape fixes all
+           four and the next one someone adds without the flag. */
+        if (q.type === 'select' || (!q.opts && (q.extras || q.optionsFrom))) {
           /* A long list is a dropdown, not fifty buttons. Options come from a named rule so
              the list has one home, with the escape hatches appended after it. */
           var d2 = D() || {}, rule = (d2.rules || {})[q.optionsFrom] || { countries: [] };
@@ -244,36 +301,62 @@
           if (voc4.approvedAreas) out.push({ title: 'Check your area of medicine against the list — it is shorter than people expect', group: 'route', body: 'The fast track covers nine areas, and the list is the eligibility test rather than a guide to it: <strong>' + voc4.approvedAreas.join('</strong>; <strong>') + '</strong>. ' + esc(voc4.notOnList || '') + (voc4.countryScope ? ' ' + esc(voc4.countryScope) : ''), css: 'sand', href: voc4.listUrl || voc4.qualListUrl, linkLabel: 'MCNZ — approved qualifications list (PDF)' });
           if (voc4.ukAwardRule && specQual === 'United Kingdom') out.push({ title: 'What has to sit alongside the fellowship', group: 'need', body: esc(voc4.ukAwardRule) + ' There is no third option, which is the part worth checking before you apply rather than after.', css: 'sand' });
           if (voc4.voc3Carveouts) out.push({ title: 'Two cases the fast track deliberately sends elsewhere', group: 'need', body: 'Named in the list\u2019s own footnotes: <strong>' + voc4.voc3Carveouts.join('</strong> <strong>') + '</strong> Neither is a refusal \u2014 both are assessments by the college that trains the specialty, which is a different application rather than a lesser one.', css: 'sand' });
-          var miss = [];
-          if (a.docRecent24 === 'no') miss.push('the 24 months in 5 years at 0.5 FTE');
-          if (a.docRecent12 === 'no') miss.push('the 12 months within the last 18');
-          if (a.docOffer === 'no' || a.docOffer === 'exploring') miss.push('a New Zealand job offer at consultant or specialist level');
-          if (a.docRecent24 || a.docRecent12 || a.docOffer) {
-            var offerOnly = miss.length === 1 && miss[0].indexOf('job offer') >= 0;
-            out.push({
-              title: miss.length ? (offerOnly ? 'One thing outstanding, and it is the ordinary one' : 'Where your answers sit against VOC4') : 'Your answers meet the VOC4 criteria we can check',
-              group: 'route',
-              body: miss.length
-                ? (offerOnly
-                  ? 'On the criteria we can check, the only one outstanding is <strong>the job offer</strong> — and almost nobody has it at this stage. It does not weaken your position: it sets the order. Secure the role, then apply, rather than applying and waiting. Your recency answers are the part that would be genuinely hard to fix, and those look met.'
-                  : 'Against the Council’s published criteria, the gap is <strong>' + miss.join('</strong>, and <strong>') + '</strong>. That is worth knowing now rather than after you have paid. Recency gaps close with time in post; a job offer closes with a job. Neither is a permanent bar, and neither is something we would gloss over.')
-                : 'You told us you have the 24 months in 5 years at 0.5 FTE, the 12 months within the last 18, and a consultant-level New Zealand offer. Those are the criteria we can test from your answers. What remains is the part only the Council can confirm — that your qualification is on the approved list by name, and that your recent practice was in a comparable health system country.',
-              css: miss.length ? 'sand' : 'mint', href: voc4.url, linkLabel: 'MCNZ — VOC4 fast-track'
-            });
+          /* ---- three criteria, three states, and "not sure" is the third (1 Oct 2026) ------
+             The gap list was built from an exact 'no', and the card that renders when the list
+             is empty says "You told us you have the 24 months…". So a consultant who answered
+             "I'd need to check my dates" to both recency questions was told their answers met
+             the criteria, in words they had never said. An unknown is neither a pass nor a
+             fail: it is the thing to go and check, and it gets its own card.
+
+             'interviewing' sits with the unknowns rather than the gaps for the same reason —
+             an offer being negotiated is not an offer held, and it is not a refusal either. */
+          var CRIT = [
+            { f: 'docRecent24', label: 'the 24 months in 5 years at 0.5 FTE', gap: ['no'], open: ['unsure'] },
+            { f: 'docRecent12', label: 'the 12 months within the last 18', gap: ['no'], open: ['unsure'] },
+            { f: 'docOffer', label: 'a New Zealand job offer at consultant or specialist level', gap: ['no', 'exploring'], open: ['interviewing'] }
+          ];
+          var miss = [], open = [], met = [], asked = false;
+          CRIT.forEach(function (c) {
+            var v = a[c.f];
+            if (!v) return;
+            asked = true;
+            if (c.gap.indexOf(v) >= 0) miss.push(c.label);
+            else if (c.open.indexOf(v) >= 0) open.push(c.label);
+            else met.push(c.label);
+          });
+          if (asked) {
+            var offerOnly = miss.length === 1 && !open.length && miss[0].indexOf('job offer') >= 0;
+            var vTitle, vBody;
+            if (miss.length) {
+              vTitle = offerOnly ? 'One thing outstanding, and it is the ordinary one' : 'Where your answers sit against VOC4';
+              vBody = offerOnly
+                ? 'On the criteria we can check, the only one outstanding is <strong>the job offer</strong> — and almost nobody has it at this stage. It does not weaken your position: it sets the order. Secure the role, then apply, rather than applying and waiting. Your recency answers are the part that would be genuinely hard to fix, and those look met.'
+                : 'Against the Council’s published criteria, the gap is <strong>' + andList(miss) + '</strong>. That is worth knowing now rather than after you have paid. Recency gaps close with time in post; a job offer closes with a job. Neither is a permanent bar, and neither is something we would gloss over.';
+              if (open.length) vBody += ' You also told us you would need to check <strong>' + andList(open) + '</strong>, so that is not counted either way here.';
+            } else if (open.length) {
+              vTitle = 'Worth checking before you count on VOC4';
+              vBody = 'You told us you would need to check <strong>' + andList(open) + '</strong>, so we have not counted it for or against you. '
+                + (met.length ? 'On what you did tell us, ' + andList(met) + ' ' + (met.length > 1 ? 'look met' : 'looks met') + '. ' : '')
+                + 'It is worth pinning down before you apply rather than after: these are the first criteria the Council tests, and they are answerable from your own payslips and rosters. Nothing in your answers rules the fast track out — we simply cannot tell you it is met.';
+            } else {
+              vTitle = 'Your answers meet the VOC4 criteria we can check';
+              vBody = 'You told us you have ' + andList(met) + '. Those are the criteria we can test from your answers. What remains is the part only the Council can confirm — that your qualification is on the approved list by name, and that your recent practice was in a comparable health system country.';
+            }
+            out.push({ title: vTitle, group: 'route', body: vBody, css: (miss.length || open.length) ? 'sand' : 'mint', href: voc4.url, linkLabel: 'MCNZ — VOC4 fast-track' });
           }
           if (a.docIntent === 'temporary') out.push({ title: 'For a defined period, look at the locum scope first', group: 'route', body: 'You told us you are thinking of up to 12 months. The <strong>special purpose — locum tenens</strong> scope exists for exactly that, and it is a lighter application than vocational registration. Be clear about the trade: it is temporary, and it does not convert into vocational registration — deciding to stay means a fresh application through VOC3 or VOC4. If there is a real chance you will stay, the vocational route first is usually the cheaper path overall.', css: 'sand' });
           out.push({ title: 'The comparable health system list applies to you too', group: 'route', body: 'This is the part that catches specialists out. VOC4\u2019s recency requirement must be served in a country the Council recognises as having a comparable health system — so the country list is not a general-scope-only concern. A consultant with the right fellowship whose recent practice sits outside those countries does not meet the recency test.', css: 'sand', href: chs.url, linkLabel: 'MCNZ — comparable health system criteria' });
           var xi = voc4.extraInfoSpecialties || [], myArea = mine && mine.area;
           if (myArea && xi.join('|').toLowerCase().indexOf(myArea.toLowerCase()) >= 0) {
             out.push({ title: 'Your specialty carries an extra step on VOC4', group: 'need', body: '' + myArea.charAt(0).toUpperCase() + myArea.slice(1) + ' is one of three areas where the Council asks for <strong>additional information</strong> on a VOC4 application — the others being obstetrics &amp; gynaecology and anatomical pathology. It is not an obstacle, just a form to have ready rather than a surprise mid-assessment. It is also why the Council notes that ' + myArea.toLowerCase() + ' applications may take longer than the ' + (voc4.processing || '').split(';')[0].trim() + ' target.', css: 'sand', href: voc4.url, linkLabel: 'MCNZ — VOC4 fast-track' });
-          /* The country is necessary, never sufficient — and the card above reads as an
-             invitation. The list covers NINE areas of medicine and radiology is not among
-             them, so a UK radiologist holding a CCT would otherwise be told the fast track
-             may be open when it is closed to their specialty outright. Read at source
-             27 August 2026 from the list PDF, not from the VOC4 landing page. */
-          if (voc4.approvedAreas) out.push({ title: 'Check your area of medicine against the list — it is shorter than people expect', group: 'route', body: 'The fast track covers nine areas, and the list is the eligibility test rather than a guide to it: <strong>' + voc4.approvedAreas.join('</strong>; <strong>') + '</strong>. ' + esc(voc4.notOnList || '') + (voc4.countryScope ? ' ' + esc(voc4.countryScope) : ''), css: 'sand', href: voc4.listUrl || voc4.qualListUrl, linkLabel: 'MCNZ — approved qualifications list (PDF)' });
-          if (voc4.ukAwardRule && specQual === 'United Kingdom') out.push({ title: 'What has to sit alongside the fellowship', group: 'need', body: esc(voc4.ukAwardRule) + ' There is no third option, which is the part worth checking before you apply rather than after.', css: 'sand' });
-          if (voc4.voc3Carveouts) out.push({ title: 'Two cases the fast track deliberately sends elsewhere', group: 'need', body: 'Named in the list\u2019s own footnotes: <strong>' + voc4.voc3Carveouts.join('</strong> <strong>') + '</strong> Neither is a refusal \u2014 both are assessments by the college that trains the specialty, which is a different application rather than a lesser one.', css: 'sand' });
+          /* The three cards that were duplicated here (the approved-areas list, the UK award
+             rule and the VOC3 carve-outs) are already pushed above, unconditionally, for every
+             VOC4 applicant. Repeating them inside this specialty branch rendered each one twice
+             on the result — in practice for psychiatrists, the only profession whose area is on
+             the extra-information list. Removed 1 Oct 2026; the cards themselves are unchanged.
+             (The approved-areas list was read at source 27 August 2026 from the list PDF rather
+             than the VOC4 landing page, because the landing page reads as an invitation while
+             the list is the eligibility test — radiology, for one, is not on it.) */
           }
           if (voc4.recentAdditions) out.push({ title: 'The list changes — check it by date', group: 'need', body: 'The approved-qualification list was last updated <strong>' + esc(voc4.listUpdated) + '</strong>, adding <strong>' + voc4.recentAdditions.join('</strong>, <strong>') + '</strong>. If anyone told you VOC4 was closed to your specialty more than a few months ago, that advice may simply be out of date. Read the current list rather than trusting a summary — including ours.', css: 'mint', href: voc4.listUrl, linkLabel: 'MCNZ — approved qualifications (PDF)' });
           if (voc4.epicFirst) out.push({ title: 'Start the verification before the application', group: 'need', body: voc4.epicFirst + ' This is the most common cause of a VOC4 application sitting still while the applicant believes it is being assessed.', css: 'sand' });
@@ -426,7 +509,10 @@
        wrong are which modalities need their own scope and which scopes TTMRA reaches. */
     if (cc === 'nz' && (key === 'imaging' || key === 'mri' || key === 'sonographer')) {
       var ms = (D().rules || {}).nzMrtbScopes;
-      var fromAu = /austral/i.test(a.regCountry || '');
+      /* Registration CURRENTLY HELD, not a country left in a hidden select. Without the
+         `registered` test this fired for someone who answered "previously registered" or "my
+         country does not require it", and it also inverts the exam note below. */
+      var fromAu = a.registered === 'yes' && /austral/i.test(a.regCountry || '');
       if (ms) {
         if (a.profession === 'radiographer') {
           out.push({ title: 'CT does not need its own registration', group: 'route', body: 'This one costs people time, because they go looking for a requirement that is not there. <strong>CT sits inside the Medical Imaging Technologist scope</strong>, as do <strong>mammography</strong> and <strong>angiography</strong>, where you have appropriate training. You register once, in the MIT scope, and your CT experience counts as experience rather than as a second registration. It matters commercially rather than legally — CT is often what gets you the job.', css: 'mint' });
@@ -487,7 +573,8 @@
       var sp = (D().rules || {}).auSpa;
       if (sp) {
         var sa = sp.assoc[a.sltAssocAu], trained2 = sa && a.qualCountry === sa.country,
-            mraAu = !!sa && trained2 && !sa.suspended && !sa.excluded;
+            mraAu = !!sa && trained2 && !sa.suspended && !sa.excluded,
+            unsureAu = a.sltAssocAu === 'unsure';
         out.push({ title: 'CPSP is the thing to aim at, and it is not membership', group: 'route', body: 'Speech pathology is self-regulating in Australia — there is no Ahpra registration. What matters is <strong>' + esc(sp.credential) + '</strong>, and joining the association does not confer it: overseas-trained speech pathologists become eligible only by completing a skills assessment. ' + sp.whyCredential, css: 'mint', href: sp.url, linkLabel: 'Speech Pathology Australia' });
         if (mraAu) {
           out.push({ title: 'The Mutual Recognition Agreement looks open to you', group: 'route', body: 'You trained in ' + esc(sa.country) + ' and hold ' + esc(sa.name) + ' ' + esc(sa.credential) + ' — the two things the MRA requires together. Note the Association names the <strong>exact credential</strong>, not just the association, so ordinary membership is not the same answer as certified membership. You will need a letter of good standing from ' + esc(sa.name) + '.', css: 'mint', href: sp.guideUrl, linkLabel: 'SPA — OSQCA guide for applicants' });
@@ -497,9 +584,14 @@
           out.push({ title: 'One exclusion applies to you specifically', group: 'route', body: 'NZSTA Full Members are covered by the MRA <strong>with the exception of those who ' + esc(sa.excluded) + '</strong>. That is you, so the OSQCA route applies instead — a longer process, but an open one.', css: 'sand', href: sp.guideUrl, linkLabel: 'SPA — OSQCA guide for applicants' });
         } else if (sa && !trained2) {
           out.push({ title: 'Membership alone will not open the MRA', group: 'route', body: 'The MRA requires that you completed your qualifying degree in the member country <strong>and</strong> hold that country’s credential. You hold ' + esc(sa.name) + ' ' + esc(sa.credential) + ' but trained in ' + esc(a.qualCountry || 'another country') + ', so the OSQCA route applies.', css: 'sand', href: sp.guideUrl, linkLabel: 'SPA — OSQCA guide for applicants' });
+        } else if (unsureAu) {
+          /* "I'd need to check" used to fall through the association lookup and land on the
+             OSQCA cards as though it were settled. It is one question, and it decides the
+             whole route, so we say which question rather than answering it for them. */
+          out.push({ title: 'One answer decides your route here, and it is worth checking', group: 'route', body: 'The MRA is open only where two things are both true: you hold the <strong>named credential</strong> of ASHA, SAC, RCSLT, NZSTA or IASLT, <strong>and</strong> you completed your qualifying degree in that same country. Ordinary membership is not the same as certified membership — the Association names the exact credential, which is where most people find they are not where they assumed. If both are true, the MRA is the short route. If either is not, OSQCA applies. Your certificate will say which.', css: 'sand', href: sp.guideUrl, linkLabel: 'SPA — OSQCA guide for applicants' });
         }
         if (!mraAu) {
-          out.push({ title: 'OSQCA: four stages, and what each one costs', group: 'need', body: sp.stages.map(function (s) { return '<strong>Stage ' + s.n + '</strong> — ' + s.focus + '. ' + s.fee + ', outcome ' + s.outcome + '.'; }).join('<br>') + '<br><br>' + sp.totalFee + ' if you clear every stage first time. ' + sp.resubmitNote + ' ' + sp.noOsce, css: 'sand', href: sp.guideUrl, linkLabel: 'SPA — OSQCA guide for applicants' });
+          out.push({ title: unsureAu ? 'OSQCA: four stages, and what each one costs — if the MRA is not open to you' : 'OSQCA: four stages, and what each one costs', group: 'need', body: (unsureAu ? 'This is the route for everyone the MRA does not cover, so read it as the fallback until you have checked your credential. ' : '') + sp.stages.map(function (s) { return '<strong>Stage ' + s.n + '</strong> — ' + s.focus + '. ' + s.fee + ', outcome ' + s.outcome + '.'; }).join('<br>') + '<br><br>' + sp.totalFee + ' if you clear every stage first time. ' + sp.resubmitNote + ' ' + sp.noOsce, css: 'sand', href: sp.guideUrl, linkLabel: 'SPA — OSQCA guide for applicants' });
           out.push({ title: 'The portfolio is where most of the work sits', group: 'need', body: sp.portfolioNote + ' If your practice has been entirely paediatric language or entirely adult dysphagia, that is the thing to plan around early — not a bar, but it shapes which cases you can build. ' + esc(sp.aqf), css: 'mint' });
         }
         if (a.sltEnglishAu === 'mra-uni') out.push({ title: 'You look exempt from the English test', group: 'need', body: 'An entry-level qualification conducted in English at a university in the UK, Canada, New Zealand, the USA or Ireland exempts you from English testing altogether. Note it keys off the <strong>university’s country</strong>, not the language alone. The Association can still ask for evidence if something in your application raises a question.', css: 'mint' });
@@ -518,8 +610,15 @@
           out.push({ title: 'The Mutual Recognition Agreement looks open to you', group: 'route', body: 'You trained in ' + esc(am.country) + ' and hold ' + esc(am.name) + ' membership, which is the combination the <strong>MRA</strong> is built on — and you meet the dysphagia competency, without which the MRA is closed. It is an expedited process rather than automatic recognition: NZSTA still asks for its own evidence, including a letter of good standing sent directly from ' + esc(am.name) + ' and a criminal conviction record dated within three months. Cost is ' + nz1.mra.fee + '.', css: 'mint', href: nz1.mra.url, linkLabel: 'NZSTA — Mutual Recognition Agreement' });
         } else if (am && !trainedThere) {
           out.push({ title: 'Your membership will not carry you through the MRA — and this catches people out', group: 'route', body: 'You hold ' + esc(am.name) + ' membership but trained in ' + esc(a.qualCountry || 'another country') + ', and the MRA does not work that way. ' + nz1.mra.trainedRule + ' NZSTA answers this exact question on its own page, so it is settled rather than a judgement call. Your route is the <strong>Qualifications Approval Process</strong> — not a lesser outcome, but a different form and a different fee, and worth knowing before you pay for the wrong one.', css: 'sand', href: nz1.qap.url, linkLabel: 'NZSTA — Qualifications Approval Process' });
+        } else if (am && trainedThere && a.sltDysphagia === 'unsure') {
+          /* Same class of bug as the association lookup: dys was `=== 'yes'`, so "I'd need to
+             check" became a settled "dysphagia closes the MRA". It is a competency the
+             candidate can establish in an afternoon, and the answer changes the route. */
+          out.push({ title: 'Your route turns on the dysphagia competency', group: 'route', body: 'You trained in ' + esc(am.country) + ' and hold ' + esc(am.name) + ' membership, which is the combination the <strong>MRA</strong> is built on. The one thing left is the dysphagia competency: without it the MRA is closed and the <strong>Qualifications Approval Process</strong> applies instead, with a condition on your membership. With it, the MRA is the shorter route. Worth establishing from your training records and current scope before you choose a form — and if the competency is within reach where you are now, worth completing first.', css: 'sand', href: nz1.mra.url, linkLabel: 'NZSTA — Mutual Recognition Agreement' });
         } else if (am && !dys) {
           out.push({ title: 'Dysphagia closes the MRA, but not the door', group: 'route', body: 'You cannot apply under the MRA without meeting the dysphagia competency requirements. Since 12 June 2023 you may apply under the <strong>Qualifications Approval Process</strong> instead, and NZSTA may grant Registered Membership carrying the condition <strong>' + esc(nz1.dysphagiaCondition) + '</strong>. Be clear-eyed about what that means: NZSTA states it will restrict the job opportunities open to you here. It is workable for community, paediatric and education-based roles and a genuine obstacle in acute adult work — so if dysphagia competence is within reach where you are now, it is worth completing before you apply.', css: 'sand', href: nz1.qap.url, linkLabel: 'NZSTA — Qualifications Approval Process' });
+        } else if (a.sltAssoc === 'unsure') {
+          out.push({ title: 'One answer decides your route here, and it is worth checking', group: 'route', body: 'You told us you would need to check which association you belong to, and it decides the whole route. The <strong>MRA</strong> is open only to <strong>certified</strong> members of ASHA, SAC, RCSLT, Speech Pathology Australia or IASLT who also trained in that association’s country — and who meet the dysphagia competency. Ordinary membership is not the same as certified membership, which is where most people find they are not where they assumed. Everyone else applies through the <strong>Qualifications Approval Process</strong>: the ordinary route rather than a fallback, at ' + nz1.qap.fee + ', taking ' + nz1.qap.processing + '. Your membership certificate will say which category you hold.', css: 'sand', href: nz1.qap.url, linkLabel: 'NZSTA — Qualifications Approval Process' });
         } else {
           out.push({ title: 'The Qualifications Approval Process is your route', group: 'route', body: 'The MRA is only open to certified members of ASHA, SAC, RCSLT, Speech Pathology Australia or IASLT who also trained in that association’s country. Everyone else applies through the <strong>Qualifications Approval Process</strong>, which is the ordinary route rather than a fallback: NZSTA assesses your qualification and experience individually. Cost is ' + nz1.qap.fee + ', and processing takes ' + nz1.qap.processing + '.', css: 'sand', href: nz1.qap.url, linkLabel: 'NZSTA — Qualifications Approval Process' });
         }
@@ -558,7 +657,9 @@
        sonographer arrives assuming mutual recognition covers them; it does not. */
     if (cc === 'nz' && (a.profession === 'sonographer' || a.profession === 'mri')) {
       var ms = (D().rules || {}).nzMrtbScopes, meScope = a.profession === 'mri' ? 'MRI' : 'sonography';
-      if (ms && (a.regCountry === 'Australia' || a.qualCountry === 'Australia')) {
+      /* Qualifying in Australia is reason enough to be told this; being registered there is
+         too, but only if the registration is current — the country arm needed the guard. */
+      if (ms && ((a.registered === 'yes' && a.regCountry === 'Australia') || a.qualCountry === 'Australia')) {
         out.push({ title: 'Trans-Tasman recognition does not reach ' + meScope, group: 'route', body: 'This one catches Australian practitioners out. Mutual recognition covers the <strong>' + ms.ttmraScopes.join('</strong>, <strong>') + '</strong> scopes \u2014 and <strong>not ' + ms.ttmraExcluded.join(' or ') + '</strong>. So however well established you are in Australia, you apply to the Board as an <strong>internationally qualified</strong> practitioner, with your qualification and clinical experience assessed against the New Zealand scope. Same Board, different door, and a materially different fee.', css: 'sand' });
       }
     }
@@ -961,6 +1062,11 @@
     }
     if (s === 4) {
       if (!a.registered) need('registered', 'your registration status');
+      /* The country is rendered the moment someone answers "yes" but was never required, so
+         "I am registered" with no country passed the step \u2014 and a dozen rules downstream read
+         regCountry to decide whether a Trans-Tasman or competent-authority route is open. A
+         blank there is not a small gap; it is the difference between two routes. */
+      if (a.registered === 'yes' && !a.regCountry) need('regCountry', 'the country you are registered in');
       if (!a.regProgress) need('regProgress', 'whether you\u2019ve started registration');
     }
     if (s === 5) {
@@ -1953,8 +2059,11 @@
       ctxS.onChange(function () {
         var dm2 = ctxS.destMode(), pp2 = ctxS.pathwayProfession(), dC2 = D(), changed = false;
         var cd2 = dm2 === 'au' ? 'australia' : dm2 === 'nz' ? 'new-zealand' : dm2 === 'both' ? 'both' : '';
-        if (cd2 && st.answers.destination !== cd2) { st.answers.destination = cd2; changed = true; }
-        if (pp2 && dC2 && dC2.professions.some(function (p) { return p.id === pp2; }) && st.answers.profession !== pp2) { st.answers.profession = pp2; changed = true; }
+        /* These write the two fields setA guards, so they clear what they invalidate too —
+           otherwise changing profession in the shared strip leaves behind exactly the stale
+           answers setA now drops. */
+        if (cd2 && st.answers.destination !== cd2) { st.answers.destination = cd2; dropStale('destination'); changed = true; }
+        if (pp2 && dC2 && dC2.professions.some(function (p) { return p.id === pp2; }) && st.answers.profession !== pp2) { st.answers.profession = pp2; dropStale('profession'); changed = true; }
         if (changed && typeof render === 'function') render();
       });
     }

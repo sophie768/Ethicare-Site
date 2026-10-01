@@ -37,7 +37,7 @@
      knows whether you have actually started it. */
   var TOOL = {
     pathway: { title: 'Check your registration pathway', href: '/pathway-checker', store: 'ethicare_pathway_checker_draft_v1',
-      note: 'The first question, and the one that sets the timeline for everything else.' },
+      note: 'The first question worth answering \u2014 start it early and the rest of the move has room.' },
     earn: { title: 'See what you could earn', href: '/is-it-worth-it', store: null,
       note: 'The published scales, what varies on top, and what is left after tax and rent.' },
     cost: { title: 'Work out what the move will cost', href: '/cost-calculator', store: 'ethicare_cost_calculator_v1',
@@ -48,7 +48,7 @@
       note: 'The nine sections a reader wants, with the document building underneath as you type.' },
     interview: { title: 'Get ready to apply', href: '/interview-prep', store: 'ethicare-interview-prep-v1',
       note: 'A readiness check, plus the questions panels ask and somewhere to work up your own examples.' },
-    offer: { title: 'Understand the offer in front of you', href: '/before-you-accept', store: 'ethicare_offer_check_v1',
+    offer: { title: 'Review your offer', href: '/before-you-accept', store: 'ethicare_offer_check_v1',
       note: 'What you have been offered, and the questions still worth putting to the employer.' },
     checklist: { title: 'Organise the move itself', href: '/moving-checklist', store: 'ethicare_moving_checklist_v1',
       note: 'Everything to arrange before you go, filtered to your household.' },
@@ -88,6 +88,27 @@
   function hhPhrase() { return ctx ? ctx.householdPhrase() : ''; }
   function profLabel() { return ctx ? (ctx.professionLabel() || ctx.profession()) : ''; }
   function destLabel() { return ctx ? (ctx.destLabel() || 'New Zealand or Australia') : ''; }
+
+  /* The visa note used to say "Your employer sponsors you, so this follows the offer" to
+     everyone. True for the route most candidates take — an Accredited Employer Work Visa in
+     New Zealand, a 482 in Australia — and wrong for a Green List profession applying Straight
+     to Residence, which does not wait on an offer at all. Those are the professions Ethicare
+     places most, so the page was telling its core audience the wrong order for their own move
+     (Sophie, 1 Oct 2026). Named per country, because a New Zealand candidate has no use for
+     the 482 and the reverse. Neither route is promised: which one applies is the regulator's
+     and the employer's to say, and the pathway checker is where it is worked out. */
+  function visaNote() {
+    var d = dest();
+    var common = d === 'nz'
+      ? 'Most people we place come on an Accredited Employer Work Visa, sponsored by the employer, so it follows the offer.'
+      : d === 'au'
+        ? 'Most people we place come on a 482, sponsored by the employer, so it follows the offer.'
+        : 'Most people we place come on an employer-sponsored visa \u2014 an Accredited Employer Work Visa in New Zealand, a 482 in Australia \u2014 so it follows the offer.';
+    var other = (d === 'au')
+      ? ''
+      : ' Some professions on New Zealand\u2019s Green List can apply for residence without waiting for a job offer, which changes the order entirely \u2014 worth checking against your own occupation early.';
+    return common + other + ' Either way: which visa, what it costs for everyone coming, and how long it realistically takes.';
+  }
   function me() { var p = PROF(), d = oneDest(), k = ctx && ctx.profession(); return (p && d && k) ? p.forCountry(k, d) : null; }
   function origins() { var f = DATA().flights || {}; return Object.keys(f).map(function (k) { return { value: k, label: f[k].label }; }); }
   function savedItems() { try { var o = JSON.parse(localStorage.getItem('ethicare_saved_v1') || '{}'); return (o && o.items) || []; } catch (e) { return []; } }
@@ -130,8 +151,8 @@
           break;
         case 'work':
           st.items.push({ title: 'Registration', tool: 'pathway',
-            note: 'Whether you can register, by which route, and how long it takes — this sets the timeline for everything after it. Registration is more than your qualification: certificates of good standing, English, character and health checks all sit here.',
-            links: (forCountries(function (dd, cc) { return [{ label: 'Registration guide', href: '/guides/' + cc + '-registration' }]; }) || []).concat([{ label: 'Every gate, in one place', href: '/can-i-work-there' }]) });
+            note: 'Whether you can register, by which route, and how long it takes. Starting registration early gives you more time to plan the rest of your move. It is more than your qualification: certificates of good standing, English, character and health checks all sit here.',
+            links: (forCountries(function (dd, cc) { return [{ label: 'Registration guide', href: '/guides/' + cc + '-registration' }]; }) || []).concat([{ label: 'Everything registration asks of you', href: '/can-i-work-there' }]) });
           if (hasPartner() || hasKids()) st.items.push({ title: 'The people coming with you',
             note: hasPartner()
               ? 'Your visa route decides what your partner can do when you arrive — whether they can work at all, for whom, and on what terms. Worth settling before you apply rather than after you have accepted.'
@@ -158,7 +179,7 @@
             var small = band('u5'), school = schoolAge();
             var kTitle = school ? (small ? 'Schools and childcare' : 'Schools') : (small ? 'Childcare and early learning' : 'The children’s side of it');
             var kNote = school
-              ? 'Where you live decides which school your children can attend, so settle the school question before you sign a lease. That is why it sits here rather than in the move itself.'
+              ? 'Where you live decides which school your children can attend, so settle the school question before you sign a lease.'
               : (small ? 'Places, waiting lists and cost vary street by street, and the good ones fill early. Worth starting before you fly rather than in your first week.'
                        : 'What changes for them, in what order, and what you can set up before you land.');
             if (band('18up')) kNote += ' At university age your visa route decides whether they pay domestic or international fees — a gap wide enough to change the maths of the whole move.';
@@ -174,18 +195,18 @@
           }
           break;
         case 'role':
-          st.items.push({ title: 'Finding the right role', note: 'We recruit a deliberately small list of professions. The roles we are recruiting now, the professions we cover, and the ones we are honest about not covering yet.',
+          st.items.push({ title: 'Finding the right role', note: 'We recruit across most professions in New Zealand, subject to the vacancies open at the time, and we are expanding into Australia starting with medical imaging. Tell us what you do and where you are thinking of, and we will tell you plainly what we have.',
             links: [{ label: 'Current opportunities', href: '/jobs/' }].concat(forCountries(function (dd, cc) { return [{ label: 'How hiring works in ' + CN(dd), href: '/guides/' + cc + '-finding-a-role' }]; }) || []) });
           st.items.push({ title: 'CV & interviews', tool: 'interview',
-            note: 'A clinical CV written for one health system rarely reads well in another. Build it properly, then test what you would say out loud.',
+            note: 'A clinical CV written for one health system rarely reads well in another. Set out your experience clearly for the one you are applying to, then test what you would say out loud.',
             links: [{ label: 'Build your CV', href: '/build-your-cv' }, { label: 'Check the CV you already have', href: '/cv-checker' }].concat(forCountries(function (dd, cc) { return [{ label: 'CVs and interviews guide', href: '/guides/' + cc + '-interview' }]; }) || []) });
           break;
         case 'plan':
           st.items.push({ title: 'The offer', tool: 'offer', note: 'What you have been offered, what an employer usually covers, and the questions still worth putting to them before you sign.',
             links: [{ label: 'Understanding an offer', href: '/guides/negotiating-your-offer' }] });
-          st.items.push({ title: 'Visas', note: 'Your employer sponsors you, so this follows the offer rather than preceding it. What matters is which visa, what it costs for everyone coming, and how long it realistically takes.',
+          st.items.push({ title: 'Visas', note: visaNote(),
             links: (forCountries(function (dd, cc) { return [{ label: 'Visa guide', href: '/guides/' + cc + '-visa' }, immi(dd)]; }) || [{ label: 'Visas: New Zealand', href: '/guides/new-zealand-visa' }, { label: 'Visas: Australia', href: '/guides/australia-visa' }]) });
-          st.items.push({ title: 'The move itself', tool: 'checklist', note: 'Shipping, storage, temporary accommodation, the lease, the school place and what has the longest lead time — in the order it needs doing.',
+          st.items.push({ title: 'Plan your move', tool: 'checklist', note: 'Shipping, storage, temporary accommodation, the lease, the school place and what has the longest lead time — in the order it needs doing.',
             links: forCountries(function (dd, cc) { return [{ label: 'Preparing for the move', href: '/guides/' + cc + '-relocation' }]; }) || [{ label: 'Bringing pets and belongings', href: '/guides/nz/bringing-pets-and-belongings' }] });
           if (hasKids() && !hasPartner()) st.items.push({ title: 'Moving as a single parent',
             note: 'Doing this on your own is a different move, not a smaller one. Two things are worth handling early: written consent from anyone else with parental responsibility, which visa applications and border officials can ask to see, and childcare that works around clinical shifts when there is no second adult at home.',
@@ -239,7 +260,7 @@
     /* the eight */
     host.innerHTML = list.map(function (s) {
       var isCur = s.id === cur, isDone = !!S.done[s.id], isOpen = s.id === openId;
-      var status = isDone ? '<span class="pt-badge live">Sorted</span>' : isCur ? '<span class="pt-badge now">You are here</span>' : (nx && s.id === nx.id ? '<span class="pt-badge">Next</span>' : '');
+      var status = isDone ? '<span class="pt-badge done">Done</span>' : isCur ? '<span class="pt-badge now">You are here</span>' : (nx && s.id === nx.id ? '<span class="pt-badge">Next</span>' : '');
       var h = '<section class="pt-stage' + (isOpen ? ' is-open' : '') + (isCur ? ' now' : '') + (isDone ? ' done' : '') + '" id="s' + s.n + '" data-stage="' + s.id + '">';
       h += '<button type="button" class="pt-stage-h" data-open="' + s.id + '" aria-expanded="' + (isOpen ? 'true' : 'false') + '"><span class="pt-num">0' + s.n + '</span><span class="pt-stage-t">' + esc(s.label) + '</span>' + status + '<span class="pt-stage-x" aria-hidden="true">' + (isOpen ? '−' : '+') + '</span></button>';
       if (isOpen) {
@@ -247,15 +268,24 @@
         if (!hasD && s.n > 1) h += '<p class="pt-hint" style="margin:0 0 14px">Tell us where you are thinking of, above, and this stage shows only that country’s guides.</p>';
         s.items.forEach(function (it) {
           var tl = it.tool ? tool(it.tool, oneDest()) : null;
-          h += '<div class="pt-item"><h3>' + esc(it.title) + (tl && started(tl.store) ? ' <span class="pt-badge live">Started</span>' : '') + '</h3><p>' + esc(it.note) + '</p>';
-          if (tl) h += '<a class="pt-btn ghost" href="' + tl.href + '" data-ctx-link>' + esc(tl.title) + ' <i aria-hidden="true">&rarr;</i></a>';
+          /* The "Started" badge used to sit on the item title, so a saved draft in the pathway
+             checker put "Registration — Started" on the page. A candidate reads that as their
+             registration being underway; what it actually means is that a tool in this browser
+             has answers in it. Same fact, moved to the tool it is about (Sophie, 1 Oct 2026). */
+          h += '<div class="pt-item"><h3>' + esc(it.title) + '</h3><p>' + esc(it.note) + '</p>';
+          if (tl) {
+            h += '<a class="pt-btn ghost" href="' + tl.href + '" data-ctx-link>' + esc(tl.title) + ' <i aria-hidden="true">&rarr;</i></a>';
+            if (started(tl.store)) h += '<p class="pt-draft">Saved in this browser — opens where you left off.</p>';
+          }
           if (it.links && it.links.length) h += '<div class="pt-links">' + it.links.map(function (l) { return '<a href="' + esc(l.href) + '"' + (l.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(l.label) + (l.external ? ' ↗' : '') + '</a>'; }).join('') + '</div>';
           h += '</div>';
         });
         if (s.ask === 'work') h += '<div class="pt-ask"><p class="pt-lbl">Does your partner work?</p><div class="pt-pills">' + WORK.map(function (w) { return '<button type="button" class="pt-pill" data-work="' + w.value + '">' + esc(w.label) + '</button>'; }).join('') + '</div><p class="pt-hint">If they are a clinician too, their registration gets its own step here.</p></div>';
         if (s.ask === 'bands') h += '<div class="pt-ask"><p class="pt-lbl">How old will your children be when you move?</p><div class="pt-pills">' + BANDS.map(function (b) { return '<button type="button" class="pt-pill' + (band(b.value) ? ' on' : '') + '" data-band="' + b.value + '" aria-pressed="' + (band(b.value) ? 'true' : 'false') + '">' + esc(b.label) + '</button>'; }).join('') + '</div><p class="pt-hint">Choose every band that applies. Ages decide whether childcare, school enrolment or university fees belong in your plan.</p></div>';
         h += '<div class="pt-signrow" style="margin-top:18px">' +
-          (isDone ? '<button type="button" class="pt-quiet" data-done="' + s.id + '">Not sorted after all</button>' : '<button type="button" class="pt-quiet" data-done="' + s.id + '">Already sorted — tick it off</button>') +
+          '<button type="button" class="pt-tick' + (isDone ? ' on' : '') + '" data-done="' + s.id + '" aria-pressed="' + (isDone ? 'true' : 'false') + '">'
+          + '<span class="pt-tick-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>'
+          + '<span class="pt-tick-l">' + (isDone ? 'Done' : 'Mark as done') + '</span></button>' +
           (!isCur ? '<button type="button" class="pt-quiet" data-here="' + s.id + '">This is where I am</button>' : '') +
           '</div></div>';
       }

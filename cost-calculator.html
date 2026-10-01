@@ -247,6 +247,30 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   .cc-sumacts{width:100%}
   .cc-b2,.cc-b3{flex:1 1 100%}
 }
+
+/* ---- "email me this" on the estimate (1 Oct 2026) --------------------------------------
+   The calculator is where someone does the most work and used to leave with nothing on
+   record. This asks at the end, never before: the estimate is complete and free whether or
+   not anyone fills this in. Two opt-ins, both unticked, neither a condition of anything. */
+.cc-lead{background:#fff;border:1px solid #C9DED3;border-left:4px solid #A6C84A;border-radius:16px;padding:clamp(20px,2.4vw,28px);margin:clamp(24px,3vw,34px) 0 0}
+.cc-lead h3{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(18px,1.8vw,22px);color:#02615D;margin:0 0 6px}
+.cc-lead .cc-lead-sub{font-size:15px;line-height:1.6;color:#555;margin:0 0 18px;max-width:62ch}
+.cc-lead .cc-f{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px 16px;margin-bottom:16px}
+.cc-lead label.cc-l{display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13.5px;color:#02615D;margin-bottom:6px}
+.cc-lead select{width:100%;box-sizing:border-box;font-family:Manrope,sans-serif;font-size:16px;color:#333;border:1px solid #C9DED3;border-radius:10px;padding:10px 12px;min-height:46px;background:#fff}
+.cc-lead select:focus-visible{outline:3px solid #02615D;outline-offset:1px}
+.cc-lead input[type=text],.cc-lead input[type=email]{width:100%;box-sizing:border-box;font-family:Manrope,sans-serif;font-size:16px;color:#333;border:1px solid #C9DED3;border-radius:10px;padding:10px 12px;min-height:46px;background:#fff}
+.cc-lead input[type=text]:focus-visible,.cc-lead input[type=email]:focus-visible{outline:3px solid #02615D;outline-offset:1px}
+.cc-lead .cc-opt{display:flex;gap:11px;align-items:flex-start;margin:0 0 12px;cursor:pointer;font-size:15px;line-height:1.55;color:#333}
+.cc-lead .cc-opt input{width:20px;height:20px;margin-top:2px;accent-color:#02615D;flex:0 0 auto}
+.cc-lead .cc-send{min-height:48px;padding:12px 24px;border:0;border-radius:999px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;cursor:pointer;margin-top:4px}
+.cc-lead .cc-send:hover{background:#014A47}
+.cc-lead .cc-send:focus-visible{outline:3px solid #02615D;outline-offset:3px}
+.cc-lead .cc-priv{font-size:13.5px;line-height:1.6;color:#555;margin:14px 0 0}
+.cc-lead .cc-priv a{color:#02615D;font-weight:600}
+.cc-lead .cc-err{color:#A34438;font-size:14.5px;font-weight:600;margin:0 0 12px}
+.cc-lead.is-done{border-left-color:#2F5E49}
+.cc-lead.is-done p{margin:0;font-size:15.5px;line-height:1.6;color:#333}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Cost of moving calculator"}]}</script>
 <meta property="og:url" content="https://ethicareresourcing.com/cost-calculator"><meta property="og:image" content="https://ethicareresourcing.com/assets/og-toolkit.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="How much will it cost to move?"><meta name="twitter:description" content="Build a realistic moving budget for Australia or New Zealand — official fees, tenancy rules and the costs people forget."><meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-toolkit.jpg">
@@ -390,6 +414,30 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   </section>
 
 <div class="shell" style="padding:clamp(36px,5vw,64px) 0 clamp(44px,6vw,76px)"><page-feedback to="Sophie"></page-feedback></div>
+
+<!-- Capture for the cost calculator (1 Oct 2026). Same shape as the pathway checker's hidden
+     form: Netlify registers every column at deploy time, the script fills and submits it. This
+     needs no API key, so the lead is captured whether or not the emailed copy is switched on. -->
+<form id="cc-netlify-form" name="cost-estimate-lead" method="POST" action="/cost-calculator.html?submitted=1" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="cost-estimate-lead">
+  <input type="hidden" name="_subject" value="Cost calculator enquiry &mdash; Ethicare website">
+  <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+  <input type="hidden" name="name" value="">
+  <input type="hidden" name="email" value="">
+  <input type="hidden" name="destination" value="">
+  <input type="hidden" name="region" value="">
+  <input type="hidden" name="origin" value="">
+  <input type="hidden" name="profession" value="">
+  <input type="hidden" name="who" value="">
+  <input type="hidden" name="estimate_total" value="">
+  <input type="hidden" name="estimate_summary" value="">
+  <input type="hidden" name="timeframe" value="">
+  <input type="hidden" name="opt_future" value="">
+  <input type="hidden" name="consent_version" value="">
+  <input type="hidden" name="consent_wording" value="">
+  <input type="hidden" name="email_copy" value="">
+  <input type="hidden" name="page" value="">
+</form>
 </main>
 <script src="page-feedback.js" defer></script>
 

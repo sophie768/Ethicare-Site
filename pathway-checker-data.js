@@ -1441,7 +1441,11 @@
         officialUrl: 'https://www.speechpathologyaustralia.org.au/',
         steps: steps('Apply to Speech Pathology Australia for assessment of your qualification', 'Talk to us about Australian speech pathology opportunities'),
         buttons: btns('Speech Pathology Australia', 'OFFICIAL', GUIDE_AU, 'Australian opportunities'),
-        lastReviewed: 'Verified 26 August 2026 against dietitiansaustralia.org.au (DSR three-stage process, timings and the three-year clock)'
+        /* This carried the dietetics stamp verbatim — copied from another profession's record
+           and printed to candidates as this one's own "last checked" line. Whether anyone ever
+           verified this record is therefore unknown, and inventing a date would be worse than
+           saying so. Replace this the day someone actually reads the source. */
+        lastReviewed: 'Source: speechpathologyaustralia.org.au. Last review date not recorded — treat requirements, timings and fees as indicative and confirm with the Association.'
       },
       nz: {
         regulator: 'New Zealand Speech-language Therapists\u2019 Association (NZSTA)',
@@ -1680,7 +1684,9 @@
         officialUrl: 'https://www.aasw.asn.au/',
         steps: steps('Apply to the AASW for assessment of your qualification', 'Talk to us about Australian social work opportunities'),
         buttons: btns('AASW', 'OFFICIAL', GUIDE_AU, 'Australian opportunities'),
-        lastReviewed: 'Verified 26 August 2026 against dietitiansaustralia.org.au (DSR three-stage process, timings and the three-year clock)'
+        /* Same copied dietetics stamp as the speech pathology record above — see the note
+           there. No date is asserted because none was recorded. */
+        lastReviewed: 'Source: aasw.asn.au. Last review date not recorded — treat requirements and timings as indicative and confirm with the AASW.'
       },
       nz: {
         regulator: 'Social Workers Registration Board (SWRB)',

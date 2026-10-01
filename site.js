@@ -1,5 +1,19 @@
 // Ethicare static site — shared behaviour (scroll reveal + collapsibles + carousel).
 // Header navigation lives in nav.js.
+
+/* ----------------------------------------------------------------------------------
+   ONE SWITCH for emailing a candidate their own result (1 Oct 2026).
+
+   The pathway checker and the cost calculator can both email someone the result they
+   just worked out. Both send through /.netlify/functions/send-result, which needs
+   RESEND_API_KEY set in Netlify AND the sending domain verified in Resend. Until that
+   is done a send fails silently, so the offer is hidden rather than made and broken.
+
+   WHEN THE KEY IS SET: change this to true. Both tools then offer "Email me my result"
+   / "Email me my estimate". Nothing else has to change, and the lead is captured either
+   way — the capture goes to Netlify Forms, which needs no key at all.
+   ---------------------------------------------------------------------------------- */
+window.ETHICARE_EMAIL_LIVE = false;
 (function () {
   // ---------- Mobile nav ----------
   // Lives in nav.js now: one implementation shared by every page that renders
