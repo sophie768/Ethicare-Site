@@ -11,7 +11,7 @@
    ================================================================ */
 window.ETHICARE_COSTS = {
   lastChecked: '19 August 2026',
-  registrationChecked: 'Registration fees checked 19 August 2026. Medical radiation and nursing figures are taken line by line from the published board schedules; the rest are Ethicare planning estimates until the board publishes a comparable breakdown.',
+  registrationChecked: 'Registration fees checked 29 September 2026 against each board\u2019s published schedule or fee notice. Where a figure is marked as an estimate, the board has not published a comparable breakdown for an overseas applicant.',
 
   currency: {
     code: { au: 'AUD', nz: 'NZD' },
@@ -74,7 +74,7 @@ window.ETHICARE_COSTS = {
   },
 
   nzSchool: {
-    line: 'Children of an Accredited Employer Work Visa holder are treated as domestic students in state schools, so there is no international tuition fee.',
+    line: 'Children of an Accredited Employer Work Visa holder are generally treated as domestic students in state schools, so no international tuition fee applies. On other visas the position can differ \u2014 confirm your family\u2019s eligibility before budgeting.',
     officialHref: 'https://parents.education.govt.nz/'
   },
 
@@ -121,7 +121,7 @@ window.ETHICARE_COSTS = {
        tag   = 'official' where every component is published, 'estimate' where the figure is
                built from a pathway we cannot fully price in advance. */
   registration: {
-    checked: '19 August 2026',
+    checked: '29 September 2026',
     au: {
       imaging: {
         fee: 1102, tag: 'official', exam: 787, examTag: 'official',
@@ -209,23 +209,24 @@ window.ETHICARE_COSTS = {
     },
     nz: {
       imaging: {
-        fee: 1250, tag: 'estimate', exam: null,
+        fee: 1432, tag: 'official', exam: 2704, examTag: 'official',
         body: 'the Medical Radiation Technologists Board',
         href: 'https://www.mrtboard.org.nz/pre-registration/overseas-trained-how-to-register',
-        breakdown: 'Overseas registration application plus your first annual practising certificate. An online examination applies where the Board does not find your qualification equivalent.',
+        breakdown: 'NZ$922 internationally qualified registration application and NZ$510 for your first annual practising certificate, from the Board\u2019s fees notice in force from 16 February 2026.',
+        examNote: 'The Board\u2019s online examination is NZ$2,704 where it does not find your qualification equivalent.',
         examUnknownNote: 'The Board sets an examination fee per sitting, published in its fee schedule. It applies only if your qualification is assessed as not equivalent.'
       },
       radtherapy: {
-        fee: 1250, tag: 'estimate', exam: null,
+        fee: 1432, tag: 'official', exam: null,
         body: 'the Medical Radiation Technologists Board',
         href: 'https://www.mrtboard.org.nz/pre-registration/overseas-trained-how-to-register',
-        breakdown: 'Overseas registration application plus your first annual practising certificate.'
+        breakdown: 'NZ$922 internationally qualified registration application and NZ$510 for your first annual practising certificate, from the Board\u2019s fees notice in force from 16 February 2026.'
       },
       sonography: {
-        fee: 1350, tag: 'estimate', exam: null,
+        fee: 1432, tag: 'official', exam: null,
         body: 'the Medical Radiation Technologists Board',
         href: 'https://www.mrtboard.org.nz/pre-registration/overseas-trained-how-to-register',
-        breakdown: 'Sonography is a registered scope in New Zealand, unlike Australia. Even Australian-qualified sonographers apply as overseas-trained.'
+        breakdown: 'Sonography is a registered scope in New Zealand, unlike Australia, so even Australian-qualified sonographers apply as internationally qualified: NZ$922 application and NZ$510 first practising certificate, from the Board\u2019s fees notice in force from 16 February 2026.'
       },
       nursing: {
         fee: 1320, tag: 'estimate', exam: null,
@@ -241,34 +242,35 @@ window.ETHICARE_COSTS = {
         breakdown: 'Registration application plus your first annual practising certificate. A competence programme may be required.'
       },
       medicine: {
-        fee: 2600, tag: 'estimate', exam: null,
+        fee: 3210, tag: 'official', exam: null,
         body: 'the Medical Council of New Zealand',
-        href: 'https://www.mcnz.org.nz/registration/getting-registered/',
-        breakdown: 'Registration application plus your first annual practising certificate. Which scope you qualify for changes the cost considerably.'
+        href: 'https://www.mcnz.org.nz/registration/forms-fees-and-checklists/fees/',
+        breakdown: 'Provisional general registration (comparable health system) is NZ$1,936, plus NZ$1,000 for your first practising certificate and the NZ$275 disciplinary levy, from 1 July 2026. A provisional vocational application (VOC3 or VOC4) is NZ$4,645 instead, so a specialist route runs to about NZ$5,900.',
+        examUnknownNote: 'NZREX applies only outside the comparable-health-system and vocational routes: NZ$861 to apply and NZ$4,967 to sit.'
       },
       psychology: {
-        fee: 1700, tag: 'estimate', exam: null,
+        fee: 2057, tag: 'official', exam: null,
         body: 'the New Zealand Psychologists Board',
-        href: 'https://www.health.govt.nz/regulated-health-professions',
-        breakdown: 'Registration application and scope assessment, plus your first annual practising certificate.'
+        href: 'https://psychologistsboard.org.nz/want-to-register/fees-and-levy/',
+        breakdown: 'From a prescribed country (the UK, Ireland, Australia and others): NZ$720 registration application, NZ$540 vocational scope assessment and NZ$797 for your first practising certificate, from 5 February 2026. From a non-prescribed country the application is NZ$1,080 and the scope assessment NZ$900, about NZ$2,780 in all.'
       },
       anaesthetic: {
-        fee: 1200, tag: 'estimate', exam: null,
+        fee: 1400, tag: 'estimate', exam: null,
         body: 'the Medical Sciences Council of New Zealand',
-        href: 'https://www.mscouncil.org.nz/',
-        breakdown: 'Anaesthetic technology is a registered profession in New Zealand, unlike Australia. Registration runs through the Medical Sciences Council.'
+        href: 'https://www.mscouncil.org.nz/pre-registration/overseas-trained-how-to-register/overseas-trained-registration-anaesthetic-technician',
+        breakdown: 'Anaesthetic technology is a registered profession in New Zealand, unlike Australia. The 2026/27 practising certificate is NZ$520 and the disciplinary levy NZ$57.50; the internationally qualified application fee is in the Council\u2019s fees notice of 16 February 2026.'
       },
       physio: {
-        fee: 1350, tag: 'estimate', exam: null,
+        fee: 1481, tag: 'official', exam: null,
         body: 'the Physiotherapy Board of New Zealand',
-        href: 'https://www.physioboard.org.nz/',
-        breakdown: 'Registration application plus your first annual practising certificate.'
+        href: 'https://physioboard.org.nz/resources/fees',
+        breakdown: 'NZ$1,067 international express pathway application plus NZ$414 for your first practising certificate, from 1 April 2026. The general pathway application is NZ$1,735 instead, about NZ$2,150 in all.'
       },
       ot: {
-        fee: 1350, tag: 'estimate', exam: null,
+        fee: 2037, tag: 'official', exam: null,
         body: 'the Occupational Therapy Board of New Zealand',
-        href: 'https://www.otboard.org.nz/',
-        breakdown: 'Registration application plus your first annual practising certificate.'
+        href: 'https://otboard.org.nz/site/np/gazette/fees',
+        breakdown: 'NZ$1,265 overseas-qualified registration application, NZ$184 evaluation of competence and NZ$588 for your first practising certificate, from the Board\u2019s fees notice of 31 January 2025.'
       },
       speech: {
         fee: 900, tag: 'estimate', exam: null,

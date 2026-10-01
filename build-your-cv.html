@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://ethicareresourcing.com/build-your-cv">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <link rel="icon" href="assets/logo-mark.png">
 <link rel="apple-touch-icon" href="assets/logo-mark.png">
@@ -53,7 +53,7 @@
 .cv-acc{background:#fff;border:1px solid var(--e);border-radius:var(--r-lg,16px);overflow:hidden}
 .cv-head{width:100%;display:flex;align-items:center;gap:16px;text-align:left;padding:20px clamp(18px,2.4vw,26px);border:0;background:none;cursor:pointer;min-height:48px}
 .cv-head:hover .cv-t{color:#2F5E49}
-.cv-n{font-family:var(--display);font-size:13px;font-weight:700;color:#9DB0A6;letter-spacing:.04em}
+.cv-n{font-family:var(--display);font-size:13px;font-weight:700;color:#5C7469;letter-spacing:.04em}
 .cv-tw{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0}
 .cv-t{font-family:var(--display);font-size:clamp(16.5px,2vw,18.5px);font-weight:600;color:var(--teal);transition:color .15s ease}
 .cv-sub{font-size:14.5px;line-height:1.5;color:var(--muted);text-wrap:pretty}
@@ -69,7 +69,7 @@
 @media (max-width:640px){.cv-go{display:none}}
 .cv-pill{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap}
 .cv-pill.ready{background:#DCE9DF;color:#1F5E4E}
-.cv-pill.thin{background:#F5E4D8;color:#9E4A22}
+.cv-pill.thin{background:#F7F4EE;color:#A34438}
 .cv-pill.empty{background:#F0F2EF;color:#5F6E66}
 .cv-body{padding:0 clamp(18px,2.4vw,26px) 28px}
 .cv-guide{font-size:15px;line-height:1.62;color:var(--muted);max-width:64ch;margin-bottom:22px;text-wrap:pretty}
@@ -95,12 +95,12 @@
 .cv-chip{font-family:var(--display);font-size:13.5px;font-weight:600;min-height:44px;padding:9px 15px;border-radius:999px;border:1.5px solid var(--e);background:var(--warm);color:var(--teal);cursor:pointer;transition:background .15s ease,border-color .15s ease}
 .cv-chip:hover{background:var(--soft);border-color:#2F5E49}
 .cv-count{font-family:var(--display);font-size:13.5px;font-weight:600;margin-top:16px;color:#2F5E49}
-.cv-count.over{color:#9E4A22}
+.cv-count.over{color:#A34438}
 .cv-flag{margin-top:14px;border-radius:12px;padding:18px 20px;max-width:70ch}
-.cv-flag.warm{background:#F5E4D8}
+.cv-flag.warm{background:#F7F4EE}
 .cv-flag.sage{background:var(--soft)}
 .cv-flag-k{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px}
-.cv-flag.warm .cv-flag-k{color:#9E4A22}
+.cv-flag.warm .cv-flag-k{color:#A34438}
 .cv-flag.sage .cv-flag-k{color:#2F5E49}
 .cv-flag p{font-size:15px;line-height:1.6;margin-bottom:6px}
 .cv-flag.warm p{color:#7A3A1B}
@@ -119,7 +119,7 @@
 .cv-gapgh{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#2F5E49;margin-bottom:10px}
 .cv-mk{flex:0 0 auto;font-family:var(--display);font-size:17px;font-weight:700;line-height:1.35;width:20px}
 .cv-gap.ok .cv-mk{color:#2F5E49}
-.cv-gap.watch .cv-mk{color:#9E4A22}
+.cv-gap.watch .cv-mk{color:#A34438}
 .cv-gaplist{display:grid;gap:10px;margin-top:30px;max-width:900px}
 .cv-gap{background:#fff;border-radius:12px;padding:18px 22px;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
 .cv-gap-t{font-family:var(--display);font-size:15.5px;font-weight:600;color:var(--teal);margin-bottom:4px}
@@ -147,13 +147,13 @@
 .cv-p-sub{font-family:var(--display);font-size:13px;font-weight:700;color:var(--teal);margin-bottom:2px}
 .cv-p-t{font-size:13px;line-height:1.6;color:var(--text);text-wrap:pretty}
 .cv-p-b{font-size:13px;line-height:1.55;color:var(--text);padding-left:14px;text-indent:-14px;text-wrap:pretty}
-.cv-p-empty{font-size:13px;line-height:1.6;color:#8C9A92;font-style:italic}
+.cv-p-empty{font-size:13px;line-height:1.6;color:#5F6F67;font-style:italic}
 .cv-p-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px 26px}
 .cv-p-block{margin-bottom:9px}
 .cv-end{background:var(--teal);padding:clamp(52px,7vw,80px) 0}
 .cv-end h2{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);font-weight:600;line-height:1.18;color:#fff;margin-bottom:16px;max-width:24ch}
 .cv-end p{font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.84);max-width:64ch;margin-bottom:30px;text-wrap:pretty}
-.cv-end .fine{font-size:14px;color:rgba(255,255,255,.55);margin:28px 0 0}
+.cv-end .fine{font-size:14px;color:rgba(255,255,255,.8);margin:28px 0 0}
 @media (max-width:640px){.cv-paper{padding:32px 26px 36px}.cv-head{gap:10px;padding:18px 16px}.cv-body{padding:0 16px 24px}}
 @media print{
 .site-header,.site-footer,.cv-hero,.cv-xref,.cv-sections,.cv-gaps,.cv-end,.cv-paper-bar,.cv-note,.cv-p-empty,.skip-link,.backtop{display:none!important}
@@ -167,7 +167,7 @@
 .cv-steps{list-style:none;margin:34px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
 .cv-step{background:var(--warm);border:1px solid var(--e);border-radius:var(--r-lg,16px);padding:24px 22px 22px;display:flex;flex-direction:column;gap:9px}
 .cv-step.here{background:var(--soft);border-color:rgba(2,97,93,.65)}
-.cv-sn{font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.04em;color:#9DB0A6}
+.cv-sn{font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.04em;color:#5C7469}
 .cv-step.here .cv-sn{color:#2F5E49}
 .cv-step h3{font-family:var(--display);font-size:18px;font-weight:600;line-height:1.28;color:var(--teal);margin:0}
 .cv-step p{font-size:14.5px;line-height:1.62;color:var(--muted);margin:0;text-wrap:pretty}
@@ -179,13 +179,14 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Build your CV"}]}</script>
 <link rel="stylesheet" href="prose-links.css">
+<style id="mobile-fit">select{max-width:100%;min-width:0;width:100%}label{min-width:0}</style>
 </head>
 <body class="cvb">
 <a class="skip-link" href="#main-content">Skip to content</a>
 
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -202,25 +203,29 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move" aria-current="page">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
+      <a href="/ask">Ask Ethicare</a>
       <a href="/employers">For Employers</a>
       <a class="nav-cta" href="/contact">Contact</a>
     </nav>
   </div>
 </header>
+
 
 <main id="main-content">
 
@@ -230,6 +235,7 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
     <h1>Write it once, properly, and keep it</h1>
     <p>A clinical CV written for one health system rarely reads well in another, and most people are told this only after they have been turned down. So start here instead. Answer the nine sections, watch the document build itself underneath, and print it when it is done.</p>
     <p class="fine">These are the nine sections of the Ethicare template — a guide you are welcome to use, not a form we require. It is your CV: use it wherever you are applying, through us or not, this year or in two years.</p>
+    <div id="ctx-strip" data-ctx-strip></div>
     <div class="cv-setup">
       <div>
         <label for="cvDest">Applying to</label>
@@ -262,7 +268,7 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
   <div class="shell">
     <p class="eyebrow">Nine sections</p>
     <h2>In the order a reader wants them</h2>
-    <p class="lead">Open one section at a time. Leave out anything that genuinely does not apply — though an unexplained gap is usually more noticeable to a reader than a short explanation.</p>
+    <p class="lead">Open one section at a time. Leave out anything that does not apply — though an unexplained gap is usually more noticeable to a reader than a short explanation.</p>
     <div class="cv-stack">
 <div class="cv-acc" data-acc="s1">
 <button class="cv-head" type="button" data-toggle="s1" aria-expanded="false"><span class="cv-n">01</span><span class="cv-tw"><span class="cv-t">The header block</span><span class="cv-sub">Contact details, where you are now, and your registration status</span></span><span class="cv-pill empty" data-pill="s1">Empty</span><span class="cv-go"></span></button>
@@ -273,7 +279,7 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
 <div class="cv-f"><label for="cvEmail">Email</label><input type="email" id="cvEmail" data-field="cvEmail" placeholder="One you check daily"></div>
 <div class="cv-f"><label for="cvMobile">Mobile, with country code</label><input type="tel" inputmode="tel" id="cvMobile" data-field="cvMobile" placeholder="+27 82 000 0000"><p class="cv-hint">It has to work from overseas. A number that only rings locally costs you interviews.</p></div>
 <div class="cv-f"><label for="cvLocation">City and country you are in now</label><input type="text" id="cvLocation" data-field="cvLocation" placeholder="Durban, South Africa"></div>
-<div class="cv-f"><label for="cvRights">Work rights or visa status, optional</label><input type="text" id="cvRights" data-field="cvRights" placeholder="Only if it helps a reader"><p class="cv-hint">Nationality is not standard CV content, so there is nowhere to put it here. Where an immigration process genuinely needs it, we ask separately.</p></div>
+<div class="cv-f"><label for="cvRights">Work rights or visa status, optional</label><input type="text" id="cvRights" data-field="cvRights" placeholder="Only if it helps a reader"><p class="cv-hint">Nationality is not standard CV content, so there is nowhere to put it here. Where an immigration process needs it, we ask separately.</p></div>
 </div>
 <div class="cv-grid one" style="margin-top:20px">
 <div class="cv-f"><label for="cvRegLine">Registration status, in one line</label><input type="text" id="cvRegLine" data-field="cvRegLine" placeholder="Where you are in the process, in your own words"><p class="cv-hint">This belongs on page one, not page two. If you are not sure how to word your stage, the <a href="/pathway-checker">Registration Pathway Checker</a> tells you where you are and what to call it.</p></div>
@@ -283,7 +289,7 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
 <button class="cv-head" type="button" data-toggle="s2" aria-expanded="false"><span class="cv-n">02</span><span class="cv-tw"><span class="cv-t">Candidate summary</span><span class="cv-sub">The short opening a reader will read in full</span></span><span class="cv-pill empty" data-pill="s2">Empty</span><span class="cv-go"></span></button>
 <div class="cv-body" data-panel="s2" hidden><p class="cv-guide">Four moves: who you are professionally, what you bring, what makes your experience distinctive, and why this country. Aim for 80 to 130 words — two hundred is the ceiling, not the target.</p>
 <div class="cv-grid one">
-<div class="cv-f"><label for="cvSumWho">Who you are professionally</label><textarea id="cvSumWho" data-field="cvSumWho" rows="2" placeholder="Not your job title — what you actually do"></textarea></div>
+<div class="cv-f"><label for="cvSumWho">Who you are professionally</label><textarea id="cvSumWho" data-field="cvSumWho" rows="2" placeholder="Not your job title — what you do"></textarea></div>
 <div class="cv-f"><label for="cvSumBring">What you bring that is specific to you</label><textarea id="cvSumBring" data-field="cvSumBring" rows="3" placeholder="The difficult lists you take. The call you carry. The people you have trained."></textarea><p class="cv-hint">Active verbs — led, managed, developed. Every claim here should be one you would be happy to be asked about, because you will be.</p></div>
 <div class="cv-f"><label for="cvSumOnly">What makes your experience distinctive</label><textarea id="cvSumOnly" data-field="cvSumOnly" rows="2" placeholder="A service you helped improve, an unusual environment, specialist or leadership experience"></textarea><p class="cv-hint">A service you have helped improve, an unusual clinical environment, specialist experience, leadership responsibility, or something that shaped the clinician you are. Our clients read these side by side, and this is the line that separates two otherwise similar CVs.</p></div>
 <div class="cv-f"><label for="cvSumWhy">Why this country</label><textarea id="cvSumWhy" data-field="cvSumWhy" rows="2" placeholder="One honest sentence"></textarea><p class="cv-hint">Everyone reading it is wondering, and a plain personal reason reads better than a polished one.</p></div>
@@ -293,7 +299,7 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
 </div>
 <div class="cv-acc" data-acc="s3">
 <button class="cv-head" type="button" data-toggle="s3" aria-expanded="false"><span class="cv-n">03</span><span class="cv-tw"><span class="cv-t">Clinical expertise</span><span class="cv-sub">The section that gets scanned, and where shortlisting happens</span></span><span class="cv-pill empty" data-pill="s3">Empty</span><span class="cv-go"></span></button>
-<div class="cv-body" data-panel="s3" hidden><p class="cv-guide tight">The section that gets scanned, and where shortlisting actually happens. Group it under headings a reader recognises, then name the procedures — a reader will not assume a skill you have not written down.</p>
+<div class="cv-body" data-panel="s3" hidden><p class="cv-guide tight">The section that gets scanned, and where shortlisting happens. Group it under headings a reader recognises, then name the procedures — a reader will not assume a skill you have not written down.</p>
 <p class="cv-guide">One department&rsquo;s headings, to show what a grouping looks like. Rename them to match how your own service is organised — a reader who sees the same seven headings on seven CVs stops reading them.</p>
 <div class="cv-chips" data-groupchips></div>
 <div data-list="expertise"></div>
@@ -330,9 +336,9 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
 <button class="cv-add" type="button" data-add="cpd">Add a course</button></div>
 </div>
 <div class="cv-acc" data-acc="s8">
-<button class="cv-head" type="button" data-toggle="s8" aria-expanded="false"><span class="cv-n">08</span><span class="cv-tw"><span class="cv-t"><span data-equiptitle>Equipment used</span></span><span class="cv-sub">The equipment and systems you have actually worked on</span></span><span class="cv-pill empty" data-pill="s8">Empty</span><span class="cv-go"></span></button>
+<button class="cv-head" type="button" data-toggle="s8" aria-expanded="false"><span class="cv-n">08</span><span class="cv-tw"><span class="cv-t"><span data-equiptitle>Equipment used</span></span><span class="cv-sub">The equipment and systems you have worked on</span></span><span class="cv-pill empty" data-pill="s8">Empty</span><span class="cv-go"></span></button>
 <div class="cv-body" data-panel="s8" hidden><p class="cv-guide" data-equiplead></p>
-<div class="cv-grid one"><div class="cv-f"><label for="cvEquipment" data-equiptitle>Equipment used</label><textarea id="cvEquipment" data-field="cvEquipment" rows="5" placeholder="One line each — what you have actually used, by name"></textarea><p class="cv-hint">One line each. A department running the same equipment as you will notice this before anything else on the page.</p></div></div></div>
+<div class="cv-grid one"><div class="cv-f"><label for="cvEquipment" data-equiptitle>Equipment used</label><textarea id="cvEquipment" data-field="cvEquipment" rows="5" placeholder="One line each — what you have used, by name"></textarea><p class="cv-hint">One line each. A department running the same equipment as you will notice this before anything else on the page.</p></div></div></div>
 </div>
 <div class="cv-acc" data-acc="s9">
 <button class="cv-head" type="button" data-toggle="s9" aria-expanded="false"><span class="cv-n">09</span><span class="cv-tw"><span class="cv-t">References</span><span class="cv-sub">Two referees, or a line saying they are available on request</span></span><span class="cv-pill empty" data-pill="s9">Empty</span><span class="cv-go"></span></button>
@@ -394,7 +400,7 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
   <div class="shell">
     <p class="eyebrow">How these fit together</p>
     <h2>Three separate things, in this order</h2>
-    <p class="lead">People often ask whether building a CV and registering with us are the same step. They are not, and you do not need all three &mdash; the first two are yours to keep, and only the third involves us.</p>
+    <p class="lead">Building a CV and registering with us are not the same step, and you do not need all three. The first two are yours to keep; only the third involves us.</p>
     <ol class="cv-steps">
       <li class="cv-step">
         <span class="cv-sn">01</span>
@@ -431,14 +437,17 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
   </div>
 </section>
 
+
+<div class="shell" style="padding:clamp(36px,5vw,64px) 0 clamp(44px,6vw,76px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="page-feedback.js" defer></script>
 
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">
       <div class="f-brand">
-        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
-        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Support through one of life’s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
           <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
@@ -460,24 +469,11 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
 
 <script src="site.js"></script>
 <script src="docx-export.js"></script>
+<script src="portal-professions.js"></script>
+<script src="journey.js"></script>
+<script src="candidate-context.js"></script>
 <script src="build-your-cv.js"></script>
 
-<!-- ================= INTERNAL LINK MAP =================
-  Header / footer navigation is the shared site shell (see interview-prep.html).
-
-  IN-PAGE
-  Applying to: New Zealand / Australia  -> switches placeholder copy only, no navigation
-  Your profession (select)              -> switches grouping suggestions and the equipment section, no navigation
-  Nine section headers                  -> open/close in place, no navigation
-  Print or save as PDF / Word / Copy    -> browser print, file download, clipboard
-
-  OUTBOUND LINKS
-  Registration Pathway Checker          -> /pathway-checker  (appears twice: section 01 hint, closing band)
-  CV checker                            -> /cv-checker        (cross-reference band, flow step 01)
-  Interview & Application Prep          -> /interview-prep   (cross-reference band)
-  Question bank                         -> /interview-prep#questions  (section 04)
-  Register and send your CV             -> /apply             (flow step 03, closing band)
-===================================================== -->
 
 <!-- ================= SEO =================
   Page Title: Build Your CV

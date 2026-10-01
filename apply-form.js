@@ -13,7 +13,21 @@
   var DRAFT_KEY = 'ethicare_apply_draft_v1';
   var SUBMIT_KEY = 'ethicare_apply_submitted_v1';
   var CV_MAX = 8 * 1024 * 1024; // Netlify Forms caps uploads ~8MB
-  var TOTAL = 4;
+
+  /* "Interested but not ready" (30 Sep 2026). Until now this door opened the full four-step
+     registration: eight required fields on the first screen, nationality and current job title
+     among them, before anything happened. Someone who has just said they are NOT ready is the
+     last person to ask that of, and the drop-off it caused was invisible, because they never
+     reached step 2 to be counted.
+     In this mode the form is one step and three questions — name, email, profession — plus
+     consent. Everything else is asked later, when they decide to apply properly. Same form,
+     same Netlify submission, same inbox: the fields we do not ask for simply go up empty, and
+     role_of_interest still carries "(interested, not ready yet)" so the team can tell which
+     door it came through. */
+  var LATER = /[?&]intent=later/.test(location.search);
+  var PANELS = 4;                 /* step panels present in the page */
+  var TOTAL = LATER ? 1 : 4;      /* steps this person actually walks through */
+  var LATER_HIDE = ['phone', 'country_of_residence', 'nationality', 'years_experience', 'job_title'];
 
   /* ---------- option data ---------- */
   var RESIDENCE = ['United Kingdom','Ireland','South Africa','Iran','India','United Arab Emirates','Philippines','Australia','New Zealand','Canada','United States','Nigeria','Kenya','Zimbabwe','Pakistan','Sri Lanka','Egypt','Other'];
@@ -48,6 +62,76 @@
   function hidden(name) { return form.querySelector('input[type="hidden"][name="' + name + '"]'); }
   function getVal(name) { var el = hidden(name); return el ? el.value : ''; }
   function setVal(name, v) { var el = hidden(name); if (el) el.value = v; }
+
+  /* ONE onboarding (candidate-journey review, 14 Sep 2026). Move already asked which country;
+     do not ask again here. Only the destination is carried — it is the one answer whose label
+     is identical in both places — and only into an EMPTY field on a form with no draft, so a
+     person who has already answered here is never overruled. The option card is selected the
+     same way loadDraft reflects a saved answer. */
+  function seedFromContext() {
+    try {
+      var ctx = window.EthicareContext;
+      if (!ctx || !ctx.has() || getVal('destination')) return;
+      var d = ctx.applyDestination(); if (!d) return;
+      setVal('destination', d);
+      $all('[data-group="destination"] .reg-opt').forEach(function (o) { o.classList.toggle('is-selected', o.getAttribute('data-value') === d); });
+    } catch (e) {}
+  }
+
+  /* Arriving from a vacancy: /apply?role=<slug>[&intent=later]. The role is kept with the
+     submission (hidden field role_of_interest, so the team knows which advert) and named in the
+     aside, so \"Apply through Ethicare\" on a role page is an application for THAT role rather
+     than a generic registration. intent=later is the \"interested but not ready\" door: same form,
+     no different promise \u2014 the copy just says so. */
+  function readRole() {
+    try {
+      var m = /[?&]role=([a-z0-9-]+)/.exec(location.search); if (!m) return;
+      /* Title-casing a slug turns mri into Mri and ct into Ct. Clinicians notice. */
+      var CAPS = { mri: 'MRI', ct: 'CT', pet: 'PET', gp: 'GP', icu: 'ICU', nicu: 'NICU', ed: 'ED', msk: 'MSK', rmo: 'RMO', smo: 'SMO', ent: 'ENT', iv: 'IV' };
+      var slug = m[1], title = slug.split('-').map(function (w) {
+        return CAPS[w] || w.charAt(0).toUpperCase() + w.slice(1);
+      }).join(' ');
+      var later = /[?&]intent=later/.test(location.search);
+      setVal('role_of_interest', slug + (later ? ' (interested, not ready yet)' : ''));
+      if (later) {
+        // the asterisk and the "upload your CV" line would contradict the aside
+        document.querySelectorAll('label.reg-lab').forEach(function (l) { if (/^\s*Your CV/.test(l.textContent)) { var s = l.querySelector('.rq'); if (s) s.remove(); } });
+        var sub = document.querySelector('#step-4 .reg-sub'); if (sub) sub.textContent = 'A CV is optional at this stage — add one if you have it handy.';
+      }
+      var lede = document.querySelector('.reg-aside .lede');
+      if (lede) lede.innerHTML = (later
+        ? 'You said you\u2019re interested in <b>' + title.replace(/</g, '&lt;') + '</b> but not ready to apply. Three questions, that is all \u2014 no CV, no phone number, and nothing goes to the employer.'
+        : 'You\u2019re applying for <b>' + title.replace(/</g, '&lt;') + '</b>. Tell us a little about you and where you\u2019re up to \u2014 about three minutes. The employer is not named or contacted until you say so.');
+    } catch (e) {}
+  }
+
+  /* Cut the form down to the short version. Fields are not removed, only hidden: they still go
+     up with the submission, empty, so the Netlify form keeps one shape and one inbox. */
+  function slimForLater() {
+    if (!LATER) return;
+    LATER_HIDE.forEach(function (n) {
+      var el = form.querySelector('[name="' + n + '"]');
+      var wrap = el && (el.closest('.reg-full') || el.parentElement);
+      if (wrap) wrap.style.display = 'none';
+    });
+    /* the note explaining why we ask for nationality, when we no longer ask */
+    $all('#step-1 .reg-why').forEach(function (p) {
+      if (/nationality|country of residence/i.test(p.textContent)) p.style.display = 'none';
+    });
+    /* consent lives on the last step; in a one-step form it has to come with the question */
+    var consent = document.getElementById('chk-consent');
+    var grid = document.querySelector('#step-1 .reg-grid');
+    if (consent && grid && grid.parentNode) grid.parentNode.insertBefore(consent, grid.nextSibling);
+
+    var ey = document.querySelector('#step-1 .reg-ey'); if (ey) ey.textContent = 'No CV needed';
+    var h = document.querySelector('#step-1 h2'); if (h) h.textContent = 'Keep me in mind';
+    var sub = document.querySelector('#step-1 .reg-sub');
+    if (sub) sub.textContent = 'Three questions. We will note the role against your name and get in touch when you are ready, or sooner if something closer comes up.';
+    var kicker = document.querySelector('.reg-kicker'); if (kicker) kicker.textContent = 'Interested, not ready yet';
+    var stepper = document.querySelector('.reg-steps'); if (stepper) stepper.style.display = 'none';
+    var bar = document.getElementById('reg-progress');
+    if (bar && bar.parentElement) bar.parentElement.style.display = 'none';
+  }
 
   function prettySize(bytes) {
     if (!bytes) return '';
@@ -296,6 +380,12 @@
       if (!v('full_name')) e.full_name = 'Please enter your full name.';
       if (!v('email')) e.email = 'Please enter your email address.';
       else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))) e.email = 'That doesn’t look like a valid email.';
+      /* the short version asks for three things and consent, and nothing else */
+      if (LATER) {
+        if (!v('profession')) e.profession = 'Please select your profession.';
+        if (!form.querySelector('[name="consent"]').checked) e.consent = 'Please accept the privacy terms to continue.';
+        return e;
+      }
       if (!v('phone')) e.phone = 'Please enter a phone number.';
       if (!v('country_of_residence')) e.country_of_residence = 'Please select your country of residence.';
       if (!v('nationality')) e.nationality = 'Please select your nationality.';
@@ -311,7 +401,9 @@
       if (getVal('relocating_with') === 'With my family' && !getVal('dependents')) e.dependents = 'How many will relocate with you?';
       if (!getVal('preferred_areas')) e.preferred_areas = 'Pick at least one area — or choose “Open to anywhere”.';
     } else if (step === 4) {
-      if (!state.cvName) e.cv = 'Please upload your CV.';
+      /* The "interested, not ready" door promises "no CV needed yet" in the
+         aside; until 27 Sep 2026 this line demanded one anyway. */
+      if (!state.cvName && !/[?&]intent=later/.test(location.search)) e.cv = 'Please upload your CV.';
       if (!form.querySelector('[name="consent"]').checked) e.consent = 'Please accept the privacy terms to continue.';
     }
     return e;
@@ -319,7 +411,9 @@
 
   /* ---------- step navigation + chrome ---------- */
   function paint() {
-    for (var i = 1; i <= TOTAL; i++) {
+    /* loop the panels that EXIST, not the steps we walk: in the short version TOTAL is 1, and
+       panels 2 to 4 would otherwise never be told to hide */
+    for (var i = 1; i <= PANELS; i++) {
       var panel = document.getElementById('step-' + i);
       if (panel) panel.style.display = (i === state.step) ? '' : 'none';
     }
@@ -334,7 +428,7 @@
     var bar = document.getElementById('reg-progress'); if (bar) bar.style.width = pct + '%';
     // footer buttons
     document.getElementById('btn-back').style.visibility = state.step > 1 ? 'visible' : 'hidden';
-    document.getElementById('btn-next-label').textContent = state.step < TOTAL ? 'Continue' : 'Submit registration';
+    document.getElementById('btn-next-label').textContent = state.step < TOTAL ? 'Continue' : (LATER ? 'Send this to Ethicare' : 'Submit registration');
     saveDraft();
   }
   /* Scrolling alone left keyboard and screen-reader users wherever the Continue button was,
@@ -395,6 +489,22 @@
           : 'Ethicare team only'
       }));
     } catch (err) {}
+    // Queryable capture: fire a JSON copy of the form to the Supabase-backed
+    // endpoint before the native (Netlify Forms) navigation. Keepalive so it
+    // survives the redirect; best-effort, never blocks the submit.
+    try {
+      var cap = {};
+      $all('[name]', form).forEach(function (el) {
+        if (!el.name || el.type === 'file') return;
+        cap[el.name] = el.type === 'checkbox' ? el.checked : el.value;
+      });
+      fetch('/.netlify/functions/capture', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        keepalive: true,
+        body: JSON.stringify({ kind: 'application', page: '/apply', data: cap })
+      }).catch(function () {});
+    } catch (e2) {}
     HTMLFormElement.prototype.submit.call(form); // bypasses the submit-event handler; Netlify redirects to the form's action (?submitted=1) after capture
   }
   function submitError(msg) {
@@ -455,6 +565,11 @@
     try { history.replaceState(null, '', location.pathname); } catch (e) {}
   } else {
     loadDraft();
+    seedFromContext();
+    readRole();
+    /* after loadDraft, so a saved step from the full form cannot strand the short one */
+    slimForLater();
+    if (LATER) state.step = 1;
   }
   syncCheckUI(); showCv(); toggleDependents(); renderAreas();
   paint();

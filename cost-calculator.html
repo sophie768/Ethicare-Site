@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://ethicareresourcing.com/cost-calculator">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <link rel="icon" href="assets/logo-mark.png">
 <meta property="og:type" content="website">
@@ -21,9 +21,13 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .eyebrow{display:inline-flex;align-items:center;gap:12px}
 .eyebrow::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none}
 /* ---------- hero ---------- */
-.cc-hero{background:var(--warm);padding:clamp(52px,7vw,88px) 24px clamp(30px,4vw,44px)}
-.cc-hero .in{max-width:1180px;margin:0 auto}
-.cc-hero h1{font-weight:600;font-size:clamp(36px,5.2vw,54px);line-height:1.1;letter-spacing:-.02em;color:var(--teal);max-width:16ch;margin-bottom:var(--sp-s)}
+.cc-hero{background:var(--warm);padding:clamp(32px,4vw,48px) 24px clamp(24px,3vw,32px)}
+.cc-hero .in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,clamp(230px,30%,360px));gap:clamp(30px,5vw,64px);align-items:center}
+.cc-copy{min-width:0}
+.cc-heroart{justify-self:end;min-width:0}
+.cc-heroart img{width:100%;max-width:clamp(240px,30vw,360px);height:auto;display:block}
+@media(max-width:880px){.cc-hero .in{grid-template-columns:1fr;gap:24px}.cc-heroart{order:-1;justify-self:start}.cc-heroart img{max-width:210px}}
+.cc-hero h1{font-weight:500;font-size:var(--fs-tool-title);line-height:var(--lh-tool-title);letter-spacing:var(--ls-heading);color:var(--teal);max-width:16ch;margin-bottom:var(--sp-s)}
 .cc-hero .said{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(21px,2.6vw,27px);line-height:1.35;color:var(--text);margin-bottom:20px}
 .cc-hero .lede{font-size:18px;line-height:1.7;color:var(--muted);max-width:60ch;margin-bottom:22px}
 .cc-ticks{display:flex;flex-wrap:wrap;gap:10px 26px;margin-bottom:22px}
@@ -32,10 +36,10 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-legal{font-size:13.5px;line-height:1.6;color:var(--muted);max-width:74ch;border-top:1px solid var(--rule-tint,#C9DED3);padding-top:14px}
 /* ---------- shell ---------- */
 .cc-wrap{background:var(--warm);padding:8px 20px clamp(56px,7vw,88px);display:flex;justify-content:center}
-#cc-app{width:100%;max-width:1060px}
+#cc-app{width:100%;max-width:960px}
 .cc-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
 .cc-tab{display:inline-flex;align-items:center;gap:9px;min-height:44px;font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--text);background:#fff;border:1px solid #D6E1DA;border-radius:var(--r-pill);padding:0 17px 0 10px;cursor:pointer;transition:border-color .15s ease,background .15s ease}
-.cc-tab:hover{border-color:#C9DED3;background:#F7F8F6}
+.cc-tab:hover{border-color:#C9DED3;background:#FCFBF8}
 .cc-tab .n{width:24px;height:24px;border-radius:var(--r-pill);background:var(--soft);color:var(--teal);display:flex;align-items:center;justify-content:center;flex:none;font-size:12px;font-weight:700}
 .cc-tab.is-sel{border:2px solid var(--teal);background:rgba(2,97,93,.05);padding:0 16px 0 9px}
 .cc-tab.is-sel .n{background:var(--teal);color:#FCFBF8}
@@ -45,7 +49,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-shead h2:focus,.cc-shead h2:focus-visible{outline:3px solid #02615D;outline-offset:4px;border-radius:var(--r-xs)}
 .cc-ssub{font-size:16px;line-height:1.65;color:var(--muted);max-width:62ch;margin-top:10px}
 /* ---------- cards + questions ---------- */
-.cc-card{background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh-lg);padding:clamp(22px,2.8vw,32px);margin-bottom:18px}
+.cc-card{background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh-lg);padding:clamp(20px,2.4vw,24px);margin-bottom:18px}
 .cc-card h3{font-weight:600;font-size:19px;line-height:1.35;color:var(--teal);letter-spacing:-.01em;margin-bottom:14px}
 .cc-card h3.mt{margin-top:28px}
 .cc-hint{font-size:14.5px;line-height:1.6;color:var(--muted);max-width:62ch;margin:-8px 0 16px}
@@ -60,7 +64,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-pill.sm{font-size:13.5px;padding:11px 17px}
 .cc-pill.num{min-width:52px}
 .cc-pill.wide{text-align:left;border-radius:var(--r-md);padding:13px 18px}
-.cc-pill:hover,.cc-dest:hover{background:#F7F8F6;border-color:#C9DED3}
+.cc-pill:hover,.cc-dest:hover{background:#FCFBF8;border-color:#C9DED3}
 .cc-pill.is-sel,.cc-dest.is-sel{border:2px solid var(--teal);background:rgba(2,97,93,.05)}
 .cc-dest{text-align:left;background:#fff;border:1px solid #D6E1DA;border-radius:var(--r-lg);padding:18px;cursor:pointer;transition:border-color .15s ease,background .15s ease}
 .cc-flag{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:34px;padding:0 8px;border-radius:var(--r-sm);font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.04em;margin-bottom:12px}
@@ -125,7 +129,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-b2,.cc-b3{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;font-family:var(--display);font-weight:600;font-size:14px;border-radius:var(--r-sm);cursor:pointer;text-decoration:none}
 .cc-b2{background:var(--teal);color:#FCFBF8;border:none;padding:0 24px}
 .cc-b2:hover{filter:brightness(.93)}
-.cc-b3{background:#fff;color:var(--teal);border:1.5px solid #72A471;padding:0 20px}
+.cc-b3{background:#fff;color:var(--teal);border:1.5px solid rgba(2,97,93,.45);padding:0 20px}
 .cc-b3:hover{background:var(--soft)}
 .cc-sums{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:18px;margin-bottom:18px}
 .cc-sum{background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh-lg);padding:clamp(22px,2.4vw,28px)}
@@ -163,11 +167,35 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-next>p{font-size:15.5px;line-height:1.65;color:var(--text);max-width:58ch;margin-bottom:22px}
 .cc-nextgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
 .cc-nextgrid a{display:block;background:#fff;border:1px solid #D6E1DA;border-radius:var(--r-md);padding:20px 22px;text-decoration:none;transition:transform .15s ease,border-color .15s ease}
-.cc-nextgrid a:hover{transform:translateY(-3px);border-color:#72A471}
+.cc-nextgrid a:hover{transform:translateY(-3px);border-color:#02615D}
 .cc-nextgrid .t{display:block;font-family:var(--display);font-weight:600;font-size:16.5px;line-height:1.35;color:var(--teal);margin-bottom:6px}
 .cc-nextgrid .l{display:block;font-size:13.5px;line-height:1.5;color:var(--muted)}
 /* ---------- step nav ---------- */
 .cc-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:26px;flex-wrap:wrap}
+/* 29 Sep 2026 — one question at a time, then the estimate with its refinements folded under it */
+.cc-alines{padding:6px clamp(20px,2.4vw,24px)}
+.cc-aline{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding:11px 0;border-bottom:1px solid var(--soft)}
+.cc-aline:last-child{border-bottom:0}
+.cc-ak{font-family:var(--display);font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);flex:0 0 150px}
+.cc-av{font-family:var(--display);font-size:15px;font-weight:600;color:var(--teal);flex:1 1 auto}
+.cc-aline .cc-link{margin-left:auto}
+.cc-q1 h3{font-size:clamp(18px,1.9vw,21px)}
+.cc-row-pills.mt{margin-top:14px}
+.cc-groups{margin:26px 0 18px}
+.cc-gtitle{font-family:var(--display);font-size:clamp(18px,1.9vw,21px);font-weight:600;color:var(--teal);margin:0 0 12px}
+.cc-group{background:#fff;border:1px solid var(--mint);border-radius:var(--r-lg);margin-bottom:10px;overflow:hidden}
+.cc-group.is-open{border-color:var(--teal)}
+.cc-gh{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:none;border:0;padding:16px clamp(18px,2.4vw,24px);cursor:pointer;font:inherit;min-height:56px;color:inherit}
+.cc-gh:hover{background:#FCFBF8}
+.cc-gt{flex:1 1 auto;min-width:0;font-family:var(--display);font-size:16.5px;font-weight:600;color:var(--teal);display:flex;flex-direction:column;gap:3px}
+.cc-gs{font-family:var(--body);font-size:13.5px;font-weight:500;color:var(--muted);line-height:1.4}
+.cc-gv{font-family:var(--display);font-size:16px;font-weight:700;color:var(--text);white-space:nowrap}
+.cc-gx{font-family:var(--display);font-size:20px;color:var(--muted);width:22px;text-align:center;flex:none}
+.cc-gb{padding:4px clamp(18px,2.4vw,24px) 6px;border-top:1px solid var(--soft)}
+.cc-gb[hidden]{display:none}
+.cc-gb .cc-card{box-shadow:none;border:1px solid var(--soft);padding:18px;margin:16px 0}
+.cc-tab[disabled]{opacity:.45;cursor:default}
+@media print{.cc-gh{pointer-events:none}.cc-gb{display:block!important}}
 .cc-back,.cc-nextb{display:inline-flex;align-items:center;gap:9px;min-height:48px;font-family:var(--display);font-weight:600;font-size:15px;border-radius:var(--r-sm);cursor:pointer}
 .cc-back{color:var(--teal);background:none;border:none;padding:0 16px}
 .cc-back:hover{background:var(--soft)}
@@ -219,6 +247,30 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   .cc-sumacts{width:100%}
   .cc-b2,.cc-b3{flex:1 1 100%}
 }
+
+/* ---- "email me this" on the estimate (1 Oct 2026) --------------------------------------
+   The calculator is where someone does the most work and used to leave with nothing on
+   record. This asks at the end, never before: the estimate is complete and free whether or
+   not anyone fills this in. Two opt-ins, both unticked, neither a condition of anything. */
+.cc-lead{background:#fff;border:1px solid #C9DED3;border-left:4px solid #A6C84A;border-radius:16px;padding:clamp(20px,2.4vw,28px);margin:clamp(24px,3vw,34px) 0 0}
+.cc-lead h3{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(18px,1.8vw,22px);color:#02615D;margin:0 0 6px}
+.cc-lead .cc-lead-sub{font-size:15px;line-height:1.6;color:#555;margin:0 0 18px;max-width:62ch}
+.cc-lead .cc-f{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px 16px;margin-bottom:16px}
+.cc-lead label.cc-l{display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13.5px;color:#02615D;margin-bottom:6px}
+.cc-lead select{width:100%;box-sizing:border-box;font-family:Manrope,sans-serif;font-size:16px;color:#333;border:1px solid #C9DED3;border-radius:10px;padding:10px 12px;min-height:46px;background:#fff}
+.cc-lead select:focus-visible{outline:3px solid #02615D;outline-offset:1px}
+.cc-lead input[type=text],.cc-lead input[type=email]{width:100%;box-sizing:border-box;font-family:Manrope,sans-serif;font-size:16px;color:#333;border:1px solid #C9DED3;border-radius:10px;padding:10px 12px;min-height:46px;background:#fff}
+.cc-lead input[type=text]:focus-visible,.cc-lead input[type=email]:focus-visible{outline:3px solid #02615D;outline-offset:1px}
+.cc-lead .cc-opt{display:flex;gap:11px;align-items:flex-start;margin:0 0 12px;cursor:pointer;font-size:15px;line-height:1.55;color:#333}
+.cc-lead .cc-opt input{width:20px;height:20px;margin-top:2px;accent-color:#02615D;flex:0 0 auto}
+.cc-lead .cc-send{min-height:48px;padding:12px 24px;border:0;border-radius:999px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;cursor:pointer;margin-top:4px}
+.cc-lead .cc-send:hover{background:#014A47}
+.cc-lead .cc-send:focus-visible{outline:3px solid #02615D;outline-offset:3px}
+.cc-lead .cc-priv{font-size:13.5px;line-height:1.6;color:#555;margin:14px 0 0}
+.cc-lead .cc-priv a{color:#02615D;font-weight:600}
+.cc-lead .cc-err{color:#A34438;font-size:14.5px;font-weight:600;margin:0 0 12px}
+.cc-lead.is-done{border-left-color:#2F5E49}
+.cc-lead.is-done p{margin:0;font-size:15.5px;line-height:1.6;color:#333}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Cost of moving calculator"}]}</script>
 <meta property="og:url" content="https://ethicareresourcing.com/cost-calculator"><meta property="og:image" content="https://ethicareresourcing.com/assets/og-toolkit.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="How much will it cost to move?"><meta name="twitter:description" content="Build a realistic moving budget for Australia or New Zealand — official fees, tenancy rules and the costs people forget."><meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-toolkit.jpg">
@@ -229,8 +281,8 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-bignote{font-size:15px;line-height:1.6;color:var(--muted);max-width:52ch;margin:0}
 .cc-three{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2px;margin:clamp(28px,3.4vw,40px) 0 0;border-top:1px solid var(--rule-tint)}
 .cc-th{display:flex;flex-direction:column;gap:6px;padding:22px 24px 24px 0;border-bottom:1px solid var(--rule-tint)}
-.cc-th.lead{background:#EDF4EF;padding-left:24px}
-.cc-thk{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5C6B68}
+.cc-th.lead{background:#F3F7F4;padding-left:24px}
+.cc-thk{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#555555}
 .cc-thv{font-family:var(--display);font-weight:600;font-size:clamp(23px,2.9vw,32px);line-height:1.1;letter-spacing:-.02em;color:var(--teal)}
 .cc-th.lead .cc-thv{font-size:clamp(26px,3.4vw,38px)}
 .cc-thn{font-size:14px;line-height:1.55;color:var(--muted);text-wrap:pretty}
@@ -238,12 +290,12 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-timing h3,.cc-drivers h3{font-family:var(--display);font-weight:600;font-size:clamp(19px,2.2vw,24px);line-height:1.2;color:var(--teal);margin:0 0 16px}
 .cc-tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(20px,2.6vw,36px)}
 .cc-tgrid>div{display:flex;flex-direction:column;gap:6px;padding-top:16px;border-top:2px solid var(--teal)}
-.cc-tk{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5C6B68}
+.cc-tk{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#555555}
 .cc-tv{font-family:var(--display);font-weight:600;font-size:clamp(21px,2.5vw,27px);color:var(--teal);letter-spacing:-.015em}
 .cc-tn{font-size:14.5px;line-height:1.58;color:var(--muted);text-wrap:pretty}
 .cc-drlist{list-style:none;margin:0;padding:0}
 .cc-drlist li{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--rule-tint)}
-.cc-drn{font-family:var(--display);font-weight:300;font-size:22px;color:#72A471;line-height:1}
+.cc-drn{font-family:var(--display);font-weight:300;font-size:22px;color:#02615D;line-height:1}
 .cc-drl{font-size:16.5px;line-height:1.5;color:var(--text)}
 .cc-drv{font-family:var(--display);font-weight:600;font-size:17px;color:var(--teal);white-space:nowrap}
 .cc-drnote{font-size:15px;line-height:1.62;color:var(--muted);margin:14px 0 0;max-width:66ch;text-wrap:pretty}
@@ -256,7 +308,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -273,43 +325,51 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move" aria-current="page">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
+      <a href="/ask">Ask Ethicare</a>
       <a href="/employers">For Employers</a>
       <a class="nav-cta" href="/contact">Contact</a>
     </nav>
   </div>
 </header>
 
+
 <main id="main-content">
   <section class="cc-hero" data-screen-label="Hero">
     <div class="in">
+      <div class="cc-copy">
       <span class="eyebrow">Cost of moving calculator</span>
       <h1>How much will it cost to move?</h1>
       <p class="said">Know the number before you commit to it.</p>
-      <p class="lede">Answer a few questions and we&rsquo;ll build a realistic estimate of the money you need to make the move and get established &mdash; registration, visas, flights, the rental bond and the gap before your first salary.</p>
+      <p class="lede">Answer a few questions and we&rsquo;ll build a likely estimate of the money you need to make the move and get established &mdash; registration, visas, flights, the rental bond and the gap before your first salary.</p>
       <div class="cc-ticks">
         <span><svg viewBox="0 0 24 24" fill="none" stroke="#2F5E49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Two to three minutes</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="#2F5E49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Every figure editable &mdash; and sourced</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="#2F5E49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>No contact details needed</span>
       </div>
       <p class="cc-legal">This is a planning estimate, not a quotation, and it is a moving budget rather than a cost-of-living calculator. Government charges, regulator fees and tenancy rules change &mdash; always confirm the current amount against the official source before making a financial decision.</p>
+      </div>
+      <div class="cc-heroart"><img src="assets/heroes/cost-of-relocating.svg" alt="A savings jar of coins, with one more coin going in" width="400" height="300" loading="lazy"></div>
     </div>
   </section>
 
-  <section id="calculator" class="cc-wrap" data-screen-label="Calculator">
+  <section id="calculator" class="cc-wrap" data-screen-label="Calculator" style="flex-wrap:wrap">
+    <div id="ctx-strip" data-ctx-strip style="flex:1 1 100%;max-width:980px;margin:14px auto 0"></div>
     <div id="cc-app">
       <noscript>
         <div class="cc-card">
@@ -323,7 +383,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   <section class="cc-how" data-screen-label="How the figures work">
     <div class="in">
       <span class="eyebrow">How the figures work</span>
-      <h2>An honest estimate says where each number came from</h2>
+      <h2>An estimate says where each number came from</h2>
       <p class="lede">Most relocation costs cannot be quoted in advance, so a single &ldquo;average cost to relocate&rdquo; figure is worth very little. This calculator separates what is published from what is estimated, and shows you which is which on every line.</p>
       <div class="cc-hows">
         <div><div class="n">01</div><h3>Published charges, taken from the source</h3><p>Visa charges and regulator fees are labelled as official, with a link to the schedule they came from and the date we last checked it. Bond and rent in advance are calculated from the tenancy rule where you are moving.</p></div>
@@ -335,7 +395,10 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 
   <section class="cc-faq" data-screen-label="FAQ">
     <div class="in">
-      <span class="eyebrow">Common questions</span>
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap">
+        <span class="eyebrow">Common questions</span>
+        <img src="assets/heroes/common-questions.svg" alt="A question in one speech bubble, answered with a tick in the next" width="90" height="68" style="width:90px;height:auto;flex:none" loading="lazy">
+      </div>
       <h2>What people ask about the cost of moving</h2>
       <p class="cc-faqlede">The cost of an international move is the question we are asked earliest and most often. These are the honest answers, including the parts that are harder to pin down.</p>
       <div class="cc-faqlist">
@@ -349,14 +412,41 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
       </div>
     </div>
   </section>
+
+<div class="shell" style="padding:clamp(36px,5vw,64px) 0 clamp(44px,6vw,76px)"><page-feedback to="Sophie"></page-feedback></div>
+
+<!-- Capture for the cost calculator (1 Oct 2026). Same shape as the pathway checker's hidden
+     form: Netlify registers every column at deploy time, the script fills and submits it. This
+     needs no API key, so the lead is captured whether or not the emailed copy is switched on. -->
+<form id="cc-netlify-form" name="cost-estimate-lead" method="POST" action="/cost-calculator.html?submitted=1" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="cost-estimate-lead">
+  <input type="hidden" name="_subject" value="Cost calculator enquiry &mdash; Ethicare website">
+  <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+  <input type="hidden" name="name" value="">
+  <input type="hidden" name="email" value="">
+  <input type="hidden" name="destination" value="">
+  <input type="hidden" name="region" value="">
+  <input type="hidden" name="origin" value="">
+  <input type="hidden" name="profession" value="">
+  <input type="hidden" name="who" value="">
+  <input type="hidden" name="estimate_total" value="">
+  <input type="hidden" name="estimate_summary" value="">
+  <input type="hidden" name="timeframe" value="">
+  <input type="hidden" name="opt_future" value="">
+  <input type="hidden" name="consent_version" value="">
+  <input type="hidden" name="consent_wording" value="">
+  <input type="hidden" name="email_copy" value="">
+  <input type="hidden" name="page" value="">
+</form>
 </main>
+<script src="page-feedback.js" defer></script>
 
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">
       <div class="f-brand">
-        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
-        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Support through one of life’s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
           <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
@@ -380,6 +470,10 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost to move to Australia or New Zealand?","acceptedAnswer":{"@type":"Answer","text":"There is no single answer, and anyone quoting one is guessing. The cost depends on where you are moving from, who is moving with you, your profession and registration pathway, whether you ship belongings, how long you need temporary accommodation, and the rent on the home you eventually secure. That is why this tool builds the figure line by line from your own circumstances rather than offering an average."}},{"@type":"Question","name":"Which costs do people most often forget?","acceptedAnswer":{"@type":"Answer","text":"Three in particular. The cash needed to secure a rental — bond plus rent in advance — is usually the single largest cost of arriving, and most of it comes back to you later. Temporary accommodation while you look for that rental adds up quickly. And the gap before your first full salary catches almost everyone: you may arrive several weeks before you are paid properly, and you still need to eat, travel and set up a home in that time."}},{"@type":"Question","name":"Is registration or the visa the bigger cost?","acceptedAnswer":{"@type":"Answer","text":"It depends on your household and your pathway. Australian visa charges apply per person included in the application, so a family of four is a substantially larger number than one person. Registration is usually the smaller figure — unless your pathway includes an examination or clinical assessment, which can cost more than everything else in your registration put together. The calculator asks about an exam separately for exactly that reason."}},{"@type":"Question","name":"Will my employer pay for my relocation?","acceptedAnswer":{"@type":"Answer","text":"Many healthcare employers contribute, and relocation support is a reasonable thing to ask about. What matters as much as the amount is how it reaches you: paid upfront, reimbursed after you have paid, or settled directly with the supplier. A reimbursed package still means the money has to leave your account first, so the calculator shows the cash you may need available upfront as a separate figure from your eventual cost."}},{"@type":"Question","name":"Are these figures a quotation?","acceptedAnswer":{"@type":"Answer","text":"No. Every line is labelled with where it came from — an official fee, a figure calculated from an official rule, one of our planning estimates, or a number you entered yourself — and the estimate carries the date the data was last checked. Fees and tenancy rules change, and exchange rates move daily. Treat the result as a planning document and confirm each amount against the official source before you commit to it."}},{"@type":"Question","name":"Does it cover the cost of living once I arrive?","acceptedAnswer":{"@type":"Answer","text":"Only the first month or so. This is deliberately a moving budget: what it takes to get there and get established, plus a buffer for everyday expenses until your first full salary arrives. Ongoing rent, groceries, childcare, insurance and transport are a different question, and our destination guides cover them city by city with local figures."}},{"@type":"Question","name":"Do I have to give you my details to see the result?","acceptedAnswer":{"@type":"Answer","text":"No. The estimate appears as you answer, and nothing is sent to us. Your answers stay in your own browser so you can come back to them, and you can print or save the result as a PDF to keep."}}]}
 </script>
 <script src="site.js"></script>
+<script src="analytics.js"></script>
+<script src="portal-professions.js"></script>
+<script src="journey.js"></script>
+<script src="candidate-context.js"></script>
 <script src="relocation-cost-data.js"></script>
 <script src="cost-calculator.js"></script>
 
@@ -389,35 +483,6 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
   and there is no matching top-level nav item. Strip the marker again if you copy this header.
   The footer Candidates column here carries the calculator link; the site-wide footer pass that
   adds it to every other page is still outstanding (same batch as the header tap-target pass).
--->
-<!-- INTERNAL LINK MAP — /cost-calculator
-  Header: Ethicare logo → Home (/) · Home → / · Australia → /australia (mega: AU journey guides /guides/*, AU professions /jobs/*-australia,
-    /destinations/australia, "Check your registration pathway" → /pathway-checker) · New Zealand → /new-zealand (same pattern)
-    · Jobs → /jobs · Guides & Resources → /resources · Employers → /employers (sub: /insights, /insights/international-recruitment-toolkit,
-    /submit-a-vacancy, /contact) · About → /about-ethicare (+ #sophie, #why-ethicare, #different, #after-you-land, #leaders) · Contact → /contact
-  Hero: no links (disclaimer only)
-  Step 1 "Your move": no outbound links (choices only)
-  Step 2 "Before you leave" — cost rows, generated from relocation-cost-data.js:
-    Professional registration → that profession's own regulator fee schedule (external, new tab: Medical Radiation Practice Board, NMBA,
-      Medical Board of Australia, Psychology Board, MRT Board NZ, Nursing Council of NZ, Health NZ regulated professions index etc.)
-    Examination and clinical assessment → the same regulator's pathway and fees page (external, new tab)
-    Government visa charges → Home Affairs visa pricing estimator (AU) or Immigration New Zealand AEWV page (external, new tab)
-  Step 3 "Getting established" — rental bond and rent in advance → the tenancy authority for that state or NZ nationally
-    (NSW Fair Trading, Consumer Affairs Victoria, RTA Queensland, Consumer Protection WA, CBS South Australia, CBOS Tasmania,
-     ACT Revenue Office, NT Consumer Affairs, Tenancy Services NZ — all external, new tab)
-    State-school tuition (AU, school-age children only) → that state's international/temporary-resident schooling page (external, new tab)
-    Schooling panel → the same official page; NZ → parents.education.govt.nz
-  Step 4 "Your support": no outbound links (choices and one editable figure)
-  Your estimate: "Print or save as PDF" → browser print · "Talk it through with us" → /contact
-    Continue planning your move → /moving-checklist · /pathway-checker · /guides/cost-of-relocating · /destinations/australia (AU) or /destinations (NZ)
-    "Start again" → clears the saved answers (no navigation)
-  FAQ: Q3 → /pathway-checker · Q4 → /guides/negotiating-your-offer · Q7 → /contact
-  No-JS fallback: /guides/cost-of-relocating · /contact
-  Footer: Destinations → /new-zealand, /australia, /destinations, /destinations/australia
-    · Candidates → /jobs, /resources, /pathway-checker, /move, /apply
-    · Company → /about-ethicare, /employers, /submit-a-vacancy, /contact · /privacy-policy
-  Entry points elsewhere on the site: /resources (Start here row) · /moving-checklist (Keep going band + completion band)
-    · /guides/cost-of-relocating (guide → tool) · deep links /cost-calculator?destination=au|nz and ?profession={id} preselect
 -->
 
 <!-- SEO

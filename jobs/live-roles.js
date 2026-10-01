@@ -69,6 +69,26 @@
     var l=sec.querySelector('p.lead'); if(l&&sub)l.innerHTML=sub;
   }
 
+  /* NO RESULT IS NOT A DEAD END (candidate-journey review §10, 14 Sep 2026). The client copy
+     above says we can still be useful; this row says HOW, with the three things a candidate can
+     do today that the authored button row below does not already offer (that row is /jobs/ and
+     /apply, and this file may not duplicate them). Check my pathway carries THIS page's
+     profession and country — read from the element's own data attributes, so it is always
+     right for the page — and the shared reader upgrades it further when a Move plan exists. */
+  var PATHWAY_ID={'Radiographer':'radiographer','Sonographer':'sonographer','Radiation Therapist':'radiation-therapist','Nuclear Medicine Technologist':'nuclear-medicine','Mammographer':'radiographer','Psychologist':'psychologist','Physiotherapist':'physiotherapist','Occupational Therapist':'occupational-therapist','Anaesthetic Technician':'anaesthetic-technician'};
+  function onward(){
+    var pid=profs.length===1?PATHWAY_ID[profs[0]]:'';
+    var pw='/pathway-checker'+(pid?'?profession='+pid:'')+(country?(pid?'&':'?')+'destination='+(isAU?'australia':'new-zealand'):'');
+    var places=isAU?'/destinations/australia':'/destinations/';
+    var lk='font-family:var(--display),sans-serif;font-weight:600;font-size:15px;color:var(--teal,#02615D);text-decoration:underline;text-decoration-color:'+accent+';text-underline-offset:3px;display:inline-flex;align-items:center;min-height:24px';
+    return '<p style="font-family:var(--display),sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted,#555);margin:22px 0 8px">While you wait</p>'
+      +'<div style="display:flex;flex-wrap:wrap;gap:8px 22px">'
+      +'<a href="'+pw+'" data-ctx-link style="'+lk+'">Check my pathway</a>'
+      +'<a href="'+places+'" style="'+lk+'">Explore where you could live</a>'
+      +'<a href="/move" style="'+lk+'">Build my journey</a>'
+      +'</div>';
+  }
+
   if(!jobs.length){
     /* THE NONE STATE IS NOT AN APOLOGY — client copy, 28 Aug 2026, used verbatim.
        Full profession coverage means pages exist for professions we do not yet recruit into.
@@ -80,7 +100,7 @@
        empty state with four buttons pointing at two destinations. One copy for both countries —
        the client wording already spans Australia and New Zealand, so there is no country fork
        here to drift. */
-    reframe('Nothing today. We’re brewing.',
+    reframe('Nothing in this profession today.',
       'We don&rsquo;t currently have opportunities in this profession, but that doesn&rsquo;t mean we can&rsquo;t be useful.');
     /* The mug carries the "brewing" line so the heading does not need an emoji. Grid, not a
        float: at 520px the image drops above the copy on its own with no breakpoint. The PNG is
@@ -94,6 +114,7 @@
       +'<p style="font-size:16.5px;line-height:1.65;color:var(--text,#333);margin:0 0 16px;max-width:58ch">We&rsquo;re constantly expanding our network across Australia and New Zealand and we&rsquo;re always happy to hear from healthcare professionals considering a move.</p>'
       +'<p style="font-size:16.5px;line-height:1.65;color:var(--text,#333);margin:0 0 16px;max-width:58ch">Sometimes we know a department that&rsquo;s about to recruit. Sometimes we know exactly the person you should speak to. And sometimes the most useful thing we can do is simply point you in the right direction.</p>'
       +'<p style="font-family:var(--display),sans-serif;font-weight:600;font-size:17px;line-height:1.5;color:var(--teal,#02615D);margin:0;max-width:52ch">So please don&rsquo;t wait for a vacancy to say hello.</p>'
+      +onward()
       +'</div></div>';
     return;
   }

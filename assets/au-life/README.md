@@ -19,7 +19,7 @@ confirms the source.
 
 ## AI-generated images removed from the Australia country page (23 Aug 2026)
 
-`suburban-family-walk.png` and `beach-picnic-family.png` were AI-generated (both PNG in a folder
+`suburban-family-walk.jpg` and `beach-picnic-family.jpg` were AI-generated (both PNG in a folder
 of sourced JPEGs — a useful tell, along with the too-perfect light). They were live on
 `/australia` in the family and belonging sections. Replaced with real photography:
 `bunbury/bunbury-suburban-playground-golden-hour.jpg` and `women-surfers.jpg`.

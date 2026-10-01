@@ -1,0 +1,660 @@
+[
+ {
+  "slug": "moving-to-new-zealand",
+  "title": "Moving to New Zealand",
+  "eyebrow": "The national guide",
+  "strap": "A new role, a different pace of life and somewhere new to call home.",
+  "cover": "assets/nz-general/mount-taranaki.jpg",
+  "chapters": [
+   "guides/aotearoa-in-short.html",
+   "guides/new-zealand-healthcare.html",
+   "guides/te-ao-maori-at-work.html",
+   "guides/money-tax-and-banking.html",
+   "guides/renting-in-new-zealand.html",
+   "guides/new-zealand-education.html",
+   "guides/driving-and-licences.html",
+   "guides/new-zealand-visa.html",
+   "guides/nz/bringing-pets-and-belongings.html",
+   "guides/before-you-leave.html",
+   "guides/new-zealand-first-month.html",
+   "guides/new-zealand-checklist.html",
+   "guides/new-zealand-community.html",
+   "guides/new-zealand-contacts.html"
+  ]
+ },
+ {
+  "slug": "auckland-relocation-guide",
+  "title": "Auckland",
+  "eyebrow": "Regional relocation guide · New Zealand",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Auckland.",
+  "cover": "assets/auckland/reloc/skyline-harbour.jpg",
+  "chapters": [
+   "destinations/auckland-new-zealand/welcome.html",
+   "destinations/auckland-new-zealand/glance.html",
+   "destinations/auckland-new-zealand/suburbs.html",
+   "destinations/auckland-new-zealand/cost.html",
+   "destinations/auckland-new-zealand/transport.html",
+   "destinations/auckland-new-zealand/food.html",
+   "destinations/auckland-new-zealand/culture.html",
+   "destinations/auckland-new-zealand/employers.html",
+   "destinations/auckland-new-zealand/recreation.html"
+  ],
+  "maori": "Tāmaki Makaurau"
+ },
+ {
+  "slug": "wellington-relocation-guide",
+  "title": "Wellington",
+  "eyebrow": "Regional relocation guide · New Zealand",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Wellington.",
+  "cover": "assets/wellington/reloc/character-homes.jpg",
+  "chapters": [
+   "destinations/wellington-new-zealand/welcome.html",
+   "destinations/wellington-new-zealand/why.html",
+   "destinations/wellington-new-zealand/glance.html",
+   "destinations/wellington-new-zealand/healthcare.html",
+   "destinations/wellington-new-zealand/suburbs.html",
+   "destinations/wellington-new-zealand/cost.html",
+   "destinations/wellington-new-zealand/transport.html",
+   "destinations/wellington-new-zealand/food.html",
+   "destinations/wellington-new-zealand/weekends.html"
+  ],
+  "maori": "Te Whanganui-a-Tara"
+ },
+ {
+  "slug": "christchurch-relocation-guide",
+  "title": "Christchurch",
+  "eyebrow": "Regional relocation guide · New Zealand",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Christchurch.",
+  "cover": "assets/christchurch/chch-new-regent-street-tram-tables.jpg",
+  "chapters": [
+   "destinations/christchurch-new-zealand/welcome.html",
+   "destinations/christchurch-new-zealand/why.html",
+   "destinations/christchurch-new-zealand/glance.html",
+   "destinations/christchurch-new-zealand/healthcare.html",
+   "destinations/christchurch-new-zealand/suburbs.html",
+   "destinations/christchurch-new-zealand/cost.html",
+   "destinations/christchurch-new-zealand/transport.html",
+   "destinations/christchurch-new-zealand/food.html",
+   "destinations/christchurch-new-zealand/weekends.html"
+  ],
+  "maori": "Ōtautahi"
+ },
+ {
+  "slug": "waikato-relocation-guide",
+  "title": "Waikato",
+  "eyebrow": "Regional relocation guide · New Zealand",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Waikato.",
+  "cover": "assets/waikato/reloc/hamilton-home.jpg",
+  "chapters": [
+   "destinations/waikato-new-zealand/welcome.html",
+   "destinations/waikato-new-zealand/why.html",
+   "destinations/waikato-new-zealand/glance.html",
+   "destinations/waikato-new-zealand/healthcare.html",
+   "destinations/waikato-new-zealand/suburbs.html",
+   "destinations/waikato-new-zealand/cost.html",
+   "destinations/waikato-new-zealand/transport.html",
+   "destinations/waikato-new-zealand/food.html",
+   "destinations/waikato-new-zealand/weekends.html"
+  ],
+  "maori": "Waikato"
+ },
+ {
+  "slug": "bay-of-plenty-relocation-guide",
+  "title": "Bay of Plenty",
+  "eyebrow": "Regional relocation guide · New Zealand",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Bay of Plenty.",
+  "cover": "assets/bay-of-plenty/bay-of-plenty-an-image-of-bay-of-1091858480.jpg",
+  "chapters": [
+   "destinations/bay-of-plenty-new-zealand/welcome.html",
+   "destinations/bay-of-plenty-new-zealand/why.html",
+   "destinations/bay-of-plenty-new-zealand/glance.html",
+   "destinations/bay-of-plenty-new-zealand/healthcare.html",
+   "destinations/bay-of-plenty-new-zealand/suburbs.html",
+   "destinations/bay-of-plenty-new-zealand/cost.html",
+   "destinations/bay-of-plenty-new-zealand/transport.html",
+   "destinations/bay-of-plenty-new-zealand/food.html",
+   "destinations/bay-of-plenty-new-zealand/weekends.html"
+  ],
+  "maori": "Te Moana-a-Toi"
+ },
+ {
+  "slug": "northland-relocation-guide",
+  "title": "Northland",
+  "eyebrow": "Regional relocation guide · New Zealand",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Northland.",
+  "cover": "assets/northland/northland-an-aerial-view-of-the-2372472359.jpg",
+  "chapters": [
+   "destinations/northland-new-zealand/welcome.html",
+   "destinations/northland-new-zealand/why.html",
+   "destinations/northland-new-zealand/glance.html",
+   "destinations/northland-new-zealand/healthcare.html",
+   "destinations/northland-new-zealand/suburbs.html",
+   "destinations/northland-new-zealand/cost.html",
+   "destinations/northland-new-zealand/transport.html",
+   "destinations/northland-new-zealand/food.html",
+   "destinations/northland-new-zealand/weekends.html"
+  ],
+  "maori": "Te Tai Tokerau"
+ },
+ {
+  "slug": "hawkes-bay-relocation-guide",
+  "title": "Hawke’s Bay",
+  "eyebrow": "Regional relocation guide · New Zealand",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Hawke’s Bay.",
+  "cover": "assets/hawkes-bay/reloc/coast-sunrise.jpg",
+  "chapters": [
+   "destinations/hawkes-bay-new-zealand/welcome.html",
+   "destinations/hawkes-bay-new-zealand/why.html",
+   "destinations/hawkes-bay-new-zealand/glance.html",
+   "destinations/hawkes-bay-new-zealand/healthcare.html",
+   "destinations/hawkes-bay-new-zealand/suburbs.html",
+   "destinations/hawkes-bay-new-zealand/cost.html",
+   "destinations/hawkes-bay-new-zealand/transport.html",
+   "destinations/hawkes-bay-new-zealand/food.html",
+   "destinations/hawkes-bay-new-zealand/weekends.html"
+  ],
+  "maori": "Te Matau-a-Māui"
+ },
+ {
+  "slug": "palmerston-north-relocation-guide",
+  "title": "Palmerston North",
+  "eyebrow": "Regional relocation guide · New Zealand",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Palmerston North.",
+  "cover": "assets/pn/pn-esplanade.jpg",
+  "chapters": [
+   "destinations/palmerston-north-new-zealand/welcome.html",
+   "destinations/palmerston-north-new-zealand/why.html",
+   "destinations/palmerston-north-new-zealand/glance.html",
+   "destinations/palmerston-north-new-zealand/healthcare.html",
+   "destinations/palmerston-north-new-zealand/suburbs.html",
+   "destinations/palmerston-north-new-zealand/cost.html",
+   "destinations/palmerston-north-new-zealand/transport.html",
+   "destinations/palmerston-north-new-zealand/food.html",
+   "destinations/palmerston-north-new-zealand/weekends.html"
+  ],
+  "maori": "Te Papaioea"
+ },
+ {
+  "slug": "nelson-tasman-relocation-guide",
+  "title": "Nelson Tasman",
+  "eyebrow": "Regional relocation guide · New Zealand",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Nelson Tasman.",
+  "cover": "assets/nelson-tasman/reloc/nt-vineyard.jpg",
+  "chapters": [
+   "destinations/nelson-tasman-new-zealand/welcome.html",
+   "destinations/nelson-tasman-new-zealand/why.html",
+   "destinations/nelson-tasman-new-zealand/glance.html",
+   "destinations/nelson-tasman-new-zealand/healthcare.html",
+   "destinations/nelson-tasman-new-zealand/suburbs.html",
+   "destinations/nelson-tasman-new-zealand/cost.html",
+   "destinations/nelson-tasman-new-zealand/transport.html",
+   "destinations/nelson-tasman-new-zealand/food.html",
+   "destinations/nelson-tasman-new-zealand/weekends.html"
+  ],
+  "maori": "Whakatū"
+ },
+ {
+  "slug": "dunedin-relocation-guide",
+  "title": "Dunedin",
+  "eyebrow": "Regional relocation guide · New Zealand",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Dunedin.",
+  "cover": "assets/dunedin/reloc/hill-suburb-home.jpg",
+  "chapters": [
+   "destinations/dunedin-new-zealand/welcome.html",
+   "destinations/dunedin-new-zealand/why.html",
+   "destinations/dunedin-new-zealand/glance.html",
+   "destinations/dunedin-new-zealand/healthcare.html",
+   "destinations/dunedin-new-zealand/suburbs.html",
+   "destinations/dunedin-new-zealand/cost.html",
+   "destinations/dunedin-new-zealand/transport.html",
+   "destinations/dunedin-new-zealand/food.html",
+   "destinations/dunedin-new-zealand/weekends.html"
+  ],
+  "maori": "Ōtepoti"
+ },
+ {
+  "slug": "central-otago-relocation-guide",
+  "title": "Central Otago & Queenstown Lakes",
+  "eyebrow": "Regional relocation guide · New Zealand",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Central Otago & Queenstown Lakes.",
+  "cover": "assets/central-otago/central-otago-a-panoramic-shot-of-the-2186995657.jpg",
+  "chapters": [
+   "destinations/central-otago-new-zealand/welcome.html",
+   "destinations/central-otago-new-zealand/why.html",
+   "destinations/central-otago-new-zealand/glance.html",
+   "destinations/central-otago-new-zealand/healthcare.html",
+   "destinations/central-otago-new-zealand/suburbs.html",
+   "destinations/central-otago-new-zealand/cost.html",
+   "destinations/central-otago-new-zealand/transport.html",
+   "destinations/central-otago-new-zealand/food.html",
+   "destinations/central-otago-new-zealand/weekends.html"
+  ],
+  "maori": "Ōtakou"
+ },
+ {
+  "slug": "southland-relocation-guide",
+  "title": "Southland",
+  "eyebrow": "Regional relocation guide · New Zealand",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Southland.",
+  "cover": "assets/southland/catlins-tautuku-bay.jpg",
+  "chapters": [
+   "destinations/southland-new-zealand/welcome.html",
+   "destinations/southland-new-zealand/why.html",
+   "destinations/southland-new-zealand/glance.html",
+   "destinations/southland-new-zealand/healthcare.html",
+   "destinations/southland-new-zealand/suburbs.html",
+   "destinations/southland-new-zealand/cost.html",
+   "destinations/southland-new-zealand/transport.html",
+   "destinations/southland-new-zealand/food.html",
+   "destinations/southland-new-zealand/weekends.html"
+  ],
+  "maori": "Murihiku"
+ },
+ {
+  "slug": "gisborne-relocation-guide",
+  "title": "Gisborne",
+  "eyebrow": "Regional relocation guide · New Zealand",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Gisborne.",
+  "cover": "assets/gisborne/reloc/east-coast-bay.png",
+  "chapters": [
+   "destinations/gisborne-new-zealand/welcome.html",
+   "destinations/gisborne-new-zealand/why.html",
+   "destinations/gisborne-new-zealand/glance.html",
+   "destinations/gisborne-new-zealand/healthcare.html",
+   "destinations/gisborne-new-zealand/suburbs.html",
+   "destinations/gisborne-new-zealand/cost.html",
+   "destinations/gisborne-new-zealand/transport.html",
+   "destinations/gisborne-new-zealand/food.html",
+   "destinations/gisborne-new-zealand/weekends.html"
+  ],
+  "maori": "Tūranganui-a-Kiwa"
+ },
+ {
+  "slug": "moving-to-australia",
+  "title": "Moving to Australia",
+  "eyebrow": "The national guide",
+  "strap": "A new role, a different pace of life and somewhere new to call home.",
+  "cover": "assets/au-destination-hero.jpg",
+  "chapters": [
+   "guides/about-australia.html",
+   "guides/moving-to-australia.html",
+   "guides/australia-vs-new-zealand.html",
+   "guides/australia-healthcare.html",
+   "guides/australia-registration.html",
+   "guides/australia-visa.html",
+   "guides/australia-salary.html",
+   "guides/australia-interview.html",
+   "guides/cost-of-relocating.html",
+   "guides/living-in-australia.html",
+   "guides/australia-renting.html",
+   "guides/australia-money.html",
+   "guides/australia-driving.html",
+   "guides/australia-education.html",
+   "guides/australia-school-fees.html",
+   "guides/australia-pets.html",
+   "guides/australia-family.html",
+   "guides/australia-community.html",
+   "guides/australia-contacts.html"
+  ]
+ },
+ {
+  "slug": "new-south-wales-relocation-guide",
+  "title": "New South Wales",
+  "eyebrow": "State relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in New South Wales.",
+  "cover": "assets/nsw/reloc/cover-opera-house.jpg",
+  "chapters": [
+   "destinations/new-south-wales-australia/welcome.html",
+   "destinations/new-south-wales-australia/why.html",
+   "destinations/new-south-wales-australia/glance.html",
+   "destinations/new-south-wales-australia/healthcare.html",
+   "destinations/new-south-wales-australia/suburbs.html",
+   "destinations/new-south-wales-australia/transport.html",
+   "destinations/new-south-wales-australia/cost.html",
+   "destinations/new-south-wales-australia/food.html",
+   "destinations/new-south-wales-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "victoria-relocation-guide",
+  "title": "Victoria",
+  "eyebrow": "State relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Victoria.",
+  "cover": "assets/vic/vic-melbourne-skyline.jpg",
+  "chapters": [
+   "destinations/victoria-australia/welcome.html",
+   "destinations/victoria-australia/why.html",
+   "destinations/victoria-australia/glance.html",
+   "destinations/victoria-australia/healthcare.html",
+   "destinations/victoria-australia/suburbs.html",
+   "destinations/victoria-australia/transport.html",
+   "destinations/victoria-australia/cost.html",
+   "destinations/victoria-australia/food.html",
+   "destinations/victoria-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "queensland-relocation-guide",
+  "title": "Queensland",
+  "eyebrow": "State relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Queensland.",
+  "cover": "assets/qld/qld-cairns-marina-trinity-inlet-aerial.jpg",
+  "chapters": [
+   "destinations/queensland-australia/welcome.html",
+   "destinations/queensland-australia/why.html",
+   "destinations/queensland-australia/glance.html",
+   "destinations/queensland-australia/healthcare.html",
+   "destinations/queensland-australia/suburbs.html",
+   "destinations/queensland-australia/transport.html",
+   "destinations/queensland-australia/cost.html",
+   "destinations/queensland-australia/food.html",
+   "destinations/queensland-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "western-australia-relocation-guide",
+  "title": "Western Australia",
+  "eyebrow": "State relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Western Australia.",
+  "cover": "assets/wa/cape-leveque.jpg",
+  "chapters": [
+   "destinations/western-australia-australia/welcome.html",
+   "destinations/western-australia-australia/why.html",
+   "destinations/western-australia-australia/glance.html",
+   "destinations/western-australia-australia/healthcare.html",
+   "destinations/western-australia-australia/suburbs.html",
+   "destinations/western-australia-australia/transport.html",
+   "destinations/western-australia-australia/cost.html",
+   "destinations/western-australia-australia/food.html",
+   "destinations/western-australia-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "south-australia-relocation-guide",
+  "title": "South Australia",
+  "eyebrow": "State relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in South Australia.",
+  "cover": "assets/sa/sa-red-cliff-coast.jpg",
+  "chapters": [
+   "destinations/south-australia-australia/welcome.html",
+   "destinations/south-australia-australia/why.html",
+   "destinations/south-australia-australia/glance.html",
+   "destinations/south-australia-australia/healthcare.html",
+   "destinations/south-australia-australia/suburbs.html",
+   "destinations/south-australia-australia/transport.html",
+   "destinations/south-australia-australia/cost.html",
+   "destinations/south-australia-australia/food.html",
+   "destinations/south-australia-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "tasmania-relocation-guide",
+  "title": "Tasmania",
+  "eyebrow": "State relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Tasmania.",
+  "cover": "assets/tas/tas-views-from-mount-wellington-imn-2744973383.jpg",
+  "chapters": [
+   "destinations/tasmania-australia/welcome.html",
+   "destinations/tasmania-australia/why.html",
+   "destinations/tasmania-australia/glance.html",
+   "destinations/tasmania-australia/healthcare.html",
+   "destinations/tasmania-australia/suburbs.html",
+   "destinations/tasmania-australia/transport.html",
+   "destinations/tasmania-australia/cost.html",
+   "destinations/tasmania-australia/food.html",
+   "destinations/tasmania-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "sydney-relocation-guide",
+  "title": "Sydney",
+  "eyebrow": "City relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Sydney.",
+  "cover": "assets/nsw/nsw-downtown-sydney-skyline-in-australia-1998095327.jpg",
+  "chapters": [
+   "destinations/sydney-australia/welcome.html",
+   "destinations/sydney-australia/why.html",
+   "destinations/sydney-australia/glance.html",
+   "destinations/sydney-australia/healthcare.html",
+   "destinations/sydney-australia/suburbs.html",
+   "destinations/sydney-australia/transport.html",
+   "destinations/sydney-australia/cost.html",
+   "destinations/sydney-australia/food.html",
+   "destinations/sydney-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "melbourne-relocation-guide",
+  "title": "Melbourne",
+  "eyebrow": "City relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Melbourne.",
+  "cover": "assets/vic/vic-melbourne-flinders-street-train-station-1426038686.jpg",
+  "chapters": [
+   "destinations/melbourne-australia/welcome.html",
+   "destinations/melbourne-australia/why.html",
+   "destinations/melbourne-australia/glance.html",
+   "destinations/melbourne-australia/healthcare.html",
+   "destinations/melbourne-australia/suburbs.html",
+   "destinations/melbourne-australia/transport.html",
+   "destinations/melbourne-australia/cost.html",
+   "destinations/melbourne-australia/food.html",
+   "destinations/melbourne-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "brisbane-relocation-guide",
+  "title": "Brisbane",
+  "eyebrow": "City relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Brisbane.",
+  "cover": "assets/brisbane/brisbane-river-cbd-goodwill-bridge.jpg",
+  "chapters": [
+   "destinations/brisbane-australia/welcome.html",
+   "destinations/brisbane-australia/why.html",
+   "destinations/brisbane-australia/glance.html",
+   "destinations/brisbane-australia/healthcare.html",
+   "destinations/brisbane-australia/suburbs.html",
+   "destinations/brisbane-australia/transport.html",
+   "destinations/brisbane-australia/cost.html",
+   "destinations/brisbane-australia/food.html",
+   "destinations/brisbane-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "gold-coast-relocation-guide",
+  "title": "Gold Coast",
+  "eyebrow": "City relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Gold Coast.",
+  "cover": "assets/gold-coast/goldcoast-beach-skyline.jpg",
+  "chapters": [
+   "destinations/gold-coast-australia/welcome.html",
+   "destinations/gold-coast-australia/why.html",
+   "destinations/gold-coast-australia/glance.html",
+   "destinations/gold-coast-australia/healthcare.html",
+   "destinations/gold-coast-australia/suburbs.html",
+   "destinations/gold-coast-australia/transport.html",
+   "destinations/gold-coast-australia/cost.html",
+   "destinations/gold-coast-australia/food.html",
+   "destinations/gold-coast-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "perth-relocation-guide",
+  "title": "Perth",
+  "eyebrow": "City relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Perth.",
+  "cover": "assets/wa/perth-skyline-bluehour.jpg",
+  "chapters": [
+   "destinations/perth-australia/welcome.html",
+   "destinations/perth-australia/why.html",
+   "destinations/perth-australia/glance.html",
+   "destinations/perth-australia/healthcare.html",
+   "destinations/perth-australia/suburbs.html",
+   "destinations/perth-australia/transport.html",
+   "destinations/perth-australia/cost.html",
+   "destinations/perth-australia/food.html",
+   "destinations/perth-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "adelaide-relocation-guide",
+  "title": "Adelaide",
+  "eyebrow": "City relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Adelaide.",
+  "cover": "assets/sa/sa-brighton-esplanade-adelaide-south-australi-2726499833.jpg",
+  "chapters": [
+   "destinations/adelaide-australia/welcome.html",
+   "destinations/adelaide-australia/why.html",
+   "destinations/adelaide-australia/glance.html",
+   "destinations/adelaide-australia/healthcare.html",
+   "destinations/adelaide-australia/suburbs.html",
+   "destinations/adelaide-australia/transport.html",
+   "destinations/adelaide-australia/cost.html",
+   "destinations/adelaide-australia/food.html",
+   "destinations/adelaide-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "canberra-relocation-guide",
+  "title": "Canberra",
+  "eyebrow": "City relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Canberra.",
+  "cover": "assets/act/act-parliament-house-aerial.jpg",
+  "chapters": [
+   "destinations/canberra-australia/welcome.html",
+   "destinations/canberra-australia/why.html",
+   "destinations/canberra-australia/glance.html",
+   "destinations/canberra-australia/healthcare.html",
+   "destinations/canberra-australia/suburbs.html",
+   "destinations/canberra-australia/transport.html",
+   "destinations/canberra-australia/cost.html",
+   "destinations/canberra-australia/food.html",
+   "destinations/canberra-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "darwin-relocation-guide",
+  "title": "Darwin",
+  "eyebrow": "City relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Darwin.",
+  "cover": "assets/nt/nt-an-aerial-view-of-darwin-2206700799.jpg",
+  "chapters": [
+   "destinations/darwin-australia/welcome.html",
+   "destinations/darwin-australia/why.html",
+   "destinations/darwin-australia/glance.html",
+   "destinations/darwin-australia/healthcare.html",
+   "destinations/darwin-australia/suburbs.html",
+   "destinations/darwin-australia/transport.html",
+   "destinations/darwin-australia/cost.html",
+   "destinations/darwin-australia/food.html",
+   "destinations/darwin-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "hobart-relocation-guide",
+  "title": "Hobart",
+  "eyebrow": "City relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Hobart.",
+  "cover": "assets/tas/tas-hobart-tasmania-september-14-view-2207991955.jpg",
+  "chapters": [
+   "destinations/hobart-australia/welcome.html",
+   "destinations/hobart-australia/why.html",
+   "destinations/hobart-australia/glance.html",
+   "destinations/hobart-australia/healthcare.html",
+   "destinations/hobart-australia/suburbs.html",
+   "destinations/hobart-australia/transport.html",
+   "destinations/hobart-australia/cost.html",
+   "destinations/hobart-australia/food.html",
+   "destinations/hobart-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "newcastle-relocation-guide",
+  "title": "Newcastle",
+  "eyebrow": "City relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Newcastle.",
+  "cover": "assets/nsw/nsw-an-aerial-view-of-newcastle-2158430125.jpg",
+  "chapters": [
+   "destinations/newcastle-australia/welcome.html",
+   "destinations/newcastle-australia/why.html",
+   "destinations/newcastle-australia/glance.html",
+   "destinations/newcastle-australia/healthcare.html",
+   "destinations/newcastle-australia/suburbs.html",
+   "destinations/newcastle-australia/transport.html",
+   "destinations/newcastle-australia/cost.html",
+   "destinations/newcastle-australia/food.html",
+   "destinations/newcastle-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "geelong-relocation-guide",
+  "title": "Geelong",
+  "eyebrow": "City relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Geelong.",
+  "cover": "assets/geelong/geelong-waterfront-pier.jpg",
+  "chapters": [
+   "destinations/geelong-australia/welcome.html",
+   "destinations/geelong-australia/why.html",
+   "destinations/geelong-australia/glance.html",
+   "destinations/geelong-australia/healthcare.html",
+   "destinations/geelong-australia/suburbs.html",
+   "destinations/geelong-australia/transport.html",
+   "destinations/geelong-australia/cost.html",
+   "destinations/geelong-australia/food.html",
+   "destinations/geelong-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "bundaberg-relocation-guide",
+  "title": "Bundaberg",
+  "eyebrow": "City relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Bundaberg.",
+  "cover": "assets/bundaberg/bundaberg-burnett-bridge.jpg",
+  "chapters": [
+   "destinations/bundaberg-australia/welcome.html",
+   "destinations/bundaberg-australia/why.html",
+   "destinations/bundaberg-australia/glance.html",
+   "destinations/bundaberg-australia/healthcare.html",
+   "destinations/bundaberg-australia/suburbs.html",
+   "destinations/bundaberg-australia/transport.html",
+   "destinations/bundaberg-australia/cost.html",
+   "destinations/bundaberg-australia/food.html",
+   "destinations/bundaberg-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "bunbury-relocation-guide",
+  "title": "Bunbury",
+  "eyebrow": "City relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Bunbury.",
+  "cover": "assets/bunbury/bunbury-city-waterfront-dusk-aerial.jpg",
+  "chapters": [
+   "destinations/bunbury-australia/welcome.html",
+   "destinations/bunbury-australia/why.html",
+   "destinations/bunbury-australia/glance.html",
+   "destinations/bunbury-australia/healthcare.html",
+   "destinations/bunbury-australia/suburbs.html",
+   "destinations/bunbury-australia/transport.html",
+   "destinations/bunbury-australia/cost.html",
+   "destinations/bunbury-australia/food.html",
+   "destinations/bunbury-australia/weekends.html"
+  ]
+ },
+ {
+  "slug": "mandurah-relocation-guide",
+  "title": "Mandurah",
+  "eyebrow": "City relocation guide · Australia",
+  "strap": "Where you would work, where you would live, and what an ordinary week looks like in Mandurah.",
+  "cover": "assets/mandurah/mandurah-skyline-shore.jpg",
+  "chapters": [
+   "destinations/mandurah-australia/welcome.html",
+   "destinations/mandurah-australia/why.html",
+   "destinations/mandurah-australia/glance.html",
+   "destinations/mandurah-australia/healthcare.html",
+   "destinations/mandurah-australia/suburbs.html",
+   "destinations/mandurah-australia/transport.html",
+   "destinations/mandurah-australia/cost.html",
+   "destinations/mandurah-australia/food.html",
+   "destinations/mandurah-australia/weekends.html"
+  ]
+ }
+]

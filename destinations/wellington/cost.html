@@ -7,7 +7,7 @@
 <meta name="description" content="Same salary as Auckland, meaningfully lower rent — and one bill in July that catches everybody out.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../../shell.css">
 <link rel="stylesheet" href="../../guide-graphics.css">
@@ -15,7 +15,7 @@
 :root{
   --primary:#02615D; --secondary:#72A471; --highlight:#A6C84A;
   --sage:#C9DED3; --bg:#FCFBF8; --white:#FFFFFF; --text:#333333; --text2:#2F5E49;
-  --divider:#E4E9E5; --border:#C9DED3; --accent:#02615D;
+  --divider:#D6E1DA; --border:#C9DED3; --accent:#02615D;
   --maxw:1180px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -359,7 +359,7 @@ a{color:var(--accent);text-decoration:none}
 .cnote{font-size:15px;color:var(--text2);margin:0 0 16px;max-width:64ch}
 .chaps{display:flex;flex-direction:column;gap:4px}
 a.chap{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px 14px;border-bottom:1px solid var(--divider);border-radius:12px;background:var(--sage);transition:background .18s,transform .18s;color:inherit;text-decoration:none}
-a.chap:hover{background:#DCE8DF;transform:translateX(2px)}
+a.chap:hover{background:#D6E1DA;transform:translateX(2px)}
 a.chap.nat{background:transparent}
 a.chap.nat:hover{background:var(--bg)}
 a.chap .n{font-family:'Work Sans',sans-serif;font-size:14px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
@@ -378,12 +378,12 @@ a.chap.nat .go{color:var(--text2);font-weight:500}
 .ch-nav .up{font-size:13px;color:var(--text2);white-space:nowrap}
 @media(max-width:640px){a.chap{grid-template-columns:32px minmax(0,1fr);gap:8px}a.chap .go{display:none}.ch-nav{grid-template-columns:1fr;gap:16px}.ch-nav .next{text-align:left}}
 .ith{margin:24px 0 40px}
-.ith-map{position:relative;aspect-ratio:5/4;max-height:520px;border-radius:20px;background:linear-gradient(170deg,#D5E4E2 0%,#DCE9E4 42%,#E3ECE5 62%,#D5E4E2 100%);border:1px solid var(--divider);overflow:hidden}
-.ith-map::before{content:"";position:absolute;left:6%;right:6%;top:38%;height:26%;background:#EDF2EC;border-radius:46% 54% 40% 60%/60% 44% 56% 40%;box-shadow:0 0 0 1px rgba(2,97,93,.08)}
+.ith-map{position:relative;aspect-ratio:5/4;max-height:520px;border-radius:20px;background:linear-gradient(170deg,#D6E1DA 0%,#D6E1DA 42%,#E3ECE5 62%,#D6E1DA 100%);border:1px solid var(--divider);overflow:hidden}
+.ith-map::before{content:"";position:absolute;left:6%;right:6%;top:38%;height:26%;background:#E3ECE5;border-radius:46% 54% 40% 60%/60% 44% 56% 40%;box-shadow:0 0 0 1px rgba(2,97,93,.08)}
 .ith-h{position:absolute;font-family:'Work Sans',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#2F5E49;pointer-events:none}
 .ith-map button{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--divider);border-radius:999px;padding:7px 13px 7px 9px;cursor:pointer;font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;color:var(--primary);white-space:nowrap;box-shadow:0 16px 38px rgba(1,49,47,.09);transition:background .18s,transform .18s}
 .ith-map button:hover{transform:translate(-50%,-50%);box-shadow:0 26px 54px rgba(1,49,47,.12)}
-.ith-map button i{width:7px;height:7px;border-radius:999px;background:var(--border,#C3D2C7);display:block;flex:none}
+.ith-map button i{width:7px;height:7px;border-radius:999px;background:var(--border,#D6E1DA);display:block;flex:none}
 .ith-map button[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:#fff}
 .ith-map button[aria-pressed="true"] i{background:var(--highlight)}
 .ith-cap{font-size:12.5px;color:var(--text2);margin:8px 0 0;text-align:center}
@@ -425,7 +425,6 @@ h1,h2,h3{break-after:avoid !important}
 .cta{break-inside:avoid !important}
 }
 </style>
-<style>/* a11y: skip link */.skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .15s ease}.skip-link:focus{top:0}#main-content{outline:none}</style>
 <style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"New Zealand","item":"https://ethicareresourcing.com/new-zealand"},{"@type":"ListItem","position":3,"name":"Wellington","item":"https://ethicareresourcing.com/destinations/wellington-new-zealand"},{"@type":"ListItem","position":4,"name":"Cost of living"}]}</script>
 <link rel="stylesheet" href="../../stacked-hero.css">
@@ -436,7 +435,7 @@ h1,h2,h3{break-after:avoid !important}
 
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="../../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -453,25 +452,29 @@ h1,h2,h3{break-after:avoid !important}
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          <a href="/move">Your plan</a>
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
+      <a href="/ask">Ask Ethicare</a>
       <a href="/employers">For Employers</a>
       <a class="nav-cta" href="/contact">Contact</a>
     </nav>
   </div>
 </header>
+
 <div id="main-content" tabindex="-1"></div>
 
 <a id="top"></a>
@@ -481,7 +484,7 @@ h1,h2,h3{break-after:avoid !important}
     <nav class="wf-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">&#8250;</span><a href="/new-zealand">New Zealand</a><span class="sep">&#8250;</span><a href="/destinations/wellington-new-zealand">Wellington</a><span class="sep">&#8250;</span><span class="here">Cost of living</span></nav>
     <div class="eyebrow">What life costs</div>
     <h1>Cost of living</h1>
-    <div class="sub">Wellington Guide &middot; Chapter 07 of 9</div>
+    <div class="sub">Wellington Guide &middot; Chapter 7 of 9</div>
   </div>
 </div>
 
@@ -495,17 +498,17 @@ h1,h2,h3{break-after:avoid !important}
       <a href="/destinations/wellington-new-zealand/suburbs" data-sec="suburbs"><span class="tick"></span>Where clinicians live</a>
       <a href="/destinations/wellington-new-zealand/transport" data-sec="transport"><span class="tick"></span>Getting around</a>
       <a class="active" aria-current="page" href="/destinations/wellington-new-zealand/cost" data-sec="cost"><span class="tick"></span>Cost of living</a>
-      <a href="/destinations/wellington-new-zealand/food" data-sec="food"><span class="tick"></span>Food, coffee &amp; the city</a>
-      <a href="/destinations/wellington-new-zealand/weekends" data-sec="weekends"><span class="tick"></span>Weekends &amp; the outdoors</a>
+      <a href="/destinations/wellington-new-zealand/food" data-sec="food"><span class="tick"></span>Food, coffee &amp; the everyday</a>
+      <a href="/destinations/wellington-new-zealand/weekends" data-sec="weekends"><span class="tick"></span>Harbour, hills &amp; the outdoors</a>
     </div>
     <div class="side-cta"><div class="t"><span class="dot"></span>National topics</div><p>Visas, tax, renting, driving and schools are the same wherever you land.</p><a href="/destinations/new-zealand-relocation-guide">Moving to New Zealand</a></div>
   </aside>
   <main class="content">
 <section id="cost">
   <p class="lead">Same salary as Auckland, meaningfully lower rent &mdash; and one bill that will surprise you in July.</p>
-  <h2>Why there are no prices on this page</h2>
+  <h2>Why we don’t print prices</h2>
   <p>We used to print a weekly rent and a monthly budget table here. We have taken them out. A figure that was true when a page was written is misleading a year later, and a candidate who plans a move around a stale number is worse off than one who plans around none.</p>
-  <p>What does not go stale is the <em>shape</em> of a month, and the judgement about which lines will surprise you &mdash; which is what the rest of this chapter is for. For today&rsquo;s actual numbers use the calculators at the foot of the page, and use them to compare Wellington against the city you are leaving. That is the only comparison that decides anything.</p>
+  <p>What does not go stale is the <em>shape</em> of a month, and the judgement about which lines will surprise you. For today&rsquo;s actual numbers use the calculators at the foot of the page, and use them to compare Wellington against the city you are leaving. That is the only comparison that decides anything.</p>
   <p>Because clinical pay sits on national collective agreements, your gross salary here is identical to Auckland&rsquo;s. Housing costs less. That gap is the quiet financial case for Wellington, and it doesn&rsquo;t appear on any job advertisement.</p>
 
   <h2>What a month costs</h2>
@@ -530,7 +533,7 @@ h1,h2,h3{break-after:avoid !important}
     </div>
     <p class="gx-note">Bar widths are proportions of the month, not amounts. In summer the power line roughly halves, and the whole month eases with it.</p>
   </figure>
-  <p style="font-size:13.5px;color:var(--text2)">Excludes tax, KiwiSaver, student loan repayments, a deposit and flights home. <a href="/guides/money-tax-and-banking">Money, tax &amp; banking</a> works out what actually lands in your account &mdash; put the two together for a real answer.</p>
+  <p style="font-size:13.5px;color:var(--text2)">Excludes tax, KiwiSaver, student loan repayments, a deposit and flights home. <a href="/guides/money-tax-and-banking">Money, tax &amp; banking</a> works out what lands in your account.</p>
 
   <h2>The one bill that catches everyone out</h2>
   <p>Your power bill in July can be two or three times what it was in February. This isn&rsquo;t a New Zealand pricing quirk &mdash; it&rsquo;s what happens when a poorly insulated timber house meets a cold, damp winter and a heat pump running most of the day.</p>
@@ -558,10 +561,10 @@ h1,h2,h3{break-after:avoid !important}
   </div>
 
   <h2>Setting up costs</h2>
-  <p>Unfurnished here can mean genuinely empty &mdash; no fridge, no washing machine, sometimes no curtains. Budget for the first fortnight properly.</p>
+  <p>Unfurnished here can mean empty &mdash; no fridge, no washing machine, sometimes no curtains. Budget for the first fortnight properly.</p>
   <figure class="gx">
     <figcaption class="gx-t">What the first fortnight costs</figcaption>
-    <p class="gx-sub">Bars are to scale against each other, so you can see where the money actually goes before you&rsquo;ve bought a kettle.</p>
+    <p class="gx-sub">Bars are to scale against each other, so you can see where the money goes before you&rsquo;ve bought a kettle.</p>
     <div class="gx-bars">
       <div class="gx-row peak">
         <span class="gx-k">Bond &amp; rent in advance<small>Four weeks&rsquo; bond plus two weeks&rsquo; rent, up front. The single largest thing to have ready.</small></span>
@@ -603,16 +606,16 @@ h1,h2,h3{break-after:avoid !important}
   <div class="panel">
     <div class="pt">Get today&rsquo;s numbers, and compare them to home</div>
     <style>.costsrc a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;text-decoration-color:#72A471;font-weight:600}.costsrc a:hover{text-decoration-color:#02615D}</style>
-    <p style="margin:0 0 12px">These are live and updated continuously, which is why we send you to them rather than competing with them. Put the city you are leaving in the other box.</p>
+    <p style="margin:0 0 12px">These are live and updated continuously. Put the city you are leaving in the other box.</p>
     <ul class="costsrc">
-      <li><a href="https://www.numbeo.com/cost-of-living/" target="_blank" rel="noopener">Numbeo cost-of-living calculator</a> &mdash; the most complete comparison tool, and the one most clinicians already use. Crowd-sourced, so read it as a ballpark rather than a quote.</li>
+      <li><a href="https://www.numbeo.com/cost-of-living/" target="_blank" rel="noopener">Numbeo cost-of-living calculator</a> &mdash; the most complete comparison tool, and the one most clinicians already use. Crowd-sourced, so treat it as a ballpark.</li>
       <li><a href="https://www.expatistan.com/cost-of-living" target="_blank" rel="noopener">Expatistan</a> &mdash; the same idea with a cleaner side-by-side. Worth running as a sanity check when Numbeo looks off.</li>
       <li><a href="https://www.tenancy.govt.nz/rent-bond-and-bills/market-rent/" target="_blank" rel="noopener">Tenancy Services market rent</a> &mdash; official bond-lodgement data by area, and the most reliable rent figure in New Zealand.</li>
-      <li><a href="https://www.stats.govt.nz/" target="_blank" rel="noopener">Stats NZ</a> &mdash; official, slower, and the one to trust on the direction of travel rather than any single price.</li>
+      <li><a href="https://www.stats.govt.nz/" target="_blank" rel="noopener">Stats NZ</a> — official and slower, and the one to trust on the direction of travel.</li>
     </ul>
-    <p style="margin:12px 0 0">If what you find contradicts the judgement on this page, tell us. We would rather correct the page than defend it.</p>
+    <p style="margin:12px 0 0">If what you find differs from what we say here, tell us and we will correct it.</p>
   </div>
-<nav class="ch-nav"><a class="prev" href="/destinations/wellington-new-zealand/transport"><span>Previous</span>Getting around</a><a class="up" href="/destinations/wellington-new-zealand">All chapters</a><a class="next" href="/destinations/wellington-new-zealand/food"><span>Next</span>Food, coffee &amp; the city</a></nav>
+<nav class="ch-nav"><a class="prev" href="/destinations/wellington-new-zealand/transport"><span>Previous</span>Getting around</a><a class="up" href="/destinations/wellington-new-zealand">All chapters</a><a class="next" href="/destinations/wellington-new-zealand/food"><span>Next</span>Food, coffee &amp; the everyday</a></nav>
 <p class="ch-print"><a href="/request-a-guide?guide=wellington-new-zealand">Prefer it on paper? Request the printed guide &rarr;</a></p>
 </section>
 </main>
@@ -624,8 +627,8 @@ h1,h2,h3{break-after:avoid !important}
   <div class="shell">
     <div class="f-cols">
       <div class="f-brand">
-        <a class="brand light" href="/"><img decoding="async" src="../../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
-        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <a class="brand light" href="/"><img decoding="async" src="../../assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Support through one of life’s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
           <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
@@ -664,21 +667,6 @@ h1,h2,h3{break-after:avoid !important}
 (function(){var b=document.querySelector('[data-backtop]');if(!b)return;b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});window.addEventListener('scroll',function(){b.classList.toggle('show',window.scrollY>600);},{passive:true});})();
 </script>
 
-<!-- INTERNAL LINK MAP — Wellington guide, chapter 07 of 9
-  Breadcrumb: Home > New Zealand > Wellington > Cost of living
-  Sidebar: all 9 Wellington chapters | CTA: Moving to New Zealand->../Moving_to_New_Zealand.html
-  Foot nav: Previous->transport.html | All chapters->../Wellington_Destination_Guide.html | Next->food.html
-  COST RULE (revised 24 Aug 2026) &mdash; publishes NO dollar figures. The weekly rent, everyday-item
-    table and monthly budget table were REMOVED, not dated: undated figures rot, and the live
-    calculators do that job better than we can. What stays is the PROPORTIONAL shape of a month
-    plus local judgement. Do not re-add a price table.
-  External · cost sources: Numbeo (root) -> numbeo.com/cost-of-living/ | Expatistan -> expatistan.com/cost-of-living | Tenancy Services market rent -> tenancy.govt.nz/rent-bond-and-bills/market-rent/ | Stats NZ -> stats.govt.nz/
-  SEO
-  Page Title: Cost of living in Wellington for healthcare professionals · Ethicare Resourcing
-  URL Slug: /destinations/wellington-new-zealand/cost
-  SEO Title: Cost of living in Wellington for healthcare professionals
-  Meta Description: Same salary as Auckland, meaningfully lower rent — and one bill in July that catches everybody out.
-  -->
 
 
 

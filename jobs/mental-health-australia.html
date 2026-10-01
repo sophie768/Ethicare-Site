@@ -2,10 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- Dormant until Ethicare recruits these professions in Australia (Sophie, 1 Oct 2026).
+     The page stays in the repo, finished, but must appear nowhere on the live site: no link
+     from any page, no sitemap entry, and noindex/nofollow here AND as an X-Robots-Tag in
+     netlify.toml, because a meta tag only helps once a crawler has already fetched the page.
+     Australian recruitment is medical imaging, radiation therapy, nuclear medicine and
+     radiology; a page titled "Psychologist Jobs in Australia" turning up in search would
+     promise something we do not yet do. To wake one: delete this block, add it back to
+     jobs/professions.html and the sitemap, and remove it from the netlify.toml header. -->
+<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
 <title>Mental health careers in Australia | Ethicare Resourcing</title>
-<meta name="description" content="Mental health careers in Australia for internationally qualified clinicians — psychology, psychotherapy and social work, why only one of the three is a registered profession, and honest guidance on the whole move.">
+<meta name="description" content="Mental health careers in Australia for internationally qualified clinicians — psychology, psychotherapy and social work, why only one of the three is a registered profession, and guidance on the whole move.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,7 +28,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ethicare Resourcing">
 <meta property="og:title" content="Mental health careers in Australia | Ethicare Resourcing">
-<meta property="og:description" content="Sonography, radiography, radiation therapy and nuclear medicine in Australia — the professions, the regulators that differ between them, and honest guidance on the whole move.">
+<meta property="og:description" content="Sonography, radiography, radiation therapy and nuclear medicine in Australia — the professions, the regulators that differ between them, and guidance on the whole move.">
 <meta property="og:url" content="https://ethicareresourcing.com/jobs/mental-health-australia">
 <meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -32,7 +42,7 @@
 <!-- @shared-header current="/australia" · generated from /site/_header.html — do not hand-edit -->
 <header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
       <div class="navitem has-sub"><a href="/australia" aria-current="page">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -49,25 +59,29 @@
           <a href="/new-zealand#destinations">Explore destinations</a>
         </div>
       </div>
-      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medicine-australia">Medicine</a><a href="/jobs/nursing-midwifery-australia">Nursing &amp; midwifery</a><a href="/jobs/mental-health-australia">Mental health</a><a href="/jobs/allied-health-australia">Allied health</a><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation</a><a href="/jobs/theatre-perioperative-australia">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          <a href="/move">Your plan</a>
+          <a href="/move">Your relocation plan</a>
           <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
+      <a href="/ask">Ask Ethicare</a>
       <a href="/employers">For Employers</a>
       <a class="nav-cta" href="/contact">Contact</a>
     </nav>
   </div>
 </header>
+
 <!-- /@shared-header -->
 <main id="main-content" tabindex="-1">
 <header class="fhero">
@@ -107,7 +121,7 @@
     <div class="readcol">
       <h2>Where might that team work?</h2>
       <p class="lead" style="margin-top:var(--sp-sm,18px)">Mental health careers here do not all sit inside a &ldquo;mental health department&rdquo;, and public specialist services are only part of the picture. A psychologist might be working in rehabilitation, persistent pain, workplace health or private practice; the mix of professions changes with the setting and with who is paying for it.</p>
-      <p style="margin-top:16px;color:var(--muted)">Public services are run state by state rather than nationally, so two jobs with the same title in Perth and in Hobart genuinely differ &mdash; in structure, in caseload and in pay. What it is like to practise here more broadly &mdash; the funders, the priorities and cultural safety &mdash; sits in <a href="/guides/australia-practice">practising in Australia</a>.</p>
+      <p style="margin-top:16px;color:var(--muted)">Public services are run state by state rather than nationally, so two jobs with the same title in Perth and in Hobart differ &mdash; in structure, in caseload and in pay. What it is like to practise here more broadly &mdash; the funders, the priorities and cultural safety &mdash; sits in <a href="/guides/australia-practice">practising in Australia</a>.</p>
     </div>
     <nav class="setchips" aria-label="Find the work that fits you"><a href="#set-adult">Adult community</a><a href="#set-acute">Acute &amp; inpatient</a><a href="#set-youth">Children &amp; young people</a><a href="#set-older">Older persons &amp; dementia</a><a href="#set-forensic">Forensic</a><a href="#set-ed">Eating disorders</a><a href="#set-aod">Alcohol &amp; other drugs</a><a href="#set-private">Private practice</a><a href="#set-ndis">Psychosocial &amp; disability</a><a href="#set-rural">Rural, remote &amp; telehealth</a><a href="#set-work">Workplace &amp; EAP</a><a href="#set-first">Aboriginal &amp; Torres Strait Islander services</a></nav>
     <div class="setgrid">
@@ -156,7 +170,7 @@
     <div class="fampanel">
       <span class="k">The difference that reorganises the map</span>
       <p><strong>In Australia, the funder decides the door a person comes through &mdash; and therefore what your job is.</strong> Medicare-subsidised sessions in private practice, a state-run community mental health team, NDIS-funded psychosocial support and an employer-funded workplace service are four different working weeks under the same professional title.</p>
-      <p>It also means the same qualification can be worth a different amount depending on which funder you sit under, and that provider eligibility can matter as much as registration. Worth understanding before you choose between two offers, not after.</p>
+      <p>It also means the same qualification can be worth a different amount depending on which funder you sit under, and that provider eligibility can matter as much as registration. Worth knowing before you choose between two offers.</p>
     </div>
   </div>
 </section>
@@ -186,7 +200,7 @@
       </details>
       <details>
         <summary>What does the pay look like?</summary>
-        <div class="ans"><p>Public-sector pay runs on state and territory enterprise agreements, so the same job genuinely pays differently in Perth and in Hobart &mdash; there is no single national scale the way there is in New Zealand. Private practice sits outside those agreements again.</p><p>Superannuation is paid on top of base salary and is a real part of the package rather than a footnote. <a href="/guides/australia-salary">Pay in Australia</a></p></div>
+        <div class="ans"><p>Public-sector pay runs on state and territory enterprise agreements, so the same job pays differently in Perth and in Hobart &mdash; there is no single national scale the way there is in New Zealand. Private practice sits outside those agreements again.</p><p>Superannuation is paid on top of base salary and is a real part of the package rather than a footnote. <a href="/guides/australia-salary">Pay in Australia</a></p></div>
       </details>
       <details>
         <summary>Which visa would I need?</summary>
@@ -205,10 +219,10 @@
     <div class="readcol">
       <span class="eyebrow">If you are ready to look</span>
       <h2>Current opportunities</h2>
-      <p class="lead" style="margin-top:var(--sp-sm,18px)">Understanding the career comes first on this page. This is where it leads, if you want it.</p>
+      <p class="lead" style="margin-top:var(--sp-sm,18px)">The roles we are recruiting for now.</p>
     </div>
     <div id="live-roles" data-profession="Psychologist" data-country="Australia" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:clamp(24px,3vw,32px)"></div>
-    <div class="btn-row" style="margin-top:26px"><a class="btn btn-primary" href="/jobs/">View all vacancies</a><a class="btn btn-ghost" href="/apply">Register your interest</a></div>
+    <div class="btn-row" style="margin-top:26px"><a class="btn btn-primary" href="/jobs/">View all vacancies</a><a class="btn btn-ghost" href="/register-interest">Register your interest</a></div>
   </div>
 </section>
 
@@ -227,8 +241,8 @@
   <div class="shell">
     <div class="f-cols">
       <div class="f-brand">
-        <a class="brand light" href="/"><img src="../assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
-        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life's biggest moves.</p>
+        <a class="brand light" href="/"><img src="../assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Support through one of life’s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
           <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
@@ -248,22 +262,6 @@
 <script src="../nav.js" defer></script>
 <script src="../journey-nav.js" defer></script>
 
-<!-- INTERNAL LINK MAP — /jobs/mental-health-australia
-  HEADER NAV — Brand/Home → / · Australia ▾ (/australia · /australia#professions · /australia#destinations) · New Zealand ▾ (/new-zealand · /new-zealand#professions · /new-zealand#destinations) · Jobs → /jobs/ · Move ↗ ▾ (/move · /resources · /pathway-checker) · About ▾ (/about-ethicare · /insights) · For Employers → /employers · Contact → /contact
-  HERO — Breadcrumb: Australia → /australia · Professions → /jobs/professions · Mental health & wellbeing [current]
-  THE PROFESSIONS — Psychologists → /pathway-checker?destination=australia · Psychotherapists → /contact · Social workers → /contact · Another mental health role → /contact
-  WHAT APPLIES ACROSS — in-panel links: /guides/australia-registration · /pathway-checker?destination=australia · /guides/australia-salary · /guides/australia-visa · /resources
-  FINAL CTA — Talk to the team → /contact · Send your CV → /apply
-  ONWARD — /jobs/professions · /australia · /jobs/mental-health-new-zealand · /resources · /jobs/
-  FOOTER (site-wide) — Destinations: /new-zealand · /australia · /destinations/ · /destinations/australia | Candidates: /jobs/ · /jobs/professions · /resources · /pathway-checker · /move · /apply | Company: /about-ethicare · /employers · /submit-a-vacancy · /contact
-     ============================================================
-     SEO
-     ============================================================
-   Page Title:       Mental health careers in Australia | Ethicare Resourcing
-   URL Slug:         /jobs/mental-health-australia
-   SEO Title:        Psychology & Mental Health Jobs in Australia — PsyBA, Endorsement & Pathways | Ethicare
-   Meta Description: Mental health careers in Australia for internationally qualified clinicians — psychology, psychotherapy and social work, why only one of the three is a registered profession, and honest guidance on the whole move.
-     ============================================================ -->
 <script src="jobs-data.js"></script>
 <script src="live-roles.js"></script>
 </body>

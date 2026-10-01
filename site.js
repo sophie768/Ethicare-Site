@@ -1,5 +1,19 @@
 // Ethicare static site — shared behaviour (scroll reveal + collapsibles + carousel).
 // Header navigation lives in nav.js.
+
+/* ----------------------------------------------------------------------------------
+   ONE SWITCH for emailing a candidate their own result (1 Oct 2026).
+
+   The pathway checker and the cost calculator can both email someone the result they
+   just worked out. Both send through /.netlify/functions/send-result, which needs
+   RESEND_API_KEY set in Netlify AND the sending domain verified in Resend. Until that
+   is done a send fails silently, so the offer is hidden rather than made and broken.
+
+   WHEN THE KEY IS SET: change this to true. Both tools then offer "Email me my result"
+   / "Email me my estimate". Nothing else has to change, and the lead is captured either
+   way — the capture goes to Netlify Forms, which needs no key at all.
+   ---------------------------------------------------------------------------------- */
+window.ETHICARE_EMAIL_LIVE = false;
 (function () {
   // ---------- Mobile nav ----------
   // Lives in nav.js now: one implementation shared by every page that renders
@@ -126,7 +140,7 @@
    --------------------------------------------------------------------------- */
 var PROMO_ENABLED = false;
 /* ---------------------------------------------------------------------------
-   PROMO BAR — medical imaging in Australia webinar, Mon 21 September 2026.
+   PROMO BAR — medical imaging in Australia webinar. The 21 Sep 2026 session has run; the page now collects interest for the next one. Update PROMO before re-enabling.
    Edit PROMO below, or delete this whole block, to change or remove it.
    endsAfter is inclusive: the bar stops rendering the day after the event,
    so nobody has to remember to take it down.

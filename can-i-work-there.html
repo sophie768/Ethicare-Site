@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>Can I work there? Registration for clinicians · Ethicare</title>
+<meta name="description" content="Whether your qualification counts in New Zealand or Australia, which Board decides, and what else they ask &mdash; standing, English, character and health.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
+.hero-sub{font-family:'Playfair Display',Georgia,serif;font-weight:500}
+/* Router page. Question first, one paragraph of answer, then the handoffs — this page never
+   explains a topic a guide owns (Golden Rule). Everything is intrinsically responsive:
+   auto-fit grids, no fixed columns, no breakpoint needed. */
+.rt-wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.rt-hero{background:var(--warm,#FCFBF8);border-bottom:1px solid var(--mint,#C9DED3)}
+.rt-hero .in{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(24px,3.4vw,52px);align-items:center;padding-block:clamp(38px,4.4vw,62px)}
+.rt-hero h1{font-weight:600;font-size:clamp(30px,4vw,48px);line-height:1.06;letter-spacing:-.02em;color:var(--teal,#02615D);margin:0 0 16px;max-width:22ch}
+.rt-hero .lede{font-size:clamp(17px,1.8vw,20px);line-height:1.62;color:var(--text,#333);max-width:58ch;margin:0}
+.rt-hero figure{margin:0}
+.rt-hero img{width:100%;max-width:400px;height:auto;display:block;margin-left:auto}
+.rt-sec{padding:clamp(34px,4vw,58px) 0}
+.rt-sec.tint{background:var(--soft-green,#E3ECE5);border-top:1px solid rgba(2,97,93,.65);border-bottom:1px solid rgba(2,97,93,.65)}
+.rt-sec h2{font-weight:600;font-size:clamp(22px,2.6vw,30px);line-height:1.18;color:var(--teal,#02615D);margin:0 0 12px;max-width:26ch}
+.rt-lead{font-size:17px;line-height:1.68;color:var(--text,#333);max-width:66ch;margin:0 0 26px}
+.rt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:14px}
+.rt-card{display:flex;flex-direction:column;gap:7px;background:#fff;border:1px solid var(--mint,#C9DED3);border-radius:16px;padding:22px 24px;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.1);border-color:var(--teal,#02615D)}
+.rt-card .k{font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fern-text,#2F5E49)}
+.rt-card h3{font-weight:600;font-size:18.5px;line-height:1.28;color:var(--teal,#02615D);margin:0}
+.rt-card p{font-size:15px;line-height:1.55;color:var(--muted,#555);margin:0}
+.rt-card .go{margin-top:auto;padding-top:12px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:var(--fern-text,#2F5E49)}
+.rt-card.soon{background:var(--warm,#FCFBF8);border-style:dashed}
+.rt-card.soon h3{color:var(--fern-text,#2F5E49)}
+.rt-first{background:#fff;border:1px solid var(--mint,#C9DED3);border-radius:18px;box-shadow:inset 0 4px 0 #72A471;padding:clamp(24px,2.6vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px 34px;align-items:center}
+.rt-first h2{margin:0 0 10px}
+.rt-first p{font-size:16.5px;line-height:1.62;color:var(--muted,#555);margin:0}
+.rt-btn{display:inline-flex;align-items:center;gap:9px;justify-self:start;min-height:48px;padding:13px 22px;border-radius:12px;background:var(--teal,#02615D);color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;text-decoration:none;transition:background .18s ease}
+.rt-btn:hover{background:#01312F}
+.rt-btn.ghost{background:transparent;color:var(--teal,#02615D);border:1.5px solid var(--teal,#02615D)}
+.rt-btn.ghost:hover{background:var(--soft-green,#E3ECE5)}
+.rt-regs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:12px}
+.rt-reg{display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:baseline;background:#fff;border:1px solid var(--mint,#C9DED3);border-radius:14px;padding:16px 20px}
+.rt-reg .who{font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;color:var(--teal,#02615D);line-height:1.3}
+.rt-reg .bd{font-size:14.5px;line-height:1.5;color:var(--muted,#555);grid-column:1/-1}
+.rt-reg .lk{display:flex;flex-wrap:wrap;gap:6px 16px;grid-column:1/-1;padding-top:4px}
+.rt-reg .lk a{font-family:'Work Sans',sans-serif;font-weight:600;font-size:14.5px;color:var(--teal,#02615D);text-decoration:underline;text-decoration-color:#72A471;text-underline-offset:3px}
+.rt-reg .lk span{font-family:'Work Sans',sans-serif;font-weight:600;font-size:14.5px;color:var(--fern-text,#2F5E49)}
+.rt-band{background:var(--teal,#02615D);color:#fff;padding:clamp(36px,4.2vw,60px) 0}
+.rt-band h2{color:#fff;margin-bottom:12px}
+.rt-band .rt-lead{color:#DCEAE5}
+.rt-band .eyebrow,.rt-band .kick{color:#C6E084}
+.rt-band .box{background:rgba(1,49,47,.42);border-radius:14px;padding:20px 22px}
+.rt-band .box h3{font-weight:600;font-size:17.5px;line-height:1.3;color:#fff;margin:0 0 7px}
+.rt-band .box p{font-size:15px;line-height:1.56;color:#DCEAE5;margin:0}
+.rt-band a.on-dark{color:#C6E084;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.kick{display:flex;align-items:center;gap:12px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fern-text,#2F5E49);margin:0 0 14px}
+.kick::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none}
+.rt-next{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px}
+/* answer first (29 Sep 2026) */
+.ea{padding-top:clamp(28px,4vw,44px);padding-bottom:clamp(20px,3vw,32px)}
+.ea .rt-note{margin-top:16px}
+.ea-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:16px;margin-top:6px}
+.ea-card{background:var(--teal,#02615D);color:#fff;border-radius:16px;padding:clamp(22px,3vw,32px);display:flex;flex-direction:column;gap:8px}
+.ea-card .k{font-family:var(--display,'Work Sans',sans-serif);font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C6E084}
+.ea-card .v{font-family:var(--display,'Work Sans',sans-serif);font-size:clamp(22px,2.8vw,32px);font-weight:600;line-height:1.15;letter-spacing:-.02em;text-wrap:balance}
+.ea-card .s{font-size:15px;line-height:1.55;color:rgba(255,255,255,.85);max-width:52ch;text-wrap:pretty}
+.ea-card .lk{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:auto;padding-top:12px}
+.ea-card .lk a{font-family:var(--display,'Work Sans',sans-serif);font-weight:600;font-size:15px;color:#C6E084;text-decoration:none;min-height:24px}
+.ea-card .lk a:hover{color:#fff}
+.ea-card .lk a.b{background:#A6C84A;color:#01312F;border-radius:10px;padding:10px 16px}
+.ea-card .lk a.b:hover{background:#C6E084;color:#01312F}
+</style>
+<link rel="canonical" href="https://ethicareresourcing.com/can-i-work-there">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Can I work there? Registration for clinicians · Ethicare">
+<meta property="og:description" content="Whether your qualification counts in New Zealand or Australia, which Board decides, and what else they ask &mdash; standing, English, character and health.">
+<meta property="og:url" content="https://ethicareresourcing.com/can-i-work-there">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/move">Your relocation plan</a>
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/ask">Ask Ethicare</a>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+
+<header class="rt-hero">
+  <div class="rt-wrap in">
+    <div>
+      <p class="kick">Registration</p>
+      <h1>Can I work there?</h1>
+      <p class="lede">It is the question almost everyone asks first, and the one people put off answering &mdash; because it looks like paperwork and feels like judgement on a career you have already built. We understand that. The shape of it: a Board looks at your qualification and your practice and decides whether they count. That answer shapes the visa, and the visa shapes when you could realistically fly. Which means the rest of the move is waiting on this, and getting it answered early is a kindness to yourself.</p>
+    </div>
+    <figure><img src="assets/heroes/registration-pathway.svg" alt="" width="400" height="300" loading="eager" decoding="async"></figure>
+  </div>
+</header>
+
+<!-- ANSWER FIRST (29 Sep 2026). When the shared answers already say the profession and the
+     country, the Board, whether registration applies, and the guide for it come before the
+     explanation. Filled by the script at the foot of the page from portal-professions.js. -->
+<section class="rt-sec ea" id="work-answer" data-work-answer hidden>
+  <div class="rt-wrap">
+    <p class="kick" data-wa-kick>Your answer</p>
+    <div class="ea-grid" data-wa-grid></div>
+    <p class="rt-note" data-wa-note></p>
+  </div>
+</section>
+
+<section class="rt-sec">
+  <div class="rt-wrap">
+    <div id="ctx-strip" data-ctx-strip style="margin-bottom:22px"></div>
+    <div class="rt-first">
+      <div>
+        <h2>Ten minutes, and your route has a name</h2>
+        <p>The checker asks what the Board asks — where you trained, what you are registered as now, how recently you have practised &mdash; and then tell you which pathway you would most likely be assessed under, what it costs and roughly how long it tends to take. Nothing is submitted. No fee is paid to find out. If the answer is not what you hoped, you will at least know that today rather than in four months.</p>
+      </div>
+      <a class="rt-btn" href="/pathway-checker">Check my pathway <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <p class="rt-lead" style="margin:22px 0 0">Not everyone wants to answer questions before they have had a look around, and that is fair. If you would rather read first, the registration guide for your country walks the same ground in order: <a href="/guides/new-zealand-registration">registration in New Zealand</a> or <a href="/guides/australia-registration">registration in Australia</a>.</p>
+  </div>
+</section>
+
+<section class="rt-sec tint">
+  <div class="rt-wrap">
+    <p class="kick">Your Board</p>
+    <h2>Find your Board, and what we have written for it</h2>
+    <p class="rt-lead">There is no single system to learn. Registration is profession by profession, and each Board sets its own rules, which is why advice from a colleague in another discipline so often turns out not to apply to you. Where we have written a guide, it explains the pathways and what that Board really looks at; the checklist beside it lists every document in the order it is worth gathering them, and remembers where you got to. Where we have not written one yet, we say so rather than pointing you at something vague.</p>
+    <div class="rt-regs">
+      <div class="rt-reg">
+        <span class="who">Radiographers, radiation therapists, nuclear medicine and MRI</span>
+        <p class="bd">Medical Radiation Technologists Board (NZ) &middot; Medical Radiation Practice Board of Australia</p>
+        <p class="lk"><a href="/guides/new-zealand-registration-mrtb">MRTB guide</a><a href="/guides/new-zealand-registration-mrtb#checklist">NZ checklist</a><a href="/guides/australia-registration-mrpba">MRPBA guide</a></p>
+      </div>
+      <div class="rt-reg">
+        <span class="who">Physiotherapists</span>
+        <p class="bd">Physiotherapy Board of New Zealand &middot; Physiotherapy Board of Australia</p>
+        <p class="lk"><a href="/guides/new-zealand-registration-pbnz">PBNZ guide</a><a href="/guides/new-zealand-registration-pbnz#checklist">Checklist</a><span>Australia in preparation</span></p>
+      </div>
+      <div class="rt-reg">
+        <span class="who">Occupational therapists</span>
+        <p class="bd">Occupational Therapy Board of New Zealand &middot; Occupational Therapy Board of Australia</p>
+        <p class="lk"><a href="/guides/new-zealand-registration-otbnz">OTBNZ guide</a><a href="/guides/new-zealand-registration-otbnz#checklist">Checklist</a><span>Australia in preparation</span></p>
+      </div>
+      <div class="rt-reg">
+        <span class="who">Psychologists</span>
+        <p class="bd">New Zealand Psychologists Board &middot; Psychology Board of Australia</p>
+        <p class="lk"><a href="/guides/new-zealand-registration-nzpb">NZPB guide</a><a href="/guides/new-zealand-registration-nzpb#checklist">Checklist</a><span>Australia in preparation</span></p>
+      </div>
+      <div class="rt-reg">
+        <span class="who">Anaesthetic technicians</span>
+        <p class="bd">Medical Sciences Council of New Zealand &middot; state-based in Australia</p>
+        <p class="lk"><a href="/guides/new-zealand-registration-mscnz">MSCNZ guide</a><a href="/guides/new-zealand-registration-mscnz#checklist">Checklist</a></p>
+      </div>
+      <div class="rt-reg">
+        <span class="who">Doctors, nurses, midwives and other professions</span>
+        <p class="bd">Medical Council of New Zealand &middot; Nursing Council of New Zealand &middot; Midwifery Council &middot; Ahpra Boards in Australia</p>
+        <p class="lk"><a href="/pathway-checker">Check your pathway</a><a href="/guides/new-zealand-registration">How NZ registration works</a><span>Board guides in preparation</span></p>
+      </div>
+    </div>
+    <p class="rt-lead" style="margin:22px 0 0">One more thing, and it is open: we are happy to read an application before the Board does, whether or not we ever place you. That includes the professions we do not recruit into. It costs you nothing and it has saved people months &mdash; <a href="/contact">just ask</a>.</p>
+  </div>
+</section>
+
+<section class="rt-band">
+  <div class="rt-wrap">
+    <p class="kick">Where people get stuck</p>
+    <h2>Registration is more than your qualification</h2>
+    <p class="rt-lead">It is rarely the assessment of your training that holds people up. Every regulator also has to satisfy itself about your standing, your English, your character and your health &mdash; and it is these, the slow ordinary ones, that decide whether registration takes four months or nine. None is difficult. They simply take longer than anyone expects, so it helps to know now.</p>
+    <div class="rt-grid">
+      <div class="box"><h3>Certificates of good standing</h3><p>You will need one from every regulator you have practised under &mdash; in New Zealand, from the last five years or since you last practised there, whichever is shorter. The authority sends it directly to the Council rather than to you, and it expires: the Medical Council wants every certificate dated within three months of the day you start work. Ask too early and it lapses; too late and everything else waits on it. There is a window, and your checklist marks it.</p></div>
+      <div class="box"><h3>The English-language rule</h3><p>This one surprises people who have practised in English for twenty years. It turns on where you trained and were assessed rather than on nationality, and each Board decides for itself what counts as evidence and for how long. In Australia it is one of the five registration standards every Board applies, with nursing and midwifery the exception. Worth settling before any fee is paid.</p></div>
+      <div class="box"><h3>Character, and a criminal-history check</h3><p>Ahpra requires an international criminal history check from one of two approved suppliers if you have been primarily based outside Australia for six consecutive months or longer as an adult. You pay for it, the supplier sends the result to Ahpra directly, and it is valid for three months. New Zealand works by declaration instead: any conviction carrying three months&rsquo; imprisonment or more, and any investigation or disciplinary proceeding anywhere in the world, current or past.</p></div>
+      <div class="box"><h3>Health, and fitness to practise</h3><p>Both countries ask whether anything about your physical or mental health could affect your ability to practise. It is a declaration, not an examination, and a condition that is managed is not a bar &mdash; what causes trouble is a gap between what you declare and what a referee or a previous regulator says. Declaring something early is almost always easier than explaining it later.</p></div>
+      <div class="box"><h3>Recency, CPD and indemnity</h3><p>Australia&rsquo;s other three registration standards, set Board by Board rather than nationally: enough recent practice, continuing professional development you can evidence, and professional indemnity insurance in place. If you have had a career break, recency is the one to check first, because it is the one with no quick fix.</p></div>
+      <div class="box"><h3>References that answer the question</h3><p>A thin reference is the most common reason a Board comes back with questions, and it is almost never the referee&rsquo;s fault &mdash; they simply were not told what was being looked for. A short conversation with them beforehand changes what they write.</p></div>
+    </div>
+    <div class="box" style="margin-top:18px"><h3>And one your employer asks, not the regulator</h3><p>Immunity and a pre-employment health declaration &mdash; measles, hepatitis B, the rest &mdash; are a condition of the job rather than of registration, handled by the employer&rsquo;s occupational health service after an offer. People routinely confuse the two and chase records they do not yet need. Worth gathering anyway, because they are far easier to obtain before you leave than afterwards.</p></div>
+    <p style="font-size:15px;line-height:1.6;color:#DCEAE5;margin:20px 0 0;max-width:66ch">Which of these bites, and how hard, is our experience rather than a rule, and we try to keep the two clearly apart. The Board&rsquo;s own document list, linked from every guide and checklist, is what governs your application. The specifics above were checked against the Medical Council of New Zealand and Ahpra on 28 September 2026 &mdash; both change them, so check the date before you rely on it.</p>
+  </div>
+</section>
+
+<section class="rt-sec">
+  <div class="rt-wrap">
+    <p class="kick">Alongside registration</p>
+    <h2>Worth a look before you commit to anything</h2>
+    <p class="rt-lead">Registration answers whether you <em>can</em> work. It says nothing about whether you would want to, or whether the move makes sense for the people coming with you. These three are where that starts to become clear.</p>
+    <div class="rt-grid">
+      <a class="rt-card" href="/jobs/professions">
+        <span class="k">Your profession</span>
+        <h3>What changes about the job itself</h3>
+        <p>The title, what your scope covers, how pay is set, and where you would be needed. Different enough from home to be worth twenty minutes.</p>
+        <span class="go">Every profession &rarr;</span>
+      </a>
+      <a class="rt-card" href="/guides/australia-vs-new-zealand">
+        <span class="k">Still deciding</span>
+        <h3>Australia or New Zealand?</h3>
+        <p>If you are weighing the two, this is the comparison. Registration, pay, housing and visas differ more than most people expect, and this choice shapes everything after it.</p>
+        <span class="go">Compare the two &rarr;</span>
+      </a>
+      <a class="rt-card" href="/move">
+        <span class="k">Your plan</span>
+        <h3>Somewhere to keep all this</h3>
+        <p>A plan built around your household and your dates. It remembers where you got to, and shows you one next step rather than twelve.</p>
+        <span class="go">Build my journey &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="rt-sec tint">
+  <div class="rt-wrap">
+    <p class="kick">What next?</p>
+    <h2>If the answer is yes, money is usually the next question</h2>
+    <p class="rt-lead">Two halves to it: what you would earn once you are there, and what the move asks of you before you earn anything. Both have real numbers behind them, which is unusual in this industry &mdash; pay in the public systems is set by collective agreement and published, and every fee in our calculator is one you could look up yourself. <a href="/is-it-worth-it">What could I earn?</a> puts both halves together.</p>
+    <div class="rt-next">
+      <a class="rt-card" href="/guides/new-zealand-salary"><span class="k">New Zealand</span><h3>Indicative pay, and how it is set</h3><p>What the agreements say, and what that tends to mean for where you would land on the scale.</p><span class="go">Pay in New Zealand &rarr;</span></a>
+      <a class="rt-card" href="/guides/australia-salary"><span class="k">Australia</span><h3>Indicative pay, and how it is set</h3><p>Award and enterprise agreements, state by state, in figures you can use.</p><span class="go">Pay in Australia &rarr;</span></a>
+      <a class="rt-card" href="/cost-calculator"><span class="k">Before the first pay</span><h3>What the move costs</h3><p>Assessment, registration, visa, flights, shipping, a rental bond. They tend to arrive together, and mostly before your first pay.</p><span class="go">Cost calculator &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="shell" style="padding:clamp(36px,5vw,64px) 0 clamp(44px,6vw,76px)"><page-feedback to="Sophie"></page-feedback></div>
+</main>
+<script src="page-feedback.js" defer></script>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Support through one of life’s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="site.js"></script>
+<script src="portal-professions.js"></script>
+<script src="journey.js"></script>
+<script src="candidate-context.js"></script>
+<script src="nav.js" defer></script>
+<script>
+/* Answer first: for THEIR profession in THEIR country — the Board, whether registration is
+   required, the guide we have written for it, and the checker if it covers them. Everything
+   read from portal-professions.js, the one list of Boards on the site. */
+(function () {
+  var ctx = window.EthicareContext, P = window.ETHICARE_PROFESSIONS;
+  if (!ctx || !P) return;
+  function esc(t) { return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function cap(t) { return t.charAt(0).toUpperCase() + t.slice(1); }
+  function card(key, d) {
+    var m = P.forCountry(key, d); if (!m) return '';
+    var country = d === 'nz' ? 'New Zealand' : 'Australia';
+    var v = m.regulated === true ? 'Yes \u2014 through ' + m.body : m.regulated === false ? 'Not a registered profession \u2014 ' + m.body + ' is what employers look for' : 'It depends on the Board for your profession';
+    var s = m.note || (m.regulated ? 'Registration is assessed on your qualification, your current registration and how recently you have practised. The Board decides the pathway; the guide says what each one asks for.' : 'There is no register to join, so the work is showing the credential employers ask for.');
+    var links = '';
+    if (P.inChecker(key)) links += '<a class="b" href="/pathway-checker">Check my pathway \u2192</a>';
+    var guide = (m.docs || []).filter(function (h) { return h.indexOf('#') === -1; })[0];
+    /* single-quoted hrefs: the link audit reads href="…" out of inline scripts as if they were links */
+    if (guide) links += '<a href=\'' + esc(guide) + '\'>Our registration guide for this \u2192</a>';
+    else links += '<a href=\'' + (d === 'nz' ? '/guides/new-zealand-registration' : '/guides/australia-registration') + '\'>How registration works in ' + country + ' \u2192</a>';
+    if (m.href) links += '<a href=\'' + esc(m.href) + '\' target="_blank" rel="noopener">' + esc(cap(m.body.replace(/^the /, ''))) + ' \u2197</a>';
+    return '<div class="ea-card"><span class="k">' + esc(m.label) + ' \u00b7 ' + country + '</span><span class="v">' + esc(cap(v)) + '</span><span class="s">' + esc(s) + '</span><div class="lk">' + links + '</div></div>';
+  }
+  function answer() {
+    var box = document.querySelector('[data-work-answer]'); if (!box) return;
+    var key = ctx.profession(), d = ctx.destMode();
+    if (!key || !d || key === 'other') { box.hidden = true; return; }
+    var h = '';
+    if (d === 'nz' || d === 'both') h += card(key, 'nz');
+    if (d === 'au' || d === 'both') h += card(key, 'au');
+    if (!h) { box.hidden = true; return; }
+    box.querySelector('[data-wa-grid]').innerHTML = h;
+    box.querySelector('[data-wa-kick]').textContent = d === 'both' ? 'Your answer, both countries' : 'Your answer';
+    box.querySelector('[data-wa-note]').textContent = 'From the answers on this page. Change them below and this changes with them. What a Board actually looks at, and the ten-minute checker, follow.';
+    box.hidden = false;
+  }
+  ctx.mount('#ctx-strip', { fields: ['profession', 'dest', 'household', 'stage'], intro: 'Tell us your profession and where you are thinking of, and the answer for you comes first.' });
+  ctx.onChange(answer);
+  answer();
+})();
+</script>
+
+
+<!-- SEO
+  Page Title: Can I work there? Registration for overseas clinicians | Ethicare Resourcing
+  URL Slug: /can-i-work-there
+  SEO Title: Can I work there? Registration for clinicians · Ethicare
+  Meta Description: Whether your qualification counts in New Zealand or Australia, which Board decides, and what else they ask — standing, English, character and health.
+-->
+</body>
+</html>

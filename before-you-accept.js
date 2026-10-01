@@ -169,7 +169,7 @@
       return set({ done: next });
     }
     var dest = el.getAttribute('data-dest');
-    if (dest) return set({ dest: dest });
+    if (dest) { ocShareBack(dest); return set({ dest: dest }); }
     if (el.hasAttribute('data-more')) return set({ showAll: !st.showAll });
     if (el.hasAttribute('data-copy')) return copyQuestions();
     if (el.hasAttribute('data-print')) return window.print();
@@ -185,6 +185,17 @@
     }
   } catch (e) {}
 
+/* 28 Sep 2026 — shared answers (candidate-context.js): seed from what the candidate has already said, write back what they say here, and show the strip. */
+  var ocSyncing = false;
+  function ocShareBack(d) { var ctx = window.EthicareContext; if (ctx && ctx.write && !ocSyncing && ctx.destMode() !== 'both') ctx.write({ dest: d }); }
+  (function () {
+    var ctx = window.EthicareContext; if (!ctx) return;
+    var hadSaved = false; try { hadSaved = !!localStorage.getItem(LSK); } catch (e) {}
+    var d = ctx.dest();
+    if (d && !hadSaved && !/[?&]destination=/.test(window.location.search)) st.dest = d;
+    ctx.onChange(function () { var d2 = ctx.dest(); if (d2 && d2 !== st.dest) { ocSyncing = true; set({ dest: d2 }); ocSyncing = false; } });
+    ctx.mount('#ctx-strip', { intro: 'Tell us where the offer is from and the checks are the ones that apply there.' });
+  })();
   var q = new RegExp('[?&]destination=(au|nz|australia|new-zealand)').exec(window.location.search);
   if (q) st.dest = q[1].charAt(0) === 'a' ? 'au' : 'nz';
 

@@ -17,18 +17,27 @@
     stage: 1, dest: 'au', region: 'QLD', origin: 'uk', who: 'me', followPartner: true,
     kidsSchool: 0, kidsPre: 0, profession: 'imaging', examChoice: null, temp: 'no', tempWeeks: 2,
     furnish: 'unfurnished', transport: 'public', shipping: 'excess',
-    employer: 'unsure', employerHow: 'unknown', covers: {}, currency: 'dest', overrides: {}
+    employer: 'unsure', employerHow: 'unknown', covers: {}, currency: 'dest', overrides: {},
+    /* 29 Sep 2026 — the calculator asks one thing at a time. `ans` records which of the
+       essentials have actually been answered (by the person, or by the shared answers on the
+       strip); a default in S0 is not an answer. `whoBase` is who is coming as answered; `who`
+       becomes 'first' from it when they say they are going ahead. `open` is the refine group
+       open on the estimate. */
+    ans: {}, whoBase: 'me', together: 'y', open: '',
+    /* the end-of-estimate capture; never saved to the draft, so a shared link or a
+       returning visit never carries someone else's name and address */
+    lead: { name: '', email: '', timeframe: '' }, optFuture: false, leadDone: false, leadErr: ''
   };
   var st = assign({}, S0);
   var moveFocus = false;   // set on stage changes only — never while someone is typing
 
   var STAGES = [
     { n: 1, short: 'Your move', label: 'Your move' },
-    { n: 2, short: 'Before you leave', label: 'Before you leave' },
-    { n: 3, short: 'Getting established', label: 'Getting established' },
-    { n: 4, short: 'Your support', label: 'Your support' },
     { n: 5, short: 'Your estimate', label: 'Your estimated moving budget' }
   ];
+  /* The essentials, in the order they are asked. Everything else is a refinement made on
+     the estimate itself, where the number is already on screen. */
+  var ESSENTIALS = ['dest', 'region', 'origin', 'who', 'together', 'kids', 'profession'];
   var TAGS = {
     official: { label: 'Official fee', css: 't-official' },
     calculated: { label: 'Calculated', css: 't-calc' },
@@ -45,7 +54,36 @@
   function isAU() { return st.dest === 'au'; }
   function cc() { return isAU() ? 'au' : 'nz'; }
   function code() { return D().currency.code[st.dest]; }
-  function save() { try { localStorage.setItem(LSK, JSON.stringify({ st: st, ts: Date.now() })); } catch (e) {} }
+  /* The draft is a convenience, not a record of a person: the capture fields are stripped
+     before it is written, so a shared device or a resumed link never holds someone's name
+     and email address. */
+  function save() {
+    try {
+      var o = assign({}, st);
+      delete o.seeded; delete o.lead; delete o.leadDone; delete o.leadErr;
+      delete o.optContact; delete o.optFuture;
+      localStorage.setItem(LSK, JSON.stringify({ st: o, ts: Date.now() }));
+    } catch (e) {}
+    summary();
+  }
+  /* A compact read-only summary for My Move's money line (my-move reads SUMMARY_KEY, never LSK).
+     Written only once the estimate has been reached, so a half-answered stage 1 never shows as a budget. */
+  var SUMMARY_KEY = 'ethicare_cost_summary_v1';
+  /* The capture submits the hidden form natively, which navigates to ?submitted=1 and
+     reloads this page. Without a flag that survives the round trip the person lands back
+     on the estimate with the same form in front of them and no sign it worked. */
+  var SENT_KEY = 'ethicare_cost_sent_v1';
+  function summary() {
+    try {
+      if (!D() || st.stage < 5) return;
+      var t = totals();
+      localStorage.setItem(SUMMARY_KEY, JSON.stringify({
+        grand: Math.round(t.grand), costToYou: Math.round(t.costToYou), contribution: Math.round(t.contribution),
+        upfront: Math.round(t.upfront), showUpfront: t.showUpfront, employer: st.employer,
+        currency: code(), dest: st.dest, region: regionLabel(), ts: Date.now()
+      }));
+    } catch (e) {}
+  }
   function set(patch) { assign(st, patch); save(); render(); }
   function setOverride(id, value) {
     var next = assign({}, st.overrides);
@@ -381,64 +419,87 @@
     return h;
   }
 
+  function ready() { for (var i = 0; i < ESSENTIALS.length; i++) if (!answered(ESSENTIALS[i])) return false; return true; }
+  function needsKids() { return st.whoBase === 'kids' || st.whoBase === 'family'; }
+  function needsTogether() { return st.whoBase !== 'me'; }
+  /* a question is answered when marked, or when it does not apply to this household */
+  function answered(k) {
+    if (k === 'together') return !needsTogether() || !!st.ans.together;
+    if (k === 'kids') return !needsKids() || !!st.ans.kids;
+    return !!st.ans[k];
+  }
   function tabs() {
+    var ok = ready();
     var h = '<nav class="cc-tabs" aria-label="Calculator steps" data-print-hide>';
     for (var i = 0; i < STAGES.length; i++) {
-      var s = STAGES[i], on = st.stage === s.n;
-      h += '<button type="button" class="cc-tab' + (on ? ' is-sel' : '') + '" data-stage="' + s.n + '"' + (on ? ' aria-current="step"' : '') + '><span class="n">' + (s.n === 5 ? '\u2713' : s.n) + '</span>' + esc(s.short) + '</button>';
+      var s = STAGES[i], on = st.stage === s.n, dis = s.n === 5 && !ok;
+      h += '<button type="button" class="cc-tab' + (on ? ' is-sel' : '') + '" data-stage="' + s.n + '"' + (on ? ' aria-current="step"' : '') + (dis ? ' disabled' : '') + '><span class="n">' + (s.n === 5 ? '\u2713' : (i + 1)) + '</span>' + esc(s.short) + '</button>';
     }
     return h + '</nav>';
   }
 
   /* ---------------- stages ---------------- */
+  /* one essential at a time: the answered ones as a single line each, the first unanswered
+     one open, the rest not yet on the page. When the last one is answered the estimate opens. */
+  function qline(k, label, value) {
+    return '<div class="cc-aline"><span class="cc-ak">' + esc(label) + '</span><span class="cc-av">' + esc(value) + '</span><button type="button" class="cc-link" data-reask="' + k + '">Change</button></div>';
+  }
+  function whoLabel(v) { return { me: 'Just me', partner: 'Me and my partner', kids: 'Me and my children', family: 'Me, my partner and our children' }[v] || ''; }
   function stage1() {
-    var d = D(), h = household();
+    var d = D(), ctx = window.EthicareContext;
     var origins = [];
     for (var k in d.flights) if (Object.prototype.hasOwnProperty.call(d.flights, k)) origins.push({ value: k, label: d.flights[k].label });
-    var s = '<div class="cc-stage"><div class="cc-shead"><span class="cc-stepn">Step 1 of 4</span><h2 tabindex="-1">Your move</h2><p class="cc-ssub">Where you are going, where you are coming from, and who is coming with you.</p></div>';
-
-    s += '<div class="cc-card"><h3>Where are you moving?</h3><div class="cc-choices two">'
-      + '<button type="button" class="cc-dest' + (isAU() ? ' is-sel' : '') + '" data-set="dest" data-val="au"><span class="cc-flag au">AU</span><span class="cc-dl">Australia</span><span class="cc-dd">Fees, visa charges and tenancy rules by state or territory</span></button>'
-      + '<button type="button" class="cc-dest' + (!isAU() ? ' is-sel' : '') + '" data-set="dest" data-val="nz"><span class="cc-flag nz">NZ</span><span class="cc-dl">New Zealand</span><span class="cc-dd">One national tenancy rule, and no school tuition for dependants</span></button>'
-      + '</div>';
-    s += '<h3 class="mt">' + (isAU() ? 'Which state or territory?' : 'Which area?') + '</h3><div class="cc-row-pills">' + pills(d.regions[st.dest], st.region, 'region', 'sm') + '</div></div>';
-
-    s += '<div class="cc-card"><h3>Where are you moving from?</h3><p class="cc-hint">This shapes our indicative flight costs only.</p>'
-      + '<label class="cc-lab" for="cc-origin">Country you are flying from</label>'
-      + '<select id="cc-origin" class="cc-select" data-set="origin">' + options(origins, st.origin) + '</select></div>';
-
-    s += '<div class="cc-card"><h3>Who is moving?</h3><div class="cc-choices stack">' + pills([
-      { value: 'me', label: 'Just me' },
-      { value: 'partner', label: 'Me and my partner' },
-      { value: 'kids', label: 'Me and my child or children' },
-      { value: 'family', label: 'Me, my partner and our children' },
-      { value: 'first', label: 'I am moving first and my family will follow' }
-    ], st.who, 'who', 'wide') + '</div>';
-
-    if (st.who === 'first') {
-      s += '<div class="cc-inset"><p class="cc-q">Is a partner following later?</p><div class="cc-row-pills">'
-        + pills([{ value: 'y', label: 'Yes' }, { value: 'n', label: 'No, just children' }], st.followPartner ? 'y' : 'n', 'followPartner', 'sm')
-        + '</div></div>';
-    }
-    if (st.who === 'kids' || st.who === 'family' || st.who === 'first') {
-      s += '<div class="cc-fields">'
+    var profs = [];
+    for (var k2 in d.registration.labels) if (Object.prototype.hasOwnProperty.call(d.registration.labels, k2)) profs.push({ value: k2, label: d.registration.labels[k2] });
+    var s = '<div class="cc-stage"><div class="cc-shead"><span class="cc-stepn">A few questions</span><h2 tabindex="-1">Your move</h2><p class="cc-ssub">Only what changes the number. Anything you have already told us is filled in.</p></div>';
+    var lines = '', openQ = '', found = false;
+    for (var n = 0; n < ESSENTIALS.length; n++) {
+      var q = ESSENTIALS[n];
+      if ((q === 'together' && !needsTogether()) || (q === 'kids' && !needsKids())) continue;
+      if (answered(q) && !found) {
+        if (q === 'dest') lines += qline(q, 'Moving to', isAU() ? 'Australia' : 'New Zealand');
+        if (q === 'region') lines += qline(q, isAU() ? 'State or territory' : 'Area', regionLabel());
+        if (q === 'origin') lines += qline(q, 'Moving from', (d.flights[st.origin] || d.flights.other).label);
+        if (q === 'who') lines += qline(q, 'Who is moving', whoLabel(st.whoBase));
+        if (q === 'together') lines += qline(q, 'Travelling', st.together === 'y' ? 'All together' : 'You first, family later');
+        if (q === 'kids') lines += qline(q, 'Children', (num(st.kidsSchool) ? num(st.kidsSchool) + ' school-age' : '') + (num(st.kidsSchool) && num(st.kidsPre) ? ', ' : '') + (num(st.kidsPre) ? num(st.kidsPre) + ' under school age' : '') || 'none');
+        if (q === 'profession') lines += qline(q, 'Profession', d.registration.labels[st.profession] || '');
+        continue;
+      }
+      if (found) break;
+      found = true;
+      if (q === 'dest') {
+        var both = ctx && ctx.destMode && ctx.destMode() === 'both';
+        openQ = '<div class="cc-card cc-q1"><h3>' + (both ? 'Which country do you want to cost first?' : 'Where are you moving?') + '</h3>' + (both ? '<p class="cc-hint">You are comparing both. Cost one, then come back and cost the other \u2014 your answers stay.</p>' : '') + '<div class="cc-choices two">'
+          + '<button type="button" class="cc-dest" data-set="dest" data-val="au"><span class="cc-flag au">AU</span><span class="cc-dl">Australia</span><span class="cc-dd">Fees, visa charges and tenancy rules by state or territory</span></button>'
+          + '<button type="button" class="cc-dest" data-set="dest" data-val="nz"><span class="cc-flag nz">NZ</span><span class="cc-dl">New Zealand</span><span class="cc-dd">One national tenancy rule, and no school tuition for dependent children of most work-visa holders</span></button>'
+          + '</div></div>';
+      }
+      if (q === 'region') openQ = '<div class="cc-card cc-q1"><h3>' + (isAU() ? 'Which state or territory?' : 'Which area?') + '</h3><p class="cc-hint">' + (isAU() ? 'Visa charges are national; tenancy rules, rents and school fees change by state.' : 'Rents and temporary accommodation change by area; everything else is national.') + '</p><div class="cc-row-pills">' + pills(d.regions[st.dest], '', 'region', 'sm') + '</div></div>';
+      if (q === 'origin') openQ = '<div class="cc-card cc-q1"><h3>Where are you moving from?</h3><p class="cc-hint">This shapes the indicative flight costs, and whether an examination is likely.</p><label class="cc-lab" for="cc-origin">Country you are flying from</label><select id="cc-origin" class="cc-select" data-set="origin"><option value="">Choose\u2026</option>' + options(origins, '') + '</select></div>';
+      if (q === 'who') openQ = '<div class="cc-card cc-q1"><h3>Who is moving?</h3><div class="cc-choices stack">' + pills([
+        { value: 'me', label: 'Just me' }, { value: 'partner', label: 'Me and my partner' }, { value: 'kids', label: 'Me and my child or children' }, { value: 'family', label: 'Me, my partner and our children' }
+      ], '', 'whoBase', 'wide') + '</div></div>';
+      if (q === 'together') openQ = '<div class="cc-card cc-q1"><h3>Are you all travelling together?</h3><p class="cc-hint">Many people go first and the family follows once there is somewhere to live. It changes what you pay before you leave and what comes later.</p><div class="cc-row-pills">' + pills([{ value: 'y', label: 'Yes, all together' }, { value: 'n', label: 'I go first, they follow' }], '', 'together', 'sm') + '</div></div>';
+      if (q === 'kids') openQ = '<div class="cc-card cc-q1"><h3>How many children?</h3><p class="cc-hint">School-age children can mean school fees in Australia; under-fives mean childcare.</p><div class="cc-fields">'
         + '<div><label class="cc-lab" for="cc-ks">School-age children</label><input id="cc-ks" class="cc-nb" type="text" inputmode="numeric" value="' + esc(st.kidsSchool) + '" data-num="kidsSchool"></div>'
         + '<div><label class="cc-lab" for="cc-kp">Children under school age</label><input id="cc-kp" class="cc-nb" type="text" inputmode="numeric" value="' + esc(st.kidsPre) + '" data-num="kidsPre"></div>'
-        + '</div>';
+        + '</div><div class="cc-row-pills mt"><button type="button" class="cc-pill sm is-sel" data-ans="kids">That\u2019s right</button></div></div>';
+      if (q === 'profession') openQ = '<div class="cc-card cc-q1"><h3>Your profession</h3><p class="cc-hint">The regulator, the fee and the pathway all change with it.</p><label class="cc-lab" for="cc-prof">Profession</label><select id="cc-prof" class="cc-select" data-set="profession"><option value="">Choose\u2026</option>' + options(profs, '') + '</select></div>';
     }
-    s += '</div>';
+    if (lines) s += '<div class="cc-card cc-alines">' + lines + '</div>';
+    s += openQ;
+    if (ready()) s += '<div class="cc-card cc-q1"><h3>That is everything we need.</h3><p class="cc-hint">The estimate is built from these answers and our planning figures. Every figure on it can be changed.</p><button type="button" class="cc-nextb" data-stage="5">See my estimate<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>';
     return s + '</div>';
   }
 
-  function stage2() {
+  function groupLeave() {
     var d = D(), t = totals();
     var profs = [];
     for (var k in d.registration.labels) if (Object.prototype.hasOwnProperty.call(d.registration.labels, k)) profs.push({ value: k, label: d.registration.labels[k] });
-    var s = '<div class="cc-stage"><div class="cc-shead"><span class="cc-stepn">Step 2 of 4</span><h2 tabindex="-1">Before you leave</h2><p class="cc-ssub">Registration, visas, documents and getting everyone there. Change any figure you already know \u2014 the estimate improves every time you do.</p></div>';
-    s += '<div class="cc-card"><h3>Your profession</h3><p class="cc-hint">So we can show the right registration costs — the regulator, the fee and the pathway all change with it.</p>'
-      + '<label class="cc-lab" for="cc-prof">Profession</label><select id="cc-prof" class="cc-select" data-set="profession">' + options(profs, st.profession) + '</select>'
-      + '<h3 class="mt">Does your pathway include an examination?</h3>'
-      + '<p class="cc-hint">An examination or clinical assessment can cost more than everything else in your registration put together, so it is worth answering honestly. Nurses and midwives with recent practice in ' + esc(d.registration.exam.streamlined) + ' are usually exempt.</p>'
+    var s = '';
+    s += '<div class="cc-card"><h3>Does your pathway include an examination?</h3>'
+      + '<p class="cc-hint">An examination or clinical assessment can cost more than everything else in your registration put together, so it is worth answering carefully. Nurses and midwives with recent practice in ' + esc(d.registration.exam.streamlined) + ' are usually exempt.</p>'
       + '<div class="cc-row-pills">' + pills([
         { value: 'no', label: 'No examination required' }, { value: 'yes', label: 'Yes, an examination applies' }, { value: 'unsure', label: 'Not sure yet' }
       ], examEff(), 'examChoice', 'sm') + '</div>'
@@ -448,12 +509,12 @@
     ], st.shipping, 'shipping', 'sm') + '</div></div>';
     s += rowsHTML(t.leave, 'Before you leave', t.leaveT);
     s += '<div class="cc-note"><p>Immigration adviser and migration agent fees are optional third-party costs \u2014 you are not required to use one. Government charges are the only compulsory part.' + (isAU() ? '' : ' ' + esc(d.visa.nz.note)) + '</p></div>';
-    return s + '</div>';
+    return s;
   }
 
-  function stage3() {
+  function groupEst() {
     var d = D(), h = household(), t = ten(), tt = totals(), r = rent();
-    var s = '<div class="cc-stage"><div class="cc-shead"><span class="cc-stepn">Step 3 of 4</span><h2 tabindex="-1">Getting established</h2><p class="cc-ssub">Somewhere to stay, then somewhere to live. Securing a rental is usually the largest single cost of arriving.</p></div>';
+    var s = '';
 
     s += '<div class="cc-card"><h3>Is temporary accommodation provided by your employer?</h3><div class="cc-row-pills">' + pills([
       { value: 'no', label: 'No' }, { value: 'yes', label: 'Yes' }, { value: 'partial', label: 'Partially' }, { value: 'unsure', label: 'Not sure' }
@@ -470,7 +531,7 @@
       + '<div class="cc-fields"><div><label class="cc-lab" for="cc-rent">Expected weekly rent</label><div class="cc-money"><span class="cc-sym" aria-hidden="true">$</span><input id="cc-rent" type="text" inputmode="numeric" value="' + esc(String(r)) + '" data-ov="rent"></div></div>'
       + '<div class="cc-tagwrap">' + tag(ov('rent') === null ? 'estimate' : 'yours') + '</div></div>'
       + '<div class="cc-inset lg"><p class="cc-bond">Cash required to secure the rental: ' + fmt(r * t.bondWeeks + r * t.advanceWeeks) + '</p>'
-      + '<p class="cc-bondrule">' + esc(t.rule) + ' Most of this comes back to you at the end of the tenancy.</p>'
+      + '<p class="cc-bondrule">' + esc(t.rule) + ' The bond is refundable at the end of the tenancy, less anything properly owed; rent in advance pays for part of your tenancy and is not a refundable deposit.</p>'
       + '<div class="cc-racts"><a href="' + esc(t.href) + '" target="_blank" rel="noopener">' + esc(t.source) + ' &rarr;</a><span class="cc-stamp">Last checked ' + esc(d.lastChecked) + '</span></div></div></div>';
 
     s += '<div class="cc-card"><h3>Will your accommodation be furnished?</h3><div class="cc-row-pills">' + pills([
@@ -484,7 +545,7 @@
     if (h.kidsSchool > 0) {
       var sch = isAU() ? (d.school482[st.region] || d.school482.AUNS) : null;
       s += '<div class="cc-panel"><span class="eyebrow">Schooling</span>'
-        + '<p class="cc-ph">' + (isAU() ? esc(regionLabel()) + ' \u2014 ' + esc(sch.verdict) : 'State-school tuition: NZ$0') + '</p>'
+        + '<p class="cc-ph">' + (isAU() ? esc(regionLabel()) + ' \u2014 ' + esc(sch.verdict) : 'State-school tuition: depends on your visa') + '</p>'
         + '<p class="cc-pb">' + esc(isAU() ? sch.line : d.nzSchool.line) + '</p>'
         + '<p class="cc-pc">' + (isAU()
           ? 'This is the likely position based on what you have entered, for dependent children of a subclass 482 holder. Where we cannot determine your eligibility, school tuition stays out of your total until you confirm it.'
@@ -492,12 +553,12 @@
         + '<a class="cc-plink" href="' + esc(isAU() ? sch.href : d.nzSchool.officialHref) + '" target="_blank" rel="noopener">Check the official rules &rarr;</a></div>';
     }
 
-    return s + rowsHTML(tt.est, 'Getting established', tt.estT) + '</div>';
+    return s + rowsHTML(tt.est, 'Getting established', tt.estT);
   }
 
-  function stage4() {
+  function groupSupport() {
     var t = totals();
-    var s = '<div class="cc-stage"><div class="cc-shead"><span class="cc-stepn">Step 4 of 4</span><h2 tabindex="-1">Your support</h2><p class="cc-ssub">What your employer is contributing, and what you need in the bank before your first full salary arrives.</p></div>';
+    var s = '';
 
     s += '<div class="cc-card"><h3>Is your employer contributing towards relocation?</h3><div class="cc-row-pills">' + pills([
       { value: 'yes', label: 'Yes' }, { value: 'no', label: 'No' }, { value: 'unsure', label: 'Not sure yet' }
@@ -531,7 +592,29 @@
     s += '<div class="cc-card cc-rows"><h3>Don\u2019t forget the gap before your first salary</h3><p class="cc-hint">You may arrive several weeks before your first full salary lands. Make sure you have enough available for everyday expenses until it does.</p>';
     for (var j = 0; j < t.buf.length; j++) s += rowHTML(t.buf[j]);
     s += '<div class="cc-total"><span>Initial buffer</span><span>' + fmt(t.bufT) + '</span></div></div>';
-    return s + '</div>';
+    return s;
+  }
+
+  /* the refine groups on the estimate: collapsed to a title and a subtotal, one open at a time.
+     Everything that used to be steps 2, 3 and 4 lives here, under the number it changes. */
+  function group(id, title, sub, total, body) {
+    var on = st.open === id;
+    var h = '<section class="cc-group' + (on ? ' is-open' : '') + '" id="g-' + id + '">';
+    h += '<button type="button" class="cc-gh" data-open="' + id + '" aria-expanded="' + (on ? 'true' : 'false') + '"><span class="cc-gt">' + esc(title) + '<span class="cc-gs">' + esc(sub) + '</span></span><span class="cc-gv">' + fmt(total) + '</span><span class="cc-gx" aria-hidden="true">' + (on ? '\u2212' : '+') + '</span></button>';
+    /* the body is always in the DOM, hidden when closed, so print shows every line */
+    h += '<div class="cc-gb"' + (on ? '' : ' hidden') + '>' + body + '</div>';
+    return h + '</section>';
+  }
+  function groups(t) {
+    var d = D(), h = household();
+    var leaveSub = (d.registration.labels[st.profession] || '') + ' \u00b7 ' + (examEff() === 'yes' ? 'examination' : examEff() === 'no' ? 'no examination' : 'examination unsure') + ' \u00b7 ' + { cases: 'suitcases', excess: 'boxes sent on', ship: 'part-container' }[st.shipping];
+    var estSub = (st.temp === 'yes' ? 'accommodation provided' : num(st.tempWeeks) + ' weeks temporary') + ' \u00b7 rent ' + fmt(rent()) + '/wk \u00b7 ' + st.furnish + (h.kidsSchool ? ' \u00b7 schooling' : '');
+    var supSub = st.employer === 'yes' ? 'contribution ' + fmt(t.contribution) : st.employer === 'no' ? 'no employer contribution' : 'employer contribution not yet known';
+    return '<div class="cc-groups"><h3 class="cc-gtitle">Where it goes, and where to change it</h3>'
+      + group('leave', 'Before you leave', leaveSub, t.leaveT, groupLeave())
+      + group('est', 'Getting established', estSub, t.estT, groupEst())
+      + group('support', 'Your support and the first weeks', supSub, t.bufT, groupSupport())
+      + '</div>';
   }
 
   function sumCard(title, rows, label, total, extra) {
@@ -563,7 +646,7 @@
       + '<div class="cc-th lead"><span class="cc-thk">Costs that fall before you leave</span><span class="cc-thv">' + C + ' ' + fmt(beforeLeave) + '</span>'
       + '<span class="cc-thn">Registration, visas, documents and flights are mostly paid while you are still at home.</span></div>'
       + '<div class="cc-th"><span class="cc-thk">Employer support</span><span class="cc-thv">' + (t.contribution > 0 ? 'Up to ' + C + ' ' + fmt(t.contribution) : 'None recorded') + '</span>'
-      + '<span class="cc-thn">' + (t.contribution > 0 ? 'Worth confirming how and when this is paid before you rely on it.' : 'Tell us about a relocation package in step 4 and we will factor it in.') + '</span></div>'
+      + '<span class="cc-thn">' + (t.contribution > 0 ? 'Worth confirming how and when this is paid before you rely on it.' : 'Tell us about a relocation package under \u201cYour support\u201d below and we will factor it in.') + '</span></div>'
       + '</div>';
 
     /* Cash-flow timing, which is a different question from who ultimately pays. */
@@ -584,11 +667,8 @@
       ? '<div class="cc-two"><p class="cc-twoh">Moving in two stages</p><div class="cc-sline"><span>Your initial move</span><span>' + fmt(t.initial) + '</span></div><div class="cc-sline"><span>Family joining later</span><span>' + fmt(t.later) + '</span></div></div>'
       : '';
 
-    s += '<div class="cc-sums">'
-      + sumCard('Before you leave', t.leave, 'Subtotal', t.leaveT)
-      + sumCard('Getting established', t.est, 'Subtotal', t.estT)
-      + sumCard('Initial buffer', t.buf, 'Subtotal', t.bufT, later)
-      + '</div>';
+    s += groups(t);
+    if (later) s += '<div class="cc-sums">' + later + '</div>';
 
     s += '<div class="cc-band"><div class="cc-figs">'
       + '<div><span class="cc-fk">Total cost of moving</span><span class="cc-fv">' + C + ' ' + fmt(t.grand) + '</span></div>'
@@ -632,18 +712,128 @@
       + '<a href="' + (isAU() ? '/destinations/australia' : '/destinations/') + '"><span class="t">Destination guides</span><span class="l">Where should I live? &rarr;</span></a>'
       + '</div></div>';
 
+    s += leadBlock();
+
     return s + '</div>';
+  }
+
+  /* ---------------- email me this estimate ----------------
+     Asked at the END, never as a condition: the estimate is complete and free whether or not
+     anyone fills this in. Two opt-ins in Sophie's own words (1 Oct 2026), both unticked, and
+     the wording is stored with the submission alongside a version stamp, because what someone
+     agreed to only means something next to the words they read. */
+  var CONSENT_V = '2026-10-01';
+  /* ONE permission, and it is about being on file for roles — not an invitation to ask us
+     for relocation advice (Sophie, 1 Oct 2026). There is not always a vacancy for everyone,
+     and a box that says "contact me about my move" promises a service we cannot staff.
+     Being held on file for roles and services is something we can honour whatever the
+     vacancy list looks like this week. */
+  var OPTS = {
+    optFuture: 'I am happy for Ethicare to hold my details and contact me about future roles and services'
+  };
+  /* The same timeframes the pathway checker asks (pathway-checker-data.js TIMEFRAMES), so one
+     inbox does not end up holding two incompatible scales for the same question. */
+  var TIMEFRAMES = ['As soon as possible', 'Within 3 months', '3\u20136 months', '6\u201312 months', '12+ months', 'Just exploring'];
+  function emailLive() { return !!window.ETHICARE_EMAIL_LIVE; }
+
+  function leadBlock() {
+    if (st.leadDone) {
+      return '<div class="cc-lead is-done" data-print-hide><h3>Thank you.</h3><p>'
+        + (emailLive() ? 'Your estimate is on its way to ' + esc(st.lead.email) + '. ' : '')
+        + (st.optFuture
+            ? 'We will keep you in mind when something comes up in your profession. We do not always have a vacancy to match, so we will be in touch when we do rather than in the meantime.'
+            : 'We have not kept your details for future roles, as you did not ask us to.')
+        + '</p></div>';
+    }
+    /* With the emailed copy switched off there is no service being given, so the permission is
+       the whole point and is required. With it on, the email is the service and the permission
+       is a genuine extra someone can decline. */
+    var live = emailLive();
+    var opts = '<option value="">Choose\u2026</option>' + TIMEFRAMES.map(function (t) {
+      return '<option value="' + esc(t) + '"' + (st.lead.timeframe === t ? ' selected' : '') + '>' + esc(t) + '</option>';
+    }).join('');
+    return '<div class="cc-lead" data-print-hide>'
+      + '<h3>' + (live ? 'Want a copy, and to hear about roles?' : 'Want to hear when a role comes up?') + '</h3>'
+      + '<p class="cc-lead-sub">'
+      + (live ? 'We will email you this estimate. ' : '')
+      + 'Tell us roughly when you are thinking of moving and we will keep you in mind for roles in your profession. '
+      + '<strong>We do not always have a vacancy to match</strong>, so this is a list to be on, not a promise of a role \u2014 and the estimate above is yours either way.</p>'
+      + (st.leadErr ? '<p class="cc-err" role="alert">' + esc(st.leadErr) + '</p>' : '')
+      + '<div class="cc-f">'
+      + '<div><label class="cc-l" for="cc-name">Your name</label><input id="cc-name" type="text" autocomplete="name" data-lead="name" value="' + esc(st.lead.name) + '" placeholder="e.g. Priya Sharma"></div>'
+      + '<div><label class="cc-l" for="cc-email">Email</label><input id="cc-email" type="email" autocomplete="email" data-lead="email" value="' + esc(st.lead.email) + '" placeholder="you@example.com"></div>'
+      + '<div><label class="cc-l" for="cc-when">When are you thinking of moving?</label><select id="cc-when" data-lead="timeframe">' + opts + '</select></div>'
+      + '</div>'
+      + '<label class="cc-opt"><input type="checkbox" data-opt="optFuture"' + (st.optFuture ? ' checked' : '') + '><span>' + OPTS.optFuture + '</span></label>'
+      + '<button type="button" class="cc-send" data-sendlead>' + (live ? 'Email me my estimate' : 'Keep me in mind') + '</button>'
+      + '<p class="cc-priv">We never sell or share your details, and you can ask us to delete them at any time. <a href="/privacy-policy">How we handle them</a>.</p>'
+      + '</div>';
+  }
+
+  function submitLead() {
+    var l = st.lead, d = D(), t;
+    if (!l.name.trim()) { st.leadErr = 'Please add your name.'; return render(); }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(l.email.trim())) { st.leadErr = 'Please check your email address.'; return render(); }
+    if (!l.timeframe) { st.leadErr = 'Please tell us roughly when you are thinking of moving.'; return render(); }
+    /* Without the emailed copy there is nothing being given in return, so holding the details
+       has to be something they actively asked for, not a by-product of pressing a button. */
+    if (!emailLive() && !st.optFuture) {
+      st.leadErr = 'Please tick the box so we know we may hold your details and contact you.';
+      return render();
+    }
+    st.leadErr = '';
+    try { t = totals(); } catch (e) { t = { grand: 0, costToYou: 0, contribution: 0 }; }
+    var form = document.getElementById('cc-netlify-form');
+    if (!form) { st.leadDone = true; return render(); }
+    var summary = [
+      'Estimated total: ' + code() + ' ' + fmt(t.grand),
+      'Employer contribution: ' + code() + ' ' + fmt(t.contribution),
+      'Estimated cost to them: ' + code() + ' ' + fmt(t.costToYou),
+      'Moving to: ' + regionLabel(),
+      'From: ' + ((d && (d.flights[st.origin] || d.flights.other) || {}).label || st.origin)
+    ].join(' | ');
+    var payload = {
+      name: l.name.trim(), email: l.email.trim(),
+      destination: st.dest, region: st.region, origin: st.origin,
+      profession: (d && d.registration.labels[st.profession]) || st.profession,
+      who: st.whoBase + (st.together === 'n' ? ' (moving first)' : ''),
+      estimate_total: code() + ' ' + fmt(t.grand),
+      estimate_summary: summary,
+      timeframe: l.timeframe,
+      opt_future: st.optFuture ? 'yes' : 'no',
+      consent_version: CONSENT_V,
+      consent_wording: st.optFuture ? OPTS.optFuture : 'not ticked',
+      email_copy: emailLive() ? 'yes' : 'no',
+      page: location.pathname
+    };
+    Object.keys(payload).forEach(function (k) {
+      var el = form.elements[k];
+      if (!el) { el = document.createElement('input'); el.type = 'hidden'; el.name = k; form.appendChild(el); }
+      el.value = payload[k];
+    });
+    if (window.track) window.track('calculator_lead', { country: cc(), timeframe: l.timeframe });
+    try { sessionStorage.setItem(SENT_KEY, JSON.stringify({ email: payload.email, opt: payload.opt_future })); } catch (e) {}
+    /* keepalive: the native submit navigates away and would cancel an ordinary fetch */
+    if (emailLive()) {
+      try {
+        fetch('/.netlify/functions/send-result', {
+          method: 'POST', keepalive: true,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: payload.name, email: payload.email, summary: summary, resumeLink: location.href })
+        }).catch(function () {});
+      } catch (e) {}
+    }
+    HTMLFormElement.prototype.submit.call(form);
   }
 
   function view() {
     var d = D();
     if (!d) return '<div class="cc-stage"><div class="cc-card"><h3>Loading your figures\u2026</h3><p class="cc-hint">If this stays on screen, the cost data has not loaded. The <a href="/guides/cost-of-relocating">relocation cost guide</a> covers the same ground in full.</p></div></div>';
-    var body = st.stage === 1 ? stage1() : st.stage === 2 ? stage2() : st.stage === 3 ? stage3() : st.stage === 4 ? stage4() : stage5();
+    if (st.stage !== 1 && st.stage !== 5) st.stage = ready() ? 5 : 1;
+    var body = st.stage === 1 ? stage1() : stage5();
     var nav = '<div class="cc-nav" data-print-hide>';
-    nav += st.stage > 1 ? '<button type="button" class="cc-back" data-stage="' + (st.stage - 1) + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Back</button>' : '<span></span>';
-    nav += st.stage < 5
-      ? '<button type="button" class="cc-nextb" data-stage="' + (st.stage + 1) + '">' + (st.stage === 4 ? 'See my estimate' : 'Continue') + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>'
-      : '<button type="button" class="cc-b3" data-restart>Start again</button>';
+    nav += st.stage === 5 ? '<button type="button" class="cc-back" data-stage="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Change my answers</button>' : '<span></span>';
+    nav += st.stage === 5 ? '<button type="button" class="cc-b3" data-restart>Start again</button>' : '';
     return tabs() + body + nav + '</div>';
   }
 
@@ -686,17 +876,27 @@
           window.track('calculator_completed', { country: cc(), band: band });
         }
       }
+      if (to === 5 && !ready()) return;
       moveFocus = true; set({ stage: to }); window.scrollTo(0, Math.max(0, app.getBoundingClientRect().top + window.pageYOffset - 96)); return;
     }
 
     var key = el.getAttribute('data-set');
     if (key) {
       var v = el.getAttribute('data-val');
-      if (key === 'dest') return set({ dest: v, region: v === 'au' ? 'QLD' : 'akl' });
+      if (key === 'dest') { shareBack({ dest: v }); mark('dest'); return set({ dest: v, region: v === 'au' ? 'QLD' : 'akl' }); }
+      if (key === 'region') { mark('region'); return set({ region: v }); }
+      if (key === 'whoBase') { shareBack({ who: v }); mark('who'); return set(assign({ whoBase: v }, applyWho(v, st.together))); }
+      if (key === 'together') { mark('together'); return set(assign({ together: v }, applyWho(st.whoBase, v))); }
       if (key === 'followPartner') return set({ followPartner: v === 'y' });
       if (key === 'tempWeeks') return set({ tempWeeks: num(v) });
       var p = {}; p[key] = v; return set(p);
     }
+    var ansK = el.getAttribute('data-ans');
+    if (ansK) { mark(ansK); return set({}); }
+    var reask = el.getAttribute('data-reask');
+    if (reask) { var a = assign({}, st.ans); delete a[reask]; if (reask === 'who') { delete a.together; delete a.kids; } moveFocus = true; return set({ ans: a, stage: 1 }); }
+    var og = el.getAttribute('data-open');
+    if (og) { st.open = st.open === og ? '' : og; save(); render(); var g = document.getElementById('g-' + og); if (g && st.open) { var y = g.getBoundingClientRect().top + window.pageYOffset - 96; window.scrollTo(0, Math.max(0, y)); } return; }
 
     var cov = el.getAttribute('data-cover');
     if (cov) {
@@ -713,9 +913,12 @@
 
     if (el.hasAttribute('data-print')) return window.print();
 
+    if (el.hasAttribute('data-sendlead')) return submitLead();
+
     if (el.hasAttribute('data-restart')) {
-      try { localStorage.removeItem(LSK); } catch (e2) {}
-      st = assign({}, S0, { covers: {}, overrides: {} });
+      try { localStorage.removeItem(LSK); localStorage.removeItem(SUMMARY_KEY); sessionStorage.removeItem(SENT_KEY); } catch (e2) {}
+      st = assign({}, S0, { covers: {}, overrides: {}, ans: {} });
+      seedFromContext(false);
       moveFocus = true; save(); return render();
     }
   });
@@ -723,6 +926,10 @@
   app.addEventListener('input', function (e) {
     var el = e.target;
     if (el.tagName !== 'INPUT') return;
+    /* the capture fields hold their own value and must NOT go through set(): that saves the
+       draft and re-renders on every keystroke, which would wipe what is being typed */
+    var lk = el.getAttribute('data-lead');
+    if (lk) { st.lead[lk] = el.value; return; }
     var id = el.getAttribute('data-ov');
     if (id) { setOverride(id, el.value); return render(); }
     var k = el.getAttribute('data-num');
@@ -731,27 +938,110 @@
 
   app.addEventListener('change', function (e) {
     var el = e.target;
+    var opt = el.getAttribute && el.getAttribute('data-opt');
+    if (opt) { st[opt] = !!el.checked; return; }     /* no re-render: it would drop focus */
+    var lk2 = el.getAttribute && el.getAttribute('data-lead');
+    if (lk2) { st.lead[lk2] = el.value; return; }
     if (el.tagName !== 'SELECT') return;
     var key = el.getAttribute('data-set');
-    if (!key) return;
+    if (!key || !el.value) return;
+    mark(key);
     /* a new profession means a new pathway — drop any exam answer given for the old one */
     if (key === 'profession') return set({ profession: el.value, examChoice: null });
     var p = {}; p[key] = el.value; set(p);
   });
+  /* who is coming, and whether they travel together, decide `who` for the totals */
+  function applyWho(base, together) {
+    if (base === 'me') return { who: 'me', followPartner: false };
+    if (together === 'n') return { who: 'first', followPartner: base === 'partner' || base === 'family' };
+    return { who: base, followPartner: false };
+  }
+  function mark(k) {
+    var a = assign({}, st.ans); a[k] = true; st.ans = a;
+    /* the last essential answered opens the estimate — no button to find */
+    if (st.stage === 1 && ready()) { if (window.track) window.track('calculator_started', { country: cc() }); moveFocus = true; st.stage = 5; }
+  }
 
   /* ---------------- boot ---------------- */
   try {
     var raw = localStorage.getItem(LSK);
     if (raw) {
       var parsed = JSON.parse(raw);
-      if (parsed && parsed.st && parsed.ts && (Date.now() - parsed.ts) < MAX_AGE) st = assign({}, S0, parsed.st);
+      if (parsed && parsed.st && parsed.ts && (Date.now() - parsed.ts) < MAX_AGE) {
+        st = assign({}, S0, parsed.st);
+        if (!st.ans || typeof st.ans !== 'object') st.ans = {};
+        /* an estimate saved before 29 Sep 2026 had all the essentials on step 1 */
+        if (parsed.st.stage > 1 && !parsed.st.ans) { st.whoBase = st.who === 'first' ? (st.followPartner ? 'family' : 'kids') : st.who; st.together = st.who === 'first' ? 'n' : 'y'; ESSENTIALS.forEach(function (k) { st.ans[k] = true; }); st.stage = 5; }
+      }
     }
   } catch (e) {}
 
   var q = new RegExp('[?&]destination=(au|nz|australia|new-zealand)').exec(window.location.search);
-  if (q) { st.dest = q[1].charAt(0) === 'a' ? 'au' : 'nz'; if (D() && !D().regions[st.dest].some(function (r) { return r.value === st.region; })) st.region = st.dest === 'au' ? 'QLD' : 'akl'; }
+  if (q) { st.dest = q[1].charAt(0) === 'a' ? 'au' : 'nz'; st.ans.dest = true; if (D() && !D().regions[st.dest].some(function (r) { return r.value === st.region; })) st.region = st.dest === 'au' ? 'QLD' : 'akl'; }
   var qp = new RegExp('[?&]profession=([a-z]+)').exec(window.location.search);
-  if (qp && D() && D().registration.labels[qp[1]]) st.profession = qp[1];
+  if (qp && D() && D().registration.labels[qp[1]]) { st.profession = qp[1]; st.ans.profession = true; }
+
+  /* ONE onboarding (candidate-journey review, 14 Sep 2026): a fresh visit with no saved estimate
+     and no URL intent starts from what Move already knows — destination, origin, who is coming,
+     and the profession where the key exists in this tool's own list. S0's defaults (Australia,
+     QLD, UK, just me, imaging) are otherwise asserted on the reader's behalf; a plan they wrote is
+     a better default than one we guessed. Every field stays editable.
+     28 Sep 2026: the shared answers can change while this page is open (the strip above the
+     calculator), so seeding is a function and runs again on every change. A shared answer of
+     'both' countries cannot seed a one-country estimate, so the destination is left as it is and
+     the candidate picks which to cost first — without that pick overwriting 'comparing both'. */
+  var WHO_FROM_CTX = { alone: 'me', partner: 'partner', children: 'kids', both: 'family', parent: 'me' };
+  var WHO_TO_CTX = { me: 'alone', partner: 'partner', kids: 'children', family: 'both' };
+  var syncing = false;
+  /* A shared answer IS an answer: it fills the field and marks the question answered, so it is
+     never asked again here. Children's age bands seed the counts (one per band) but the count
+     itself is still asked, because a band is not a number. */
+  function seedFromContext(live) {
+    var ctx = window.EthicareContext; if (!ctx || !ctx.has()) return false;
+    var p = ctx.read() || {}, dd = ctx.dest(), patch = {}, ans = assign({}, st.ans);
+    if (dd) { if (dd !== st.dest) { patch.dest = dd; patch.region = dd === 'au' ? 'QLD' : 'akl'; delete ans.region; } ans.dest = true; }
+    if (p.origin && D() && D().flights[p.origin]) { patch.origin = p.origin; ans.origin = true; }
+    if (p.profession && D() && D().registration.labels[p.profession]) { patch.profession = p.profession; ans.profession = true; }
+    var w = WHO_FROM_CTX[ctx.household ? ctx.household() : (p.hh && p.hh['with'])];
+    if (w && (live || !st.seededWho)) {
+      patch.whoBase = w; patch.seededWho = true; ans.who = true;
+      if (w !== st.whoBase) { delete ans.together; delete ans.kids; }
+      assign(patch, applyWho(w, w === 'me' ? 'y' : st.together));
+      var bands = (p.hh && p.hh.bands) || [];
+      if ((w === 'kids' || w === 'family') && bands.length && !num(st.kidsSchool) && !num(st.kidsPre)) {
+        patch.kidsPre = bands.indexOf('u5') > -1 ? 1 : 0;
+        patch.kidsSchool = bands.filter(function (b) { return b !== 'u5'; }).length;
+      }
+    }
+    if (!Object.keys(patch).length && JSON.stringify(ans) === JSON.stringify(st.ans)) return false;
+    syncing = true; assign(st, patch); st.ans = ans; st.seeded = true; syncing = false;
+    return true;
+  }
+  function shareBack(o) {
+    var ctx = window.EthicareContext; if (!ctx || !ctx.write || syncing) return;
+    var patch = {};
+    if (o.dest && ctx.destMode && ctx.destMode() !== 'both') patch.dest = o.dest;
+    if (o.who && WHO_TO_CTX[o.who]) patch.household = WHO_TO_CTX[o.who];
+    if (Object.keys(patch).length) ctx.write(patch);
+  }
+  try {
+    var ctx0 = window.EthicareContext, saved = !!localStorage.getItem(LSK);
+    if (ctx0 && ctx0.has() && !saved) seedFromContext(false);
+    if (ctx0 && ctx0.onChange) ctx0.onChange(function () { if (seedFromContext(true)) { save(); render(); } });
+    if (ctx0 && ctx0.mount) ctx0.mount('#ctx-strip', { fields: ['profession', 'dest', 'household', 'stage'], intro: 'Tell us who is coming and where, and the estimate only asks about what applies to you.' });
+  } catch (e) {}
+
+  /* Back from the submit: show the confirmation rather than the form again. sessionStorage,
+     not localStorage — a new visit tomorrow should get a fresh form, not a stale thank-you. */
+  try {
+    var sent = sessionStorage.getItem(SENT_KEY);
+    if (sent && /[?&]submitted=1/.test(location.search)) {
+      var sv = JSON.parse(sent);
+      st.leadDone = true; st.lead.email = sv.email || ''; st.optFuture = sv.opt === 'yes';
+      st.stage = 5;
+      try { history.replaceState(null, '', location.pathname); } catch (e) {}
+    }
+  } catch (e) {}
 
   if (!D()) {
     var tries = 0, poll = setInterval(function () {

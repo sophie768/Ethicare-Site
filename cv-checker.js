@@ -11,6 +11,8 @@
   var head = document.querySelector('[data-headline]');
   var wrap = document.querySelector('[data-resultwrap]');
   var destSel = document.getElementById('rvDest');
+  var racts = document.querySelector('[data-racts]');
+  var printMeta = document.querySelector('[data-printmeta]');
   var YEAR = new Date().getFullYear();
 
   var FILLER = ['excellent communication skills', 'good communication skills', 'strong communication skills', 'team player', 'works well in a team', 'work well in a team', 'hard working', 'hardworking', 'strong work ethic', 'passionate about', 'dedicated professional', 'highly motivated', 'self-motivated', 'self motivated', 'attention to detail', 'goes the extra mile', 'go the extra mile', 'fast-paced environment', 'fast paced environment', 'works well under pressure', 'work well under pressure', 'flexible and adaptable', 'proven track record', 'results-driven', 'can-do attitude', 'thinks outside the box', 'think outside the box', 'excellent interpersonal skills'];
@@ -66,6 +68,9 @@
 
   function updateMeter() {
     var w = wordCount(ta.value);
+    /* Cleanup on correction (DESIGN-SYSTEM.md form standard): once there is enough to check,
+       the box stops reporting itself invalid and the "not enough text" card goes with it. */
+    if (ta.getAttribute('aria-invalid') === 'true' && w >= 40) clearShort();
     if (!w) { meter.textContent = 'Nothing pasted yet.'; return; }
     var pages = Math.max(1, Math.round(w / 500));
     meter.textContent = w.toLocaleString() + (w === 1 ? ' word' : ' words') + ' \u00b7 roughly ' + pages + (pages === 1 ? ' page' : ' pages') + ' at eleven point';
@@ -103,7 +108,7 @@
     var hits = [];
     for (var i = 0; i < PERSONAL.length; i++) { if (PERSONAL[i].re.test(t)) hits.push(PERSONAL[i].label); }
     if (!hits.length) return { s: 'good', t: 'No personal details that should not be there', p: 'No date of birth, nationality, marital status or identity number. Convention in both countries is that none of it belongs on a CV, and including it can make a reader uneasy about handling the document at all.' };
-    return { s: 'fix', t: 'Details that do not belong on the page', p: 'These are standard on a CV in some countries and are not asked for in ' + dest() + '. Take them off. Where an immigration or registration process genuinely needs them, they are collected separately and securely.', list: hits };
+    return { s: 'fix', t: 'Details that do not belong on the page', p: 'These are standard on a CV in some countries and are not asked for in ' + dest() + '. Take them off. Where an immigration or registration process needs them, they are collected separately and securely.', list: hits };
   }
 
   function checkLocal(t) {
@@ -163,7 +168,7 @@
   function checkVoice(t) {
     var lower = t.toLowerCase(), hits = found(PASSIVE, lower);
     if (!hits.length) return { s: 'good', t: 'Written in the active voice', p: 'No duty lists. Led, managed, developed, trained \u2014 that is what a reader is looking for.' };
-    if (hits.length <= 2) return { s: 'watch', t: 'A little duty-list language', p: 'A few phrases describe the job rather than what you did in it. Swap them for what you actually did: led, ran, set up, trained, redesigned.', list: hits };
+    if (hits.length <= 2) return { s: 'watch', t: 'A little duty-list language', p: 'A few phrases describe the job rather than what you did in it. Swap them for what you did: led, ran, set up, trained, redesigned.', list: hits };
     return { s: 'fix', t: 'It reads as a job description', p: 'Phrases like these describe what the post involved, not what you contributed \u2014 and a reader cannot tell a strong clinician from an average one in the same post. Rewrite each as something you did.', list: hits };
   }
 
@@ -176,12 +181,19 @@
   function run() {
     var t = ta.value;
     if (wordCount(t) < 40) {
+      /* The one validation failure this tool has. The message announces (role="alert"), the
+         textarea is marked invalid and described by it, and focus goes to the textarea — the
+         control that failed — rather than to the results heading below it. */
       head.textContent = 'Paste a bit more and we can be useful';
-      out.innerHTML = '<article class="rv-card watch"><div class="rv-top"><span class="rv-pill watch">Not enough to read</span><h3>There is not enough text to check</h3></div><p>Open your CV, select all of it, copy, and paste the whole document into the box above. Formatting does not matter and headings are welcome \u2014 several of the checks look for them.</p></article>';
+      out.innerHTML = '<article class="rv-card watch" id="cvc-short" role="alert"><div class="rv-top"><span class="rv-pill watch">Not enough to read</span><h3>There is not enough text to check</h3></div><p>Open your CV, select all of it, copy, and paste the whole document into the box above. Formatting does not matter and headings are welcome \u2014 several of the checks look for them.</p></article>';
       wrap.hidden = false;
-      show();
+      if (racts) racts.hidden = true;
+      ta.setAttribute('aria-invalid', 'true');
+      ta.setAttribute('aria-describedby', 'cvc-short');
+      ta.focus();
       return;
     }
+    clearShort();
     var results = [];
     for (var i = 0; i < CHECKS.length; i++) { results.push(CHECKS[i](t)); }
     results.sort(function (a, b) { return ORDER[a.s] - ORDER[b.s]; });
@@ -210,23 +222,43 @@
     show();
   }
 
+  function destName() { return destSel && destSel.value === 'au' ? 'Australia' : 'New Zealand'; }
   function show() {
+    if (racts) racts.hidden = false;
+    if (printMeta) printMeta.textContent = 'Ethicare Resourcing CV check \u2014 for applications to ' + destName() + '. Guidance a reader here might give, not a decision; you are welcome to disagree with any of it. ethicareresourcing.com/cv-checker';
     var y = wrap.getBoundingClientRect().top + window.pageYOffset - 78;
     window.scrollTo({ top: y, behavior: 'smooth' });
     head.setAttribute('tabindex', '-1');
     head.focus({ preventScroll: true });
+  }
+  function clearShort() {
+    ta.removeAttribute('aria-invalid');
+    ta.removeAttribute('aria-describedby');
+    if (document.getElementById('cvc-short')) { out.innerHTML = ''; wrap.hidden = true; if (racts) racts.hidden = true; }
   }
 
   ta.addEventListener('input', updateMeter);
   runBtn.addEventListener('click', run);
   clearBtn.addEventListener('click', function () {
     ta.value = '';
+    clearShort();
     updateMeter();
     out.innerHTML = '';
     wrap.hidden = true;
+    if (racts) racts.hidden = true;
     ta.focus();
   });
   if (destSel) destSel.addEventListener('change', function () { if (!wrap.hidden) run(); });
+  /* 28 Sep 2026 — shared answers (candidate-context.js): seed from what the candidate has already said, write back what they say here, and show the strip. */
+  (function () {
+    var ctx = window.EthicareContext; if (!ctx || !destSel) return;
+    function seed() { var d = ctx.dest(); if (d && destSel.value !== d) { destSel.value = d; if (!wrap.hidden) run(); } }
+    seed();
+    destSel.addEventListener('change', function () { if (ctx.write && ctx.destMode() !== 'both') ctx.write({ dest: destSel.value }); });
+    ctx.onChange(seed);
+    ctx.mount('#ctx-strip', { intro: 'Tell us where you are applying and the checks that change with the destination follow.' });
+  })();
+  if (racts) { var printBtn = racts.querySelector('[data-print]'); if (printBtn) printBtn.addEventListener('click', function () { window.print(); }); }
   updateMeter();
 
   /* ---------------------------------------------------------------------------

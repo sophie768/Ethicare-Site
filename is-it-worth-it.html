@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+<title>What could I earn? Salaries and take-home pay · Ethicare</title>
+<meta name="description" content="What you could earn in New Zealand or Australia, what reaches your account after tax, and what the move costs before your first payday.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
+.hero-sub{font-family:'Playfair Display',Georgia,serif;font-weight:500}
+/* Router 2 of 5. Owns no topic: the question, an honest paragraph, then handoffs to the page
+   that owns each thing. Intrinsically responsive — auto-fit grids, no fixed columns. */
+.rt-wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.rt-hero{background:var(--warm,#FCFBF8);border-bottom:1px solid var(--mint,#C9DED3)}
+.rt-hero .in{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(24px,3.4vw,52px);align-items:center;padding-block:clamp(38px,4.4vw,62px)}
+.rt-hero h1{font-weight:600;font-size:clamp(30px,4vw,48px);line-height:1.06;letter-spacing:-.02em;color:var(--teal,#02615D);margin:0 0 16px;max-width:22ch}
+.rt-hero .lede{font-size:clamp(17px,1.8vw,20px);line-height:1.62;color:var(--text,#333);max-width:58ch;margin:0}
+.rt-hero figure{margin:0}
+.rt-hero img{width:100%;max-width:400px;height:auto;display:block;margin-left:auto}
+.rt-sec{padding:clamp(34px,4vw,58px) 0}
+.rt-sec.tint{background:var(--soft-green,#E3ECE5);border-top:1px solid rgba(2,97,93,.65);border-bottom:1px solid rgba(2,97,93,.65)}
+.rt-sec.sand{background:var(--warm,#FCFBF8);border-top:1px solid rgba(2,97,93,.65)}
+.rt-sec h2{font-weight:600;font-size:clamp(22px,2.6vw,30px);line-height:1.18;color:var(--teal,#02615D);margin:0 0 12px;max-width:28ch}
+.rt-lead{font-size:17px;line-height:1.68;color:var(--text,#333);max-width:66ch;margin:0 0 26px}
+/* Indicative pay, up front. The question is "what could I earn?", so the figure
+   comes before the explanation of how pay is set, not after it. Every band is
+   read off a named, dated agreement; APEX publishes the agreements in full and
+   that is where anyone who wants the step-by-step detail should go. */
+.pay{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--mint,#C9DED3);border-radius:16px;overflow:hidden;margin:0 0 14px}
+.pay th,.pay td{text-align:left;padding:13px 18px;border-bottom:1px solid var(--mint,#C9DED3);font-size:15px;line-height:1.45;vertical-align:top}
+.pay tr:last-child td{border-bottom:none}
+.pay th{font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--fern-text,#2F5E49);background:var(--warm,#FCFBF8)}
+.pay td:first-child{font-weight:600;color:var(--teal,#02615D)}
+.pay .amt{font-family:'Work Sans',sans-serif;font-weight:600;color:var(--teal,#02615D);white-space:nowrap}
+.pay .src{color:var(--muted,#555);font-size:14px}
+.payscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+/* the caption is for screen readers; the heading above already says it on screen */
+.pay caption{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media(max-width:620px){
+  /* A five-column-deep table does not survive a phone, so each row becomes a
+     small card and the header row is replaced by a label on every cell. */
+  .payscroll{overflow:visible}
+  .pay,.pay tbody,.pay tr,.pay td{display:block;width:100%}
+  .pay tr:first-child{display:none}
+  .pay tr{border-bottom:1px solid var(--mint,#C9DED3);padding:14px 16px}
+  .pay tr:last-child{border-bottom:none}
+  .pay td{border:none;padding:0;font-size:15px}
+  .pay td:first-child{font-size:16px;margin-bottom:6px}
+  .pay td[data-l]::before{content:attr(data-l);display:block;font-family:'Work Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fern-text,#2F5E49);margin-top:8px}
+  .pay .amt{font-size:17px;white-space:normal}
+}
+.rt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:14px}
+.rt-card{display:flex;flex-direction:column;gap:7px;background:#fff;border:1px solid var(--mint,#C9DED3);border-radius:16px;padding:22px 24px;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.1);border-color:var(--teal,#02615D)}
+.rt-card .k{font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fern-text,#2F5E49)}
+.rt-card h3{font-weight:600;font-size:18.5px;line-height:1.28;color:var(--teal,#02615D);margin:0}
+.rt-card p{font-size:15px;line-height:1.55;color:var(--muted,#555);margin:0}
+.rt-card .go{margin-top:auto;padding-top:12px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:var(--fern-text,#2F5E49)}
+.rt-first{background:#fff;border:1px solid var(--mint,#C9DED3);border-radius:18px;box-shadow:inset 0 4px 0 #72A471;padding:clamp(24px,2.6vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px 34px;align-items:center}
+.rt-first h2{margin:0 0 10px}
+.rt-first p{font-size:16.5px;line-height:1.62;color:var(--muted,#555);margin:0}
+.rt-btn{display:inline-flex;align-items:center;gap:9px;justify-self:start;min-height:48px;padding:13px 22px;border-radius:12px;background:var(--teal,#02615D);color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;text-decoration:none;transition:background .18s ease}
+.rt-btn:hover{background:#01312F}
+.rt-btn.ghost{background:transparent;color:var(--teal,#02615D);border:1.5px solid var(--teal,#02615D)}
+.rt-btn.ghost:hover{background:var(--soft-green,#E3ECE5)}
+.rt-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px}
+.rt-pane{background:#fff;border:1px solid var(--mint,#C9DED3);border-radius:16px;padding:24px 26px}
+.rt-pane h3{font-weight:600;font-size:19px;line-height:1.28;color:var(--teal,#02615D);margin:0 0 8px}
+.rt-pane p{font-size:15.5px;line-height:1.6;color:var(--muted,#555);margin:0 0 12px}
+.rt-pane ul{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:8px}
+.rt-pane li{font-size:15px;line-height:1.55;color:var(--text,#333);padding-left:20px;position:relative}
+.rt-pane li::before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;background:#72A471}
+.rt-pane .lk{display:flex;flex-wrap:wrap;gap:8px 18px}
+.rt-pane .lk a{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:var(--teal,#02615D);text-decoration:underline;text-decoration-color:#72A471;text-underline-offset:3px}
+.rt-band{background:var(--teal,#02615D);color:#fff;padding:clamp(36px,4.2vw,60px) 0}
+.rt-band h2{color:#fff;margin-bottom:12px}
+.rt-band .rt-lead{color:#DCEAE5}
+.rt-band .kick{color:#C6E084}
+.rt-band .box{background:rgba(1,49,47,.42);border-radius:14px;padding:20px 22px}
+.rt-band .box h3{font-weight:600;font-size:17.5px;line-height:1.3;color:#fff;margin:0 0 7px}
+.rt-band .box p{font-size:15px;line-height:1.56;color:#DCEAE5;margin:0}
+.rt-band a.on-dark{color:#C6E084;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.kick{display:flex;align-items:center;gap:12px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fern-text,#2F5E49);margin:0 0 14px}
+.kick::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none}
+.rt-note{font-size:15px;line-height:1.62;color:var(--muted,#555);max-width:66ch;margin:22px 0 0}
+
+/* country tabs — the panels are plain sections, so with JS off both simply show */
+.ct-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.ct-tab{flex:1 1 200px;min-height:52px;padding:14px 20px;border-radius:12px;border:1.5px solid var(--mint,#C9DED3);background:#fff;color:var(--teal,#02615D);font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease}
+.ct-tab:hover:not(.is-on){background:var(--soft-green,#E3ECE5)}
+.ct-tab.is-on{background:var(--teal,#02615D);border-color:var(--teal,#02615D);color:#fff}
+.ct-qs{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:11px;max-width:54ch}
+.ct-qs li{position:relative;padding-left:22px;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(17px,1.9vw,20px);line-height:1.45;color:var(--teal,#02615D)}
+.ct-qs li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:2px;background:#A6C84A}
+/* answer first (29 Sep 2026) */
+.ea{padding-top:clamp(28px,4vw,44px);padding-bottom:clamp(20px,3vw,32px)}
+.ea .rt-note{margin-top:16px}
+.ea-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:16px;margin-top:6px}
+.ea-card{background:var(--teal,#02615D);color:#fff;border-radius:16px;padding:clamp(22px,3vw,32px);display:flex;flex-direction:column;gap:8px}
+.ea-card .k{font-family:var(--display,'Work Sans',sans-serif);font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C6E084}
+.ea-card .v{font-family:var(--display,'Work Sans',sans-serif);font-size:clamp(26px,3.4vw,40px);font-weight:600;line-height:1.1;letter-spacing:-.02em;text-wrap:balance}
+.ea-card .s{font-size:15px;line-height:1.55;color:rgba(255,255,255,.85);max-width:52ch;text-wrap:pretty}
+.ea-card .go{margin-top:auto;padding-top:10px;font-family:var(--display,'Work Sans',sans-serif);font-weight:600;font-size:15px;color:#C6E084;text-decoration:none}
+.ea-card .go:hover{color:#fff}
+.ea-card.quiet{background:var(--soft,#E6F1ED);color:var(--text,#333)}
+.ea-card.quiet .k{color:#2F5E49}.ea-card.quiet .v{color:var(--teal,#02615D);font-size:clamp(20px,2.4vw,26px)}.ea-card.quiet .s{color:#555}.ea-card.quiet .go{color:var(--teal,#02615D)}
+</style>
+<link rel="canonical" href="https://ethicareresourcing.com/is-it-worth-it">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="What could I earn? Salaries and take-home pay · Ethicare">
+<meta property="og:description" content="What you could earn in New Zealand or Australia, what reaches your account after tax, and what the move costs before your first payday.">
+<meta property="og:url" content="https://ethicareresourcing.com/is-it-worth-it">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="prose-links.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="shell">
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/move">Your relocation plan</a>
+          <a href="/resources">Guides &amp; resources</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Cost calculator</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/ask">Ask Ethicare</a>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+
+<header class="rt-hero">
+  <div class="rt-wrap in">
+    <div>
+      <p class="kick">The money question</p>
+      <h1>What could I earn?</h1>
+      <p class="lede">A new role. A different lifestyle. What could it mean for you financially? Explore salaries in New Zealand and Australia, work out what would reach your account, and see how the numbers fit the life you want.</p>
+    </div>
+    <figure><img src="assets/heroes/salary-and-pay.svg" alt="" width="400" height="300" loading="eager" decoding="async"></figure>
+  </div>
+</header>
+
+<!-- ANSWER FIRST (29 Sep 2026). When the shared answers already say the profession and the
+     country, the figure comes before the explanation. Filled by the script at the foot of the
+     page from the table rows below (data-profs) — one source of numbers, not two. -->
+<section class="rt-sec ea" id="earn-answer" data-earn-answer hidden>
+  <div class="rt-wrap">
+    <p class="kick" data-ea-kick>For you</p>
+    <div class="ea-grid" data-ea-grid></div>
+    <p class="rt-note" data-ea-note></p>
+  </div>
+</section>
+
+<section class="rt-sec">
+  <div class="rt-wrap">
+    <p class="kick">Where are you considering?</p>
+    <h2 data-ea-h2>Pay you can check</h2>
+    <p class="rt-lead">Here is something unusual about both countries: in the public systems, pay is set by collective agreement and published.  That means we can show you indicative bands and name the agreement they come from, and it means you can verify us. We keep figures rough on purpose, rounded so neither end overstates, because a precise number against a role we have not seen would be a promise we are not in a position to make.</p>
+    <div id="ctx-strip" data-ctx-strip></div>
+    <div class="ct-tabs" role="tablist" aria-label="Choose a country">
+      <button class="ct-tab" type="button" role="tab" id="tab-both" aria-controls="panel-nz panel-au" aria-selected="false" data-country="both">Both, side by side</button>
+      <button class="ct-tab is-on" type="button" role="tab" id="tab-nz" aria-controls="panel-nz" aria-selected="true" data-country="nz">New Zealand</button>
+      <button class="ct-tab" type="button" role="tab" id="tab-au" aria-controls="panel-au" aria-selected="false" data-country="au">Australia</button>
+    </div>
+    <p class="rt-note" style="margin-top:16px">Still weighing it up? <a href="/guides/australia-vs-new-zealand">Compare the two countries</a>.</p>
+  </div>
+</section>
+
+<!-- NEW ZEALAND -->
+<section class="rt-sec tint ct-panel" id="panel-nz" role="tabpanel" aria-labelledby="tab-nz">
+  <div class="rt-wrap">
+    <h2>What could you earn in New Zealand?</h2>
+    <p class="rt-lead">Public pay here is published, not negotiated. So here is the answer first, and how it is arrived at underneath.</p>
+    <div class="payscroll">
+    <table class="pay">
+      <caption>Indicative public-system pay in New Zealand by profession</caption>
+      <tr><th>Profession</th><th>Indicative, steps 1&ndash;8</th><th>Set by</th></tr>
+      <tr data-profs="anaesthetic ot radtherapy">
+        <td>Anaesthetic technicians<br>Occupational therapists<br>Radiation therapists</td>
+        <td class="amt" data-l="Indicative range">NZ$79,000 &ndash; $113,000</td>
+        <td class="src" data-l="Set by">The APEX allied health scale &mdash; one ladder, several professions</td>
+      </tr>
+      <tr data-profs="physio">
+        <td>Physiotherapists</td>
+        <td class="amt" data-l="Indicative range">NZ$78,000 &ndash; $118,000</td>
+        <td class="src" data-l="Set by">The APEX physiotherapy agreement, ten steps, current to 31 January 2027</td>
+      </tr>
+      <tr data-profs="sonography">
+        <td>Sonographers</td>
+        <td class="amt" data-l="Indicative range">NZ$120,000 &ndash; $162,000</td>
+        <td class="src" data-l="Set by">The APEX sonographers agreement, eleven steps. Reporting sonographers run NZ$131,000 &ndash; $173,000</td>
+      </tr>
+      <tr>
+        <td>General practitioners</td>
+        <td class="amt" data-l="Indicative range">Around NZ$200,000</td>
+        <td class="src" data-l="Set by">No published ladder &mdash; general practice is the one career here where the number really is negotiated</td>
+      </tr>
+      <tr data-profs="medicine">
+        <td>Senior medical officers<br>Specialists and consultants</td>
+        <td class="amt" data-l="Indicative range">NZ$198,000 &ndash; $282,000</td>
+        <td class="src" data-l="Set by">The ASMS agreement, by years since specialist registration</td>
+      </tr>
+      <tr data-profs="imaging nuclearmed nursing midwifery">
+        <td>Radiographers<br>MRI &amp; nuclear medicine<br>Nurses &amp; midwives</td>
+        <td class="amt" data-l="Indicative range">Confirmed for your role</td>
+        <td class="src" data-l="Set by">Covered by a current agreement. We read your rate off the signed document and tell you the step, not a guess</td>
+      </tr>
+    </table>
+    </div>
+    <p class="rt-note" style="margin-bottom:26px">Indicative and rounded, from the agreements current in September 2026. Most scales rise a step a year, with the top steps by agreed objectives. Designated and senior roles sit on their own higher scales. The agreements themselves are published in full by <a href="https://apex.org.nz" target="_blank" rel="noopener">APEX</a> &mdash; we are a recruiter, not a union, so if you want the clause-by-clause detail, go to the source.</p>
+    <div class="rt-grid">
+      <a class="rt-card" href="/guides/new-zealand-salary">
+        <span class="k">Then</span>
+        <h3>How pay is set</h3>
+        <p>What decides your step, what sits on top of the base, and why the same role pays the same in Invercargill and Auckland.</p>
+        <span class="go">Pay in New Zealand &rarr;</span>
+      </a>
+      <a class="rt-card" href="/take-home-pay">
+        <span class="k">Next</span>
+        <h3>What reaches your bank account</h3>
+        <p>A salary is the starting point. Work out the estimate after income tax, the ACC earner&rsquo;s levy and your KiwiSaver contribution.</p>
+        <span class="go">Estimate my take-home pay &rarr;</span>
+      </a>
+      <a class="rt-card" href="/guides/living-in-new-zealand">
+        <span class="k">Then</span>
+        <h3>What kind of life it supports</h3>
+        <p>Housing, transport, groceries and childcare, against the household income you would have. Every region guide costs it locally.</p>
+        <span class="go">Living in New Zealand &rarr;</span>
+      </a>
+      <a class="rt-card" href="/cost-calculator?destination=nz">
+        <span class="k">Before you go</span>
+        <h3>What you need before your first payday</h3>
+        <p>Registration, the visa, flights, temporary accommodation and setting up a home. If relocation support is offered, check what it covers and when it is paid.</p>
+        <span class="go">Plan your moving costs &rarr;</span>
+      </a>
+    </div>
+    <p class="rt-note">Look past the headline figure: check the contracted hours, how your experience will be recognised, and whether allowances, overtime or on-call payments are included. <a href="/guides/new-zealand-pay-agreements">Which agreement sets your pay</a>.</p>
+    <div class="rt-first" style="margin-top:26px">
+      <div>
+        <h2>Considering a move to New Zealand?</h2>
+        <p>Tell us about your experience and what you are hoping for. You do not need to have decided anything, and there is no cost to you either way.</p>
+      </div>
+      <a class="rt-btn" href="/register-interest">Register your interest <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- AUSTRALIA -->
+<section class="rt-sec tint ct-panel" id="panel-au" role="tabpanel" aria-labelledby="tab-au" hidden>
+  <div class="rt-wrap">
+    <h2>What could you earn in Australia?</h2>
+    <p class="rt-lead">Awards and enterprise agreements differ state by state, so the same job can pay differently in Brisbane and Perth. Ethicare places into medical imaging in Australia, so that is what we can speak to properly.</p>
+    <div class="rt-grid">
+      <a class="rt-card" href="/guides/australia-salary">
+        <span class="k">Step one</span>
+        <h3>Explore salaries</h3>
+        <p>Medical imaging pay by profession and by state or territory, with the framework named. Your experience, location, employer and working pattern all move the number.</p>
+        <span class="go">Pay in Australia &rarr;</span>
+      </a>
+      <a class="rt-card" href="/take-home-pay">
+        <span class="k">Step two</span>
+        <h3>What reaches your bank account</h3>
+        <p>Turn an advertised figure into an everyday budget, after income tax and the Medicare levy. It also asks whether superannuation sits on top of the package or inside it.</p>
+        <span class="go">Estimate my take-home pay &rarr;</span>
+      </a>
+      <a class="rt-card" href="/destinations/australia">
+        <span class="k">Step three</span>
+        <h3>What kind of life it supports</h3>
+        <p>Where you settle shapes your budget as much as what you earn. Housing and everyday costs, state by state, alongside what your household needs.</p>
+        <span class="go">Explore the states &rarr;</span>
+      </a>
+      <a class="rt-card" href="/cost-calculator?destination=au">
+        <span class="k">Step four</span>
+        <h3>What you need before your first payday</h3>
+        <p>Registration, licensing, the visa, flights and the first weeks of accommodation. Check whether relocation costs are paid directly or reimbursed after you arrive.</p>
+        <span class="go">Plan your moving costs &rarr;</span>
+      </a>
+    </div>
+    <p class="rt-note">Check the whole package: base pay, contracted hours, superannuation, additional payments and relocation support. If a role advertises an hourly rate, check how many paid hours the annual figure assumes. <a href="/guides/australia-money">Tax, super and banking</a>.</p>
+    <div class="rt-first" style="margin-top:26px">
+      <div>
+        <h2>Considering a medical imaging role in Australia?</h2>
+        <p>Tell us about your experience and where you would like to go. It is fine if you have not decided yet.</p>
+      </div>
+      <a class="rt-btn" href="/register-interest">Register your interest <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="rt-band">
+  <div class="rt-wrap">
+    <p class="kick">What might not suit you</p>
+    <h2>The things people wish they had known</h2>
+    <p class="rt-lead">We would rather you heard these from us now than discovered them in month three. None of them is a reason not to come. All of them are reasons some people decide not to, and that is a perfectly good outcome.</p>
+    <div class="rt-grid">
+      <div class="box"><h3>A pay rise is not always a pay rise</h3><p>If you are coming from a no-income-tax country, the gross figure can look excellent and the net one ordinary. Housing may cost more than you are used to as well. Run both against the cost of living before you get attached to the headline.</p></div>
+      <div class="box"><h3>Progression is slower and flatter</h3><p>Public-system scales are transparent, which is the good news. It also means less room to negotiate, and seniority often counts for more than performance. Some people find that fairer; others find it frustrating.</p></div>
+      <div class="box"><h3>You may be further from family than any map suggests</h3><p>Flights are long and expensive, and a two-week visit is not a weekend trip. This is the single most common thing people underestimate, and it is worth a conversation at home early on.</p></div>
+      <div class="box"><h3>The first year costs more than the calculator says</h3><p>Setting up a household from nothing, a car, furniture, a deposit, is real money that no relocation package covers in full. Build a buffer, not just a budget.</p></div>
+    </div>
+    <p style="font-size:15px;line-height:1.6;color:#DCEAE5;margin:20px 0 0;max-width:66ch">If any of this gives you pause, that is the page doing its job. <a class="on-dark" href="/contact">Talk it through with us</a> &mdash; we would rather have a clear conversation than a placement that unravels.</p>
+  </div>
+</section>
+
+<section class="rt-sec">
+  <div class="rt-wrap">
+    <p class="kick">The other half of the answer</p>
+    <h2>Is it worth it for you?</h2>
+    <p class="rt-lead">The numbers matter. So does the life around them. A move might bring more time outdoors, a new direction at work, or the chance to build a different family life. It can also mean starting again, being further from people you love, and finding your feet somewhere unfamiliar.</p>
+    <ul class="ct-qs">
+      <li>Will I enjoy the actual role and working pattern?</li>
+      <li>Does the budget work if we start on one income?</li>
+      <li>What opportunities will my partner and children have?</li>
+      <li>Can we afford visits home, and the unexpected?</li>
+      <li>Does this move bring us closer to the life we want?</li>
+    </ul>
+    <p class="rt-note">You do not need every answer before you start exploring. You do deserve a clear picture before you commit to anything.</p>
+  </div>
+</section>
+
+<section class="rt-sec sand">
+  <div class="rt-wrap">
+    <p class="kick">When there is an offer</p>
+    <h2>Have an offer? Look at the whole picture</h2>
+    <p class="rt-lead">Check the salary, the hours, the location, the relocation support and any conditions attached, and picture what an ordinary week would look like once the move is behind you. Both of these are written to be read before you sign, not after.</p>
+    <div class="rt-two">
+      <a class="rt-card" href="/before-you-accept"><span class="k">Before you sign</span><h3>What to check in an offer</h3><p>Start date, relocation support, probation, on-call, leave, and what is written down versus what was said warmly on a call.</p><span class="go">Before you accept &rarr;</span></a>
+      <a class="rt-card" href="/guides/negotiating-your-offer"><span class="k">If you want to ask</span><h3>What is reasonable to negotiate</h3><p>Where there is genuine room in a collective-agreement system, and where asking simply will not move anything.</p><span class="go">Negotiating your offer &rarr;</span></a>
+    </div>
+    <div class="rt-first" style="margin-top:26px">
+      <div>
+        <h2>Weighing up an offer on your own?</h2>
+        <p>We will help you ask the practical questions and think through the trade-offs, whether or not the role came from us.</p>
+      </div>
+      <a class="rt-btn ghost" href="/contact">Talk to Ethicare <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="rt-sec tint">
+  <div class="rt-wrap">
+    <p class="kick">What next?</p>
+    <h2>If the numbers work, the next question is where</h2>
+    <p class="rt-lead">Housing, the commute and how far you would be from a big hospital vary far more between regions than between the two countries, so where you land can matter more to the maths than which country you pick.</p>
+    <div class="rt-grid">
+      <a class="rt-card" href="/where-would-we-live"><span class="k">Also worth asking</span><h3>Where could we live?</h3><p>Say what matters to you, and see which places fit.</p><span class="go">Where could we live? &rarr;</span></a>
+      <a class="rt-card" href="/can-i-work-there"><span class="k">Also worth asking</span><h3>Can I work there?</h3><p>If you have not settled registration yet, everything here is still hypothetical. Ten minutes fixes that.</p><span class="go">Can I work there? &rarr;</span></a>
+      <a class="rt-card" href="/move"><span class="k">Your plan</span><h3>Somewhere to keep all this</h3><p>A plan built around your household and your dates, with the budget you built carried into it.</p><span class="go">Build my journey &rarr;</span></a>
+    </div>
+    <p class="rt-note" style="margin-top:26px">Salary ranges and calculator results are indicative. Your actual pay, deductions and costs depend on your circumstances and your confirmed employment terms. On a live vacancy we say &ldquo;competitive&rdquo; and name the framework rather than a figure: putting a number against a named role would be committing on an employer&rsquo;s behalf, and that is not ours to do.</p>
+  </div>
+</section>
+
+<div class="shell" style="padding:clamp(36px,5vw,64px) 0 clamp(44px,6vw,76px)"><page-feedback to="Sophie"></page-feedback></div>
+
+</main>
+<script src="page-feedback.js" defer></script>
+<footer class="site-footer">
+  <div class="shell">
+    <div class="f-cols">
+      <div class="f-brand">
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Support through one of life’s biggest moves.</p>
+        <div class="f-contact">
+          <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
+          <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
+          <span><span class="f-k">Registered office</span>Office 1, One Coldbath Square, London EC1R 5HL</span>
+          <span><span class="f-k">Company number</span>14646354</span>
+        </div>
+        <div class="f-social">
+          <a href="https://www.linkedin.com/company/91537678/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.06c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.76 2.5 4.76 5.76v6.55h-4v-5.8c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.51-2.29 3.07v5.91H9v-12z"/></svg>Follow on LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100089899928921" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.12-2.42-.12-2.4 0-4.04 1.46-4.04 4.15v2.27H7.5V13h2.74v8h3.26z"/></svg>Follow on Facebook</a>
+        </div>
+      </div>
+      <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
+    </div>
+    <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
+  </div>
+</footer>
+<script src="site.js"></script>
+<script src="portal-professions.js"></script>
+<script src="journey.js"></script>
+<script src="candidate-context.js"></script>
+<script src="nav.js" defer></script>
+
+
+<!-- SEO
+  Page Title: What could I earn? Salaries and take-home pay
+  URL Slug: /is-it-worth-it
+  SEO Title: What could I earn? Salaries and take-home pay · Ethicare
+  Meta Description: What you would earn in New Zealand or Australia, what the move costs before your first pay, and how the work itself differs. Indicative figures, named agreements, published fees.
+-->
+<script>
+/* Country tabs. Progressive: with JS off, `hidden` is never set and both panels show,
+   which is a longer page but a complete one. ?c=au deep-links the Australian panel.
+   28 Sep 2026: the choice comes from the shared answers first (candidate-context.js) and is
+   written back when changed here, so the next tool already knows. 'both' shows the two panels
+   one after the other — someone comparing is never made to choose. */
+(function () {
+  var tabs = [].slice.call(document.querySelectorAll('.ct-tab'));
+  if (!tabs.length) return;
+  var ctx = window.EthicareContext;
+  function show(c, fromUser) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('data-country') === c;
+      t.classList.toggle('is-on', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    ['nz', 'au'].forEach(function (k) { var panel = document.getElementById('panel-' + k); if (panel) panel.hidden = !(c === 'both' || c === k); });
+    if (fromUser && ctx && ctx.write) ctx.write({ dest: c });
+    if (window.track) window.track('earn_country', { country: c });
+  }
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () { show(t.getAttribute('data-country'), true); });
+  });
+  var q;
+  try { q = new URLSearchParams(location.search).get('c'); } catch (e) { q = null; }
+  var known = ctx && ctx.destMode ? ctx.destMode() : '';
+  show(q === 'au' || q === 'nz' || q === 'both' ? q : (known || 'nz'));
+  /* answer first: the figure for THEIR profession in THEIR country, read off the table rows */
+  var IMAGING = { imaging: 1, sonography: 1, radtherapy: 1, nuclearmed: 1 };
+  function esc(t) { return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function nzAnswer(key, label) {
+    var rows = [].slice.call(document.querySelectorAll('#panel-nz tr[data-profs]'));
+    var row = rows.filter(function (r) { return (' ' + r.getAttribute('data-profs') + ' ').indexOf(' ' + key + ' ') > -1; })[0];
+    if (!row) return '<div class="ea-card quiet"><span class="k">New Zealand</span><span class="v">No published figure for ' + esc(label.toLowerCase()) + ' yet</span><span class="s">Public pay is set by collective agreement and published, so it can be checked. The table below shows the professions we have costed; the guide explains how any public role\u2019s pay is set.</span><a class="go" href="/guides/new-zealand-salary">How pay is set in New Zealand \u2192</a></div>';
+    var amt = row.querySelector('.amt').textContent.trim(), src = row.querySelector('.src').textContent.trim();
+    var confirmed = /^Confirmed/.test(amt);
+    return '<div class="ea-card' + (confirmed ? ' quiet' : '') + '"><span class="k">' + esc(label) + ' \u00b7 New Zealand</span><span class="v">' + esc(confirmed ? 'We read your rate off the signed agreement' : amt) + '</span><span class="s">' + esc(confirmed ? src : 'Indicative, public system. ' + src + '.') + '</span><a class="go" href="/take-home-pay">' + (confirmed ? 'Ask us for your step \u2192' : 'What reaches your account after tax \u2192') + '</a></div>';
+  }
+  function auAnswer(key, label) {
+    if (IMAGING[key]) return '<div class="ea-card"><span class="k">' + esc(label) + ' \u00b7 Australia</span><span class="v">Set by state awards and enterprise agreements</span><span class="s">The same job pays differently in Brisbane and Perth. Our salary guide gives the figures by state and territory with the framework named, and Ethicare places into medical imaging in Australia, so we can speak to it properly.</span><a class="go" href="/guides/australia-salary">Medical imaging pay by state \u2192</a></div>';
+    return '<div class="ea-card quiet"><span class="k">' + esc(label) + ' \u00b7 Australia</span><span class="v">Ethicare places medical imaging in Australia, not ' + esc(label.toLowerCase()) + '</span><span class="s">The guide still explains how pay is set state by state, and the take-home tool works for any advertised figure.</span><a class="go" href="/guides/australia-salary">How pay is set in Australia \u2192</a></div>';
+  }
+  function answer() {
+    var box = document.querySelector('[data-earn-answer]'); if (!box) return;
+    var key = ctx && ctx.profession ? ctx.profession() : '', d = ctx && ctx.destMode ? ctx.destMode() : '';
+    if (!key || !d) { box.hidden = true; return; }
+    var label = (ctx.professionLabel && ctx.professionLabel()) || key;
+    var h = '';
+    if (d === 'nz' || d === 'both') h += nzAnswer(key, label);
+    if (d === 'au' || d === 'both') h += auAnswer(key, label);
+    box.querySelector('[data-ea-grid]').innerHTML = h;
+    box.querySelector('[data-ea-kick]').textContent = d === 'both' ? 'Your answer, both countries' : 'Your answer';
+    box.querySelector('[data-ea-note]').textContent = 'From the answers on this page: ' + label + (d === 'both' ? ', comparing both countries' : ', ' + (d === 'nz' ? 'New Zealand' : 'Australia')) + '. Change them below and this changes with them. How the figure is arrived at follows.';
+    var h2 = document.querySelector('[data-ea-h2]'); if (h2) h2.textContent = 'How that number is set';
+    box.hidden = false;
+  }
+  if (ctx && ctx.mount) {
+    ctx.mount('#ctx-strip', { fields: ['profession', 'dest', 'household', 'stage'], intro: 'Tell us where you are thinking of and every tool here shows only what applies to you.' });
+    ctx.onChange(function () { var d = ctx.destMode(); if (d) show(d, false); answer(); });
+  }
+  answer();
+})();
+</script>
+</body>
+</html>

@@ -28,3 +28,23 @@
   .hero.cream .hero-copy{width:auto;max-width:none;padding-right:0}
   .hero.cream .wrap{padding-top:clamp(26px,5vw,40px)}
 }
+
+/* Cream colours restated here (21 Sep 2026): several guides set a teal hero with
+   white text in their own <style>, and some don't load hero.css at all, so a page
+   switched to .hero.cream could keep white text on cream. */
+header.hero.cream{background:#F7F4EE}
+header.hero.cream h1{color:#02615D;white-space:normal;overflow-wrap:break-word}
+header.hero.cream .eyebrow{color:#2F5E49}
+header.hero.cream .crumb,header.hero.cream .crumb a{color:#2F5E49}
+header.hero.cream .crumb .here{color:#02615D}
+header.hero.cream .hero-sub{color:#333}
+header.hero.cream .btn-primary{background:#02615D;color:#fff;border-color:#02615D}
+header.hero.cream .btn-primary:hover{background:#014E4B}
+header.hero.cream .btn-ghost,header.hero.cream .btn-secondary{background:transparent;border:2px solid #02615D;color:#02615D}
+header.hero.cream .hero-art::after{display:none!important}
+header.hero.cream.au .eyebrow{color:#A34438}
+header.hero.cream.au .hero-sub::after{background:#D9A084}
+
+/* Reference pages with no photograph (contacts): text only, calmer and shorter. */
+header.hero.cream.no-art{min-height:0}
+header.hero.cream.no-art .hero-copy{width:auto;max-width:760px;padding-right:0}

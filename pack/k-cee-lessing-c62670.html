@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en-AU"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<!-- Emailed to the candidate and opened on a phone or tablet: brand the browser chrome and make
+     a home-screen save look like ours. Standalone mode is deliberately NOT set. -->
+<meta name="theme-color" content="#02615D">
+<link rel="icon" href="/assets/logo-mark.png">
+<link rel="apple-touch-icon" href="/assets/logo-mark.png">
+<meta name="apple-mobile-web-app-title" content="My Move">
+<title>My Move · Ethicare Resourcing</title>
+<!-- WORKED EXAMPLE — a fictional candidate, written to prove two things the NZ example
+     cannot: the Australian palette (PACK.country = 'au') and a section dropping out
+     (no `travel` key — registration is pending, so nothing is booked). Not a real person;
+     replace or delete before anyone could take it for one.
+
+     Same rules as clint-varghese-9f2c.html: unlisted, noindex, absent from sitemap.xml,
+     linked from nowhere. Everything specific to this candidate is in the PACK object at the
+     foot of this file; pack.css and pack.js are shared. See README.md. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pack.css">
+</head>
+<body data-strip-foot="Saved to your space, and on this device." data-strip-intro="These answers shape every tool on the site and the stages below. Change them here whenever things change.">
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="top">
+  <div class="in">
+    <a class="brand" href="/"><img src="../assets/logo-mark.png" alt="" width="42" height="42"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <div class="who">
+      <span class="l"><b>My Move</b><span data-whoname>Candidate space</span></span>
+      <span class="av" data-av aria-hidden="true">T</span>
+    </div>
+  </div>
+</header>
+<div class="strip">
+  <div class="in">
+    <span>Made for you, and not listed anywhere on our site</span>
+    <span data-space-state>Your notes stay on this device</span>
+    <span>Ask us to change anything on it</span>
+  </div>
+</div>
+
+<div class="shell">
+  <nav class="rail" aria-label="Your space">
+    <p class="k">Your move, your space</p>
+    <ul data-rail></ul>
+  </nav>
+
+  <main id="main-content" tabindex="-1">
+    <noscript><p class="nojs"><b>This page needs JavaScript to show your space.</b> If it stays blank, email <a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a> and we will send you the same thing by email instead.</p></noscript>
+    <div class="head">
+      <p class="route" data-route></p>
+      <h1 data-h1 tabindex="-1"></h1>
+      <p class="sub" data-sub></p>
+    </div>
+
+    <!-- YOUR SPACE -->
+    <section class="panel" data-panel="space" hidden>
+      <div class="letter" data-letter>
+        <span class="eyebrow">A note from Sophie</span>
+        <div class="sig">
+          <img src="../assets/photo-sophie.jpg" alt="" width="1254" height="1254" loading="lazy">
+          <div>
+            <div class="n" data-signname></div>
+            <div class="r" data-signrole></div>
+          </div>
+        </div>
+      </div>
+      <div data-facts-block>
+        <h2>Where things stand</h2>
+        <p class="lede">The things we both need to hand. If any of it changes, tell us and we&rsquo;ll change it here.</p>
+        <div class="facts" data-facts></div>
+      </div>
+    </section>
+
+    <!-- YOUR MOVE — the eight stages, painted by move.js (the same engine as the public /move).
+         The answers strip lets them see and change the answers that shape it. -->
+    <section class="panel" data-panel="move" hidden>
+      <div class="mv-wrap">
+        <div id="ctx-strip" data-ctx-strip></div>
+        <div class="pt-next" data-next hidden></div>
+        <div class="pt-stages" data-stages></div>
+        <p class="mv-foot">Every stage stays open to you whatever you have ticked off. The order is the order most people need, not a rule.</p>
+      </div>
+    </section>
+
+    <!-- YOUR PLAN -->
+    <section class="panel" data-panel="plan" hidden>
+      <div class="card">
+        <h2>What you&rsquo;re working on</h2>
+        <p class="hint">Add anything at all &mdash; a question for us, something to book, something to ask the department. Tick it off when it&rsquo;s done, or delete it if it stops mattering. There is no right number of items.</p>
+        <ul class="plan" data-plan></ul>
+        <p class="empty" data-plan-empty>Nothing here yet.</p>
+        <form class="addrow" data-plan-form>
+          <label class="skip-link" for="plan-new">Add something to your plan</label>
+          <input id="plan-new" type="text" data-plan-input placeholder="e.g. Ask about the first roster" autocomplete="off" maxlength="160">
+          <button type="submit" class="btn">Add</button>
+        </form>
+        <div data-suggest-block>
+          <h3 style="margin-top:24px">Things other people have found useful</h3>
+          <p class="hint">Only if they&rsquo;re relevant to you. Tap to add one.</p>
+          <div class="acts" data-suggest style="margin-top:0"></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Notes</h2>
+        <p class="hint">Anything you want to keep in one place. It saves as you type.</p>
+        <label class="skip-link" for="pack-notes">Your notes</label>
+        <textarea id="pack-notes" data-notes placeholder="Questions, addresses, names, things to look up&hellip;"></textarea>
+        <p class="saved" data-saved aria-live="polite"></p>
+        <div class="acts">
+          <button type="button" class="btn ghost" data-copy>Copy everything</button>
+          <button type="button" class="btn ghost" data-download>Download as a file</button>
+        </div>
+      </div>
+      <p class="privacy" data-privacy><b>Where this lives.</b> Your notes and your plan are saved in this browser, on this device only. Nothing is sent to us and we cannot read them &mdash; which also means they will not follow you to your phone, and clearing your browser data clears them. If you want them somewhere safer, copy or download them.</p>
+    </section>
+
+    <!-- TRAVEL & STAY — no data yet, so pack.js removes this panel and its rail link.
+         When the Board decides and flights are booked, add a `travel` array to PACK and
+         the section appears with no other change. -->
+    <section class="panel" data-panel="travel" hidden>
+      <p class="lede" data-travel-lede></p>
+      <div class="rows" data-travel></div>
+    </section>
+
+    <!-- GUIDES & PACKING -->
+    <section class="panel" data-panel="guides" hidden>
+      <p class="lede" data-guides-why></p>
+      <div class="glist" data-guides></div>
+    </section>
+
+    <!-- FILES & RECEIPTS -->
+    <section class="panel" data-panel="files" hidden>
+      <div class="rows" data-files></div>
+      <p class="privacy"><b>We can&rsquo;t hold your documents here yet.</b> This is the list of what to keep together and where each one came from &mdash; not the documents themselves. Keep the originals somewhere you control, and email us if you cannot find one of ours.</p>
+    </section>
+
+    <div class="close">
+      <h2>We&rsquo;re still here</h2>
+      <p>Through the waiting as much as after it. If something on this page is out of date, or you want something added to it, just say and we&rsquo;ll change it &mdash; that is easier for us than you think.</p>
+      <p class="ccontact"><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a><span aria-hidden="true">&middot;</span><a href="tel:+442046266580">+44 20 4626 6580</a></p>
+      <p class="fmeta">Ethicare Resourcing Ltd &middot; Company No 14646354 &middot; Office 1, One Coldbath Square, London EC1R 5HL</p>
+    </div>
+  </main>
+</div>
+
+<script>
+window.PACK = {
+  slug: 'k-cee-lessing-c62670',
+  first: 'K-Cee',
+  country: 'au',
+  title: 'My Move',
+  spaceLabel: 'Candidate space',
+  /* The store key: this space is saved with us, keyed to it. Never reuse one, and never
+     change it once the link has been sent (their saved space is under it). */
+  key: 'nKI2yRxmNomUFtSOiZWXY-LZIoDlNw08',
+  route: 'Johannesburg → Mandurah',
+
+  /* ---- where she actually is (1 Oct 2026) --------------------------------------------------
+     Seeded into the site-wide answers on first open, so "Your move" starts from her move
+     rather than from scratch. `offer: true` turns the numbers stage from "what could I earn"
+     into "what will this actually leave you" — she has the rate; she does not have the net.
+     `done` is only the stages genuinely behind her. Money, where to live and the move itself
+     are all still live, so they stay open. She can untick any of it herself. */
+  seed: {
+    profession: 'imaging',
+    offer: true,
+    hh: { 'with': 'alone' },
+    done: { imagine: true, choose: true, work: true, role: true }
+  },
+
+  /* No `travel` heading: the start date follows the visa, so there is nothing to put a date
+     on. When the flight and the arrival are fixed, add the heading and the travel array. */
+  headings: {
+    space:  { title: 'Hello, K-Cee.', sub: 'Everything we have put together for your move to Mandurah, in one place — and somewhere to keep your own notes while the date is settled.' },
+    move:   { title: 'Your move', sub: 'The eight stages of the move, with the ones you have sorted ticked off and the next one open.' },
+    plan:   { title: 'Your plan', sub: 'Yours to write in. Nobody is marking it.' },
+    guides: { title: 'Guides & packing', sub: 'The parts of the site worth your time right now, and why each one.' },
+    files:  { title: 'Files & receipts', sub: 'What to keep together — including the receipts you will be claiming back.' }
+  },
+
+  letter: [
+    'The hard part is behind you. You hold full Ahpra registration, which is the step that sets the timeline for almost everyone and the one nobody can hurry, and you have an offer in writing. Hall &amp; Wilcox are handling the 482. What is left is a date, and the ordinary business of landing somewhere new.',
+    'Your package does more of the early work than most. Four weeks’ accommodation and four weeks’ car hire are provided when you arrive, which means you do not have to find somewhere to live from South Africa, and you do not have to buy a car in your first fortnight. Use that month. It is the difference between choosing a suburb and settling for one.',
+    'One thing to plan for, because it catches people out: the relocation allowance is <strong>reimbursed</strong>. You pay first and claim it back, so you need the money available up front even though you are not ultimately bearing it. Keep every receipt from the moment you start spending — there is a section further down for exactly that.',
+    'Mandurah is a particular kind of place and it is worth knowing why before you arrive. It is a waterside city — estuary, canals and ocean — at a price Perth’s coastal suburbs stopped offering some years ago, and it is growing rather than stretched. The trade is that it is a car city, with one real exception: the train reaches central Perth in about fifty minutes. How much you expect to use Perth should shape which suburb you look at, and with four weeks of car hire you can test that before you commit to a lease.',
+    'You are going on your own, and that shapes the first months more than anything else here. The department gives you somewhere to be every day from the start, which is more than most arrivals get. The harder part is the evenings and the first few weekends, and there is a great deal that can be done about that before you fly.',
+    'Dip into this rather than reading it end to end. If something you want is not here, email us and we will find it out for you.'
+  ],
+  signoff: { name: 'Sophie and the Ethicare team', role: 'Ethicare Resourcing' },
+
+  facts: [
+    ['Moving to', 'Mandurah, Western Australia'],
+    ['Your role', 'Radiographer, permanent and full time'],
+    ['Where you will be', 'Peel Health Campus, Mandurah'],
+    ['Travelling', 'On your own, from Pretoria'],
+    ['Registration', 'Full Ahpra registration — granted'],
+    ['Visa', '482, managed for you by Hall &amp; Wilcox'],
+    ['On arrival', 'Four weeks’ accommodation and four weeks’ car hire'],
+    ['Relocation', 'AUD $10,000 — reimbursed, so keep receipts'],
+    ['You fly', 'Once the visa completes']
+  ],
+
+  guidesWhy: 'Registration is done, the offer is signed and the visa is in hand, so none of this is about getting permission. It is about the decisions still genuinely yours — where you live, what the move leaves you, and the first months on your own.',
+  guides: [
+    { title: 'Mandurah — where clinicians live', href: '/destinations/mandurah-australia/suburbs',
+      why: 'Your biggest open decision, and you get four weeks to make it from inside the city rather than from South Africa. The first question here is not which suburb but which water, and how far from the train.' },
+    { title: 'Mandurah — getting around', href: '/destinations/mandurah-australia/transport',
+      why: 'The Mandurah line reaches the Perth CBD in about fifty minutes. Four weeks of car hire is long enough to find out how much you would actually use it before you buy anything.' },
+    { title: 'Renting in Australia', href: '/guides/australia-renting',
+      why: 'How applications, bonds and inspections work. Less urgent than for most people — you have a month’s accommodation — but the bond is real money and it is worth knowing the shape of it before you land.' },
+    { title: 'Take-home pay', href: '/take-home-pay',
+      why: 'You know the hourly rate. What tax and superannuation do to it is a different number, and it is the one a lease gets signed against.' },
+    { title: 'The cost of relocating', href: '/guides/cost-of-relocating',
+      why: 'What the move costs before the $10,000 comes back to you. That gap, and how long it lasts, is the thing worth planning around.' },
+    { title: 'Driving in Australia', href: '/guides/australia-driving',
+      why: 'Converting a South African licence once you have a WA address. Start the paperwork early — a letter of driving experience is far easier to get before you leave than after.' },
+    { title: 'Money — bank accounts, tax and superannuation', href: '/guides/australia-money',
+      why: 'Superannuation sits on top of your salary here rather than inside it, which is not how it works at home. Also which accounts you can open before you fly.' },
+    { title: 'Finding your people', href: '/guides/australia-community',
+      why: 'The one we would push hardest, given you are going alone. There is a large South African community in Perth and the corridor south of it.' },
+    { title: 'Practising in the Australian health system', href: '/guides/australia-practice',
+      why: 'Who funds what, and how the system around your department works. Registration says you can practise; this is what practising here is like.' },
+    { title: 'Ethicare Move — your plan', href: '/move',
+      why: 'The whole move sequenced, if you would rather work from a list than a page.' }
+  ],
+
+  suggested: [
+    'Send the passport copy and Ahpra registration for the 482',
+    'Open a folder for relocation receipts, starting now',
+    'Work out what I need in the bank before the $10,000 comes back',
+    'Decide: near the water, near the train, or near the hospital',
+    'Get a letter of driving experience before I leave South Africa',
+    'Work out what ships and what is sold',
+    'Ask what the four weeks’ accommodation actually covers',
+    'Find one thing to join in Mandurah before I get there'
+  ],
+
+  files: [
+    { k: 'Passport', v: 'Needed now, for the 482', note: 'Check the expiry date at the same time — renewing mid-application is slow and holds everything up.' },
+    { k: 'Ahpra registration certificate', v: 'Also needed now, for the 482', note: 'Keep the registration number somewhere you can find it quickly. You will be asked for it more often than you expect.' },
+    { k: 'Relocation receipts', v: 'Every one, from the first flight search onwards', note: 'The AUD $10,000 is reimbursed, not paid up front, so the receipts are what turn it into money. Flights, shipping, visa costs, excess baggage. Photograph them as you go.' },
+    { k: 'Whatever Hall &amp; Wilcox ask for', v: 'Kept together, in the order they ask', note: 'Police clearance, qualification documents, employment history. They will tell you which.' },
+    { k: 'Qualification and transcripts', v: 'Certified copies, plus the originals', note: 'Ahpra has copies; an employer may still ask to see the originals.' },
+    { k: 'Employment references', v: 'From your current and previous departments', note: 'Signed and dated, on letterhead. Easier to get before you hand in notice than after.' },
+    { k: 'Licence and driving history', v: 'Your licence, plus a letter of driving experience', note: 'Easy to forget and awkward to obtain once you have left.' }
+  ]
+};
+</script>
+<script src="../relocation-cost-data.js"></script>
+<script src="../portal-professions.js"></script>
+<script src="../journey.js"></script>
+<script src="../candidate-context.js"></script>
+<script src="../move.js"></script>
+<script src="pack.js"></script>
+</body></html>
