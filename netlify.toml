@@ -66,6 +66,11 @@
   status = 301
   force = true
 [[redirects]]
+# The six Australian professions Ethicare does not yet recruit (allied health, mental
+# health, nursing & midwifery, medicine, theatre & perioperative, psychology) redirect to
+# the one page that says what IS recruited there. The pages stay in the repo, finished and
+# dormant, until each profession goes live — these six lines are what keeps them off the
+# site, so deleting one publishes a page promising a service we do not offer.
   from = "/jobs/allied-health-australia"
   to = "/jobs/coming-to-australia"
   status = 301

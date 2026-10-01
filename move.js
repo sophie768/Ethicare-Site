@@ -410,6 +410,37 @@
     if (m) { var s = stageByN(+m[1]); if (s) { open = s.id; paint(); scrollToStage(s.id); } return; }
     if (h === '#setup' || h === '#welcome' || h === '#doing') { var st = $('#ctx-strip .ecx-btn'); if (st && st.getAttribute('aria-expanded') !== 'true') st.click(); window.scrollTo(0, 0); }
   }
+  /* What the next step depends on. Change the profession and this does not move, so the
+     page does not jump for an answer that did not change what comes next. */
+  function nextKey() {
+    if (!ctx) return '';
+    return (ctx.stage ? ctx.stage() : '') + '|' + (ctx.dest ? ctx.dest() : '');
+  }
+
+  /* Close the answers panel and move to the next step, so answering the question produces
+     a visible result rather than a silent one further down the page. */
+  function revealNextStep() {
+    var card = $('[data-next]');
+    if (!card || card.hidden) return;
+    var btn = $('#ctx-strip .ecx-btn');
+    if (btn && btn.getAttribute('aria-expanded') === 'true') btn.click();
+    var reduced = document.documentElement.getAttribute('data-rp-motion') === 'off';
+    try {
+      card.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+    } catch (e) { card.scrollIntoView(); }
+    /* a brief outline, so it is obvious which thing just answered you */
+    card.classList.remove('is-new');
+    void card.offsetWidth;                       /* restart the animation on a repeat */
+    card.classList.add('is-new');
+    setTimeout(function () { card.classList.remove('is-new'); }, 2200);
+    /* say it for a screen reader too: scrolling tells a sighted person, nothing else does */
+    var say = document.getElementById('pt-live');
+    if (say) {
+      var h = card.querySelector('h2');
+      say.textContent = 'Your next step: ' + (h ? h.textContent : 'updated') + '.';
+    }
+  }
+
   function init() {
     load();
     importFromLink();
@@ -420,7 +451,23 @@
       var strip = ctx.mount('#ctx-strip', { intro: document.body.getAttribute('data-strip-intro') || 'Four answers and the plan below is yours: your country, your profession, your household.' });
       /* a first visit: open the answers so the page starts by asking, not by lecturing */
       if (!(ctx.has())) { var b = $('#ctx-strip .ecx-btn'); if (b) b.click(); }
-      ctx.onChange(function () { load(); open = null; paint(); });
+      /* Answer a question and nothing visibly happens: the next-step card updates, but it
+         is below the fold, so the person sits looking at a form waiting for it to respond.
+         (Sophie, 1 Oct 2026.) So when an answer changes what the next step IS, close the
+         answers back to their one-line summary and bring the card to them.
+         Only on a real change — repainting on every keystroke would yank the page about —
+         and never on the first paint, which is the person arriving, not answering. */
+      /* Seeded from what we already hold, NOT from the first change: ctx.onChange only fires
+         when someone answers, so a "skip the first one" guard swallows the very answer this
+         exists for. Caught by testing a single selection on a fresh page. */
+      var lastNext = nextKey();
+      ctx.onChange(function () {
+        load(); open = null; paint();
+        var now = nextKey();
+        if (now === lastNext) return;      /* profession changed, say: the next step is the same */
+        lastNext = now;
+        revealNextStep();
+      });
     }
     paint();
     window.addEventListener('hashchange', route);

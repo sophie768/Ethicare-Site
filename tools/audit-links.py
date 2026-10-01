@@ -219,6 +219,19 @@ for jsf in sorted(f for f in os.listdir('.') if f.endswith('.js')):
 # jobs-data.js, so a static walk alone would report thirty-five live vacancies as
 # orphans, which is how this check reads wrong if you write it in a hurry.
 EXPECTED_ORPHANS = ('404.html', 'thank-you.html', 'coming-soon.html', '_header.html')
+# Finished pages held back on purpose (Sophie, 1 Oct 2026): Ethicare recruits medical
+# imaging, radiation therapy, nuclear medicine and radiology in Australia, so these six
+# wait until it recruits the rest. They must stay off the live site entirely — no link,
+# no sitemap entry, noindex in the page and an X-Robots-Tag in netlify.toml — so this
+# check reports them as dormant rather than as orphans, and shouts if one is linked.
+DORMANT = (
+    'jobs/allied-health-australia.html',
+    'jobs/mental-health-australia.html',
+    'jobs/nursing-midwifery-australia.html',
+    'jobs/medicine-australia.html',
+    'jobs/theatre-perioperative-australia.html',
+    'jobs/psychologist-australia.html',
+)
 EXPECTED_DIRS = ('_forms/', 'pack/', 'assets/', 'prototypes/')
 
 def _targets(text, base):
@@ -282,7 +295,33 @@ while queue:
 unreachable = sorted(f for f in live_pages
                      if f not in reached
                      and f not in EXPECTED_ORPHANS
+                     and f not in DORMANT
                      and not f.startswith(EXPECTED_DIRS))
+
+# A dormant page that something now links to, or that lost its noindex, is live by
+# accident — which is the whole thing this is here to prevent.
+dormant_leaks = []
+for f in DORMANT:
+    if not os.path.isfile(f):
+        dormant_leaks.append((f, 'file is gone'))
+        continue
+    if f in reached:
+        dormant_leaks.append((f, 'something links to it'))
+    # The 301 in netlify.toml is what actually keeps these off the site: the URL serves
+    # coming-to-australia instead, so the page is unreachable however it is linked. The
+    # noindex below is the fallback for the day a redirect is removed.
+    if 'netlify.toml' in globals().get('_NETLIFY', '') or True:
+        _nt = open('netlify.toml', encoding='utf-8').read() if os.path.exists('netlify.toml') else ''
+        if 'from = "/%s"' % f[:-5] not in _nt:
+            dormant_leaks.append((f, 'no redirect in netlify.toml'))
+    head = open(f, encoding='utf-8', errors='ignore').read(4000)
+    # The tag itself, not the word: the comment above each tag explains why the page is
+    # noindexed, so a substring search for "noindex" passes even after the tag is deleted.
+    # Found by deleting one on purpose and watching this check say everything was fine.
+    if not re.search(r'<meta\s+name="robots"\s+content="[^"]*noindex', head, re.I):
+        dormant_leaks.append((f, 'no noindex meta tag'))
+    if os.path.exists(SITEMAP) and f[:-5] in open(SITEMAP, encoding='utf-8').read():
+        dormant_leaks.append((f, 'listed in the sitemap'))
 
 # ---------------------------------------------------------------- report ----
 def section(title, n):
@@ -318,6 +357,9 @@ over_d = [x for x in meta_issues if 'description' in x[1] and 'quote' not in x[1
 section('queued for deletion but still in use', len(doomed_used))
 for item in doomed_used:
     print('  ', item)
+section('dormant pages that leaked into the live site', len(dormant_leaks))
+for f, why in dormant_leaks:
+    print(f'   {f}  ·  {why}')
 section('live pages nothing links to', len(unreachable))
 for f in unreachable:
     print('  ', f)
@@ -331,6 +373,6 @@ section('over-long titles', len(over_t))
 section('over-long or missing descriptions', len(over_d))
 
 fatal = (sum(len(v) for v in broken_links.values()) + sum(len(v) for v in broken_assets.values())
-         + len(print_offers) + len(hospitals) + len(quote_bugs) + len(js_missing) + len(client_claims) + len(doomed_used))
+         + len(print_offers) + len(hospitals) + len(quote_bugs) + len(js_missing) + len(client_claims) + len(doomed_used) + len(dormant_leaks))
 print(f'\n{"PASS" if fatal == 0 else "ISSUES"} — {fatal} blocking problems')
 sys.exit(0 if fatal == 0 else 1)
