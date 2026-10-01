@@ -1855,7 +1855,12 @@
   var INSTITUTIONS = [];
   var QUAL_LEVEL_HINTS = [];
 
-  var ENGLISH_OPTIONS = ['English is my first language', 'I trained and practised in English in a recognised country', 'IELTS', 'OET', 'PTE', 'TOEFL', 'Another test', 'I believe I meet an education / professional pathway', 'No', 'I\u2019m not sure'];
+  /* 30 Sep 2026 — "English is my first language" was removed. No regulator grants an
+     exemption on that claim: both tie it to a list of recognised countries AND to where you
+     were educated and examined. Someone born in Egypt who has spoken English since infancy
+     could honestly tick it and be told something that would not hold, which is the one thing
+     a checker must not do. The education route below is what the standards actually test. */
+  var ENGLISH_OPTIONS = ['I trained and practised in English in a recognised country', 'IELTS', 'OET', 'PTE', 'TOEFL', 'Another test', 'I believe I meet an education / professional pathway', 'No', 'I\u2019m not sure'];
   var PRIORITIES = ['Highest salary', 'Lower cost of living', 'Employer relocation support', 'Family-friendly location', 'Schools', 'Career progression', 'Work-life balance', 'Major city', 'Regional lifestyle', 'Beaches / outdoors', 'Warmer climate', 'Permanent relocation', 'I\u2019m still exploring'];
   var PARTY = ['Just me', 'Partner', 'Partner and child/children', 'Child/children', 'Other'];
   var TIMEFRAMES = ['As soon as possible', 'Within 3 months', '3–6 months', '6–12 months', '12+ months', 'Just exploring'];

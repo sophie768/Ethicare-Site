@@ -183,8 +183,13 @@
   var STRIP_CSS = '.ecx{grid-column:1/-1;flex:1 1 100%;width:100%;box-sizing:border-box;font-family:var(--body,Manrope,sans-serif);background:#fff;border:1px solid #C9DED3;border-left:4px solid #A6C84A;border-radius:14px;padding:12px 16px;margin:0 0 clamp(20px,2.6vw,30px);font-size:15px;line-height:1.5;color:#333}'
     + '.ecx-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px}.ecx-k{font-family:var(--display,"Work Sans",sans-serif);font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-right:4px}'
     + '.ecx-v{font-family:var(--display,"Work Sans",sans-serif);font-weight:600;color:#02615D}.ecx-sep{color:#9BB9AE}.ecx-btn{margin-left:auto;background:none;border:1px solid #C9DED3;border-radius:999px;padding:5px 13px;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:13.5px;color:#02615D;cursor:pointer;min-height:32px}.ecx-btn:hover{border-color:#02615D}'
-    + '.ecx-ed{display:none;margin-top:12px;padding-top:12px;border-top:1px solid #E6F1ED}.ecx.is-open .ecx-ed{display:block}.ecx-f{margin:0 0 12px}.ecx-f:last-child{margin-bottom:0}.ecx-l{display:block;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:13.5px;color:#02615D;margin:0 0 6px}'
-    + '.ecx-pills{display:flex;flex-wrap:wrap;gap:8px}.ecx-n{color:#2F5E49;margin-right:6px}.ecx-p.is-on .ecx-n{color:#C6E084}.ecx-p{background:#fff;border:1px solid #C9DED3;border-radius:999px;padding:6px 13px;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:13.5px;color:#02615D;cursor:pointer;min-height:34px}.ecx-p.is-on{background:#02615D;border-color:#02615D;color:#fff}'
+    + '.ecx-ed{display:none;margin-top:12px;padding-top:12px;border-top:1px solid #E6F1ED}.ecx.is-open .ecx-ed{display:block}.ecx-l{display:block;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:13.5px;color:#02615D;margin:0 0 6px}'
+    /* 30 Sep 2026: four questions as four dropdowns, two to a row. Sixteen pills laid out
+       flat was more to read than the page underneath them, and the stage question alone
+       ran to eight. A select is one line whatever the option list holds. */
+    + '.ecx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px 16px}'
+    + '.ecx-f{margin:0;min-width:0}'
+    + '.ecx select{width:100%}'
     + '.ecx select{font-family:var(--body,Manrope,sans-serif);font-size:15px;color:#333;border:1px solid #C9DED3;border-radius:10px;padding:8px 12px;min-height:40px;max-width:100%;background:#fff}'
     + '.ecx-foot{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:12px;font-size:13.5px;color:#555}.ecx-foot button{background:none;border:0;padding:0;font:inherit;color:#02615D;text-decoration:underline;text-underline-offset:3px;cursor:pointer}'
     + '.ecx-note{font-size:13.5px;color:#555;margin:0}@media(max-width:560px){.ecx-btn{margin-left:0}}';
@@ -196,6 +201,17 @@
     try { var list = cat && typeof cat.listAll === 'function' ? cat.listAll() : []; for (var i = 0; i < list.length; i++) out.push({ value: list[i].key, label: list[i].label, group: list[i].group || '' }); } catch (e) {}
     return out;
   }
+  /* One field: a label and a select. Every answer set is a list of [value, label]. */
+  function sel(field, label, opts, current, placeholder) {
+    var id = 'ecx-' + field;
+    var h = '<div class="ecx-f"><label class="ecx-l" for="' + id + '">' + esc(label) + '</label>'
+      + '<select id="' + id + '" data-f="' + field + '"><option value="">' + esc(placeholder) + '</option>';
+    for (var i = 0; i < opts.length; i++) {
+      h += '<option value="' + esc(opts[i][0]) + '"' + (current === opts[i][0] ? ' selected' : '') + '>' + esc(opts[i][1]) + '</option>';
+    }
+    return h + '</select></div>';
+  }
+
   function mount(el, opts) {
     if (typeof el === 'string') el = document.querySelector(el);
     if (!el) return null;
@@ -223,13 +239,18 @@
       var known = parts.length > 0;
       var h = '<div class="ecx-row">';
       if (known) { h += '<span class="ecx-k">Your answers</span>' + parts.map(function (t) { return '<span class="ecx-v">' + esc(t) + '</span>'; }).join('<span class="ecx-sep">&middot;</span>'); }
-      else { h += '<span class="ecx-note">' + esc(opts.intro || 'Tell us a little and this page, and every other tool here, shows only what applies to you.') + '</span>'; }
+      else { h += '<span class="ecx-note">' + esc(opts.intro || 'Four answers, and every tool here stops showing you what does not apply.') + '</span>'; }
       h += '<button type="button" class="ecx-btn" aria-expanded="' + (open ? 'true' : 'false') + '">' + (open ? 'Done' : (known ? 'Change' : 'Set up in 30 seconds')) + '</button></div>';
       h += '<div class="ecx-ed">';
-      if (fields.indexOf('dest') >= 0) h += '<div class="ecx-f"><span class="ecx-l">Where are you thinking of?</span><div class="ecx-pills" data-f="dest">' + [['nz', 'New Zealand'], ['au', 'Australia'], ['both', 'Comparing both']].map(function (o) { return '<button type="button" class="ecx-p' + (destMode() === o[0] ? ' is-on' : '') + '" data-v="' + o[0] + '">' + o[1] + '</button>'; }).join('') + '</div></div>';
-      if (fields.indexOf('profession') >= 0) { var po = profOptions(); if (po.length) { h += '<div class="ecx-f"><label class="ecx-l" for="ecx-prof">Your profession</label><select id="ecx-prof" data-f="profession"><option value="">Choose…</option>' + po.map(function (o) { return '<option value="' + esc(o.value) + '"' + (profession() === o.value ? ' selected' : '') + '>' + esc(o.label) + '</option>'; }).join('') + '</select></div>'; } }
-      if (fields.indexOf('household') >= 0) h += '<div class="ecx-f"><span class="ecx-l">Who is coming with you?</span><div class="ecx-pills" data-f="household">' + HH.map(function (o) { return '<button type="button" class="ecx-p' + (household() === o.value ? ' is-on' : '') + '" data-v="' + o.value + '">' + esc(o.label) + '</button>'; }).join('') + '</div></div>';
-      if (fields.indexOf('stage') >= 0 && J().length) h += '<div class="ecx-f"><span class="ecx-l">Where are you in the move?</span><div class="ecx-pills" data-f="stage">' + J().map(function (j) { return '<button type="button" class="ecx-p' + (stage() === j.id ? ' is-on' : '') + '" data-v="' + j.id + '"><span class="ecx-n">0' + j.n + '</span>' + esc(j.where) + '</button>'; }).join('') + '</div></div>';
+      h += '<div class="ecx-grid">';
+      if (fields.indexOf('dest') >= 0) h += sel('dest', 'Country', [['nz', 'New Zealand'], ['au', 'Australia'], ['both', 'Comparing both']], destMode(), 'Choose\u2026');
+      var po = profOptions();
+      if (fields.indexOf('profession') >= 0 && po.length) {
+        h += sel('profession', 'Profession', po.map(function (o) { return [o.value, o.label]; }), profession(), 'Choose\u2026');
+      }
+      if (fields.indexOf('household') >= 0) h += sel('household', 'Who is coming', HH.map(function (o) { return [o.value, o.label]; }), household(), 'Choose\u2026');
+      if (fields.indexOf('stage') >= 0 && J().length) h += sel('stage', 'Where you are up to', J().map(function (x) { return [x.id, x.where]; }), stage(), 'Choose\u2026');
+      h += '</div>';
       /* Inside My Move (pack/pack.js) the answers ARE saved with us, so the page it sits in says
          so through data-strip-foot; the public tools keep the device-only line. */
       var foot = document.body.getAttribute('data-strip-foot') || 'Saved in this browser only. Nothing is sent to us.';
@@ -245,7 +266,12 @@
     });
     el.addEventListener('change', function (e) {
       var f = e.target.getAttribute && e.target.getAttribute('data-f');
-      if (f === 'profession') { write({ profession: e.target.value }); paint(); }
+      if (!f) return;
+      var patch = {}; patch[f] = e.target.value;
+      write(patch); paint();
+      /* paint() replaces the markup, so the select that was just used is gone; put focus back
+         on its replacement or a keyboard user is dropped at the top of the page. */
+      try { var again = el.querySelector('[data-f="' + f + '"]'); if (again) again.focus(); } catch (er) {}
     });
     window.addEventListener('ethicare:context', function () { paint(); });
     paint();

@@ -174,7 +174,12 @@ for url in urls:
 # stopped linking to it \u2014 the reference lived only in JavaScript.
 doomed_used = []
 if os.path.exists('DELETE-THESE.md'):
-    listed = [l.strip().split()[0] for l in open('DELETE-THESE.md', encoding='utf-8')
+    # The whole line, not the first word: several queued exports have spaces in
+    # their filenames ("Welcome to Wellington - Akhil Lakhia and Sarah.html"), and
+    # split()[0] silently turned those into "Welcome", which matches nothing. A
+    # queued file then looks unqueued, which is how this list got audited wrong on
+    # 30 September 2026.
+    listed = [l.strip() for l in open('DELETE-THESE.md', encoding='utf-8')
               if l.startswith('    ') and l.strip()]
     listed = [i for i in listed if i and ('/' in i or i.endswith(('.html', '.js')))]
     doomed = set(listed)
@@ -205,6 +210,79 @@ for jsf in sorted(f for f in os.listdir('.') if f.endswith('.js')):
         p = m.group(1).lstrip('/')
         if not (os.path.isfile(p) or os.path.isfile(p + '.html') or os.path.isfile(os.path.join(p, 'index.html'))):
             js_missing.append((jsf, m.group(1)))
+
+# ---- pages nothing links to ----------------------------------------------
+# A page no one can click is not broken, so nothing above catches it: it just sits
+# there, indexable, carrying a claim or a candidate's name long after the decision
+# that made it was reversed. Walk out from the homepage and see what is never
+# reached. Script-built links count — the job board draws every vacancy card from
+# jobs-data.js, so a static walk alone would report thirty-five live vacancies as
+# orphans, which is how this check reads wrong if you write it in a hurry.
+EXPECTED_ORPHANS = ('404.html', 'thank-you.html', 'coming-soon.html', '_header.html')
+EXPECTED_DIRS = ('_forms/', 'pack/', 'assets/', 'prototypes/')
+
+def _targets(text, base):
+    for m in re.finditer(r'href="([^"]+)"', text):
+        h = m.group(1)
+        if not h or h[0] in '#?' or h.startswith(('mailto:', 'tel:', 'http', 'javascript:')):
+            continue
+        h = h.split('#')[0].split('?')[0]
+        if not h:
+            continue
+        p = h if h.startswith('/') else '/' + os.path.normpath(
+            os.path.join('/' + os.path.dirname(base), h)).lstrip('/')
+        p = REDIRECTS.get(p, p)
+        b = p.lstrip('/')
+        for c in (b, b + '.html', os.path.join(b.rstrip('/'), 'index.html')):
+            if os.path.isfile(c) and c.endswith('.html'):
+                yield c
+                break
+
+REDIRECTS = {}
+if os.path.exists('netlify.toml'):
+    _t = open('netlify.toml', encoding='utf-8').read()
+    for m in re.finditer(r'from\s*=\s*"([^"]+)"\s*\n\s*to\s*=\s*"([^"]+)"', _t):
+        REDIRECTS[m.group(1)] = m.group(2)
+
+def _queued(k):
+    return k in doomed or k.startswith(doomed_dirs) if 'doomed' in dir() else False
+
+live_pages = [f for f in glob.glob('**/*.html', recursive=True)
+              if not f.startswith('.git') and f not in doomed and not f.startswith(doomed_dirs)]
+script_paths = {}
+for jsf in glob.glob('*.js') + glob.glob('*/*.js'):
+    if jsf in doomed or jsf.startswith(doomed_dirs):
+        continue
+    txt = open(jsf, encoding='utf-8', errors='ignore').read()
+    hits = set()
+    for m in re.finditer(r'["\'](/[A-Za-z0-9/_.-]+)["\']', txt):
+        b = m.group(1).lstrip('/')
+        for c in (b, b + '.html', os.path.join(b.rstrip('/'), 'index.html')):
+            if os.path.isfile(c) and c.endswith('.html'):
+                hits.add(c)
+                break
+    script_paths[jsf] = hits
+
+reached, queue = {'index.html'}, ['index.html']
+while queue:
+    cur = queue.pop()
+    try:
+        src = open(cur, encoding='utf-8', errors='ignore').read()
+    except OSError:
+        continue
+    nxt = set(_targets(src, cur))
+    for jsf, hits in script_paths.items():
+        if os.path.basename(jsf) in src:
+            nxt |= hits
+    for t in nxt:
+        if t not in reached:
+            reached.add(t)
+            queue.append(t)
+
+unreachable = sorted(f for f in live_pages
+                     if f not in reached
+                     and f not in EXPECTED_ORPHANS
+                     and not f.startswith(EXPECTED_DIRS))
 
 # ---------------------------------------------------------------- report ----
 def section(title, n):
@@ -240,6 +318,9 @@ over_d = [x for x in meta_issues if 'description' in x[1] and 'quote' not in x[1
 section('queued for deletion but still in use', len(doomed_used))
 for item in doomed_used:
     print('  ', item)
+section('live pages nothing links to', len(unreachable))
+for f in unreachable:
+    print('  ', f)
 section('paths named in scripts that do not exist', len(js_missing))
 for jsf, p in sorted(set(js_missing)):
     print(f'   {jsf}  ->  {p}')

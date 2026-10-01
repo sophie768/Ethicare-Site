@@ -110,17 +110,14 @@
     if (!a.english) return null;
     var href = cc === 'au' ? d.english.au.url : null;
     var tests = ['IELTS', 'OET', 'PTE', 'TOEFL', 'Another test'], body;
-    var FIRST_LANG = 'English is my first language';
     var RECOG_ROUTE = 'I trained and practised in English in a recognised country';
     var recog = (d.english && d.english.recognisedCountries) || [];
-    if (a.english === FIRST_LANG || a.english === RECOG_ROUTE) {
+    if (a.english === RECOG_ROUTE) {
       /* Both regulators run an exemption, and neither takes it on your word: each is tied to a
          country list AND to where you were educated. So we say "likely", name the list, and
          send them to the standard rather than declaring an exemption we cannot grant. */
       var qc = a.qualCountry, on = !!qc && recog.indexOf(qc) >= 0;
-      body = a.english === FIRST_LANG
-        ? 'There is a first-language route with both regulators, but it is not granted on nationality alone — it is tied to a list of recognised countries and to where you were educated. '
-        : 'That route exists with both regulators. It turns on where you were educated and examined, not on where you were born. ';
+      body = 'That route exists with both regulators. It turns on where you were educated and examined, not on where you were born or which language you grew up speaking. ';
       body += on
         ? 'Your qualification from ' + theCountry(qc).replace(/^The /, 'the ') + ' is on the list that recurs in both standards, so an exemption is likely. Check the conditions before you rely on it — they usually reach back to your secondary schooling as well as your degree.'
         : (qc
@@ -206,7 +203,7 @@
       } else if (a.qualCountry) {
         out.push({ title: 'The standard overseas pathway applies', group: 'route', body: 'The abridged pathway is limited to qualifications from the UK, Ireland, Canada and South Africa with current registration in one of those countries. Everyone else goes through the standard route. That is not a lesser outcome — the standard is identical — but the Board looks more closely at your course content, so a detailed syllabus or course description matters as much as your certificate.', css: 'sand', href: ot.url, linkLabel: 'OTBNZ — overseas qualified' });
       }
-      out.push({ title: 'English: an exemption may apply to you', group: 'need', body: 'OTBNZ asks for proof of English only if English is <strong>not</strong> your first language, and it accepts OET or IELTS. If English is your first language you should not need a test at all. We would still advise checking the Board’s current English language policy before planning around it — requirements change, and the Board publishes this one separately from the main application page.', css: 'mint', href: 'https://otboard.org.nz/document/8497/704%20English%20language%20policy%20for%20registration.pdf', linkLabel: 'OTBNZ English language policy' });
+      out.push({ title: 'English: an exemption may apply to you', group: 'need', body: 'OTBNZ publishes its English language policy separately from the main application page, and it accepts OET or IELTS. Whether a test is required turns on the Board’s own criteria rather than on the language you grew up speaking, so read the policy before planning around an exemption — and note that requirements change.', css: 'mint', href: 'https://otboard.org.nz/document/8497/704%20English%20language%20policy%20for%20registration.pdf', linkLabel: 'OTBNZ English language policy' });
       if (a.otReferee === 'no' || a.otReferee === 'unsure') {
         out.push({ title: 'Your referees need one specific person', group: 'need', body: 'Three referees, and at least one must be an occupational therapist you have worked with for more than six months in the last two years. On the standard pathway that person is also asked to read your competence self-assessment and confirm it represents your practice fairly. If you are not sure who that would be, start thinking about it now rather than at the point of applying.', css: 'sand' });
       }
@@ -1910,6 +1907,11 @@
       } else if (!fresh) { localStorage.removeItem(LSK); localStorage.removeItem(SENT); }
     }
   } catch (e) {}
+  /* A draft saved before 30 Sep 2026 may hold the retired "English is my first language"
+     answer. Leave it in place and the result would rest on a claim no regulator accepts,
+     so clear it and ask again. */
+  try { if (st.answers.english === 'English is my first language') delete st.answers.english; } catch (e) {}
+
   try {
     var q = (location.search.match(/[?&]profession=([^&]+)/) || [])[1];
     if (q) {

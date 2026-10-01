@@ -417,7 +417,7 @@
     if (ctx && ctx.mount) {
       /* My Move (pack/pack.js) reuses this file inside a candidate's private space, where the
          answers ARE saved with us — so the page it sits in can supply its own intro line. */
-      var strip = ctx.mount('#ctx-strip', { intro: document.body.getAttribute('data-strip-intro') || 'Tell us where you are thinking of, your profession and who is coming, and this page becomes your plan. Nothing is sent to us.' });
+      var strip = ctx.mount('#ctx-strip', { intro: document.body.getAttribute('data-strip-intro') || 'Four answers and the plan below is yours: your country, your profession, your household.' });
       /* a first visit: open the answers so the page starts by asking, not by lecturing */
       if (!(ctx.has())) { var b = $('#ctx-strip .ecx-btn'); if (b) b.click(); }
       ctx.onChange(function () { load(); open = null; paint(); });
