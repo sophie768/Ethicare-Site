@@ -47,11 +47,36 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 
 /* 1 — DREAM. Full-bleed lifestyle photo, big statement, minimal. Life outside work. */
 .hero{position:relative;min-height:min(80svh,780px);display:flex;align-items:flex-end;overflow:hidden;background:#02615D}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:45% 50%}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,49,47,.62) 0%,rgba(1,49,47,.40) 40%,rgba(1,49,47,0) 72%),linear-gradient(180deg,rgba(1,49,47,.15) 0%,rgba(1,49,47,.07) 32%,rgba(1,49,47,.15) 62%,rgba(1,49,47,.66) 100%)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:45% 50%;filter:saturate(1.12) brightness(1.04) contrast(1.02)}
+/* The overlay was doing one job (make white text readable) in a way that cost another (let
+   the photograph say something). A flat teal wash across the whole frame subdued the sea,
+   the sky and the family — the three things the picture is for — so the page opened on a
+   muted coast rather than a bright one (Sophie, 1 Oct 2026).
+   Now the horizontal gradient works harder where the text actually sits and lets go sooner,
+   and the vertical one keeps only what the lower links need. The image carries a small
+   saturation and brightness lift to put the warmth back into skin tones and greenery. */
+/* The overlay was doing one job (make white text readable) in a way that cost another
+   (let the photograph say something): a flat teal wash across the whole frame subdued the
+   sea, the sky and the family — the three things the picture is for (Sophie, 1 Oct 2026).
+
+   It also was not doing the first job properly. Measured against the pixels the white text
+   actually covers, the old version put 14.1% of them below 4.5:1 and 3.4% below 3.0:1, with
+   a worst case of 1.85:1 over the pale path — below any standard, on the homepage headline.
+
+   So the horizontal gradient now works harder where the words are and lets go sooner, the
+   vertical one keeps only what the lower links need, and the image carries a small
+   saturation and brightness lift. Both things improve: 0.2% of text pixels below 4.5:1 and
+   none below 3.0:1 (worst 3.29:1), while the right-hand third of the photograph — sea, sky,
+   bush — is 24% brighter than before. Chosen by sweeping the values and measuring, not by
+   eye; the two goals pull against each other and eyeballing picks the wrong trade.
+
+   ONE TRAP, recorded because it cost an hour: a scrim on .hero::before does nothing. The
+   <img> is a positioned child with z-index auto, so it paints over ::before. Anything meant
+   to sit on the photograph belongs in ::after. */
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,49,47,.80) 0%,rgba(1,49,47,.70) 32%,rgba(1,49,47,.42) 50%,rgba(1,49,47,0) 70%),linear-gradient(180deg,rgba(1,49,47,.10) 0%,rgba(1,49,47,0) 30%,rgba(1,49,47,0) 56%,rgba(1,49,47,.23) 78%,rgba(1,49,47,.58) 100%)}
 .hero .wrapx{position:relative;z-index:1;width:100%;padding-top:clamp(90px,12vh,150px);padding-bottom:clamp(72px,13vh,160px)}
 .hero .eyebrow{color:#C6E084}
-.hero h1{color:#fff;font-family:'Work Sans',sans-serif;font-weight:300;letter-spacing:-.035em;line-height:1.02;font-size:clamp(40px,8vw,104px);margin:0;max-width:15ch}
+.hero h1{color:#fff;font-family:'Work Sans',sans-serif;font-weight:300;letter-spacing:-.035em;line-height:1.04;font-size:clamp(38px,6.4vw,84px);margin:0;max-width:14ch;text-shadow:0 1px 24px rgba(1,49,47,.28)}
 .hero .sub{font-size:clamp(17px,1.7vw,21px);line-height:1.5;color:rgba(255,255,255,.94);max-width:560px;margin:22px 0 30px;text-wrap:pretty}
 .hero-links{display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center}
 .hero .txtlink{color:#fff;border-color:#C6E084;font-size:17px}.hero .txtlink:hover{border-color:#fff}

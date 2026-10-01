@@ -157,77 +157,96 @@ window.PACK = {
   /* The store key: this space is saved with us, keyed to it. Never reuse one, and never
      change it once the link has been sent (their saved space is under it). */
   key: 'nKI2yRxmNomUFtSOiZWXY-LZIoDlNw08',
-  route: 'TO CONFIRM \u2014 where you fly from \u2192 Mandurah',
+  route: 'Johannesburg → Mandurah',
 
-  /* No `travel` heading: no flight date yet, so there is nothing to put a date on. When the
-     flight and the first accommodation are booked, add the heading and the travel array and
-     the section appears \u2014 a dropped section needs nothing written for it anywhere. */
+  /* ---- where she actually is (1 Oct 2026) --------------------------------------------------
+     Seeded into the site-wide answers on first open, so "Your move" starts from her move
+     rather than from scratch. `offer: true` turns the numbers stage from "what could I earn"
+     into "what will this actually leave you" — she has the rate; she does not have the net.
+     `done` is only the stages genuinely behind her. Money, where to live and the move itself
+     are all still live, so they stay open. She can untick any of it herself. */
+  seed: {
+    profession: 'imaging',
+    offer: true,
+    hh: { 'with': 'alone' },
+    done: { imagine: true, choose: true, work: true, role: true }
+  },
+
+  /* No `travel` heading: the start date follows the visa, so there is nothing to put a date
+     on. When the flight and the arrival are fixed, add the heading and the travel array. */
   headings: {
-    space:  { title: 'Hello, K-Cee.', sub: 'Everything we have put together for your move to Mandurah, in one place \u2014 and somewhere to keep your own notes while the date is settled.' },
+    space:  { title: 'Hello, K-Cee.', sub: 'Everything we have put together for your move to Mandurah, in one place — and somewhere to keep your own notes while the date is settled.' },
     move:   { title: 'Your move', sub: 'The eight stages of the move, with the ones you have sorted ticked off and the next one open.' },
     plan:   { title: 'Your plan', sub: 'Yours to write in. Nobody is marking it.' },
     guides: { title: 'Guides & packing', sub: 'The parts of the site worth your time right now, and why each one.' },
-    files:  { title: 'Files & receipts', sub: 'What to keep together, and where each one came from.' }
+    files:  { title: 'Files & receipts', sub: 'What to keep together — including the receipts you will be claiming back.' }
   },
 
   letter: [
-    'The hardest part of this move is already behind you. You hold full Ahpra registration, which is the step that decides the timeline for almost everyone and the one nobody can hurry. Hall & Wilcox are handling the visa. What is left is a date, and the ordinary business of landing somewhere new.',
-    'We say that plainly because people who are waiting on something often assume the thing they are waiting on is the hard part. It is not, in your case. From here it is logistics, and logistics can be planned.',
-    'You are going to Mandurah as a radiographer with Apex Radiology, and you are going on your own. That shapes more of the first months than anything else on this page, so most of what follows is written with it in mind.',
-    'Mandurah is a particular kind of place and it is worth knowing why before you arrive. It is a waterside city \u2014 estuary, canals and ocean \u2014 at a price Perth\u2019s coastal suburbs stopped offering some years ago, and it is growing rather than stretched. The trade is that it is a car city, with one real exception: the train reaches central Perth in about fifty minutes. How much you expect to use Perth should shape which suburb you look at, and that is a far easier decision to make before you sign a lease than after.',
-    'Arriving on your own has a shape of its own. The department gives you somewhere to be every day from the start, which is more than most arrivals get. The harder part is the evenings and the first few weekends, and there is a great deal that can be done about that before you fly. We would rather say so now than let you find it out in week three.',
+    'The hard part is behind you. You hold full Ahpra registration, which is the step that sets the timeline for almost everyone and the one nobody can hurry, and you have an offer in writing. Hall &amp; Wilcox are handling the 482. What is left is a date, and the ordinary business of landing somewhere new.',
+    'Your package does more of the early work than most. Four weeks’ accommodation and four weeks’ car hire are provided when you arrive, which means you do not have to find somewhere to live from South Africa, and you do not have to buy a car in your first fortnight. Use that month. It is the difference between choosing a suburb and settling for one.',
+    'One thing to plan for, because it catches people out: the relocation allowance is <strong>reimbursed</strong>. You pay first and claim it back, so you need the money available up front even though you are not ultimately bearing it. Keep every receipt from the moment you start spending — there is a section further down for exactly that.',
+    'Mandurah is a particular kind of place and it is worth knowing why before you arrive. It is a waterside city — estuary, canals and ocean — at a price Perth’s coastal suburbs stopped offering some years ago, and it is growing rather than stretched. The trade is that it is a car city, with one real exception: the train reaches central Perth in about fifty minutes. How much you expect to use Perth should shape which suburb you look at, and with four weeks of car hire you can test that before you commit to a lease.',
+    'You are going on your own, and that shapes the first months more than anything else here. The department gives you somewhere to be every day from the start, which is more than most arrivals get. The harder part is the evenings and the first few weekends, and there is a great deal that can be done about that before you fly.',
     'Dip into this rather than reading it end to end. If something you want is not here, email us and we will find it out for you.'
   ],
   signoff: { name: 'Sophie and the Ethicare team', role: 'Ethicare Resourcing' },
 
   facts: [
     ['Moving to', 'Mandurah, Western Australia'],
-    ['Your role', 'Radiographer with Apex Radiology'],
-    ['Travelling', 'On your own'],
-    ['Registration', 'Full Ahpra registration \u2014 granted'],
-    ['Visa', 'Managed for you by Hall & Wilcox'],
-    ['You fly', 'Date not set yet'],
+    ['Your role', 'Radiographer, permanent and full time'],
+    ['Where you will be', 'Peel Health Campus, Mandurah'],
+    ['Travelling', 'On your own, from Pretoria'],
+    ['Registration', 'Full Ahpra registration — granted'],
+    ['Visa', '482, managed for you by Hall &amp; Wilcox'],
+    ['On arrival', 'Four weeks’ accommodation and four weeks’ car hire'],
+    ['Relocation', 'AUD $10,000 — reimbursed, so keep receipts'],
+    ['You fly', 'Once the visa completes']
   ],
 
-  guidesWhy: 'Registration is done and the visa is in hand, so none of what follows is about getting permission. It is about the decisions that are actually still yours \u2014 where you live, how you get about, and the first months on your own.',
+  guidesWhy: 'Registration is done, the offer is signed and the visa is in hand, so none of this is about getting permission. It is about the decisions still genuinely yours — where you live, what the move leaves you, and the first months on your own.',
   guides: [
-    { title: 'Mandurah \u2014 where clinicians live', href: '/destinations/mandurah-australia/suburbs',
-      why: 'Your biggest open decision. The first question here is not which suburb but which water, and how far from the train. Canal and estuary, the newer family estates, or the older established streets \u2014 the chapter is honest about what you pay for each.' },
-    { title: 'Mandurah \u2014 getting around', href: '/destinations/mandurah-australia/transport',
-      why: 'The Mandurah line reaches the Perth CBD in about fifty minutes. Whether you expect to use it is the single biggest thing that should weight your suburb search.' },
+    { title: 'Mandurah — where clinicians live', href: '/destinations/mandurah-australia/suburbs',
+      why: 'Your biggest open decision, and you get four weeks to make it from inside the city rather than from South Africa. The first question here is not which suburb but which water, and how far from the train.' },
+    { title: 'Mandurah — getting around', href: '/destinations/mandurah-australia/transport',
+      why: 'The Mandurah line reaches the Perth CBD in about fifty minutes. Four weeks of car hire is long enough to find out how much you would actually use it before you buy anything.' },
     { title: 'Renting in Australia', href: '/guides/australia-renting',
-      why: 'How applications, bonds and inspections work, and what can be done before you have an Australian address. Worth starting early \u2014 arriving alone means nobody else can attend a viewing for you.' },
+      why: 'How applications, bonds and inspections work. Less urgent than for most people — you have a month’s accommodation — but the bond is real money and it is worth knowing the shape of it before you land.' },
+    { title: 'Take-home pay', href: '/take-home-pay',
+      why: 'You know the hourly rate. What tax and superannuation do to it is a different number, and it is the one a lease gets signed against.' },
+    { title: 'The cost of relocating', href: '/guides/cost-of-relocating',
+      why: 'What the move costs before the $10,000 comes back to you. That gap, and how long it lasts, is the thing worth planning around.' },
     { title: 'Driving in Australia', href: '/guides/australia-driving',
-      why: 'Mandurah is a car city, so this comes sooner for you than it would in Perth. What converting your licence involves once you have a WA address, and what to bring from home to make it straightforward.' },
-    { title: 'Money \u2014 bank accounts, tax and superannuation', href: '/guides/australia-money',
-      why: 'Which of these you can start before you fly, and which have to wait until you are in the country.' },
-    { title: 'Practising in the Australian health system', href: '/guides/australia-practice',
-      why: 'Who funds what, and how the system around your department works. Registration tells you that you can practise; this is what practising here is actually like.' },
+      why: 'Converting a South African licence once you have a WA address. Start the paperwork early — a letter of driving experience is far easier to get before you leave than after.' },
+    { title: 'Money — bank accounts, tax and superannuation', href: '/guides/australia-money',
+      why: 'Superannuation sits on top of your salary here rather than inside it, which is not how it works at home. Also which accounts you can open before you fly.' },
     { title: 'Finding your people', href: '/guides/australia-community',
-      why: 'The one we would push hardest, given you are going alone. Faith, cultural and diaspora communities, and how that differs between a regional city and Perth.' },
-    { title: 'The visa', href: '/guides/australia-visa',
-      why: 'Hall & Wilcox are running this, so you do not need the detail \u2014 but it is worth knowing the shape of what they will ask you for, and when.' },
-    { title: 'Ethicare Move \u2014 your plan', href: '/move',
+      why: 'The one we would push hardest, given you are going alone. There is a large South African community in Perth and the corridor south of it.' },
+    { title: 'Practising in the Australian health system', href: '/guides/australia-practice',
+      why: 'Who funds what, and how the system around your department works. Registration says you can practise; this is what practising here is like.' },
+    { title: 'Ethicare Move — your plan', href: '/move',
       why: 'The whole move sequenced, if you would rather work from a list than a page.' }
   ],
 
   suggested: [
+    'Send the passport copy and Ahpra registration for the 482',
+    'Open a folder for relocation receipts, starting now',
+    'Work out what I need in the bank before the $10,000 comes back',
     'Decide: near the water, near the train, or near the hospital',
-    'Ask about the start-date window',
-    'Send Hall & Wilcox whatever they are still waiting on',
-    'Get a letter of driving experience before I leave',
+    'Get a letter of driving experience before I leave South Africa',
     'Work out what ships and what is sold',
-    'Ask which bank accounts can be opened before I fly',
+    'Ask what the four weeks’ accommodation actually covers',
     'Find one thing to join in Mandurah before I get there'
   ],
 
   files: [
-    { k: 'Ahpra registration certificate', v: 'Your proof of registration', note: 'Apex will ask for it. Keep the registration number somewhere you can find it quickly \u2014 you will be asked for it more often than you expect.' },
-    { k: 'Passport', v: 'Check the expiry date', note: 'Renewing mid-visa-application is slow and holds everything else up. Worth checking now rather than when the date is set.' },
-    { k: 'Whatever Hall & Wilcox ask for', v: 'Kept together, in the order they ask', note: 'Police clearance, qualification documents, employment history. They will tell you which; this is the pile they go in.' },
+    { k: 'Passport', v: 'Needed now, for the 482', note: 'Check the expiry date at the same time — renewing mid-application is slow and holds everything up.' },
+    { k: 'Ahpra registration certificate', v: 'Also needed now, for the 482', note: 'Keep the registration number somewhere you can find it quickly. You will be asked for it more often than you expect.' },
+    { k: 'Relocation receipts', v: 'Every one, from the first flight search onwards', note: 'The AUD $10,000 is reimbursed, not paid up front, so the receipts are what turn it into money. Flights, shipping, visa costs, excess baggage. Photograph them as you go.' },
+    { k: 'Whatever Hall &amp; Wilcox ask for', v: 'Kept together, in the order they ask', note: 'Police clearance, qualification documents, employment history. They will tell you which.' },
     { k: 'Qualification and transcripts', v: 'Certified copies, plus the originals', note: 'Ahpra has copies; an employer may still ask to see the originals.' },
     { k: 'Employment references', v: 'From your current and previous departments', note: 'Signed and dated, on letterhead. Easier to get before you hand in notice than after.' },
-    { k: 'Licence and driving history', v: 'Your licence, plus a letter of driving experience', note: 'The second one is easy to forget and awkward to obtain once you have left the country.' }
+    { k: 'Licence and driving history', v: 'Your licence, plus a letter of driving experience', note: 'Easy to forget and awkward to obtain once you have left.' }
   ]
 };
 </script>

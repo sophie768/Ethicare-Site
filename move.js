@@ -40,6 +40,10 @@
       note: 'The first question worth answering \u2014 start it early and the rest of the move has room.' },
     earn: { title: 'See what you could earn', href: '/is-it-worth-it', store: null,
       note: 'The published scales, what varies on top, and what is left after tax and rent.' },
+    /* For someone who already holds an offer. The salary is settled; what is not settled is
+       what reaches the account after tax, superannuation or KiwiSaver, and rent. */
+    takehome: { title: 'Work out your take-home pay', href: '/take-home-pay', store: null,
+      note: 'What the offer actually leaves you each month, once tax and the rest come off.' },
     cost: { title: 'Work out what the move will cost', href: '/cost-calculator', store: 'ethicare_cost_calculator_v1',
       note: 'What the whole move costs, what your employer covers, and what you need in the bank before you fly.' },
     live: { title: 'Explore where you could live', href: '/where-would-we-live', store: null,
@@ -81,6 +85,9 @@
   var hh = function () { return ctx ? ctx.household() : ''; };
   function hasPartner() { var v = hh(); return v === 'partner' || v === 'both'; }
   function hasKids() { var v = hh(); return v === 'children' || v === 'both'; }
+  /* Set by a pack (every pack belongs to someone already placed) or by anyone who tells the
+     site they hold an offer. It changes what the numbers stage is for. */
+  function hasOffer() { return S.offer === true; }
   function band(v) { return S.hh.bands.indexOf(v) > -1; }
   function schoolAge() { return band('5to12') || band('13to17'); }
   var BANDS = [{ value: 'u5', label: 'Under 5' }, { value: '5to12', label: '5–12' }, { value: '13to17', label: '13–17' }, { value: '18up', label: '18 or over' }];
@@ -164,9 +171,21 @@
           if (hasPartner() && !S.hh.work) st.ask = 'work';
           break;
         case 'numbers':
-          st.items.push({ title: 'What could I earn?', tool: 'earn',
-            note: 'In the public systems pay is set by collective agreement and published. What varies is your step, your hours and the allowances on top — and what is left after tax and rent.',
-            links: (forCountries(function (dd, cc) { return [{ label: 'Salary and pay, explained', href: '/guides/' + cc + '-salary' }]; }) || []).concat([{ label: 'Take-home pay', href: '/take-home-pay' }]) });
+          /* Someone holding an offer already knows the salary, so asking "what could I earn?"
+             tells them something they settled weeks ago (Sophie, 1 Oct 2026). What they do not
+             know is what lands in the account — tax, superannuation or KiwiSaver, and rent turn
+             a known gross into an unknown net, and that is the number a lease is signed
+             against. The second item stays either way: an offer does not tell you what the
+             move itself costs. */
+          if (hasOffer()) {
+            st.items.push({ title: 'What will the offer actually leave you?', tool: 'takehome',
+              note: 'You know the salary. What is left after tax, superannuation and rent is a different number, and usually lower than people expect — worth knowing before you commit to a rent.',
+              links: (forCountries(function (dd, cc) { return [{ label: 'How pay is set, and what sits on top', href: '/guides/' + cc + '-salary' }]; }) || []) });
+          } else {
+            st.items.push({ title: 'What could I earn?', tool: 'earn',
+              note: 'In the public systems pay is set by collective agreement and published. What varies is your step, your hours and the allowances on top — and what is left after tax and rent.',
+              links: (forCountries(function (dd, cc) { return [{ label: 'Salary and pay, explained', href: '/guides/' + cc + '-salary' }]; }) || []).concat([{ label: 'Take-home pay', href: '/take-home-pay' }]) });
+          }
           st.items.push({ title: 'Can we afford it?', tool: 'cost',
             note: 'Registration, the visa for everyone coming, flights, shipping, temporary accommodation and the bond. What the whole move costs, what an employer usually covers, and what you need in the bank.',
             links: [{ label: 'The cost of relocating, explained', href: '/guides/cost-of-relocating' }] });

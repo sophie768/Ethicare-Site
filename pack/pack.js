@@ -318,6 +318,43 @@
       })
       .catch(function () { pushing = false; flash('Kept on this device \u2014 we will save it to your space when we can'); setState('offline'); });
   }
+  /* ---- start where they actually are (1 Oct 2026) ------------------------------------------
+     A pack belongs to someone we have already placed, so opening it on "Imagine the
+     possibilities" and offering them a choice between New Zealand and Australia is worse than
+     useless — it is the page telling a woman with a signed offer in Mandurah that she might
+     like to consider Dunedin. Only the destination was being seeded, so everything downstream
+     stayed generic.
+
+     PACK.seed carries what the team already knows: profession, who is coming, and the stages
+     that are genuinely behind them. move.js reads the same store as the public tools, so
+     seeding it narrows every stage, every link and every guide list in one go.
+
+     Three rules. It runs ONLY on the first open of a new space, never over a space that has
+     anything in it. It fills a field only when the store has no answer for it, so the
+     candidate's own answer always wins. And `done` is additive — ticking a stage for them is
+     a statement that it is finished, so it is for stages we know are finished, not a guess. */
+  function seed() {
+    var s = P.seed;
+    if (!s || typeof s !== 'object') return;
+    var p = readPortal() || {}, touched = false;
+    ['profession', 'origin', 'stage', 'journeyStage'].forEach(function (k) {
+      if (s[k] && !p[k]) { p[k] = s[k]; touched = true; }
+    });
+    /* A pack belongs to someone already placed, so the offer is a fact rather than a
+       guess. move.js reads it and the numbers stage stops asking what they could earn. */
+    if (s.offer === true && p.offer !== true) { p.offer = true; touched = true; }
+    if (s.hh && typeof s.hh === 'object') {
+      if (!p.hh || typeof p.hh !== 'object') p.hh = { 'with': '', work: '', bands: [] };
+      if (s.hh['with'] && !p.hh['with']) { p.hh['with'] = s.hh['with']; touched = true; }
+      if (s.hh.work && !p.hh.work) { p.hh.work = s.hh.work; touched = true; }
+      if (s.hh.bands && s.hh.bands.length && !(p.hh.bands || []).length) { p.hh.bands = s.hh.bands.slice(); touched = true; }
+    }
+    if (s.done && typeof s.done === 'object') {
+      if (!p.done || typeof p.done !== 'object') p.done = {};
+      Object.keys(s.done).forEach(function (k) { if (s.done[k] && !p.done[k]) { p.done[k] = true; touched = true; } });
+    }
+    if (touched) { p.set = true; writePortal(p); }
+  }
   function pull() {
     if (!SAVED) return;
     fetch(API + '?k=' + encodeURIComponent(P.key), { headers: { Accept: 'application/json' } })
@@ -332,6 +369,7 @@
              The destination is the one thing the pack already knows; never ask it again. */
           var p0 = readPortal() || {};
           if (!p0.dest && (P.country === 'nz' || P.country === 'au')) { p0.dest = P.country; p0.set = true; writePortal(p0); }
+          seed();
           S.pending = true; saveLocal(); push(); return;
         }
         if (S.pending) { apply(merge(res.j.data)); S.base = res.j.updated_at || ''; saveLocal(); queuePush(); return; }
