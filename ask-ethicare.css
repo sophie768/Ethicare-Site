@@ -83,3 +83,7 @@
 .askgrid .t{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;color:#02615D}
 .askgrid .d{font-size:13.5px;line-height:1.45;color:#5A6560}
 @media (max-width:760px){.askpage .keyline{padding-left:14px;max-width:none}.askcol li{max-width:none}}
+
+/* How long the answer takes, said up front (2 Oct 2026). The call is ~6s and the full answer
+   lands around twenty; without a number on screen that reads as broken rather than busy. */
+.aske-time{font-family:"Work Sans",sans-serif;font-size:13.5px;color:#555;margin:10px 0 0}

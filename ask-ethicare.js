@@ -165,6 +165,12 @@
     turn.className = 'aske-turn';
     turn.innerHTML = '<p class="aske-you"><span>You asked</span>' + esc(q.trim()) + '</p><div class="aske-ans"><p class="aske-wait">Ethicare is thinking&hellip;</p></div>';
     thread.appendChild(turn);
+    /* Bring the turn into view (2 Oct 2026). On the homepage this form sits 38,000px down a
+       62,000px page, and the answer takes about twenty seconds to arrive — long enough to look
+       away, scroll, and never see it land. On /ask the form IS the page so nobody noticed.
+       `nearest` rather than `center` so a page that is already showing the thread does not
+       jump under the reader. */
+    try { turn.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {}
     input.value = ''; input.setAttribute('placeholder', 'Keep asking \u2014 I\u2019ll remember what you\u2019ve told me');
     track('assistant_question');
     history.push({ role: 'user', content: q.trim() });
@@ -185,6 +191,12 @@
       track('assistant_answered', { routed: routed ? 'yes' : 'no', handoff: p.handoff ? 'yes' : 'no' });
       stopWait();
       ans.innerHTML = render(p.body) + actionsHtml(p.ids, p.handoff) + feedbackHtml(n);
+      /* Twenty seconds is long enough to have scrolled away; put the answer back in front of
+         them, but only if it is off-screen, so a reader already looking at it is left alone. */
+      try {
+        var r = turn.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > (window.innerHeight || 0)) turn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch (e2) {}
     } catch (e) {
       stopWait();
       ans.innerHTML = '<p><strong>Ask Ethicare is briefly unavailable.</strong> Everything it draws on is still here: the <a href="/pathway-checker">pathway checker</a>, the <a href="/resources">guides library</a>, or <a href="/contact">the team</a>.</p>';

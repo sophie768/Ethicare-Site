@@ -71,13 +71,17 @@
      keeps three things of its own in the same store: hh.work (does the partner work in
      health), hh.bands (children's ages), first (a first name, optional), and done (stages
      marked as sorted). */
-  var S = { first: '', origin: '', hh: { with: '', work: '', bands: [] }, done: {}, set: false };
+  var S = { first: '', origin: '', hh: { with: '', work: '', bands: [] }, done: {}, steps: {}, notes: {}, set: false };
   function load() {
     try { var raw = JSON.parse(localStorage.getItem(KEY) || '{}'); if (raw && typeof raw === 'object') S = raw; } catch (e) {}
     if (!S.hh || typeof S.hh !== 'object') S.hh = { with: '', work: '', bands: [] };
     if (!Array.isArray(S.hh.bands)) S.hh.bands = [];
     if (S.hh.with === 'kids') S.hh.with = 'children';
     if (!S.done || typeof S.done !== 'object') S.done = {};
+    /* ticked steps and the reader's own notes, keyed by stage. Same store as everything else,
+       so the plan link and the printed document carry them too (2 Oct 2026). */
+    if (!S.steps || typeof S.steps !== 'object') S.steps = {};
+    if (!S.notes || typeof S.notes !== 'object') S.notes = {};
   }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
   var dest = function () { return ctx ? ctx.destMode() : ''; };
@@ -116,6 +120,47 @@
       : ' Some professions on New Zealand\u2019s Green List can apply for residence without waiting for a job offer, which changes the order entirely \u2014 worth checking against your own occupation early.';
     return common + other + ' Either way: which visa, what it costs for everyone coming, and how long it realistically takes.';
   }
+
+  /* ---- the registration guide for THEIR profession (2 Oct 2026) ----------------------------
+     The page already knew the candidate's profession and did nothing with it: a doctor, a
+     physiotherapist and a radiographer were all sent to the same generic country guide, while
+     eight profession-specific guides sat unlinked. The regulator is the thing that differs most
+     between professions, so this is the one link where "profession" earns its keep.
+
+     Keyed by regulator rather than profession, because that is how registration actually works
+     — one board covers several professions. Only pairs with a guide that exists are listed; a
+     profession not here falls back to the country guide, which is correct rather than a gap. */
+  var REG_GUIDE = {
+    nz: {
+      medicine:    'new-zealand-registration-mcnz',    /* Medical Council */
+      imaging:     'new-zealand-registration-mrtb',    /* Medical Radiation Technologists Board */
+      radtherapy:  'new-zealand-registration-mrtb',
+      nuclearmed:  'new-zealand-registration-mrtb',
+      sonography:  'new-zealand-registration-mrtb',
+      anaesthetic: 'new-zealand-registration-mscnz',   /* Medical Sciences Council — ATs and UK ODPs */
+      psychology:  'new-zealand-registration-nzpb',    /* Psychologists Board */
+      ot:          'new-zealand-registration-otbnz',   /* Occupational Therapy Board */
+      physio:      'new-zealand-registration-pbnz'     /* Physiotherapy Board */
+    },
+    au: {
+      imaging:     'australia-registration-mrpba',     /* Medical Radiation Practice Board */
+      radtherapy:  'australia-registration-mrpba',
+      nuclearmed:  'australia-registration-mrpba',
+      sonography:  'australia-registration-asar'       /* ASMIRT and ASAR accreditation */
+    }
+  };
+  function regGuide(dd) {
+    var k = ctx && ctx.profession ? ctx.profession() : '';
+    var m = REG_GUIDE[dd] || {};
+    return (k && m[k]) ? m[k] : null;
+  }
+  function regLabel() {
+    var n = ctx && ctx.professionLabel ? ctx.professionLabel() : '';
+    /* The catalogue labels carry an alternative after a slash ("Medical imaging / radiography")
+       which reads badly inside a sentence; the first name is the one people use. */
+    n = String(n || '').split('/')[0].trim();
+    return n ? 'Registration for ' + n.charAt(0).toLowerCase() + n.slice(1) : 'Registration guide';
+  }
   function me() { var p = PROF(), d = oneDest(), k = ctx && ctx.profession(); return (p && d && k) ? p.forCountry(k, d) : null; }
   function origins() { var f = DATA().flights || {}; return Object.keys(f).map(function (k) { return { value: k, label: f[k].label }; }); }
   function savedItems() { try { var o = JSON.parse(localStorage.getItem('ethicare_saved_v1') || '{}'); return (o && o.items) || []; } catch (e) { return []; } }
@@ -137,6 +182,82 @@
                       : { label: 'Immigration New Zealand', href: 'https://www.immigration.govt.nz/', external: true };
   }
 
+  /* ---- the short name a stage goes by on a phone ------------------------------------------
+     The chips above the panel have to fit eight across three rows at 390px. The full name
+     stays on the panel heading and in the desktop rail, so nothing is lost. */
+  var SHORT = { imagine: 'Imagine it', choose: 'Choose a country', work: 'Can I work there?', numbers: 'The money',
+    place: 'Where to live', role: 'Find a role', plan: 'Plan the move', settle: 'Settle in' };
+
+  /* ---- what each stage is FOR, in a sentence or two (2 Oct 2026) ---------------------------
+     Written to open the stage warmly and say what it helps you decide — not to describe the
+     page, and not to imply anything is running late. */
+  function intro(id) {
+    var dl = destLabel();
+    switch (id) {
+      case 'imagine': return 'Start with the life, not the paperwork. What an ordinary week could look like, what your profession is like there, and whether the people coming with you want it too.';
+      case 'choose': return dest() === 'nz' || dest() === 'au'
+        ? 'You are looking at ' + dl + '. If you are still weighing up the other one, it is worth reading side by side before you commit.'
+        : 'Two countries, two regulators, two pay systems and a very different sense of scale. This is where you work out which one fits.';
+      case 'work': return 'Find out whether you can register, by which route, and roughly how long it takes. Knowing this early gives everything else room.';
+      case 'numbers': return hasOffer()
+        ? 'You know the salary. This is where you work out what it actually leaves you each month, and what the move itself will cost.'
+        : 'What you could earn, what the move will cost, and whether the two add up for your household.';
+      case 'place': return 'Explore places that could suit your work, your budget and the life you want to build.';
+      case 'role': return 'See what is open in your profession, and get your CV and your answers ready for a health system that reads them differently.';
+      case 'plan': return 'With an offer in hand, the move becomes real. The contract, the visa and everything that has to be arranged before you fly.';
+      case 'settle': return 'The first weeks decide how a place feels. The paperwork, the first days at work, and the ordinary things that make somewhere home.';
+    }
+    return '';
+  }
+
+  /* ---- your next steps: three or four, phrased as decisions wherever they can be ------------
+     Deliberately short, and deliberately few. A long list of empty boxes is just a way of
+     telling someone they are behind. */
+  function steps(id) {
+    var d = dest(), single = (d === 'nz' || d === 'au'), dl = destLabel(), L = [];
+    switch (id) {
+      case 'imagine':
+        L = ['Read what the work is really like' + (single ? ' in ' + dl : ' in each country'),
+             'Talk it through with whoever is coming with you',
+             'Be honest with yourself about what you would miss'];
+        break;
+      case 'choose':
+        L = ['Read the two countries side by side', 'Compare how pay and conditions differ',
+             single ? 'Keep the other country open, or rule it out on purpose' : 'Settle on one, or decide to keep both open for now'];
+        break;
+      case 'work':
+        L = ['Run your profession through the pathway checker',
+             'Request a certificate of good standing from each regulator you have held registration with',
+             'Check what is needed on English, character and health'];
+        if (hasPartner() && S.hh.work === 'health') L.push('Start your partner’s pathway alongside your own');
+        break;
+      case 'numbers':
+        L = hasOffer()
+          ? ['Work out what the offer leaves you each month', 'Estimate what the move itself will cost', 'Find out what your employer covers, in writing']
+          : ['Look up the published pay for your profession and step', 'Estimate what the move itself will cost', 'Decide what you want in the bank before you fly'];
+        break;
+      case 'place':
+        L = ['Read the guides for the places you are considering', 'Compare rent and the commute to likely employers'];
+        if (hasKids()) L.push('Look at schools or childcare before you settle on an area');
+        L.push('Shortlist two or three places');
+        break;
+      case 'role':
+        L = ['Look at what is open now in your profession', 'Rewrite your CV for the system you are applying to',
+             'Work up your answers to the questions panels actually ask', 'Tell us what you are looking for'];
+        break;
+      case 'plan':
+        L = ['Read the offer properly and ask about anything unclear', 'Start the visa application',
+             'Arrange shipping and somewhere to stay when you land'];
+        if (hasKids()) L.push('Apply for a school or childcare place');
+        break;
+      case 'settle':
+        L = ['Sort your tax number, a bank account and a phone', 'Get through your first days on the unit',
+             'Find the things that make a week feel like yours again'];
+        break;
+    }
+    return L;
+  }
+
   function stages() {
     var d = dest(), single = (d === 'nz' || d === 'au'), c = single ? C(d) : '';
     var out = [];
@@ -144,7 +265,7 @@
       var st = { n: j.n, id: j.id, label: j.there, where: j.where, items: [], ask: null };
       switch (j.id) {
         case 'imagine':
-          st.items.push({ title: 'Deciding', note: 'Before anything practical. What the country is like to live in, what your profession looks like there, and whether the people coming with you want it too.',
+          st.items.push({ title: 'Where to start reading', note: 'The country pages, and an honest account of why people move and what they miss once they have.',
             links: forCountries(function (dd) { return [{ label: 'Working in ' + CN(dd), href: '/' + C(dd) }, { label: 'Why people move, and what they miss', href: '/guides/why-people-move' }]; })
               || [{ label: 'Working in New Zealand', href: '/new-zealand' }, { label: 'Working in Australia', href: '/australia' }, { label: 'Why people move, and what they miss', href: '/guides/why-people-move' }] });
           st.items.push({ title: 'What the move was like', note: 'Real people, real places, imperfect details.', links: [{ label: 'Stories from people who moved', href: '/insights' }] });
@@ -152,14 +273,14 @@
         case 'choose':
           st.items.push({ title: 'Australia or New Zealand?', note: single
               ? 'You have chosen ' + CN(d) + '. If you are still weighing it up, the comparison is one page and it is candid about both.'
-              : 'Two countries, two regulators, two pay systems and a very different sense of scale. Nobody should choose from a job advert.',
+              : 'The comparison is one page and candid about both: pay, registration, climate, distance from home, and what each is actually like to live in.',
             links: [{ label: 'Compare the two countries', href: '/guides/australia-vs-new-zealand' }, { label: 'Pay compared', href: '/guides/australia-vs-new-zealand-salary' }].concat(
               forCountries(function (dd) { return [{ label: CN(dd) + ' destination guides', href: dd === 'au' ? '/destinations/australia' : '/destinations/' }]; }) || [{ label: 'All destination guides', href: '/destinations/' }]) });
           break;
         case 'work':
           st.items.push({ title: 'Registration', tool: 'pathway',
-            note: 'Whether you can register, by which route, and how long it takes. Starting registration early gives you more time to plan the rest of your move. It is more than your qualification: certificates of good standing, English, character and health checks all sit here.',
-            links: (forCountries(function (dd, cc) { return [{ label: 'Registration guide', href: '/guides/' + cc + '-registration' }]; }) || []).concat([{ label: 'Everything registration asks of you', href: '/can-i-work-there' }]) });
+            note: 'It is more than your qualification. Certificates of good standing from every regulator you have held registration with, English, character and health checks all sit here, and some of them take weeks of their own.',
+            links: (forCountries(function (dd, cc) { var g = regGuide(dd); return [g ? { label: regLabel(), href: '/guides/' + g } : { label: 'Registration guide', href: '/guides/' + cc + '-registration' }]; }) || []).concat([{ label: 'Everything registration asks of you', href: '/can-i-work-there' }]) });
           if (hasPartner() || hasKids()) st.items.push({ title: 'The people coming with you',
             note: hasPartner()
               ? 'Your visa route decides what your partner can do when you arrive — whether they can work at all, for whom, and on what terms. Worth settling before you apply rather than after you have accepted.'
@@ -232,7 +353,7 @@
             links: forCountries(function (dd, cc) { return [{ label: 'Moving as a single parent', href: '/guides/' + cc + '-family#single-parent' }, immi(dd)]; }) || [{ label: 'Moving as a single parent', href: '/guides/new-zealand-family#single-parent' }] });
           break;
         case 'settle':
-          st.items.push({ title: 'Landing well', tool: 'first30', note: 'The paperwork in the order it needs doing, the first days on the unit, and the ordinary things that turn an arrival into a life.',
+          st.items.push({ title: 'Landing well', tool: 'first30', note: 'What to do in the first week and in what order, and who to ask when something does not work the way it did at home.',
             links: forCountries(function (dd, cc) { return [{ label: 'Living and thriving in ' + CN(dd), href: '/guides/living-in-' + cc }, { label: 'Community and belonging', href: '/guides/' + cc + '-community' }]; }) || [{ label: 'Settling in', href: '/settling-in' }] });
           break;
       }
@@ -270,47 +391,106 @@
         var tl = t0 ? tool(t0.tool, oneDest()) : null;
         nextEl.hidden = false;
         nextEl.innerHTML = ns
-          ? '<span class="k">Your next step · Stage 0' + ns.n + '</span><h2>' + esc(ns.label) + '</h2><p>' + esc(tl ? tl.note : ns.items[0].note) + '</p>' +
-            (tl ? '<a class="pt-btn" href="' + tl.href + '" data-ctx-link>' + esc(tl.title) + ' <i aria-hidden="true">&rarr;</i></a>' : '<button class="pt-btn" type="button" data-open="' + ns.id + '">Open this stage <i aria-hidden="true">&rarr;</i></button>')
+          ? '<span class="k">Your next step</span><h2>' + esc(ns.label) + '</h2><p>' + esc(tl ? tl.note : ns.items[0].note) + '</p>' +
+            (tl ? '<a class="pt-btn" href="' + tl.href + '" data-ctx-link>' + esc(tl.title) + ' <i aria-hidden="true">&rarr;</i></a>' : '<button class="pt-btn" type="button" data-go="' + ns.id + '" data-scroll="1">Open this stage <i aria-hidden="true">&rarr;</i></button>')
           : '<span class="k">Every stage sorted</span><h2>Nothing left on the list.</h2><p>Come back to any stage below, or clear the ticks to start again.</p>';
       }
     }
 
-    /* the eight */
-    host.innerHTML = list.map(function (s) {
-      var isCur = s.id === cur, isDone = !!S.done[s.id], isOpen = s.id === openId;
-      var status = isDone ? '<span class="pt-badge done">Done</span>' : isCur ? '<span class="pt-badge now">You are here</span>' : (nx && s.id === nx.id ? '<span class="pt-badge">Next</span>' : '');
-      var h = '<section class="pt-stage' + (isOpen ? ' is-open' : '') + (isCur ? ' now' : '') + (isDone ? ' done' : '') + '" id="s' + s.n + '" data-stage="' + s.id + '">';
-      h += '<button type="button" class="pt-stage-h" data-open="' + s.id + '" aria-expanded="' + (isOpen ? 'true' : 'false') + '"><span class="pt-num">0' + s.n + '</span><span class="pt-stage-t">' + esc(s.label) + '</span>' + status + '<span class="pt-stage-x" aria-hidden="true">' + (isOpen ? '−' : '+') + '</span></button>';
-      if (isOpen) {
-        h += '<div class="pt-stage-b">';
-        if (!hasD && s.n > 1) h += '<p class="pt-hint" style="margin:0 0 14px">Tell us where you are thinking of, above, and this stage shows only that country’s guides.</p>';
-        s.items.forEach(function (it) {
-          var tl = it.tool ? tool(it.tool, oneDest()) : null;
-          /* The "Started" badge used to sit on the item title, so a saved draft in the pathway
-             checker put "Registration — Started" on the page. A candidate reads that as their
-             registration being underway; what it actually means is that a tool in this browser
-             has answers in it. Same fact, moved to the tool it is about (Sophie, 1 Oct 2026). */
-          h += '<div class="pt-item"><h3>' + esc(it.title) + '</h3><p>' + esc(it.note) + '</p>';
-          if (tl) {
-            h += '<a class="pt-btn ghost" href="' + tl.href + '" data-ctx-link>' + esc(tl.title) + ' <i aria-hidden="true">&rarr;</i></a>';
-            if (started(tl.store)) h += '<p class="pt-draft">Saved in this browser — opens where you left off.</p>';
-          }
-          if (it.links && it.links.length) h += '<div class="pt-links">' + it.links.map(function (l) { return '<a href="' + esc(l.href) + '"' + (l.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(l.label) + (l.external ? ' ↗' : '') + '</a>'; }).join('') + '</div>';
-          h += '</div>';
-        });
-        if (s.ask === 'work') h += '<div class="pt-ask"><p class="pt-lbl">Does your partner work?</p><div class="pt-pills">' + WORK.map(function (w) { return '<button type="button" class="pt-pill" data-work="' + w.value + '">' + esc(w.label) + '</button>'; }).join('') + '</div><p class="pt-hint">If they are a clinician too, their registration gets its own step here.</p></div>';
-        if (s.ask === 'bands') h += '<div class="pt-ask"><p class="pt-lbl">How old will your children be when you move?</p><div class="pt-pills">' + BANDS.map(function (b) { return '<button type="button" class="pt-pill' + (band(b.value) ? ' on' : '') + '" data-band="' + b.value + '" aria-pressed="' + (band(b.value) ? 'true' : 'false') + '">' + esc(b.label) + '</button>'; }).join('') + '</div><p class="pt-hint">Choose every band that applies. Ages decide whether childcare, school enrolment or university fees belong in your plan.</p></div>';
-        h += '<div class="pt-signrow" style="margin-top:18px">' +
-          '<button type="button" class="pt-tick' + (isDone ? ' on' : '') + '" data-done="' + s.id + '" aria-pressed="' + (isDone ? 'true' : 'false') + '">'
-          + '<span class="pt-tick-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>'
-          + '<span class="pt-tick-l">' + (isDone ? 'Done' : 'Mark as done') + '</span></button>' +
-          (!isCur ? '<button type="button" class="pt-quiet" data-here="' + s.id + '">This is where I am</button>' : '') +
-          '</div></div>';
+    /* ---- the journey: every stage listed, one stage shown (2 Oct 2026) ---------------------
+       Eight stacked boxes filled the screen before any content, worst on a phone. Now: a rail
+       of all eight on the left at desk width, chips above the panel on a phone, and the
+       selected stage in full beside or below them.
+
+       The numbers are gone. "01 of 08" implied a fixed order the page then contradicts two
+       lines later ("the order most people need, not a rule"), and it told someone arriving
+       with an offer in hand that they had skipped six things. The sequence still reads — the
+       rail runs top to bottom — and what replaced the number says more: a tick for done, a
+       teal edge for where you are. #s1–#s8 still work, because people have been sent them. */
+    var selIdx = 0;
+    for (var k = 0; k < list.length; k++) if (list[k].id === openId) selIdx = k;
+    var sel = list[selIdx] || list[0];
+    var prevS = list[selIdx - 1] || null, nextS = list[selIdx + 1] || null;
+    var TICK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>';
+    function stateOf(x) { return S.done[x.id] ? 'done' : (x.id === cur ? 'now' : (nx && x.id === nx.id ? 'next' : '')); }
+    function stateWord(x) { var t = stateOf(x); return t === 'done' ? 'Done' : t === 'now' ? 'You are here' : t === 'next' ? 'Next' : ''; }
+
+    var rail = '<nav class="pt-rail" aria-label="The stages of your move">' +
+      '<p class="pt-rail-h">Your move, stage by stage</p><ol class="pt-rail-l">' +
+      list.map(function (x) {
+        var t = stateOf(x), on = x.id === sel.id;
+        return '<li><button type="button" class="pt-rail-b' + (on ? ' on' : '') + (t ? ' is-' + t : '') + '" data-go="' + x.id + '"' + (on ? ' aria-current="step"' : '') + '>' +
+          '<span class="pt-dot" aria-hidden="true">' + (t === 'done' ? TICK : '') + '</span>' +
+          '<span class="pt-rail-t">' + esc(x.label) + '</span>' +
+          (stateWord(x) ? '<span class="pt-rail-s">' + stateWord(x) + '</span>' : '') +
+          '</button></li>';
+      }).join('') + '</ol></nav>';
+
+    var chips = '<div class="pt-jchips"><p class="pt-jchips-h" id="pt-chips-h">Choose your stage</p>' +
+      '<div class="pt-jchipw" role="group" aria-labelledby="pt-chips-h">' +
+      list.map(function (x) {
+        var t = stateOf(x), on = x.id === sel.id;
+        return '<button type="button" class="pt-jchip' + (on ? ' on' : '') + (t ? ' is-' + t : '') + '" data-go="' + x.id + '"' + (on ? ' aria-current="step"' : '') + '>' +
+          (t === 'done' ? '<span class="pt-jchip-k" aria-hidden="true">' + TICK + '</span>' : '') + esc(SHORT[x.id] || x.label) + '</button>';
+      }).join('') + '</div></div>';
+
+    var isDone = !!S.done[sel.id], isCur = sel.id === cur, word = stateWord(sel);
+    var p = '<section class="pt-panel" id="s' + sel.n + '" data-stage="' + sel.id + '" tabindex="-1">';
+    p += '<header class="pt-panel-h"><h2>' + esc(sel.label) + '</h2>' +
+      (word ? '<span class="pt-badge' + (isDone ? ' done' : isCur ? ' now' : '') + '">' + word + '</span>' : '') + '</header>';
+    p += '<p class="pt-intro">' + esc(intro(sel.id)) + '</p>';
+    if (!hasD && sel.n > 1) p += '<p class="pt-hint">Tell us where you are thinking of, above, and this stage shows only that country’s guides.</p>';
+
+    var sl = steps(sel.id);
+    if (sl.length) {
+      p += '<h3 class="pt-h3">Your next steps</h3><ul class="pt-nsl">' + sl.map(function (txt, i) {
+        var key = sel.id + '#' + i, on = !!S.steps[key];
+        return '<li><button type="button" class="pt-ns' + (on ? ' on' : '') + '" data-step="' + key + '" aria-pressed="' + (on ? 'true' : 'false') + '">' +
+          '<span class="pt-tick-box" aria-hidden="true">' + TICK + '</span>' +
+          '<span class="pt-ns-t">' + esc(txt) + '</span></button></li>';
+      }).join('') + '</ul>';
+    }
+    if (sel.ask === 'work') p += '<div class="pt-ask"><p class="pt-lbl">Does your partner work?</p><div class="pt-pills">' + WORK.map(function (w) { return '<button type="button" class="pt-pill" data-work="' + w.value + '">' + esc(w.label) + '</button>'; }).join('') + '</div><p class="pt-hint">If they are a clinician too, their registration gets its own step here.</p></div>';
+    if (sel.ask === 'bands') p += '<div class="pt-ask"><p class="pt-lbl">How old will your children be when you move?</p><div class="pt-pills">' + BANDS.map(function (b) { return '<button type="button" class="pt-pill' + (band(b.value) ? ' on' : '') + '" data-band="' + b.value + '" aria-pressed="' + (band(b.value) ? 'true' : 'false') + '">' + esc(b.label) + '</button>'; }).join('') + '</div><p class="pt-hint">Choose every band that applies. Ages decide whether childcare, school enrolment or university fees belong in your plan.</p></div>';
+
+    p += '<h3 class="pt-h3">Useful tools and guides</h3>';
+    sel.items.forEach(function (it) {
+      var tl = it.tool ? tool(it.tool, oneDest()) : null;
+      /* The "Started" badge used to sit on the item title, so a saved draft in the pathway
+         checker put "Registration — Started" on the page. A candidate reads that as their
+         registration being underway; what it actually means is that a tool in this browser
+         has answers in it. Same fact, moved to the tool it is about (Sophie, 1 Oct 2026). */
+      p += '<div class="pt-item"><h4>' + esc(it.title) + '</h4><p>' + esc(it.note) + '</p>';
+      if (tl) {
+        p += '<a class="pt-btn ghost" href="' + tl.href + '" data-ctx-link>' + esc(tl.title) + ' <i aria-hidden="true">&rarr;</i></a>';
+        if (started(tl.store)) p += '<p class="pt-draft">Saved in this browser — opens where you left off.</p>';
       }
-      h += '</section>';
-      return h;
-    }).join('');
+      if (it.links && it.links.length) p += '<div class="pt-links">' + it.links.map(function (l) { return '<a href="' + esc(l.href) + '"' + (l.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(l.label) + (l.external ? ' ↗' : '') + '</a>'; }).join('') + '</div>';
+      p += '</div>';
+    });
+
+    /* Notes live in the same store as everything else, so they travel with the plan link and
+       print into the document — otherwise someone types a real question here and loses it the
+       day they clear their browser. The line underneath says exactly that. */
+    p += '<h3 class="pt-h3">Personal notes</h3>' +
+      '<label class="sr-only" for="pt-note">Your notes for ' + esc(sel.label) + '</label>' +
+      '<textarea class="pt-note" id="pt-note" rows="4" data-note="' + sel.id + '" placeholder="Questions to ask, what you have decided, anything you want to come back to."></textarea>' +
+      '<p class="pt-fine" style="margin-top:8px">Kept on this device, and carried into your plan when you view, download or send it.</p>';
+
+    p += '<div class="pt-signrow" style="margin-top:20px">' +
+      '<button type="button" class="pt-tick' + (isDone ? ' on' : '') + '" data-done="' + sel.id + '" aria-pressed="' + (isDone ? 'true' : 'false') + '">' +
+      '<span class="pt-tick-box" aria-hidden="true">' + TICK + '</span>' +
+      '<span class="pt-tick-l">' + (isDone ? 'Done' : 'Mark as done') + '</span></button>' +
+      (!isCur ? '<button type="button" class="pt-quiet" data-here="' + sel.id + '">This is where I am</button>' : '') +
+      '</div>';
+
+    p += '<nav class="pt-pager" aria-label="Move between stages">' +
+      (prevS ? '<button type="button" class="pt-pg" data-go="' + prevS.id + '"><span class="pt-pg-k">Previous</span><span class="pt-pg-t">' + esc(prevS.label) + '</span></button>' : '<span></span>') +
+      (nextS ? '<button type="button" class="pt-pg is-next" data-go="' + nextS.id + '"><span class="pt-pg-k">Next</span><span class="pt-pg-t">' + esc(nextS.label) + '</span></button>' : '<span></span>') +
+      '</nav></section>';
+
+    host.innerHTML = '<div class="pt-j">' + rail + '<div class="pt-jmain">' + chips + p + '</div></div>';
+    var ta = host.querySelector('[data-note]'); if (ta) ta.value = S.notes[sel.id] || '';
     if (ctx && ctx.decorate) ctx.decorate(host);
     if (ctx && ctx.decorate && nextEl) ctx.decorate(nextEl);
     paintSend();
@@ -381,8 +561,8 @@
     if (originLabel) facts.push(['Moving from', originLabel]);
     facts.push(['Household', hhPhrase() ? 'Moving ' + hhPhrase() : 'Moving on your own']);
     facts.push(['Where you are now', ctx && ctx.stageLabel() ? ctx.stageLabel() : 'Not yet said']);
-    var groups = list.map(function (s) { return { stage: '0' + s.n + ' · ' + s.label, id: s.id, steps: s.items }; });
-    var next = nx ? { title: 'Stage 0' + nx.n + ' · ' + nx.there, note: list.filter(function (s) { return s.id === nx.id; })[0].items[0].note, href: '/move#s' + nx.n } : { title: 'Every stage sorted', note: '', href: '/move' };
+    var groups = list.map(function (s) { return { stage: s.label, id: s.id, steps: s.items, ticks: steps(s.id).filter(function (t, i) { return S.steps[s.id + '#' + i]; }), note: (S.notes[s.id] || '').trim() }; });
+    var next = nx ? { title: nx.there, note: list.filter(function (s) { return s.id === nx.id; })[0].items[0].note, href: '/move#s' + nx.n } : { title: 'Every stage sorted', note: '', href: '/move' };
     var saved = savedItems();
     var abs = function (h) { return /^https?:/.test(h) ? h : location.origin + h; };
     var foot = 'Ethicare Resourcing Ltd · Company No 14646354 · Office 1, One Coldbath Square, London EC1R 5HL · +44 20 4626 6580 · hello@ethicareresourcing.com';
@@ -413,6 +593,8 @@
       groups.forEach(function (g) {
         out += '<h3 class="sh" style="color:' + accInk + ';font-size:9pt;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;margin:22px 0 8px">' + esc(g.stage) + (S.done[g.id] ? ' — sorted' : g.id === cur ? ' — you are here' : '') + '</h3>';
         g.steps.forEach(function (st) { out += stepHtml(st, g.id === cur, true); });
+        if (g.ticks.length) out += '<div style="margin:8px 0 2px;font-size:10pt"><b style="color:#02615D">Ticked off:</b> ' + g.ticks.map(esc).join(' &nbsp;·&nbsp; ') + '</div>';
+        if (g.note) out += '<table width="100%" cellpadding="0" cellspacing="0" style="margin:6px 0 2px"><tr><td style="background:#F7F4EE;padding:14px 18px"><div style="font-weight:bold;color:#02615D;margin-bottom:4px">Your notes</div><div>' + esc(g.note) + '</div></td></tr></table>';
       });
       if (saved.length) { out += h2('Pages you saved') + '<table width="100%" cellpadding="0" cellspacing="0">'; saved.forEach(function (it) { out += '<tr><td style="padding:14px 18px;border-bottom:1px solid #EBDFD3"><a href="' + abs(it.u) + '" style="color:#02615D;font-weight:bold;text-decoration:none">' + esc(it.t) + '</a></td></tr>'; }); out += '</table>'; }
       out += h2('What next?') + '<table width="100%" cellpadding="0" cellspacing="0"><tr><td style="background:#F7F4EE;padding:20px 24px"><div style="font-weight:bold;color:#02615D;margin-bottom:6px">' + esc(next.title) + '</div><div>' + esc(next.note) + '</div><div style="margin-top:8px;font-size:9.5pt"><a href="' + abs(next.href) + '" style="color:' + accInk + ';font-weight:bold">' + location.origin + next.href + '</a></div></td></tr></table>';
@@ -430,6 +612,7 @@
       '.step .lk{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px}.step .lk a{color:' + accInk + ';font-weight:600;text-decoration:underline;text-underline-offset:3px}' +
       '.glist{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:12px}.glist a{display:block;background:#fff;border:1px solid #EBDFD3;border-radius:10px;padding:14px 16px;color:#02615D;font-weight:600;text-decoration:none;font-size:14.5px}' +
       '.next{background:#F7F4EE;border-radius:14px;padding:22px 26px}.next .t{font-family:"Work Sans",sans-serif;font-weight:600;font-size:17px;color:#02615D;margin-bottom:6px}.next a{color:' + accInk + ';font-weight:600;text-decoration:underline;text-underline-offset:3px}' +
+      '.ticked{margin:8px 0 0;font-size:14px;color:#555}.ticked b{color:#02615D}.ownnote{margin:10px 0 0;background:#F7F4EE;border-radius:12px;padding:14px 18px;font-size:14.5px;white-space:pre-wrap}.ownnote .t{font-family:"Work Sans",sans-serif;font-weight:600;color:#02615D;margin-bottom:4px}' +
       '.foot{border-top:1px solid #EBDFD3;padding-top:18px;color:#555;font-size:13.5px}.foot p{margin:0 0 8px}.printbar{max-width:760px;margin:14px auto 0;padding:0 clamp(20px,4vw,32px);text-align:right}.printbar button{font-family:"Work Sans",sans-serif;font-weight:600;font-size:13.5px;color:#02615D;background:#fff;border:1.5px solid rgba(2,97,93,.35);border-radius:8px;padding:10px 16px;min-height:44px;cursor:pointer}' +
       '@media print{.printbar{display:none}body{background:#fff}.step,.glist a{border-color:#ddd}section{break-inside:auto}}</style></head><body>' +
       '<div class="cover"><div class="eb">Ethicare Move · Your plan</div><div class="rule"></div><h1>' + who + '</h1><div class="meta">Prepared ' + when + ' · ethicareresourcing.com/move</div></div>' +
@@ -439,6 +622,8 @@
     groups.forEach(function (g) {
       o2 += '<div class="sgroup"><h3 class="sh">' + esc(g.stage) + (S.done[g.id] ? ' — sorted' : g.id === cur ? ' — you are here' : '') + '</h3>';
       g.steps.forEach(function (st) { o2 += stepHtml(st, g.id === cur, false); });
+      if (g.ticks.length) o2 += '<p class="ticked"><b>Ticked off:</b> ' + g.ticks.map(esc).join(' &middot; ') + '</p>';
+      if (g.note) o2 += '<div class="ownnote"><div class="t">Your notes</div><div>' + esc(g.note) + '</div></div>';
       o2 += '</div>';
     });
     o2 += '</section>';
@@ -490,14 +675,47 @@
     }
   }
 
+  /* ---- the walk-through video (2 Oct 2026) ------------------------------------------------
+     Click to load: the still is ours, and nothing at all is fetched from YouTube or Vimeo —
+     no request, no cookie — until someone presses play. The section stays hidden until a URL
+     is set on it in move.html, so an empty player is never published. */
+  function videoEmbed(src) {
+    var m;
+    if ((m = /(?:youtube\.com\/.*[?&]v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]{6,})/.exec(src)))
+      return 'https://www.youtube-nocookie.com/embed/' + m[1] + '?autoplay=1&rel=0&modestbranding=1';
+    if ((m = /vimeo\.com\/(?:video\/)?(\d+)/.exec(src)))
+      return 'https://player.vimeo.com/video/' + m[1] + '?autoplay=1&dnt=1';
+    return null;
+  }
+  function mountVideo() {
+    var sec = $('[data-video]'); if (!sec) return;
+    var src = String(sec.getAttribute('data-video-src') || '').trim();
+    if (!src) { sec.hidden = true; return; }
+    var frame = $('[data-video-frame]', sec); if (!frame) return;
+    var poster = sec.getAttribute('data-video-poster') || '';
+    sec.hidden = false;
+    frame.innerHTML = (poster ? '<img src="' + esc(poster) + '" alt="" width="1400" height="788" loading="lazy" decoding="async">' : '') +
+      '<button type="button" class="pv-play" data-video-play aria-label="Play the Ethicare Move walk-through"><span aria-hidden="true">' +
+      '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.2v13.6a1 1 0 0 0 1.53.85l10.7-6.8a1 1 0 0 0 0-1.7L9.53 4.35A1 1 0 0 0 8 5.2z"/></svg></span></button>';
+    frame.addEventListener('click', function (e) {
+      if (!(e.target.closest && e.target.closest('[data-video-play]'))) return;
+      var em = videoEmbed(src);
+      frame.innerHTML = em
+        ? '<iframe src="' + esc(em) + '" title="Ethicare Move walk-through" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>'
+        : '<video controls autoplay playsinline preload="metadata"' + (poster ? ' poster="' + esc(poster) + '"' : '') + ' src="' + esc(src) + '"></video>';
+      if (window.track) window.track('move_video_play', {});
+    });
+  }
+
   function init() {
     load();
+    mountVideo();
     importFromLink();
     load();
     if (ctx && ctx.mount) {
       /* My Move (pack/pack.js) reuses this file inside a candidate's private space, where the
          answers ARE saved with us — so the page it sits in can supply its own intro line. */
-      var strip = ctx.mount('#ctx-strip', { intro: document.body.getAttribute('data-strip-intro') || 'Four answers and the plan below is yours: your country, your profession, your household.' });
+      var strip = ctx.mount('#ctx-strip', { intro: document.body.getAttribute('data-strip-intro') || 'Tell us a little about your move to make this plan your own.' });
       /* a first visit: open the answers so the page starts by asking, not by lecturing */
       if (!(ctx.has())) { var b = $('#ctx-strip .ecx-btn'); if (b) b.click(); }
       /* Answer a question and nothing visibly happens: the next-step card updates, but it
@@ -523,10 +741,31 @@
     route();
 
     document.addEventListener('click', function (e) {
-      var t = e.target.closest ? e.target.closest('[data-open],[data-done],[data-here],[data-work],[data-band],[data-doc],[data-getlink],[data-linkcopy],[data-clear]') : null;
+      var t = e.target.closest ? e.target.closest('[data-go],[data-step],[data-done],[data-here],[data-work],[data-band],[data-doc],[data-getlink],[data-linkcopy],[data-clear]') : null;
       if (!t) return;
-      if (t.hasAttribute('data-open')) { var id = t.getAttribute('data-open'); var cur = $('.pt-stage.is-open'); open = (cur && cur.getAttribute('data-stage') === id && t.classList.contains('pt-stage-h')) ? '__none' : id; paint(); if (open !== '__none' && !t.classList.contains('pt-stage-h')) scrollToStage(id); return; }
-      if (t.hasAttribute('data-done')) { var d = t.getAttribute('data-done'); load(); if (S.done[d]) delete S.done[d]; else S.done[d] = true; save(); if (window.track) window.track('move_stage_done', { stage: d, done: !!S.done[d] }); open = null; paint(); return; }
+      /* choosing a stage. From the rail or the chips the panel is already in view, so the page
+         stays put; from the next-step card above it, or a prev/next button, it moves. */
+      if (t.hasAttribute('data-go')) {
+        var id = t.getAttribute('data-go');
+        var jump = t.hasAttribute('data-scroll') || t.classList.contains('pt-pg');
+        open = id; paint();
+        var panel = $('.pt-panel');
+        if (jump) scrollToStage(id);
+        else if (panel) { try { panel.focus({ preventScroll: true }); } catch (e2) {} }
+        if (window.track) window.track('move_stage_open', { stage: id });
+        return;
+      }
+      /* a step tick. Updated in place rather than repainted: a full repaint would throw away
+         whatever is half-typed in the notes box two sections down. */
+      if (t.hasAttribute('data-step')) {
+        var sk = t.getAttribute('data-step');
+        load(); if (S.steps[sk]) delete S.steps[sk]; else S.steps[sk] = true; save();
+        var onNow = !!S.steps[sk];
+        t.classList.toggle('on', onNow);
+        t.setAttribute('aria-pressed', onNow ? 'true' : 'false');
+        return;
+      }
+      if (t.hasAttribute('data-done')) { var d = t.getAttribute('data-done'); load(); if (S.done[d]) delete S.done[d]; else S.done[d] = true; save(); if (window.track) window.track('move_stage_done', { stage: d, done: !!S.done[d] }); open = d; paint(); return; }
       if (t.hasAttribute('data-here')) { if (ctx && ctx.write) ctx.write({ stage: t.getAttribute('data-here') }); open = null; return; }
       if (t.hasAttribute('data-work')) { load(); S.hh.work = t.getAttribute('data-work'); save(); paint(); return; }
       if (t.hasAttribute('data-band')) { load(); var v = t.getAttribute('data-band'), i = S.hh.bands.indexOf(v); if (i > -1) S.hh.bands.splice(i, 1); else S.hh.bands.push(v); save(); paint(); return; }
@@ -540,6 +779,15 @@
       if (t.hasAttribute('data-getlink')) { load(); var link = planLink(); var box = $('[data-linkbox]'), outEl = $('[data-linkout]'); if (box && outEl) { outEl.value = link; box.hidden = false; outEl.select(); } return; }
       if (t.hasAttribute('data-linkcopy')) { var o = $('[data-linkout]'), done = $('[data-linkcopied]'); if (o) { o.select(); try { navigator.clipboard.writeText(o.value); if (done) done.textContent = 'Copied'; } catch (er) { try { document.execCommand('copy'); if (done) done.textContent = 'Copied'; } catch (e2) {} } } return; }
       if (t.hasAttribute('data-clear')) { if (!window.confirm('Clear your plan from this device? Your answers and the stages you have ticked off will go; saved pages stay.')) return; if (ctx && ctx.clear) ctx.clear(); else { try { localStorage.removeItem(KEY); } catch (e) {} } load(); open = null; paint(); window.scrollTo(0, 0); return; }
+    });
+
+    /* Notes: saved as they are typed, never repainted. A repaint on input would move the
+       caret and lose the selection, so this writes straight to the store and stops there. */
+    document.addEventListener('input', function (e) {
+      var ta = e.target;
+      if (!ta || !ta.getAttribute || !ta.hasAttribute('data-note')) return;
+      var id = ta.getAttribute('data-note');
+      load(); S.notes[id] = ta.value; save();
     });
     /* the send-my-plan summary is written at submit time from the same store — see move.html */
   }

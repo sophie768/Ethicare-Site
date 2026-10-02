@@ -24,7 +24,10 @@
   'use strict';
 
   var main = document.querySelector('.v-main');
-  var JOBS = window.ETHICARE_JOBS;
+  /* The detail page must still render a role that has closed — a candidate arriving from an
+     old link is better served by the page saying so than by an empty panel. So this one
+     reads the unfiltered list (2 Oct 2026). */
+  var JOBS = window.ETHICARE_JOBS_ALL || window.ETHICARE_JOBS;
   if (!main || !JOBS || !JOBS.length || document.querySelector('.v-facts')) return;
 
   var slug = location.pathname.replace(/\/+$/, '').split('/').pop().replace(/\.html$/, '');

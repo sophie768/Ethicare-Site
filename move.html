@@ -32,9 +32,17 @@
 .pt-hero{padding:clamp(48px,6vw,78px) 0 clamp(30px,4vw,44px)}
 .pt-hero :is(h1,h2){font-family:var(--display);font-weight:300;font-size:clamp(34px,5.2vw,56px);line-height:1.07;letter-spacing:-.02em;color:var(--teal);margin-bottom:20px;max-width:20ch;text-wrap:pretty}
 .pt-lead{font-size:clamp(17px,1.6vw,18.5px);line-height:1.66;color:var(--text);max-width:60ch;text-wrap:pretty}
-/* the welcome line. Playfair italic is the brand's emotional register (hero, guide covers) —
-   this is the one sentence on the page doing feeling rather than function, so it gets it. */
-.pt-glad{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(21px,2.6vw,30px);line-height:1.28;letter-spacing:-.01em;color:#2F5E49;margin:-4px 0 26px;max-width:34ch;text-wrap:balance}
+/* The opening. This was Playfair italic at 21–30px and it competed with the headline for the
+   same job; the heading carries the feeling now and these two paragraphs stay calm and plain. */
+.pt-hero .pt-lead{margin:0 0 14px;max-width:56ch}
+.pt-hero .pt-lead:last-of-type{margin-bottom:0}
+/* 2 Oct 2026: the clipboard illustration moved down to "Keep this plan", which is the part
+   of the page that actually IS a document. The heading here promises a new life, so the
+   picture shows one. */
+.pt-hero-ph{width:min(420px,100%);height:auto;flex:none;border-radius:var(--r-lg,16px);display:block}
+.pt-keep-h{display:flex;align-items:center;justify-content:space-between;gap:clamp(18px,3vw,40px);margin-bottom:22px}
+.pt-keep-i{width:148px;max-width:34%;height:auto;flex:none}
+@media (max-width:640px){.pt-keep-i{display:none}}
 .pt-sub{font-size:16px;line-height:1.65;color:var(--muted);max-width:60ch;margin-top:14px;text-wrap:pretty}
 /* The router — the one question asked before anything else. Deliberately the largest
    interactive thing on the page: it decides what the rest of it is for. */
@@ -79,6 +87,10 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-btn.ghost:hover{background:var(--soft)}
 .pt-err{font-size:14.5px;line-height:1.6;color:#A34438;background:#F7F4EE;border-radius:10px;padding:12px 16px}
 .pt-next{display:block;background:var(--teal);border-radius:var(--r-lg,16px);padding:clamp(28px,3.6vw,40px);text-decoration:none}
+/* display:block on the class beat the browser's own [hidden] rule, so a first-time visitor —
+   who has answered nothing, so there is no next step to show — met an empty teal slab where
+   the page should have started. Found 2 Oct 2026. */
+.pt-next[hidden]{display:none}
 .pt-next:hover{background:#014A47}
 /* 1 Oct 2026: answering a question used to change this card silently, below the fold.
    The page now brings it into view and rings it briefly, so the form visibly answers back. */
@@ -237,6 +249,100 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-sec .pt-next h2{color:#fff}
 .pt-next .pt-btn{background:#A6C84A;color:#01312F;border-color:#A6C84A}.pt-next .pt-btn:hover{background:#C6E084;color:#01312F}
 .pt-stages{display:grid;gap:10px}
+
+/* ===== the journey, rebuilt 2 Oct 2026 ====================================================
+   Eight collapsed boxes filled a screen before any content. Now the whole journey sits on a
+   tinted band of its own — so it reads as the centre of the page and the plan-keeping below
+   reads as an edge — with every stage listed and one stage open.
+   No stage numbers: see the note in move.js. State does the work instead. */
+.pt-journey{background:var(--soft,#E6F1ED);border-top:1px solid #C9DED3;border-bottom:1px solid #C9DED3;padding:clamp(32px,4.4vw,58px) 0 clamp(38px,5vw,64px);margin-top:clamp(24px,3.2vw,38px)}
+.pt-journey .pt-fine{border-top-color:#C9DED3}
+.pt-j{display:grid;gap:clamp(20px,3vw,40px)}
+@media (min-width:980px){.pt-j{grid-template-columns:clamp(236px,22vw,296px) minmax(0,1fr);align-items:start}}
+
+.pt-rail{display:none}
+@media (min-width:980px){.pt-rail{display:block;position:sticky;top:92px}}
+.pt-rail-h{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#2F5E49;margin:0 0 12px}
+.pt-rail-l{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.pt-rail-b{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;align-items:center;width:100%;text-align:left;background:transparent;border:0;border-left:3px solid transparent;border-radius:0 12px 12px 0;padding:11px 14px;cursor:pointer;font:inherit;color:var(--muted);transition:background .15s ease,color .15s ease,border-color .15s ease}
+.pt-rail-b:hover{background:rgba(255,255,255,.72);color:var(--teal)}
+.pt-rail-b.on{background:#fff;border-left-color:var(--teal);color:var(--teal);box-shadow:0 1px 3px rgba(1,49,47,.08)}
+.pt-rail-b:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.pt-rail-t{font-family:var(--display);font-weight:600;font-size:15px;line-height:1.3}
+.pt-rail-s{grid-column:2;font-size:12px;line-height:1.3;color:#5B6B64}
+.pt-rail-b.on .pt-rail-s{color:#2F5E49}
+.pt-dot{grid-row:span 2;width:20px;height:20px;border-radius:50%;border:2px solid rgba(2,97,93,.3);background:#fff;display:grid;place-items:center;color:transparent;flex:none}
+.pt-rail-b.is-done .pt-dot{background:#A6C84A;border-color:#A6C84A;color:#02615D}
+.pt-rail-b.is-now .pt-dot{border-color:var(--teal);box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 8px var(--teal)}
+.pt-dot svg{width:12px;height:12px}
+
+.pt-jchips{margin-bottom:18px}
+@media (min-width:980px){.pt-jchips{display:none}}
+.pt-jchips-h{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#2F5E49;margin:0 0 10px}
+.pt-jchipw{display:flex;flex-wrap:wrap;gap:8px}
+.pt-jchip{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:8px 14px;border-radius:999px;border:1.5px solid #C9DED3;background:#fff;font-family:var(--display);font-weight:600;font-size:13.5px;line-height:1.2;color:var(--muted);cursor:pointer}
+.pt-jchip.is-done{border-color:#A6C84A}
+.pt-jchip.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.pt-jchip:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.pt-jchip-k{display:grid;place-items:center;width:14px;height:14px;color:#5E8F2E}
+.pt-jchip.on .pt-jchip-k{color:#C6E084}
+.pt-jchip-k svg{width:14px;height:14px}
+
+.pt-panel{background:#fff;border:1px solid #C9DED3;border-radius:var(--r-lg,16px);padding:clamp(22px,3vw,34px);outline:none}
+.pt-panel:focus-visible{box-shadow:0 0 0 3px rgba(2,97,93,.35)}
+.pt-panel-h{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.pt-panel-h h2{font-family:var(--display);font-weight:600;font-size:clamp(23px,2.9vw,32px);line-height:1.14;color:var(--teal);margin:0}
+/* the default .pt-badge is warm-on-white, which is invisible on the panel's white card */
+.pt-panel-h .pt-badge{background:#E6F1ED;color:#2F5E49}
+.pt-panel-h .pt-badge.now{background:var(--teal);color:#fff}
+.pt-panel-h .pt-badge.done{background:#A6C84A;color:#01312F}
+.pt-intro{font-size:clamp(16.5px,1.5vw,18.5px);line-height:1.62;color:var(--text);max-width:60ch;margin:0;text-wrap:pretty}
+.pt-h3{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#2F5E49;margin:clamp(22px,2.6vw,30px) 0 12px;padding-top:clamp(18px,2.2vw,24px);border-top:1px solid rgba(2,97,93,.22)}
+/* pt-ns / pt-nsl, not pt-step / pt-steps: those names were already taken by the stepper
+   further up this stylesheet, and its ::after connector bar was painting under every tick. */
+.pt-nsl{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.pt-ns{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start;width:100%;text-align:left;background:transparent;border:0;border-radius:10px;padding:9px 10px;cursor:pointer;font:inherit}
+.pt-ns:hover{background:var(--soft,#E6F1ED)}
+.pt-ns:focus-visible{outline:3px solid var(--teal);outline-offset:1px}
+.pt-ns .pt-tick-box{margin-top:1px}
+.pt-ns:hover .pt-tick-box{border-color:var(--teal)}
+.pt-ns.on .pt-tick-box{background:var(--teal);border-color:var(--teal);color:#C6E084}
+.pt-ns-t{font-size:15.5px;line-height:1.55;color:var(--text);text-wrap:pretty}
+.pt-ns.on .pt-ns-t{color:#6A7872}
+
+.pt-note{width:100%;min-height:104px;padding:12px 14px;border:1.5px solid #C9DED3;border-radius:12px;background:var(--warm,#FCFBF8);font-family:var(--body);font-size:15.5px;line-height:1.6;color:var(--text);resize:vertical}
+.pt-note:focus{outline:none;border-color:var(--teal);background:#fff}
+
+.pt-pager{display:flex;gap:12px;justify-content:space-between;align-items:stretch;margin-top:clamp(22px,2.6vw,30px);padding-top:clamp(16px,2vw,22px);border-top:1px solid rgba(2,97,93,.22)}
+.pt-pg{display:grid;gap:2px;align-content:center;text-align:left;background:#fff;border:1.5px solid #C9DED3;border-radius:12px;padding:10px 16px;min-height:48px;cursor:pointer;font:inherit;max-width:49%}
+.pt-pg.is-next{text-align:right;justify-items:end}
+.pt-pg:hover{border-color:var(--teal)}
+.pt-pg:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.pt-pg-k{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#5B6B64}
+.pt-pg-t{font-family:var(--display);font-weight:600;font-size:14.5px;line-height:1.25;color:var(--teal)}
+.pt-panel .pt-item{padding:0;margin-top:20px;border-bottom:0}
+.pt-panel .pt-item:first-of-type{margin-top:0}
+.pt-panel .pt-item h4{font-family:var(--display);font-size:17px;font-weight:600;color:var(--teal);margin:0 0 6px}
+.pt-panel .pt-item p{font-size:15px;line-height:1.62;color:var(--muted);max-width:64ch;margin:0 0 12px;text-wrap:pretty}
+
+/* ===== the walk-through video ============================================================
+   Dark ground, one large frame: the strongest visual moment on the page, and the break the
+   long cream column needed. Nothing loads from the video host until someone presses play,
+   so the page stays fast and sets no third-party cookie on arrival. */
+.pt-video[hidden]{display:none}
+.pt-video{background:#01312F;padding:clamp(40px,5.4vw,72px) 0}
+.pt-video .pv-head{text-align:center;max-width:62ch;margin:0 auto clamp(22px,3vw,34px)}
+.pt-video .eyebrow{color:#C6E084}
+.pt-video h2{font-family:var(--display);font-weight:300;font-size:clamp(28px,4vw,46px);line-height:1.08;letter-spacing:-.02em;color:#fff;margin:12px 0 10px}
+.pt-video p{font-size:clamp(16px,1.5vw,18px);line-height:1.6;color:rgba(255,255,255,.88);margin:0;text-wrap:pretty}
+.pv-frame{position:relative;max-width:980px;margin:0 auto;aspect-ratio:16/9;border-radius:var(--r-lg,16px);overflow:hidden;background:#02615D;box-shadow:0 24px 60px rgba(0,0,0,.34)}
+.pv-frame img,.pv-frame iframe,.pv-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.pv-play{position:absolute;inset:0;width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(180deg,rgba(1,49,47,.18),rgba(1,49,47,.52));border:0;cursor:pointer;padding:0}
+.pv-play span{display:grid;place-items:center;width:clamp(64px,8vw,88px);height:clamp(64px,8vw,88px);border-radius:50%;background:rgba(255,255,255,.94);color:#02615D;box-shadow:0 8px 28px rgba(0,0,0,.28);transition:transform .16s ease,background .16s ease}
+.pv-play:hover span{transform:scale(1.06);background:#fff}
+.pv-play svg{width:34%;height:34%;margin-left:8%}
+.pv-play:focus-visible{outline:3px solid #C6E084;outline-offset:-5px}
+.pv-note{max-width:980px;margin:20px auto 0;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.72);text-align:center}
 .pt-stage{background:#fff;border:1px solid var(--e);border-radius:var(--r-lg,16px);overflow:hidden}
 .pt-stage.now{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
 .pt-stage.done .pt-stage-t{color:var(--muted)}
@@ -301,17 +407,37 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
     <div style="display:flex;align-items:center;justify-content:space-between;gap:clamp(20px,4vw,56px);flex-wrap:wrap">
       <div style="flex:1 1 420px;min-width:min(100%,420px)">
         <p class="eyebrow">Ethicare Move &middot; free, no account</p>
-        <h2>Your move. All in one place.</h2>
-        <p class="pt-glad">Registration, money, a place to live, the job, the visa and the first month &mdash; in the order they actually happen, so nothing is started too late.</p>
+        <h2>Your new life starts with a plan.</h2>
+        <p class="pt-lead">Moving to New Zealand or Australia is a big step. Ethicare Move helps you explore what&rsquo;s possible and work through the practicalities, with your career, your family and your future in mind.</p>
+        <p class="pt-lead">From choosing where to live to finding a role and settling in, bring your next steps together in one place.</p>
       </div>
-      <img src="assets/heroes/move-plan.svg" alt="A clipboard checklist and a pencil" width="176" height="132" style="width:300px;max-width:100%;height:auto;flex:none" loading="lazy">
+      <img class="pt-hero-ph" src="assets/nz-life/family-kayak.jpg" alt="A family kayaking together in clear water on a sunny day in New Zealand" width="1400" height="1120" fetchpriority="high" decoding="async">
     </div>
     <div id="ctx-strip" data-ctx-strip style="margin-top:clamp(22px,3vw,34px)"></div>
     <p class="pt-fine" style="max-width:70ch">Your answers stay in this browser, on this device. Nothing is sent to us and there is no password &mdash; so use a device that is yours, and don&rsquo;t put anything confidential in it. Whether you find your job through Ethicare, apply directly or use another recruiter, this is yours.</p>
   </div>
 </section>
 
-<section class="pt-sec" id="journey" style="padding-top:clamp(28px,3.6vw,44px)">
+<!-- THE WALK-THROUGH VIDEO.
+     To publish it, put the URL in data-video-src below and the section appears by itself:
+       · YouTube        data-video-src="https://www.youtube.com/watch?v=XXXXXXXXXXX"
+       · Vimeo          data-video-src="https://vimeo.com/123456789"
+       · a file we host data-video-src="/assets/video/ethicare-move.mp4"
+     data-video-poster is the still shown before anyone presses play. Nothing is requested
+     from the video host until they do. -->
+<section class="pt-video" data-video data-video-src="" data-video-poster="assets/nz-life/wellington-waterfront-commute.jpg" hidden>
+  <div class="shell">
+    <div class="pv-head">
+      <span class="eyebrow">Two minutes</span>
+      <h2>See how Ethicare Move works</h2>
+      <p>A quick walk through what the plan does, and how to make it your own.</p>
+    </div>
+    <div class="pv-frame" data-video-frame></div>
+    <p class="pv-note">Pressing play loads the video from its host. Nothing is loaded, and no cookie is set, until you do.</p>
+  </div>
+</section>
+
+<section class="pt-sec pt-journey" id="journey">
   <div class="shell">
     <div class="pt-next" data-next hidden></div>
     <p id="pt-live" class="sr-only" role="status" aria-live="polite"></p>
@@ -356,8 +482,13 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 
   <section class="pt-details">
     <div class="shell">
-      <h2 style="font-family:var(--display);font-size:clamp(22px,2.6vw,28px);font-weight:600;color:var(--teal);margin-bottom:6px">Keep this plan</h2>
-      <p class="note" style="font-size:15.5px;line-height:1.6;color:var(--muted);max-width:64ch;margin-bottom:22px">Your answers shape every tool on the site; change them in the strip at the top and everything follows.</p>
+      <div class="pt-keep-h">
+        <div>
+          <h2 style="font-family:var(--display);font-size:clamp(22px,2.6vw,28px);font-weight:600;color:var(--teal);margin-bottom:6px">Keep this plan</h2>
+          <p class="note" style="font-size:15.5px;line-height:1.6;color:var(--muted);max-width:64ch;margin-bottom:0">Your answers shape every tool on the site; change them in the strip at the top and everything follows.</p>
+        </div>
+        <img src="assets/heroes/move-plan.svg" alt="" width="176" height="132" loading="lazy" class="pt-keep-i">
+      </div>
       <div class="pt-card">
         <p class="pt-k">Your plan, as a document</p>
         <p class="note" style="max-width:64ch">The eight stages, your answers, saved pages and next step, ready to view, print or download.</p>

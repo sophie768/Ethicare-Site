@@ -60,7 +60,7 @@
    Set them as each is confirmed. Every role currently sits undefined
    because none has been confirmed in writing yet.
    ============================================================ */
-window.ETHICARE_JOBS = [
+window.ETHICARE_JOBS_ALL = [
   {
     slug: "mri-technologist-wellington",
     title: "MRI Medical Imaging Technologist",
@@ -637,3 +637,26 @@ window.ETHICARE_JOBS = [
     detail: "/jobs/vacancy/breast-radiologist-waikato"
   }
 ];
+
+
+/* ---- a closed role is not a live role (2 Oct 2026) ----------------------------------------
+   Six places read this list — the job board, the homepage, the two country pages, the
+   profession pages and the hero rail — and not one of them checked `closes`. A Gisborne
+   anaesthetist role that closed on 30 September was still being advertised on 1 October,
+   printing "Closes 30 September 2026" underneath itself, and every future role would have
+   done the same on the morning after its closing date.
+
+   Filtering here rather than in each consumer means the next page someone builds inherits it
+   instead of forgetting it. ETHICARE_JOBS_ALL keeps the unfiltered list for the vacancy detail
+   pages, which still need to render a role a candidate has reached from an old link — better
+   that they land on the page and read that it has closed than on a 404.
+
+   No `closes` date means open: plenty of roles run until filled, and absence is not expiry. */
+window.ETHICARE_JOBS = (function () {
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  return window.ETHICARE_JOBS_ALL.filter(function (j) {
+    if (!j.closes) return true;
+    var d = new Date(j.closes + 'T23:59:59');
+    return isNaN(d.getTime()) ? true : d >= today;   // an unparseable date is not grounds to hide a job
+  });
+})();
