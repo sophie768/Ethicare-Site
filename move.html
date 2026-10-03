@@ -40,6 +40,27 @@
    of the page that actually IS a document. The heading here promises a new life, so the
    picture shows one. */
 .pt-hero-ph{width:min(420px,100%);height:auto;flex:none;border-radius:var(--r-lg,16px);display:block}
+/* ===== the welcome, once the answers are in (2 Oct 2026) ================================== */
+.pt-welcome{background:#fff;border:1px solid #C9DED3;border-radius:var(--r-lg,16px);padding:clamp(26px,3.4vw,42px);outline:none;max-width:860px}
+.pt-welcome h2{font-family:var(--display);font-weight:300;font-size:clamp(30px,4vw,46px);line-height:1.06;letter-spacing:-.025em;color:var(--teal);margin:14px 0 14px}
+.pt-wl{font-size:clamp(16.5px,1.5vw,18.5px);line-height:1.6;color:var(--text);max-width:60ch;margin:0;text-wrap:pretty}
+.pt-wl2{font-size:clamp(16px,1.4vw,17.5px);line-height:1.6;color:var(--muted);max-width:58ch;margin:12px 0 0;text-wrap:pretty}
+.pt-wl .pt-quiet{margin-left:6px;white-space:nowrap}
+.pt-welcome .pt-wh{margin-top:clamp(24px,3vw,34px)}
+.pt-wsteps{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.pt-wsteps li{display:grid;grid-template-columns:clamp(96px,11vw,128px) minmax(0,1fr);gap:4px 18px;padding:13px 0;border-top:1px solid rgba(2,97,93,.18)}
+.pt-wsteps li:last-child{border-bottom:1px solid rgba(2,97,93,.18)}
+.pt-wsteps .k{font-family:var(--display);font-weight:600;font-size:16px;color:var(--teal)}
+.pt-wsteps .n{font-size:15.5px;line-height:1.5;color:var(--text)}
+.pt-wsteps .s{grid-column:2;font-size:13.5px;line-height:1.45;color:var(--muted)}
+.pt-wname{margin-top:clamp(22px,2.8vw,30px)}
+.pt-welcome .pt-fine{margin-top:18px}
+@media (max-width:560px){.pt-wsteps li{grid-template-columns:1fr}.pt-wsteps .s{grid-column:1}}
+.pt-name{margin:16px 0 4px;max-width:360px}
+.pt-name label{display:block;font-family:var(--display);font-size:13.5px;font-weight:600;color:var(--teal);margin-bottom:6px}
+.pt-name label span{font-weight:500;color:var(--muted);text-transform:lowercase;font-size:12.5px;margin-left:4px}
+.pt-name input{width:100%;min-height:46px;padding:11px 14px;border:1.5px solid #C9DED3;border-radius:11px;background:#fff;font-family:var(--body);font-size:15.5px;color:var(--text)}
+.pt-name input:focus{outline:none;border-color:var(--teal)}
 .pt-keep-h{display:flex;align-items:center;justify-content:space-between;gap:clamp(18px,3vw,40px);margin-bottom:22px}
 .pt-keep-i{width:148px;max-width:34%;height:auto;flex:none}
 @media (max-width:640px){.pt-keep-i{display:none}}
@@ -292,12 +313,17 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-panel:focus-visible{box-shadow:0 0 0 3px rgba(2,97,93,.35)}
 .pt-panel-h{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:12px}
 .pt-panel-h h2{font-family:var(--display);font-weight:600;font-size:clamp(23px,2.9vw,32px);line-height:1.14;color:var(--teal);margin:0}
-/* the default .pt-badge is warm-on-white, which is invisible on the panel's white card */
-.pt-panel-h .pt-badge{background:#E6F1ED;color:#2F5E49}
+/* the default .pt-badge is warm-on-white, which is invisible on the panel's white card.
+   Lime says "done" in the rail and on the chips, so it says "done" here too — never "next",
+   which would give one colour two meanings. Dark teal on lime measures 7.4:1. */
+.pt-panel-h .pt-badge{background:#C9DED3;color:#2F5E49}
 .pt-panel-h .pt-badge.now{background:var(--teal);color:#fff}
 .pt-panel-h .pt-badge.done{background:#A6C84A;color:#01312F}
 .pt-intro{font-size:clamp(16.5px,1.5vw,18.5px);line-height:1.62;color:var(--text);max-width:60ch;margin:0;text-wrap:pretty}
-.pt-h3{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#2F5E49;margin:clamp(22px,2.6vw,30px) 0 12px;padding-top:clamp(18px,2.2vw,24px);border-top:1px solid rgba(2,97,93,.22)}
+.pt-h3{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#2F5E49;margin:clamp(22px,2.6vw,30px) 0 12px;padding-top:clamp(18px,2.2vw,24px);border-top:1px solid rgba(2,97,93,.22)}
+/* lime is a shape colour here, never a text colour: it is 1.9:1 on white. The same 3px bar
+   the stage headings use elsewhere on the site, so this is reuse, not a new device. */
+.pt-h3::before{content:"";flex:none;width:22px;height:3px;border-radius:2px;background:#A6C84A}
 /* pt-ns / pt-nsl, not pt-step / pt-steps: those names were already taken by the stepper
    further up this stylesheet, and its ::after connector bar was painting under every tick. */
 .pt-nsl{list-style:none;margin:0;padding:0;display:grid;gap:4px}
@@ -338,8 +364,8 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pv-frame{position:relative;max-width:980px;margin:0 auto;aspect-ratio:16/9;border-radius:var(--r-lg,16px);overflow:hidden;background:#02615D;box-shadow:0 24px 60px rgba(0,0,0,.34)}
 .pv-frame img,.pv-frame iframe,.pv-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
 .pv-play{position:absolute;inset:0;width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(180deg,rgba(1,49,47,.18),rgba(1,49,47,.52));border:0;cursor:pointer;padding:0}
-.pv-play span{display:grid;place-items:center;width:clamp(64px,8vw,88px);height:clamp(64px,8vw,88px);border-radius:50%;background:rgba(255,255,255,.94);color:#02615D;box-shadow:0 8px 28px rgba(0,0,0,.28);transition:transform .16s ease,background .16s ease}
-.pv-play:hover span{transform:scale(1.06);background:#fff}
+.pv-play span{display:grid;place-items:center;width:clamp(64px,8vw,88px);height:clamp(64px,8vw,88px);border-radius:50%;background:rgba(255,255,255,.94);color:#02615D;box-shadow:0 0 0 5px rgba(166,200,74,.85),0 10px 30px rgba(0,0,0,.32);transition:transform .16s ease,background .16s ease,box-shadow .16s ease}
+.pv-play:hover span{transform:scale(1.06);background:#fff;box-shadow:0 0 0 5px #A6C84A,0 0 0 13px rgba(166,200,74,.28),0 10px 30px rgba(0,0,0,.32)}
 .pv-play svg{width:34%;height:34%;margin-left:8%}
 .pv-play:focus-visible{outline:3px solid #C6E084;outline-offset:-5px}
 .pv-note{max-width:980px;margin:20px auto 0;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.72);text-align:center}
@@ -492,6 +518,11 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
       <div class="pt-card">
         <p class="pt-k">Your plan, as a document</p>
         <p class="note" style="max-width:64ch">The eight stages, your answers, saved pages and next step, ready to view, print or download.</p>
+        <div class="pt-name">
+          <label for="planName">Put your name on it <span>optional</span></label>
+          <input id="planName" type="text" maxlength="40" autocomplete="given-name" placeholder="First name" data-plan-first>
+          <span class="pt-hint">Only used on the document, and kept on this device with everything else.</span>
+        </div>
         <div class="pt-signrow" style="margin-top:10px">
           <button class="pt-btn ghost" type="button" data-doc="view">View as a page</button>
           <button class="pt-btn ghost" type="button" data-doc="word">Download as Word</button>
@@ -630,6 +661,11 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
   }
   form.addEventListener('submit', function () {
     if (hidden) hidden.value = rows().map(function (r) { return r[0] + ': ' + r[1]; }).join(' \u00b7 ');
+    /* remember the name they just typed, so the document and the welcome line can use it */
+    var n = form.querySelector('[data-plan-name]');
+    if (n && n.value.trim()) {
+      try { var S = plan(); S.first = n.value.trim().split(/\s+/)[0].slice(0, 40); localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {}
+    }
   });
   paint();
   window.addEventListener('ethicare:context', function () { setTimeout(paint, 30); });

@@ -96,7 +96,10 @@
     var m = JMAP().moveToJourney[p.stage]; return m && jstage(m) ? m : '';
   }
   function first() { var p = read(); return p && p.first ? String(p.first).trim().slice(0, 40) : ''; }
-  function stageLabel() { var j = jstage(stage()); return j ? 'Stage 0' + j.n + ' \u00b7 ' + j.there : ''; }
+  /* The stage number went from the pages on 2 Oct 2026 — it implied a fixed order the
+     site then contradicts, and told a candidate arriving with an offer that they had
+     skipped six things. The name alone is what the strip now shows. */
+  function stageLabel() { var j = jstage(stage()); return j ? j.there : ''; }
   function stageWhere() { var j = jstage(stage()); return j ? j.where : ''; }
   function stageNumber() { var j = jstage(stage()); return j ? j.n : 0; }
   function next() {
@@ -131,9 +134,9 @@
 
   /* ---- household: who is coming, canonical ------------------------------------------------ */
   var HH = [
-    { value: 'alone',    label: 'Just me',                        phrase: 'on my own' },
+    { value: 'alone',    label: 'Just me',                        phrase: 'on your own' },
     { value: 'partner',  label: 'Me and my partner',              phrase: 'with a partner' },
-    { value: 'children', label: 'Me and my children',             phrase: 'with my children' },
+    { value: 'children', label: 'Me and my children',             phrase: 'with your children' },
     { value: 'both',     label: 'My partner and our children',    phrase: 'with a partner and children' },
     { value: 'parent',   label: 'A parent is coming with me',     phrase: 'with a parent coming too' }
   ];
@@ -147,6 +150,10 @@
   /* ---- destination, including "comparing both" -------------------------------------------- */
   function destMode() { var p = read(); var d = p && p.dest; return d === 'au' || d === 'nz' || d === 'both' ? d : ''; }
   function destLabel() { var d = destMode(); return d === 'au' ? 'Australia' : d === 'nz' ? 'New Zealand' : d === 'both' ? 'Comparing both countries' : ''; }
+  /* destLabel() is a STATUS — "Comparing both countries" — which reads as a label and breaks
+     as a place: "a move to Comparing both countries". destName() is the place, for sentences.
+     (2 Oct 2026.) */
+  function destName() { var d = destMode(); return d === 'au' ? 'Australia' : d === 'nz' ? 'New Zealand' : d === 'both' ? 'New Zealand or Australia' : ''; }
 
   /* ---- write side ----------------------------------------------------------------------------
      patch: { dest, profession, household, stage, origin } — any subset. Merges into the one
@@ -296,7 +303,7 @@
   }
 
   window.EthicareContext = {
-    key: KEY, read: read, has: has, dest: dest, country: country, countryName: countryName, first: first,
+    key: KEY, read: read, has: has, dest: dest, country: country, countryName: countryName, destName: destName, first: first,
     profession: profession, professionLabel: professionLabel, pathwayProfession: pathwayProfession,
     applyDestination: applyDestination, stage: stage, stageLabel: stageLabel, next: next,
     withContext: withContext, summary: summary, decorate: decorate,

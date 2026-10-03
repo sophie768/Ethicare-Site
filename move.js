@@ -71,7 +71,7 @@
      keeps three things of its own in the same store: hh.work (does the partner work in
      health), hh.bands (children's ages), first (a first name, optional), and done (stages
      marked as sorted). */
-  var S = { first: '', origin: '', hh: { with: '', work: '', bands: [] }, done: {}, steps: {}, notes: {}, set: false };
+  var S = { first: '', origin: '', hh: { with: '', work: '', bands: [] }, done: {}, steps: {}, notes: {}, started: false, set: false };
   function load() {
     try { var raw = JSON.parse(localStorage.getItem(KEY) || '{}'); if (raw && typeof raw === 'object') S = raw; } catch (e) {}
     if (!S.hh || typeof S.hh !== 'object') S.hh = { with: '', work: '', bands: [] };
@@ -99,6 +99,9 @@
   function hhPhrase() { return ctx ? ctx.householdPhrase() : ''; }
   function profLabel() { return ctx ? (ctx.professionLabel() || ctx.profession()) : ''; }
   function destLabel() { return ctx ? (ctx.destLabel() || 'New Zealand or Australia') : ''; }
+  /* the place, for a sentence: destLabel() says "Comparing both countries", which is a
+     status and reads as nonsense after "a move to". */
+  function destName() { return ctx && ctx.destName ? (ctx.destName() || 'New Zealand or Australia') : destLabel(); }
 
   /* The visa note used to say "Your employer sponsors you, so this follows the offer" to
      everyone. True for the route most candidates take — an Accredited Employer Work Visa in
@@ -195,8 +198,11 @@
     var dl = destLabel();
     switch (id) {
       case 'imagine': return 'Start with the life, not the paperwork. What an ordinary week could look like, what your profession is like there, and whether the people coming with you want it too.';
+      /* Someone who has chosen does not need selling the other country. This stage then has
+         almost nothing in it for them, and saying so is better than inventing tasks
+         (Sophie, 2 Oct 2026). */
       case 'choose': return dest() === 'nz' || dest() === 'au'
-        ? 'You are looking at ' + dl + '. If you are still weighing up the other one, it is worth reading side by side before you commit.'
+        ? 'You have chosen ' + dl + '. There is nothing you have to do here \u2014 unless you want to sense-check the decision before the rest of the move leans on it.'
         : 'Two countries, two regulators, two pay systems and a very different sense of scale. This is where you work out which one fits.';
       case 'work': return 'Find out whether you can register, by which route, and roughly how long it takes. Knowing this early gives everything else room.';
       case 'numbers': return hasOffer()
@@ -222,8 +228,11 @@
              'Be honest with yourself about what you would miss'];
         break;
       case 'choose':
-        L = ['Read the two countries side by side', 'Compare how pay and conditions differ',
-             single ? 'Keep the other country open, or rule it out on purpose' : 'Settle on one, or decide to keep both open for now'];
+        L = single
+          ? ['Sense-check your choice against the other country, if you want to',
+             'Read what day-to-day life in ' + dl + ' is actually like']
+          : ['Read the two countries side by side', 'Compare how pay and conditions differ',
+             'Settle on one, or decide to keep both open for now'];
         break;
       case 'work':
         L = ['Run your profession through the pathway checker',
@@ -271,11 +280,21 @@
           st.items.push({ title: 'What the move was like', note: 'Real people, real places, imperfect details.', links: [{ label: 'Stories from people who moved', href: '/insights' }] });
           break;
         case 'choose':
-          st.items.push({ title: 'Australia or New Zealand?', note: single
-              ? 'You have chosen ' + CN(d) + '. If you are still weighing it up, the comparison is one page and it is candid about both.'
-              : 'The comparison is one page and candid about both: pay, registration, climate, distance from home, and what each is actually like to live in.',
-            links: [{ label: 'Compare the two countries', href: '/guides/australia-vs-new-zealand' }, { label: 'Pay compared', href: '/guides/australia-vs-new-zealand-salary' }].concat(
-              forCountries(function (dd) { return [{ label: CN(dd) + ' destination guides', href: dd === 'au' ? '/destinations/australia' : '/destinations/' }]; }) || [{ label: 'All destination guides', href: '/destinations/' }]) });
+          if (single) {
+            st.items.push({ title: 'Living in ' + CN(d),
+              note: 'What the country is actually like to live in, region by region \u2014 the part a job advert never covers.',
+              links: [{ label: CN(d) + ' destination guides', href: d === 'au' ? '/destinations/australia' : '/destinations/' },
+                      { label: 'Working in ' + CN(d), href: '/' + C(d) }] });
+            st.items.push({ title: 'Still want to check the other one?',
+              note: 'The comparison is one page and candid about both. Worth ten minutes if the decision is not quite settled.',
+              links: [{ label: 'Compare the two countries', href: '/guides/australia-vs-new-zealand' },
+                      { label: 'Pay compared', href: '/guides/australia-vs-new-zealand-salary' }] });
+          } else {
+            st.items.push({ title: 'Australia or New Zealand?',
+              note: 'The comparison is one page and candid about both: pay, registration, climate, distance from home, and what each is actually like to live in.',
+              links: [{ label: 'Compare the two countries', href: '/guides/australia-vs-new-zealand' }, { label: 'Pay compared', href: '/guides/australia-vs-new-zealand-salary' }].concat(
+                forCountries(function (dd) { return [{ label: CN(dd) + ' destination guides', href: dd === 'au' ? '/destinations/australia' : '/destinations/' }]; }) || [{ label: 'All destination guides', href: '/destinations/' }]) });
+          }
           break;
         case 'work':
           st.items.push({ title: 'Registration', tool: 'pathway',
@@ -372,6 +391,62 @@
     return null;
   }
 
+  function selectedStageId() {
+    var nx = nextOpen();
+    return open || (nx ? nx.id : (currentId() || 'imagine'));
+  }
+
+  /* ---- the welcome, once the answers are in (2 Oct 2026) ----------------------------------
+     Sophie: between answering and the plan there should be a moment that confirms what we
+     heard and says what the next part covers, with their name on it. It shows once. The
+     button is the only thing in its way, and pressing it is remembered. A pack supplies its
+     own intro line, and its reader is already placed, so the welcome is skipped there. */
+  var BANDS_OF = [
+    { k: 'Deciding', ids: ['imagine', 'choose'], note: 'Whether this is right for you, and which country.' },
+    { k: 'Checking', ids: ['work', 'numbers'], note: 'Whether you can register, and whether the money works.' },
+    { k: 'Choosing', ids: ['place', 'role'], note: 'Where you would live, and the role itself.' },
+    { k: 'Doing', ids: ['plan', 'settle'], note: 'The offer, the visa, the move, and your first month.' }
+  ];
+  function wantsWelcome() {
+    if (document.body.hasAttribute('data-strip-intro')) return false;   /* inside a pack */
+    if (S.started) return false;
+    return !!(dest() && ctx && ctx.profession());
+  }
+  function welcomeHTML() {
+    var name = (S.first || '').trim();
+    /* "as a medical imaging" — the catalogue labels are fields, not job titles, so "as a"
+       never worked for them. "working in <field>" reads correctly for every one of them. */
+    var prof = profLabel() ? profLabel().split('/')[0].trim().toLowerCase() : '';
+    var line = 'You\u2019re thinking about a move to ' + esc(destName()) +
+      (prof ? ', working in ' + esc(prof) : '') +
+      (hhPhrase() ? ', ' + esc(hhPhrase()) : '') + '.';
+    /* The greeting. "Kia ora" is an everyday hello and is right for someone still deciding;
+       "nau mai, haere mai" means welcome and belongs to an arrival, which this is not yet.
+       Australia has no equivalent that is not pastiche, so it gets a plain warm hello. */
+    var d0 = dest();
+    var hello = d0 === 'nz' ? 'Kia ora' : 'Hello';
+    var h = '<section class="pt-welcome" tabindex="-1">' +
+      '<span class="eyebrow">Your plan is ready</span>' +
+      '<h2>' + esc(hello) + (name ? ', ' + esc(name) : '') + '.</h2>' +
+      '<p class="pt-wl">' + line + ' We\u2019re glad you\u2019re here. ' +
+      '<button type="button" class="pt-quiet" data-editanswers>Change these answers</button></p>' +
+      '<p class="pt-wl2">This plan will help you work out what\u2019s possible, what it takes, and what it would mean for the people coming with you.</p>';
+    h += '<p class="pt-h3 pt-wh">What the next part covers</p><ol class="pt-wsteps">';
+    BANDS_OF.forEach(function (b) {
+      var names = b.ids.map(function (id) { var j = J().filter(function (x) { return x.id === id; })[0]; return j ? j.there : ''; }).filter(Boolean);
+      h += '<li><span class="k">' + esc(b.k) + '</span><span class="n">' + esc(b.note) + '</span>' +
+           '<span class="s">' + names.map(esc).join(' &middot; ') + '</span></li>';
+    });
+    h += '</ol>';
+    if (!name) h += '<div class="pt-name pt-wname"><label for="wName">What should we call you? <span>optional</span></label>' +
+      '<input id="wName" type="text" maxlength="40" autocomplete="given-name" placeholder="First name" data-plan-first>' +
+      '<span class="pt-hint">Only used to put your name on your plan. It stays on this device.</span></div>';
+    h += '<div class="pt-signrow" style="margin-top:22px"><button type="button" class="pt-btn" data-start>Start my plan <i aria-hidden="true">&rarr;</i></button></div>' +
+      '<p class="pt-fine">Eight stages, and you can move between them however you like. Nothing is sent to us.</p>' +
+      '</section>';
+    return h;
+  }
+
   /* ---------------- paint ---------------- */
   var open = null; // stage id the reader has opened by hand; null = the current stage
   function paint() {
@@ -380,6 +455,15 @@
     var known = hasD || (ctx && ctx.profession()) || cur;
     var list = stages();
     var openId = open || (nx ? nx.id : (cur || 'imagine'));
+
+    /* the welcome takes the place of the journey, once only */
+    if (wantsWelcome()) {
+      var nx0 = $('[data-next]'); if (nx0) nx0.hidden = true;
+      host.innerHTML = welcomeHTML();
+      if (ctx && ctx.decorate) ctx.decorate(host);
+      paintSend();
+      return;
+    }
 
     /* next step card */
     var nextEl = $('[data-next]');
@@ -475,7 +559,7 @@
     p += '<h3 class="pt-h3">Personal notes</h3>' +
       '<label class="sr-only" for="pt-note">Your notes for ' + esc(sel.label) + '</label>' +
       '<textarea class="pt-note" id="pt-note" rows="4" data-note="' + sel.id + '" placeholder="Questions to ask, what you have decided, anything you want to come back to."></textarea>' +
-      '<p class="pt-fine" style="margin-top:8px">Kept on this device, and carried into your plan when you view, download or send it.</p>';
+      '<p class="pt-fine" style="margin-top:8px">Your notes stay on this device. They print into your own copy of the plan when you view or download it, and they are never sent to us.</p>';
 
     p += '<div class="pt-signrow" style="margin-top:20px">' +
       '<button type="button" class="pt-tick' + (isDone ? ' on' : '') + '" data-done="' + sel.id + '" aria-pressed="' + (isDone ? 'true' : 'false') + '">' +
@@ -514,12 +598,16 @@
     if (h) h.textContent = 'Can we help you into a role?';
     if (note) note.textContent = 'Honestly, not yet — so we are not going to ask for your details.';
     var line = $('[data-send-off-line]'); if (!line) return;
-    if (!m || !m.available) line.textContent = 'We recruit into a specific set of professions, and yours is not one we place in ' + destLabel() + ' at the moment. That has no bearing on whether the move is right for you, and everything on this page is yours to use.';
-    else line.textContent = 'We are not recruiting ' + m.label + ' roles in ' + destLabel() + ' yet. You may well find one directly, or through another recruiter, and that is a perfectly good outcome.';
+    if (!m || !m.available) line.textContent = 'We recruit into a specific set of professions, and yours is not one we place in ' + destName() + ' at the moment. That has no bearing on whether the move is right for you, and everything on this page is yours to use.';
+    else line.textContent = 'We are not recruiting ' + m.label + ' roles in ' + destName() + ' yet. You may well find one directly, or through another recruiter, and that is a perfectly good outcome.';
   }
 
   /* ---------------- the link (no account: the link carries the answers) ---------------- */
-  var LINK_FIELDS = ['first', 'dest', 'profession', 'origin', 'stage', 'journeyStage', 'hh', 'done'];
+  /* What the "open it on another device" link carries. An explicit whitelist, and 'notes' is
+     deliberately not on it: the link can be pasted anywhere, and what someone writes in the
+     notes box is theirs and stays on their own device (Sophie, 2 Oct 2026). Ticked steps go,
+     for the same reason ticked stages always have — they are progress, not private writing. */
+  var LINK_FIELDS = ['first', 'dest', 'profession', 'origin', 'stage', 'journeyStage', 'hh', 'done', 'steps'];
   function b64u(s) { return btoa(unescape(encodeURIComponent(s))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
   function b64d(s) { s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; return decodeURIComponent(escape(atob(s))); }
   function planLink() {
@@ -553,7 +641,7 @@
   function docHTML(forWord) {
     var list = stages(), au = oneDest() === 'au';
     var accInk = au ? '#A34438' : '#2F5E49', coverInk = au ? '#EFC3AA' : '#C6E084';
-    var who = (S.first ? esc(S.first) + '’s' : 'Your') + ' plan for ' + esc(destLabel());
+    var who = (S.first ? esc(S.first) + '’s' : 'Your') + ' plan for ' + esc(destName());
     var when = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
     var cur = currentId(), nx = nextOpen();
     var originLabel = (origins().filter(function (x) { return x.value === S.origin; })[0] || {}).label || '';
@@ -562,7 +650,7 @@
     facts.push(['Household', hhPhrase() ? 'Moving ' + hhPhrase() : 'Moving on your own']);
     facts.push(['Where you are now', ctx && ctx.stageLabel() ? ctx.stageLabel() : 'Not yet said']);
     var groups = list.map(function (s) { return { stage: s.label, id: s.id, steps: s.items, ticks: steps(s.id).filter(function (t, i) { return S.steps[s.id + '#' + i]; }), note: (S.notes[s.id] || '').trim() }; });
-    var next = nx ? { title: nx.there, note: list.filter(function (s) { return s.id === nx.id; })[0].items[0].note, href: '/move#s' + nx.n } : { title: 'Every stage sorted', note: '', href: '/move' };
+    var next = nx ? { title: nx.there, note: intro(nx.id), href: '/move#s' + nx.n } : { title: 'Every stage sorted', note: 'Nothing left on the list. Come back to any stage whenever you want to.', href: '/move' };
     var saved = savedItems();
     var abs = function (h) { return /^https?:/.test(h) ? h : location.origin + h; };
     var foot = 'Ethicare Resourcing Ltd · Company No 14646354 · Office 1, One Coldbath Square, London EC1R 5HL · +44 20 4626 6580 · hello@ethicareresourcing.com';
@@ -578,57 +666,184 @@
         (st.links && st.links.length ? '<div class="lk">' + st.links.map(function (l) { return '<a href="' + abs(l.href) + '">' + esc(l.label) + '</a>'; }).join('') + '</div>' : '') + '</div></div>';
     };
     if (forWord) {
-      var h2 = function (t) { return '<h2 style="font-family:Calibri,Arial,sans-serif;font-size:15pt;color:#02615D;border-bottom:2px solid #A6C84A;padding-bottom:6px;margin:30px 0 14px">' + t + '</h2>'; };
+      /* ---- the plan as a Word document (2 Oct 2026) --------------------------------------
+         Same rebuild as the page, inside Word's limits: no grid, no flexbox, so the contents
+         list and the status chips are tables. The stage heading used to be 9pt uppercase —
+         smaller than the card titles under it — which is why eight stages read as one run of
+         boxes. page-break-inside:avoid is honoured by Word on tables. */
+      var h2w = function (t) { return '<h2 style="font-family:Calibri,Arial,sans-serif;font-size:11pt;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;color:#02615D;border-bottom:2px solid #A6C84A;padding-bottom:6px;margin:30px 0 14px">' + t + '</h2>'; };
+      var chipW = function (id) {
+        var t = S.done[id] ? 'Sorted' : (id === cur ? 'You are here' : (nx && id === nx.id ? 'Next' : ''));
+        if (!t) return '';
+        var bg = S.done[id] ? '#A6C84A' : (id === cur ? '#02615D' : '#E6F1ED');
+        var fg = S.done[id] ? '#01312F' : (id === cur ? '#FFFFFF' : '#2F5E49');
+        return '<span style="background:' + bg + ';color:' + fg + ';font-size:8pt;font-weight:bold;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px">&nbsp;' + t + '&nbsp;</span>';
+      };
       var out = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>" + who + "</title></head>" +
-        '<body style="font-family:Calibri,Arial,sans-serif;color:#222;font-size:11pt;line-height:1.6;margin:0">' +
-        '<table width="100%" cellpadding="0" cellspacing="0" style="background:#02615D"><tr><td style="padding:34px 40px">' +
-        '<div style="color:' + coverInk + ';font-size:9pt;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px">Ethicare Move · Your plan</div>' +
-        '<div style="width:26px;height:3px;background:#A6C84A;margin-bottom:14px"></div>' +
-        '<h1 style="font-family:Georgia,serif;font-weight:normal;font-size:26px;color:#fff;margin:0 0 8px">' + who + '</h1>' +
-        '<div style="color:' + coverInk + ';font-size:11pt">Prepared ' + when + ' · ethicareresourcing.com/move</div></td></tr></table>' +
+        '<body style="font-family:Calibri,Arial,sans-serif;color:#33403B;font-size:11pt;line-height:1.55;margin:0">' +
+        '<table width="100%" cellpadding="0" cellspacing="0" style="background:#02615D"><tr><td style="padding:40px 40px 34px">' +
+        '<div style="color:' + coverInk + ';font-size:9pt;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px">Ethicare Move &middot; Your plan</div>' +
+        '<div style="width:46px;height:4px;background:#A6C84A;margin-bottom:16px;font-size:1pt">&nbsp;</div>' +
+        '<h1 style="font-family:Georgia,serif;font-weight:bold;font-size:26pt;color:#fff;margin:0 0 10px;line-height:1.1">' + who + '</h1>' +
+        '<div style="color:' + coverInk + ';font-size:11pt">Prepared ' + when + ' &middot; ethicareresourcing.com/move</div></td></tr></table>' +
         '<table width="100%" cellpadding="0" cellspacing="0" style="margin-top:26px"><tr><td style="padding:0 40px 40px">';
-      out += h2('At a glance') + '<table class="facts" width="100%" cellpadding="0" cellspacing="0">';
-      facts.forEach(function (f) { out += '<tr><td width="34%" style="padding:11px 18px 11px 0;border-bottom:1px solid #EBDFD3;color:' + accInk + ';font-size:9pt;letter-spacing:.06em;text-transform:uppercase;vertical-align:top">' + esc(f[0]) + '</td><td style="padding:11px 0;border-bottom:1px solid #EBDFD3;color:#02615D;font-weight:bold;vertical-align:top">' + esc(f[1]) + '</td></tr>'; });
-      out += '</table>' + h2('Your journey');
+
+      /* at a glance — two columns of label/value cards rather than five stacked rows */
+      out += h2w('At a glance') + '<table width="100%" cellpadding="0" cellspacing="0">';
+      for (var fi = 0; fi < facts.length; fi += 2) {
+        out += '<tr>';
+        for (var fj = fi; fj < Math.min(fi + 2, facts.length); fj++) {
+          out += '<td width="50%" valign="top" style="padding:0 8px 10px 0">' +
+            '<table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E6DED3"><tr><td style="padding:12px 16px">' +
+            '<div style="color:' + accInk + ';font-size:8.5pt;font-weight:bold;letter-spacing:.09em;text-transform:uppercase;margin-bottom:3px">' + esc(facts[fj][0]) + '</div>' +
+            '<div style="color:#02615D;font-weight:bold;font-size:11.5pt">' + esc(facts[fj][1]) + '</div>' +
+            '</td></tr></table></td>';
+        }
+        if (fi + 1 >= facts.length) out += '<td width="50%">&nbsp;</td>';
+        out += '</tr>';
+      }
+      out += '</table>';
+
+      /* contents, so the whole move is legible before any of the detail */
+      out += h2w('Your stages') + '<table width="100%" cellpadding="0" cellspacing="0">';
       groups.forEach(function (g) {
-        out += '<h3 class="sh" style="color:' + accInk + ';font-size:9pt;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;margin:22px 0 8px">' + esc(g.stage) + (S.done[g.id] ? ' — sorted' : g.id === cur ? ' — you are here' : '') + '</h3>';
-        g.steps.forEach(function (st) { out += stepHtml(st, g.id === cur, true); });
-        if (g.ticks.length) out += '<div style="margin:8px 0 2px;font-size:10pt"><b style="color:#02615D">Ticked off:</b> ' + g.ticks.map(esc).join(' &nbsp;·&nbsp; ') + '</div>';
-        if (g.note) out += '<table width="100%" cellpadding="0" cellspacing="0" style="margin:6px 0 2px"><tr><td style="background:#F7F4EE;padding:14px 18px"><div style="font-weight:bold;color:#02615D;margin-bottom:4px">Your notes</div><div>' + esc(g.note) + '</div></td></tr></table>';
+        var bits = [];
+        if (g.ticks.length) bits.push(g.ticks.length + (g.ticks.length === 1 ? ' step ticked' : ' steps ticked'));
+        if (g.note) bits.push('your notes');
+        out += '<tr><td style="padding:9px 0;border-bottom:1px solid #E6DED3;color:#02615D;font-weight:bold">' + esc(g.stage) + '</td>' +
+          '<td align="right" style="padding:9px 0;border-bottom:1px solid #E6DED3;color:#6B7873;font-size:9.5pt">' + (bits.length ? esc(bits.join(' · ')) + '&nbsp;&nbsp;' : '') + chipW(g.id) + '</td></tr>';
       });
-      if (saved.length) { out += h2('Pages you saved') + '<table width="100%" cellpadding="0" cellspacing="0">'; saved.forEach(function (it) { out += '<tr><td style="padding:14px 18px;border-bottom:1px solid #EBDFD3"><a href="' + abs(it.u) + '" style="color:#02615D;font-weight:bold;text-decoration:none">' + esc(it.t) + '</a></td></tr>'; }); out += '</table>'; }
-      out += h2('What next?') + '<table width="100%" cellpadding="0" cellspacing="0"><tr><td style="background:#F7F4EE;padding:20px 24px"><div style="font-weight:bold;color:#02615D;margin-bottom:6px">' + esc(next.title) + '</div><div>' + esc(next.note) + '</div><div style="margin-top:8px;font-size:9.5pt"><a href="' + abs(next.href) + '" style="color:' + accInk + ';font-weight:bold">' + location.origin + next.href + '</a></div></td></tr></table>';
-      out += '<div style="margin-top:30px;padding-top:16px;border-top:1px solid #EBDFD3;color:#555;font-size:9.5pt">' + esc(standing) + '</div><div style="margin-top:8px;color:#555;font-size:9.5pt">' + esc(foot) + '</div></td></tr></table></body></html>';
+      out += '</table>';
+
+      out += h2w('Your journey');
+      groups.forEach(function (g) {
+        out += '<table width="100%" cellpadding="0" cellspacing="0" style="page-break-inside:avoid;margin-top:22px"><tr><td>' +
+          '<div style="margin:0 0 3px"><span style="font-family:Calibri,Arial,sans-serif;font-size:15pt;font-weight:bold;color:#02615D">' + esc(g.stage) + '</span>&nbsp;&nbsp;' + chipW(g.id) + '</div>' +
+          '<div style="color:#5C6B65;font-size:10pt;margin:0 0 12px">' + esc(intro(g.id)) + '</div></td></tr></table>';
+        g.steps.forEach(function (st) { out += stepHtml(st, g.id === cur, true); });
+        if (g.ticks.length) {
+          out += '<div style="margin:10px 0 2px;color:' + accInk + ';font-size:8.5pt;font-weight:bold;letter-spacing:.09em;text-transform:uppercase">Ticked off</div>';
+          out += '<table width="100%" cellpadding="0" cellspacing="0">' + g.ticks.map(function (t) {
+            return '<tr><td width="20" valign="top" style="padding:2px 0;color:#2F5E49;font-weight:bold">&#10003;</td><td style="padding:2px 0;font-size:10.5pt;color:#4A5853">' + esc(t) + '</td></tr>';
+          }).join('') + '</table>';
+        }
+        if (g.note) out += '<table width="100%" cellpadding="0" cellspacing="0" style="margin:10px 0 2px;page-break-inside:avoid"><tr><td width="4" style="background:#C9DED3;font-size:1pt">&nbsp;</td><td style="background:#F2F6F3;padding:13px 18px">' +
+          '<div style="color:' + accInk + ';font-size:8.5pt;font-weight:bold;letter-spacing:.09em;text-transform:uppercase;margin-bottom:4px">Your notes</div>' +
+          '<div style="font-size:10.5pt;color:#3E4B47">' + esc(g.note) + '</div></td></tr></table>';
+      });
+
+      if (saved.length) { out += h2w('Pages you saved') + '<table width="100%" cellpadding="0" cellspacing="0">'; saved.forEach(function (it) { out += '<tr><td style="padding:12px 16px;border-bottom:1px solid #E6DED3"><a href="' + abs(it.u) + '" style="color:#02615D;font-weight:bold;text-decoration:none">' + esc(it.t) + '</a></td></tr>'; }); out += '</table>'; }
+
+      out += h2w('What next?') + '<table width="100%" cellpadding="0" cellspacing="0" style="page-break-inside:avoid"><tr><td style="background:#02615D;padding:22px 26px">' +
+        '<div style="color:' + coverInk + ';font-size:8.5pt;font-weight:bold;letter-spacing:.09em;text-transform:uppercase">Your next step</div>' +
+        '<div style="font-weight:bold;color:#fff;font-size:14pt;margin:7px 0 5px">' + esc(next.title) + '</div>' +
+        '<div style="color:#E6F1ED;font-size:10.5pt">' + esc(next.note) + '</div>' +
+        '<div style="margin-top:10px;font-size:9.5pt"><a href="' + abs(next.href) + '" style="color:' + coverInk + ';font-weight:bold">' + location.origin + next.href + '</a></div></td></tr></table>';
+      out += '<div style="margin-top:30px;padding-top:16px;border-top:1px solid #E6DED3;color:#6B7873;font-size:9.5pt">' + esc(standing) + '</div><div style="margin-top:8px;color:#6B7873;font-size:9.5pt">' + esc(foot) + '</div></td></tr></table></body></html>';
       return out;
     }
+
+    /* ---- the plan as a page (2 Oct 2026) -------------------------------------------------
+       It was one long column of identical cards with 10px stage headings, so eight distinct
+       stages read as forty interchangeable boxes. Now: a contents list with where you are up
+       to, proper stage headings with a status, and each stage's own opening line. */
+    var statusOf = function (id) { return S.done[id] ? 'Sorted' : (id === cur ? 'You are here' : (nx && id === nx.id ? 'Next' : '')); };
+    var pill = function (id) { var t = statusOf(id); if (!t) return '';
+      var k = S.done[id] ? 'done' : (id === cur ? 'now' : 'next');
+      return '<span class="pill ' + k + '">' + t + '</span>'; };
+
     var o2 = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + who + '</title>' +
-      '<style>*{box-sizing:border-box}body{margin:0;background:#FCFBF8;color:#333;font-family:Manrope,system-ui,sans-serif;line-height:1.65}' +
-      'h2{font-family:"Work Sans",sans-serif;color:#02615D;font-size:20px;margin:0 0 18px;padding-bottom:8px;border-bottom:2px solid #A6C84A}' +
-      '.cover{background:#02615D;color:#fff;padding:clamp(32px,5vw,56px) clamp(24px,5vw,56px)}.cover .eb{color:' + coverInk + ';font-family:"Work Sans",sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}.cover .rule{width:26px;height:3px;background:#A6C84A;margin-bottom:16px}.cover h1{font-family:Georgia,serif;font-weight:600;font-size:clamp(28px,4vw,40px);margin:0 0 10px}.cover .meta{color:' + coverInk + ';font-size:15px}' +
-      '.wrap{max-width:760px;margin:0 auto;padding:clamp(28px,4vw,48px) clamp(20px,4vw,32px) 60px}section{margin-bottom:40px}' +
-      '.facts{width:100%;border-collapse:collapse}.facts th{width:34%;text-align:left;padding:11px 18px 11px 0;border-bottom:1px solid #EBDFD3;color:' + accInk + ';font-family:"Work Sans",sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;vertical-align:top}.facts td{padding:11px 0;border-bottom:1px solid #EBDFD3;color:#02615D;font-weight:600;vertical-align:top}' +
-      '.sgroup{margin-bottom:26px;break-inside:avoid}.sgroup>.sh{font-family:"Work Sans",sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:' + accInk + ';margin:0 0 10px}' +
-      '.step{display:grid;grid-template-columns:4px 1fr;gap:16px;background:#fff;border:1px solid #EBDFD3;border-radius:12px;overflow:hidden;margin-bottom:10px;break-inside:avoid}.step .bar{background:#A6C84A}.step.now .bar{background:#02615D}.step .body{padding:16px 20px 16px 4px}.step .t{font-family:"Work Sans",sans-serif;font-weight:600;color:#02615D;margin-bottom:6px;font-size:16px}' +
-      '.step .lk{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px}.step .lk a{color:' + accInk + ';font-weight:600;text-decoration:underline;text-underline-offset:3px}' +
-      '.glist{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:12px}.glist a{display:block;background:#fff;border:1px solid #EBDFD3;border-radius:10px;padding:14px 16px;color:#02615D;font-weight:600;text-decoration:none;font-size:14.5px}' +
-      '.next{background:#F7F4EE;border-radius:14px;padding:22px 26px}.next .t{font-family:"Work Sans",sans-serif;font-weight:600;font-size:17px;color:#02615D;margin-bottom:6px}.next a{color:' + accInk + ';font-weight:600;text-decoration:underline;text-underline-offset:3px}' +
-      '.ticked{margin:8px 0 0;font-size:14px;color:#555}.ticked b{color:#02615D}.ownnote{margin:10px 0 0;background:#F7F4EE;border-radius:12px;padding:14px 18px;font-size:14.5px;white-space:pre-wrap}.ownnote .t{font-family:"Work Sans",sans-serif;font-weight:600;color:#02615D;margin-bottom:4px}' +
-      '.foot{border-top:1px solid #EBDFD3;padding-top:18px;color:#555;font-size:13.5px}.foot p{margin:0 0 8px}.printbar{max-width:760px;margin:14px auto 0;padding:0 clamp(20px,4vw,32px);text-align:right}.printbar button{font-family:"Work Sans",sans-serif;font-weight:600;font-size:13.5px;color:#02615D;background:#fff;border:1.5px solid rgba(2,97,93,.35);border-radius:8px;padding:10px 16px;min-height:44px;cursor:pointer}' +
-      '@media print{.printbar{display:none}body{background:#fff}.step,.glist a{border-color:#ddd}section{break-inside:auto}}</style></head><body>' +
-      '<div class="cover"><div class="eb">Ethicare Move · Your plan</div><div class="rule"></div><h1>' + who + '</h1><div class="meta">Prepared ' + when + ' · ethicareresourcing.com/move</div></div>' +
-      '<div class="printbar"><button type="button" onclick="print()">Print or save as PDF</button></div><div class="wrap"><section><h2>At a glance</h2><table class="facts"><tbody>';
-    facts.forEach(function (f) { o2 += '<tr><th scope="row">' + esc(f[0]) + '</th><td>' + esc(f[1]) + '</td></tr>'; });
-    o2 += '</tbody></table></section><section><h2>Your journey</h2>';
+      '<style>*{box-sizing:border-box}' +
+      'body{margin:0;background:#FCFBF8;color:#33403B;font-family:Manrope,system-ui,sans-serif;line-height:1.6;font-size:16px}' +
+      '.wrap{max-width:820px;margin:0 auto;padding:clamp(30px,4vw,54px) clamp(20px,4vw,34px) 64px}' +
+      'section{margin-bottom:clamp(34px,4.4vw,52px)}' +
+      'h2{font-family:"Work Sans",sans-serif;color:#02615D;font-size:13px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;margin:0 0 16px;padding-bottom:10px;border-bottom:2px solid #A6C84A}' +
+      /* cover */
+      '.cover{background:#02615D;color:#fff;padding:clamp(38px,6vw,70px) clamp(24px,5vw,58px) clamp(34px,5vw,58px)}' +
+      '.cover .in{max-width:820px;margin:0 auto}' +
+      '.cover .eb{color:' + coverInk + ';font-family:"Work Sans",sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}' +
+      '.cover .rule{width:48px;height:4px;background:#A6C84A;border-radius:2px;margin:14px 0 20px}' +
+      '.cover h1{font-family:Georgia,"Times New Roman",serif;font-weight:600;font-size:clamp(30px,4.6vw,46px);line-height:1.08;margin:0 0 14px;letter-spacing:-.01em}' +
+      '.cover .meta{color:' + coverInk + ';font-size:14.5px;letter-spacing:.01em}' +
+      /* at a glance, as a grid rather than five stacked rows */
+      '.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:10px}' +
+      '.facts div{background:#fff;border:1px solid #E6DED3;border-radius:11px;padding:15px 18px}' +
+      '.facts dt{font-family:"Work Sans",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:' + accInk + ';margin:0 0 5px}' +
+      '.facts dd{margin:0;color:#02615D;font-weight:600;font-size:15.5px;line-height:1.35}' +
+      /* contents */
+      '.toc{border-top:1px solid #E6DED3}' +
+      '.toc div{display:flex;align-items:baseline;gap:14px;padding:11px 2px;border-bottom:1px solid #E6DED3}' +
+      '.toc .n{flex:1 1 auto;font-family:"Work Sans",sans-serif;font-weight:600;color:#02615D;font-size:15.5px}' +
+      '.toc .d{flex:none;color:#6B7873;font-size:13.5px}' +
+      '.pill{flex:none;font-family:"Work Sans",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;border-radius:999px;padding:4px 11px;white-space:nowrap}' +
+      '.pill.done{background:#A6C84A;color:#01312F}.pill.now{background:#02615D;color:#fff}.pill.next{background:#E6F1ED;color:#2F5E49}' +
+      /* a stage */
+      '.sgroup{margin-bottom:clamp(26px,3.2vw,38px);break-inside:avoid;page-break-inside:avoid}' +
+      '.shead{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 4px}' +
+      '.shead h3{font-family:"Work Sans",sans-serif;font-size:21px;font-weight:600;color:#02615D;margin:0;line-height:1.2}' +
+      '.sintro{color:#5C6B65;font-size:14.5px;line-height:1.55;margin:0 0 14px;max-width:62ch}' +
+      '.step{background:#fff;border:1px solid #E6DED3;border-left:3px solid #A6C84A;border-radius:10px;padding:15px 18px;margin-bottom:9px;break-inside:avoid;page-break-inside:avoid}' +
+      '.step.now{border-left-color:#02615D}' +
+      '.step .t{font-family:"Work Sans",sans-serif;font-weight:600;color:#02615D;margin-bottom:5px;font-size:15.5px}' +
+      '.step p{margin:0;font-size:14.5px;line-height:1.6;color:#4A5853}' +
+      '.step .lk{margin-top:9px;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13.5px}' +
+      '.step .lk a{color:' + accInk + ';font-weight:600;text-decoration:underline;text-underline-offset:3px}' +
+      /* what the reader did */
+      '.ticked{margin:12px 0 0;padding:0;list-style:none}' +
+      '.ticked li{position:relative;padding:3px 0 3px 26px;font-size:14px;color:#4A5853}' +
+      '.ticked li::before{content:"";position:absolute;left:4px;top:9px;width:11px;height:6px;border-left:2.5px solid #2F5E49;border-bottom:2.5px solid #2F5E49;transform:rotate(-45deg)}' +
+      '.ticked .h{font-family:"Work Sans",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:' + accInk + ';padding:0;margin-bottom:2px}' +
+      '.ticked .h::before{display:none}' +
+      '.ownnote{margin:12px 0 0;background:#F2F6F3;border-left:3px solid #C9DED3;border-radius:0 10px 10px 0;padding:13px 18px;font-size:14.5px;line-height:1.6;white-space:pre-wrap;color:#3E4B47}' +
+      '.ownnote .t{font-family:"Work Sans",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:' + accInk + ';margin-bottom:5px}' +
+      /* saved pages, next step, footer */
+      '.glist{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:10px}' +
+      '.glist a{display:block;background:#fff;border:1px solid #E6DED3;border-radius:10px;padding:13px 16px;color:#02615D;font-weight:600;text-decoration:none;font-size:14.5px}' +
+      '.next{background:#02615D;color:#fff;border-radius:14px;padding:24px 28px}' +
+      '.next .k{font-family:"Work Sans",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:' + coverInk + '}' +
+      '.next .t{font-family:"Work Sans",sans-serif;font-weight:600;font-size:20px;margin:8px 0 6px}' +
+      '.next p{margin:0;font-size:15px;line-height:1.6;color:rgba(255,255,255,.92)}' +
+      '.next a{display:inline-block;margin-top:12px;color:' + coverInk + ';font-weight:600;text-decoration:underline;text-underline-offset:3px}' +
+      '.foot{border-top:1px solid #E6DED3;padding-top:20px;color:#6B7873;font-size:13px;line-height:1.6}.foot p{margin:0 0 8px}' +
+      '.printbar{max-width:820px;margin:16px auto 0;padding:0 clamp(20px,4vw,34px);text-align:right}' +
+      '.printbar button{font-family:"Work Sans",sans-serif;font-weight:600;font-size:13.5px;color:#02615D;background:#fff;border:1.5px solid rgba(2,97,93,.35);border-radius:9px;padding:11px 18px;min-height:44px;cursor:pointer}' +
+      '.printbar button:hover{border-color:#02615D}' +
+      '@media print{@page{margin:14mm}.printbar{display:none}body{background:#fff;font-size:11pt}' +
+      '.cover{padding:24mm 0 14mm}.step,.glist a{border-color:#ddd}.next{background:#F2F6F3;color:#33403B}' +
+      '.next .k,.next a{color:#2F5E49}.next .t{color:#02615D}.next p{color:#4A5853}}' +
+      '</style></head><body>' +
+      '<div class="cover"><div class="in"><div class="eb">Ethicare Move &middot; Your plan</div><div class="rule"></div>' +
+      '<h1>' + who + '</h1><div class="meta">Prepared ' + when + ' &middot; ethicareresourcing.com/move</div></div></div>' +
+      '<div class="printbar"><button type="button" onclick="print()">Print or save as PDF</button></div>' +
+      '<div class="wrap"><section><h2>At a glance</h2><dl class="facts">';
+    facts.forEach(function (f) { o2 += '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(f[1]) + '</dd></div>'; });
+    o2 += '</dl></section>';
+
+    /* a contents list, so the whole move is legible before any of the detail */
+    o2 += '<section><h2>Your stages</h2><div class="toc">';
     groups.forEach(function (g) {
-      o2 += '<div class="sgroup"><h3 class="sh">' + esc(g.stage) + (S.done[g.id] ? ' — sorted' : g.id === cur ? ' — you are here' : '') + '</h3>';
+      var bits = [];
+      if (g.ticks.length) bits.push(g.ticks.length + (g.ticks.length === 1 ? ' step ticked' : ' steps ticked'));
+      if (g.note) bits.push('your notes');
+      o2 += '<div><span class="n">' + esc(g.stage) + '</span>' +
+            (bits.length ? '<span class="d">' + bits.map(esc).join(' &middot; ') + '</span>' : '') +
+            pill(g.id) + '</div>';
+    });
+    o2 += '</div></section>';
+
+    o2 += '<section><h2>Your journey</h2>';
+    groups.forEach(function (g) {
+      o2 += '<div class="sgroup"><div class="shead"><h3>' + esc(g.stage) + '</h3>' + pill(g.id) + '</div>' +
+            '<p class="sintro">' + esc(intro(g.id)) + '</p>';
       g.steps.forEach(function (st) { o2 += stepHtml(st, g.id === cur, false); });
-      if (g.ticks.length) o2 += '<p class="ticked"><b>Ticked off:</b> ' + g.ticks.map(esc).join(' &middot; ') + '</p>';
-      if (g.note) o2 += '<div class="ownnote"><div class="t">Your notes</div><div>' + esc(g.note) + '</div></div>';
+      if (g.ticks.length) o2 += '<ul class="ticked"><li class="h">Ticked off</li>' + g.ticks.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>';
+      if (g.note) o2 += '<div class="ownnote"><div class="t">Your notes</div>' + esc(g.note) + '</div>';
       o2 += '</div>';
     });
     o2 += '</section>';
     if (saved.length) { o2 += '<section><h2>Pages you saved</h2><div class="glist">'; saved.forEach(function (it) { o2 += '<a href="' + abs(it.u) + '">' + esc(it.t) + '</a>'; }); o2 += '</div></section>'; }
-    o2 += '<section><h2>What next?</h2><div class="next"><div class="t">' + esc(next.title) + '</div><div>' + esc(next.note) + '</div><div style="margin-top:10px"><a href="' + abs(next.href) + '">' + esc(next.title) + ' →</a></div></div></section>' +
+    o2 += '<section><h2>What next?</h2><div class="next"><div class="k">Your next step</div><div class="t">' + esc(next.title) + '</div><p>' + esc(next.note) + '</p>' +
+      '<a href="' + abs(next.href) + '">Open this stage &rarr;</a></div></section>' +
       '<div class="foot"><p>' + esc(standing) + '</p><p>' + esc(foot) + '</p></div></div></body></html>';
     return o2;
   }
@@ -741,7 +956,7 @@
     route();
 
     document.addEventListener('click', function (e) {
-      var t = e.target.closest ? e.target.closest('[data-go],[data-step],[data-done],[data-here],[data-work],[data-band],[data-doc],[data-getlink],[data-linkcopy],[data-clear]') : null;
+      var t = e.target.closest ? e.target.closest('[data-start],[data-editanswers],[data-go],[data-step],[data-done],[data-here],[data-work],[data-band],[data-doc],[data-getlink],[data-linkcopy],[data-clear]') : null;
       if (!t) return;
       /* choosing a stage. From the rail or the chips the panel is already in view, so the page
          stays put; from the next-step card above it, or a prev/next button, it moves. */
@@ -757,6 +972,19 @@
       }
       /* a step tick. Updated in place rather than repainted: a full repaint would throw away
          whatever is half-typed in the notes box two sections down. */
+      if (t.hasAttribute('data-start')) {
+        load(); S.started = true; save(); paint();
+        var pnl = $('.pt-panel'); if (pnl) { try { pnl.focus({ preventScroll: true }); } catch (e2) {} }
+        scrollToStage(selectedStageId());
+        if (window.track) window.track('move_started', {});
+        return;
+      }
+      if (t.hasAttribute('data-editanswers')) {
+        var eb = $('#ctx-strip .ecx-btn');
+        if (eb && eb.getAttribute('aria-expanded') !== 'true') eb.click();
+        var strip = $('#ctx-strip'); if (strip) strip.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
       if (t.hasAttribute('data-step')) {
         var sk = t.getAttribute('data-step');
         load(); if (S.steps[sk]) delete S.steps[sk]; else S.steps[sk] = true; save();
@@ -779,6 +1007,22 @@
       if (t.hasAttribute('data-getlink')) { load(); var link = planLink(); var box = $('[data-linkbox]'), outEl = $('[data-linkout]'); if (box && outEl) { outEl.value = link; box.hidden = false; outEl.select(); } return; }
       if (t.hasAttribute('data-linkcopy')) { var o = $('[data-linkout]'), done = $('[data-linkcopied]'); if (o) { o.select(); try { navigator.clipboard.writeText(o.value); if (done) done.textContent = 'Copied'; } catch (er) { try { document.execCommand('copy'); if (done) done.textContent = 'Copied'; } catch (e2) {} } } return; }
       if (t.hasAttribute('data-clear')) { if (!window.confirm('Clear your plan from this device? Your answers and the stages you have ticked off will go; saved pages stay.')) return; if (ctx && ctx.clear) ctx.clear(); else { try { localStorage.removeItem(KEY); } catch (e) {} } load(); open = null; paint(); window.scrollTo(0, 0); return; }
+    });
+
+    /* The one place the page asks for a name (2 Oct 2026). Nothing else on Move asked, so the
+       document said "Your plan" to everybody and the send form never prefilled. Asked here,
+       beside the document it actually appears on, and optional. */
+    /* Delegated, because the welcome panel repaints and the "Keep this plan" box does not.
+       Typing never repaints: it would take the caret with it. The greeting is updated in
+       place instead. */
+    $$('[data-plan-first]').forEach(function (el) { el.value = S.first || ''; });
+    document.addEventListener('input', function (e) {
+      var el = e.target;
+      if (!el || !el.hasAttribute || !el.hasAttribute('data-plan-first')) return;
+      load(); S.first = el.value.trim().slice(0, 40); save();
+      $$('[data-plan-first]').forEach(function (o) { if (o !== el) o.value = S.first; });
+      var h = $('.pt-welcome h2');
+      if (h) h.textContent = (dest() === 'nz' ? 'Kia ora' : 'Hello') + (S.first ? ', ' + S.first : '') + '.';
     });
 
     /* Notes: saved as they are typed, never repainted. A repaint on input would move the
