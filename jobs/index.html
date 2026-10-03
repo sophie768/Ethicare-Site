@@ -191,6 +191,10 @@ strong{color:var(--green)}
         <input id="q" type="search" placeholder="Role, specialty or keyword" autocomplete="off">
       </div>
       <div class="fld">
+        <label for="f-country">Country</label>
+        <select id="f-country"><option value="">Both countries</option></select>
+      </div>
+      <div class="fld">
         <label for="f-prof">Profession</label>
         <select id="f-prof"><option value="">All professions</option></select>
       </div>
@@ -216,7 +220,7 @@ strong{color:var(--green)}
     <div class="jb-cta">
       <div>
         <h2>Can&rsquo;t see your role?</h2>
-        <p>New vacancies come in every week, and many never make it online. Tell us where you trained and what you&rsquo;re looking for, and we&rsquo;ll match you to the right opportunity.</p>
+        <p>New vacancies come in every week, and many never make it online. Tell us where you trained and what you&rsquo;re looking for, and we&rsquo;ll tell you honestly whether we can help &mdash; now, later, or not at all.</p>
       </div>
       <div class="acts">
         <a href="/apply" class="btn btn-lime">Register with Ethicare</a>
@@ -274,15 +278,30 @@ strong{color:var(--green)}
   var empty = document.getElementById('empty');
   var countEl = document.getElementById('count');
   var q = document.getElementById('q');
+  var fCountry = document.getElementById('f-country');
   var fProf = document.getElementById('f-prof');
   var fRegion = document.getElementById('f-region');
   var fType = document.getElementById('f-type');
 
   function uniq(arr){ return arr.filter(function(v,i){ return arr.indexOf(v)===i; }).sort(); }
   function fillSelect(sel, values){ values.forEach(function(v){ var o=document.createElement('option'); o.value=v; o.textContent=v; sel.appendChild(o); }); }
+  fillSelect(fCountry, uniq(jobs.map(function(j){return j.country;})));
   fillSelect(fProf, uniq(jobs.map(function(j){return j.profession;})));
-  fillSelect(fRegion, uniq(jobs.map(function(j){return j.region;})));
   fillSelect(fType, uniq(jobs.reduce(function(a,j){return a.concat(j.types);},[])));
+
+  /* Region sits under Country (3 Oct 2026). A flat list of every region in two countries
+     asks someone to recognise "Taranaki" before they have said where they are going, so the
+     region list is rebuilt whenever the country changes and reset if the current choice is
+     no longer in it. */
+  function fillRegions(){
+    var c = fCountry.value, keep = fRegion.value;
+    fRegion.innerHTML = '<option value="">' + (c ? 'All regions in ' + c : 'All regions') + '</option>';
+    var rs = uniq(jobs.filter(function(j){ return !c || j.country === c; }).map(function(j){ return j.region; }));
+    fillSelect(fRegion, rs);
+    fRegion.value = rs.indexOf(keep) >= 0 ? keep : '';
+  }
+  fillRegions();
+  fCountry.addEventListener('change', fillRegions);
 
   var PIN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>';
   var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
@@ -345,6 +364,7 @@ strong{color:var(--green)}
       var hay = (j.title+' '+j.profession+' '+j.location+' '+j.region+' '+j.summary+' '+(j.lifestyle||'')).toLowerCase();
       if(hay.indexOf(term)===-1) return false;
     }
+    if(fCountry.value && j.country!==fCountry.value) return false;
     if(fProf.value && j.profession!==fProf.value) return false;
     if(fRegion.value && j.region!==fRegion.value) return false;
     if(fType.value && j.types.indexOf(fType.value)===-1) return false;
@@ -361,9 +381,9 @@ strong{color:var(--green)}
       ('<b>'+list.length+'</b> of '+total+' roles');
   }
 
-  [q,fProf,fRegion,fType].forEach(function(el){ el.addEventListener('input', render); });
+  [q,fCountry,fProf,fRegion,fType].forEach(function(el){ el.addEventListener('input', render); });
   document.getElementById('clear').addEventListener('click', function(){
-    q.value=''; fProf.value=''; fRegion.value=''; fType.value=''; render();
+    q.value=''; fCountry.value=''; fProf.value=''; fType.value=''; fillRegions(); render();
   });
   render();
 })();

@@ -90,7 +90,7 @@
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ messages: messages, jobs: liveJobs(), context: candidateContext() })
     });
-    if (!r.ok) throw new Error('ask-ethicare ' + r.status);
+    if (!r.ok) { var err = new Error('ask-ethicare ' + r.status); err.status = r.status; throw err; }
     return (await r.json()).text;
   }
 
@@ -161,6 +161,7 @@
     busy = true; goBtn.disabled = true; clearInterval(rotor);
     thread.hidden = false;
     var n = history.length;
+    var asked = q.trim();          /* the question itself — n is the history index, not the text */
     var turn = document.createElement('div');
     turn.className = 'aske-turn';
     turn.innerHTML = '<p class="aske-you"><span>You asked</span>' + esc(q.trim()) + '</p><div class="aske-ans"><p class="aske-wait">Ethicare is thinking&hellip;</p></div>';
@@ -199,7 +200,25 @@
       } catch (e2) {}
     } catch (e) {
       stopWait();
-      ans.innerHTML = '<p><strong>Ask Ethicare is briefly unavailable.</strong> Everything it draws on is still here: the <a href="/pathway-checker">pathway checker</a>, the <a href="/resources">guides library</a>, or <a href="/contact">the team</a>.</p>';
+      /* A single "briefly unavailable" for every failure told nobody anything — not the reader,
+         and not us. 503 means the key is not set, which is a configuration fault and will not
+         fix itself on a retry; everything else is worth one retry. The question is kept either
+         way, because retyping it is the thing that makes people give up (3 Oct 2026). */
+      var st = e && e.status, cfg = st === 503, many = st === 429;
+      var lead = cfg ? 'Ask Ethicare is not available at the moment.'
+               : many ? 'That is a lot of questions in a short time.'
+               : 'Ask Ethicare could not answer just then.';
+      var line = cfg ? 'This one is at our end, not yours, and we are on it.'
+               : many ? 'Give it a minute and try again.'
+               : 'It is usually momentary. Your question is still here — try it again.';
+      track('assistant_failed', { status: String(st || 'network') });
+      ans.innerHTML = '<p><strong>' + lead + '</strong> ' + line + '</p>' +
+        (cfg || many ? '' : '<p style="margin-top:12px"><button type="button" class="aske-retry">Try that again</button></p>') +
+        '<p>In the meantime, these cover most of it: the <a href="/pathway-checker">pathway checker</a>, ' +
+        'the <a href="/resources">guides library</a>, or <a href="/contact">the team</a>.</p>';
+      var again = ans.querySelector('.aske-retry');
+      if (again) again.addEventListener('click', function () { ask(asked); });
+      try { input.value = asked; input.focus(); } catch (e3) {}
     }
     busy = false; goBtn.disabled = false;
   }
@@ -208,10 +227,17 @@
   input.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); ask(input.value); }
   });
+  /* A chip used to submit on click. "Registration" fired "Can I work there?" at the model with
+     no profession and no country attached, and the answer could only be general — which reads
+     as the tool being vague rather than the question being vague. It now fills the box and puts
+     the cursor at the end, so the question can be finished before it is asked (3 Oct 2026). */
   if (chips) chips.addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b) return;
-    input.value = b.getAttribute('data-q') || b.textContent;
-    input.focus(); ask(input.value);
+    var q = b.getAttribute('data-q') || b.textContent;
+    input.value = q;
+    input.focus();
+    try { input.setSelectionRange(q.length, q.length); } catch (e4) {}
+    track('assistant_chip', { chip: (b.textContent || '').trim().slice(0, 30) });
   });
   /* A question handed over in the URL: /ask?q=… — this is how the foot of a long page
      sends a reader here with their question already framed. The value is read as a string

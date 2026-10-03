@@ -87,3 +87,9 @@
 /* How long the answer takes, said up front (2 Oct 2026). The call is ~6s and the full answer
    lands around twenty; without a number on screen that reads as broken rather than busy. */
 .aske-time{font-family:"Work Sans",sans-serif;font-size:13.5px;color:#555;margin:10px 0 0}
+
+/* The retry on a failed answer (3 Oct 2026). Same shape as the ask button, quieter, so a
+   failure offers a way forward without shouting about itself. */
+.aske-retry{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;background:#DCEAE0;border:0;border-radius:8px;padding:11px 18px;cursor:pointer}
+.aske-retry:hover{background:#C9DED3}
+.aske-retry:focus-visible{outline:3px solid #02615D;outline-offset:2px}

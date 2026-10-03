@@ -15,7 +15,11 @@
    sending them. `jobs` is accepted as DATA — titles and countries only, sanitised, capped and
    re-wrapped in wording this file controls — never as prompt text. */
 
-const MODEL_ANTHROPIC = 'claude-sonnet-4-5';
+/* 3 Oct 2026: was claude-sonnet-4-5, which is no longer a current model id. The Messages API
+   answers an unknown model with a 404, this file logged it and returned 502, and the page
+   said "briefly unavailable" with no clue why. Model ids move; when this breaks again, the
+   Netlify function log is the place to look and this is the line to change. */
+const MODEL_ANTHROPIC = 'claude-sonnet-5-5';
 const MODEL_OPENAI = 'gpt-4o';
 const MAX_TOKENS = 1200;
 const MAX_BODY = 24000;

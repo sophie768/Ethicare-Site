@@ -434,6 +434,26 @@
     var d = dest(), hasD = !!d, cur = currentId(), nx = nextOpen();
     var known = hasD || (ctx && ctx.profession()) || cur;
     var list = stages();
+
+    /* ---- the journey data did not arrive (3 Oct 2026) ----------------------------------
+       journey.js supplies the eight stages. If it fails to load — a dropped request, a cold
+       cache, a flaky connection — list is empty, the next line used to read .id off
+       undefined, and the whole page below the hero vanished with an uncaught error. A
+       reload fixed it, because by then the file was cached, which is exactly what a
+       reviewer reported seeing. Now it says so and offers the reload, instead of failing
+       silently and looking broken. */
+    if (!list.length) {
+      host.innerHTML = '<div class="pt-card" style="max-width:640px">' +
+        '<p class="pt-k">This part did not load</p>' +
+        '<p class="note">Your plan is safe — nothing has been lost. The page just did not finish loading. ' +
+        'Reloading almost always fixes it.</p>' +
+        '<div class="pt-signrow" style="margin-top:14px">' +
+        '<button type="button" class="pt-btn" onclick="location.reload()">Reload the page</button>' +
+        '<a class="pt-btn ghost" href="/contact">Tell us about it</a></div></div>';
+      if (window.console && console.warn) console.warn('[move] journey data unavailable — journey.js may not have loaded');
+      return;
+    }
+
     var openId = open || (nx ? nx.id : (cur || 'imagine'));
 
     /* The welcome used to stand in front of the journey with a "Start my plan" button. Two
