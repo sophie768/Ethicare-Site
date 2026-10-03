@@ -204,7 +204,7 @@
       case 'choose': return dest() === 'nz' || dest() === 'au'
         ? 'You have chosen ' + dl + '. There is nothing you have to do here \u2014 unless you want to sense-check the decision before the rest of the move leans on it.'
         : 'Two countries, two regulators, two pay systems and a very different sense of scale. This is where you work out which one fits.';
-      case 'work': return 'Find out whether you can register, by which route, and roughly how long it takes. Knowing this early gives everything else room.';
+      case 'work': return 'Find out whether you can register, by which route, and roughly how long it takes. Registration is usually the longest part, so it is worth starting here.';
       case 'numbers': return hasOffer()
         ? 'You know the salary. This is where you work out what it actually leaves you each month, and what the move itself will cost.'
         : 'What you could earn, what the move will cost, and whether the two add up for your household.';
@@ -277,7 +277,7 @@
           st.items.push({ title: 'Where to start reading', note: 'The country pages, and an honest account of why people move and what they miss once they have.',
             links: forCountries(function (dd) { return [{ label: 'Working in ' + CN(dd), href: '/' + C(dd) }, { label: 'Why people move, and what they miss', href: '/guides/why-people-move' }]; })
               || [{ label: 'Working in New Zealand', href: '/new-zealand' }, { label: 'Working in Australia', href: '/australia' }, { label: 'Why people move, and what they miss', href: '/guides/why-people-move' }] });
-          st.items.push({ title: 'What the move was like', note: 'Real people, real places, imperfect details.', links: [{ label: 'Stories from people who moved', href: '/insights' }] });
+          st.items.push({ title: 'What the move was like', note: 'How the move actually went for people who have done it, including the parts that were harder than expected.', links: [{ label: 'Stories from people who moved', href: '/insights' }] });
           break;
         case 'choose':
           if (single) {
@@ -401,48 +401,28 @@
      heard and says what the next part covers, with their name on it. It shows once. The
      button is the only thing in its way, and pressing it is remembered. A pack supplies its
      own intro line, and its reader is already placed, so the welcome is skipped there. */
-  var BANDS_OF = [
-    { k: 'Deciding', ids: ['imagine', 'choose'], note: 'Whether this is right for you, and which country.' },
-    { k: 'Checking', ids: ['work', 'numbers'], note: 'Whether you can register, and whether the money works.' },
-    { k: 'Choosing', ids: ['place', 'role'], note: 'Where you would live, and the role itself.' },
-    { k: 'Doing', ids: ['plan', 'settle'], note: 'The offer, the visa, the move, and your first month.' }
-  ];
   function wantsWelcome() {
     if (document.body.hasAttribute('data-strip-intro')) return false;   /* inside a pack */
     if (S.started) return false;
     return !!(dest() && ctx && ctx.profession());
   }
   function welcomeHTML() {
+    /* A greeting, not a screen. The four bands that used to be here said what the eight
+       stages are, which is the rail's job now that it sits directly underneath. */
     var name = (S.first || '').trim();
-    /* "as a medical imaging" — the catalogue labels are fields, not job titles, so "as a"
-       never worked for them. "working in <field>" reads correctly for every one of them. */
     var prof = profLabel() ? profLabel().split('/')[0].trim().toLowerCase() : '';
     var line = 'You\u2019re thinking about a move to ' + esc(destName()) +
       (prof ? ', working in ' + esc(prof) : '') +
       (hhPhrase() ? ', ' + esc(hhPhrase()) : '') + '.';
-    /* The greeting. "Kia ora" is an everyday hello and is right for someone still deciding;
-       "nau mai, haere mai" means welcome and belongs to an arrival, which this is not yet.
-       Australia has no equivalent that is not pastiche, so it gets a plain warm hello. */
-    var d0 = dest();
-    var hello = d0 === 'nz' ? 'Kia ora' : 'Hello';
+    var hello = dest() === 'nz' ? 'Kia ora' : 'Hello';
     var h = '<section class="pt-welcome" tabindex="-1">' +
-      '<span class="eyebrow">Your plan is ready</span>' +
       '<h2>' + esc(hello) + (name ? ', ' + esc(name) : '') + '.</h2>' +
-      '<p class="pt-wl">' + line + ' We\u2019re glad you\u2019re here. ' +
-      '<button type="button" class="pt-quiet" data-editanswers>Change these answers</button></p>' +
-      '<p class="pt-wl2">This plan will help you work out what\u2019s possible, what it takes, and what it would mean for the people coming with you.</p>';
-    h += '<p class="pt-h3 pt-wh">What the next part covers</p><ol class="pt-wsteps">';
-    BANDS_OF.forEach(function (b) {
-      var names = b.ids.map(function (id) { var j = J().filter(function (x) { return x.id === id; })[0]; return j ? j.there : ''; }).filter(Boolean);
-      h += '<li><span class="k">' + esc(b.k) + '</span><span class="n">' + esc(b.note) + '</span>' +
-           '<span class="s">' + names.map(esc).join(' &middot; ') + '</span></li>';
-    });
-    h += '</ol>';
+      '<p class="pt-wl">' + line + ' We\u2019re glad you\u2019re here. This plan will help you work out ' +
+      'what\u2019s possible, what it takes, and what it would mean for the people coming with you.</p>';
     if (!name) h += '<div class="pt-name pt-wname"><label for="wName">What should we call you? <span>optional</span></label>' +
-      '<input id="wName" type="text" maxlength="40" autocomplete="given-name" placeholder="First name" data-plan-first>' +
-      '<span class="pt-hint">Only used to put your name on your plan. It stays on this device.</span></div>';
-    h += '<div class="pt-signrow" style="margin-top:22px"><button type="button" class="pt-btn" data-start>Start my plan <i aria-hidden="true">&rarr;</i></button></div>' +
-      '<p class="pt-fine">Eight stages, and you can move between them however you like. Nothing is sent to us.</p>' +
+      '<input id="wName" type="text" maxlength="40" autocomplete="given-name" placeholder="First name" data-plan-first></div>';
+    h += '<p class="pt-wedit"><button type="button" class="pt-quiet" data-editanswers>Change these answers</button>' +
+      '<button type="button" class="pt-quiet" data-start style="margin-left:18px">Hide this</button></p>' +
       '</section>';
     return h;
   }
@@ -456,15 +436,9 @@
     var list = stages();
     var openId = open || (nx ? nx.id : (cur || 'imagine'));
 
-    /* the welcome takes the place of the journey, once only */
-    if (wantsWelcome()) {
-      var nx0 = $('[data-next]'); if (nx0) nx0.hidden = true;
-      host.innerHTML = welcomeHTML();
-      if (ctx && ctx.decorate) ctx.decorate(host);
-      paintSend();
-      return;
-    }
-
+    /* The welcome used to stand in front of the journey with a "Start my plan" button. Two
+       steps between answering and the plan was one too many (Sophie, 3 Oct 2026), so the
+       greeting now sits ABOVE the journey and nothing is in the way. */
     /* next step card */
     var nextEl = $('[data-next]');
     if (nextEl) {
@@ -496,8 +470,13 @@
     var sel = list[selIdx] || list[0];
     var prevS = list[selIdx - 1] || null, nextS = list[selIdx + 1] || null;
     var TICK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>';
+    /* Two different things were both called "Next": the stage we recommend doing next, and the
+       stage that happens to come next in the rail (the pager). Someone viewing stage three saw
+       "Next" against stage five and read it as a label on what they were looking at. The
+       recommendation now says "Your next step"; the pager says "Next stage" (Sophie, 3 Oct 2026).
+       The stage being viewed is marked by the highlight and aria-current, never by a word. */
     function stateOf(x) { return S.done[x.id] ? 'done' : (x.id === cur ? 'now' : (nx && x.id === nx.id ? 'next' : '')); }
-    function stateWord(x) { var t = stateOf(x); return t === 'done' ? 'Done' : t === 'now' ? 'You are here' : t === 'next' ? 'Next' : ''; }
+    function stateWord(x) { var t = stateOf(x); return t === 'done' ? 'Done' : t === 'now' ? 'You are here' : t === 'next' ? 'Your next step' : ''; }
 
     var rail = '<nav class="pt-rail" aria-label="The stages of your move">' +
       '<p class="pt-rail-h">Your move, stage by stage</p><ol class="pt-rail-l">' +
@@ -527,7 +506,9 @@
 
     var sl = steps(sel.id);
     if (sl.length) {
-      p += '<h3 class="pt-h3">Your next steps</h3><ul class="pt-nsl">' + sl.map(function (txt, i) {
+      /* Not "Your next steps": the recommended stage is now badged "Your next step", and the
+         two sat four lines apart meaning different things. */
+      p += '<h3 class="pt-h3">Things to do at this stage</h3><ul class="pt-nsl">' + sl.map(function (txt, i) {
         var key = sel.id + '#' + i, on = !!S.steps[key];
         return '<li><button type="button" class="pt-ns' + (on ? ' on' : '') + '" data-step="' + key + '" aria-pressed="' + (on ? 'true' : 'false') + '">' +
           '<span class="pt-tick-box" aria-hidden="true">' + TICK + '</span>' +
@@ -547,7 +528,7 @@
       p += '<div class="pt-item"><h4>' + esc(it.title) + '</h4><p>' + esc(it.note) + '</p>';
       if (tl) {
         p += '<a class="pt-btn ghost" href="' + tl.href + '" data-ctx-link>' + esc(tl.title) + ' <i aria-hidden="true">&rarr;</i></a>';
-        if (started(tl.store)) p += '<p class="pt-draft">Saved in this browser — opens where you left off.</p>';
+        if (started(tl.store)) p += '<p class="pt-draft">You have a saved draft — it opens where you left off.</p>';
       }
       if (it.links && it.links.length) p += '<div class="pt-links">' + it.links.map(function (l) { return '<a href="' + esc(l.href) + '"' + (l.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(l.label) + (l.external ? ' ↗' : '') + '</a>'; }).join('') + '</div>';
       p += '</div>';
@@ -559,7 +540,7 @@
     p += '<h3 class="pt-h3">Personal notes</h3>' +
       '<label class="sr-only" for="pt-note">Your notes for ' + esc(sel.label) + '</label>' +
       '<textarea class="pt-note" id="pt-note" rows="4" data-note="' + sel.id + '" placeholder="Questions to ask, what you have decided, anything you want to come back to."></textarea>' +
-      '<p class="pt-fine" style="margin-top:8px">Your notes stay on this device. They print into your own copy of the plan when you view or download it, and they are never sent to us.</p>';
+      '<p class="pt-fine" style="margin-top:8px">Only you see these. They print into your own copy of the plan.</p>';
 
     p += '<div class="pt-signrow" style="margin-top:20px">' +
       '<button type="button" class="pt-tick' + (isDone ? ' on' : '') + '" data-done="' + sel.id + '" aria-pressed="' + (isDone ? 'true' : 'false') + '">' +
@@ -569,11 +550,11 @@
       '</div>';
 
     p += '<nav class="pt-pager" aria-label="Move between stages">' +
-      (prevS ? '<button type="button" class="pt-pg" data-go="' + prevS.id + '"><span class="pt-pg-k">Previous</span><span class="pt-pg-t">' + esc(prevS.label) + '</span></button>' : '<span></span>') +
-      (nextS ? '<button type="button" class="pt-pg is-next" data-go="' + nextS.id + '"><span class="pt-pg-k">Next</span><span class="pt-pg-t">' + esc(nextS.label) + '</span></button>' : '<span></span>') +
+      (prevS ? '<button type="button" class="pt-pg" data-go="' + prevS.id + '"><span class="pt-pg-k">Previous stage</span><span class="pt-pg-t">' + esc(prevS.label) + '</span></button>' : '<span></span>') +
+      (nextS ? '<button type="button" class="pt-pg is-next" data-go="' + nextS.id + '"><span class="pt-pg-k">Next stage</span><span class="pt-pg-t">' + esc(nextS.label) + '</span></button>' : '<span></span>') +
       '</nav></section>';
 
-    host.innerHTML = '<div class="pt-j">' + rail + '<div class="pt-jmain">' + chips + p + '</div></div>';
+    host.innerHTML = (wantsWelcome() ? welcomeHTML() : '') + '<div class="pt-j">' + rail + '<div class="pt-jmain">' + chips + p + '</div></div>';
     var ta = host.querySelector('[data-note]'); if (ta) ta.value = S.notes[sel.id] || '';
     if (ctx && ctx.decorate) ctx.decorate(host);
     if (ctx && ctx.decorate && nextEl) ctx.decorate(nextEl);
@@ -595,11 +576,16 @@
       if (note) note.textContent = 'Send us what you have so far and we will read it before we speak. Nothing goes anywhere until you press send — and you can see exactly what it contains below.';
       return;
     }
-    if (h) h.textContent = 'Can we help you into a role?';
-    if (note) note.textContent = 'Honestly, not yet — so we are not going to ask for your details.';
+    /* The heading and note above belong to the "we can help" card; this branch hides that card
+       and shows its own, so they are left alone. What matters here is that no advertised
+       vacancy is never reported as "we do not recruit your profession". */
+    if (h) h.textContent = 'Rather we picked this up with you?';
+    if (note) note.textContent = '';
     var line = $('[data-send-off-line]'); if (!line) return;
-    if (!m || !m.available) line.textContent = 'We recruit into a specific set of professions, and yours is not one we place in ' + destName() + ' at the moment. That has no bearing on whether the move is right for you, and everything on this page is yours to use.';
-    else line.textContent = 'We are not recruiting ' + m.label + ' roles in ' + destName() + ' yet. You may well find one directly, or through another recruiter, and that is a perfectly good outcome.';
+    var where = destName();
+    line.textContent = 'We don\u2019t currently have any vacancies listed for your profession in ' + where +
+      ', but we\u2019d still love to hear what you\u2019re looking for. Send us your CV or get in touch to ' +
+      'discuss your plans and how we may be able to help.';
   }
 
   /* ---------------- the link (no account: the link carries the answers) ---------------- */
@@ -654,7 +640,7 @@
     var saved = savedItems();
     var abs = function (h) { return /^https?:/.test(h) ? h : location.origin + h; };
     var foot = 'Ethicare Resourcing Ltd · Company No 14646354 · Office 1, One Coldbath Square, London EC1R 5HL · +44 20 4626 6580 · hello@ethicareresourcing.com';
-    var standing = 'Built on your device from the answers you gave on ' + when + '. Nothing here was sent anywhere. We explain and sequence the steps — this is not immigration advice, and the decisions stay with the regulator and the immigration authority.';
+    var standing = 'Built from the answers you gave on ' + when + '. We explain and sequence the steps — this is not immigration advice, and the decisions stay with the regulator and the immigration authority.';
     var stepHtml = function (st, isNow, word) {
       if (word) {
         var td = 'style="padding:14px 18px;border-bottom:1px solid #EBDFD3"';
@@ -974,8 +960,6 @@
          whatever is half-typed in the notes box two sections down. */
       if (t.hasAttribute('data-start')) {
         load(); S.started = true; save(); paint();
-        var pnl = $('.pt-panel'); if (pnl) { try { pnl.focus({ preventScroll: true }); } catch (e2) {} }
-        scrollToStage(selectedStageId());
         if (window.track) window.track('move_started', {});
         return;
       }

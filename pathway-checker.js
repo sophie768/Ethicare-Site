@@ -986,13 +986,16 @@
         why: ['You told us you are ' + who + ' looking at ' + country + '. We do not hold verified registration guidance for that yet \u2014 so rather than guess, we point you at the official register, and you are welcome to ask us directly.']
       });
     }
-    /* No role, but the route still stands. The pill still says the honest thing. */
-    var noRole = 'We are not recruiting this profession into ' + country + ' at the moment, so there is no role we can put in front of you. The registration route below still applies, and it is still yours to use \u2014 free, whether you ever work with us or not.';
+    /* No ADVERTISED vacancy, not "we do not recruit you". The page used to say the second
+       thing, which turns away people Ethicare would want to hear from (Sophie, 3 Oct 2026). */
+    var noRole = 'We don\u2019t currently have any vacancies listed for your profession in ' + country +
+      ', but we\u2019d still love to hear what you\u2019re looking for \u2014 send us your CV or get in touch. ' +
+      'The registration route below applies either way, and it is yours to use free, whether you ever work with us or not.';
     return assign(base, {
       headline: r.headline,
       paras: [noRole].concat(r.paras || []),
       steps: r.steps || [],
-      why: ['You told us you are ' + who + ' looking at ' + country + '. We are not recruiting that profession there at the moment, so this is the registration route without a job attached.']
+      why: ['You told us you are ' + who + ' looking at ' + country + '. We have no vacancy listed for that profession there today, so this is the registration route on its own \u2014 tell us what you are looking for and we will keep it in mind.']
     });
   }
 

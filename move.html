@@ -41,20 +41,21 @@
    picture shows one. */
 .pt-hero-ph{width:min(420px,100%);height:auto;flex:none;border-radius:var(--r-lg,16px);display:block}
 /* ===== the welcome, once the answers are in (2 Oct 2026) ================================== */
-.pt-welcome{background:#fff;border:1px solid #C9DED3;border-radius:var(--r-lg,16px);padding:clamp(26px,3.4vw,42px);outline:none;max-width:860px}
-.pt-welcome h2{font-family:var(--display);font-weight:300;font-size:clamp(30px,4vw,46px);line-height:1.06;letter-spacing:-.025em;color:var(--teal);margin:14px 0 14px}
+.pt-welcome{background:#fff;border:1px solid #C9DED3;border-radius:var(--r-lg,16px);padding:clamp(28px,3.8vw,52px);outline:none;max-width:860px}
+.pt-welcome h2{font-family:var(--display);font-weight:300;font-size:clamp(30px,4vw,46px);line-height:1.06;letter-spacing:-.025em;color:var(--teal);margin:18px 0 24px}
 .pt-wl{font-size:clamp(16.5px,1.5vw,18.5px);line-height:1.6;color:var(--text);max-width:60ch;margin:0;text-wrap:pretty}
-.pt-wl2{font-size:clamp(16px,1.4vw,17.5px);line-height:1.6;color:var(--muted);max-width:58ch;margin:12px 0 0;text-wrap:pretty}
-.pt-wl .pt-quiet{margin-left:6px;white-space:nowrap}
+.pt-wl2{font-size:clamp(16px,1.4vw,17.5px);line-height:1.6;color:var(--muted);max-width:58ch;margin:22px 0 0;text-wrap:pretty}
+.pt-wedit{margin:12px 0 0}
+.pt-wedit .pt-quiet{white-space:nowrap}
 .pt-welcome .pt-wh{margin-top:clamp(24px,3vw,34px)}
 .pt-wsteps{list-style:none;margin:0;padding:0;display:grid;gap:2px}
-.pt-wsteps li{display:grid;grid-template-columns:clamp(96px,11vw,128px) minmax(0,1fr);gap:4px 18px;padding:13px 0;border-top:1px solid rgba(2,97,93,.18)}
+.pt-wsteps li{display:grid;grid-template-columns:clamp(96px,11vw,128px) minmax(0,1fr);gap:6px 22px;padding:18px 0;border-top:1px solid rgba(2,97,93,.18)}
 .pt-wsteps li:last-child{border-bottom:1px solid rgba(2,97,93,.18)}
 .pt-wsteps .k{font-family:var(--display);font-weight:600;font-size:16px;color:var(--teal)}
 .pt-wsteps .n{font-size:15.5px;line-height:1.5;color:var(--text)}
 .pt-wsteps .s{grid-column:2;font-size:13.5px;line-height:1.45;color:var(--muted)}
-.pt-wname{margin-top:clamp(22px,2.8vw,30px)}
-.pt-welcome .pt-fine{margin-top:18px}
+.pt-wname{margin-top:clamp(28px,3.4vw,38px)}
+.pt-welcome .pt-fine{margin-top:26px;padding-top:20px}
 @media (max-width:560px){.pt-wsteps li{grid-template-columns:1fr}.pt-wsteps .s{grid-column:1}}
 .pt-name{margin:16px 0 4px;max-width:360px}
 .pt-name label{display:block;font-family:var(--display);font-size:13.5px;font-weight:600;color:var(--teal);margin-bottom:6px}
@@ -79,6 +80,7 @@
 .pt-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(28px,4vw,56px);align-items:start;margin-top:8px}.pt-cols[hidden]{display:none}
 .pt-card{background:#fff;border:1px solid var(--e);border-radius:var(--r-lg,16px);padding:clamp(24px,3vw,34px)}
 .pt-k{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2F5E49;margin-bottom:16px}
+.pt-sk{font-family:var(--display);font-size:17px;font-weight:600;color:var(--teal);margin:0 0 8px}
 .pt-ben{padding:16px 0;border-top:1px solid rgba(2,97,93,.65)}
 .pt-ben:first-of-type{border-top:0;padding-top:0}
 .pt-ben b{display:block;font-family:var(--display);font-size:16.5px;font-weight:600;color:var(--text);margin-bottom:4px}
@@ -290,8 +292,12 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-rail-b.on{background:#fff;border-left-color:var(--teal);color:var(--teal);box-shadow:0 1px 3px rgba(1,49,47,.08)}
 .pt-rail-b:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
 .pt-rail-t{font-family:var(--display);font-weight:600;font-size:15px;line-height:1.3}
-.pt-rail-s{grid-column:2;font-size:12px;line-height:1.3;color:#5B6B64}
-.pt-rail-b.on .pt-rail-s{color:#2F5E49}
+/* The stage you are VIEWING is the white card with the teal edge; the small pill is a STATUS
+   and nothing else, so the two can never be read as the same thing (Sophie, 3 Oct 2026). */
+.pt-rail-b.on{font-weight:700}
+.pt-rail-s{grid-column:2;justify-self:start;margin-top:3px;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.04em;line-height:1;border-radius:999px;padding:4px 9px;background:#DCE8E2;color:#2F5E49}
+.pt-rail-b.is-done .pt-rail-s{background:#E8F2CF;color:#44661F}
+.pt-rail-b.is-now .pt-rail-s{background:var(--teal);color:#fff}
 .pt-dot{grid-row:span 2;width:20px;height:20px;border-radius:50%;border:2px solid rgba(2,97,93,.3);background:#fff;display:grid;place-items:center;color:transparent;flex:none}
 .pt-rail-b.is-done .pt-dot{background:#A6C84A;border-color:#A6C84A;color:#02615D}
 .pt-rail-b.is-now .pt-dot{border-color:var(--teal);box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 8px var(--teal)}
@@ -440,7 +446,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
       <img class="pt-hero-ph" src="assets/nz-life/family-kayak.jpg" alt="A family kayaking together in clear water on a sunny day in New Zealand" width="1400" height="1120" fetchpriority="high" decoding="async">
     </div>
     <div id="ctx-strip" data-ctx-strip style="margin-top:clamp(22px,3vw,34px)"></div>
-    <p class="pt-fine" style="max-width:70ch">Your answers stay in this browser, on this device. Nothing is sent to us and there is no password &mdash; so use a device that is yours, and don&rsquo;t put anything confidential in it. Whether you find your job through Ethicare, apply directly or use another recruiter, this is yours.</p>
+    <p class="pt-fine" style="max-width:70ch">Free to use, with no account. Whether you find your role through Ethicare, apply directly or use another recruiter, this plan is yours.</p>
   </div>
 </section>
 
@@ -498,10 +504,17 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
           <p class="pt-fine">That is the whole of it. We do not receive your browsing, anything you typed into the other tools, or the plan itself &mdash; only this summary of where you have got to.</p>
         </div>
       </div>
+      <!-- No ADVERTISED vacancy is not the same as "we don't recruit this profession", and the
+           page used to say the second thing (Sophie, 3 Oct 2026). It recruits across these
+           professions; what it may not have today is an open role. -->
       <div class="pt-card" data-send-off hidden style="max-width:760px">
-        <p class="pt-k">Where this leaves you</p>
-        <p class="pt-fine" data-send-off-line style="font-size:15.5px;line-height:1.65;color:#333333;margin:10px 0 0"></p>
-        <p class="pt-fine" style="margin-top:12px">Everything on this page keeps working either way &mdash; the plan, the costs, the checklist and the guides are yours whether or not we ever place you. If you have a question, <a href="/contact">ask us</a> and we will answer it including when the answer is that we cannot help.</p>
+        <h3 class="pt-k" data-send-off-h>Let&rsquo;s talk about your next role</h3>
+        <p data-send-off-line style="font-size:16px;line-height:1.65;color:var(--text);margin:10px 0 0;max-width:62ch"></p>
+        <p style="font-size:16px;line-height:1.65;color:var(--muted);margin:12px 0 0;max-width:62ch">In the meantime, explore the guides and tools and keep building your move at your own pace.</p>
+        <div class="pt-signrow" style="margin-top:20px">
+          <a class="pt-btn" href="/apply">Send us your CV <i aria-hidden="true">&rarr;</i></a>
+          <a class="pt-btn ghost" href="/contact">Talk to us</a>
+        </div>
       </div>
     </div>
   </section>
@@ -515,29 +528,35 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
         </div>
         <img src="assets/heroes/move-plan.svg" alt="" width="176" height="132" loading="lazy" class="pt-keep-i">
       </div>
+      <!-- Downloading and carrying the plan across belong together: they are the same question
+           asked twice (Sophie, 3 Oct 2026). Nothing moves between devices on its own; the link
+           is what carries it. Said the same way here and on every saved page. -->
       <div class="pt-card">
-        <p class="pt-k">Your plan, as a document</p>
-        <p class="note" style="max-width:64ch">The eight stages, your answers, saved pages and next step, ready to view, print or download.</p>
-        <div class="pt-name">
-          <label for="planName">Put your name on it <span>optional</span></label>
-          <input id="planName" type="text" maxlength="40" autocomplete="given-name" placeholder="First name" data-plan-first>
-          <span class="pt-hint">Only used on the document, and kept on this device with everything else.</span>
-        </div>
-        <div class="pt-signrow" style="margin-top:10px">
-          <button class="pt-btn ghost" type="button" data-doc="view">View as a page</button>
-          <button class="pt-btn ghost" type="button" data-doc="word">Download as Word</button>
-        </div>
-      </div>
-      <div class="pt-card" style="margin-top:18px">
-        <p class="pt-k">Open it on another device</p>
-        <p class="note" style="max-width:64ch">There is no account, so this is a link rather than a login: it carries your answers, the stages you have ticked off and your saved pages, and opening it anywhere restores them.</p>
-        <div class="pt-signrow" style="margin-top:10px">
-          <button class="pt-btn ghost" type="button" data-getlink>Get my link</button>
-        </div>
-        <div data-linkbox hidden style="margin-top:14px">
-          <div class="pt-two" style="align-items:center">
-            <input data-linkout type="text" readonly aria-label="Your plan link" style="font-size:14px" onclick="this.select()">
-            <div class="pt-signrow" style="margin:0"><button class="pt-quiet" type="button" data-linkcopy>Copy link<span data-linkcopied style="margin-left:8px;color:#2F5E49"></span></button></div>
+        <p class="pt-k">Take it with you</p>
+        <div class="pt-two" style="gap:clamp(26px,3.4vw,44px);align-items:start">
+          <div>
+            <p class="pt-sk">As a document</p>
+            <p class="note">Your stages, answers, saved pages and next step, ready to view, print or download. A fixed copy &mdash; it won&rsquo;t change as your plan does.</p>
+            <div class="pt-name">
+              <label for="planName">Put your name on it <span>optional</span></label>
+              <input id="planName" type="text" maxlength="40" autocomplete="given-name" placeholder="First name" data-plan-first>
+              <span class="pt-hint">Only used on your plan.</span>
+            </div>
+            <div class="pt-signrow" style="margin-top:10px">
+              <button class="pt-btn ghost" type="button" data-doc="view">View as a page</button>
+              <button class="pt-btn ghost" type="button" data-doc="word">Download as Word</button>
+            </div>
+          </div>
+          <div>
+            <p class="pt-sk">On another device</p>
+            <p class="note">Nothing moves from one device to another on its own. This link is what carries it: open it on your phone or another computer and your answers, ticked stages and saved pages come with you.</p>
+            <div class="pt-signrow" style="margin-top:16px">
+              <button class="pt-btn ghost" type="button" data-getlink>Get my link</button>
+            </div>
+            <div data-linkbox hidden style="margin-top:14px">
+              <input data-linkout type="text" readonly aria-label="Your plan link" style="font-size:14px;width:100%;min-height:46px;padding:11px 14px;border:1.5px solid #C9DED3;border-radius:11px;background:#fff;font-family:var(--body);color:var(--text)" onclick="this.select()">
+              <div class="pt-signrow" style="margin-top:8px"><button class="pt-quiet" type="button" data-linkcopy>Copy link<span data-linkcopied style="margin-left:8px;color:#2F5E49"></span></button></div>
+            </div>
           </div>
         </div>
       </div>
@@ -551,7 +570,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 <section class="pt-sec" id="myfile" data-myfile-dash hidden>
   <div class="shell">
     <h2>Your file</h2>
-    <p class="pt-sub" style="margin-top:6px">Pages you&rsquo;ve saved, what you&rsquo;ve read, and your notes &mdash; sent nowhere.</p>
+    <p class="pt-sub" style="margin-top:6px">Pages you&rsquo;ve saved, what you&rsquo;ve read, and your notes.</p>
     <div data-myfile-list></div>
   </div>
 </section>

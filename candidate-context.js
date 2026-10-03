@@ -247,7 +247,7 @@
       var h = '<div class="ecx-row">';
       if (known) { h += '<span class="ecx-k">Your answers</span>' + parts.map(function (t) { return '<span class="ecx-v">' + esc(t) + '</span>'; }).join('<span class="ecx-sep">&middot;</span>'); }
       else { h += '<span class="ecx-note">' + esc(opts.intro || 'Four answers, and every tool here stops showing you what does not apply.') + '</span>'; }
-      h += '<button type="button" class="ecx-btn" aria-expanded="' + (open ? 'true' : 'false') + '">' + (open ? 'Done' : (known ? 'Change' : 'Set up in 30 seconds')) + '</button></div>';
+      h += '<button type="button" class="ecx-btn" aria-expanded="' + (open ? 'true' : 'false') + '">' + (open ? 'Personalise my plan' : (known ? 'Change' : 'Personalise my plan')) + '</button></div>';
       h += '<div class="ecx-ed">';
       h += '<div class="ecx-grid">';
       if (fields.indexOf('dest') >= 0) h += sel('dest', 'Country', [['nz', 'New Zealand'], ['au', 'Australia'], ['both', 'Comparing both']], destMode(), 'Choose\u2026');
@@ -259,8 +259,10 @@
       if (fields.indexOf('stage') >= 0 && J().length) h += sel('stage', 'Where you are up to', J().map(function (x) { return [x.id, x.where]; }), stage(), 'Choose\u2026');
       h += '</div>';
       /* Inside My Move (pack/pack.js) the answers ARE saved with us, so the page it sits in says
-         so through data-strip-foot; the public tools keep the device-only line. */
-      var foot = document.body.getAttribute('data-strip-foot') || 'Saved in this browser only. Nothing is sent to us.';
+         so through data-strip-foot; the public tools keep the device-only line. This is the one
+         short reassurance, and it sits right under the questions (Sophie, 3 Oct 2026) — the
+         longer explanations about browsers, passwords and what is sent are gone from the page. */
+      var foot = document.body.getAttribute('data-strip-foot') || 'Saved on this device only — nothing is sent to us.';
       h += '<div class="ecx-foot"><span>' + esc(foot) + '</span>' + (known ? '<button type="button" data-clear>Clear my answers</button>' : '') + '</div></div>';
       el.className = 'ecx' + (open ? ' is-open' : ''); el.innerHTML = h;
     }

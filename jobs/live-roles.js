@@ -131,7 +131,7 @@
       +'<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px">'+one+'</div>'
       +'<p style="font-size:16.5px;line-height:1.65;color:var(--text,#333);margin:0 0 24px;max-width:60ch">'+j.summary+'</p>'
       +'<div style="border-top:1px solid var(--mint,#C9DED3);padding-top:22px">'
-      +'<div style="font-family:var(--display),sans-serif;font-weight:600;font-size:12.5px;color:var(--muted,#555);margin-bottom:16px">'+(j.closes?('Closes '+fc(j.closes)):('Posted '+fc(j.posted)))+'</div>'
+      +'<div style="font-family:var(--display),sans-serif;font-weight:600;font-size:12.5px;color:var(--muted,#555);margin-bottom:16px">Posted '+fc(j.posted)+'</div>'
       +'<a href="'+j.detail+'" style="display:inline-flex;align-items:center;gap:8px;min-height:48px;font-family:var(--display),sans-serif;font-weight:600;font-size:16px;color:#fff;background:var(--teal,#02615D);padding:13px 24px;border-radius:12px">View this role <span aria-hidden="true">&rarr;</span></a>'
       +'</div></article>';
     return;
@@ -147,7 +147,7 @@
       +'<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:13px">'+chips+'</div>'
       +'<p style="font-size:14.5px;line-height:1.6;color:var(--text);margin:0 0 16px">'+j.summary+'</p>'
       +'<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid var(--mint);padding-top:14px">'
-      +'<span style="font-family:var(--display);font-weight:600;font-size:12.5px;color:var(--muted)">'+(j.closes?('Closes '+fc(j.closes)):('Posted '+fc(j.posted)))+'</span>'
+      +'<span style="font-family:var(--display);font-weight:600;font-size:12.5px;color:var(--muted)">Posted '+fc(j.posted)+'</span>'
       +'<a href="'+j.detail+'" style="font-family:var(--display);font-weight:600;font-size:14px;color:#fff;background:var(--teal);padding:9px 16px;border-radius:12px">View role &rarr;</a>'
       +'</div></article>';
   }).join('');

@@ -23,10 +23,11 @@
                         Remove it when the reason has passed; unlike the
                         rotation, a pin does not expire on its own.
 
-     closes: "2026-10-14"   Application close date, ISO. Inside 21 days the card
-                        shows a "Closing in N days" flag and is promoted into the
-                        band automatically. Prefer this over a pin for anything
-                        time-bound: it can never go stale.
+     closes: "2026-10-14"   RETIRED 3 Oct 2026 (Sophie): closing dates are no longer shown
+                        to candidates. Most roles run until filled, a printed date
+                        that slips reads as careless, and a date that passes used to
+                        pull a live role off the board on its own. Leave it unset.
+                        The filter below still honours one if it is ever set again.
 
    Do NOT use pin for paid prominence. If an employer ever pays for placement
    that has to be disclosed on the page, and that is a Phase 3 decision.
@@ -72,7 +73,6 @@ window.ETHICARE_JOBS_ALL = [
     country: "New Zealand",
     types: ["Permanent", "Full-time"],
     posted: "2026-09-27",
-    closes: "2026-12-27",
     pay: "Competitive \u2014 set by the APEX collective agreement covering MRI technologists",
     lifestyle: "A capital city you can cross on foot, with the harbour on one side, the hills on the other, and the country's best coffee in between.",
     summary: "An MRI technologist for a tertiary imaging department in Wellington: two Siemens scanners at 3T and 1.5T, and training if MRI is new to you.",
@@ -89,7 +89,6 @@ window.ETHICARE_JOBS_ALL = [
     country: "New Zealand",
     types: ["Permanent", "Full-time"],
     posted: "2026-09-27",
-    closes: "2026-09-30",
     pay: "Competitive \u2014 set by the ASMS MECA scale",
     lifestyle: "The first city in the world to see the sun, and one of the few where a consultant post comes with a surf break at the end of the street.",
     summary: "A generalist anaesthetist for a 100-bed hospital on the East Coast: elective and emergency lists, ICU and HDU, obstetrics, and retrieval preparation.",
@@ -107,7 +106,6 @@ window.ETHICARE_JOBS_ALL = [
     hours: "1.0 FTE · Monday to Friday",
     types: ["Permanent", "Full-time"],
     posted: "2026-09-27",
-    closes: "2026-11-06",
     pay: "Competitive \u2014 set by the ASMS MECA scale",
     lifestyle: "A flat, easy university city with a ten-minute commute, the Tararua and Ruahine ranges on the horizon, and beaches, ski fields and lakes within reach for the weekend.",
     summary: "A radiation oncologist for a regional cancer centre serving 600,000 people: three Varian TrueBeam linacs, RayStation planning, IMRT, VMAT, SBRT and DIBH.",
@@ -125,7 +123,6 @@ window.ETHICARE_JOBS_ALL = [
     hours: "1.0 FTE",
     types: ["Permanent", "Full-time"],
     posted: "2026-09-27",
-    closes: "2026-10-23",
     pay: "Competitive \u2014 set by the ASMS MECA scale",
     lifestyle: "A flat, easy university city with a ten-minute commute, the Tararua and Ruahine ranges on the horizon, and beaches, ski fields and lakes within reach for the weekend.",
     summary: "A comprehensive ophthalmologist for a regional service: four consultants, three registrars, a full laser suite and Centurion phaco. Subspecialty welcome.",
@@ -143,7 +140,6 @@ window.ETHICARE_JOBS_ALL = [
     hours: "1.0 FTE",
     types: ["Permanent", "Full-time"],
     posted: "2026-09-27",
-    closes: "2026-11-30",
     pay: "Competitive \u2014 set by the ASMS MECA scale",
     lifestyle: "A river city with a heritage main street, surf beaches half an hour away, Mount Ruapehu's ski fields inland, and Wellington two and a half hours down the road.",
     summary: "Two general physicians for a regional medical service: a team of nine, a 35-bed ward, an acute stroke unit and a six-bed critical care unit.",
@@ -161,7 +157,6 @@ window.ETHICARE_JOBS_ALL = [
     hours: "80 hours a fortnight",
     types: ["Permanent", "Full-time"],
     posted: "2026-09-27",
-    closes: "2026-10-31",
     pay: "Competitive \u2014 set by the ASMS MECA scale",
     lifestyle: "Wine country an hour and a half over the hill from Wellington: vineyards, a slow main street, and the Tararua Range for the weekends.",
     summary: "A general physician for a regional Department of Medicine: acute undifferentiated medicine, inpatient and outpatient work, room for a subspecialty.",
@@ -179,7 +174,6 @@ window.ETHICARE_JOBS_ALL = [
     hours: "80 hours a fortnight",
     types: ["Permanent", "Full-time"],
     posted: "2026-09-27",
-    closes: "2026-10-22",
     pay: "Competitive \u2014 set by the ASMS MECA scale",
     lifestyle: "City amenities on the Waikato River with world-famous gardens, and an easy drive to Raglan's surf and the Coromandel when the weekend comes.",
     summary: "A body radiologist for a tertiary teaching hospital: hepatobiliary, urology, gynaecology and GI reporting, CT colonography and pelvic MRI.",
@@ -197,7 +191,6 @@ window.ETHICARE_JOBS_ALL = [
     hours: "0.6 FTE · 48 hours a fortnight",
     types: ["Permanent", "Part-time"],
     posted: "2026-09-27",
-    closes: "2026-10-25",
     pay: "Competitive \u2014 set by the ASMS MECA scale",
     lifestyle: "Beach city on the Bay of Plenty: Mount Maunganui's surf at the end of the working day, kiwifruit country inland, and one of New Zealand's sunniest climates.",
     summary: "A part-time consultant psychiatrist for an established specialist addiction service in the Bay of Plenty: assessment, treatment and consultation.",
@@ -651,7 +644,9 @@ window.ETHICARE_JOBS_ALL = [
    pages, which still need to render a role a candidate has reached from an old link — better
    that they land on the page and read that it has closed than on a 404.
 
-   No `closes` date means open: plenty of roles run until filled, and absence is not expiry. */
+   No `closes` date means open: plenty of roles run until filled, and absence is not expiry.
+   As of 3 Oct 2026 no vacancy sets one, so nothing is filtered — the board is what Sophie
+   puts on it. The filter stays because it costs nothing and catches a date set in future. */
 window.ETHICARE_JOBS = (function () {
   var today = new Date(); today.setHours(0, 0, 0, 0);
   return window.ETHICARE_JOBS_ALL.filter(function (j) {
