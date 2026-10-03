@@ -216,26 +216,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-quiet{background:none;border:0;padding:0;min-height:24px;font-family:var(--display);font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .pt-quiet:hover{color:#A34438}
 @media (max-width:640px){.pt-step{grid-template-columns:1fr;gap:10px}.pt-row{grid-template-columns:1fr}}.eyebrow{display:flex;align-items:center;gap:16px}.eyebrow::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:0 0 auto}
-.pt-topbar{background:var(--warm,#FCFBF8);border-bottom:1px solid #C9DED3}
-.pt-topbar .shell{display:flex;align-items:center;justify-content:space-between;gap:10px 26px;padding-top:14px;padding-bottom:14px}
-/* Its own menu, not the site's. Four destinations the page itself argues for, plus the one
-   question a cold arrival has. Scrolls as one row rather than wrapping — same pattern as the
-   library chips; a header that becomes three rows on a phone is worse than one you swipe. */
-.pt-menu{display:flex;align-items:center;gap:22px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;margin:-8px 0;padding:8px 0}
-/* The edge fade belongs ONLY where the rail actually overflows. At desktop width this menu
-   fits (506px in 506px), so an unconditional mask faded out the last 24px of "Who we are"
-   — a nav item dissolving mid-word, promising more to scroll to when there is none. The
-   library chips genuinely overflow, which is why the same pattern is right there and wrong
-   here. Scoped to the widths where the five items cannot fit. */
-@media(max-width:760px){.pt-menu{-webkit-mask-image:linear-gradient(to right,#000 0,#000 calc(100% - 24px),transparent 100%);mask-image:linear-gradient(to right,#000 0,#000 calc(100% - 24px),transparent 100%)}}
-.pt-menu::-webkit-scrollbar{display:none}
-.pt-menu a{display:inline-flex;align-items:center;min-height:26px;padding:2px 0;font-family:var(--display);font-weight:600;font-size:14.5px;color:#02615D;text-decoration:none;white-space:nowrap}
-.pt-menu a:hover{text-decoration:underline;text-underline-offset:4px}
-.pt-menu .pt-who{color:#2F5E49}
-@media(max-width:520px){.pt-topbar .brand span{display:none}}
-.pt-topbar .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:500;font-size:17px;color:#02615D;text-decoration:none}
-.pt-topbar .brand strong{font-weight:600}
-.pt-topbar .brand img{display:block;width:34px;height:34px;border-radius:7px}
+/* The .pt-topbar and .pt-menu rules lived here. Removed 3 Oct 2026 with the bespoke header. */
 .pt-q4{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px;margin-top:30px}
 .pt-q{display:flex;flex-direction:column;gap:8px;background:var(--warm,#FCFBF8);border:1px solid #C9DED3;border-radius:16px;padding:22px 22px 20px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
 .pt-q:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(1,49,47,.10);border-color:#2F5E49}
@@ -412,15 +393,48 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
      thing for that reader: it offers seven ways to leave before they know what this is.
      Logo home, and one link answering the only question a cold arrival has. Deliberately
      the ONLY page on the site without the shared header — so it does not load nav.js. -->
-<header class="pt-topbar">
+<!-- The site header, not a bespoke one (3 Oct 2026). Move was the only page of 875 with its
+     own top bar — five different links, no way back to the rest of the site, and nothing to
+     say where you were. The eight stages are Move's own navigation and they sit below. -->
+<header class="site-header" data-header>
   <div class="shell">
-    <a class="brand" href="/" aria-label="Ethicare Resourcing — home"><img src="assets/logo-mark.png" alt="" width="34" height="34" decoding="async"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
-    <nav class="pt-menu" aria-label="Ethicare Move">
-      <a href="/pathway-checker">Can I work there?</a>
-      <a href="/guides/australia-vs-new-zealand">Compare</a>
-      <a href="/cost-calculator">What it costs</a>
-      <a href="/resources">Guides</a>
-      <a class="pt-who" href="/about-ethicare">Who we are</a>
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/australia">Working in Australia</a>
+          <a href="/australia#professions">Find your profession</a>
+          <a href="/australia#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/new-zealand">Working in New Zealand</a>
+          <a href="/new-zealand#professions">Find your profession</a>
+          <a href="/new-zealand#destinations">Explore destinations</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
+      <div class="navitem has-sub"><a href="/move" aria-current="page">Plan your move<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/move">Your relocation plan</a>
+          <a href="/pathway-checker">Registration pathway checker</a>
+          <a href="/cost-calculator">Moving cost calculator</a>
+          <a href="/guides/australia-vs-new-zealand">Compare the two countries</a>
+          <a href="/resources">Guides &amp; resources</a>
+        </div>
+      </div>
+      <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav">
+          <a href="/about-ethicare">About Ethicare</a>
+          <a href="/clinical-standard">Our clinical standard</a>
+          <a href="/insights">Insights</a>
+        </div>
+      </div>
+      <a href="/ask">Ask Ethicare</a>
+      <a href="/employers">For Employers</a>
+      <a class="nav-cta" href="/contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -605,6 +619,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 </footer>
 
 <script src="site.js"></script>
+<script src="nav.js" defer></script>
 <script src="analytics.js"></script>
 <script src="relocation-cost-data.js"></script>
 <script src="portal-professions.js"></script>
