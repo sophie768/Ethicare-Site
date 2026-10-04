@@ -46,6 +46,24 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}/* playfair-h
 .dl-m{font-family:'Manrope',sans-serif;font-size:12.5px;color:#555555;font-variant-numeric:tabular-nums}
 .dl-here{border-color:#02615D;box-shadow:0 0 0 3px #C9DED3}
 @media(max-width:560px){.dl-grid{grid-template-columns:1fr}}
+/* Optional "email it to me" form. The checkbox tick is driven by :checked, not a JS
+   class: a consent box that only looks ticked because a script said so is the one
+   thing here that must never drift from the native state the form actually submits. */
+.gq{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:620px){.gq{grid-template-columns:1fr}}
+.gq-full{grid-column:1/-1}
+.gq-optins{margin-top:26px;padding-top:4px;border-top:1px solid #C9DED3}
+.gq-check{display:flex;gap:14px;align-items:flex-start;margin-top:18px;cursor:pointer}
+.gq-check input{position:absolute;opacity:0;width:1px;height:1px}
+.gq-check .box{position:relative;width:22px;height:22px;border-radius:6px;border:1.5px solid #9FBFAF;background:#fff;flex:none;margin-top:2px;transition:border-color .15s,background .15s}
+.gq-check .box svg{position:absolute;inset:0;margin:auto;width:13px;height:13px;display:none}
+.gq-check input:checked + .box{border-color:#02615D;background:#02615D}
+.gq-check input:checked + .box svg{display:block}
+.gq-check input:focus-visible + .box{outline:2px solid #02615D;outline-offset:3px}
+.gq-check .tx{font-size:14px;color:#333333;line-height:1.55}
+.gq-check .tx b{font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D;display:block;margin-bottom:2px}
+.gq-note{font-size:13px;color:#555555;line-height:1.6;margin-top:22px}
+.gq-note a{color:#02615D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Download a relocation guide"}]}</script>
 <link rel="stylesheet" href="./prose-links.css">
@@ -74,12 +92,13 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}/* playfair-h
         </div>
       </div>
       <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Move<span class="cv" aria-hidden="true">&#9662;</span></a>
+      <div class="navitem has-sub"><a href="/move">Plan your move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/move">Your relocation plan</a>
-          <a href="/resources">Guides &amp; resources</a>
           <a href="/pathway-checker">Registration pathway checker</a>
-          <a href="/cost-calculator">Cost calculator</a>
+          <a href="/cost-calculator">Moving cost calculator</a>
+          <a href="/guides/australia-vs-new-zealand">Compare the two countries</a>
+          <a href="/resources">Guides &amp; resources</a>
         </div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -105,7 +124,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}/* playfair-h
       <div>
         <span class="eyebrow">Relocation guides &middot; free to download</span>
         <h1>Download the guide you need</h1>
-        <p class="lead">Every guide on this site is also a PDF you can keep, read on a plane or hand to someone at home. No email address, no form, no follow-up call &mdash; the link is the guide.</p>
+        <p class="lead">Every guide on this site is also a PDF you can keep, read on a plane or hand to someone at home. No email address needed, no sign-up, no follow-up call &mdash; the link is the guide.</p>
       </div>
       <img src="assets/heroes/relocation-guides.svg" alt="" width="280" height="210" style="width:100%;max-width:280px;height:auto;justify-self:end" loading="lazy">
     </div>
@@ -160,25 +179,148 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}/* playfair-h
         <a class="dl" href="/assets/downloads/western-australia-relocation-guide.pdf" download><span class="dl-t">Western Australia</span><span class="dl-m">PDF &middot; 42 pages &middot; 3.1 MB</span></a>
         <a class="dl" href="/assets/downloads/south-australia-relocation-guide.pdf" download><span class="dl-t">South Australia</span><span class="dl-m">PDF &middot; 27 pages &middot; 284 KB</span></a>
         <a class="dl" href="/assets/downloads/tasmania-relocation-guide.pdf" download><span class="dl-t">Tasmania</span><span class="dl-m">PDF &middot; 29 pages &middot; 539 KB</span></a>
-        <a class="dl" href="/assets/downloads/sydney-relocation-guide.pdf" download><span class="dl-t">Sydney</span><span class="dl-m">PDF &middot; 29 pages &middot; 1.0 MB</span></a>
-        <a class="dl" href="/assets/downloads/melbourne-relocation-guide.pdf" download><span class="dl-t">Melbourne</span><span class="dl-m">PDF &middot; 28 pages &middot; 1.2 MB</span></a>
-        <a class="dl" href="/assets/downloads/brisbane-relocation-guide.pdf" download><span class="dl-t">Brisbane</span><span class="dl-m">PDF &middot; 28 pages &middot; 1.8 MB</span></a>
-        <a class="dl" href="/assets/downloads/gold-coast-relocation-guide.pdf" download><span class="dl-t">Gold Coast</span><span class="dl-m">PDF &middot; 28 pages &middot; 424 KB</span></a>
-        <a class="dl" href="/assets/downloads/perth-relocation-guide.pdf" download><span class="dl-t">Perth</span><span class="dl-m">PDF &middot; 34 pages &middot; 916 KB</span></a>
+        <a class="dl" href="/assets/downloads/sydney-relocation-guide.pdf" download><span class="dl-t">Sydney</span><span class="dl-m">PDF &middot; 41 pages &middot; 13.4 MB</span></a>
+        <a class="dl" href="/assets/downloads/melbourne-relocation-guide.pdf" download><span class="dl-t">Melbourne</span><span class="dl-m">PDF &middot; 41 pages &middot; 16.7 MB</span></a>
+        <a class="dl" href="/assets/downloads/brisbane-relocation-guide.pdf" download><span class="dl-t">Brisbane</span><span class="dl-m">PDF &middot; 36 pages &middot; 12.9 MB</span></a>
+        <a class="dl" href="/assets/downloads/gold-coast-relocation-guide.pdf" download><span class="dl-t">Gold Coast</span><span class="dl-m">PDF &middot; 36 pages &middot; 13.9 MB</span></a>
+        <a class="dl" href="/assets/downloads/perth-relocation-guide.pdf" download><span class="dl-t">Perth</span><span class="dl-m">PDF &middot; 39 pages &middot; 15.8 MB</span></a>
         <a class="dl" href="/assets/downloads/adelaide-relocation-guide.pdf" download><span class="dl-t">Adelaide</span><span class="dl-m">PDF &middot; 30 pages &middot; 1.3 MB</span></a>
-        <a class="dl" href="/assets/downloads/canberra-relocation-guide.pdf" download><span class="dl-t">Canberra</span><span class="dl-m">PDF &middot; 30 pages &middot; 614 KB</span></a>
-        <a class="dl" href="/assets/downloads/darwin-relocation-guide.pdf" download><span class="dl-t">Darwin</span><span class="dl-m">PDF &middot; 27 pages &middot; 448 KB</span></a>
-        <a class="dl" href="/assets/downloads/hobart-relocation-guide.pdf" download><span class="dl-t">Hobart</span><span class="dl-m">PDF &middot; 28 pages &middot; 426 KB</span></a>
-        <a class="dl" href="/assets/downloads/newcastle-relocation-guide.pdf" download><span class="dl-t">Newcastle</span><span class="dl-m">PDF &middot; 26 pages &middot; 500 KB</span></a>
-        <a class="dl" href="/assets/downloads/geelong-relocation-guide.pdf" download><span class="dl-t">Geelong</span><span class="dl-m">PDF &middot; 26 pages &middot; 536 KB</span></a>
-        <a class="dl" href="/assets/downloads/bundaberg-relocation-guide.pdf" download><span class="dl-t">Bundaberg</span><span class="dl-m">PDF &middot; 25 pages &middot; 239 KB</span></a>
-        <a class="dl" href="/assets/downloads/bunbury-relocation-guide.pdf" download><span class="dl-t">Bunbury</span><span class="dl-m">PDF &middot; 25 pages &middot; 297 KB</span></a>
-        <a class="dl" href="/assets/downloads/mandurah-relocation-guide.pdf" download><span class="dl-t">Mandurah</span><span class="dl-m">PDF &middot; 13 pages &middot; 515 KB</span></a>
+        <a class="dl" href="/assets/downloads/canberra-relocation-guide.pdf" download><span class="dl-t">Canberra</span><span class="dl-m">PDF &middot; 35 pages &middot; 10.2 MB</span></a>
+        <a class="dl" href="/assets/downloads/darwin-relocation-guide.pdf" download><span class="dl-t">Darwin</span><span class="dl-m">PDF &middot; 35 pages &middot; 9.8 MB</span></a>
+        <a class="dl" href="/assets/downloads/hobart-relocation-guide.pdf" download><span class="dl-t">Hobart</span><span class="dl-m">PDF &middot; 37 pages &middot; 13.8 MB</span></a>
+        <a class="dl" href="/assets/downloads/newcastle-relocation-guide.pdf" download><span class="dl-t">Newcastle</span><span class="dl-m">PDF &middot; 37 pages &middot; 11.2 MB</span></a>
+        <a class="dl" href="/assets/downloads/geelong-relocation-guide.pdf" download><span class="dl-t">Geelong</span><span class="dl-m">PDF &middot; 35 pages &middot; 11.5 MB</span></a>
+        <a class="dl" href="/assets/downloads/bundaberg-relocation-guide.pdf" download><span class="dl-t">Bundaberg</span><span class="dl-m">PDF &middot; 34 pages &middot; 11.2 MB</span></a>
+        <a class="dl" href="/assets/downloads/bunbury-relocation-guide.pdf" download><span class="dl-t">Bunbury</span><span class="dl-m">PDF &middot; 36 pages &middot; 10.7 MB</span></a>
+        <a class="dl" href="/assets/downloads/mandurah-relocation-guide.pdf" download><span class="dl-t">Mandurah</span><span class="dl-m">PDF &middot; 34 pages &middot; 10.0 MB</span></a>
       </div>
 <!-- /GUIDE LIST -->
     <p class="formnote" style="margin-top:28px">Guides are rebuilt whenever the chapters behind them change, so a file you downloaded months ago may be behind the page. If something in a guide looks wrong or out of date, <a href="/contact">tell us</a> &mdash; we would rather hear it than not.</p>
   </div>
 </section>
+
+<!-- ============ OPTIONAL · EMAIL ME A GUIDE ============ -->
+<!-- Sits AFTER the download list on purpose. Every guide above is still one click with
+     nothing given in return, and the page says so twice. Consent here is unbundled:
+     neither tickbox is a condition of anything, both start empty, and the exact wording
+     agreed to is submitted alongside the answer so the record shows what was consented
+     to rather than that something was. See /how-we-use-your-information. -->
+<section class="section" data-screen-label="Download a relocation guide &middot; email me one">
+  <div class="formwrap" style="padding-top:clamp(48px,5vw,64px);padding-bottom:clamp(56px,6vw,80px)">
+    <span class="eyebrow">Optional</span>
+    <h2 style="font-size:clamp(24px,2.6vw,32px);color:#02615D;line-height:1.16;margin:0 0 10px">Would you rather we emailed it to you?</h2>
+    <p class="lead" style="margin-bottom:26px">Every guide above downloads on one click without telling us anything, and that is not changing. But if you would rather have it in your inbox &mdash; to read on the way home, or to forward to whoever you are deciding this with &mdash; say which one and we will send the link.</p>
+
+    <form name="guide-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+      <input type="hidden" name="form-name" value="guide-request">
+      <input type="hidden" name="_subject" value="Guide requested by email &mdash; Ethicare website">
+      <p hidden><label>Don&rsquo;t fill this in if you&rsquo;re human: <input name="bot-field"></label></p>
+
+      <div class="gq">
+        <div class="field gq-full">
+          <label for="gq-guide">Which guide? <span class="req">*</span></label>
+          <select id="gq-guide" name="guide" required autocomplete="off">
+            <option value="" selected disabled>Choose a guide&hellip;</option>
+          <optgroup label="New Zealand">
+            <option value="Moving to New Zealand">Moving to New Zealand</option>
+            <option value="Auckland">Auckland</option>
+            <option value="Wellington">Wellington</option>
+            <option value="Christchurch">Christchurch</option>
+            <option value="Waikato">Waikato</option>
+            <option value="Bay of Plenty">Bay of Plenty</option>
+            <option value="Northland">Northland</option>
+            <option value="Hawke’s Bay">Hawke’s Bay</option>
+            <option value="Palmerston North">Palmerston North</option>
+            <option value="Nelson Tasman">Nelson Tasman</option>
+            <option value="Dunedin">Dunedin</option>
+            <option value="Central Otago & Queenstown Lakes">Central Otago & Queenstown Lakes</option>
+            <option value="Southland">Southland</option>
+            <option value="Gisborne">Gisborne</option>
+          </optgroup>
+          <optgroup label="Australia">
+            <option value="Moving to Australia">Moving to Australia</option>
+            <option value="New South Wales">New South Wales</option>
+            <option value="Victoria">Victoria</option>
+            <option value="Queensland">Queensland</option>
+            <option value="Western Australia">Western Australia</option>
+            <option value="South Australia">South Australia</option>
+            <option value="Tasmania">Tasmania</option>
+            <option value="Sydney">Sydney</option>
+            <option value="Melbourne">Melbourne</option>
+            <option value="Brisbane">Brisbane</option>
+            <option value="Gold Coast">Gold Coast</option>
+            <option value="Perth">Perth</option>
+            <option value="Adelaide">Adelaide</option>
+            <option value="Canberra">Canberra</option>
+            <option value="Darwin">Darwin</option>
+            <option value="Hobart">Hobart</option>
+            <option value="Newcastle">Newcastle</option>
+            <option value="Geelong">Geelong</option>
+            <option value="Bundaberg">Bundaberg</option>
+            <option value="Bunbury">Bunbury</option>
+            <option value="Mandurah">Mandurah</option>
+          </optgroup>
+          </select>
+        </div>
+        <div class="field">
+          <label for="gq-name">Your name <span class="hint">(optional)</span></label>
+          <input type="text" id="gq-name" name="name" autocomplete="name" placeholder="So we know who we are writing to">
+        </div>
+        <div class="field">
+          <label for="gq-email">Email <span class="req">*</span></label>
+          <input type="email" id="gq-email" name="email" required autocomplete="email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="gq-prof">Your profession <span class="hint">(optional)</span></label>
+          <select id="gq-prof" name="profession" autocomplete="off">
+            <option value="" selected>Prefer not to say</option>
+            <option>Medical imaging &amp; radiation therapy</option>
+            <option>Medicine</option>
+            <option>Nursing &amp; midwifery</option>
+            <option>Mental health</option>
+            <option>Allied health</option>
+            <option>Theatre &amp; perioperative</option>
+            <option>Another profession</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="gq-dest">Where are you thinking of? <span class="hint">(optional)</span></label>
+          <select id="gq-dest" name="destination" autocomplete="off">
+            <option value="" selected>Prefer not to say</option>
+            <option>New Zealand</option>
+            <option>Australia</option>
+            <option>Both &mdash; still deciding</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="gq-optins">
+        <p style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:#2F5E49;margin:0">While we are here</p>
+        <p style="font-size:14.5px;color:#555555;line-height:1.6;margin:8px 0 0">Both of these are off unless you turn them on, and leaving them off changes nothing &mdash; you still get the guide, and the site still does everything it does.</p>
+
+        <label class="gq-check">
+          <input type="checkbox" name="role_alerts" value="Yes">
+          <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+          <span class="tx"><b>Tell me when a role comes up</b>Yes — email me when a role comes up in my profession in the country I am looking at. I can unsubscribe from any message.</span>
+        </label>
+
+        <label class="gq-check">
+          <input type="checkbox" name="quarterly_update" value="Yes">
+          <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+          <span class="tx"><b>The quarterly update</b>Yes — send me the quarterly update on what has changed in registration, visas and pay. Four emails a year. I can unsubscribe from any message.</span>
+        </label>
+
+        <input type="hidden" name="role_alerts_wording" value="Yes — email me when a role comes up in my profession in the country I am looking at. I can unsubscribe from any message.">
+        <input type="hidden" name="quarterly_update_wording" value="Yes — send me the quarterly update on what has changed in registration, visas and pay. Four emails a year. I can unsubscribe from any message.">
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="margin-top:26px">Email me the guide <span aria-hidden="true">&rarr;</span></button>
+
+      <p class="gq-note">We keep a record of which guide you asked for, and your profession and destination if you told us, so we know what people are actually planning and which guides to write next. You can ask us to delete it at any time. Nothing is shared with an employer unless you ask us to. <a href="/how-we-use-your-information">How we use your information</a></p>
+    </form>
+  </div>
+</section>
+
 
 <!-- ============ FOOTER ============ -->
 </main>
