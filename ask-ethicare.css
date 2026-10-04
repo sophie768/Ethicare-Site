@@ -18,9 +18,12 @@
 .aske-go:hover{background:#014E4B}
 .aske-go:disabled{opacity:.55;cursor:wait}
 .aske-go:focus-visible{outline:3px solid #02615D;outline-offset:2px;box-shadow:0 0 0 2px #FCFBF8}
-.aske-chips{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:16px}
-.aske-chips button{background:none;border:none;padding:6px 0;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#02615D;border-bottom:2px solid transparent;cursor:pointer}
-.aske-chips button:hover{border-color:#A6C84A}
+/* Six whole questions rather than six topic words (3 Oct 2026). Underlined inline text
+   worked for 'Registration'; it does not for a sentence, so they are pills that wrap. */
+.aske-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.aske-chips button{background:#fff;border:1.5px solid #C9DED3;border-radius:999px;padding:9px 16px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;line-height:1.3;color:#02615D;cursor:pointer;text-align:left}
+.aske-chips button:hover{border-color:#02615D;background:#E6F1ED}
+.aske-chips button:focus-visible{outline:3px solid #02615D;outline-offset:2px}
 .aske-priv{margin:16px 0 0;font-size:13px;line-height:1.5;color:#555;max-width:72ch}
 .aske-thread{margin-top:clamp(22px,2.6vw,32px);display:grid;gap:18px}
 .aske-turn{border-top:1px solid rgba(2,97,93,.22);padding-top:18px}
@@ -93,3 +96,119 @@
 .aske-retry{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;background:#DCEAE0;border:0;border-radius:8px;padding:11px 18px;cursor:pointer}
 .aske-retry:hover{background:#C9DED3}
 .aske-retry:focus-visible{outline:3px solid #02615D;outline-offset:2px}
+
+/* ============================================================================
+   ASK ETHICARE — the page (3 Oct 2026)
+   It read as a form on a pale page. The question box now sits in a dark teal
+   band, which is the brand's one genuinely premium device (the guide heroes,
+   the Move hero), and a worked example below shows what an answer is rather
+   than describing it. Dark ground also fixes the contrast problem: lime is
+   7.4:1 on dark teal and 1.9:1 on white, so it can finally do some work.
+   ============================================================================ */
+.askpage{background:#02615D;padding:0}
+.ask-hero{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(30px,5vw,72px);align-items:center;
+  padding:clamp(48px,7vw,92px) 0 clamp(44px,6vw,80px)}
+.ask-hero-copy .eyebrow{color:#C6E084}
+.ask-hero-copy .eyebrow::before{background:#A6C84A!important}
+.ask-hero h1{color:#fff;font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(38px,5.4vw,64px);line-height:1.04;letter-spacing:-.02em;margin:0 0 20px;max-width:14ch}
+.ask-lede{color:#CFE3DC;font-size:clamp(16.5px,1.8vw,19px);line-height:1.6;max-width:40ch;margin:0}
+
+/* the instrument: a white card that looks like equipment, not stationery */
+.ask-instrument{background:#FCFBF8;border-radius:16px;padding:clamp(20px,2.4vw,28px);box-shadow:0 30px 70px -40px rgba(0,0,0,.6)}
+.ask-instrument #ctx-strip:not(:empty){margin-bottom:14px}
+.ask-instrument .aske-box{border:1.5px solid #C9DED3;border-radius:12px;padding:12px;background:#fff}
+.ask-instrument .aske-box textarea{font-size:17px}
+.ask-instrument .aske-go{min-height:52px;border-radius:10px}
+.ask-instrument .aske-chips{margin-top:14px}
+.ask-instrument .aske-chips button{font-size:13.5px;padding:8px 14px;background:#EDF4F0;border-color:#D6E4DD}
+.ask-instrument .aske-chips button:hover{background:#DCEAE0;border-color:#02615D}
+.ask-fine{font-size:12.5px;line-height:1.55;color:#5B6B64;margin:16px 0 0}
+
+@media(max-width:900px){
+  .ask-hero{grid-template-columns:1fr;gap:28px;padding-top:clamp(34px,6vw,56px)}
+  .ask-hero h1{max-width:none}
+  .ask-lede{max-width:none}
+}
+
+/* the thread, once someone has actually asked */
+.askpage .inr .aske-thread:not([hidden]){background:#FCFBF8;border-radius:16px;padding:clamp(20px,2.6vw,30px);margin-bottom:clamp(40px,6vw,72px)}
+
+/* ---- the worked example ---- */
+.ask-example{background:#FCFBF8;padding:clamp(52px,7vw,92px) 0}
+.ask-example .wrapx{max-width:1180px;margin:0 auto;padding:0 clamp(22px,5vw,64px)}
+.ask-ex-head{max-width:46ch;margin-bottom:clamp(26px,3vw,38px)}
+.ask-ex-head h2{font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(26px,3.4vw,40px);line-height:1.12;letter-spacing:-.02em;color:#02615D;margin:0}
+.ask-ex-card{background:#fff;border:1px solid #D6E1DA;border-radius:18px;padding:clamp(24px,3.2vw,40px);max-width:860px;box-shadow:0 24px 60px -46px rgba(1,49,47,.5)}
+.ask-ex-q{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(17px,2vw,21px);line-height:1.4;color:#02615D;margin:0 0 22px;padding-bottom:20px;border-bottom:1px solid #E2ECE6}
+.ask-ex-q span{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5B6B64;margin-bottom:8px}
+.ask-ex-a p{font-size:16px;line-height:1.65;color:#333;margin:0 0 14px;max-width:64ch}
+.ask-ex-a strong{font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D}
+.ask-ex-src{font-size:13.5px!important;color:#5B6B64!important;padding-top:4px}
+.ask-ex-src a{color:#02615D;text-decoration:underline;text-underline-offset:3px}
+.ask-ex-acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:22px}
+.ask-ex-act{display:grid;gap:3px;background:#DCEAE0;border-radius:10px;padding:16px 18px;text-decoration:none;transition:background .15s ease}
+.ask-ex-act:hover{background:#C9DED3}
+.ask-ex-act .at{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D}
+.ask-ex-act .ad{font-size:13px;line-height:1.45;color:#2F5E49}
+.ask-ex-act .ag{font-family:'Work Sans',sans-serif;font-size:17px;color:#2F5E49;margin-top:2px}
+.ask-ex-note{font-size:13.5px;line-height:1.55;color:#5B6B64;margin:20px 0 0;max-width:62ch}
+
+/* ---- more pop (4 Oct 2026) ----------------------------------------------
+   The teal was a flat slab and the left column was 300px of nothing. Depth
+   comes from layered gradients rather than an image (the page has no room
+   for one beside the card), a lime glow lifts the instrument off the ground,
+   and four real questions give the empty column something to say. */
+.askpage{position:relative;overflow:hidden;background:#02615D}
+.askpage::before{content:"";position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(ellipse 52% 76% at 72% 40%,rgba(166,200,74,.20) 0%,rgba(166,200,74,0) 62%),
+  radial-gradient(ellipse 70% 90% at 8% 8%,rgba(1,49,47,.55) 0%,rgba(1,49,47,0) 60%),
+  linear-gradient(170deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,0) 34%,rgba(1,49,47,.42) 100%)}
+.askpage .wrapx{position:relative;z-index:1}
+
+.ask-hero h1{font-size:clamp(42px,6.2vw,76px);margin-bottom:22px}
+.ask-hero h1 em{font-style:normal;color:#C6E084}
+.ask-lede{color:#D8E8E1}
+
+.ask-eg{list-style:none;margin:clamp(26px,3.4vw,40px) 0 0;padding:0;display:grid;gap:0;max-width:40ch;
+  border-top:1px solid rgba(198,224,132,.26)}
+.ask-eg li{position:relative;padding:13px 0 13px 26px;font-size:15px;line-height:1.5;color:#BCD6CC;
+  border-bottom:1px solid rgba(198,224,132,.16)}
+.ask-eg li::before{content:"";position:absolute;left:0;top:19px;width:11px;height:2px;border-radius:2px;background:#A6C84A}
+
+/* the instrument, lifted */
+.ask-instrument{position:relative;border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 42px 90px -46px rgba(0,0,0,.75), 0 0 0 1px rgba(166,200,74,.14), 0 10px 30px -18px rgba(166,200,74,.3)}
+.ask-instrument .aske-go{background:#02615D;box-shadow:0 8px 20px -10px rgba(2,97,93,.9);transition:background .15s ease,transform .15s ease}
+.ask-instrument .aske-go:hover{background:#01413E;transform:translateY(-1px)}
+.ask-instrument .aske-box{transition:border-color .15s ease,box-shadow .15s ease}
+.ask-instrument .aske-box:focus-within{border-color:#02615D;box-shadow:0 0 0 4px rgba(166,200,74,.3)}
+.ask-instrument .aske-chips button{transition:background .15s ease,border-color .15s ease,transform .12s ease}
+.ask-instrument .aske-chips button:hover{transform:translateY(-1px)}
+@media (prefers-reduced-motion:reduce){.ask-instrument .aske-go:hover,.ask-instrument .aske-chips button:hover{transform:none}}
+@media(max-width:900px){.ask-eg{display:none}}
+
+/* ---- high end (4 Oct 2026) ----------------------------------------------
+   Three things were holding it back: the headline was all sans, the card led
+   with a grey instruction rather than the thing you came to use, and the
+   chips broke into a ragged three rows. Serif/sans contrast is the cheapest
+   real lift available and Playfair is already loaded on this page. */
+.ask-hero h1{font-weight:200;letter-spacing:-.035em;line-height:1}
+.ask-hero h1 em{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;color:#C6E084;letter-spacing:-.01em}
+
+/* the instrument: a nameplate, then the box, then the refinements */
+.ask-instrument{border-radius:14px;padding:clamp(22px,2.6vw,32px)}
+.ask-nameplate{font-family:'Work Sans',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#5B6B64;margin:0 0 12px}
+.ask-instrument .aske-box{border:1px solid #D6E4DD;border-radius:10px;padding:14px}
+.ask-instrument .aske-box textarea{font-size:17.5px;line-height:1.5}
+
+/* chips as a composed block, not a ragged wrap */
+.ask-instrument .aske-chips{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.ask-instrument .aske-chips button{width:100%;border-radius:9px;padding:11px 14px;font-size:13.5px;
+  background:#F2F7F4;border:1px solid #E0EAE4;color:#02615D}
+.ask-instrument .aske-chips button:hover{background:#E4EFE8;border-color:#A6C84A}
+@media(max-width:560px){.ask-instrument .aske-chips{grid-template-columns:1fr}}
+
+/* the quiet footer */
+.ask-foot{margin-top:18px;padding-top:16px;border-top:1px solid #E6EEEA}
+.ask-foot #ctx-strip:not(:empty){margin-bottom:12px}
+.ask-foot .ask-fine{margin:0;font-size:12px;line-height:1.6;color:#6C7B74}

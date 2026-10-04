@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="site.css">
 <link rel="stylesheet" href="ask-ethicare.css">
 </head>
-<body>
+<body data-strip-cta="Tailor my answers">
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header" data-header>
   <div class="shell">
@@ -64,33 +64,81 @@
 <main id="main-content" tabindex="-1">
 
 <!-- ============ THE TOOL ============ -->
+<!-- Rebuilt 3 Oct 2026. It was the strongest thing on the site presented as the blandest:
+     a mint page, three paragraphs, then a white rectangle, with 40% of the screen empty and
+     no imagery anywhere. Now the question box sits inside a dark teal band — the same device
+     the guide heroes use — so it reads as something you use rather than a form you fill in,
+     and a worked example below shows what an answer actually looks like instead of
+     describing it. (Sophie: "premium, and almost a site in its own right".) -->
 <section class="askpage" data-screen-label="Ask Ethicare">
   <div class="wrapx">
-    <span class="eyebrow">Ask Ethicare</span>
-    <h1>What&rsquo;s on your mind?</h1>
-    <p class="keyline">It answers from our own guides, then points you at the page you needed.</p>
-    <p class="sub">Most people arrive here with a question that doesn&rsquo;t fit a menu &mdash; whether their registration will transfer, what the money really looks like, whether a partner can work. Ask it the way you&rsquo;d ask a person who has done this before.</p>
-    <div id="ctx-strip" data-ctx-strip style="margin-top:18px"></div>
-    <div class="inr">
-      <form class="aske-box" data-aske-form>
-        <label class="sr-only" for="aske-in">Ask anything about working or moving to Australia or New Zealand</label>
-        <textarea id="aske-in" rows="2" maxlength="1200" placeholder="Can I work in New Zealand as a UK radiographer?"></textarea>
-        <button type="submit" class="aske-go">Ask Ethicare <span aria-hidden="true">&rarr;</span></button>
-      </form>
-      <!-- Six starting questions, in the words candidates use rather than topic labels
-           (Sophie, 3 Oct 2026). A chip fills the box rather than submitting, so the question
-           can be finished before it is asked — see ask-ethicare.js. -->
-      <div class="aske-chips" data-aske-chips>
-        <button type="button" data-q="Can I work in New Zealand or Australia?">Can I work in New Zealand or Australia?</button>
-        <button type="button" data-q="What could I earn — and would we be better off?">What could I earn &mdash; and would we be better off?</button>
-        <button type="button" data-q="Could my partner find work too?">Could my partner find work too?</button>
-        <button type="button" data-q="Where would suit our family?">Where would suit our family?</button>
-        <button type="button" data-q="How much would the move cost?">How much would the move cost?</button>
-        <button type="button" data-q="Can Ethicare help me find a job?">Can Ethicare help me find a job?</button>
+    <div class="ask-hero">
+      <div class="ask-hero-copy">
+        <span class="eyebrow">Ask Ethicare</span>
+        <h1>What&rsquo;s on your <em>mind</em>?</h1>
+        <p class="ask-lede">Ask it the way you&rsquo;d ask someone who has done this before. It answers from Ethicare&rsquo;s own guides and points you at the page you needed.</p>
+        <!-- The left column was 300px of empty teal. Real questions fill it with substance
+             rather than decoration, and show the breadth before anyone types. -->
+        <ul class="ask-eg" aria-label="Examples of what people ask">
+          <li>Will my registration transfer, or do I start again?</li>
+          <li>Would we actually be better off after tax?</li>
+          <li>Can my partner work on my visa?</li>
+          <li>Which city suits two careers and a school run?</li>
+        </ul>
       </div>
-      <p class="aske-priv">AI-assisted guidance &mdash; regulators and immigration authorities make the final decisions, so check anything important with them directly. Please don&rsquo;t include passport, financial or other sensitive personal information.</p>
-      <p class="aske-time">Answers usually take about twenty seconds.</p>
-      <div class="aske-thread" data-aske-thread hidden aria-live="polite"></div>
+
+      <div class="ask-instrument">
+        <p class="ask-nameplate">Ask anything</p>
+        <form class="aske-box" data-aske-form>
+          <label class="sr-only" for="aske-in">Ask anything about working or moving to Australia or New Zealand</label>
+          <textarea id="aske-in" rows="2" maxlength="1200" placeholder="Can I work in New Zealand as a UK radiographer?"></textarea>
+          <button type="submit" class="aske-go">Ask Ethicare <span aria-hidden="true">&rarr;</span></button>
+        </form>
+        <!-- Six starting questions, in the words candidates use rather than topic labels
+             (Sophie, 3 Oct 2026). A chip fills the box rather than submitting, so the question
+             can be finished before it is asked — see ask-ethicare.js. -->
+        <div class="aske-chips" data-aske-chips>
+          <button type="button" data-q="Can I work in New Zealand or Australia?">Can I work in New Zealand or Australia?</button>
+          <button type="button" data-q="What could I earn &mdash; and would we be better off?">What could I earn &mdash; and would we be better off?</button>
+          <button type="button" data-q="Could my partner find work too?">Could my partner find work too?</button>
+          <button type="button" data-q="Where would suit our family?">Where would suit our family?</button>
+          <button type="button" data-q="How much would the move cost?">How much would the move cost?</button>
+          <button type="button" data-q="Can Ethicare help me find a job?">Can Ethicare help me find a job?</button>
+        </div>
+        <!-- Personalisation is a refinement, not the way in. It sat at the top of the card as a
+             grey instruction and was the first thing anyone read (4 Oct 2026). -->
+        <div class="ask-foot">
+          <div id="ctx-strip" data-ctx-strip></div>
+          <p class="ask-fine">About twenty seconds an answer. AI-assisted, so check anything that matters with the regulator or immigration authority &mdash; and please leave out passport and bank details.</p>
+        </div>
+      </div>
+    </div>
+    <div class="inr"><div class="aske-thread" data-aske-thread hidden aria-live="polite"></div></div>
+  </div>
+</section>
+
+<!-- Showing beats telling. Every word of this example is drawn from the dietetics guide and the
+     Dietitians Board's own published requirements, so it is an accurate answer as well as an
+     illustrative one — nothing here is invented for the sake of the demonstration. -->
+<section class="ask-example" data-screen-label="Ask Ethicare · example">
+  <div class="wrapx">
+    <div class="ask-ex-head">
+      <span class="eyebrow">What an answer looks like</span>
+      <h2>Not a search result. An answer, and what to do next.</h2>
+    </div>
+    <div class="ask-ex-card">
+      <p class="ask-ex-q"><span>Someone asked</span>I&rsquo;m a dietitian in the UK. Can I just apply for jobs in New Zealand?</p>
+      <div class="ask-ex-a">
+        <p><strong>Not quite &mdash; and the order matters more here than in most professions.</strong></p>
+        <p>Dietetics is a registered profession in New Zealand, so you register with the Dietitians Board before you can practise. Three things gate every route: at least four years of nutrition and dietetic training, the Board&rsquo;s English language requirement, and at least 12 months practising as a dietitian averaging 20 hours a week within the last three years.</p>
+        <p>The part that reorders the whole move: <strong>all four overseas routes end in provisional registration followed by twelve months of supervised practice</strong> &mdash; and provisional registration needs an employer who supports it. So the job and the registration interlock rather than running one after the other. Registered in the UK, you&rsquo;d come through the Straight to Registration pathway.</p>
+        <p class="ask-ex-src">Drawn from <a href="/jobs/dietitian-new-zealand">Dietitian jobs in New Zealand</a> &middot; the Board&rsquo;s own requirements at <a href="https://www.dietitiansboard.org.nz/Public/Public/Registration/Overseas-Trained.aspx" target="_blank" rel="noopener">dietitiansboard.org.nz</a></p>
+      </div>
+      <div class="ask-ex-acts">
+        <a class="ask-ex-act" href="/pathway-checker"><span class="at">Check your registration pathway</span><span class="ad">Which of the four routes applies to you</span><span class="ag" aria-hidden="true">&rarr;</span></a>
+        <a class="ask-ex-act" href="/move"><span class="at">Sequence the whole move</span><span class="ad">Eight stages, in the order they interlock</span><span class="ag" aria-hidden="true">&rarr;</span></a>
+      </div>
+      <p class="ask-ex-note">A real answer, shortened. Every reply ends with somewhere to go next &mdash; and says when a person would be better than a page.</p>
     </div>
   </div>
 </section>

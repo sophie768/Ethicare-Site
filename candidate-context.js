@@ -247,7 +247,10 @@
       var h = '<div class="ecx-row">';
       if (known) { h += '<span class="ecx-k">Your answers</span>' + parts.map(function (t) { return '<span class="ecx-v">' + esc(t) + '</span>'; }).join('<span class="ecx-sep">&middot;</span>'); }
       else { h += '<span class="ecx-note">' + esc(opts.intro || 'Four answers, and every tool here stops showing you what does not apply.') + '</span>'; }
-      h += '<button type="button" class="ecx-btn" aria-expanded="' + (open ? 'true' : 'false') + '">' + (open ? 'Personalise my plan' : (known ? 'Change' : 'Personalise my plan')) + '</button></div>';
+      h += '<button type="button" class="ecx-btn" aria-expanded="' + (open ? 'true' : 'false') + '">' + (function(){ var cta = document.body.getAttribute('data-strip-cta') || 'Personalise my plan';
+            /* On /ask the visitor is asking a question, not building a plan, so that page
+               sets data-strip-cta="Tailor my answers" (Sophie, 3 Oct 2026). */
+            return open ? cta : (known ? 'Change' : cta); })() + '</button></div>';
       h += '<div class="ecx-ed">';
       h += '<div class="ecx-grid">';
       if (fields.indexOf('dest') >= 0) h += sel('dest', 'Country', [['nz', 'New Zealand'], ['au', 'Australia'], ['both', 'Comparing both']], destMode(), 'Choose\u2026');
