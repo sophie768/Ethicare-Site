@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="site.css">
 <link rel="stylesheet" href="ask-ethicare.css">
 </head>
-<body data-strip-cta="Tailor my answers" data-strip-done="Show my page">
+<body>
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header" data-header>
   <div class="shell">
@@ -105,10 +105,15 @@
           <button type="button" data-q="How much would the move cost?">How much would the move cost?</button>
           <button type="button" data-q="Can Ethicare help me find a job?">Can Ethicare help me find a job?</button>
         </div>
-        <!-- Personalisation is a refinement, not the way in. It sat at the top of the card as a
-             grey instruction and was the first thing anyone read (4 Oct 2026). -->
+        <!-- Personalisation lives on its own page (/you, 5 Oct 2026). This card is the door to it;
+             ask-you (below) swaps the wording once there are answers on this device. Ask itself
+             already uses those answers — see ask-ethicare.js — whichever page you ask from. -->
         <div class="ask-foot">
-          <div id="ctx-strip" data-ctx-strip></div>
+          <a class="ask-you" id="ask-you" href="/you">
+            <span class="k">Make this your page</span>
+            <span class="d">Three questions, thirty seconds &mdash; then every answer starts from you, and the guides are the ones you will actually need.</span>
+            <span class="b">Start <span aria-hidden="true">&rarr;</span></span>
+          </a>
           <p class="ask-fine">About twenty seconds an answer. AI-assisted, so check anything that matters with the regulator or immigration authority &mdash; and please leave out passport and bank details.</p>
         </div>
       </div>
@@ -120,10 +125,6 @@
 <!-- Showing beats telling. Every word of this example is drawn from the dietetics guide and the
      Dietitians Board's own published requirements, so it is an accurate answer as well as an
      illustrative one — nothing here is invented for the sake of the demonstration. -->
-<!-- Filled by ask-mine.js when the answers strip has answers: the guides that fit this
-     person, and the hand-off to Plan your move. Empty and hidden otherwise. -->
-<section class="ask-mine" id="ask-mine" data-screen-label="Ask Ethicare &middot; your page" hidden></section>
-
 <section class="ask-example" data-screen-label="Ask Ethicare · example">
   <div class="wrapx">
     <div class="ask-ex-head">
@@ -237,7 +238,6 @@
 <script src="jobs/jobs-data.js"></script>
 <script src="ask-ethicare-knowledge.js"></script>
 <script src="ask-ethicare.js" defer></script>
-<script src="ask-mine.js" defer></script>
-<script>(function(){function go(){var c=window.EthicareContext;if(c&&c.mount)c.mount("#ctx-strip",{fields:["name","dest","profession","household","stage"],intro:"Tell us your profession and where you are thinking of, and this becomes your page \u2014 answers that start from you, and the guides you will actually need."});}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();})();</script>
+<script>(function(){function go(){var C=window.EthicareContext,a=document.getElementById('ask-you');if(!C||!a||typeof C.summary!=='function')return;var k=a.querySelector('.k'),d=a.querySelector('.d'),b=a.querySelector('.b');function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}function paint(){var known=C.has();a.classList.toggle('is-known',known);if(known){var n=(typeof C.name==='function'&&C.name())||'';k.textContent=n?'Answering as '+n:'Answering with your answers';d.innerHTML='<strong>'+esc(C.summary())+'</strong> \u2014 every answer here already starts from this.';b.innerHTML='Go to my page <span aria-hidden="true">&rarr;</span>';}else{k.textContent='Make this your page';d.textContent='Three questions, thirty seconds \u2014 then every answer starts from you, and the guides are the ones you will actually need.';b.innerHTML='Start <span aria-hidden="true">&rarr;</span>';}}paint();if(C.onChange)C.onChange(paint);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();</script>
 </body>
 </html>

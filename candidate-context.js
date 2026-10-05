@@ -211,8 +211,8 @@
     + '.ecx-f{margin:0;min-width:0}'
     + '.ecx select{width:100%}'
     + '.ecx select,.ecx input[type=text]{font-family:var(--body,Manrope,sans-serif);font-size:15px;color:#333;border:1px solid #C9DED3;border-radius:10px;padding:8px 12px;min-height:40px;max-width:100%;background:#fff;box-sizing:border-box;width:100%}'
-    + '.ecx-done{margin-left:auto;background:#02615D;color:#fff;border:0;border-radius:999px;padding:9px 18px;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:14px;cursor:pointer;min-height:38px}.ecx-done:hover{background:#014E4B}'
-    + '.ecx-foot{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:12px;font-size:13.5px;color:#555}.ecx-foot button{background:none;border:0;padding:0;font:inherit;color:#02615D;text-decoration:underline;text-underline-offset:3px;cursor:pointer}'
+    + '.ecx-foot button.ecx-done{margin-left:auto;background:#02615D;color:#fff;border:0;border-radius:999px;padding:9px 18px;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:14px;text-decoration:none;cursor:pointer;min-height:38px}.ecx-foot button.ecx-done:hover{background:#014E4B}'
+    + '.ecx-foot{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:12px;font-size:13.5px;color:#555}.ecx-foot .ecx-you{font-family:var(--display,"Work Sans",sans-serif);font-weight:600;color:#02615D;text-decoration:none}.ecx-foot .ecx-you:hover{text-decoration:underline;text-underline-offset:3px}.ecx-foot button{background:none;border:0;padding:0;font:inherit;color:#02615D;text-decoration:underline;text-underline-offset:3px;cursor:pointer}'
     + '.ecx-note{font-size:13.5px;color:#555;margin:0}@media(max-width:560px){.ecx-btn{margin-left:0}}';
   var cssDone = false;
   function ensureCss() { if (cssDone) return; cssDone = true; var st = document.createElement('style'); st.id = 'ecx-css'; st.textContent = STRIP_CSS; document.head.appendChild(st); }
@@ -282,7 +282,10 @@
          longer explanations about browsers, passwords and what is sent are gone from the page. */
       var foot = document.body.getAttribute('data-strip-foot') || 'Saved on this device only — nothing is sent to us.';
       var done = document.body.getAttribute('data-strip-done');
+      /* Once known, a way back to /you from every tool that carries the strip — except /you. */
+      var onYou = /^\/you(\.html)?$/.test(location.pathname) || document.body.classList.contains('you');
       h += '<div class="ecx-foot"><span>' + esc(foot) + '</span>' + (known ? '<button type="button" data-clear>Clear my answers</button>' : '')
+         + (known && !onYou ? '<a class="ecx-you" href="/you">Your page <span aria-hidden="true">&rarr;</span></a>' : '')
          + (done ? '<button type="button" class="ecx-done" data-done>' + esc(done) + ' <span aria-hidden="true">&rarr;</span></button>' : '') + '</div></div>';
       el.className = 'ecx' + (open ? ' is-open' : ''); el.innerHTML = h;
     }

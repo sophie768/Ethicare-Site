@@ -128,17 +128,22 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 # Stylesheets and scripts are NOT fingerprinted (site.css, shell.css, move.js),
-# so an immutable year would strand users on a stale build. Revalidate hourly
-# but serve the cached copy instantly for a week while that happens.
+# so they must be re-checked on every load, exactly like the HTML that calls them.
+# 5 Oct 2026: the previous "hour, then stale-while-revalidate for a week" served a
+# returning visitor the NEW ask.html with the OLD candidate-context.js for an hour or
+# more after every deploy, and ask-mine.js then failed on a function the old script did
+# not have. Sophie saw the page do nothing; so would every returning candidate. A
+# conditional request is a 304 and a few bytes — the cost of re-checking is nothing
+# next to a page that silently does not work after a release.
 [[headers]]
   for = "/*.css"
   [headers.values]
-    Cache-Control = "public, max-age=3600, stale-while-revalidate=604800"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/*.js"
   [headers.values]
-    Cache-Control = "public, max-age=3600, stale-while-revalidate=604800"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 # HTML must always be checked — content and pricing change.
 [[headers]]
