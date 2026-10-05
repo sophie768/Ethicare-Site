@@ -20,6 +20,7 @@ window.ASK_ETHICARE_KB = {
     compare_countries: { t: 'Australia vs New Zealand', d: 'Pay, pace and lifestyle, side by side', u: '/guides/australia-vs-new-zealand' },
     cost_calculator: { t: 'What the move will cost', d: 'Build a realistic figure for your own move', u: '/cost-calculator' },
     before_you_accept: { t: 'Before you accept an offer', d: 'What to check in a contract before you sign', u: '/before-you-accept' },
+    where_to_live: { t: 'Where could we live?', d: 'Tell it what matters to you and it shows three regions that fit, trade-offs included', u: '/where-would-we-live' },
     nz_destinations: { t: 'NZ destination guides', d: 'Costs, suburbs, hospitals, city by city', u: '/destinations/' },
     au_destinations: { t: 'AU destination guides', d: 'Eight states and territories, compared honestly', u: '/destinations/australia' },
     jobs: { t: 'Live roles', d: 'Current Ethicare vacancies in both countries', u: '/jobs/' },

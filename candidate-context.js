@@ -48,7 +48,12 @@
     sonography: 'sonographer', radtherapy: 'radiation-therapist', nuclearmed: 'nuclear-medicine',
     physio: 'physiotherapist', ot: 'occupational-therapist', psychology: 'psychologist',
     anaesthetic: 'anaesthetic-technician', speech: 'speech-language-therapist', dietetics: 'dietitian',
-    socialwork: 'social-worker'
+    socialwork: 'social-worker',
+    /* 5 Oct 2026 (Sophie: "when you click onto pathway it should automatically have selected
+       your role"). Nursing and midwifery are 1:1. 'imaging' in the catalogue is diagnostic
+       radiography — sonography, radiation therapy and nuclear medicine are their own keys — so
+       radiographer is the right preselection; MRI is one click away on the checker. */
+    nursing: 'registered-nurse', midwifery: 'midwife', imaging: 'radiographer'
   };
 
   function read() {
@@ -71,6 +76,9 @@
   function country() { var d = dest(); return d === 'au' ? 'australia' : d === 'nz' ? 'new-zealand' : ''; }
   function countryName() { var d = dest(); return d === 'au' ? 'Australia' : d === 'nz' ? 'New Zealand' : ''; }
   function profession() { var p = read(); return p && p.profession ? String(p.profession) : ''; }
+  /* First name (5 Oct 2026). Only so a page can say hello. It is stored with the other answers
+     on this device, it is never part of summary() and never leaves the browser. */
+  function name() { var p = read(); return p && p.name ? String(p.name).slice(0, 40) : ''; }
   function professionLabel() {
     var k = profession(), cat = window.ETHICARE_PROFESSIONS;
     if (!k || !cat) return '';
@@ -164,13 +172,14 @@
     if (!p.hh || typeof p.hh !== 'object') p.hh = { 'with': '', work: '', bands: [] };
     if (patch.dest !== undefined) p.dest = (patch.dest === 'au' || patch.dest === 'nz' || patch.dest === 'both') ? patch.dest : '';
     if (patch.profession !== undefined) p.profession = String(patch.profession || '');
+    if (patch.name !== undefined) p.name = String(patch.name || '').replace(/[<>]/g, '').trim().slice(0, 40);
     if (patch.household !== undefined) { p.hh['with'] = hhNorm(patch.household); p.party = ''; }
     if (patch.stage !== undefined) {
       if (jstage(patch.stage)) { p.journeyStage = patch.stage; p.stage = JMAP().journeyToMove[patch.stage] || p.stage || ''; }
       else if (STAGES[patch.stage]) { p.stage = patch.stage; p.journeyStage = JMAP().moveToJourney[patch.stage] || ''; }
     }
     if (patch.origin !== undefined) p.origin = String(patch.origin || '');
-    if (p.dest || p.profession || p.hh['with'] || p.stage || p.journeyStage) p.set = true;
+    if (p.dest || p.profession || p.hh['with'] || p.stage || p.journeyStage || p.name) p.set = true;
     p.updated = Date.now();
     try { localStorage.setItem(KEY, JSON.stringify(p)); } catch (e) {}
     try { window.dispatchEvent(new CustomEvent('ethicare:context', { detail: read() })); } catch (e) {}
@@ -185,8 +194,12 @@
   /* ---- the answers strip ---------------------------------------------------------------------
      mount(el, { fields: ['dest','profession','household','stage'], intro: '…', compact: true })
      One line of what shapes this page, and a Change control that opens the answers in place.
-     Quiet by design: no name, no email, no "sign up". When nothing is known it shows one
-     sentence and the same control. Every change writes and fires ethicare:context. */
+     Quiet by design: no email, no "sign up". A first name is asked for only where a page lists
+     'name' in fields, and it stays on the device. When nothing is known it shows one sentence
+     and the same control. Every change writes and fires ethicare:context.
+     5 Oct 2026: a page may set data-strip-done="Show my page" on <body>. The open strip then
+     ends in that button, which closes the answers and fires ethicare:context:done — the
+     visible "I have finished" that was missing (Sophie: "you expect the site to do something"). */
   var STRIP_CSS = '.ecx{grid-column:1/-1;flex:1 1 100%;width:100%;box-sizing:border-box;font-family:var(--body,Manrope,sans-serif);background:#fff;border:1px solid #C9DED3;border-left:4px solid #A6C84A;border-radius:14px;padding:12px 16px;margin:0 0 clamp(20px,2.6vw,30px);font-size:15px;line-height:1.5;color:#333}'
     + '.ecx-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px}.ecx-k{font-family:var(--display,"Work Sans",sans-serif);font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-right:4px}'
     + '.ecx-v{font-family:var(--display,"Work Sans",sans-serif);font-weight:600;color:#02615D}.ecx-sep{color:#9BB9AE}.ecx-btn{margin-left:auto;background:none;border:1px solid #C9DED3;border-radius:999px;padding:5px 13px;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:13.5px;color:#02615D;cursor:pointer;min-height:32px}.ecx-btn:hover{border-color:#02615D}'
@@ -197,7 +210,8 @@
     + '.ecx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px 16px}'
     + '.ecx-f{margin:0;min-width:0}'
     + '.ecx select{width:100%}'
-    + '.ecx select{font-family:var(--body,Manrope,sans-serif);font-size:15px;color:#333;border:1px solid #C9DED3;border-radius:10px;padding:8px 12px;min-height:40px;max-width:100%;background:#fff}'
+    + '.ecx select,.ecx input[type=text]{font-family:var(--body,Manrope,sans-serif);font-size:15px;color:#333;border:1px solid #C9DED3;border-radius:10px;padding:8px 12px;min-height:40px;max-width:100%;background:#fff;box-sizing:border-box;width:100%}'
+    + '.ecx-done{margin-left:auto;background:#02615D;color:#fff;border:0;border-radius:999px;padding:9px 18px;font-family:var(--display,"Work Sans",sans-serif);font-weight:600;font-size:14px;cursor:pointer;min-height:38px}.ecx-done:hover{background:#014E4B}'
     + '.ecx-foot{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:12px;font-size:13.5px;color:#555}.ecx-foot button{background:none;border:0;padding:0;font:inherit;color:#02615D;text-decoration:underline;text-underline-offset:3px;cursor:pointer}'
     + '.ecx-note{font-size:13.5px;color:#555;margin:0}@media(max-width:560px){.ecx-btn{margin-left:0}}';
   var cssDone = false;
@@ -253,6 +267,7 @@
             return open ? cta : (known ? 'Change' : cta); })() + '</button></div>';
       h += '<div class="ecx-ed">';
       h += '<div class="ecx-grid">';
+      if (fields.indexOf('name') >= 0) h += '<div class="ecx-f"><label class="ecx-l" for="ecx-name">First name <span style="font-weight:400;color:#777">(optional)</span></label><input type="text" id="ecx-name" data-f="name" maxlength="40" autocomplete="given-name" value="' + esc(name()) + '" placeholder="So the page can say hello"></div>';
       if (fields.indexOf('dest') >= 0) h += sel('dest', 'Country', [['nz', 'New Zealand'], ['au', 'Australia'], ['both', 'Comparing both']], destMode(), 'Choose\u2026');
       var po = profOptions();
       if (fields.indexOf('profession') >= 0 && po.length) {
@@ -266,15 +281,28 @@
          short reassurance, and it sits right under the questions (Sophie, 3 Oct 2026) — the
          longer explanations about browsers, passwords and what is sent are gone from the page. */
       var foot = document.body.getAttribute('data-strip-foot') || 'Saved on this device only — nothing is sent to us.';
-      h += '<div class="ecx-foot"><span>' + esc(foot) + '</span>' + (known ? '<button type="button" data-clear>Clear my answers</button>' : '') + '</div></div>';
+      var done = document.body.getAttribute('data-strip-done');
+      h += '<div class="ecx-foot"><span>' + esc(foot) + '</span>' + (known ? '<button type="button" data-clear>Clear my answers</button>' : '')
+         + (done ? '<button type="button" class="ecx-done" data-done>' + esc(done) + ' <span aria-hidden="true">&rarr;</span></button>' : '') + '</div></div>';
       el.className = 'ecx' + (open ? ' is-open' : ''); el.innerHTML = h;
     }
     el.addEventListener('click', function (e) {
       var t = e.target.closest ? e.target.closest('button') : null; if (!t) return;
       if (t.classList.contains('ecx-btn')) { open = !open; paint(); return; }
       if (t.hasAttribute('data-clear')) { open = false; clear(); paint(); return; }
+      if (t.hasAttribute('data-done')) {
+        var nm = el.querySelector('[data-f="name"]'); if (nm) write({ name: nm.value });
+        open = false; paint();
+        try { window.dispatchEvent(new CustomEvent('ethicare:context:done', { detail: read() })); } catch (er) {}
+        return;
+      }
       var grp = t.parentNode && t.parentNode.getAttribute ? t.parentNode.getAttribute('data-f') : null;
       if (grp && t.classList.contains('ecx-p')) { var patch = {}; patch[grp] = t.getAttribute('data-v'); write(patch); paint(); }
+    });
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && e.target.getAttribute && e.target.getAttribute('data-f') === 'name') {
+        e.preventDefault(); var dn = el.querySelector('[data-done]'); if (dn) dn.click();
+      }
     });
     el.addEventListener('change', function (e) {
       var f = e.target.getAttribute && e.target.getAttribute('data-f');
@@ -290,7 +318,8 @@
     return { repaint: paint };
   }
 
-  /* Anonymous context line — profession · country · stage. Never a name, never an email. */
+  /* Anonymous context line — profession · country · stage. Never a name, never an email.
+     name() exists for greetings on the page; it is deliberately not in here. */
   function summary() {
     if (!has()) return '';
     var p = read();
@@ -309,7 +338,7 @@
 
   window.EthicareContext = {
     key: KEY, read: read, has: has, dest: dest, country: country, countryName: countryName, destName: destName, first: first,
-    profession: profession, professionLabel: professionLabel, pathwayProfession: pathwayProfession,
+    profession: profession, professionLabel: professionLabel, pathwayProfession: pathwayProfession, name: name,
     applyDestination: applyDestination, stage: stage, stageLabel: stageLabel, next: next,
     withContext: withContext, summary: summary, decorate: decorate,
     /* 28 Sep 2026 */

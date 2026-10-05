@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="site.css">
 <link rel="stylesheet" href="ask-ethicare.css">
 </head>
-<body data-strip-cta="Tailor my answers">
+<body data-strip-cta="Tailor my answers" data-strip-done="Show my page">
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header" data-header>
   <div class="shell">
@@ -120,6 +120,10 @@
 <!-- Showing beats telling. Every word of this example is drawn from the dietetics guide and the
      Dietitians Board's own published requirements, so it is an accurate answer as well as an
      illustrative one — nothing here is invented for the sake of the demonstration. -->
+<!-- Filled by ask-mine.js when the answers strip has answers: the guides that fit this
+     person, and the hand-off to Plan your move. Empty and hidden otherwise. -->
+<section class="ask-mine" id="ask-mine" data-screen-label="Ask Ethicare &middot; your page" hidden></section>
+
 <section class="ask-example" data-screen-label="Ask Ethicare · example">
   <div class="wrapx">
     <div class="ask-ex-head">
@@ -233,6 +237,7 @@
 <script src="jobs/jobs-data.js"></script>
 <script src="ask-ethicare-knowledge.js"></script>
 <script src="ask-ethicare.js" defer></script>
-<script>(function(){function go(){var c=window.EthicareContext;if(c&&c.mount)c.mount("#ctx-strip",{intro:"Tell us your profession and where you are thinking of, and the answers start from there instead of asking."});}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();})();</script>
+<script src="ask-mine.js" defer></script>
+<script>(function(){function go(){var c=window.EthicareContext;if(c&&c.mount)c.mount("#ctx-strip",{fields:["name","dest","profession","household","stage"],intro:"Tell us your profession and where you are thinking of, and this becomes your page \u2014 answers that start from you, and the guides you will actually need."});}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();})();</script>
 </body>
 </html>

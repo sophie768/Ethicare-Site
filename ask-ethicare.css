@@ -212,3 +212,26 @@
 .ask-foot{margin-top:18px;padding-top:16px;border-top:1px solid #E6EEEA}
 .ask-foot #ctx-strip:not(:empty){margin-bottom:12px}
 .ask-foot .ask-fine{margin:0;font-size:12px;line-height:1.6;color:#6C7B74}
+
+/* ---- your page (5 Oct 2026) ------------------------------------------------------------
+   Rendered by ask-mine.js once the answers strip has answers. Same cream-on-teal system as
+   the rest of the page; the plan card is the one teal-on-cream element so it reads as the
+   next step rather than another guide. */
+.ask-mine{background:#F3F7F4;padding:clamp(48px,6vw,80px) 0}
+.ask-mine .wrapx{max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px)}
+.ask-mine-head{max-width:62ch;margin-bottom:clamp(22px,3vw,34px)}
+.ask-mine-head .eyebrow{color:#2F5E49}
+.ask-mine-head h2{font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(28px,3.4vw,40px);line-height:1.1;letter-spacing:-.02em;color:#02615D;margin:6px 0 10px}
+.ask-mine-head p{font-size:17px;line-height:1.6;color:#555;margin:0}
+.ask-mine-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.ask-mine-card{display:flex;flex-direction:column;gap:5px;background:#fff;border:1px solid #DCE7E0;border-radius:14px;padding:18px 20px;text-decoration:none;transition:border-color .15s,transform .15s,box-shadow .15s}
+.ask-mine-card:hover{border-color:#02615D;transform:translateY(-1px);box-shadow:0 10px 24px rgba(1,49,47,.08)}
+.ask-mine-card .t{font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;line-height:1.3;color:#02615D}
+.ask-mine-card .d{font-size:14px;line-height:1.5;color:#555}
+.ask-mine-card .g{font-family:'Work Sans',sans-serif;color:#2F5E49;margin-top:4px}
+.ask-mine-plan{display:grid;grid-template-columns:1fr auto;gap:8px 28px;align-items:center;margin-top:clamp(22px,3vw,34px);background:#02615D;color:#fff;border-radius:18px;padding:clamp(22px,3vw,32px) clamp(22px,3vw,36px);text-decoration:none}
+.ask-mine-plan .k{grid-column:1;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#C6E084}
+.ask-mine-plan .t{grid-column:1;font-size:clamp(17px,1.6vw,20px);line-height:1.5;color:#fff;max-width:60ch}
+.ask-mine-plan .b{grid-column:2;grid-row:1/3;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;color:#02615D;background:#C6E084;border-radius:999px;padding:12px 20px;white-space:nowrap}
+.ask-mine-plan:hover .b{background:#A6C84A}
+@media(max-width:640px){.ask-mine-plan{grid-template-columns:1fr}.ask-mine-plan .b{grid-column:1;grid-row:auto;justify-self:start;margin-top:6px}}
