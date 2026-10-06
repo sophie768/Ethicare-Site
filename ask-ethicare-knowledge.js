@@ -27,6 +27,8 @@ window.ASK_ETHICARE_KB = {
     professions: { t: 'Find your profession', d: 'Registration, work and indicative pay for your role', u: '/jobs/professions' },
     nz_registration: { t: 'Registering in New Zealand', d: 'The full registration guide', u: '/guides/new-zealand-registration' },
     au_registration: { t: 'Registering in Australia', d: 'Ahpra, the national boards, and where skills assessment fits', u: '/guides/australia-registration' },
+    au_mrpba: { t: 'Registering with Ahpra and the MRPBA', d: 'How registration works for UK-trained radiographers, radiation therapists and nuclear medicine, step by step', u: '/guides/australia-registration-mrpba' },
+    au_asar: { t: 'Sonographer accreditation: ASMIRT and ASAR', d: 'The accreditation route for sonographers, and where the skills assessment fits', u: '/guides/australia-registration-asar' },
     nz_visa: { t: 'New Zealand visas', d: 'Options for you and everyone moving with you', u: '/guides/new-zealand-visa' },
     au_visa: { t: 'Australian visas', d: 'Work and family routes, in plain English', u: '/guides/australia-visa' },
     nz_family: { t: 'Moving to NZ with your family', d: 'Schools, childcare, partners, the first months', u: '/guides/new-zealand-family' },

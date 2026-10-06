@@ -45,6 +45,8 @@ const RESOURCES = {
   professions: 'Find your profession',
   nz_registration: 'Registering in New Zealand',
   au_registration: 'Registering in Australia',
+  au_mrpba: 'MRPBA registration for radiographers, radiation therapists and nuclear medicine — Ahpra, step by step',
+  au_asar: 'Sonographer accreditation in Australia — ASMIRT and ASAR',
   nz_visa: 'New Zealand visas',
   au_visa: 'Australian visas',
   nz_family: 'Moving to NZ with your family',
