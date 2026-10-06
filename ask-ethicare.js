@@ -105,7 +105,10 @@
      machinery to the reader — the words NEXT_ACTIONS followed by raw ids. Match loosely, then
      scrub anything that still looks like the block out of the body: losing the cards is a
      tolerable failure, showing them as prose is not. */
-  var RE_NEXT = /^[ \t>*#_]*\**\s*NEXT[ _]?ACTIONS\s*:?\s*\**[ \t]*$/im;
+  /* 6 Oct 2026: also accept the ids on the same line, comma-separated ("NEXT_ACTIONS: a, b") —
+     seen when testing on a phone; the prompt asks for one per line but a model does not always
+     listen, and the failure printed the ids to the reader. */
+  var RE_NEXT = /^[ \t>*#_]*\**\s*NEXT[ _]?ACTIONS\s*:?\s*\**[ \t]*[a-z_, \t]*$/im;
   var RE_HANDOFF = /^[ \t>*#_]*\**\s*HANDOFF\s*:?\s*\**[ \t]*$/im;
 
   function parse(text) {
@@ -119,7 +122,8 @@
       body = text.slice(0, at);
       tail = text.slice(at + m[0].length);
     }
-    var ids = tail.split('\n').map(function (l) { return l.trim().toLowerCase().replace(/[^a-z_]/g, ''); })
+    if (m) tail = m[0].replace(/^[^A-Za-z]*NEXT[ _]?ACTIONS\s*:?\s*\**/i, '') + '\n' + tail;
+    var ids = tail.split(/[\n,]/).map(function (l) { return l.trim().toLowerCase().replace(/[^a-z_]/g, ''); })
       .filter(function (id) { return KB.resources[id]; }).slice(0, 4);
     /* Belt and braces — but only over a TRAILING run. Three ids are ordinary words (jobs,
        professions, apply), and the prompt asks for short bold headings, so scrubbing every

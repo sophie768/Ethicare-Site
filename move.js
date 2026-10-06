@@ -46,7 +46,7 @@
       note: 'What the offer actually leaves you each month, once tax and the rest come off.' },
     cost: { title: 'Work out what the move will cost', href: '/cost-calculator', store: 'ethicare_cost_calculator_v1',
       note: 'What the whole move costs, what your employer covers, and what you need in the bank before you fly.' },
-    live: { title: 'Explore where you could live', href: '/where-would-we-live', store: null,
+    live: { title: 'Destination finder — where could you live?', href: '/destination-finder', store: null,
       note: 'Cities and regions, and the trade-offs between them — written for the whole household.' },
     cv: { title: 'Write your CV', href: '/build-your-cv', store: 'ethicare-cv-builder-v1',
       note: 'The nine sections a reader wants, with the document building underneath as you type.' },

@@ -25,6 +25,13 @@
   force = true
 
 [[redirects]]
+  # 6 Oct 2026: the region finder got its proper name. Fragments (#finder) carry across.
+  from = "/where-would-we-live"
+  to = "/destination-finder"
+  status = 301
+  force = true
+
+[[redirects]]
   # move-steps was the eight-stage rebuild; on 29 Sep 2026 /move became that
   # page, so the rebuild's URL folds into it. Fragments (#s3) carry across.
   from = "/move-steps"
