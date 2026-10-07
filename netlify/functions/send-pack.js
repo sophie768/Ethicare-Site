@@ -27,7 +27,19 @@ const RESEND_KEY = process.env.RESEND_API_KEY;
 const FROM = process.env.PACK_FROM || 'Sophie Careem <sophie@ethicareresourcing.com>';
 const NOTIFY = process.env.PACK_NOTIFY || 'hello@ethicareresourcing.com';
 const REPLY_TO = 'hello@ethicareresourcing.com';
-const SITE = 'https://ethicareresourcing.com';
+/* Links point at whichever of OUR hosts the page was served from (ethicareresourcing.com
+   still resolves to the old Wix site until the domain is transferred — 7 Oct 2026 — so
+   the live build is ethicareresourcing.netlify.app). Set per request from the headers,
+   only ever to an origin in ALLOWED; the .com is the fallback for when the headers say
+   nothing. One request per invocation, so a module-level value is safe here. */
+let SITE = 'https://ethicareresourcing.com';
+function siteFor(headers) {
+  const h = headers || {};
+  const origin = h.origin || h.Origin || '';
+  if (ALLOWED.indexOf(origin) !== -1) return origin;
+  const host = 'https://' + String(h['x-forwarded-host'] || h.host || '').split(',')[0].trim();
+  return ALLOWED.indexOf(host) !== -1 ? host : 'https://ethicareresourcing.com';
+}
 
 /* Same posture as send-result.js in this directory, and for the same reason: this
    endpoint must not become a way to send mail on Ethicare's behalf. It takes no
@@ -205,6 +217,7 @@ exports.handler = async (event) => {
 
   const origin = (event.headers && (event.headers.origin || event.headers.Origin)) || '';
   if (origin && ALLOWED.indexOf(origin) === -1) return reply(403, { error: 'Forbidden' });
+  SITE = siteFor(event.headers);
   if ((event.body || '').length > MAX_BODY) return reply(413, { error: 'Too large' });
 
   if (!RESEND_KEY) {

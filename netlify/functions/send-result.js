@@ -12,6 +12,15 @@
 const FROM = 'Ethicare Resourcing <hello@ethicareresourcing.com>';
 const ALLOWED = ['https://ethicareresourcing.com', 'https://www.ethicareresourcing.com', 'https://ethicareresourcing.netlify.app'];
 const MAX_BODY = 8000;
+/* The one site link in the email follows the host the page was served from (the .com still
+   points at the old Wix site until the domain transfer, 7 Oct 2026); never anything outside ALLOWED. */
+function siteFor(headers) {
+  const h = headers || {};
+  const origin = h.origin || h.Origin || '';
+  if (ALLOWED.indexOf(origin) !== -1) return origin;
+  const host = 'https://' + String(h['x-forwarded-host'] || h.host || '').split(',')[0].trim();
+  return ALLOWED.indexOf(host) !== -1 ? host : 'https://ethicareresourcing.com';
+}
 
 function json(status, body) {
   return { statusCode: status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }, body: JSON.stringify(body) };
@@ -20,7 +29,7 @@ function esc(s) {
   return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-function template(name, summary, resumeLink) {
+function template(name, summary, resumeLink, site) {
   const first = esc((String(name || '').trim().split(/\s+/)[0]) || 'there');
   const rows = String(summary || '').split(' | ').filter(Boolean)
     .map(function (r) { return '<tr><td style="padding:10px 0;border-bottom:1px solid #E3ECE5;font:15px/1.55 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:#333">' + esc(r) + '</td></tr>'; })
@@ -39,7 +48,7 @@ function template(name, summary, resumeLink) {
       '</td></tr>' : '') +
     '<tr><td style="padding:22px 28px 28px">' +
     '<p style="margin:0;font:13px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:#555">General guidance, not a registration assessment and not immigration advice. Requirements change without notice and only the regulator can decide your application &mdash; check the official source before you apply, pay a fee or resign a post.</p>' +
-    '<p style="margin:14px 0 0;font:13px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:#555">Ethicare Resourcing Ltd &middot; Office 1, One Coldbath Square, London EC1R 5HL &middot; <a href="https://ethicareresourcing.com/how-we-use-your-information" style="color:#02615D">How we use your information</a></p>' +
+    '<p style="margin:14px 0 0;font:13px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:#555">Ethicare Resourcing Ltd &middot; Office 1, One Coldbath Square, London EC1R 5HL &middot; <a href="' + esc(site) + '/how-we-use-your-information" style="color:#02615D">How we use your information</a></p>' +
     '</td></tr></table></body></html>';
 }
 
@@ -71,7 +80,7 @@ exports.handler = async function (event) {
         from: FROM,
         to: [to],
         subject: 'Your registration starting point — Ethicare',
-        html: template(p.name, p.summary, p.resumeLink)
+        html: template(p.name, p.summary, p.resumeLink, siteFor(event.headers))
       })
     });
     if (!r.ok) {

@@ -117,6 +117,16 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}/* playfair-h
   </div>
 </footer>
 <script src="site.js"></script>
+<script>
+(function(){
+  /* A guide request lands here with ?from=guide once the email sender is live. The page
+     is static and shared by every form, so the one line that differs is swapped in here. */
+  if (new URLSearchParams(location.search).get('from') !== 'guide') return;
+  var h = document.querySelector('.ty-band h1'), p = document.querySelector('.ty-band p.lead');
+  if (h) h.textContent = 'Your guide is on its way';
+  if (p) p.innerHTML = 'The email usually arrives within a couple of minutes \u2014 if it has not, check your junk folder, the first one sometimes lands there. The guide is also one click away on <a href="/request-a-guide" style="color:#02615D;text-decoration:underline">the downloads page</a>, no email needed.';
+})();
+</script>
 <script src="nav.js" defer></script>
 </body>
 </html>

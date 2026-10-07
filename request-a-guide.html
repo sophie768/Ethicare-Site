@@ -366,6 +366,37 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}/* playfair-h
   el.scrollIntoView({ block: 'center' });
   el.focus({ preventScroll: true });
 })();
+(function(){
+  /* "Email me the guide" (7 Oct 2026). The native submit posts to Netlify Forms and that is
+     the record — consent wording, opt-ins, all of it. The guide itself goes out through
+     /.netlify/functions/send-guide, fired here with keepalive just before the submit navigates,
+     the same way the pathway checker sends its result. The function looks the guide up by
+     title on the server, so nothing here chooses what gets emailed.
+
+     Gated on the one switch in site.js: until RESEND_API_KEY is set, the send would fail
+     silently, so the page keeps its plain "with us" thank-you and the guide is sent by hand
+     from the Netlify Forms notification. */
+  var form = document.querySelector('form[name="guide-request"]');
+  if (!form || !window.ETHICARE_EMAIL_LIVE) return;
+  form.setAttribute('action', '/thank-you?from=guide');
+  form.addEventListener('submit', function () {
+    var f = function (n) { var el = form.elements[n]; return el ? String(el.value || '') : ''; };
+    var ra = form.elements['role_alerts'], qu = form.elements['quarterly_update'];
+    var body = {
+      name: f('name'), email: f('email'), guide: f('guide'),
+      profession: f('profession'), destination: f('destination'),
+      role_alerts: ra && ra.checked ? 'Yes' : '', quarterly_update: qu && qu.checked ? 'Yes' : '',
+      'bot-field': f('bot-field')
+    };
+    try {
+      fetch('/.netlify/functions/send-guide', {
+        method: 'POST', keepalive: true,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      }).catch(function () {});
+    } catch (e) {}
+  });
+})();
 </script>
 <script src="nav.js" defer></script>
 

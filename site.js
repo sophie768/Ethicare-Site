@@ -10,10 +10,12 @@
    is done a send fails silently, so the offer is hidden rather than made and broken.
 
    WHEN THE KEY IS SET: change this to true. Both tools then offer "Email me my result"
-   / "Email me my estimate". Nothing else has to change, and the lead is captured either
-   way — the capture goes to Netlify Forms, which needs no key at all.
-   ---------------------------------------------------------------------------------- */
-window.ETHICARE_EMAIL_LIVE = false;
+   / "Email me my estimate", and /request-a-guide emails the guide (send-guide). Nothing
+   else has to change, and the lead is captured either way — the capture goes to Netlify
+   Forms, which needs no key at all.
+
+   7 Oct 2026: RESEND_API_KEY set in Netlify (Production only, secret). Switched on. */
+window.ETHICARE_EMAIL_LIVE = true;
 (function () {
   // ---------- Mobile nav ----------
   // Lives in nav.js now: one implementation shared by every page that renders
