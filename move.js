@@ -45,7 +45,7 @@
   var TOOL = {
     pathway: { title: 'Check your registration pathway', href: '/pathway-checker', store: 'ethicare_pathway_checker_draft_v1',
       note: 'The first question worth answering \u2014 start it early and the rest of the move has room.' },
-    earn: { title: 'See what you could earn', href: '/is-it-worth-it', store: null,
+    earn: { title: 'See what you could earn', href: '/what-could-i-earn', store: null,
       note: 'The published scales, what varies on top, and what is left after tax and rent.' },
     /* For someone who already holds an offer. The salary is settled; what is not settled is
        what reaches the account after tax, superannuation or KiwiSaver, and rent. */

@@ -1,9 +1,12 @@
 /* ============================================================================
    Create my pack — the page (7 Oct 2026, redesigned the same day)
 
-   Three questions on the page (where, what you do, who is coming) tick the guides
-   that fit as soon as they are answered; the guides are cards you tap; the pack
-   panel sends them in one email. The pack itself lives in pack-core.js, shared with
+   Simplified the same evening (reviewer, agreed by Sophie): three answers, and the
+   page RECOMMENDS the pack straight away in the panel beside them; the full library
+   opens only behind "Add or remove guides". Changing an answer swaps the guides we
+   chose for the new ones, but never removes a guide the person added themselves.
+   No phone number: the email does not offer a call. Timing is one row of buttons
+   in the send box, and the two marketing boxes stay above the button (GDPR). The pack itself lives in pack-core.js, shared with
    every "Add to my pack" button on the site; the answers are the same answers every
    tool uses (candidate-context.js), so Plan, the checker and the calculator agree.
 
@@ -27,7 +30,9 @@
 
   var view = ctx('destMode') || 'both';
   var hilite = '';
-  var note = '';
+  var AUTO_KEY = 'ethicare_pack_auto_v1';
+  var auto = (function () { try { return JSON.parse(localStorage.getItem(AUTO_KEY) || '[]') || []; } catch (e) { return []; } })();
+  function saveAuto() { try { localStorage.setItem(AUTO_KEY, JSON.stringify(auto)); } catch (e) {} }
 
   /* ---- what fits this person ---- */
   function fits(i, v) { return v === 'both' || i.c === 'both' || i.c === v; }
@@ -48,12 +53,16 @@
     if (h) bits.push(h);
     return bits.filter(Boolean).join(', ');
   }
-  function applySuggestion(first) {
-    var s = suggestion(); if (!s.length) return;
-    var have = P.list(), add = s.filter(function (id) { return have.indexOf(id) === -1; });
-    if (add.length) P.set(have.concat(add));
-    var n = suggestion().length;
-    note = (first ? 'We\u2019ve ticked ' : 'Your pack now has ') + n + ' guide' + (n === 1 ? '' : 's') + (first ? ' for ' : ' that fit ') + esc(describe()) + '. Untick anything you don\u2019t need, or add more below.';
+  /* Recommend: swap the guides WE chose last time for the ones that fit the new
+     answers; keep anything the person added themselves (from the library, the email
+     link or an "Add to my pack" button elsewhere on the site). */
+  function applySuggestion() {
+    var sug = suggestion(); if (!ctx('destMode')) return;
+    var have = P.list();
+    var keep = have.filter(function (id) { return auto.indexOf(id) === -1 || sug.indexOf(id) !== -1; });
+    var add = sug.filter(function (id) { return keep.indexOf(id) === -1; });
+    P.set(keep.concat(add));
+    auto = sug.slice(); saveAuto();
   }
 
   /* ---- ?p=<id,id,...> — "Open my pack" from the pack email, on any device ---- */
@@ -78,7 +87,7 @@
   })();
 
   /* ---- first visit: pre-tick what fits, if we know enough ---- */
-  if (!P.count() && ctx('destMode')) applySuggestion(true);
+  if (!P.count() && ctx('destMode')) applySuggestion();
 
   /* ---- the three questions ---- */
   var qEl = root.querySelector('[data-mp-q]');
@@ -94,19 +103,18 @@
     if (!qEl) return;
     var d = ctx('destMode'), hh = ctx('household');
     var pill = function (k, v, label, on) { return '<button type="button" data-q="' + k + '" data-v="' + v + '" aria-pressed="' + on + '">' + label + '</button>'; };
-    qEl.innerHTML = '<h2 id="mp-q-h" class="sr-only">Three questions</h2>' +
-      '<div class="mp-qi"><span class="mp-ql">Where are you thinking of?</span><div class="mp-pills">' +
-        pill('dest', 'nz', 'New Zealand', d === 'nz') + pill('dest', 'au', 'Australia', d === 'au') + pill('dest', 'both', 'Comparing both', d === 'both') + '</div></div>' +
-      '<div class="mp-qi"><label class="mp-ql" for="mp-prof">What do you do?</label><select id="mp-prof" data-q-prof>' + profOptions() + '</select></div>' +
-      '<div class="mp-qi"><span class="mp-ql">Who is coming with you?</span><div class="mp-pills">' +
-        HH.map(function (h) { return pill('hh', h[0], h[1], hh === h[0]); }).join('') + '</div></div>' +
-      '<p class="mp-qnote" role="status"' + (note ? '' : ' hidden') + '>' + note + '</p>';
+    qEl.innerHTML =
+      '<div class="mp-qi" role="group" aria-labelledby="mp-q1"><span class="mp-ql" id="mp-q1"><b>1</b>Where are you thinking of moving?</span><div class="mp-pills">' +
+        pill('dest', 'nz', 'New Zealand', d === 'nz') + pill('dest', 'au', 'Australia', d === 'au') + pill('dest', 'both', 'I\u2019m considering both', d === 'both') + '</div></div>' +
+      '<div class="mp-qi"><label class="mp-ql" for="mp-prof"><b>2</b>What do you do?</label><select id="mp-prof" data-q-prof>' + profOptions() + '</select></div>' +
+      '<div class="mp-qi" role="group" aria-labelledby="mp-q3"><span class="mp-ql" id="mp-q3"><b>3</b>Who is coming with you?</span><div class="mp-pills">' +
+        HH.map(function (h) { return pill('hh', h[0], h[1], hh === h[0]); }).join('') + '</div></div>';
   }
   function answer(patch) {
     if (!C || !C.write) return;
     C.write(patch);
     if (patch.dest) view = patch.dest;
-    applySuggestion(false);
+    applySuggestion();
     drawAll();
   }
   if (qEl) {
@@ -154,31 +162,56 @@
     listEl.innerHTML = h;
   }
 
-  /* ---- the panel, the hero count and the phone bar ---- */
+  /* ---- the recommended pack, and the phone bar ---- */
   var pickedEl = root.querySelector('[data-mp-picked]');
   var countEl = root.querySelector('[data-mp-count]');
-  var floatEl = document.querySelector('[data-mp-floatn]');
   var barEl = document.querySelector('[data-mp-bar]');
-  function picked() { return P.list().map(function (id) { return BY[id]; }).filter(Boolean); }
+  var ORDER = {}; GROUPS.forEach(function (g, k) { ORDER[g[0]] = k; });
+  function picked() {
+    return P.list().map(function (id) { return BY[id]; }).filter(Boolean)
+      .sort(function (x, y) { return (ORDER[x.g] || 0) - (ORDER[y.g] || 0); });
+  }
   function drawPanel() {
-    var p = picked(), n = p.length, word = n + ' guide' + (n === 1 ? '' : 's');
-    countEl.textContent = n ? word + ' ticked' : 'Nothing ticked yet';
-    if (floatEl) floatEl.textContent = word;
+    var p = picked(), n = p.length, word = n + ' guide' + (n === 1 ? '' : 's'), who = describe();
+    countEl.textContent = n ? (who ? word + ' chosen for ' + who : word + ' in your pack')
+      : 'Answer the questions and your guides appear here.';
     if (barEl) {
       barEl.hidden = false;
       barEl.classList.toggle('on', n > 0);
       var bt = barEl.querySelector('[data-mp-bar-t]'); if (bt) bt.textContent = 'Email my pack (' + n + ')';
     }
-    pickedEl.innerHTML = n
-      ? p.map(function (i) { return '<li><span>' + esc(i.t) + '</span><button type="button" data-rm="' + i.id + '" aria-label="Remove ' + esc(i.t) + '">&times;</button></li>'; }).join('')
-      : '';
+    pickedEl.innerHTML = p.map(function (i) {
+      return '<li><span><i aria-hidden="true">&#10003;</i>' + esc(i.t) + (i.m ? ' <small>' + esc(String(i.m).replace(/ \u00b7 [\d.]+ [KM]B$/, '')) + '</small>' : '') + '</span>' +
+        '<button type="button" data-rm="' + i.id + '" aria-label="Remove ' + esc(i.t) + '">&times;</button></li>';
+    }).join('');
     pickedEl.hidden = !n;
-    var empty = root.querySelector('[data-mp-empty]'); if (empty) empty.hidden = !!n;
   }
+
+  /* ---- the library, behind "Add or remove guides" ---- */
+  var libEl = document.getElementById('mp-library');
+  var editBtn = root.querySelector('[data-mp-edit]');
+  function openLib(open, scroll) {
+    if (!libEl) return;
+    libEl.hidden = !open;
+    if (editBtn) { editBtn.setAttribute('aria-expanded', String(open)); editBtn.textContent = open ? '\u2212 Hide the full list' : '+ Add or remove guides'; }
+    if (open && scroll) libEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  if (editBtn) editBtn.addEventListener('click', function () { openLib(libEl.hidden, true); });
+  var closeBtn = root.querySelector('[data-mp-close]');
+  if (closeBtn) closeBtn.addEventListener('click', function () { openLib(false); var h = document.getElementById('mp-panel-h'); if (h) h.scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+
+  /* ---- when are you thinking of moving ---- */
+  var whenEl = root.querySelector('[data-mp-when]');
+  if (whenEl) whenEl.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-when]'); if (!b) return;
+    root.querySelector('input[name="timeline"]').value = b.getAttribute('data-when');
+    Array.prototype.forEach.call(whenEl.querySelectorAll('[data-when]'), function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+    whenEl.parentNode.classList.remove('bad');
+  });
 
   function drawAll() { drawQuestions(); drawList(); drawPanel(); }
   drawAll();
-  if (hilite) setTimeout(function () { var el = document.getElementById('g-' + hilite); if (el) el.scrollIntoView({ block: 'center' }); }, 120);
+  if (hilite) { openLib(true); setTimeout(function () { var el = document.getElementById('g-' + hilite); if (el) el.scrollIntoView({ block: 'center' }); }, 120); }
 
   /* ---- events ---- */
   root.addEventListener('change', function (e) {
@@ -209,8 +242,12 @@
     e.preventDefault();
     errEl.hidden = true;
     var p = picked();
-    if (!p.length) return fail('Tick at least one guide first.');
+    if (!p.length) return fail('Answer the questions above, or add a guide, so there is something to send.');
     if (!form.reportValidity()) return;
+    if (!form.elements['timeline'].value) {
+      whenEl.parentNode.classList.add('bad');
+      return fail('Choose when you are thinking of moving. \u201cJust exploring\u201d is fine.');
+    }
 
     var dest = ctx('destMode') || view;
     form.elements['destination'].value = dest === 'nz' ? 'New Zealand' : dest === 'au' ? 'Australia' : 'Comparing both';
@@ -237,7 +274,7 @@
         var send = fetch('/.netlify/functions/send-pack', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            name: fields.name || '', email: fields.email || '', phone: fields.phone || '',
+            name: fields.name || '', email: fields.email || '', phone: '',
             destination: dest === 'nz' || dest === 'au' ? dest : '',
             household: ctx('householdPhrase') || '', profession: fields.profession || '', timeline: fields.timeline || '',
             role_alerts: fields.role_alerts || '', quarterly_update: fields.quarterly_update || '',
@@ -251,7 +288,7 @@
             body: JSON.stringify({
               kind: 'lead', source: 'my-pack', page: location.pathname, email: fields.email,
               profession: fields.profession, destination: fields.destination,
-              payload: { name: fields.name, phone: fields.phone || '', timeline: fields.timeline, household: fields.household,
+              payload: { name: fields.name, timeline: fields.timeline, household: fields.household,
                 pack: P.list(), role_alerts: fields.role_alerts === 'Yes', quarterly_update: fields.quarterly_update === 'Yes',
                 role_alerts_wording: fields.role_alerts === 'Yes' ? fields.role_alerts_wording : '',
                 quarterly_update_wording: fields.quarterly_update === 'Yes' ? fields.quarterly_update_wording : '' }
@@ -263,7 +300,7 @@
       })
       .then(function (sent) { done(fields, sent); })
       .catch(function () {
-        btn.disabled = false; btn.textContent = 'Email me my pack';
+        btn.disabled = false; btn.innerHTML = 'Email my pack <span aria-hidden="true">&rarr;</span>';
         fail('<strong>This did not send.</strong> Your ticks are saved on this device — please try again in a minute, or email <a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a>.');
       });
   });

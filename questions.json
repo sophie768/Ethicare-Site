@@ -53,7 +53,7 @@
       "q": "What could I earn?",
       "sub": "Indicative pay, and how the agreements set it.",
       "sub_long": "What the collective agreements actually pay, what varies on top of the scale, and what the tax and the cost of living do to it once you are there.",
-      "href": "/is-it-worth-it",
+      "href": "/what-could-i-earn",
       "cta": "Explore salaries",
       "stage": "numbers"
     },
@@ -153,9 +153,9 @@
       ],
       "where": "Working out the money",
       "href": {
-        "nz": "/is-it-worth-it",
-        "au": "/is-it-worth-it",
-        "any": "/is-it-worth-it"
+        "nz": "/what-could-i-earn",
+        "au": "/what-could-i-earn",
+        "any": "/what-could-i-earn"
       }
     },
     {
