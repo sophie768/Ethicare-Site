@@ -233,8 +233,6 @@
    should have the ask ethicare logo") ---------------------------------------------------------- */
 .ask-logo{display:block;height:clamp(44px,5vw,64px);width:auto;margin:0 0 clamp(22px,3vw,34px)}
 .ask-hero h1{max-width:12ch}
-/* a faint Ask bubble behind the instrument: depth, not decoration */
-.askpage::after{content:"";position:absolute;right:-9vw;bottom:-9vw;width:min(44vw,560px);aspect-ratio:220/137;background:url(/assets/brand/ask-ethicare-mark.svg) no-repeat center/contain;opacity:.045;pointer-events:none;transform:rotate(-8deg)}
 .ask-nameplate{display:flex;align-items:center;gap:10px}
 .ask-nameplate img{height:22px;width:auto}
 .ask-instrument .aske-go{background:#A6C84A;color:#01312F;font-size:16px;box-shadow:0 10px 24px -12px rgba(166,200,74,.9)}
@@ -259,7 +257,7 @@
 .ask-watch-note{font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#C6E084!important;font-size:18px!important}
 .ask-watch-film{margin:0;border-radius:18px;overflow:hidden;box-shadow:0 40px 90px -40px rgba(0,0,0,.8);border:1px solid rgba(255,255,255,.1);background:#02615D}
 .ask-watch-film video{display:block;width:100%;height:auto}
-@media(max-width:900px){.ask-watch-grid{grid-template-columns:1fr}.askpage::after{display:none}.aske-type{right:24px}}
+@media(max-width:900px){.ask-watch-grid{grid-template-columns:1fr}.aske-type{right:24px}}
 @media(max-width:560px){.aske-type{display:none}.aske-box.is-typing textarea::placeholder{color:#8A9691}}
 
 /* the question gets the whole width; the button sits beneath it, right-aligned */
