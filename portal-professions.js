@@ -220,7 +220,8 @@ window.ETHICARE_PROFESSIONS = (function () {
       imaging:    ['/guides/australia-registration-mrpba', '/guides/australia-registration-mrpba#checklist'],
       radtherapy: ['/guides/australia-registration-mrpba', '/guides/australia-registration-mrpba#checklist'],
       nuclearmed: ['/guides/australia-registration-mrpba', '/guides/australia-registration-mrpba#checklist'],
-      sonography: ['/guides/australia-registration-asar', '/guides/australia-registration-asar#checklist']
+      sonography: ['/guides/australia-registration-asar', '/guides/australia-registration-asar#checklist'],
+      medicine:   ['/guides/australia-registration-radiologists', '/guides/australia-registration-radiologists#checklist']   /* consultant radiologists */
     }
   };
 

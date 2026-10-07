@@ -47,8 +47,10 @@
 .rg-status div{background:var(--rg-teal);padding:14px 16px}.rg-status .k{display:block;font-family:'Work Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C6E084;margin-bottom:4px}.rg-status .v{font-size:15px;color:#fff;line-height:1.45}
 /* at a glance */
 .glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border-top:1px solid var(--rg-rule);border-bottom:1px solid var(--rg-rule)}
-.glance div{padding:22px 22px 22px 0;border-right:1px solid var(--rg-hair)}.glance div:last-child{border-right:0}.glance b{display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:17px;color:var(--rg-teal);margin-bottom:6px}.glance p{font-size:15px;color:var(--rg-muted);margin:0}
-@media(max-width:700px){.glance div{border-right:0;border-bottom:1px solid var(--rg-hair);padding:16px 0}.glance div:last-child{border-bottom:0}}
+.glance div{padding:22px 22px 22px 0;border-right:1px solid var(--rg-hair)}.glance div:last-child{border-right:0}.glance b{display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:17px;color:var(--rg-teal);margin-bottom:6px}.glance p{font-size:15px;line-height:1.6;color:var(--rg-muted);margin:0}
+/* 7 Oct 2026: room to breathe — padding both sides of every divider; 2x2 above phone width, stacked on a phone */
+@media(min-width:701px){.glance{grid-template-columns:repeat(2,minmax(0,1fr))}.glance div{padding:28px 36px}.glance div:nth-child(odd){padding-left:0}.glance div:nth-child(even){border-right:0;padding-right:0}.glance div:nth-child(-n+2){border-bottom:1px solid var(--rg-hair)}}
+@media(max-width:700px){.glance div{border-right:0;border-bottom:1px solid var(--rg-hair);padding:18px 0}.glance div:last-child{border-bottom:0}}
 /* contents */
 .toc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px 28px;counter-reset:toc}
 .toc li{counter-increment:toc}.toc a{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--rg-hair);font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:var(--rg-teal);text-decoration:none}.toc a::before{content:counter(toc,decimal-leading-zero);font-weight:700;font-size:12px;letter-spacing:.08em;color:var(--rg-fern);min-width:24px}.toc a:hover{color:var(--rg-deep);text-decoration:underline;text-underline-offset:3px}
@@ -90,6 +92,7 @@
 .fine{font-size:14px;color:var(--rg-muted);max-width:70ch}
 @media(max-width:760px){.rg-hero .grid{grid-template-columns:1fr}.rg-hero .art{justify-self:start;max-width:220px}}
 @media print{.rg .toc,.btnrow,.ck-reset,.site-header,.site-footer,page-feedback{display:none!important}.rg-hero{background:#fff!important;color:var(--rg-teal)!important;padding:0 0 10mm}.rg-hero h1,.rg-hero .lead,.rg-hero .crumb,.rg-hero .crumb a{color:var(--rg-teal)!important}.rg-status div{background:#fff!important}.rg-status .v{color:#333!important}.band{background:#fff!important;border:1px solid var(--rg-teal)}.band h2,.band h3{color:var(--rg-teal)!important}.band p{color:#333!important}.rg .sec{padding:8mm 0;break-inside:avoid-page}.ck-list li{break-inside:avoid}}
+.rg-hero .rg-pdf{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:20px 0 0}.rg-hero .rg-pdf a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 18px;border-radius:12px;background:#A6C84A;color:#01312F;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;text-decoration:none}.rg-hero .rg-pdf a:hover{background:#C6E084}.rg-hero .rg-pdf .m{font-size:13.5px;color:#D6E1DA}.rg-hero .rg-pdf .pk-add{margin:0}
 </style>
 <link rel="stylesheet" href="../prose-links.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"New Zealand","item":"https://ethicareresourcing.com/new-zealand"},{"@type":"ListItem","position":2,"name":"Can I work in New Zealand?","item":"https://ethicareresourcing.com/guides/new-zealand-registration"},{"@type":"ListItem","position":3,"name":"PBNZ registration guide"}]}</script>
@@ -168,6 +171,7 @@
         <h1>Registering with the Physiotherapy Board</h1>
         <p class="lead">For internationally qualified physiotherapists: which of the three pathways is yours, what the Practice Thresholds ask of you, the two cultural competency courses you can start today &mdash; and the checklist built into the page so nothing you tick goes out of date.</p>
         <span class="gl-read"><img decoding="async" src="../assets/kettle-52-cream.png" alt="" width="170" height="192" loading="lazy"><span class="rt"><b>Kettle on.</b> A longer read &mdash; about 22 min</span></span>
+        <p class="rg-pdf"><a href="/assets/downloads/nz-registration-physiotherapy.pdf" download>Download the PDF guide</a><span class="m">17 pages &middot; 2.5 MB</span><button type="button" class="pk-add" data-pack-add="nz-reg-pbnz">Add to my pack</button></p>
       </div>
       <div class="art"><img src="../assets/guides/pbnz.webp" alt="A physiotherapist guiding a patient through a resistance-band shoulder exercise in a clinic gym" width="1400" height="933" loading="eager" decoding="async"></div>
     </div>

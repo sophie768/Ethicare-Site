@@ -28,6 +28,7 @@ window.ASK_ETHICARE_KB = {
     nz_registration: { t: 'Registering in New Zealand', d: 'The full registration guide', u: '/guides/new-zealand-registration' },
     au_registration: { t: 'Registering in Australia', d: 'Ahpra, the national boards, and where skills assessment fits', u: '/guides/australia-registration' },
     au_mrpba: { t: 'Registering with Ahpra and the MRPBA', d: 'How registration works for UK-trained radiographers, radiation therapists and nuclear medicine, step by step', u: '/guides/australia-registration-mrpba' },
+    au_ranzcr: { t: 'Registering as a radiologist in Australia', d: 'The RANZCR assessment, the Expedited Specialist pathway, supervised practice and Medicare', u: '/guides/australia-registration-radiologists' },
     au_asar: { t: 'Sonographer accreditation: ASMIRT and ASAR', d: 'The accreditation route for sonographers, and where the skills assessment fits', u: '/guides/australia-registration-asar' },
     take_home_pay: { t: 'Take-home pay calculator', d: 'What a salary pays into your bank after tax, levies and KiwiSaver or super', u: '/take-home-pay' },
     nz_renting: { t: 'Renting in New Zealand', d: 'Your application pack, viewings, bond, tenancy rights and the scams to watch for', u: '/guides/renting-in-new-zealand' },

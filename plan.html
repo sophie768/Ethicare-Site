@@ -172,6 +172,11 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-links a:hover::after{transform:translateX(3px)}
 .pt-links a[target="_blank"]::after{content:"↗"}
 .pt-links{align-items:center}
+.pt-packline{display:flex;align-items:center;flex-wrap:wrap;gap:8px 18px;margin-top:22px;padding:15px 20px;border-radius:14px;background:#E6F1ED;color:#01312F;text-decoration:none;font-size:15.5px;line-height:1.5}
+.pt-packline[hidden]{display:none}
+.pt-packline .k{font-family:var(--display);font-weight:600;font-size:16px;color:#02615D}
+.pt-packline span:nth-child(2){flex:1 1 300px}
+.pt-packline:hover{background:#C9DED3}
 .pt-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px}
 .pt-list{display:grid;gap:12px;margin-top:16px}
 .pt-list a{font-family:var(--display);font-size:15px;font-weight:600}
@@ -492,8 +497,25 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
     <p id="pt-live" class="sr-only" role="status" aria-live="polite"></p>
     <div class="pt-stages" data-stages style="margin-top:clamp(22px,3vw,34px)"></div>
     <p class="pt-fine" style="margin-top:18px;max-width:70ch">Every stage stays open to you whatever you have ticked off. The order is the order most people need, not a rule.</p>
+    <a class="pt-packline" href="/my-pack" data-pt-pack hidden><span class="k">Your pack</span><span data-pt-pack-t>Guides you add as you go collect here.</span><span aria-hidden="true">&rarr;</span></a>
   </div>
 </section>
+<script>
+/* Plan → pack (7 Oct 2026). The guides added from any stage collect in one pack; once there
+   is something in it, this offers to send it. */
+(function () {
+  function paint() {
+    var el = document.querySelector('[data-pt-pack]'); if (!el || !window.EthicarePack) return;
+    var n = window.EthicarePack.count();
+    el.hidden = !n;
+    var t = el.querySelector('[data-pt-pack-t]');
+    if (t) t.textContent = 'You have ' + n + ' guide' + (n === 1 ? '' : 's') + ' in your pack \u2014 email them to yourself in one go, in the order you will need them.';
+  }
+  window.addEventListener('ethicare:pack', paint);
+  window.addEventListener('load', paint);
+  document.addEventListener('DOMContentLoaded', function () { setTimeout(paint, 300); });
+})();
+</script>
 
   <section class="pt-sec" id="send">
     <div class="shell">

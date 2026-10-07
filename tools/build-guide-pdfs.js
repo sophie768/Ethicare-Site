@@ -137,7 +137,7 @@ body{font-family:'Manrope',sans-serif;color:#333}
 .pdfnote{margin-top:10mm;font-size:9pt;line-height:1.6;color:#555;max-width:70ch}
 .pdfnote strong{color:#02615D}
 /* web furniture that means nothing on paper */
-.wf-crumb,.crumb,.breadcrumb,.chapnav,.ch-prev,.ch-next,.backtop,.secbar,.sharebar{display:none !important}
+.rg-pdf,.pk-add,.wf-crumb,.crumb,.breadcrumb,.chapnav,.ch-prev,.ch-next,.backtop,.secbar,.sharebar{display:none !important}
 /* never strand a heading at the foot of a sheet */
 h1,h2,h3{break-after:avoid;page-break-after:avoid}
 figure,table,.gfx,blockquote{break-inside:avoid;page-break-inside:avoid}
@@ -148,7 +148,7 @@ figure,table,.gfx,blockquote{break-inside:avoid;page-break-inside:avoid}
     <span class="eb">${guide.eyebrow}</span>
     <h1>${guide.title}</h1>
     <p class="say">${guide.strap}</p>
-    <p class="meta"><strong>Ethicare Resourcing</strong><br>${guide.chapters.length} chapters &middot; ${new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}<br>ethicareresourcing.com</p>
+    <p class="meta"><strong>Ethicare Resourcing</strong><br>${guide.chapters.length === 1 ? 'Guide and checklist' : guide.chapters.length + ' chapters'} &middot; ${new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}<br>ethicareresourcing.com</p>
   </div>
 </section>
 <section class="pdftoc">

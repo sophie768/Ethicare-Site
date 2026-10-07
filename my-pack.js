@@ -1,9 +1,11 @@
 /* ============================================================================
-   Create my pack — the page (7 Oct 2026)
+   Create my pack — the page (7 Oct 2026, redesigned the same day)
 
-   Tick the guides you want, get them in one email. The pack itself lives in
-   pack-core.js (shared with every "Add to my pack" button on the site); this file
-   draws the catalogue, suggests a starter set from the answers strip, and sends.
+   Three questions on the page (where, what you do, who is coming) tick the guides
+   that fit as soon as they are answered; the guides are cards you tap; the pack
+   panel sends them in one email. The pack itself lives in pack-core.js, shared with
+   every "Add to my pack" button on the site; the answers are the same answers every
+   tool uses (candidate-context.js), so Plan, the checker and the calculator agree.
 
    Sending, in order — the same shape as every other form since the safety net:
      1. Netlify Forms `my-pack`          the record (and the office notification)
@@ -25,6 +27,7 @@
 
   var view = ctx('destMode') || 'both';
   var hilite = '';
+  var note = '';
 
   /* ---- what fits this person ---- */
   function fits(i, v) { return v === 'both' || i.c === 'both' || i.c === v; }
@@ -45,6 +48,23 @@
     if (h) bits.push(h);
     return bits.filter(Boolean).join(', ');
   }
+  function applySuggestion(first) {
+    var s = suggestion(); if (!s.length) return;
+    var have = P.list(), add = s.filter(function (id) { return have.indexOf(id) === -1; });
+    if (add.length) P.set(have.concat(add));
+    var n = suggestion().length;
+    note = (first ? 'We\u2019ve ticked ' : 'Your pack now has ') + n + ' guide' + (n === 1 ? '' : 's') + (first ? ' for ' : ' that fit ') + esc(describe()) + '. Untick anything you don\u2019t need, or add more below.';
+  }
+
+  /* ---- ?p=<id,id,...> — "Open my pack" from the pack email, on any device ---- */
+  (function () {
+    var raw = new URLSearchParams(location.search).get('p');
+    if (!raw) return;
+    var ids = raw.split(',').filter(function (id) { return !!BY[id]; });
+    if (!ids.length) return;
+    var have = P.list();
+    P.set(have.concat(ids.filter(function (id) { return have.indexOf(id) === -1; })));
+  })();
 
   /* ---- ?guide=<area> from the old /request-a-guide links ---- */
   (function () {
@@ -58,74 +78,105 @@
   })();
 
   /* ---- first visit: pre-tick what fits, if we know enough ---- */
-  var note = '';
-  if (!P.count()) {
-    var s = suggestion();
-    if (s.length) { P.set(s); note = 'We have ticked ' + s.length + ' guides for ' + esc(describe()) + '. Untick anything you do not need.'; }
+  if (!P.count() && ctx('destMode')) applySuggestion(true);
+
+  /* ---- the three questions ---- */
+  var qEl = root.querySelector('[data-mp-q]');
+  var HH = [['alone', 'Just me'], ['partner', 'Partner'], ['children', 'Children'], ['both', 'Partner and children'], ['parent', 'A parent']];
+  function profOptions() {
+    var P2 = window.ETHICARE_PROFESSIONS, list = [];
+    try { list = P2 && P2.options ? P2.options() : []; } catch (e) {}
+    var cur = ctx('profession');
+    return '<option value=""' + (cur ? '' : ' selected') + '>Choose your profession…</option>' +
+      list.map(function (o) { return '<option value="' + esc(o.value) + '"' + (o.value === cur ? ' selected' : '') + '>' + esc(o.label) + '</option>'; }).join('');
+  }
+  function drawQuestions() {
+    if (!qEl) return;
+    var d = ctx('destMode'), hh = ctx('household');
+    var pill = function (k, v, label, on) { return '<button type="button" data-q="' + k + '" data-v="' + v + '" aria-pressed="' + on + '">' + label + '</button>'; };
+    qEl.innerHTML = '<h2 id="mp-q-h" class="sr-only">Three questions</h2>' +
+      '<div class="mp-qi"><span class="mp-ql">Where are you thinking of?</span><div class="mp-pills">' +
+        pill('dest', 'nz', 'New Zealand', d === 'nz') + pill('dest', 'au', 'Australia', d === 'au') + pill('dest', 'both', 'Comparing both', d === 'both') + '</div></div>' +
+      '<div class="mp-qi"><label class="mp-ql" for="mp-prof">What do you do?</label><select id="mp-prof" data-q-prof>' + profOptions() + '</select></div>' +
+      '<div class="mp-qi"><span class="mp-ql">Who is coming with you?</span><div class="mp-pills">' +
+        HH.map(function (h) { return pill('hh', h[0], h[1], hh === h[0]); }).join('') + '</div></div>' +
+      '<p class="mp-qnote" role="status"' + (note ? '' : ' hidden') + '>' + note + '</p>';
+  }
+  function answer(patch) {
+    if (!C || !C.write) return;
+    C.write(patch);
+    if (patch.dest) view = patch.dest;
+    applySuggestion(false);
+    drawAll();
+  }
+  if (qEl) {
+    qEl.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-q]'); if (!b) return;
+      var k = b.getAttribute('data-q'), v = b.getAttribute('data-v');
+      answer(k === 'dest' ? { dest: v } : { household: v });
+    });
+    qEl.addEventListener('change', function (e) {
+      if (e.target.hasAttribute('data-q-prof')) answer({ profession: e.target.value });
+    });
   }
 
-  /* ---- drawing ---- */
+  /* ---- the guides ---- */
   var listEl = root.querySelector('[data-mp-list]');
-  var toolsEl = root.querySelector('[data-mp-tools]');
-
-  function drawTools() {
-    var seg = [['nz', 'New Zealand'], ['au', 'Australia'], ['both', 'Both']].map(function (o) {
-      return '<button type="button" data-view="' + o[0] + '" aria-pressed="' + (view === o[0]) + '">' + o[1] + '</button>';
-    }).join('');
-    var sug = suggestion();
-    toolsEl.innerHTML = '<div class="mp-seg" role="group" aria-label="Show guides for">' + seg + '</div>' +
-      (sug.length ? '<button type="button" class="mp-suggest" data-suggest>Tick the guides that fit my answers</button>' : '') +
-      (note ? '<p class="mp-sugnote" role="status">' + note + '</p>' :
-        (!ctx('destMode') ? '<p class="mp-sugnote">Answer the three questions above and we will tick the guides that fit, or tick as you go.</p>' : ''));
-  }
-
-  function row(i) {
+  function card(i) {
     var on = P.has(i.id);
     var tag = view === 'both' && i.c !== 'both' ? '<span class="tag">' + i.c.toUpperCase() + '</span>' : '';
-    return '<li class="mp-item' + (i.id === hilite ? ' hi' : '') + '" id="g-' + i.id + '">' +
-      '<input type="checkbox" id="c-' + i.id + '" data-id="' + i.id + '"' + (on ? ' checked' : '') + '>' +
-      '<label for="c-' + i.id + '"><span class="t">' + esc(i.t) + tag + '</span><span class="d">' + esc(i.d) + '</span></label>' +
-      '<a class="open" href="' + esc(i.u) + '" target="_blank" rel="noopener">' + (i.pdf ? 'PDF' : 'Read') + '<span class="sr-only"> ' + esc(i.t) + '</span> &#8599;</a></li>';
+    return '<div class="mp-card' + (on ? ' on' : '') + (i.id === hilite ? ' hi' : '') + '" id="g-' + i.id + '">' +
+      '<label><input type="checkbox" data-id="' + i.id + '"' + (on ? ' checked' : '') + '><span class="tk" aria-hidden="true"></span>' +
+      '<span class="t">' + esc(i.t) + '</span><span class="d">' + esc(i.d) + '</span></label>' +
+      '<div class="ft">' + tag + '<span>' + esc(i.m || '') + '</span><a href="' + esc(i.u) + '" target="_blank" rel="noopener">' + (i.pdf ? 'Open PDF' : 'Read') + '<span class="sr-only"> ' + esc(i.t) + '</span> &#8599;</a>' +
+      (i.x ? '<a href="' + esc(i.x) + '" target="_blank" rel="noopener">PDF<span class="sr-only"> version of ' + esc(i.t) + '</span> &#8599;</a>' : '') + '</div></div>';
   }
   function chip(i) {
     var on = P.has(i.id), nat = /^Moving to/.test(i.t);
-    return '<label class="mp-chip' + (on ? ' on' : '') + (nat ? ' nat' : '') + (i.id === hilite ? ' hi' : '') + '" id="g-' + i.id + '" title="' + esc(i.d) + '">' +
+    return '<label class="mp-chip' + (on ? ' on' : '') + (nat ? ' nat' : '') + (i.id === hilite ? ' hi' : '') + '" id="g-' + i.id + '" title="' + esc(i.d + (i.m ? ' · ' + i.m : '')) + '">' +
       '<input type="checkbox" data-id="' + i.id + '"' + (on ? ' checked' : '') + '><span class="ck" aria-hidden="true"></span>' + esc(i.t) + '</label>';
   }
-
   function drawList() {
     var h = '';
     GROUPS.forEach(function (g) {
       var rows = ITEMS.filter(function (i) { return i.g === g[0] && fits(i, view) && (!i.both || view === 'both'); });
       if (!rows.length) return;
       var picked = rows.filter(function (i) { return P.has(i.id); }).length;
+      var all = picked === rows.length;
       h += '<section class="mp-group" aria-labelledby="h-' + g[0] + '"><h2 id="h-' + g[0] + '">' + esc(g[1]) +
-        '<small>' + (picked ? picked + ' of ' + rows.length + ' ticked' : rows.length + ' guides') + '</small></h2>';
-      if (g[0] === 'where') {
-        h += '<p class="mp-sugnote" style="margin:0 0 10px">A relocation guide for every region, as a PDF.</p><div class="mp-chips">' + rows.map(chip).join('') + '</div>';
-      } else {
-        h += '<ul class="mp-list">' + rows.map(row).join('') + '</ul>';
-      }
+        '<span class="mp-gtools"><small>' + (picked ? picked + ' of ' + rows.length + ' ticked' : rows.length + ' guides') + '</small>' +
+        '<button type="button" class="mp-all" data-all="' + g[0] + '" data-on="' + (all ? '0' : '1') + '">' + (all ? 'Untick all' : 'Tick all') + '</button></span></h2>';
+      h += g[0] === 'where'
+        ? '<p class="mp-sugnote" style="margin:0 0 12px">A relocation guide for every region, as a PDF.</p><div class="mp-chips">' + rows.map(chip).join('') + '</div>'
+        : '<div class="mp-cards">' + rows.map(card).join('') + '</div>';
       h += '</section>';
     });
     listEl.innerHTML = h;
   }
 
-  /* ---- the panel ---- */
+  /* ---- the panel, the hero count and the phone bar ---- */
   var pickedEl = root.querySelector('[data-mp-picked]');
   var countEl = root.querySelector('[data-mp-count]');
+  var floatEl = document.querySelector('[data-mp-floatn]');
+  var barEl = document.querySelector('[data-mp-bar]');
   function picked() { return P.list().map(function (id) { return BY[id]; }).filter(Boolean); }
   function drawPanel() {
-    var p = picked();
-    countEl.textContent = p.length ? p.length + ' guide' + (p.length === 1 ? '' : 's') + ' ticked' : 'Nothing ticked yet';
-    pickedEl.innerHTML = p.length
+    var p = picked(), n = p.length, word = n + ' guide' + (n === 1 ? '' : 's');
+    countEl.textContent = n ? word + ' ticked' : 'Nothing ticked yet';
+    if (floatEl) floatEl.textContent = word;
+    if (barEl) {
+      barEl.hidden = false;
+      barEl.classList.toggle('on', n > 0);
+      var bt = barEl.querySelector('[data-mp-bar-t]'); if (bt) bt.textContent = 'Email my pack (' + n + ')';
+    }
+    pickedEl.innerHTML = n
       ? p.map(function (i) { return '<li><span>' + esc(i.t) + '</span><button type="button" data-rm="' + i.id + '" aria-label="Remove ' + esc(i.t) + '">&times;</button></li>'; }).join('')
       : '';
-    pickedEl.hidden = !p.length;
-    var empty = root.querySelector('[data-mp-empty]'); if (empty) empty.hidden = !!p.length;
+    pickedEl.hidden = !n;
+    var empty = root.querySelector('[data-mp-empty]'); if (empty) empty.hidden = !!n;
   }
 
-  function drawAll() { drawTools(); drawList(); drawPanel(); }
+  function drawAll() { drawQuestions(); drawList(); drawPanel(); }
   drawAll();
   if (hilite) setTimeout(function () { var el = document.getElementById('g-' + hilite); if (el) el.scrollIntoView({ block: 'center' }); }, 120);
 
@@ -136,20 +187,18 @@
     if (e.target.checked) P.add(id); else P.remove(id);
   });
   root.addEventListener('click', function (e) {
-    var v = e.target.closest('[data-view]');
-    if (v) { view = v.getAttribute('data-view'); note = ''; drawTools(); drawList(); return; }
-    if (e.target.closest('[data-suggest]')) {
-      var s = suggestion(), have = P.list();
-      P.set(have.concat(s.filter(function (id) { return have.indexOf(id) === -1; })));
-      view = ctx('destMode') || view;
-      note = 'Ticked the guides for ' + esc(describe()) + '. Anything you had already ticked is still there.';
-      drawAll(); return;
+    var all = e.target.closest('[data-all]');
+    if (all) {
+      var g = all.getAttribute('data-all'), on = all.getAttribute('data-on') === '1';
+      var ids = ITEMS.filter(function (i) { return i.g === g && fits(i, view) && (!i.both || view === 'both'); }).map(function (i) { return i.id; });
+      var have = P.list();
+      P.set(on ? have.concat(ids.filter(function (id) { return have.indexOf(id) === -1; })) : have.filter(function (id) { return ids.indexOf(id) === -1; }));
+      return;
     }
     var rm = e.target.closest('[data-rm]');
     if (rm) { P.remove(rm.getAttribute('data-rm')); return; }
   });
   window.addEventListener('ethicare:pack', function () { drawList(); drawPanel(); });
-  window.addEventListener('ethicare:context', function () { var d = ctx('destMode'); if (d) view = d; note = ''; drawAll(); });
 
   /* ---- sending ---- */
   var form = root.querySelector('form[name="my-pack"]');
@@ -192,6 +241,7 @@
             destination: dest === 'nz' || dest === 'au' ? dest : '',
             household: ctx('householdPhrase') || '', profession: fields.profession || '', timeline: fields.timeline || '',
             role_alerts: fields.role_alerts || '', quarterly_update: fields.quarterly_update || '',
+            ids: P.list(), prof: ctx('profession') || '', hh: ctx('household') || '',
             pack: fields['pack-contents'], 'bot-trap': fields['bot-field'] || ''
           })
         }).then(function (r) { return r.ok; }, function () { return false; });

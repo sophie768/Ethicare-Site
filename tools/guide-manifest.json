@@ -656,5 +656,155 @@
    "destinations/mandurah-australia/food.html",
    "destinations/mandurah-australia/weekends.html"
   ]
+ },
+ {
+  "slug": "nz-registration-radiography",
+  "title": "Registration for medical imaging",
+  "eyebrow": "New Zealand · MRTB",
+  "strap": "The route to practising as a radiographer or MIT in New Zealand, and the checklist that goes with it.",
+  "cover": "assets/nz-general/mount-taranaki.jpg",
+  "chapters": [
+   "guides/new-zealand-registration-mrtb.html"
+  ]
+ },
+ {
+  "slug": "nz-registration-doctors",
+  "title": "Registration for doctors",
+  "eyebrow": "New Zealand · MCNZ",
+  "strap": "The Medical Council route, what it asks of you, and the checklist that goes with it.",
+  "cover": "assets/christchurch/lake-tekapo-lupins.jpg",
+  "chapters": [
+   "guides/new-zealand-registration-mcnz.html"
+  ]
+ },
+ {
+  "slug": "nz-registration-psychology",
+  "title": "Registration for psychologists",
+  "eyebrow": "New Zealand · NZPB",
+  "strap": "The New Zealand Psychologists Board route, and the checklist that goes with it.",
+  "cover": "assets/nelson-tasman/nelson-lakes.jpg",
+  "chapters": [
+   "guides/new-zealand-registration-nzpb.html"
+  ]
+ },
+ {
+  "slug": "nz-registration-occupational-therapy",
+  "title": "Registration for occupational therapists",
+  "eyebrow": "New Zealand · OTBNZ",
+  "strap": "The Occupational Therapy Board route, and the checklist that goes with it.",
+  "cover": "assets/northland/cape-reinga-lighthouse.jpg",
+  "chapters": [
+   "guides/new-zealand-registration-otbnz.html"
+  ]
+ },
+ {
+  "slug": "nz-registration-physiotherapy",
+  "title": "Registration for physiotherapists",
+  "eyebrow": "New Zealand · PBNZ",
+  "strap": "The Physiotherapy Board route, and the checklist that goes with it.",
+  "cover": "assets/nz-general/bush-swing-bridge.jpg",
+  "chapters": [
+   "guides/new-zealand-registration-pbnz.html"
+  ]
+ },
+ {
+  "slug": "nz-registration-anaesthetic-technicians",
+  "title": "Registration for anaesthetic technicians",
+  "eyebrow": "New Zealand · MSCNZ",
+  "strap": "The Medical Sciences Council route, and what it asks of you.",
+  "cover": "assets/hawkes-bay/tuki-tuki-farmland.jpg",
+  "chapters": [
+   "guides/new-zealand-registration-mscnz.html"
+  ]
+ },
+ {
+  "slug": "au-registration-medical-imaging",
+  "title": "Registration for medical imaging",
+  "eyebrow": "Australia · MRPBA",
+  "strap": "The Medical Radiation Practice Board route, and the checklist that goes with it.",
+  "cover": "assets/vic/twelve-apostles-great-ocean-road.jpg",
+  "chapters": [
+   "guides/australia-registration-mrpba.html"
+  ]
+ },
+ {
+  "slug": "au-accreditation-sonography",
+  "title": "Accreditation for sonographers",
+  "eyebrow": "Australia · ASMIRT and ASAR",
+  "strap": "How sonographer accreditation works in Australia, and what it asks of you.",
+  "cover": "assets/qld/port-douglas-headland.jpg",
+  "chapters": [
+   "guides/australia-registration-asar.html"
+  ]
+ },
+ {
+  "slug": "au-registration-radiologists",
+  "title": "Registration for radiologists",
+  "eyebrow": "Australia · Medical Board and RANZCR",
+  "strap": "The specialist pathway, the expedited route and Medicare, and the checklist that goes with it.",
+  "cover": "assets/nsw/blue-mountains-lookout.jpg",
+  "chapters": [
+   "guides/australia-registration-radiologists.html"
+  ]
+ },
+ {
+  "slug": "nz-registration-overview",
+  "title": "Can I work in New Zealand?",
+  "eyebrow": "New Zealand · Registration",
+  "strap": "Everything registration asks of you, whichever profession you are in.",
+  "cover": "assets/northland/cape-reinga-lighthouse.jpg",
+  "chapters": [
+   "guides/new-zealand-registration.html"
+  ]
+ },
+ {
+  "slug": "au-registration-overview",
+  "title": "Can I work in Australia?",
+  "eyebrow": "Australia · Registration",
+  "strap": "Everything registration asks of you, whichever profession you are in.",
+  "cover": "assets/wa/esperance-beach.jpg",
+  "chapters": [
+   "guides/australia-registration.html"
+  ]
+ },
+ {
+  "slug": "your-cv-and-interview-nz",
+  "title": "Your CV and interview",
+  "eyebrow": "New Zealand",
+  "strap": "How to set out your experience for a different health system, and the questions panels actually ask.",
+  "cover": "assets/nz-life/wellington-waterfront-commute.jpg",
+  "chapters": [
+   "guides/new-zealand-interview.html"
+  ]
+ },
+ {
+  "slug": "your-cv-and-interview-au",
+  "title": "Your CV and interview",
+  "eyebrow": "Australia",
+  "strap": "How to set out your experience for a different health system, and the questions panels actually ask.",
+  "cover": "assets/nsw/sydney-opera-house-harbour-bridge.jpg",
+  "chapters": [
+   "guides/australia-interview.html"
+  ]
+ },
+ {
+  "slug": "the-cost-of-relocating",
+  "title": "The cost of relocating",
+  "eyebrow": "Before you commit",
+  "strap": "What the whole move costs, what an employer usually covers, and what you need in the bank.",
+  "cover": "assets/wa/esperance-beach.jpg",
+  "chapters": [
+   "guides/cost-of-relocating.html"
+  ]
+ },
+ {
+  "slug": "understanding-your-offer",
+  "title": "Understanding your offer",
+  "eyebrow": "Before you sign",
+  "strap": "What you have been offered, what is usually covered, and the questions still worth asking.",
+  "cover": "assets/christchurch/lake-tekapo-lupins.jpg",
+  "chapters": [
+   "guides/negotiating-your-offer.html"
+  ]
  }
 ]

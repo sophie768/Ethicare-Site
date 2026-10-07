@@ -156,7 +156,8 @@
       imaging:     'australia-registration-mrpba',     /* Medical Radiation Practice Board */
       radtherapy:  'australia-registration-mrpba',
       nuclearmed:  'australia-registration-mrpba',
-      sonography:  'australia-registration-asar'       /* ASMIRT and ASAR accreditation */
+      sonography:  'australia-registration-asar',      /* ASMIRT and ASAR accreditation */
+      medicine:    'australia-registration-radiologists' /* Medical Board and RANZCR (radiologists) */
     }
   };
   function regGuide(dd) {

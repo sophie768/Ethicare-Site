@@ -47,6 +47,7 @@ const RESOURCES = {
   au_registration: 'Registering in Australia',
   au_mrpba: 'MRPBA registration for radiographers, radiation therapists and nuclear medicine — Ahpra, step by step',
   au_asar: 'Sonographer accreditation in Australia — ASMIRT and ASAR',
+  au_ranzcr: 'Consultant radiologists in Australia — Medical Board specialist pathway, RANZCR assessment, the Expedited Specialist pathway (Canadian RCPSC diagnostic radiology certificate only, from 1 July 2026), supervised practice and section 19AB Medicare',
   take_home_pay: 'Take-home pay calculator — what a NZ or AU salary pays into the bank after tax, ACC/Medicare levy, KiwiSaver/super',
   nz_renting: 'Renting in New Zealand — application pack, bond, tenancy rights, Healthy Homes, scams',
   nz_driving: 'Driving in New Zealand — converting a licence, WOF, rego, buying a car',
