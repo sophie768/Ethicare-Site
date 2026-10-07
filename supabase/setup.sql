@@ -2,6 +2,7 @@
 -- Ethicare Resourcing — every table the website writes to (7 Oct 2026)
 -- Run once in Supabase → SQL Editor → New query → Run. Safe to run again:
 -- every statement is "if not exists". Region: West EU (Ireland).
+-- If the tables already exist, step 5 at the bottom adds any missing columns.
 --
 -- Row level security is ON with no policies, on purpose: only the site's server
 -- functions (which hold the service-role key in Netlify, never in a browser) can
@@ -86,3 +87,34 @@ create table if not exists my_move (
   updated_at  timestamptz not null default now()
 );
 alter table my_move enable row level security;
+
+-- ============================================================================
+-- 5. Bring tables that already existed up to date (7 Oct 2026).
+--    "create table if not exists" leaves an older table exactly as it was, so the
+--    columns added since are added here. Existing rows are untouched; safe to rerun.
+-- ============================================================================
+alter table leads add column if not exists source           text;
+alter table leads add column if not exists who              text;
+alter table leads add column if not exists name             text;
+alter table leads add column if not exists email            text;
+alter table leads add column if not exists phone            text;
+alter table leads add column if not exists profession       text;
+alter table leads add column if not exists destination      text;
+alter table leads add column if not exists timeline         text;
+alter table leads add column if not exists based_in         text;
+alter table leads add column if not exists wants_call       text;
+alter table leads add column if not exists role_alerts      boolean not null default false;
+alter table leads add column if not exists quarterly_update boolean not null default false;
+alter table leads add column if not exists referral_source  text;
+alter table leads add column if not exists page             text;
+alter table leads add column if not exists payload          jsonb;
+
+alter table candidates add column if not exists public_ref text unique default ('ETH-' || upper(substr(md5(random()::text || clock_timestamp()::text), 1, 6)));
+alter table candidates add column if not exists raw        jsonb;
+
+-- Row level security on every table (no policies = server functions only).
+alter table candidates     enable row level security;
+alter table consent_events enable row level security;
+alter table leads          enable row level security;
+alter table my_move        enable row level security;
+alter table plans          enable row level security;

@@ -53,7 +53,8 @@ const FORMS = {
   'guide-request': 'Email me the guide',
   'plan-share': 'Plan Ethicare — share my plan',
   'guide-pack': 'Guide pack',
-  'my-pack': 'Create my pack'
+  'my-pack': 'Create my pack',
+  'quick-interest': 'Quick interest form'
 };
 
 const MAX_BODY = 20000;

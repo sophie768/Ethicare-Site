@@ -32,6 +32,13 @@
   force = true
 
 [[redirects]]
+  # 7 Oct 2026: short address for social posts. Query strings (to, role, utm_*) carry across.
+  from = "/start"
+  to = "/interested"
+  status = 301
+  force = true
+
+[[redirects]]
   # 7 Oct 2026: one place for guides. "Create my pack" replaces both the resources
   # library and the single-guide request page. Query strings carry across, so the old
   # /request-a-guide?guide=<area> links still tick that guide.

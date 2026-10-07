@@ -121,8 +121,14 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}/* playfair-h
 (function(){
   /* A guide request lands here with ?from=guide once the email sender is live. The page
      is static and shared by every form, so the one line that differs is swapped in here. */
-  if (new URLSearchParams(location.search).get('from') !== 'guide') return;
+  var from = new URLSearchParams(location.search).get('from');
   var h = document.querySelector('.ty-band h1'), p = document.querySelector('.ty-band p.lead');
+  if (from === 'interest') {
+    if (h) h.textContent = 'Thank you \u2014 we have your details';
+    if (p) p.innerHTML = 'A person at Ethicare will come back to you, usually within one working day. While you wait, <a href="/my-pack" style="color:#02615D;text-decoration:underline">create your pack of guides</a> \u2014 registration, visas, pay and the place you are thinking of, in one email.';
+    return;
+  }
+  if (from !== 'guide') return;
   if (h) h.textContent = 'Your guide is on its way';
   if (p) p.innerHTML = 'The email usually arrives within a couple of minutes \u2014 if it has not, check your junk folder, the first one sometimes lands there. The guide is also one click away on <a href="/my-pack" style="color:#02615D;text-decoration:underline">the downloads page</a>, no email needed.';
 })();
