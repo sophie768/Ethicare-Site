@@ -8,61 +8,19 @@
      provides information and guidance to every profession the checker covers, whether
      or not we currently place roles in it. Guide, do not gate. Values are stable keys —
      they drive GROUPS and EQUIP below and are saved in the candidate's browser. */
-  var PROFESSIONS = [
-    { value: 'radiography', label: 'Medical imaging \u2014 radiography, MRI & nuclear medicine' },
-    { value: 'sonography', label: 'Sonography' },
-    { value: 'radiation', label: 'Radiation therapy' },
-    { value: 'physio', label: 'Physiotherapy' },
-    { value: 'ot', label: 'Occupational therapy' },
-    { value: 'psychology', label: 'Psychology' },
-    { value: 'slt', label: 'Speech & language therapy' },
-    { value: 'dietetics', label: 'Dietetics' },
-    { value: 'socialwork', label: 'Social work' },
-    { value: 'anaesthetics', label: 'Anaesthetic technology / ODP' },
-    { value: 'nursing', label: 'Nursing \u2014 registered or enrolled' },
-    { value: 'midwifery', label: 'Midwifery' },
-    { value: 'gp', label: 'General practice' },
-    { value: 'medicine', label: 'Hospital medicine \u2014 consultant, specialist or registrar' },
-    { value: 'other', label: 'Another profession' }
-  ];
-
-  var GROUPS = {
-    radiography: ['General radiography', 'CT', 'CT special procedures', 'Fluoroscopy', 'Mobile and theatre', 'MRI'],
-    sonography: ['Obstetric', 'Gynaecological', 'Abdominal', 'Musculoskeletal', 'Vascular', 'Paediatric'],
-    radiation: ['Planning', 'Treatment delivery', 'Site groups', 'Brachytherapy', 'Quality assurance'],
-    nursing: ['Clinical skills', 'Patient groups', 'Emergency and deteriorating patients', 'Medicines management', 'Teaching and supervision'],
-    midwifery: ['Antenatal', 'Labour and birth', 'Postnatal', 'Neonatal', 'Complex and high risk'],
-    gp: ['Clinical presentations', 'Long-term conditions', 'Procedures and minor surgery', 'Practice systems and teamwork', 'Teaching, supervision and audit'],
-    medicine: ['Clinical presentations', 'Procedures', 'Acute and on call', 'Outpatients and clinics', 'Leadership, teaching and governance'],
-    dietetics: ['Clinical dietetics and nutrition support', 'Patient groups and conditions', 'Enteral and parenteral nutrition', 'Community and food service', 'Education, audit and research'],
-    socialwork: ['Assessment and care planning', 'Safeguarding and risk', 'Client groups and settings', 'Discharge and community', 'Statutory frameworks and supervision'],
-    anaesthetics: ['Anaesthetic techniques', 'Regional', 'Airway management', 'Case mix', 'Critical care and pain'],
-    psychology: ['Assessment', 'Therapeutic models', 'Client groups', 'Risk and safeguarding', 'Consultation and supervision'],
-    physio: ['Musculoskeletal', 'Neurological', 'Respiratory', 'Rehabilitation settings', 'Assessment and outcome measures'],
-    ot: ['Assessment', 'Interventions', 'Client groups', 'Equipment and adaptations', 'Discharge planning'],
-    pharmacy: ['Clinical pharmacy', 'Specialty areas', 'Medicines governance', 'Dispensing and aseptic', 'Counselling and education'],
-    slt: ['Assessment', 'Dysphagia', 'Communication', 'Client groups', 'Settings'],
-    other: ['Assessment', 'Interventions', 'Patient groups', 'Settings', 'Teaching and supervision']
+  /* The profession list, the clinical-expertise groupings and the equipment guidance live in
+     cv-skills-data.js, shared with the CV checker (7 Oct 2026) — one list, so the two tools
+     never disagree. The fallback only keeps the page working if that file fails to load. */
+  var SKL = window.EthicareCVSkills || {
+    PROFESSIONS: [{ value: 'other', label: 'Another profession' }],
+    GROUPS: { other: ['Assessment', 'Interventions', 'Patient groups', 'Settings', 'Teaching and supervision'] },
+    EQUIP: { other: { title: 'Equipment and systems used', lead: 'Name the equipment, assessments and clinical systems you have worked on. Manufacturer and model, not the category.' } },
+    FROM_CONTEXT: {}, TO_CONTEXT: {},
+    hint: function () { return ''; }
   };
-
-  var EQUIP = {
-    radiography: { title: 'Equipment used', lead: 'Manufacturer and model, not the category. Siemens Somatom Definition AS, not CT scanner. Name the information systems too — the RIS, the PACS, the reporting system.' },
-    sonography: { title: 'Equipment and systems used', lead: 'Manufacturer and model, plus the reporting and image systems you have worked on.' },
-    radiation: { title: 'Equipment and systems used', lead: 'Linacs, planning systems and record-and-verify by name and version where you know it.' },
-    nursing: { title: 'Systems and equipment used', lead: 'Clinical systems and equipment by name — the electronic record, the observation and escalation system, the pumps and monitors you are signed off on.' },
-    midwifery: { title: 'Systems and equipment used', lead: 'Clinical systems and equipment by name — the maternity record, the monitoring you use, the equipment you are signed off on.' },
-    gp: { title: 'Systems and procedures', lead: 'Practice management and clinical systems by name, and the procedures you are independently signed off to perform.' },
-    medicine: { title: 'Systems and procedures', lead: 'Clinical systems by name, and the procedures you are independently signed off to perform.' },
-    dietetics: { title: 'Assessments and systems used', lead: 'Named assessment tools, nutrition support products and regimens, and the clinical record systems you have worked on.' },
-    socialwork: { title: 'Frameworks and systems used', lead: 'The assessment frameworks, statutory processes and case-management systems you have worked in, by name.' },
-    anaesthetics: { title: 'Equipment and systems used', lead: 'Anaesthetic machines, airway and monitoring equipment, and the record systems.' },
-    psychology: { title: 'Assessments and systems used', lead: 'Named assessment tools and outcome measures, plus the clinical record system.' },
-    physio: { title: 'Equipment and systems used', lead: 'Equipment, outcome measures and clinical systems by name.' },
-    ot: { title: 'Assessments and equipment used', lead: 'Named standardised assessments, equipment you prescribe, and clinical systems.' },
-    pharmacy: { title: 'Systems used', lead: 'Dispensing, prescribing and clinical systems by name.' },
-    slt: { title: 'Assessments and systems used', lead: 'Named assessments and the clinical systems you have worked on.' },
-    other: { title: 'Equipment and systems used', lead: 'Name the equipment, assessments and clinical systems you have worked on. Manufacturer and model, not the category.' }
-  };
+  var PROFESSIONS = SKL.PROFESSIONS;
+  var GROUPS = SKL.GROUPS;
+  var EQUIP = SKL.EQUIP;
 
   var FILLER = ['excellent communication skills', 'good communication skills', 'strong communication skills', 'team player', 'works well in a team', 'work well in a team', 'team-player', 'hard working', 'hardworking', 'strong work ethic', 'passionate about', 'dedicated professional', 'highly motivated', 'self-motivated', 'self motivated', 'attention to detail', 'go the extra mile', 'goes the extra mile', 'fast-paced environment', 'fast paced environment', 'works well under pressure', 'work well under pressure', 'flexible and adaptable', 'proven track record', 'results-driven', 'can-do attitude', 'thinks outside the box', 'think outside the box', 'excellent interpersonal skills'];
   var NEEDS_EVIDENCE = ['cultural competence', 'culturally competent', 'cultural safety', 'patient advocacy', 'patient advocate', 'holistic care', 'compassionate care'];
@@ -207,7 +165,7 @@
       return '<div class="cv-row"><div class="cv-rowtop"><div class="cv-f" style="flex:1">' +
         rowInput('expertise', r.id, 'group', 'Grouping — CT, theatre, paediatrics', r.group) +
         '</div>' + removeBtn('expertise', r.id) + '</div><div class="cv-f">' +
-        rowArea('expertise', r.id, 'items', 3, 'Name the procedures. A reader will not assume a skill you have not written down.', r.items) +
+        rowArea('expertise', r.id, 'items', 3, SKL.hint(S.profession, r.group) ? 'For example: ' + SKL.hint(S.profession, r.group) : 'Name the procedures. A reader will not assume a skill you have not written down.', r.items) +
         '</div><p class="cv-hint">One line each, or run them together — your punctuation is kept as you type it.</p></div>';
     },
     soft: function (r) {
@@ -612,7 +570,7 @@
       }
       if (e.target.id === 'cvProf') {
         S.profession = e.target.value;
-        groupChips(); equipCopy(); refresh();
+        groupChips(); equipCopy(); renderList('expertise'); refresh();
       }
       if (e.target.id === 'cvDest' || e.target.id === 'cvProf') shareBack();
     });
@@ -672,8 +630,7 @@
       }
     });
     /* 28 Sep 2026 — shared answers (candidate-context.js): seed from what the candidate has already said, write back what they say here, and show the strip. */
-    var CTX2CV = { imaging: 'radiography', nuclearmed: 'radiography', sonography: 'sonography', radtherapy: 'radiation', physio: 'physio', ot: 'ot', psychology: 'psychology', speech: 'slt', dietetics: 'dietetics', socialwork: 'socialwork', anaesthetic: 'anaesthetics', nursing: 'nursing', midwifery: 'midwifery', medicine: 'medicine' };
-    var CV2CTX = { radiography: 'imaging', sonography: 'sonography', radiation: 'radtherapy', physio: 'physio', ot: 'ot', psychology: 'psychology', slt: 'speech', dietetics: 'dietetics', socialwork: 'socialwork', anaesthetics: 'anaesthetic', nursing: 'nursing', midwifery: 'midwifery', medicine: 'medicine' };
+    var CTX2CV = SKL.FROM_CONTEXT, CV2CTX = SKL.TO_CONTEXT;
     var ctx = window.EthicareContext, syncing = false;
     function shareBack() {
       if (!ctx || !ctx.write || syncing) return;

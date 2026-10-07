@@ -11,6 +11,9 @@
   var head = document.querySelector('[data-headline]');
   var wrap = document.querySelector('[data-resultwrap]');
   var destSel = document.getElementById('rvDest');
+  var profSel = document.getElementById('rvProf');
+  var profNote = document.querySelector('[data-profnote]');
+  var SK = window.EthicareCVSkills || null;
   var racts = document.querySelector('[data-racts]');
   var printMeta = document.querySelector('[data-printmeta]');
   var YEAR = new Date().getFullYear();
@@ -174,6 +177,75 @@
 
   var CHECKS = [checkContact, checkRegistration, checkPersonal, checkLocal, checkSections, checkScale, checkDates, checkVoice, checkPhrases, checkLength];
 
+  /* ---------- profession checks (cv-skills-data.js, shared with the CV builder) ----------
+     Does this CV give an employer here the clinical evidence they need to shortlist? Nothing in
+     the library is mandatory: an area that is absent is never reported as a weakness on its own.
+     We only say when a whole dimension is unstated, when a stated area is thin, or when
+     equipment is described rather than named. */
+  function profession(t) {
+    if (!SK) return null;
+    var chosen = profSel && profSel.value;
+    if (chosen) return { key: chosen, guessed: false };
+    var g = SK.detect(t);
+    return g ? { key: g, guessed: true } : null;
+  }
+  /* "mental health" mid-sentence, but CT, MRI and EMDR stay as they are */
+  function lc(n) { return /^[A-Z][A-Z]/.test(n) ? n : n.charAt(0).toLowerCase() + n.slice(1); }
+  function names(list) { list = list.map(lc); return list.length < 3 ? list.join(' and ') : list.slice(0, -1).join(', ') + ' and ' + list[list.length - 1]; }
+
+  function checkAreas(t, P) {
+    var pr = P.primary; if (!pr) return null;
+    var found = pr.areas.filter(function (a) { return SK.any(t, a.terms); });
+    if (!found.length) return { s: 'fix', t: 'It is not clear ' + pr.title, p: 'Employers often shortlist on this, and a reader will not assume a skill you have not written down. Say which apply to you, for example ' + pr.examples + '. Leave out any you do not do; nobody does all of them.' };
+    return { s: 'good', t: 'Your ' + pr.noun + ' are easy to find', p: 'A reader scanning for these would find them. Make sure each one also shows up in the jobs where you did it, so a reader can tell how recent and how regular it is.', list: found.map(function (a) { return a.name; }) };
+  }
+
+  function checkDepth(t, P) {
+    var pr = P.primary; if (!pr) return null;
+    var withDepth = pr.areas.filter(function (a) { return a.depth && SK.any(t, a.terms); });
+    if (!withDepth.length) return null;
+    var thin = withDepth.filter(function (a) { return SK.hitsIn(t, a.depth.terms).length < 3; });
+    if (!thin.length) return { s: 'good', t: 'There is detail behind your ' + names(withDepth.map(function (a) { return a.name; })), p: 'Enough specifics for a reader to judge the level you work at, which is what decides whether you are put forward.' };
+    if (thin.length === 1) {
+      var a = thin[0];
+      return { s: 'watch', t: 'You mention ' + lc(a.name) + ', but not much about your ' + lc(a.name) + ' practice', p: 'A reader hiring for ' + lc(a.name) + ' looks for specifics before anything else. Consider adding ' + a.depth.ask + ', where they apply to you.' };
+    }
+    return { s: 'watch', t: 'Not much detail behind ' + names(thin.map(function (a) { return a.name; })), p: 'A reader hiring for these looks for specifics before anything else. Consider adding the following, where they apply to you.', list: thin.map(function (a) { return a.name + ': ' + a.depth.ask; }) };
+  }
+
+  function checkAlso(t, P, label) {
+    if (!P.also || !P.also.length) return null;
+    var missing = P.also.filter(function (d) { return !SK.any(t, d.terms); });
+    if (!missing.length) return { s: 'good', t: 'The rest of what a reader in your profession looks for is there', p: P.also.map(function (d) { return d.name; }).join(', ') + ': all on the page.' };
+    return { s: 'watch', t: missing.length === 1 ? 'One more thing a reader in your profession looks for' : 'More that a reader in your profession looks for', p: 'We could not find these. Add the ones that apply to you: they are often what separates two otherwise similar CVs.', list: missing.map(function (d) { return d.name + ': ' + d.ask; }) };
+  }
+
+  function checkKit(t, P) {
+    var k = P.kit; if (!k) return null;
+    var hasBrands = k.brands && k.brands.length, brand = hasBrands && SK.any(t, k.brands);
+    var sys = k.systems && k.systems.length ? SK.any(t, k.systems) : true;
+    var generic = k.generic && k.generic.length && SK.any(t, k.generic);
+    if (!hasBrands) {
+      if (sys) return { s: 'good', t: 'Your clinical system is named', p: 'A practice reading this knows how quickly you would find your way around theirs.' };
+      return { s: 'watch', t: 'Name the system you work in', p: 'We could not find ' + k.systemsName + '. A practice here will want to know how quickly you would find your way around theirs.' };
+    }
+    if (brand && sys) return { s: 'good', t: 'Equipment named the way a reader wants it', p: 'Manufacturer and model, and the systems around them. A department can match that to what it runs.' };
+    if (brand) return { s: 'watch', t: 'Name your systems too', p: 'Your equipment is named. Add ' + k.systemsName + ': it tells a reader how quickly you would find your way around theirs.' };
+    return { s: 'watch', t: generic ? 'Your equipment is described, not named' : 'No equipment named', p: 'Departments here run particular makes, and a reader matching you to theirs looks for the manufacturer and model: ' + k.example + '.' + (sys ? '' : ' Name ' + k.systemsName + ' as well.') };
+  }
+
+  function profChecks(t) {
+    var pf = profession(t);
+    if (profNote) profNote.textContent = '';
+    if (!pf || pf.key === 'other') {
+      if (profNote) profNote.textContent = pf ? '' : 'Choose your profession above and we will also check the clinical detail employers in it scan for, such as modalities, therapeutic approaches and equipment by name.';
+      return [];
+    }
+    var P = SK.get(pf.key), label = SK.label(pf.key);
+    if (profNote && pf.guessed) profNote.textContent = 'Checked as a CV for ' + label.toLowerCase().replace(/ — .*/, '') + '. If that is wrong, choose your profession above.';
+    return [checkAreas(t, P), checkDepth(t, P), checkAlso(t, P, label), checkKit(t, P)].filter(Boolean);
+  }
+
   /* ---------- render ---------- */
   var LABEL = { fix: 'A reader notices this', watch: 'Worth a second look', good: 'Reads well' };
   var ORDER = { fix: 0, watch: 1, good: 2 };
@@ -196,6 +268,7 @@
     clearShort();
     var results = [];
     for (var i = 0; i < CHECKS.length; i++) { results.push(CHECKS[i](t)); }
+    results = results.concat(profChecks(t));
     results.sort(function (a, b) { return ORDER[a.s] - ORDER[b.s]; });
 
     var fixes = 0, watches = 0;
@@ -249,10 +322,24 @@
     ta.focus();
   });
   if (destSel) destSel.addEventListener('change', function () { if (!wrap.hidden) run(); });
+  if (profSel && SK) {
+    SK.PROFESSIONS.forEach(function (p) { var o = document.createElement('option'); o.value = p.value; o.textContent = p.label; profSel.appendChild(o); });
+    profSel.addEventListener('change', function () {
+      var ctx = window.EthicareContext, c = SK.TO_CONTEXT[profSel.value];
+      if (ctx && ctx.write && c) ctx.write({ profession: c });
+      if (!wrap.hidden) run();
+    });
+  }
   /* 28 Sep 2026 — shared answers (candidate-context.js): seed from what the candidate has already said, write back what they say here, and show the strip. */
   (function () {
     var ctx = window.EthicareContext; if (!ctx || !destSel) return;
-    function seed() { var d = ctx.dest(); if (d && destSel.value !== d) { destSel.value = d; if (!wrap.hidden) run(); } }
+    function seed() {
+      var changed = false, d = ctx.dest();
+      if (d && destSel.value !== d) { destSel.value = d; changed = true; }
+      var pk = SK && ctx.profession && SK.FROM_CONTEXT[ctx.profession()];
+      if (pk && profSel && profSel.value !== pk) { profSel.value = pk; changed = true; }
+      if (changed && !wrap.hidden) run();
+    }
     seed();
     destSel.addEventListener('change', function () { if (ctx.write && ctx.destMode() !== 'both') ctx.write({ dest: destSel.value }); });
     ctx.onChange(seed);
@@ -355,6 +442,7 @@
       ta.value = draftToText(d);
       updateMeter();
       if (destSel && d.dest) destSel.value = d.dest;
+      if (profSel && d.profession && d.profession !== 'other') profSel.value = d.profession;
       ta.focus();
       run();
     });

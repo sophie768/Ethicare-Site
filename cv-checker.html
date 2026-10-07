@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
 <title>CV Checker | Ethicare Resourcing</title>
-<meta name="description" content="Paste the clinical CV you already have and see what a hiring manager in New Zealand or Australia would notice first. Ten checks, in your browser, nothing uploaded.">
+<meta name="description" content="Paste the clinical CV you already have and see what a hiring manager in New Zealand or Australia would notice first. Ten checks plus the clinical detail employers in your profession scan for, in your browser, nothing uploaded.">
 <link rel="canonical" href="https://ethicareresourcing.com/cv-checker">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,6 +34,11 @@
 .rv-setup label{display:block;font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C6E084;margin-bottom:8px}
 .rv-setup select{min-height:48px;padding:12px 14px;border:1px solid rgba(255,255,255,.3);border-radius:12px;background:rgba(1,49,47,.42);color:#fff;font-family:var(--body);font-size:15px;cursor:pointer}
 .rv-setup select:focus{outline:none;border-color:#C6E084}
+.rv-setup>div{min-width:0;max-width:100%}
+.rv-setup select{max-width:100%}
+.rv-setup option{color:#1d1d1b;background:#fff}
+.rv-profnote{font-size:15px;line-height:1.6;color:#2F5E49;background:#E6F1ED;border-radius:12px;padding:12px 16px;margin:0 0 20px;max-width:70ch}
+.rv-profnote:empty{display:none}
 .rv-setup p{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.82);max-width:44ch;margin:0}
 .rv-paste{background:var(--warm);padding:clamp(46px,6vw,72px) 0}
 .rv-paste h2{font-family:var(--display);font-size:clamp(28px,3.4vw,42px);font-weight:600;line-height:1.14;letter-spacing:-.015em;color:var(--teal);margin-bottom:14px;max-width:22ch}
@@ -167,14 +172,18 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
     <p class="eyebrow">CV checker</p>
     <h1>Check the CV you already have</h1>
     <p>Most clinicians find out their CV does not read well in New Zealand or Australia after they have been turned down, and nobody tells them why. This tells you first. Paste it in and you will see what a hiring manager here would notice, in the order they would notice it.</p>
-    <p class="fine">Ten checks, and none of them is a score. It is your CV, and you are welcome to disagree with any of it.</p>
+    <p class="fine">Ten checks for every CV, and up to four more for your profession. None of them is a score. It is your CV, and you are welcome to disagree with any of it.</p>
     <div id="ctx-strip" data-ctx-strip></div>
     <div class="rv-setup">
       <div>
         <label for="rvDest">Applying to</label>
         <select id="rvDest"><option value="nz">New Zealand</option><option value="au">Australia</option></select>
       </div>
-      <p>A few of the checks change with the destination, because the regulators and the vocabulary do.</p>
+      <div>
+        <label for="rvProf">Your profession</label>
+        <select id="rvProf"><option value="">Work it out from my CV</option></select>
+      </div>
+      <p>The destination changes a few checks, because the regulators and the vocabulary do. Your profession adds the clinical detail employers in it scan for: modalities, therapeutic approaches, equipment by name.</p>
     </div>
   </div>
 </section>
@@ -203,6 +212,7 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
     <p class="eyebrow">What a reader would notice</p>
     <h2 data-headline>Your results</h2>
     <p class="lead">Ordered the way a hiring manager reads: what stops them first, then what they would query, then what already works. Nothing here is a score.</p>
+    <p class="rv-profnote" data-profnote></p>
     <div class="rv-list-wrap" data-results></div>
     <div class="rv-racts" data-racts hidden>
       <button type="button" class="rv-btn quiet" data-print>Print or save as PDF</button>
@@ -287,6 +297,7 @@ a{color:#2F5E49}a:hover{color:var(--teal)}
 <script src="portal-professions.js"></script>
 <script src="journey.js"></script>
 <script src="candidate-context.js"></script>
+<script src="cv-skills-data.js"></script>
 <script src="cv-checker.js"></script>
 
 
