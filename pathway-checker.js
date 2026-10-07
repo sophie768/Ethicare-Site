@@ -1787,6 +1787,7 @@
         }).catch(function () {});
       } catch (e) {}
     }
+    if (window.EthicareLead) window.EthicareLead.send('pathway-checker', payload);
     HTMLFormElement.prototype.submit.call(form);
   }
 

@@ -228,16 +228,37 @@ exports.handler = async (event) => {
       return out(200, { ok: true });
     }
 
-    /* ---------------- LEAD (default) ---------------- */
-    const leadEmail = str(msg.email);
+    /* ---------------- LEAD (default) ----------------
+       7 Oct 2026: every form on the site now lands here (form-safety.js, the pathway checker,
+       the cost calculator, Create my pack), so the row carries the columns people actually
+       sort by. Anything else the form sent stays in `payload`, cleaned: strings and booleans
+       only, at most 60 keys, each string capped. Table: see the SQL at the foot of this file. */
+    const rawP = (msg.payload && typeof msg.payload === 'object' && !Array.isArray(msg.payload)) ? msg.payload : {};
+    const P = {};
+    Object.keys(rawP).slice(0, 60).forEach(function (k) {
+      const v = rawP[k];
+      if (typeof v === 'boolean') P[String(k).slice(0, 60)] = v;
+      else if (v != null && typeof v !== 'object') { const t = str(v); if (t) P[String(k).slice(0, 60)] = t; }
+      else if (Array.isArray(v)) P[String(k).slice(0, 60)] = v.slice(0, 120).map(function (x) { return String(x).slice(0, 80); });
+    });
+    const yes = (v) => v === true || /^(yes|true)$/i.test(String(v || ''));
+    const leadEmail = str(msg.email) || str(P.email);
     const lead = {
       email: leadEmail ? leadEmail.toLowerCase() : null,
-      profession: str(msg.profession),
-      destination: str(msg.destination),
+      name: str(msg.name) || str(P.name),
+      phone: str(msg.phone) || str(P.phone),
+      profession: str(msg.profession) || str(P.profession),
+      destination: str(msg.destination) || str(P.destination),
+      timeline: str(msg.timeline) || str(P.timeline) || str(P.timeframe),
+      based_in: str(msg.based_in) || str(P.based_in),
+      wants_call: str(msg.wants_call) || str(P.contact_preference),
+      role_alerts: yes(msg.role_alerts) || yes(P.role_alerts),
+      quarterly_update: yes(msg.quarterly_update) || yes(P.quarterly_update),
+      who: msg.who === 'employer' ? 'employer' : 'candidate',
       source: str(msg.source) || 'site',
       page,
-      referral_source: str(msg.referral_source) || str(msg.ref),
-      payload: msg.payload || msg.data || null
+      referral_source: str(msg.referral_source) || str(msg.ref) || str(P.utm_source),
+      payload: P
     };
     await sb('leads', 'POST', lead, 'return=minimal');
     return out(200, { ok: true });
@@ -249,3 +270,29 @@ exports.handler = async (event) => {
     return out(502, { error: 'capture failed' });
   }
 };
+
+/* Run once in the Supabase SQL editor (7 Oct 2026):
+
+   create table if not exists leads (
+     id               bigint generated always as identity primary key,
+     created_at       timestamptz not null default now(),
+     source           text,          -- which form: contact, quick-interest, my-pack, pathway-checker, ...
+     who              text,          -- candidate | employer
+     name             text,
+     email            text,
+     phone            text,
+     profession       text,
+     destination      text,
+     timeline         text,
+     based_in         text,
+     wants_call       text,
+     role_alerts      boolean not null default false,
+     quarterly_update boolean not null default false,
+     referral_source  text,          -- utm_source or ?ref= : which post or site sent them
+     page             text,
+     payload          jsonb          -- everything else the form sent, incl. the consent wording
+   );
+   alter table leads enable row level security;   -- service role only; no public access
+   create index if not exists leads_email_idx on leads (lower(email));
+   create index if not exists leads_created_idx on leads (created_at desc);
+*/

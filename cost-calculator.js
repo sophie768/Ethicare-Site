@@ -829,6 +829,7 @@
         }).catch(function () {});
       } catch (e) {}
     }
+    if (window.EthicareLead) window.EthicareLead.send('cost-calculator', payload);
     HTMLFormElement.prototype.submit.call(form);
   }
 
