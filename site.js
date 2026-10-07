@@ -213,3 +213,13 @@ var PROMO_ENABLED = false;
   el.defer = true;
   document.head.appendChild(el);
 })();
+
+/* "My pack" (7 Oct 2026): the header counter and every "Add to my pack" button live in
+   pack-core.js. Loaded from here and from site.js so every page gets it; whichever runs
+   first loads it, the other sees the flag and stops. */
+(function () {
+  if (window.EthicarePack || window.__ecPackLoading) return;
+  window.__ecPackLoading = true;
+  var s = document.createElement('script'); s.src = '/pack-core.js'; s.async = true;
+  (document.head || document.documentElement).appendChild(s);
+})();

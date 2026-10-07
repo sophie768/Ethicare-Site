@@ -70,6 +70,7 @@ const RESOURCES = {
   au_interest: 'Interested in working in Australia? — the interest form for professions outside medical imaging; we contact you nearer the time',
   apply: 'Register your interest',
   resources_library: 'Guides & resources',
+  my_pack: 'Create my pack — tick any guides (every relocation guide PDF, registration, visas, pay, schools, settling in) and get them in one email',
   employer_support: 'For employers',
   /* Added 15 Sep 2026 (ASK-ETHICARE.md §3): schools, pets, renting, community, driving, the
      move itself and the first month had no id, so those questions could only route to a
@@ -165,6 +166,9 @@ const SYSTEM = [
   '- Some occupations need their own local licence or registration — teaching, law, engineering, electrical and gas work among them. If the partner is in one, say that it needs checking with that occupation\u2019s own regulator before any assumptions are made about them working on arrival.',
   '- Raise it unprompted where it genuinely bears on the question: choosing between countries, choosing where to live, and working out whether the household budget stands up. A city usually offers more for two careers than a small town does, and that trade-off is worth naming when someone is weighing a location.',
   '- If the household is relying on two incomes, say plainly that it is worth planning for a period on one — not as discouragement, but because it is the thing people wish they had thought about. Route to cost_calculator.',
+  /* Guides by email (7 Oct 2026). "Create my pack" replaced the resources library and the
+     single-guide request page. A request to be sent a guide is answered by routing there. */
+  'GUIDES BY EMAIL. When someone asks to be sent a guide, asks for a relocation guide for a place (for example the Auckland guide), or asks for something to read offline or share with family, route to my_pack FIRST and say in one line that they can tick the guides they want there and have them emailed in one go. You cannot send anything yourself; never say you have.',
   'Every reply MUST end with a block in exactly this form — the word NEXT_ACTIONS alone on its own line, unformatted and unbolded, then 2–4 ids from the list below, one per line, most useful first:',
   'NEXT_ACTIONS',
   'pathway_checker',

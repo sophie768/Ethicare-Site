@@ -2,8 +2,9 @@
    Ethicare Resourcing — guide pack email
    POST /.netlify/functions/send-pack
 
-   Sends ONE email: the guides the reader added on /move-steps, plus a short
-   list of country-matched extras. No mailing list, no follow-up sequence —
+   Sends ONE email: the guides the reader ticked on /my-pack (7 Oct 2026; it was
+   /move-steps until that page was folded into Plan), plus a short list of
+   country-matched extras. No mailing list unless they opted in, no sequence —
    that promise is printed on the form and this function must keep it.
 
    Sends a second, plain notification to the office so a pack request is
@@ -106,7 +107,7 @@ function parsePack(raw) {
       return url ? { title: m[1].trim(), url, path: m[2] } : null;
     })
     .filter(Boolean)
-    .slice(0, 30);
+    .slice(0, 90);
 }
 
 /* ---------- the email ---------- */
@@ -122,7 +123,7 @@ function itemRows(items) {
   return items.map((g) => `<tr><td style="padding:0 0 14px"><a href="${esc(g.url)}" style="font-family:${SANS};font-size:17px;font-weight:600;color:${TEAL};text-decoration:underline">${esc(g.title)}</a></td></tr>`).join('');
 }
 
-function packHtml({ name, items, extras, country }) {
+function packHtml({ name, items, extras, country, optedIn }) {
   const dest = COUNTRY_NAME[country];
   const hello = name ? `Hi ${esc(name)},` : 'Hello,';
   const opener = items.length
@@ -160,20 +161,26 @@ function packHtml({ name, items, extras, country }) {
   </td></tr></table>
 </td></tr>
 
+<tr><td style="background:#ffffff;padding:0 32px 26px">
+  <p style="margin:0 0 6px;font-family:${SANS};font-size:18px;font-weight:600;color:${TEAL}">When you are ready to look at roles</p>
+  <p style="margin:0 0 12px;font-family:${SANS};font-size:15.5px;line-height:1.6;color:${INK}">We recruit for permanent roles across New Zealand, and medical imaging in Australia. We speak to the employer for you and stay with you through the move. Never a fee to a candidate.</p>
+  <a href="${SITE}/jobs/" style="font-family:${SANS};font-size:15.5px;font-weight:600;color:${TEAL};text-decoration:underline">See live roles &rarr;</a>
+</td></tr>
+
 <tr><td style="background:#ffffff;padding:0 32px 34px">
   <p style="margin:0 0 4px;font-family:${SANS};font-size:16.5px;line-height:1.6;color:${INK}">If something in here raises a question, reply to this email and it comes to us — there is no form in the way.</p>
   <p style="margin:14px 0 0;font-family:${SANS};font-size:16.5px;line-height:1.6;color:${INK}">Sophie Careem<br><span style="color:${MUT};font-size:15px">Founder, Ethicare Resourcing</span></p>
 </td></tr>
 
 <tr><td style="padding:22px 32px 0">
-  <p style="margin:0 0 10px;font-family:${SANS};font-size:13px;line-height:1.6;color:${MUT}">You are getting this because you asked for a guide pack at ethicareresourcing.com. It is a single email — you have not been added to a mailing list and your address will not be passed on. <a href="${SITE}/privacy-policy" style="color:#2F5E49;text-decoration:underline">Privacy policy</a></p>
+  <p style="margin:0 0 10px;font-family:${SANS};font-size:13px;line-height:1.6;color:${MUT}">You are getting this because you asked for a guide pack at ethicareresourcing.com. ${optedIn ? 'You also asked to hear from us again; every email we send has a way to stop them.' : 'It is a single email — you have not been added to a mailing list.'} Your address will not be passed on. <a href="${SITE}/privacy-policy" style="color:#2F5E49;text-decoration:underline">Privacy policy</a></p>
   <p style="margin:0;font-family:${SANS};font-size:12.5px;line-height:1.7;color:${MUT}">Ethicare Resourcing Ltd &middot; Company No 14646354<br>Office 1, One Coldbath Square, London EC1R 5HL &middot; +44 20 4626 6580</p>
 </td></tr>
 
 </table></td></tr></table></body></html>`;
 }
 
-function packText({ name, items, extras, country }) {
+function packText({ name, items, extras, country, optedIn }) {
   const dest = COUNTRY_NAME[country];
   const line = (g) => `  ${g.title}\n  ${g.url}`;
   return [
@@ -192,7 +199,10 @@ function packText({ name, items, extras, country }) {
     'Founder, Ethicare Resourcing',
     '',
     'You are getting this because you asked for a guide pack at ethicareresourcing.com.',
-    'A single email — no mailing list, and your address will not be passed on.',
+    optedIn ? 'You asked to hear from us again; every email has a way to stop them. Your address will not be passed on.' : 'A single email — no mailing list, and your address will not be passed on.',
+    '',
+    'WHEN YOU ARE READY TO LOOK AT ROLES',
+    `  ${SITE}/jobs/`,
     `${SITE}/privacy-policy`,
     '',
     'Ethicare Resourcing Ltd · Company No 14646354',
@@ -244,7 +254,13 @@ exports.handler = async (event) => {
     .map(([title, path]) => ({ title, url: SITE + path, path }))
     .slice(0, items.length ? 3 : 4);
 
-  const model = { name, items, extras, country };
+  const clip = (v, n) => String(v || '').trim().slice(0, n).replace(/[<>\r\n]/g, ' ');
+  const timeline = clip(msg.timeline, 60);
+  const profession = clip(msg.profession, 80);
+  const phone = clip(msg.phone, 40);
+  const roleAlerts = msg.role_alerts === 'Yes';
+  const quarterly = msg.quarterly_update === 'Yes';
+  const model = { name, items, extras, country, optedIn: roleAlerts || quarterly };
 
   try {
     const sent = await send({
@@ -270,6 +286,11 @@ exports.handler = async (event) => {
           `${name || '(no name)'} <${email}>`,
           country ? `Heading: ${COUNTRY_NAME[country]}` : 'Heading: not sure yet',
           household ? `Household: ${household}` : '',
+          profession ? `Profession: ${profession}` : '',
+          timeline ? `Thinking of moving: ${timeline}` : '',
+          phone ? `Phone: ${phone}` : '',
+          roleAlerts ? 'Opted in: role alerts' : '',
+          quarterly ? 'Opted in: quarterly update' : '',
           '',
           items.length ? `Added (${items.length}):\n${items.map((g) => `  · ${g.title} — ${g.path}`).join('\n')}` : 'Added nothing — sent the starter set.',
           '',

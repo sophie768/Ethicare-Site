@@ -26,6 +26,13 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var esc = function (s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+  /* "Add to my pack" beside any guide link that is in the pack catalogue (7 Oct 2026). */
+  function packBtn(href) {
+    var items = window.ETHICARE_PACK_ITEMS; if (!items || !href) return '';
+    var path = String(href).split('#')[0].split('?')[0];
+    for (var k = 0; k < items.length; k++) if (items[k].u === path) return '<button type="button" class="pk-add pk-mini" data-pack-add="' + items[k].id + '"></button>';
+    return '';
+  }
   var ctx = window.EthicareContext;
   var J = function () { return window.ETHICARE_JOURNEY || []; };
   var PROF = function () { return window.ETHICARE_PROFESSIONS; };
@@ -550,7 +557,7 @@
         p += '<a class="pt-btn ghost" href="' + tl.href + '" data-ctx-link>' + esc(tl.title) + ' <i aria-hidden="true">&rarr;</i></a>';
         if (started(tl.store)) p += '<p class="pt-draft">You have a saved draft — it opens where you left off.</p>';
       }
-      if (it.links && it.links.length) p += '<div class="pt-links">' + it.links.map(function (l) { return '<a href="' + esc(l.href) + '"' + (l.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(l.label) + (l.external ? ' ↗' : '') + '</a>'; }).join('') + '</div>';
+      if (it.links && it.links.length) p += '<div class="pt-links">' + it.links.map(function (l) { return '<a href="' + esc(l.href) + '"' + (l.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(l.label) + (l.external ? ' ↗' : '') + '</a>' + packBtn(l.href); }).join('') + '</div>';
       p += '</div>';
     });
 
