@@ -1,4 +1,4 @@
-/* My Move planner — data model + controlled vocabularies (prototype, 30 Aug 2026).
+/* My Plan planner — data model + controlled vocabularies (prototype, 30 Aug 2026).
    The planner is built around five record types, NOT pages:
      TASKS      what still needs doing        {id,section,title,why,links{nz,au}|link,status,due,note}
      COSTS      what it costs / gets back     {id,section,category,label,estimate,actual,funding,date,receipt}
@@ -115,9 +115,9 @@ window.MM = (function () {
     jobs: {
       version: 'jobs-v1-2026-08',
       label: 'Yes, I’d like to hear about suitable job opportunities',
-      body: 'We work with healthcare employers across Australia and New Zealand. If a suitable opportunity comes up for your profession, location preferences and timeline, we can let you know. This is optional and never needed for your Move Plan.'
+      body: 'We work with healthcare employers across Australia and New Zealand. If a suitable opportunity comes up for your profession, location preferences and timeline, we can let you know. This is optional and never needed for your Plan.'
     },
-    plan: { version: 'plan-v1-2026-08', label: 'Move Plan reminders', body: 'Occasional nudges about tasks with deadlines — visa, registration, licence conversion.' },
+    plan: { version: 'plan-v1-2026-08', label: 'Plan reminders', body: 'Occasional nudges about tasks with deadlines — visa, registration, licence conversion.' },
     reg: { version: 'reg-v1-2026-08', label: 'Registration updates', body: 'When a regulator changes its process or fees for your profession.' },
     news: { version: 'news-v1-2026-08', label: 'Useful relocation updates', body: 'New guides, cost data and destination material. Nothing weekly.' }
   };

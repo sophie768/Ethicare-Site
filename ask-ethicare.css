@@ -227,3 +227,43 @@
 .ask-you.is-known .b{background:#fff;border:1px solid #C9DED3;color:#02615D}
 .ask-you.is-known:hover .b{background:#F7FBF4}
 @media(max-width:560px){.ask-you{grid-template-columns:1fr}.ask-you .b{grid-column:1;grid-row:auto;justify-self:start;margin-top:8px}}
+
+
+/* ---- showstopper pass (6 Oct 2026, Sophie: "this page needs to be a real showstopper and
+   should have the ask ethicare logo") ---------------------------------------------------------- */
+.ask-logo{display:block;height:clamp(44px,5vw,64px);width:auto;margin:0 0 clamp(22px,3vw,34px)}
+.ask-hero h1{max-width:12ch}
+/* a faint Ask bubble behind the instrument: depth, not decoration */
+.askpage::after{content:"";position:absolute;right:-9vw;bottom:-9vw;width:min(44vw,560px);aspect-ratio:220/137;background:url(/assets/brand/ask-ethicare-mark.svg) no-repeat center/contain;opacity:.045;pointer-events:none;transform:rotate(-8deg)}
+.ask-nameplate{display:flex;align-items:center;gap:10px}
+.ask-nameplate img{height:22px;width:auto}
+.ask-instrument .aske-go{background:#A6C84A;color:#01312F;font-size:16px;box-shadow:0 10px 24px -12px rgba(166,200,74,.9)}
+.ask-instrument .aske-go:hover{background:#C6E084;transform:translateY(-1px)}
+.ask-instrument .aske-box:focus-within{border-color:#02615D;box-shadow:0 0 0 4px rgba(166,200,74,.35)}
+/* the typewriter placeholder: a caret the browser cannot draw in a placeholder, so a span sits over it */
+.aske-box{position:relative}
+.aske-type{position:absolute;left:27px;top:25px;right:170px;font-family:'Manrope',sans-serif;font-size:17.5px;line-height:1.5;color:#8A9691;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.aske-type::after{content:"";display:inline-block;width:2px;height:1.05em;background:#A6C84A;vertical-align:-2px;margin-left:2px;animation:aske-blink 1s steps(1) infinite}
+@keyframes aske-blink{50%{opacity:0}}
+.aske-box.is-typing textarea::placeholder{color:transparent}
+@media(prefers-reduced-motion:reduce){.aske-type{display:none}.aske-box.is-typing textarea::placeholder{color:#8A9691}}
+
+/* ---- the film ------------------------------------------------------------------------------- */
+.ask-watch{background:#01312F;color:#fff;padding:clamp(56px,7vw,96px) 0}
+.ask-watch .wrapx{max-width:1180px;margin:0 auto;padding:0 clamp(22px,5vw,64px)}
+.ask-watch-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,4.5vw,64px);align-items:center}
+.ask-watch-copy .eyebrow{color:#C6E084}
+.ask-watch-copy .eyebrow::before{background:#A6C84A!important}
+.ask-watch-copy h2{font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(26px,3vw,38px);line-height:1.12;letter-spacing:-.02em;color:#fff;margin:8px 0 14px}
+.ask-watch-copy p{font-size:17px;line-height:1.6;color:#CFE3DC;margin:0 0 12px}
+.ask-watch-note{font-family:'Playfair Display',Georgia,serif;font-style:italic;color:#C6E084!important;font-size:18px!important}
+.ask-watch-film{margin:0;border-radius:18px;overflow:hidden;box-shadow:0 40px 90px -40px rgba(0,0,0,.8);border:1px solid rgba(255,255,255,.1);background:#02615D}
+.ask-watch-film video{display:block;width:100%;height:auto}
+@media(max-width:900px){.ask-watch-grid{grid-template-columns:1fr}.askpage::after{display:none}.aske-type{right:24px}}
+@media(max-width:560px){.aske-type{display:none}.aske-box.is-typing textarea::placeholder{color:#8A9691}}
+
+/* the question gets the whole width; the button sits beneath it, right-aligned */
+.ask-instrument .aske-box{flex-direction:column;align-items:stretch;gap:8px}
+.ask-instrument .aske-box textarea{min-height:76px;padding:8px 6px 4px}
+.ask-instrument .aske-go{align-self:flex-end}
+.aske-type{left:21px;top:22px;right:20px;white-space:normal;overflow:visible;text-overflow:clip}

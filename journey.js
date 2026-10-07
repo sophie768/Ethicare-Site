@@ -8,7 +8,7 @@ window.ETHICARE_JOURNEY = [
   { n: 4, id: "numbers", label: "Make the numbers work", there: "Make the numbers work", where: "Working out the money", href: {"nz": "/is-it-worth-it", "au": "/is-it-worth-it", "any": "/is-it-worth-it"}, questions: ["earn", "afford"] },
   { n: 5, id: "place", label: "Where could we live?", there: "Where could we live?", where: "Deciding where we would live", href: {"nz": "/destination-finder", "au": "/destination-finder", "any": "/destination-finder"}, questions: ["live"] },
   { n: 6, id: "role", label: "What jobs could I get?", there: "What jobs could I get?", where: "Looking for the right role, or applying", href: {"nz": "/jobs/", "au": "/jobs/", "any": "/jobs/"}, questions: ["jobs"] },
-  { n: 7, id: "plan", label: "How do we plan it all?", there: "How do we plan it all?", where: "Offer accepted \u2014 planning the move", href: {"nz": "/move", "au": "/move", "any": "/move"}, questions: ["plan"] },
+  { n: 7, id: "plan", label: "How do we plan it all?", there: "How do we plan it all?", where: "Offer accepted \u2014 planning the move", href: {"nz": "/plan", "au": "/plan", "any": "/plan"}, questions: ["plan"] },
   { n: 8, id: "settle", label: "Settle into life", there: "Settle into life", where: "Already here", href: {"nz": "/settling-in", "au": "/settling-in", "any": "/settling-in"}, questions: [] }
 ];
 window.ETHICARE_JOURNEY_MAP = {

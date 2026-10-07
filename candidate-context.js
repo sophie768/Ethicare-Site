@@ -276,7 +276,7 @@
       if (fields.indexOf('household') >= 0) h += sel('household', 'Who is coming', HH.map(function (o) { return [o.value, o.label]; }), household(), 'Choose\u2026');
       if (fields.indexOf('stage') >= 0 && J().length) h += sel('stage', 'Where you are up to', J().map(function (x) { return [x.id, x.where]; }), stage(), 'Choose\u2026');
       h += '</div>';
-      /* Inside My Move (pack/pack.js) the answers ARE saved with us, so the page it sits in says
+      /* Inside My Plan (pack/pack.js) the answers ARE saved with us, so the page it sits in says
          so through data-strip-foot; the public tools keep the device-only line. This is the one
          short reassurance, and it sits right under the questions (Sophie, 3 Oct 2026) — the
          longer explanations about browsers, passwords and what is sent are gone from the page. */

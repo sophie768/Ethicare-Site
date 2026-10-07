@@ -85,7 +85,7 @@
       +'<div style="display:flex;flex-wrap:wrap;gap:8px 22px">'
       +'<a href="'+pw+'" data-ctx-link style="'+lk+'">Check my pathway</a>'
       +'<a href="'+places+'" style="'+lk+'">Explore where you could live</a>'
-      +'<a href="/move" style="'+lk+'">Build my journey</a>'
+      +'<a href="/plan" style="'+lk+'">Build my journey</a>'
       +'</div>';
   }
 

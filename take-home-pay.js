@@ -246,8 +246,10 @@
 
   /* 28 Sep 2026 — shared answers (candidate-context.js): seed from what the candidate has already said, write back what they say here, and show the strip. */
   (function () {
+    /* ?destination=australia|au|new-zealand|nz — the cost calculator hands people here (6 Oct 2026) */
+    try { var qd = new URLSearchParams(location.search).get('destination'); if (qd) { qd = qd.toLowerCase(); if (qd === 'australia' || qd === 'au') state.country = 'au'; else if (qd === 'new-zealand' || qd === 'nz') state.country = 'nz'; } } catch (e) {}
     var ctx = window.EthicareContext; if (!ctx) return;
-    var d = ctx.dest(); if (d) state.country = d;
+    var d = ctx.dest(); if (d && !/destination=/.test(location.search)) state.country = d;
     ctx.onChange(function () { var d2 = ctx.dest(); if (d2 && d2 !== state.country) { state.ctxSyncing = true; state.country = d2; render(); state.ctxSyncing = false; } });
     var go = function () { ctx.mount('#ctx-strip', { intro: 'Tell us which country and the estimate uses that tax year, that levy and that super or KiwiSaver rule.' }); };
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();

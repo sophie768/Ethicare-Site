@@ -32,10 +32,18 @@
   force = true
 
 [[redirects]]
+  # 6 Oct 2026: Ethicare Move became Plan Ethicare — the tool plans; "move" is what the
+  # person is doing. Old links keep working. Fragments (#s3) carry across.
+  from = "/move"
+  to = "/plan"
+  status = 301
+  force = true
+
+[[redirects]]
   # move-steps was the eight-stage rebuild; on 29 Sep 2026 /move became that
-  # page, so the rebuild's URL folds into it. Fragments (#s3) carry across.
+  # page, so the rebuild's URL folds into it.
   from = "/move-steps"
-  to = "/move"
+  to = "/plan"
   status = 301
   force = true
 

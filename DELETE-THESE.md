@@ -123,24 +123,24 @@ this is just the leftover.
 
     can-i-work-here.html        renamed to can-i-work-there.html on 28 Sep 2026
     move-steps.html             folded into move.html on 29 Sep 2026 (see below)
-    your-ethicare-space.html    the "Your Ethicare" prototype; superseded by My Move on 29 Sep 2026
+    your-ethicare-space.html    the "Your Ethicare" prototype; superseded by My Plan on 29 Sep 2026
     netlify/functions/send-pack.js   only move-steps called it (see below)
 
-`move-steps.html` was the eight-stage rebuild of Ethicare Move, built alongside
+`move-steps.html` was the eight-stage rebuild of Plan Ethicare, built alongside
 the old /move and never swapped in. On 29 September 2026 /move itself became
 the eight-stage page (one page, the candidate's stage open, the rest collapsed),
 so the rebuild has nothing left to do. netlify.toml 301s /move-steps to /move
 and the stage fragments (#s3) carry across, so any link to it keeps working.
 
 `your-ethicare-space.html` was a noindex prototype of the private candidate area under
-its old name. The real thing is `/pack/<slug>` (pack/README.md), renamed My Move on
+its old name. The real thing is `/pack/<slug>` (pack/README.md), renamed My Plan on
 29 September 2026 with the candidate's own writing saved with us. The prototype was in
 the sitemap despite being noindex; it is out of both now.
 
 `netlify/functions/send-pack.js` emailed a guide pack from the `/move-steps` send form,
 which was the only caller. Nothing posts to it now. Deleting it removes a Resend-backed
 endpoint nothing uses — the fewer of those the better. Do not confuse it with
-`netlify/functions/my-move.js` (the My Move store, live) or `send-result.js` (the tools'
+`netlify/functions/my-move.js` (the My Plan store, live) or `send-result.js` (the tools'
 send-my-result, live).
 
 netlify.toml names the old path in its 301 rule. That is the one reference that
@@ -161,7 +161,7 @@ and against the superseded folders too — none of these is referenced anywhere.
 `my-move.css` styled the React workbook that used to sit at /move#doing. That
 workbook's source (`my-move-planner.jsx`) is not in the repository, so the
 section was already blank, and the rebuilt /move no longer loads the stylesheet.
-When My Move is rebuilt as the private, link-only space it gets its own styles.
+When My Plan is rebuilt as the private, link-only space it gets its own styles.
 
 `capture.js` needs a word, because deleting it looks riskier than it is. It is a
 client helper for the capture endpoint, and that endpoint is live and writing to
@@ -191,7 +191,7 @@ institution.
 - `assets/social/` — three LinkedIn carousel exports. Unlinked, but they look like marketing files you may want to keep. Your call; they are not indexed either way.
 - `destinations/bay-of-plenty-images/` — photography, referenced by the Bay of Plenty chapters.
 - `prototypes/`, `pack/`, `_forms/` — internal, and netlify.toml already keeps them out of search.
-- `my-move-model.js` — nothing loads it, but it is the data model (tasks, costs, allowances, documents, contacts) that the private My Move space will be built on. Keep it until that is done.
+- `my-move-model.js` — nothing loads it, but it is the data model (tasks, costs, allowances, documents, contacts) that the private My Plan space will be built on. Keep it until that is done.
 
 **96 items: 33 folders and 63 files.**
 

@@ -1,7 +1,7 @@
-# My Move — an Ethicare candidate's private space at `/pack/<slug>`
+# My Plan — an Ethicare candidate's private space at `/pack/<slug>`
 
-The one private space on the site. Ethicare Move (`/move`) is public, needs no account and
-keeps its answers on the device; **My Move** is what an Ethicare candidate gets from the link
+The one private space on the site. Plan Ethicare (`/move`) is public, needs no account and
+keeps its answers on the device; **My Plan** is what an Ethicare candidate gets from the link
 the team sends — the same eight stages, plus the letter, the bookings and the chosen guides
 the team writes for them, and their own plan and notes saved with us so they follow them
 between devices. There are no public accounts, and nothing else on the site is private.

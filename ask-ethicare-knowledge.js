@@ -16,7 +16,7 @@
 window.ASK_ETHICARE_KB = {
   resources: {
     pathway_checker: { t: 'Registration pathway checker', d: 'Your likely route to registration, in two minutes', u: '/pathway-checker' },
-    move_planner: { t: 'Ethicare Move', d: 'The whole move, sequenced — what to do and when', u: '/move' },
+    move_planner: { t: 'Plan Ethicare', d: 'The whole move, sequenced — what to do and when', u: '/plan' },
     compare_countries: { t: 'Australia vs New Zealand', d: 'Pay, pace and lifestyle, side by side', u: '/guides/australia-vs-new-zealand' },
     cost_calculator: { t: 'What the move will cost', d: 'Build a realistic figure for your own move', u: '/cost-calculator' },
     before_you_accept: { t: 'Before you accept an offer', d: 'What to check in a contract before you sign', u: '/before-you-accept' },

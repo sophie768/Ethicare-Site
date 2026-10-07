@@ -1,4 +1,4 @@
-/* My Move — an Ethicare candidate's private space.
+/* My Plan — an Ethicare candidate's private space.
    Reads window.PACK from the page it is loaded into (one small file per candidate), paints
    every section, and keeps what the candidate writes — their plan, their notes, the answers
    that shape the site's tools, the stages they have ticked off — in their space.
@@ -74,7 +74,7 @@
     document.documentElement.setAttribute('data-country', P.country === 'au' ? 'au' : 'nz');
     $('[data-whoname]').textContent = P.spaceLabel || 'Candidate space';
     $('[data-av]').textContent = (P.first || 'E').charAt(0).toUpperCase();
-    document.title = (P.title || 'My Move') + ' \u00b7 Ethicare Resourcing';
+    document.title = (P.title || 'My Plan') + ' \u00b7 Ethicare Resourcing';
     if (P.route) $('[data-route]').textContent = P.route;
     /* A worked example must say so on the page itself, not only in a source comment - the
        page gets printed and screenshotted, and a fictional pack read as a real one is a
@@ -207,7 +207,7 @@
 
   /* ---------- taking it with them ---------- */
   function asText() {
-    var out = (P.title || 'My Move') + '\n' +
+    var out = (P.title || 'My Plan') + '\n' +
       new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + '\n\n';
     if (S.plan.length) {
       out += 'MY PLAN\n';
@@ -424,7 +424,7 @@
     if (p) p.setAttribute('data-print-title', ((P.headings || {})[s.id] || {}).title || s.label);
   });
   window.addEventListener('beforeprint', function () {
-    $('[data-h1]').textContent = P.title || 'My Move';
+    $('[data-h1]').textContent = P.title || 'My Plan';
     $('[data-sub]').textContent = 'As it stood on ' + new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + '. The page online may have changed since.';
   });
   window.addEventListener('afterprint', function () { show((location.hash || '#space').replace('#', ''), true); });

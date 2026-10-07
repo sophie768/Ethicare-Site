@@ -2,7 +2,7 @@
    Rebuilt 29 Sep 2026 on the one journey (questions.json → journey.js).
 
    What this page is: the free, no-account planner for anyone considering New Zealand or
-   Australia. What it is not: My Move, the private space for Ethicare candidates — that is
+   Australia. What it is not: My Plan, the private space for Ethicare candidates — that is
    reached from the link the team sends and lives elsewhere. The React planner that used to
    load at #doing is gone from here.
 
@@ -620,7 +620,7 @@
     var o = {}; LINK_FIELDS.forEach(function (k) { if (S[k] !== undefined) o[k] = S[k]; });
     var saved = savedItems();
     if (saved.length) o.sv = saved.map(function (it) { return [it.u, it.t, it.k]; });
-    return location.origin + '/move?p=' + b64u(JSON.stringify(o));
+    return location.origin + '/plan?p=' + b64u(JSON.stringify(o));
   }
   function importFromLink() {
     var m = /[?&]p=([^&]+)/.exec(location.search);
@@ -640,7 +640,7 @@
         }
       }
     } catch (e) {}
-    history.replaceState(null, '', '/move');
+    history.replaceState(null, '', '/plan');
   }
 
   /* ---------------- the document (print / Word), fed by the eight stages ---------------- */
@@ -656,7 +656,7 @@
     facts.push(['Household', hhPhrase() ? 'Moving ' + hhPhrase() : 'Moving on your own']);
     facts.push(['Where you are now', ctx && ctx.stageLabel() ? ctx.stageLabel() : 'Not yet said']);
     var groups = list.map(function (s) { return { stage: s.label, id: s.id, steps: s.items, ticks: steps(s.id).filter(function (t, i) { return S.steps[s.id + '#' + i]; }), note: (S.notes[s.id] || '').trim() }; });
-    var next = nx ? { title: nx.there, note: intro(nx.id), href: '/move#s' + nx.n } : { title: 'Every stage sorted', note: 'Nothing left on the list. Come back to any stage whenever you want to.', href: '/move' };
+    var next = nx ? { title: nx.there, note: intro(nx.id), href: '/plan#s' + nx.n } : { title: 'Every stage sorted', note: 'Nothing left on the list. Come back to any stage whenever you want to.', href: '/plan' };
     var saved = savedItems();
     var abs = function (h) { return /^https?:/.test(h) ? h : location.origin + h; };
     var foot = 'Ethicare Resourcing Ltd · Company No 14646354 · Office 1, One Coldbath Square, London EC1R 5HL · +44 20 4626 6580 · hello@ethicareresourcing.com';
@@ -688,10 +688,10 @@
       var out = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>" + who + "</title></head>" +
         '<body style="font-family:Calibri,Arial,sans-serif;color:#33403B;font-size:11pt;line-height:1.55;margin:0">' +
         '<table width="100%" cellpadding="0" cellspacing="0" style="background:#02615D"><tr><td style="padding:40px 40px 34px">' +
-        '<div style="color:' + coverInk + ';font-size:9pt;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px">Ethicare Move &middot; Your plan</div>' +
+        '<div style="color:' + coverInk + ';font-size:9pt;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px">Plan Ethicare &middot; Your plan</div>' +
         '<div style="width:46px;height:4px;background:#A6C84A;margin-bottom:16px;font-size:1pt">&nbsp;</div>' +
         '<h1 style="font-family:Georgia,serif;font-weight:bold;font-size:26pt;color:#fff;margin:0 0 10px;line-height:1.1">' + who + '</h1>' +
-        '<div style="color:' + coverInk + ';font-size:11pt">Prepared ' + when + ' &middot; ethicareresourcing.com/move</div></td></tr></table>' +
+        '<div style="color:' + coverInk + ';font-size:11pt">Prepared ' + when + ' &middot; ethicareresourcing.com/plan</div></td></tr></table>' +
         '<table width="100%" cellpadding="0" cellspacing="0" style="margin-top:26px"><tr><td style="padding:0 40px 40px">';
 
       /* at a glance — two columns of label/value cards rather than five stacked rows */
@@ -818,8 +818,8 @@
       '.cover{padding:24mm 0 14mm}.step,.glist a{border-color:#ddd}.next{background:#F2F6F3;color:#33403B}' +
       '.next .k,.next a{color:#2F5E49}.next .t{color:#02615D}.next p{color:#4A5853}}' +
       '</style></head><body>' +
-      '<div class="cover"><div class="in"><div class="eb">Ethicare Move &middot; Your plan</div><div class="rule"></div>' +
-      '<h1>' + who + '</h1><div class="meta">Prepared ' + when + ' &middot; ethicareresourcing.com/move</div></div></div>' +
+      '<div class="cover"><div class="in"><div class="eb">Plan Ethicare &middot; Your plan</div><div class="rule"></div>' +
+      '<h1>' + who + '</h1><div class="meta">Prepared ' + when + ' &middot; ethicareresourcing.com/plan</div></div></div>' +
       '<div class="printbar"><button type="button" onclick="print()">Print or save as PDF</button></div>' +
       '<div class="wrap"><section><h2>At a glance</h2><dl class="facts">';
     facts.forEach(function (f) { o2 += '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(f[1]) + '</dd></div>'; });
@@ -916,13 +916,13 @@
     var poster = sec.getAttribute('data-video-poster') || '';
     sec.hidden = false;
     frame.innerHTML = (poster ? '<img src="' + esc(poster) + '" alt="" width="1400" height="788" loading="lazy" decoding="async">' : '') +
-      '<button type="button" class="pv-play" data-video-play aria-label="Play the Ethicare Move walk-through"><span aria-hidden="true">' +
+      '<button type="button" class="pv-play" data-video-play aria-label="Play the Plan Ethicare walk-through"><span aria-hidden="true">' +
       '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.2v13.6a1 1 0 0 0 1.53.85l10.7-6.8a1 1 0 0 0 0-1.7L9.53 4.35A1 1 0 0 0 8 5.2z"/></svg></span></button>';
     frame.addEventListener('click', function (e) {
       if (!(e.target.closest && e.target.closest('[data-video-play]'))) return;
       var em = videoEmbed(src);
       frame.innerHTML = em
-        ? '<iframe src="' + esc(em) + '" title="Ethicare Move walk-through" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>'
+        ? '<iframe src="' + esc(em) + '" title="Plan Ethicare walk-through" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>'
         : '<video controls autoplay playsinline preload="metadata"' + (poster ? ' poster="' + esc(poster) + '"' : '') + ' src="' + esc(src) + '"></video>';
       if (window.track) window.track('move_video_play', {});
     });
@@ -934,7 +934,7 @@
     importFromLink();
     load();
     if (ctx && ctx.mount) {
-      /* My Move (pack/pack.js) reuses this file inside a candidate's private space, where the
+      /* My Plan (pack/pack.js) reuses this file inside a candidate's private space, where the
          answers ARE saved with us — so the page it sits in can supply its own intro line. */
       var strip = ctx.mount('#ctx-strip', { intro: document.body.getAttribute('data-strip-intro') || 'Tell us a little about your move to make this plan your own.' });
       /* a first visit: open the answers so the page starts by asking, not by lecturing */

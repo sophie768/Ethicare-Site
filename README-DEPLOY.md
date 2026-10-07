@@ -59,8 +59,8 @@ the upload — a manual-deploy failure that git migration fixes permanently).
 **503** = no key set. **502** = key set but rejected upstream.
 
 `netlify/functions/capture.js` (applications, leads) and `netlify/functions/my-move.js`
-(the My Move spaces, 29 Sep 2026) both need `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE`,
-scoped to production only so previews cannot write into the real tables. My Move also needs
+(the My Plan spaces, 29 Sep 2026) both need `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE`,
+scoped to production only so previews cannot write into the real tables. My Plan also needs
 its table — the `create table my_move` statement in `pack/README.md`, run once in the
 Supabase SQL editor. Without either, a pack page still opens and says "not connected right
 now"; the candidate's writing stays on their device until it is.
@@ -211,10 +211,10 @@ Dropdowns added 22 Aug 2026, in the same pass as the product split below. Markup
 
 ### Two products, deliberately separate
 
-- **`/move` — Ethicare Move.** The bespoke plan. Five answers, saved in the browser, then a six-step journey and the tools filtered to your profession, destination and stage. "Plan Your Move" in the header points HERE.
+- **`/move` — Plan Ethicare.** The bespoke plan. Five answers, saved in the browser, then a six-step journey and the tools filtered to your profession, destination and stage. "Plan Your Move" in the header points HERE.
 - **`/resources` — Guides & resources.** The library: every guide in one place, 50 tiles grouped by the same six steps, with search, six area chips and a country filter.
 
-They were briefly merged under one name ("Ethicare Move") and split again on 22 Aug 2026 — the library and the personalised plan are different jobs and candidates arrive wanting one or the other. Both run the **same six steps** used throughout the site: Deciding · Registration & pay · CV & interviews · Visas · Preparing to move · Settling in. `move.js`'s `journey()` was folded from seven stages to those six (the standalone "The offer" stage now sits inside Registration & pay, matching where `negotiating-your-offer` lives in the library). If you change the six anywhere, change them in `site/resources.html`, `site/move.js` and the country pages' guides sections together.
+They were briefly merged under one name ("Plan Ethicare") and split again on 22 Aug 2026 — the library and the personalised plan are different jobs and candidates arrive wanting one or the other. Both run the **same six steps** used throughout the site: Deciding · Registration & pay · CV & interviews · Visas · Preparing to move · Settling in. `move.js`'s `journey()` was folded from seven stages to those six (the standalone "The offer" stage now sits inside Registration & pay, matching where `negotiating-your-offer` lives in the library). If you change the six anywhere, change them in `site/resources.html`, `site/move.js` and the country pages' guides sections together.
 
 `components/site/nav-data.js` holds `PRIMARY_NAV` as the single source of truth. Change it and the page shell together, never one alone. Changing a top-level item means changing every page — it can be re-injected across all pages in one pass.
 

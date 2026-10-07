@@ -66,7 +66,7 @@
     } catch (e) {}
     summary();
   }
-  /* A compact read-only summary for My Move's money line (my-move reads SUMMARY_KEY, never LSK).
+  /* A compact read-only summary for My Plan's money line (my-move reads SUMMARY_KEY, never LSK).
      Written only once the estimate has been reached, so a half-answered stage 1 never shows as a budget. */
   var SUMMARY_KEY = 'ethicare_cost_summary_v1';
   /* The capture submits the hidden form natively, which navigates to ?submitted=1 and
@@ -640,14 +640,26 @@
       + '<p class="cc-bignote">This includes the costs and assumptions you selected. Every variable figure can still be changed.</p></div>'
       + '<div class="cc-sumacts" data-print-hide><button type="button" class="cc-b2" data-print>Print or save as PDF</button><a class="cc-b3" href="/contact">Talk it through with us</a></div></div></div>';
 
-    /* The three numbers that actually matter, in the order they matter. */
-    s += '<div class="cc-three">'
-      + '<div class="cc-th"><span class="cc-thk">Estimated total move cost</span><span class="cc-thv">' + C + ' ' + fmt(t.grand) + '</span></div>'
-      + '<div class="cc-th lead"><span class="cc-thk">Costs that fall before you leave</span><span class="cc-thv">' + C + ' ' + fmt(beforeLeave) + '</span>'
-      + '<span class="cc-thn">Registration, visas, documents and flights are mostly paid while you are still at home.</span></div>'
-      + '<div class="cc-th"><span class="cc-thk">Employer support</span><span class="cc-thv">' + (t.contribution > 0 ? 'Up to ' + C + ' ' + fmt(t.contribution) : 'None recorded') + '</span>'
-      + '<span class="cc-thn">' + (t.contribution > 0 ? 'Worth confirming how and when this is paid before you rely on it.' : 'Tell us about a relocation package under \u201cYour support\u201d below and we will factor it in.') + '</span></div>'
+    /* Your move at a glance (6 Oct 2026 review): the four numbers a household actually decides on,
+       then a plain reading of them. Total, cash at one time, employer support, eventual cost to you —
+       they can be very different numbers, and the difference is the useful part. */
+    var upfrontNote = t.showUpfront ? (st.employer === 'unsure' ? 'Assumes no employer support until you have it in writing.' : 'Reimbursement arrives after you have paid, so this is the peak.') : 'Nothing is reimbursed later, so this is also your eventual cost.';
+    s += '<div class="cc-glance"><h3>Your move at a glance</h3><div class="cc-four">'
+      + '<div class="cc-th"><span class="cc-thk">Estimated move cost</span><span class="cc-thv">' + C + ' ' + fmt(t.grand) + '</span><span class="cc-thn">Everything, whoever pays it.</span></div>'
+      + '<div class="cc-th lead"><span class="cc-thk">Cash you may need available</span><span class="cc-thv">' + C + ' ' + fmt(t.showUpfront ? t.upfront : t.costToYou) + '</span><span class="cc-thn">' + esc(upfrontNote) + '</span></div>'
+      + '<div class="cc-th"><span class="cc-thk">Employer contribution</span><span class="cc-thv">' + (t.contribution > 0 ? C + ' ' + fmt(t.contribution) : '\u2014') + '</span><span class="cc-thn">' + (t.contribution > 0 ? 'Confirm how and when it is paid before you rely on it.' : 'None recorded yet \u2014 add a package under \u201cYour support\u201d.') + '</span></div>'
+      + '<div class="cc-th"><span class="cc-thk">Estimated cost to you</span><span class="cc-thv">' + C + ' ' + fmt(t.costToYou) + '</span><span class="cc-thn">After employer support, once everything has settled.</span></div>'
       + '</div>';
+    var dr0 = drivers(t), meaning = '';
+    if (dr0.length) {
+      meaning += 'Your biggest costs are likely to be ' + esc(dr0[0].label.toLowerCase()) + (dr0[1] ? ' and ' + esc(dr0[1].label.toLowerCase()) : '') + '. ';
+    }
+    meaning += 'About ' + C + ' ' + fmt(beforeLeave) + ' falls before you leave and ' + C + ' ' + fmt(afterLand) + ' after you land. ';
+    if (t.contribution > 0 && t.showUpfront) meaning += 'Your employer\u2019s contribution covers a real part of the move, but because it arrives after you have paid, you may still need around ' + C + ' ' + fmt(t.upfront) + ' available at the peak.';
+    else if (t.contribution > 0) meaning += 'Your employer\u2019s contribution is paid upfront or direct, so your own peak outlay is close to your eventual cost.';
+    else if (st.employer === 'unsure') meaning += 'Nothing here assumes employer support. If a package is offered, how it is paid matters as much as how much \u2014 reimbursed later still means finding the money first.';
+    else meaning += 'With no employer contribution, the figure to plan around is the cash you need available, not the total.';
+    s += '<div class="cc-meaning"><span class="cc-mk">What this means</span><p>' + meaning + '</p></div></div>';
 
     /* Cash-flow timing, which is a different question from who ultimately pays. */
     s += '<div class="cc-timing"><h3>Before you leave, and after you land</h3><div class="cc-tgrid">'
@@ -670,11 +682,7 @@
     s += groups(t);
     if (later) s += '<div class="cc-sums">' + later + '</div>';
 
-    s += '<div class="cc-band"><div class="cc-figs">'
-      + '<div><span class="cc-fk">Total cost of moving</span><span class="cc-fv">' + C + ' ' + fmt(t.grand) + '</span></div>'
-      + '<div><span class="cc-fk">Employer contribution</span><span class="cc-fv">' + (t.contribution > 0 ? '\u2212 ' : '') + C + ' ' + fmt(t.contribution) + '</span></div>'
-      + '<div><span class="cc-fk">Estimated cost to you</span><span class="cc-fv">' + C + ' ' + fmt(t.costToYou) + '</span></div>'
-      + '</div>';
+    s += '<div class="cc-band cc-band-slim">';
 
     var curs = [{ value: 'dest', label: C }, { value: 'GBP', label: 'GBP' }, { value: 'EUR', label: 'EUR' }, { value: 'USD', label: 'USD' }, { value: 'ZAR', label: 'ZAR' }];
     s += '<div class="cc-curs" data-print-hide><span class="cc-ck">Show in</span>';
@@ -692,11 +700,6 @@
     }
     s += '</div>';
 
-    if (t.showUpfront) {
-      s += '<div class="cc-upfront"><span class="eyebrow">Cash you may need available upfront</span>'
-        + '<p class="cc-uv">Up to ' + C + ' ' + fmt(t.upfront) + '</p>'
-        + '<p class="cc-ub">' + esc(t.upfrontCopy) + '</p></div>';
-    }
 
     s += '<div class="cc-card cc-prov"><h3>Where these figures come from</h3><div class="cc-provgrid">'
       + '<p><strong>Official fee</strong> \u2014 a published government or regulator charge.</p>'
@@ -705,12 +708,15 @@
       + '<p><strong>Your figure</strong> \u2014 a number you have entered yourself.</p></div>'
       + '<p class="cc-stampline">Fees and tenancy rules checked ' + esc(d.lastChecked) + '. They change \u2014 always confirm against the official source before making a financial decision. This is a moving budget, not a cost-of-living calculator.</p></div>';
 
-    s += '<div class="cc-next" data-print-hide><h3>Continue planning your move</h3><p>The cost is one part of the picture. These take you through the rest.</p><div class="cc-nextgrid">'
-      + '<a href="/moving-checklist"><span class="t">Your moving checklist</span><span class="l">What do I need to organise? &rarr;</span></a>'
-      + '<a href="/pathway-checker"><span class="t">Registration pathway checker</span><span class="l">Can I register professionally? &rarr;</span></a>'
-      + '<a href="/guides/cost-of-relocating"><span class="t">The relocation cost guide</span><span class="l">Why each cost lands when it does &rarr;</span></a>'
-      + '<a href="' + (isAU() ? '/destinations/australia' : '/destinations/') + '"><span class="t">Destination guides</span><span class="l">Where should I live? &rarr;</span></a>'
-      + '</div></div>';
+    /* Where the number goes next (6 Oct 2026): the calculator already saves to this device, and
+       Plan Ethicare reads the same key, so "take it into Move" is true the moment they click. */
+    s += '<div class="cc-next" data-print-hide><h3>What this number is for</h3><p>Cost is one of three questions. The other two are what you would earn, and how the whole move fits together \u2014 and your estimate is already saved on this device for both.</p><div class="cc-nextgrid cc-nextgrid-3">'
+      + '<a class="cc-nx primary" href="/plan"><span class="k">Help me do it</span><span class="t">Take this into Plan Ethicare</span><span class="l">Your budget becomes the money stage of the plan \u2014 registration, visa, flights, the first month, in order. &rarr;</span></a>'
+      + '<a class="cc-nx" href="/ask?q=' + encodeURIComponent('Which of these moving costs could I reasonably ask my employer to cover, and what is usually in a relocation package?') + '"><span class="k"><img src="/assets/brand/ask-ethicare-mark-on-light.svg" alt="" width="220" height="137">Help me understand</span><span class="t">Ask Ethicare about my costs</span><span class="l">\u201cWhich of these could I reasonably ask my employer to cover?\u201d &rarr;</span></a>'
+      + '<a class="cc-nx" href="/take-home-pay' + (isAU() ? '?destination=australia' : '?destination=new-zealand') + '"><span class="k">Put it in context</span><span class="t">Check what I would take home</span><span class="l">What a salary pays into your bank after tax, so the move cost has something to stand next to. &rarr;</span></a>'
+      + '</div>'
+      + '<div class="cc-nextmore"><a href="/moving-checklist">Moving checklist</a><a href="/pathway-checker">Registration pathway checker</a><a href="/guides/cost-of-relocating">Why each cost lands when it does</a><a href="' + (isAU() ? '/destinations/australia' : '/destinations/') + '">Destination guides</a></div>'
+      + '</div>';
 
     s += leadBlock();
 

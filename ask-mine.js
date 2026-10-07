@@ -15,7 +15,10 @@
 (function () {
   'use strict';
   var C = window.EthicareContext, KB = window.ASK_ETHICARE_KB;
-  if (!C) return;
+  /* Needs the 5 Oct 2026 strip (name, destMode, hasPartner). If a cached older copy of
+     candidate-context.js is still in a browser, leave the page as it was rather than throw
+     half-way through a render. */
+  if (!C || typeof C.name !== 'function' || typeof C.destMode !== 'function' || typeof C.hasPartner !== 'function') return;
 
   var hero = document.querySelector('.ask-hero-copy');
   var chips = document.querySelector('[data-aske-chips]');
@@ -75,19 +78,19 @@
       add('prof_' + d, { t: (C.professionLabel() || 'Your profession') + ' in ' + (d === 'au' ? 'Australia' : 'New Zealand'),
                          d: 'Registration, what the work is like, and indicative pay', u: '/jobs/' + PAGE[d][pk] + '-' + (d === 'au' ? 'australia' : 'new-zealand') });
     }
-    // 2. registration — the checker first, preselected from the strip
+    // 2. the checker, preselected from the strip
     add('pathway_checker', { t: 'Registration pathway checker', d: 'Your likely route, with your profession already selected', u: '/pathway-checker', ctx: true });
-    if (d === 'nz') add('nz_registration'); else if (d === 'au') add('au_registration'); else { add('nz_registration'); add('au_registration'); }
     // 3. visas
     if (d === 'nz') add('nz_visa'); else if (d === 'au') add('au_visa'); else add('compare_countries');
     // 4. the people coming with you
     if (C.hasChildren()) { if (d === 'nz') { add('nz_family'); add('nz_education'); } else if (d === 'au') { add('au_family'); add('au_education'); } else { add('nz_family'); add('au_family'); } }
     else if (C.hasPartner()) { if (d === 'nz') add('nz_family'); else if (d === 'au') add('au_family'); else add('nz_family'); }
-    // 5. where to live, and what it costs
+    // 5. where to live, what it costs, then the longer reads
     add('where_to_live');
-    if (d === 'nz') add('nz_destinations'); else if (d === 'au') add('au_destinations'); else add('compare_countries');
     add('cost_calculator', { t: 'What the move will cost', d: 'Build a realistic figure for your own move', u: '/cost-calculator', ctx: true });
-    return out.slice(0, 9);
+    if (d === 'nz') add('nz_registration'); else if (d === 'au') add('au_registration'); else { add('nz_registration'); add('au_registration'); }
+    if (d === 'nz') add('nz_destinations'); else if (d === 'au') add('au_destinations'); else add('compare_countries');
+    return out.slice(0, 6);
   }
 
   function render() {

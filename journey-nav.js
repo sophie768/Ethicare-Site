@@ -198,7 +198,7 @@
     /* Said the same way as the "Take it with you" card on /move (Sophie, 3 Oct 2026): nothing
        moves between devices on its own, and the plan link is what carries it. The old line
        stopped at "it will not follow you to your phone", which read as a dead end. */
-    note.textContent = 'Saving adds this page to your list on Move. It is kept on this device \u2014 nothing moves to your phone or another computer on its own, but your plan link on Move carries your saved pages with it.';
+    note.textContent = 'Saving adds this page to your list on Plan Ethicare. It is kept on this device \u2014 nothing moves to your phone or another computer on its own, but your plan link on Plan Ethicare carries your saved pages with it.';
     el.appendChild(note);
     main.appendChild(el);
   }

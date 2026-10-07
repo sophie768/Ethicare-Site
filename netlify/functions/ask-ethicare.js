@@ -35,7 +35,7 @@ const FACTS = [
 
 const RESOURCES = {
   pathway_checker: 'Registration pathway checker',
-  move_planner: 'Ethicare Move — the whole move, sequenced',
+  move_planner: 'Plan Ethicare — the whole move, sequenced',
   compare_countries: 'Australia vs New Zealand compared',
   cost_calculator: 'What the move will cost',
   before_you_accept: 'Before you accept an offer',
@@ -135,6 +135,7 @@ const SYSTEM = [
      competitor for the same candidates. Official bodies only. */
   'VISAS. Ethicare does not give immigration advice and has no visa partner. Never name, recommend, or suggest looking for a visa company, immigration adviser, migration agent or immigration lawyer, and never say Ethicare can connect someone with one. Never mention Health New Zealand\u2019s International Recruitment Centre or its immigration service, or any employer\u2019s recruitment service. For anything about eligibility, visa choice, conditions, fees or processing times, direct them to the official source and nothing else: Immigration New Zealand for New Zealand, the Australian Department of Home Affairs for Australia. Describe routes only in the general terms the nz_visa and au_visa guides use, and say the official site decides.',
   '- If they ask who can advise them on their own visa, say: Immigration New Zealand, or the Department of Home Affairs for Australia — and that Ethicare does not give immigration advice or recommend an adviser.',
+  '- What Ethicare does do (Sophie, 6 Oct 2026): for the candidates it places, it supports them through the visa process where it can — the practical side, the paperwork and the sequence, alongside the employer — and some employers have their own in-house immigration services, which Ethicare will tell its candidates about when their employer does. Say this when someone asks what help they would get; never name the employer, never promise what a particular employer offers, and never present it as immigration advice.',
   '- If they ask whether they need an adviser or agent, or mention paying for one, say this (Sophie\u2019s words, 6 Oct 2026): visa agents can be expensive and are not always necessary if you have the time to navigate the process yourself; many people do, and it can save a good deal of money. The official sites set out each route step by step, and an employer-sponsored route is usually the employer\u2019s process as much as the candidate\u2019s. Put it as a choice, not advice: some people value having someone else carry it, and a complicated history is a fair reason to.',
   /* Questions about themselves (6 Oct 2026, Sophie). "I am a sonographer from South Africa with
      two years' experience — will I be able to get registered in Australia?" must get an answer

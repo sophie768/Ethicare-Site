@@ -223,9 +223,9 @@
         </div>
       </div>
       <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Plan your move<span class="cv" aria-hidden="true">&#9662;</span></a>
+      <div class="navitem has-sub"><a href="/plan">Plan your move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          <a href="/move">Your relocation plan</a>
+          <a href="/plan">Your relocation plan</a>
           <a href="/pathway-checker">Registration pathway checker</a>
           <a href="/cost-calculator">Moving cost calculator</a>
           <a href="/guides/australia-vs-new-zealand">Compare the two countries</a>
@@ -340,7 +340,7 @@
     <a href="#roles"><span class="lg">Roles</span><span class="sm">Roles</span></a>
     <a href="#stuck"><span class="lg">Sticking points</span><span class="sm">Stuck</span></a>
     <a href="#family"><span class="lg">Family</span><span class="sm">Family</span></a>
-    <a href="#mymove"><span class="lg">My Move</span><span class="sm">My Move</span></a>
+    <a href="#mymove"><span class="lg">My Plan</span><span class="sm">My Plan</span></a>
     <a href="#ask"><span class="lg">Ask</span><span class="sm">Ask</span></a>
   </div>
 </nav>
@@ -646,9 +646,9 @@
 <section class="sec" id="mymove" data-screen="mymove" data-screen-label="Psychologist AU · 12 my move" style="background:var(--cream)">
   <div class="wrap">
     <span class="foryou">For you, at this stage</span>
-    <p class="eyebrow">My Move</p>
+    <p class="eyebrow">My Plan</p>
     <h2>Sixteen things, in the order they need doing</h2>
-    <p class="lead">Tick them here and they stay ticked on this device. Save your journey and they travel into your plan on Ethicare Move.</p>
+    <p class="lead">Tick them here and they stay ticked on this device. Save your journey and they travel into your plan on Plan Ethicare.</p>
     <div class="sbody">
     <ol class="mm" data-mm>
       <li><label><input type="checkbox" value="1"><span>Read the Board&rsquo;s overseas-applicant pages once, end to end</span></label></li>
@@ -668,7 +668,7 @@
       <li><label><input type="checkbox" value="15"><span>Apply for general registration with my supervisor&rsquo;s assessment</span></label></li>
       <li><label><input type="checkbox" value="16"><span>Decide whether I need the endorsement now, and by which route</span></label></li>
     </ol>
-    <div class="mm-foot"><span class="mm-count" data-mm-count>0 of 16 done</span><div class="btn-row" style="margin:0"><a class="btn btn-primary" href="/move">Save my journey</a><a class="btn btn-ghost" href="/resources">Guides &amp; resources</a></div></div>
+    <div class="mm-foot"><span class="mm-count" data-mm-count>0 of 16 done</span><div class="btn-row" style="margin:0"><a class="btn btn-primary" href="/plan">Save my journey</a><a class="btn btn-ghost" href="/resources">Guides &amp; resources</a></div></div>
     </div>
     <a class="btn btn-ghost anyway" href="#mymove" data-anyway>Show it anyway</a>
   </div>
@@ -717,7 +717,7 @@
         </div>
       </div>
       <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
-      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/move">Ethicare Move</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/plan">Plan Ethicare</a><a href="/apply">Apply / submit your CV</a></div>
       <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
     </div>
     <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
@@ -783,7 +783,7 @@
     if(when==='year')out.push('this year — start the transcripts today');
     $('[data-pers-out]').textContent=out.length?'Set for you: '+out.join(' · ')+'.':'Choose at least one answer and the page will arrange itself.';
   })}
-  /* My Move — ticks kept locally. */
+  /* My Plan — ticks kept locally. */
   var mm=$('[data-mm]');
   if(mm){var MK='ethicare_mymove_'+PAGE, boxes=$$('input[type="checkbox"]',mm), count=$('[data-mm-count]');
     var done={};try{done=JSON.parse(localStorage.getItem(MK)||'{}')}catch(e){}

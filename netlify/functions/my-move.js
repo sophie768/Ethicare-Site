@@ -1,9 +1,9 @@
 /* ============================================================================
-   Ethicare Resourcing — My Move store
+   Ethicare Resourcing — My Plan store
    GET  /.netlify/functions/my-move?k=<key>        read a candidate's own space
    POST /.netlify/functions/my-move  {k, slug, data, base}   save it
 
-   My Move is the private space an Ethicare candidate reaches from the link the team
+   My Plan is the private space an Ethicare candidate reaches from the link the team
    sends (/pack/<slug>, see pack/README.md). What the TEAM writes for them — the letter,
    travel, the chosen guides — lives in that page's file. What the CANDIDATE writes —
    their plan, their notes, the answers that shape the site's tools, the stages they

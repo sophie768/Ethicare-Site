@@ -273,3 +273,26 @@
     }
   });
 })();
+
+/* ---- typewriter placeholder (6 Oct 2026) ---------------------------------------------------
+   The question box types real questions to itself until someone touches it. Static placeholder
+   text says "example"; a question being typed says "this is where you type". Stops for good on
+   focus, on input, and when the thread opens. Honours prefers-reduced-motion. */
+(function () {
+  'use strict';
+  var box = document.querySelector('.ask-instrument .aske-box'), ta = document.getElementById('aske-in');
+  if (!box || !ta || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  var Q = ['Can I work in New Zealand as a UK radiographer?', 'What could I earn in Australia after tax?', 'Could my partner work on my visa?', 'Where would suit a family with two careers?', 'How much would the move cost us upfront?', 'I\u2019m a sonographer from South Africa \u2014 can I register in Australia?'];
+  var el = document.createElement('span'); el.className = 'aske-type'; el.setAttribute('aria-hidden', 'true'); box.appendChild(el); box.classList.add('is-typing');
+  var qi = 0, ci = 0, dir = 1, timer = null, stopped = false;
+  function stop() { if (stopped) return; stopped = true; clearTimeout(timer); el.remove(); box.classList.remove('is-typing'); }
+  function tick() {
+    if (stopped) return;
+    var q = Q[qi];
+    if (dir > 0) { ci++; el.textContent = q.slice(0, ci); if (ci >= q.length) { dir = -1; timer = setTimeout(tick, 2200); return; } timer = setTimeout(tick, 38 + Math.random() * 40); }
+    else { ci -= 3; if (ci <= 0) { ci = 0; el.textContent = ''; dir = 1; qi = (qi + 1) % Q.length; timer = setTimeout(tick, 500); return; } el.textContent = q.slice(0, ci); timer = setTimeout(tick, 18); }
+  }
+  ['focus', 'input', 'pointerdown', 'touchstart'].forEach(function (ev) { ta.addEventListener(ev, stop, { once: true, passive: true }); });
+  document.querySelectorAll('[data-aske-chips] button').forEach(function (b) { b.addEventListener('click', stop, { once: true }); });
+  timer = setTimeout(tick, 900);
+})();

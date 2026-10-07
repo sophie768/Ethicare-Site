@@ -2,7 +2,7 @@
 
    ONE source of truth for: which healthcare professions exist, who registers
    them in each country, and how far Ethicare's own support for each has got.
-   Read by Ethicare Move (site/move.js) and by the internal build
+   Read by Plan Ethicare (site/move.js) and by the internal build
    plan so the two can never disagree.
 
    Regulators verified 20 August 2026 against:

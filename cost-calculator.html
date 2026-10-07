@@ -271,6 +271,31 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-lead .cc-err{color:#A34438;font-size:14.5px;font-weight:600;margin:0 0 12px}
 .cc-lead.is-done{border-left-color:#2F5E49}
 .cc-lead.is-done p{margin:0;font-size:15.5px;line-height:1.6;color:#333}
+
+/* ---- at a glance + next actions (6 Oct 2026) ---- */
+.cc-glance{background:#fff;border:1px solid #D6E1DA;border-radius:var(--r-lg);padding:clamp(22px,2.8vw,32px);margin-bottom:18px}
+.cc-glance h3{font-weight:600;font-size:20px;color:var(--teal);margin-bottom:16px}
+.cc-four{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.cc-four .cc-th{background:#F3F7F4;border-radius:var(--r-md);padding:18px}
+.cc-four .cc-th.lead{background:var(--teal)}
+.cc-four .cc-th.lead .cc-thk,.cc-four .cc-th.lead .cc-thn{color:#D6E8E0}
+.cc-four .cc-th.lead .cc-thv{color:#C6E084}
+.cc-meaning{margin-top:16px;padding-top:16px;border-top:1px solid #E6EEEA}
+.cc-mk{display:block;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#2F5E49;margin-bottom:6px}
+.cc-meaning p{font-size:16px;line-height:1.65;color:var(--text);max-width:70ch;margin:0}
+.cc-band-slim{padding:clamp(18px,2.4vw,26px)}
+.cc-nextgrid-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.cc-nx .k{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px}
+.cc-nx .k img{height:18px;width:auto}
+.cc-nx.primary{background:var(--teal);border-color:var(--teal)}
+.cc-nx.primary .k{color:#C6E084}.cc-nx.primary .t{color:#fff}.cc-nx.primary .l{color:#D6E8E0}
+.cc-nextmore{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px}
+.cc-nextmore a{font-family:var(--display);font-weight:600;font-size:14px;color:var(--teal);text-decoration:none;border-bottom:1px solid #72A471;padding-bottom:1px}
+.cc-how .cc-howd{margin-top:18px}
+.cc-how .cc-howd summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:var(--display);font-weight:600;font-size:16px;color:var(--teal);padding:14px 0;border-top:1px solid #E6EEEA;border-bottom:1px solid #E6EEEA}
+.cc-how .cc-howd summary::-webkit-details-marker{display:none}
+.cc-how .cc-howd[open] summary .cv{transform:rotate(45deg)}
+.cc-how .cc-howd .cc-hows{margin-top:22px}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Cost of moving calculator"}]}</script>
 <meta property="og:url" content="https://ethicareresourcing.com/cost-calculator"><meta property="og:image" content="https://ethicareresourcing.com/assets/og-toolkit.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="How much will it cost to move?"><meta name="twitter:description" content="Build a realistic moving budget for Australia or New Zealand — official fees, tenancy rules and the costs people forget."><meta name="twitter:image" content="https://ethicareresourcing.com/assets/og-toolkit.jpg">
@@ -326,9 +351,9 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
         </div>
       </div>
       <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move" aria-current="page">Plan your move<span class="cv" aria-hidden="true">&#9662;</span></a>
+      <div class="navitem has-sub"><a href="/plan" aria-current="page">Plan your move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          <a href="/move">Your relocation plan</a>
+          <a href="/plan">Your relocation plan</a>
           <a href="/pathway-checker">Registration pathway checker</a>
           <a href="/cost-calculator">Moving cost calculator</a>
           <a href="/guides/australia-vs-new-zealand">Compare the two countries</a>
@@ -383,14 +408,15 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 
   <section class="cc-how" data-screen-label="How the figures work">
     <div class="in">
-      <span class="eyebrow">How the figures work</span>
-      <h2>An estimate says where each number came from</h2>
-      <p class="lede">Most relocation costs cannot be quoted in advance, so a single &ldquo;average cost to relocate&rdquo; figure is worth very little. This calculator separates what is published from what is estimated, and shows you which is which on every line.</p>
+      <span class="eyebrow">How we calculate this</span>
+      <h2>Official fees where they exist. Realistic estimates where they don&rsquo;t. No invented numbers.</h2>
+      <details class="cc-howd"><summary>How the figures work, in full<span class="cv" aria-hidden="true">+</span></summary>
       <div class="cc-hows">
-        <div><div class="n">01</div><h3>Published charges, taken from the source</h3><p>Visa charges and regulator fees are labelled as official, with a link to the schedule they came from and the date we last checked it. Bond and rent in advance are calculated from the tenancy rule where you are moving.</p></div>
-        <div><div class="n">02</div><h3>Planning estimates, meant to be replaced</h3><p>Flights, shipping, household setup and temporary accommodation start as realistic figures rather than optimistic ones. Every one is editable, and the estimate gets sharper each time you replace ours with a real quote.</p></div>
-        <div><div class="n">03</div><h3>The gaps we won&rsquo;t guess at</h3><p>Pet relocation, an immigration adviser, an English test you may not need: these sit at zero with a note, because a made-up number is worse than an obvious blank. We also show the cash you may need available upfront, which is rarely the same as the total.</p></div>
+        <div><div class="n">01</div><h3>Published charges, taken from the source</h3><p>Visa charges and regulator fees are labelled as official, with a link to the schedule they came from and the date we last checked it. Bond and rent in advance are calculated from each country&rsquo;s own tenancy rules.</p></div>
+        <div><div class="n">02</div><h3>Planning estimates, meant to be replaced</h3><p>Flights, shipping, household setup and temporary accommodation start as realistic figures rather than optimistic ones. Every one is editable, and the estimate gets sharper as you replace ours with quotes of your own.</p></div>
+        <div><div class="n">03</div><h3>The gaps we won&rsquo;t guess at</h3><p>Pet relocation, an immigration adviser, an English test you may not need: these sit at zero with a note, because a made-up number is worse than an obvious blank. We also show the cash you may need available before any reimbursement arrives.</p></div>
       </div>
+      </details>
     </div>
   </section>
 

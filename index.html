@@ -310,6 +310,31 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 .faq-wrap[open] .l-show{display:none}
 .faq-wrap[open] .l-hide{display:inline}
 .faq-wrap[open]>summary{margin-bottom:clamp(20px,2.4vw,30px)}
+
+/* 6 Oct 2026 — Ask on the home page, with its mark */
+.hero-ask{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:8px 18px 8px 10px;border-radius:999px;background:#FCFBF8;color:#02615D;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;text-decoration:none;box-shadow:0 10px 26px -12px rgba(1,49,47,.6);transition:transform .15s ease}
+.hero-ask img{height:28px;width:auto}
+.hero-ask i{font-style:normal}
+.hero-ask:hover{transform:translateY(-1px)}
+.wd-grid-3{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.wd-card.wd-ask{background:#02615D;border-color:#02615D;border-left-color:#A6C84A;color:#fff}
+.wd-card.wd-ask p{color:#E6F1ED}.wd-card.wd-ask .wd-k{color:#C6E084}.wd-card.wd-ask .wd-go{color:#fff}
+.wd-logo{display:block;height:54px;width:auto;margin:0 0 18px}
+.wd-card p.wd-logo-plan{font-family:'Work Sans',sans-serif;font-weight:300;font-size:30px;line-height:40px;letter-spacing:-.02em;color:#02615D;margin:0 0 14px}
+.wd-logo-plan strong{font-weight:600}
+.wd-k{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin:0 0 10px!important}
+.aske-logo{display:block;height:44px;width:auto;margin:0 auto 14px}
+.aske-full{font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D;margin-left:8px}
+
+.wd-card.wd-jobs{border-left-color:#02615D;background:#F3F7F4}
+.wd-acts{margin-top:auto;padding-top:16px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.wd-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 20px;border-radius:10px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;text-decoration:none}
+.wd-btn:hover{background:#01413E}
+.wd-acts .wd-go{margin-top:0;padding-top:0}
+
+.wd-card p.wd-logo-er{display:flex;align-items:center;gap:12px;height:54px;margin:0 0 18px;font-family:'Work Sans',sans-serif;font-weight:400;font-size:23px;letter-spacing:-.02em;color:#02615D;line-height:1;white-space:nowrap}
+.wd-card p.wd-logo-er img{height:44px;width:44px;border-radius:9px}
+.wd-card p.wd-logo-er strong{font-weight:600}
 </style>
 <link rel="canonical" href="https://ethicareresourcing.com/">
 <link rel="icon" href="/assets/logo-mark.png">
@@ -342,9 +367,9 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
         </div>
       </div>
       <div class="navitem has-sub"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a><div class="subnav mega mega3"><div class="megacol"><span class="megah">Careers in New Zealand</span><a href="/jobs/medicine-new-zealand">Medicine</a><a href="/jobs/nursing-midwifery-new-zealand">Nursing &amp; midwifery</a><a href="/jobs/mental-health-new-zealand">Mental health</a><a href="/jobs/allied-health-new-zealand">Allied health</a><a href="/jobs/medical-imaging-new-zealand">Medical imaging &amp; radiation therapy</a><a href="/jobs/theatre-perioperative-new-zealand">Theatre &amp; perioperative</a></div><div class="megacol"><span class="megah">Careers in Australia</span><a href="/jobs/medical-imaging-australia">Medical imaging &amp; radiation therapy</a><a href="/jobs/coming-to-australia">Other healthcare professions</a></div><div class="megacol"><span class="megah">Live roles</span><a href="/jobs/">All live roles</a><a href="/jobs/professions">Every profession</a><a href="/pathway-checker">Pathway checker</a></div></div></div>
-      <div class="navitem has-sub"><a href="/move">Plan your move<span class="cv" aria-hidden="true">&#9662;</span></a>
+      <div class="navitem has-sub"><a href="/plan">Plan your move<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
-          <a href="/move">Your relocation plan</a>
+          <a href="/plan">Your relocation plan</a>
           <a href="/pathway-checker">Registration pathway checker</a>
           <a href="/cost-calculator">Moving cost calculator</a>
           <a href="/guides/australia-vs-new-zealand">Compare the two countries</a>
@@ -378,6 +403,7 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
       <a class="txtlink" href="/new-zealand">Explore New Zealand <i aria-hidden="true">&rarr;</i></a>
       <a class="txtlink" href="/australia">Explore Australia <i aria-hidden="true">&rarr;</i></a>
       <a class="hero-2nd" href="/guides/australia-vs-new-zealand">Not sure? Compare them &rarr;</a>
+      <a class="hero-ask" href="/ask"><img src="/assets/brand/ask-ethicare-mark.svg" alt="" width="220" height="137" decoding="async">Ask Ethicare anything <i aria-hidden="true">&rarr;</i></a>
     </div>
   </div>
 </section>
@@ -396,33 +422,39 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 <!-- TWO COUNTRIES (restored, compact): honest country router straight after the trust bar -->
 
 <!-- WHAT ETHICARE DOES — the offer, plainly, one screen in -->
-<section class="whatwedo" data-screen-label="Home &middot; what we do">
+<section class="whatwedo" data-screen-label="Home &middot; one place">
   <div class="wrapx">
-    <span class="eyebrow">What Ethicare does</span>
-    <h2>A new role. A new home. A life that feels right for you.</h2>
-    <p class="wd-lede">Ethicare Resourcing helps healthcare professionals find their next role and make a new home in New Zealand or Australia. We know a move like this is about much more than a job. It is about your future, the people you love and the life you hope to build. We believe everyone deserves clear information, useful tools and someone to talk things through with. That is why we are here: to help you explore what is possible, decide what feels right for you and support you through the move.</p>
-    <h3 class="wd-h">How we can help</h3>
-    <div class="wd-grid">
+    <!-- Sophie, 6 Oct 2026: "promote this as a one stop shop for healthcare recruitment to australia
+         and new zealand. at the moment the information is out there, it is just hard to find and
+         scattered across different websites... this tailors the move to you. every move is different.
+         some people will be moving alone, some with a partner, some with kids. ethicare allows you to
+         access all the information in one place and plan at the same time." -->
+    <span class="eyebrow">Everything in one place</span>
+    <h2>Every move is different. Everything you need is here.</h2>
+    <p class="wd-lede">The information is out there &mdash; scattered across regulators, immigration sites, pay agreements and a hundred forum threads. We have brought it into one place and built the tools that tailor it to you: moving alone, with a partner, with children, with a parent coming too. Read, check and plan here &mdash; and when you are ready, we find the role and come with you.</p>
+    <div class="wd-grid wd-grid-3">
+      <div class="wd-card wd-ask">
+        <img class="wd-logo" src="/assets/brand/ask-ethicare-logo.svg" alt="Ask Ethicare" width="462" height="137" decoding="async">
+        <p class="wd-k">Help me understand</p>
+        <p>Ask anything, the way you&rsquo;d ask someone who has done it. It answers from our own guides &mdash; registration, pay, visas, schools, where to live &mdash; and points you at the page you needed. Alongside it: the destination finder, the pathway checker, the cost calculator and take-home pay.</p>
+        <a class="wd-go" href="/ask">Open Ask Ethicare &rarr;</a>
+      </div>
       <div class="wd-card">
-        <h3>Find your next role</h3>
-        <p>Permanent healthcare roles across New Zealand, and medical imaging in Australia. We put you forward and speak to the employer for you.</p>
+        <img class="wd-logo" src="/assets/brand/plan-ethicare-logo-on-light.svg" alt="Plan Ethicare" width="330" height="137" decoding="async">
+        <p class="wd-k">Help me do it</p>
+        <p>The whole move, sequenced &mdash; registration, the visa, the money, the people coming with you, the first month &mdash; in the order it actually happens, saved as you go. Free, with no account.</p>
+        <p><strong>Eight stages.</strong> Start at whichever one you are at, and your answers travel with you to every tool.</p>
+        <a class="wd-go" href="/plan">Open Plan Ethicare &rarr;</a>
+      </div>
+      <div class="wd-card wd-jobs">
+        <p class="wd-logo wd-logo-er"><img src="/assets/logo-mark.png" alt="" width="387" height="387" decoding="async"><span>Ethicare <strong>Resourcing</strong></span></p>
+        <p class="wd-k">Help me find a job</p>
+        <p>Permanent healthcare roles across New Zealand, and medical imaging in Australia. We put you forward, speak to the employer for you, and stay with you through the move &mdash; and when we place you, your plan becomes <strong>My Plan</strong>, the same plan with us in it, from offer to first month.</p>
         <p><strong>Never a fee to a candidate.</strong> The employer pays us.</p>
-        <a class="wd-go" href="/jobs/">Explore opportunities &rarr;</a>
-      </div>
-      <div class="wd-card">
-        <h3>Support with your move</h3>
-        <p>Registration, the visa and the documents, in the order they have to happen. Out of sequence, this is what costs people months.</p>
-        <p>We will also tell you when a move does not add up for your family.</p>
-        <a class="wd-go" href="/move">Plan your move &rarr;</a>
-      </div>
-      <div class="wd-card">
-        <h3>Explore at your own pace</h3>
-        <p>Registration checker, take-home pay, the cost of the move, thirty-three destination guides. Free, and no account needed.</p>
-        <a class="wd-go" href="/resources">Explore tools and guides &rarr;</a>
+        <div class="wd-acts"><a class="wd-btn" href="/jobs/">See live roles &rarr;</a><a class="wd-go" href="/apply">Register your interest &rarr;</a></div>
       </div>
     </div>
-    <p class="wd-sub wd-after">Our tools and guides are free to use, whether or not you find your role through us.</p>
-    <p class="wd-foot">Not sure what you need? <a href="/contact">Talk to us</a>.</p>
+    <p class="wd-foot">Not sure what you need? <a href="/ask">Ask Ethicare</a>, or <a href="/contact">talk to us</a>.</p>
   </div>
 </section>
 
@@ -496,7 +528,7 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
       <a class="act" href="/cost-calculator"><span class="q">Can we afford it?</span><span class="sub2">A real estimate of what the move costs.</span><span class="go">Work out the cost <i aria-hidden="true">&rarr;</i></span></a>
       <a class="act" href="/destination-finder"><span class="q">Destination finder</span><span class="sub2">Cities and regions, and the trade-offs between them.</span><span class="go">Explore places <i aria-hidden="true">&rarr;</i></span></a>
       <a class="act" href="/jobs/"><span class="q">What jobs could I get?</span><span class="sub2">Live roles and the professions we recruit.</span><span class="go">See opportunities <i aria-hidden="true">&rarr;</i></span></a>
-      <a class="act" href="/move"><span class="q">How do we plan it all?</span><span class="sub2">One plan for registration, visa, money and the first month.</span><span class="go">Build your plan <i aria-hidden="true">&rarr;</i></span></a>
+      <a class="act" href="/plan"><span class="q">How do we plan it all?</span><span class="sub2">One plan for registration, visa, money and the first month.</span><span class="go">Build your plan <i aria-hidden="true">&rarr;</i></span></a>
     </div>
     <nav class="jstrip" data-jstrip aria-label="The eight stages of the journey" hidden>
       <div class="js-head"><p class="js-note" data-jstrip-note></p></div>
@@ -509,7 +541,7 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
 <section class="aske ed" id="ask" data-screen-label="Home &middot; Ask Ethicare">
   <div class="wrapx">
     <div class="aske-head">
-      <span class="eyebrow">Ask Ethicare</span>
+      <img class="aske-logo" src="/assets/brand/ask-ethicare-logo-on-light.svg" alt="Ask Ethicare" width="462" height="137" decoding="async">
       <h2>What would you like to know?</h2>
       <p class="aske-q">Ask about healthcare careers and moving to New Zealand or Australia.</p>
     </div>
@@ -528,7 +560,7 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
         <button type="button" data-q="What jobs are available in my profession?">Jobs</button>
       </div>
       <p class="aske-priv">AI-assisted guidance &mdash; regulators and immigration authorities make the final decisions, so check anything important with them directly. Please don&rsquo;t include passport, financial or other sensitive personal information.</p>
-      <p class="aske-time">Answers usually take about twenty seconds.</p>
+      <p class="aske-time">Answers usually take about twenty seconds. <a href="/ask" class="aske-full">Open the full Ask Ethicare page &rarr;</a></p>
       <div class="aske-thread" data-aske-thread hidden aria-live="polite"></div>
     </div>
   </div>
@@ -647,7 +679,7 @@ h1,h2,h3{font-family:'Work Sans',sans-serif}
         </div>
       </div>
       <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
-      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/move">Ethicare Move</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/plan">Plan Ethicare</a><a href="/apply">Apply / submit your CV</a></div>
       <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
     </div>
     <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>

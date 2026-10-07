@@ -1388,7 +1388,7 @@
       '</div></div>';
     return '<div class="pw-card">' + progressHead() +
       '<div class="pw-main">' +
-      (st.seeded && step === 1 ? '<p class="pw-priv" style="margin:0 0 18px;text-align:left">Prefilled from your plan on <a href="/move">Move</a>. Change anything that is not right \u2014 nothing here is fixed.</p>' : '') +
+      (st.seeded && step === 1 ? '<p class="pw-priv" style="margin:0 0 18px;text-align:left">Prefilled from your plan on <a href="/plan">Move</a>. Change anything that is not right \u2014 nothing here is fixed.</p>' : '') +
       body + nav + '</div>' +
       (step === qsteps() ? '<p class="pw-priv">Your result first \u2014 no contact details needed.</p>' : '') + '</div>';
   }
@@ -1528,7 +1528,7 @@
   function onwardBlock(res) {
     if (!res || !res.length) return '';
     var acts = [];
-    acts.push('<a class="pw-nextc pw-primeact" href="/move" data-act="addmove"><span class="k">Save this</span>' +
+    acts.push('<a class="pw-nextc pw-primeact" href="/plan" data-act="addmove"><span class="k">Save this</span>' +
       '<span class="t">Add this to my Move plan</span>' +
       '<span class="n">Registration is one part of the move. Add your pathway and we\u2019ll help you work through the rest in order \u2014 jobs, visas, costs and settling in.</span>' +
       '<span class="go" aria-hidden="true">\u2192</span></a>');
