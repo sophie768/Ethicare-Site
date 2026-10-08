@@ -749,6 +749,24 @@
   }
 
   /* ---------------- recognition outlook ---------------- */
+  /* ONE route decision for Australian medical radiation (8 Oct 2026, external review P0-01).
+     The result used to say "no country-based streamlined route" in one paragraph, "a streamlined
+     route looks more likely" in the outlook, "you may be on the Comparable Regulator Pathway" in
+     the routes, and "no country-specific shortcut" in the panel below — four sources, four
+     answers. Every one of those sections now reads this instead.
+       ttmra       current NZ registration (practising certificate) -> mutual recognition
+       comparable  UK/Irish qualification, diagnostic radiography or radiation therapy -> the
+                   Comparable Regulator Pathway is worth checking first (the Board confirms it)
+       nm-excluded UK/Irish qualification in nuclear medicine -> that pathway is not open
+       individual  everything else -> recognised-qualification list, then portfolio assessment */
+  function auMedRadRoute() {
+    var a = st.answers, qc = a.qualCountry || '', rc = a.regCountry || '';
+    if (/new zealand/i.test(rc) && a.registered === 'yes') return 'ttmra';
+    if (/united kingdom|ireland/i.test(qc)) return a.profession === 'nuclear-medicine' ? 'nm-excluded' : 'comparable';
+    return 'individual';
+  }
+  function isAuMedRad(cc, key) { return cc === 'au' && (key === 'imaging' || key === 'mri'); }
+
   function outlookFor(cc, key, r, isSpec) {
     var d = D(), a = st.answers;
     var o = d.outlooks && d.outlooks[key + '.' + cc];
@@ -775,6 +793,19 @@
     }
     if (o.ttmra && regC && ((cc === 'nz' && regC === 'Australia') || (cc === 'au' && regC === 'New Zealand'))) {
       tier = 'strong'; why = d.rules.ttmra.why.replace('{country}', regC).replace('{theCountry}', theCountry(regC).replace(/^The /, 'the ')); basis = 'Trans-Tasman mutual recognition';
+    }
+    if (isAuMedRad(cc, key)) {
+      var rt = auMedRadRoute();
+      if (rt === 'ttmra' || rt === 'comparable') {
+        tier = 'strong';
+        why = rt === 'ttmra'
+          ? 'Your current New Zealand registration and practising certificate may let you use Trans-Tasman mutual recognition. The Board confirms it when you apply.'
+          : 'Your route may be shorter than a full assessment. The Board treats the HCPC (United Kingdom) and CORU (Ireland) as comparable regulators for diagnostic radiography and radiation therapy, so check the Comparable Regulator Pathway first. It depends on your qualification and the year it was accredited, and the Board confirms eligibility.';
+        basis = rt === 'ttmra' ? 'Based on your registration in New Zealand' : 'Based on your training in ' + a.qualCountry;
+      } else {
+        tier = 'assessed'; why = (o.whys && o.whys.assessed) || why;
+        if (rt === 'nm-excluded') basis = 'Based on your training in ' + a.qualCountry + ' (nuclear medicine)';
+      }
     }
     if (r.status === 'streamlined' && tier !== 'strong') { tier = 'strong'; why = 'The streamlined pathway described above currently applies to your combination — the regulator confirms eligibility.'; }
     var T = d.outlookTiers;
@@ -900,6 +931,22 @@
         'Attend your registration meeting in New Zealand within two weeks of starting, then work under supervision before applying to move to the full vocational scope'
       ] });
     }
+    if (isAuMedRad(cc, key)) {
+      r.auRoute = auMedRadRoute();
+      /* The headline, status and first step follow the same decision as everything below. */
+      var first = r.auRoute === 'comparable' ? 'Check your qualification against the Comparable Regulator Pathway (HCPC or CORU accreditation, and the year)'
+        : r.auRoute === 'ttmra' ? 'Check that your New Zealand practising certificate is current for mutual recognition' : null;
+      if (r.auRoute === 'comparable') {
+        r.status = 'streamlined';
+        r.headline = 'Start with the Comparable Regulator Pathway';
+      } else if (r.auRoute === 'ttmra') {
+        r.status = 'streamlined';
+        r.headline = 'Trans-Tasman mutual recognition may apply';
+      }
+      if (first && Array.isArray(r.steps)) r.steps = r.steps.map(function (x) {
+        return typeof x === 'string' && /^See whether MRPBA recognises/.test(x) ? first : x;
+      });
+    }
     r.fired = fired;
     r.ttmra = a.registered === 'yes' && ((cc === 'nz' && a.regCountry === 'Australia') || (cc === 'au' && a.regCountry === 'New Zealand'));
     r.outlookData = outlookFor(cc, key, r, isSpec);
@@ -930,6 +977,10 @@
     } else if (r.ttmra) {
       lines.push('Because you\u2019re registered in ' + a.regCountry + ', ' + (d.rules.ttmraTerm || 'Trans-Tasman Mutual Recognition') +
         ' may apply. You still apply to the regulator, which confirms eligibility.');
+    } else if (r.auRoute === 'comparable') {
+      lines.push('Because you trained in ' + theCountry(a.qualCountry).replace(/^The /, 'the ') + ', the Comparable Regulator Pathway is the route to check first. It depends on your qualification and when it was accredited, not on your passport, and the Board confirms eligibility.');
+    } else if (r.auRoute === 'nm-excluded') {
+      lines.push('The Comparable Regulator Pathway does not cover nuclear medicine, so your qualification goes through the recognised-qualification check and, if it is not listed, a portfolio assessment.');
     } else if (r.profRoute) {
       lines.push('Your answers point at ' + r.profRoute + ' rather than at a country-based rule. This is one of the professions that keys off where and how you trained rather than which passport you hold — the regulator still confirms eligibility.');
     } else if (a.qualCountry) {
@@ -1251,6 +1302,14 @@
     });
     var cName = function (cc) { return cc === 'nz' ? 'New Zealand' : 'Australia'; };
     var caveat = '<p class="pw-hint" style="margin:16px 0 0;font-size:13.5px">Reproduced from the regulators\u2019 own pages and checked on the dates shown. They change without notice \u2014 confirm on the official page before you apply. Ethicare accepts no responsibility for decisions made on what you read here.</p>';
+    if (!rules.length && ccs.indexOf('au') >= 0 && isAuMedRad('au', myRec)) {
+      var rt2 = auMedRadRoute();
+      var txt = rt2 === 'ttmra' ? 'With current New Zealand registration and a practising certificate, Trans-Tasman mutual recognition may apply. Otherwise the routes below depend on your qualification, not your passport.'
+        : rt2 === 'comparable' ? 'Australia\u2019s shorter route here depends on your qualification, not your passport: an HCPC- or CORU-accredited diagnostic radiography or radiation therapy qualification may use the Comparable Regulator Pathway. Your result sets out what to check.'
+        : rt2 === 'nm-excluded' ? 'The Comparable Regulator Pathway for UK and Irish qualifications does not cover nuclear medicine. Your result sets out the recognised-qualification check and the portfolio assessment.'
+        : 'Australia\u2019s routes here depend on your qualification and registration, not your passport: mutual recognition for New Zealand registrants, the Comparable Regulator Pathway for HCPC- or CORU-accredited qualifications, the recognised-qualification list, and otherwise a portfolio assessment.';
+      return '<div class="pw-follow"><div class="pw-followk">Before you choose</div><p class="pw-hint" style="margin:0;font-size:14.5px">' + txt + '</p></div>';
+    }
     if (!rules.length) {
       return '<div class="pw-follow"><div class="pw-followk">Before you choose</div>' +
         '<p class="pw-hint" style="margin:0;font-size:14.5px">For this profession there is no country-specific shortcut \u2014 everyone follows the same assessment, wherever they trained. Where you qualified still shapes what the regulator looks at, but it does not put you on a different route, so there is no list to be on or off.</p>' + caveat + '</div>';
@@ -1431,7 +1490,7 @@
     }
 
     if (r.outlook) {
-      out.push('<section class="pw-bsec"><h3 class="pw-bk">What depends on individual assessment</h3>' +
+      out.push('<section class="pw-bsec"><h3 class="pw-bk">' + (r.outlook.tier === 'strong' ? 'How your route compares' : 'What depends on individual assessment') + '</h3>' +
         '<p class="pw-bhead sm">' + esc(r.outlook.label) + '</p>' +
         (r.outlook.why ? '<p class="pw-bp">' + esc(r.outlook.why) + '</p>' : '') +
         (r.outlook.basis ? '<p class="pw-bbasis">' + esc(r.outlook.basis) + '</p>' : '') + '</section>');
@@ -1788,7 +1847,10 @@
       } catch (e) {}
     }
     if (window.EthicareLead) window.EthicareLead.send('pathway-checker', payload);
-    HTMLFormElement.prototype.submit.call(form);
+    /* Through the safety net (form-safety.js), so a refused post is emailed to the office
+       instead of lost. Native submit only if that script is missing. */
+    if (window.EthicareForms) window.EthicareForms.send(form, { noLead: true, onFail: function () { try { localStorage.removeItem(SENT); } catch (e) {} st.leadErr = 'This did not send. Your answers are still here: please try again in a minute, or email hello@ethicareresourcing.com.'; moveFocus = 'leaderror'; render(); } });
+    else HTMLFormElement.prototype.submit.call(form);
   }
 
   /* ---------------- events ---------------- */

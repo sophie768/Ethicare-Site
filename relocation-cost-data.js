@@ -128,14 +128,14 @@ window.ETHICARE_COSTS = {
         body: 'the Medical Radiation Practice Board of Australia',
         href: 'https://www.medicalradiationpracticeboard.gov.au/Registration/Fees.aspx',
         breakdown: '$660 qualification portfolio assessment, $221 application and $221 first registration.',
-        examNote: 'The national medical radiation practice examination is $787 a sitting, and is almost always required unless you are already registered in New Zealand.'
+        examNote: 'The national medical radiation practice examination is $787 a sitting. It is not automatic: the Board uses it where it decides a more detailed assessment is needed, and New Zealand registrants using mutual recognition do not sit it.'
       },
       radtherapy: {
         fee: 1102, tag: 'official', exam: 787, examTag: 'official',
         body: 'the Medical Radiation Practice Board of Australia',
         href: 'https://www.medicalradiationpracticeboard.gov.au/Registration/Fees.aspx',
         breakdown: '$660 qualification portfolio assessment, $221 application and $221 first registration.',
-        examNote: 'The national medical radiation practice examination is $787 a sitting, and is almost always required unless you are already registered in New Zealand.'
+        examNote: 'The national medical radiation practice examination is $787 a sitting. It is not automatic: the Board uses it where it decides a more detailed assessment is needed, and New Zealand registrants using mutual recognition do not sit it.'
       },
       sonography: {
         fee: 1200, tag: 'estimate', exam: null,

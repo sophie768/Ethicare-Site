@@ -48,6 +48,7 @@
     return { v: 'Not yet confirmed', note: UNKNOWN, state: 'tbc' };
   }
 
+  var HIDE = job.hide || [];
   var rows = [
     { k: 'Pay', v: job.pay || 'Not yet confirmed', note: job.pay ? '' : UNKNOWN, state: job.pay ? '' : 'tbc' },
     job.hours
@@ -59,6 +60,8 @@
   sp.k = 'Visa sponsorship'; rows.push(sp);
   var rl = facet(job.relocation, 'The employer contributes to relocation', 'No relocation contribution for this role');
   rl.k = 'Relocation support'; rows.push(rl);
+  /* A role can leave a line out on purpose (job.hide), rather than show it as "to confirm". */
+  rows = rows.filter(function (r) { return !((r.k === 'Pay' && HIDE.indexOf('pay') > -1) || (r.k === 'Visa sponsorship' && HIDE.indexOf('sponsorship') > -1)); });
 
   var CSS = ''
     + '.v-facts{background:#fff;border:1px solid #C9DED3;border-left:4px solid #A6C84A;border-radius:16px;padding:clamp(18px,2.2vw,24px);margin:0 0 clamp(26px,3vw,36px)}'

@@ -6,9 +6,11 @@
   # families must never be served from the public site, even if a copy lands in the repo
   # again. They are removed from every deploy here; the originals belong outside the
   # site folder. Nothing on the site links to them.
+  # Archived 8 Oct 2026 (kept in the repo and in the intranet Archive, never served): the 13
+  # regional brochures, three old draft guides, and the retired webinar page.
   # Also (7 Oct 2026): working notes, setup SQL and build scripts live in the repo for us,
   # not on the public site — DELETE-THESE.md and friends were readable by anyone.
-  command = "rm -f 'assets/downloads/Welcome to Wellington - '*.html 'assets/downloads/Your First Year in Wellington - '*.html && find . -name '*.md' -not -path './.git/*' -not -path './node_modules/*' -not -path './netlify/*' -delete && rm -rf supabase tools __pycache__"
+  command = "rm -f 'assets/downloads/Welcome to Wellington - '*.html 'assets/downloads/Your First Year in Wellington - '*.html && find . -name '*.md' -not -path './.git/*' -not -path './node_modules/*' -not -path './netlify/*' -delete && rm -rf supabase tools __pycache__ && rm -f assets/downloads/*-brochure.pdf 'assets/downloads/Emergency Medicine in New Zealand - Ethicare.html' 'assets/downloads/Moving to New Zealand - Ethicare.html' 'assets/downloads/Moving to New Zealand - The Master Guide.html' webinar-medical-imaging-australia.html"
 
 # Ask Ethicare's server-side LLM proxy lives here. Without this block Netlify
 # never bundles it and /.netlify/functions/ask-ethicare returns 404.
@@ -277,6 +279,19 @@
   force = true
 
 [[redirects]]
+  # 8 Oct 2026: the medical imaging webinar page was dropped. Old links land on the profession page.
+  from = "/webinar-medical-imaging-australia"
+  to = "/jobs/medical-imaging-australia"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/webinar-medical-imaging-australia.html"
+  to = "/jobs/medical-imaging-australia"
+  status = 301
+  force = true
+
+[[redirects]]
   # 6 Oct 2026: Ethicare Move became Plan Ethicare — the tool plans; "move" is what the
   # person is doing. Old links keep working. Fragments (#s3) carry across.
   from = "/move"
@@ -369,6 +384,13 @@
   for = "/thank-you"
   [headers.values]
     X-Robots-Tag = "noindex"
+
+# 8 Oct 2026: the candidate welcome packs go out through My Plan only. Served, so the link in a
+# candidate's space works, but kept out of search.
+[[headers]]
+  for = "/assets/downloads/*-candidate-welcome-pack.pdf"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
 
 # Security + caching headers
 [[headers]]

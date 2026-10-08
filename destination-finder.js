@@ -149,6 +149,17 @@
           + '<p class="df-rcons"><strong>The honest bit:</strong> ' + d.cons + '</p>'
           + '<a class="df-rlink" href="' + d.guide + '">Read the ' + d.name + ' guide &rarr;</a></div></div>';
       }).join('') + '<p class="df-note">These are suggestions based on your answers, not a recommendation. Visit if you possibly can &mdash; a week in a place tells you something no page can. If you are torn between two, <a href="/contact">say so</a> &mdash; we have had this conversation many times.</p>';
+      /* Keep the supporting guides on the page in the country of the results (8 Oct 2026):
+         an Australian result was pointing families at the New Zealand family and community guides. */
+      try {
+        var resCc = top3[0] && top3[0].country, PAIRS = { '/guides/new-zealand-family': '/guides/australia-family', '/guides/new-zealand-community': '/guides/australia-community' };
+        Object.keys(PAIRS).forEach(function (nzH) {
+          document.querySelectorAll('a[data-nz-href="' + nzH + '"], a[href="' + nzH + '"]').forEach(function (el) {
+            if (!el.getAttribute('data-nz-href')) el.setAttribute('data-nz-href', nzH);
+            el.setAttribute('href', resCc === 'au' ? PAIRS[nzH] : nzH);
+          });
+        });
+      } catch (e) {}
       try { out.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } catch (e) {}
       try { if (window.track) window.track('destination_finder_run', { country: a.country, top: top3.map(function (d) { return d.id; }).join(',') }); } catch (e) {}
     });

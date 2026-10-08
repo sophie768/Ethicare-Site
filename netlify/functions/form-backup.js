@@ -54,11 +54,15 @@ const FORMS = {
   'plan-share': 'Plan Ethicare — share my plan',
   'guide-pack': 'Guide pack',
   'my-pack': 'Create my pack',
-  'quick-interest': 'Quick interest form'
+  'quick-interest': 'Quick interest form',
+  'pathway-checker-lead': 'Pathway checker',
+  'cost-estimate-lead': 'Cost calculator',
+  'candidate-registration': 'Candidate registration (/apply)',
+  'page-feedback': 'Page feedback'
 };
 
-const MAX_BODY = 20000;
-const MAX_FIELDS = 40;
+const MAX_BODY = 40000;
+const MAX_FIELDS = 80;
 const MAX_FIELD = 3000;
 const SKIP = { 'form-name': 1, 'bot-field': 1, '_subject': 1 };
 

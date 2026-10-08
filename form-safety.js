@@ -19,7 +19,8 @@
    Leaves alone: any form whose own script already called preventDefault (the
    guide pack on /move-steps handles its own sending), and forms that do not end
    on /thank-you. The pathway checker, cost calculator and /apply submit through
-   their own code; /apply also writes to Supabase, which is its own backup.
+   their own code and call window.EthicareForms.send(form) instead (8 Oct 2026);
+   page feedback calls window.EthicareForms.sendFields.
    ============================================================================ */
 (function () {
   'use strict';
@@ -106,24 +107,28 @@
     box.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
 
-  document.addEventListener('submit', function (e) {
-    var form = e.target;
-    if (!isOurs(form) || e.defaultPrevented) return;
-    if (form.dataset.fsSending === '1') { e.preventDefault(); return; }   // no double sends
-    e.preventDefault();
-
-    var action = form.getAttribute('action');
-    var btn = form.querySelector('button[type="submit"], input[type="submit"]');
+  /* The flow every form goes through. `form` must be a Netlify form; `action` is where the
+     browser would have gone (and the URL we post to, exactly where the native submit went:
+     that is the request Netlify answers with a 404 when a form is missing). */
+  function send(form, opts) {
+    opts = opts || {};
+    if (form.dataset.fsSending === '1') return;                          // no double sends
+    var action = form.getAttribute('action') || '/';
+    var btn = opts.button || form.querySelector('button[type="submit"], input[type="submit"]');
     var label = btn ? (btn.textContent || btn.value) : '';
-    if (btn) { btn.disabled = true; if (btn.tagName === 'BUTTON') btn.textContent = 'Sending…'; }
+    if (btn) { btn.disabled = true; if (btn.tagName === 'BUTTON') btn.textContent = 'Sending\u2026'; }
     form.dataset.fsSending = '1';
 
     var file = hasFile(form);
     var body = file ? new FormData(form) : new URLSearchParams(new FormData(form)).toString();
-    var opts = { method: 'POST', body: body };
-    if (!file) opts.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+    var req = { method: 'POST', body: body };
+    if (!file) req.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
 
-    function done() { sendLead(form.getAttribute('name') || 'form', fieldsOf(form).fields); window.location.href = action; }
+    function done() {
+      if (!opts.noLead) sendLead(form.getAttribute('name') || 'form', fieldsOf(form).fields);
+      if (opts.onDone) { form.dataset.fsSending = ''; if (btn) { btn.disabled = false; if (btn.tagName === 'BUTTON') btn.textContent = label; } return opts.onDone(); }
+      window.location.href = action;
+    }
 
     function backup(status) {
       var f = fieldsOf(form);
@@ -143,9 +148,7 @@
       });
     }
 
-    /* Post to the form's own action, exactly where the native submit went: that is the
-       request Netlify answered with a 404 when the form was missing. */
-    fetch(action, opts)
+    fetch(action, req)
       .then(function (r) {
         if (r.ok) return done();
         return backup('HTTP ' + r.status);
@@ -154,7 +157,34 @@
       })
       .catch(function () {
         form.dataset.fsSending = '';
+        if (opts.onFail) { if (btn) { btn.disabled = false; if (btn.tagName === 'BUTTON') btn.textContent = label; } return opts.onFail(); }
         showFailure(form, btn, label);
       });
+  }
+
+  /* For the forms that submit through their own code (8 Oct 2026): the pathway checker, the
+     cost calculator and /apply used to call the browser's native submit, which skips the
+     listener below, so a refused post was lost without anyone knowing. They now call this.
+     Page feedback posts a plain body and uses sendFields. */
+  window.EthicareForms = {
+    send: send,
+    sendFields: function (name, fields, cb) {
+      var body = new URLSearchParams(fields); body.set('form-name', name);
+      function backup(status) {
+        return fetch(BACKUP, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ form: name, fields: fields, files: [], page: location.pathname, status: status }) })
+          .then(function (r) { if (!r.ok) throw new Error('backup ' + r.status); });
+      }
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() })
+        .then(function (r) { if (!r.ok) return backup('HTTP ' + r.status); }, function () { return backup('network'); })
+        .then(function () { cb(true); }, function () { cb(false); });
+    }
+  };
+
+  document.addEventListener('submit', function (e) {
+    var form = e.target;
+    if (!isOurs(form) || e.defaultPrevented) return;
+    e.preventDefault();
+    send(form);
   });
 })();

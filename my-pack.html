@@ -88,7 +88,7 @@
         <ul class="mp-picked" data-mp-picked hidden></ul>
         <button type="button" class="mp-edit" data-mp-edit aria-expanded="false" aria-controls="mp-library">+ Add or remove guides</button>
 
-        <form class="mp-form" name="my-pack" method="POST" action="/thank-you" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+        <form id="mp-send" class="mp-form" name="my-pack" method="POST" action="/thank-you" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
           <input type="hidden" name="form-name" value="my-pack">
           <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
           <input type="hidden" name="destination"><input type="hidden" name="profession"><input type="hidden" name="household">

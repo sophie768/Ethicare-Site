@@ -103,7 +103,7 @@
     var re = /registrat|registered with|\bahpra\b|\bhcpc\b|\bnmc\b|medical council|\bapc\b|annual practising certificate|registration number/i;
     var m = re.exec(t);
     if (!m) return { s: 'fix', t: 'Registration is not mentioned', p: 'Nothing on the page says where you are registered or where you are in the process for ' + dest() + '. It is the first thing a reader checks, and its absence reads as not started. One line at the top is enough.' };
-    if (m.index < 1100) return { s: 'good', t: 'Registration is on page one', p: 'Where a reader looks for it. If your wording is vague about the stage you are at, the pathway checker will give you the right words for it.' };
+    if (m.index < 1100) return { s: 'good', t: 'Registration appears near the start', p: 'Where a reader looks for it. If your wording is vague about the stage you are at, the pathway checker will give you the right words for it.' };
     return { s: 'watch', t: 'Registration is buried', p: 'It is on the page, but far enough down that a reader skimming page one would not find it. Move it to the header block, under your contact details.' };
   }
 
@@ -150,7 +150,7 @@
   }
 
   function checkDates(t) {
-    var re = /\b(19[7-9]\d|20[0-4]\d)\s*(?:\u2013|\u2014|-|to|until)\s*((?:19[7-9]\d|20[0-4]\d)|present|current|date|now)\b/gi;
+    var re = /\b(19[7-9]\d|20[0-4]\d)\s*(?:\u2013|\u2014|-|to|until)\s*(?:(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*|\d{1,2}[\/.]\s*)?((?:19[7-9]\d|20[0-4]\d)|present|current|date|now)\b/gi;
     var m, ranges = [];
     while ((m = re.exec(t)) !== null) {
       var end = /^\d{4}$/.test(m[2]) ? parseInt(m[2], 10) : YEAR;
@@ -164,7 +164,7 @@
       if (ranges[i][1] > reach) reach = ranges[i][1];
     }
     if (gaps.length) return { s: 'watch', t: 'Possible gaps in the chronology', p: 'Reading the dates in order, there may be time unaccounted for. If there is a reason, give it a line of its own \u2014 an unexplained gap invites worse assumptions than the truth, and dates read out of order can look like one.', list: gaps.slice(0, 3) };
-    if (ranges.length === 1) return { s: 'watch', t: 'Only one dated role', p: 'One date range on the page. A reader wants the sequence, not just the current job. Date every role, most recent first.' };
+    if (ranges.length === 1) return { s: 'watch', t: 'We found one clearly dated role', p: 'We could only read one date range. If you have more roles, check each has a start and end date we can read (for example Jan 2019 \u2013 Mar 2023, or 2019 \u2013 present). A reader wants the sequence, not just the current job. Date every role, most recent first.' };
     return { s: 'good', t: 'The chronology holds together', p: ranges.length + ' dated roles in sequence, with nothing obviously unaccounted for.' };
   }
 

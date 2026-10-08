@@ -102,12 +102,14 @@
 
   /* Whether an exam applies is the single biggest swing in a registration budget, so we
      ask rather than assume — but we seed a sensible default from profession and origin.
-     Nurses and midwives from a comparable jurisdiction are usually exempt; the Australian
-     medical radiation exam applies to almost every overseas applicant. */
+     Nurses and midwives from a comparable jurisdiction are usually exempt. The Australian
+     medical radiation exam is not automatic, so it starts as "not sure yet". */
   function examDefault() {
     var p = st.profession, comparable = st.origin === 'uk' || st.origin === 'ie';
     if (isAU()) {
-      if (p === 'imaging' || p === 'radtherapy') return 'yes';
+      /* 8 Oct 2026 (external review P0-02): never assume the exam. The pathway checker says it
+         is not automatic, and departure country says nothing about training or registration. */
+      if (p === 'imaging' || p === 'radtherapy') return 'unsure';
       if (p === 'nursing' || p === 'midwifery') return comparable ? 'no' : 'yes';
       if (p === 'medicine') return comparable ? 'no' : 'unsure';
       return 'no';
@@ -168,10 +170,12 @@
     var eff = examEff();
     if (eff !== 'no') {
       out.push(row({
-        id: 'exam', label: 'Examination and clinical assessment', tag: reg.exam ? (reg.examTag || 'estimate') : 'yours', category: 'exam',
-        note: (eff === 'unsure' ? 'You are not sure yet, so we have shown this rather than leave it out. ' : '')
+        id: 'exam', label: 'Examination and clinical assessment', tag: reg.exam && eff === 'yes' ? (reg.examTag || 'estimate') : 'yours', category: 'exam',
+        /* Not sure = possible, not assumed: shown with its price, kept out of the total until the
+           candidate says it applies. */
+        note: (eff === 'unsure' ? (reg.exam ? 'Possible, not assumed \u2014 not included in your total. If your regulator says it applies, choose \u201cYes\u201d above and it is added. ' : 'Possible, not assumed. ') : '')
           + (reg.exam ? reg.examNote : (reg.examUnknownNote || d.registration.exam.unknownNote)),
-        amount: reg.exam || 0, href: reg.href, hrefLabel: 'Pathway and fees from ' + reg.body
+        amount: eff === 'yes' ? (reg.exam || 0) : 0, href: reg.href, hrefLabel: 'Pathway and fees from ' + reg.body
       }));
     }
 
@@ -450,7 +454,7 @@
     var origins = [];
     for (var k in d.flights) if (Object.prototype.hasOwnProperty.call(d.flights, k)) origins.push({ value: k, label: d.flights[k].label });
     var profs = [];
-    for (var k2 in d.registration.labels) if (Object.prototype.hasOwnProperty.call(d.registration.labels, k2)) profs.push({ value: k2, label: d.registration.labels[k2] });
+    for (var k2 in d.registration.labels) if (Object.prototype.hasOwnProperty.call(d.registration.labels, k2)) if (!(isAU() && /^(nursing|midwifery)$/.test(k2))) profs.push({ value: k2, label: d.registration.labels[k2] });
     var s = '<div class="cc-stage"><div class="cc-shead"><span class="cc-stepn">A few questions</span><h2 tabindex="-1">Your move</h2><p class="cc-ssub">Only what changes the number. Anything you have already told us is filled in.</p></div>';
     var lines = '', openQ = '', found = false;
     for (var n = 0; n < ESSENTIALS.length; n++) {
@@ -476,7 +480,7 @@
           + '</div></div>';
       }
       if (q === 'region') openQ = '<div class="cc-card cc-q1"><h3>' + (isAU() ? 'Which state or territory?' : 'Which area?') + '</h3><p class="cc-hint">' + (isAU() ? 'Visa charges are national; tenancy rules, rents and school fees change by state.' : 'Rents and temporary accommodation change by area; everything else is national.') + '</p><div class="cc-row-pills">' + pills(d.regions[st.dest], '', 'region', 'sm') + '</div></div>';
-      if (q === 'origin') openQ = '<div class="cc-card cc-q1"><h3>Where are you moving from?</h3><p class="cc-hint">This shapes the indicative flight costs, and whether an examination is likely.</p><label class="cc-lab" for="cc-origin">Country you are flying from</label><select id="cc-origin" class="cc-select" data-set="origin"><option value="">Choose\u2026</option>' + options(origins, '') + '</select></div>';
+      if (q === 'origin') openQ = '<div class="cc-card cc-q1"><h3>Where are you moving from?</h3><p class="cc-hint">This shapes the indicative flight costs.</p><label class="cc-lab" for="cc-origin">Country you are flying from</label><select id="cc-origin" class="cc-select" data-set="origin"><option value="">Choose\u2026</option>' + options(origins, '') + '</select></div>';
       if (q === 'who') openQ = '<div class="cc-card cc-q1"><h3>Who is moving?</h3><div class="cc-choices stack">' + pills([
         { value: 'me', label: 'Just me' }, { value: 'partner', label: 'Me and my partner' }, { value: 'kids', label: 'Me and my child or children' }, { value: 'family', label: 'Me, my partner and our children' }
       ], '', 'whoBase', 'wide') + '</div></div>';
@@ -496,7 +500,7 @@
   function groupLeave() {
     var d = D(), t = totals();
     var profs = [];
-    for (var k in d.registration.labels) if (Object.prototype.hasOwnProperty.call(d.registration.labels, k)) profs.push({ value: k, label: d.registration.labels[k] });
+    for (var k in d.registration.labels) if (Object.prototype.hasOwnProperty.call(d.registration.labels, k)) if (!(isAU() && /^(nursing|midwifery)$/.test(k))) profs.push({ value: k, label: d.registration.labels[k] });
     var s = '';
     s += '<div class="cc-card"><h3>Does your pathway include an examination?</h3>'
       + '<p class="cc-hint">An examination or clinical assessment can cost more than everything else in your registration put together, so it is worth answering carefully. Nurses and midwives with recent practice in ' + esc(d.registration.exam.streamlined) + ' are usually exempt.</p>'
@@ -830,7 +834,10 @@
       } catch (e) {}
     }
     if (window.EthicareLead) window.EthicareLead.send('cost-calculator', payload);
-    HTMLFormElement.prototype.submit.call(form);
+    /* Through the safety net (form-safety.js), so a refused post is emailed to the office
+       instead of lost. Native submit only if that script is missing. */
+    if (window.EthicareForms) window.EthicareForms.send(form, { noLead: true, onFail: function () { try { sessionStorage.removeItem(SENT_KEY); } catch (e) {} st.leadErr = 'This did not send. Your answers are still here: please try again in a minute, or email hello@ethicareresourcing.com.'; render(); } });
+    else HTMLFormElement.prototype.submit.call(form);
   }
 
   function view() {

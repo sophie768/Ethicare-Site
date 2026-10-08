@@ -143,7 +143,7 @@
 
   function actionsHtml(ids, handoff) {
     var h = '';
-    if (handoff) h += '<div class="aske-handoff"><p><strong>This might be worth discussing with us.</strong> Some situations need a person, not a summary.</p><a href="/contact">Talk to the Ethicare team &rarr;</a></div>';
+    if (handoff) h += '<div class="aske-handoff"><p><strong>This might be worth discussing with us.</strong> Some situations need a person, not a summary.</p><a href="/contact?from=ask">Talk to the Ethicare team &rarr;</a></div>';
     /* The model can only be TOLD the id list; it can still return one that is not in the
        browser map (a typo, a hallucination, or the two lists drifting apart). Unfiltered,
        that threw on r.u and the whole answer vanished behind a catch. Drop unknown ids and
@@ -151,7 +151,8 @@
     ids = ids.filter(function (id) { return !!KB.resources[id]; });
     if (ids.length) h += '<div class="aske-acts">' + ids.map(function (id) {
       var r = KB.resources[id];
-      return '<a class="aske-act" href="' + r.u + '"><span class="at">' + r.t + '</span><span class="ad">' + r.d + '</span><span class="ag" aria-hidden="true">&rarr;</span></a>';
+      var ext = /^https?:/.test(r.u);
+      return '<a class="aske-act" href="' + (id === 'talk_to_team' ? '/contact?from=ask' : r.u) + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '><span class="at">' + r.t + '</span><span class="ad">' + r.d + '</span><span class="ag" aria-hidden="true">&rarr;</span></a>';
     }).join('') + '</div>';
     return h;
   }
@@ -179,6 +180,13 @@
     input.value = ''; input.setAttribute('placeholder', 'Keep asking \u2014 I\u2019ll remember what you\u2019ve told me');
     track('assistant_question');
     history.push({ role: 'user', content: q.trim() });
+    /* Hand-off to the contact form (8 Oct 2026). The questions stay in this tab only
+       (sessionStorage, never the URL); /contact?from=ask offers to add them to the message,
+       and nothing is copied unless the person clicks to agree. */
+    try {
+      var asks = history.filter(function (m) { return m.role === 'user'; }).slice(-3).map(function (m) { return String(m.content).slice(0, 600); });
+      sessionStorage.setItem('ethicare_ask_handoff', JSON.stringify({ qs: asks, at: Date.now() }));
+    } catch (e) {}
     var ans = turn.querySelector('.aske-ans');
     var stopWait = window.EthicareLoading ? window.EthicareLoading.start(ans.querySelector('.aske-wait'), 'ask') : function () {};
     try {

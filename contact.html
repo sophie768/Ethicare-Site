@@ -142,6 +142,12 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}/* playfair-h
         <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"></div>
         <div class="field"><label for="profession" id="lbl-prof">Profession / role</label><input id="profession" name="profession" type="text" placeholder="e.g. Sonographer" autocomplete="organization-title"></div>
       </div>
+      <div class="ask-carry" id="ask-carry" hidden style="margin:0 0 16px;padding:16px 18px;border-radius:12px;background:#E6F1ED;border:1px solid #CFE3DA">
+        <p style="margin:0 0 8px;font-weight:600;color:#02615D">Your question from Ask Ethicare</p>
+        <blockquote id="ask-carry-q" style="margin:0 0 12px;font-size:15px;line-height:1.55;color:#3E4B47;white-space:pre-line"></blockquote>
+        <button type="button" class="btn btn-primary" id="ask-carry-yes" style="min-height:44px">Add it to my message</button>
+        <button type="button" id="ask-carry-no" style="min-height:44px;margin-left:8px;background:none;border:0;color:#02615D;font-weight:600;text-decoration:underline;cursor:pointer">No thanks</button>
+      </div>
       <div class="field"><label for="message">How can we help? <span class="req">*</span></label><textarea id="message" name="message" required placeholder="Your profession, where you're thinking of going, and what you'd like help with."></textarea></div>
       <div class="actions"><button type="submit" class="btn btn-primary">Send message</button></div>
       <p class="formnote">A person replies within one working day. We use your details only to answer you &mdash; never shared, never sold. <a href="/how-we-use-your-information">How we use your information</a>.</p>
@@ -203,5 +209,26 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}/* playfair-h
   Meta Description: Message the Ethicare team about working in New Zealand or Australia. A person replies within one working day. Free for healthcare professionals, and you don’t need a CV.
 -->
 <script src="/form-safety.js" defer></script>
+<script>
+/* Ask Ethicare hand-off (8 Oct 2026): offer, never assume. The question is read from this tab's
+   sessionStorage and only goes into the message if the person clicks "Add it to my message". */
+(function () {
+  try {
+    if (new URLSearchParams(location.search).get('from') !== 'ask') return;
+    var d = JSON.parse(sessionStorage.getItem('ethicare_ask_handoff') || 'null');
+    if (!d || !d.qs || !d.qs.length || Date.now() - d.at > 6 * 3600 * 1000) return;
+    var box = document.getElementById('ask-carry'), q = document.getElementById('ask-carry-q'), msg = document.getElementById('message');
+    if (!box || !q || !msg) return;
+    var text = d.qs.join('\n');
+    q.textContent = text;
+    box.hidden = false;
+    document.getElementById('ask-carry-yes').addEventListener('click', function () {
+      msg.value = 'My question to Ask Ethicare:\n' + text + (msg.value ? '\n\n' + msg.value : '\n\n');
+      box.hidden = true; msg.focus(); msg.setSelectionRange(msg.value.length, msg.value.length);
+    });
+    document.getElementById('ask-carry-no').addEventListener('click', function () { box.hidden = true; try { sessionStorage.removeItem('ethicare_ask_handoff'); } catch (e) {} });
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>

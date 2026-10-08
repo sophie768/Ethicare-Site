@@ -34,7 +34,24 @@
 
   var NATIONALITY = ['Afghanistan','Albania','Algeria','Andorra','Angola','Antigua and Barbuda','Argentina','Armenia','Australia','Austria','Azerbaijan','Bahamas','Bahrain','Bangladesh','Barbados','Belarus','Belgium','Belize','Benin','Bhutan','Bolivia','Bosnia and Herzegovina','Botswana','Brazil','Brunei','Bulgaria','Burkina Faso','Burundi','Cabo Verde','Cambodia','Cameroon','Canada','Central African Republic','Chad','Chile','China','Colombia','Comoros','Congo (Republic of the)','Congo (DRC)','Costa Rica','Côte d’Ivoire','Croatia','Cuba','Cyprus','Czechia','Denmark','Djibouti','Dominica','Dominican Republic','Ecuador','Egypt','El Salvador','Equatorial Guinea','Eritrea','Estonia','Eswatini','Ethiopia','Fiji','Finland','France','Gabon','Gambia','Georgia','Germany','Ghana','Greece','Grenada','Guatemala','Guinea','Guinea-Bissau','Guyana','Haiti','Honduras','Hungary','Iceland','India','Indonesia','Iran','Iraq','Ireland','Israel','Italy','Jamaica','Japan','Jordan','Kazakhstan','Kenya','Kiribati','Kosovo','Kuwait','Kyrgyzstan','Laos','Latvia','Lebanon','Lesotho','Liberia','Libya','Liechtenstein','Lithuania','Luxembourg','Madagascar','Malawi','Malaysia','Maldives','Mali','Malta','Marshall Islands','Mauritania','Mauritius','Mexico','Micronesia','Moldova','Monaco','Mongolia','Montenegro','Morocco','Mozambique','Myanmar','Namibia','Nauru','Nepal','Netherlands','New Zealand','Nicaragua','Niger','Nigeria','North Korea','North Macedonia','Norway','Oman','Pakistan','Palau','Palestine','Panama','Papua New Guinea','Paraguay','Peru','Philippines','Poland','Portugal','Qatar','Romania','Russia','Rwanda','Saint Kitts and Nevis','Saint Lucia','Saint Vincent and the Grenadines','Samoa','San Marino','São Tomé and Príncipe','Saudi Arabia','Senegal','Serbia','Seychelles','Sierra Leone','Singapore','Slovakia','Slovenia','Solomon Islands','Somalia','South Africa','South Korea','South Sudan','Spain','Sri Lanka','Sudan','Suriname','Sweden','Switzerland','Syria','Taiwan','Tajikistan','Tanzania','Thailand','Timor-Leste','Togo','Tonga','Trinidad and Tobago','Tunisia','Turkey','Turkmenistan','Tuvalu','Uganda','Ukraine','United Arab Emirates','United Kingdom','United States','Uruguay','Uzbekistan','Vanuatu','Vatican City','Venezuela','Vietnam','Yemen','Zambia','Zimbabwe','Other'];
 
-  var PROFESSION = ['Medical imaging / radiography','Sonography','Nuclear medicine','Radiation therapy','MRI','Mammography','Medicine — consultant radiology','Medicine — general practice','Anaesthetic technology / theatre','Psychology','Physiotherapy','Occupational therapy'];
+  /* 8 Oct 2026 (external review P0-03): every profession we advertise a role for can apply
+     under its own name. The first ten keep their earlier wording so saved drafts still match. */
+  var PROFESSION = ['Medical imaging / radiography','Sonography','Nuclear medicine','Radiation therapy','MRI','Mammography',
+    'Medicine \u2014 consultant radiology','Medicine \u2014 general practice','Anaesthetic technology / theatre','Psychology','Physiotherapy','Occupational therapy',
+    'Medicine \u2014 anaesthesia','Medicine \u2014 psychiatry','Medicine \u2014 general / internal medicine (physician)','Medicine \u2014 radiation oncology',
+    'Medicine \u2014 ophthalmology','Medicine \u2014 emergency medicine','Medicine \u2014 another specialty',
+    'Speech and language therapy','Dietetics','Social work','Another profession'];
+  /* role slug -> profession, so arriving from a vacancy preselects the right one */
+  var ROLE_PROF = [
+    [/anaesthetic-technician/, 'Anaesthetic technology / theatre'], [/anaesthetist/, 'Medicine \u2014 anaesthesia'],
+    [/psychiatrist/, 'Medicine \u2014 psychiatry'], [/physician/, 'Medicine \u2014 general / internal medicine (physician)'],
+    [/radiation-oncologist/, 'Medicine \u2014 radiation oncology'], [/ophthalmologist/, 'Medicine \u2014 ophthalmology'],
+    [/radiologist/, 'Medicine \u2014 consultant radiology'], [/emergency/, 'Medicine \u2014 emergency medicine'],
+    [/(^|-)gp(-|$)|general-practitioner/, 'Medicine \u2014 general practice'], [/sonographer/, 'Sonography'],
+    [/mammograph/, 'Mammography'], [/(^|-)mri(-|$)/, 'MRI'], [/nuclear/, 'Nuclear medicine'],
+    [/radiation-therapist/, 'Radiation therapy'], [/radiographer|medical-imaging/, 'Medical imaging / radiography'],
+    [/psychologist/, 'Psychology'], [/occupational-therapist|hand-therapist/, 'Occupational therapy'], [/physio/, 'Physiotherapy']
+  ];
   var EXPERIENCE = ['Less than 1 year','1–2 years','3–5 years','6–10 years','More than 10 years'];
   var HEARD = ['LinkedIn','A colleague or friend','Google search','The Ethicare website','Social media','A recruitment event','Other'];
 
@@ -93,6 +110,9 @@
       }).join(' ');
       var later = /[?&]intent=later/.test(location.search);
       setVal('role_of_interest', slug + (later ? ' (interested, not ready yet)' : ''));
+      /* preselect the profession from the role, unless they have already chosen one */
+      var ps = document.getElementById('f-profession');
+      if (ps && !ps.value) for (var ri = 0; ri < ROLE_PROF.length; ri++) if (ROLE_PROF[ri][0].test(slug)) { ps.value = ROLE_PROF[ri][1]; try { ps.dispatchEvent(new Event('change', { bubbles: true })); } catch (e) {} break; }
       if (later) {
         // the asterisk and the "upload your CV" line would contradict the aside
         document.querySelectorAll('label.reg-lab').forEach(function (l) { if (/^\s*Your CV/.test(l.textContent)) { var s = l.querySelector('.rq'); if (s) s.remove(); } });
@@ -505,7 +525,11 @@
         body: JSON.stringify({ kind: 'application', page: '/apply', data: cap })
       }).catch(function () {});
     } catch (e2) {}
-    HTMLFormElement.prototype.submit.call(form); // bypasses the submit-event handler; Netlify redirects to the form's action (?submitted=1) after capture
+    /* Through the safety net (form-safety.js, 8 Oct 2026): a refused post is emailed to the
+       office, with a note that the CV must be asked for, instead of lost. Native submit only
+       if that script is missing from the page. */
+    if (window.EthicareForms) window.EthicareForms.send(form, { noLead: true, button: document.getElementById('btn-next'), onFail: function () { try { sessionStorage.removeItem(SUBMIT_KEY); } catch (e) {} submitError('This did not send. Everything you entered is still here: please try again in a minute, or email hello@ethicareresourcing.com.'); } });
+    else HTMLFormElement.prototype.submit.call(form);
   }
   function submitError(msg) {
     var box = document.getElementById('reg-submit-error');

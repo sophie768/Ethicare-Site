@@ -97,7 +97,20 @@
       var done = this.finish.bind(this, true);
       if (!live) { done(); return; }
       var fine = this.root.querySelector('.fine'); if (fine) fine.textContent = 'On its way to a person\u2026';
-      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body }).then(done, done);
+      /* 8 Oct 2026: the thank-you used to show whether Netlify accepted the post or refused it.
+         Now a refused post goes to the form-backup function (emailed to the office), and only
+         if that fails too do we say so, keeping what they typed. */
+      var self = this, fields = Object.fromEntries(new URLSearchParams(body));
+      function backup(status) {
+        return fetch('/.netlify/functions/form-backup', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ form: 'page-feedback', fields: fields, files: [], page: location.pathname, status: status }) })
+          .then(function (r) { if (!r.ok) throw new Error('backup ' + r.status); });
+      }
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
+        .then(function (r) { if (!r.ok) return backup('HTTP ' + r.status); }, function () { return backup('network'); })
+        .then(done, function () {
+          if (fine) fine.innerHTML = 'That did not send. Please try again in a minute, or email <a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a>.';
+        });
     }
     finish(sent) {
       try { localStorage.setItem(this.key, this.state.verdict || 'useful'); } catch (e) {}

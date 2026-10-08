@@ -137,7 +137,7 @@ window.ETHICARE_EMAIL_LIVE = true;
 
 /* ---------------------------------------------------------------------------
    PROMO BAR — DISABLED 24 Aug 2026 at the client's request.
-   The webinar page itself stays live at /webinar-medical-imaging-australia.
+   The webinar page was dropped on 8 Oct 2026 (it redirects to /jobs/medical-imaging-australia).
    To switch the bar back on, change PROMO_ENABLED to true.
    --------------------------------------------------------------------------- */
 var PROMO_ENABLED = false;

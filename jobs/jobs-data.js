@@ -432,7 +432,9 @@ window.ETHICARE_JOBS_ALL = [
     country: "Australia",
     types: ["Permanent","Full-time"],
     posted: "2026-07-15",
-    pay: "Excellent salary package, discussed with you",
+    /* 8 Oct 2026, Sophie: pay and visa are not mentioned for this role. `hide` drops those
+       lines from the facts panel and the card instead of showing "to confirm". */
+    hide: ["pay", "sponsorship"],
     lifestyle: "A desirable coastal city two hours south of Perth: beaches and cafe culture, excellent schools, affordable housing and easy access to WA's coastline, forests and wineries.",
     summary: "Perform a broad range of general radiography examinations with a leading private imaging provider in coastal Bunbury, using modern equipment in a supportive, development-focused team.",
     detail: "/jobs/vacancy/diagnostic-radiographer-bunbury"

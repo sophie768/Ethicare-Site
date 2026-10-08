@@ -363,7 +363,7 @@ renderAll();
   var hadSaved = false; try { hadSaved = !!localStorage.getItem(KEY); } catch (e) {}
   if (!hadSaved && !/[?&]destination=/.test(location.search)) seed();
   ctx.onChange(seed);
-  ctx.mount('#ctx-strip', { intro: 'Tell us your profession and destination and the questions here are the ones that panel actually asks.' });
+  ctx.mount('#ctx-strip', { intro: 'Tell us your profession and destination and the questions here follow the topics most often raised for that profession.' });
 })();
 })();
 

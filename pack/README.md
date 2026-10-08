@@ -267,3 +267,10 @@ without one they stay on the device, and the page says so.
 clear storage on close; on a saved pack that costs nothing (the space reloads from us), on a
 device-only pack a note may not survive, and the fix is to open the link in their real browser
 (Safari, Chrome).
+
+## The welcome pack goes out here, and only here (8 Oct 2026)
+
+The country welcome pack (`/assets/downloads/new-zealand-candidate-welcome-pack.pdf` or
+`australia-candidate-welcome-pack.pdf`) is the first item under **Guides & packing** in both worked
+examples, so every new space made with `tools/new-pack.py` carries it. It is not linked from
+anywhere public, and the PDFs are served with `X-Robots-Tag: noindex`. Keep it first.

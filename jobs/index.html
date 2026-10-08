@@ -282,6 +282,30 @@ strong{color:var(--green)}
 
 
 <!-- NEXT STEPS (8 Oct 2026): ready to apply, not ready yet, and employers -->
+<!-- How we help (8 Oct 2026): what applying through us adds, beside the roles. -->
+<style>
+.hwh{padding:clamp(36px,5vw,64px) 0;background:#fff}
+.hwh .shell{max-width:1180px}
+.hwh h2{font-family:var(--display,'Work Sans'),sans-serif;font-weight:600;font-size:clamp(24px,3vw,32px);color:#02615D;margin:0 0 10px;letter-spacing:-.018em}
+.hwh .lead{font-size:17px;line-height:1.65;color:#333;max-width:64ch;margin:0 0 24px}
+.hwh ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.hwh li{background:#F3F7F4;border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.hwh li .n{font-family:var(--display,'Work Sans'),sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;color:#2F5E49}
+.hwh li b{font-family:var(--display,'Work Sans'),sans-serif;font-weight:600;font-size:17px;color:#02615D}
+.hwh li span:last-child{font-size:15px;line-height:1.55;color:#333}
+.hwh .role{font-size:14px;line-height:1.6;color:#555;margin:18px 0 0;max-width:80ch}
+@media(max-width:860px){.hwh ol{grid-template-columns:1fr}}
+</style>
+<section class="hwh" id="how-we-help" aria-labelledby="hwh-h">
+  <div class="shell">
+    <span class="eyebrow">Applying through Ethicare</span>
+    <h2 id="hwh-h">How we support you when you apply through us</h2>
+    <p class="lead">The guides and tools are free whoever you end up working for. Apply through us and one person supports you personally, at no cost to you, and nothing goes to an employer without your agreement.</p>
+    <ol><li><b>We get to know you</b><span>Your goals, your family and whether Australia or New Zealand is the right fit, talked through before anything else.</span></li><li><b>We help with registration</b><span>What your registration needs, and help getting the application right first time.</span></li><li><b>We find roles and prepare you</b><span>Locations, employers and pay talked through honestly, then preparation for each interview.</span></li><li><b>We help you weigh the offer</b><span>We go through the offer with you, so the decision is yours and well informed.</span></li><li><b>We support the move</b><span>Help with the visa steps where we can, and the practical side of moving your life overseas.</span></li><li><b>We stay in touch after you arrive</b><span>Contact as you settle into your new life and career, long after the first day.</span></li></ol>
+    <p class="role">Employers make hiring decisions, and the relevant authorities decide registration and visas. We help you through the process but cannot guarantee those outcomes. Immigration advice specific to you should come from a licensed adviser.</p>
+  </div>
+</section>
+
 <section class="jb-next" aria-labelledby="ready-h">
   <div class="wrap">
     <div class="jb-band">
@@ -388,8 +412,9 @@ strong{color:var(--green)}
     { k:'family',      yes:'Family friendly', no:'Not suited to families' }
   ];
   function facets(j){
-    var set = FACETS.filter(function(f){ return j[f.k]==='yes' || j[f.k]==='no'; });
-    var unset = FACETS.filter(function(f){ return j[f.k]!=='yes' && j[f.k]!=='no'; });
+    var F = FACETS.filter(function(f){ return (j.hide||[]).indexOf(f.k) < 0; });
+    var set = F.filter(function(f){ return j[f.k]==='yes' || j[f.k]==='no'; });
+    var unset = F.filter(function(f){ return j[f.k]!=='yes' && j[f.k]!=='no'; });
     var out = '';
     if(set.length){
       out += '<div class="facs">'+set.map(function(f){
@@ -425,10 +450,10 @@ strong{color:var(--green)}
       '<div class="prof">'+j.profession+'</div>'+
       '<h3><a href="'+j.detail+'">'+j.title+'</a></h3>'+
       '<div class="loc">'+PIN+j.location+' &middot; '+j.sector+'</div>'+
-      life+
       '<div class="chips">'+chips+'</div>'+
       facets(j)+
       '<p class="sum">'+j.summary+'</p>'+
+      life+
       '<div class="foot"><a class="ask" href="'+askUrl(j)+'">Ask Ethicare about this role</a>'+
       '<a class="view" href="'+j.detail+'">View role'+ARROW+'</a></div>'+
     '</div></article>';

@@ -34,7 +34,7 @@
     var nz = dest === 'nz' || dest === 'both';
     var nzOnly = nz && !au;
     return {
-      destinations: '/destinations/',
+      destinations: (au && !nz) ? '/destinations/australia' : '/destinations/',
       registration: '/pathway-checker',
       costs: '/guides/cost-of-relocating',
       jobs: '/jobs/',
