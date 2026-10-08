@@ -21,6 +21,11 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .st-hero h1{font-family:var(--display);font-weight:600;font-size:clamp(34px,6vw,60px);line-height:1.06;letter-spacing:-.028em;color:#fff;margin:0 0 22px;max-width:20ch;text-wrap:pretty}
 .st-stand{font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,2.2vw,23px);line-height:1.5;color:rgba(255,255,255,.92);max-width:56ch;margin:0}
 .st-by{margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.22);font-size:14px;color:rgba(255,255,255,.8);max-width:62ch}
+.cs-hgrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:center}
+.cs-hfig{margin:0}
+.cs-hfig img{display:block;width:100%;height:auto;aspect-ratio:1152/812;object-fit:cover;border-radius:20px;border:6px solid rgba(255,255,255,.14);box-shadow:0 22px 48px rgba(1,30,28,.32)}
+.cs-hfig figcaption{margin-top:12px;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.04em;color:rgba(255,255,255,.78)}
+@media(max-width:860px){.cs-hgrid{grid-template-columns:1fr}.cs-hfig{order:2}}
 .cs{max-width:1100px;margin:0 auto;padding:clamp(40px,6vw,76px) 24px 0}
 .cs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.4vw,28px)}
 .cs-card{display:flex;flex-direction:column;background:#fff;border:1px solid #E3ECE5;border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s}
@@ -36,6 +41,7 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cs-q p{margin:0}
 .cs-more{margin-top:auto;padding-top:8px;font-family:var(--display);font-weight:600;font-size:15px;color:var(--teal)}
 .cs-more::after{content:" \2192";color:#72A471}
+.cs-card.wide{grid-column:1/-1;flex-direction:row}.cs-card.wide .cs-ph{flex:0 0 46%;aspect-ratio:auto;min-height:340px}.cs-card.wide .cs-ph img{object-position:50% 40%}.cs-card.wide .cs-tag{display:inline-flex;align-self:flex-start;align-items:center;gap:6px;background:#EEF4E2;color:#2F5E49;border-radius:999px;padding:5px 12px;font-family:var(--display);font-weight:600;font-size:12.5px}@media(max-width:760px){.cs-card.wide{flex-direction:column}.cs-card.wide .cs-ph{flex:none;aspect-ratio:4/3;min-height:0}}
 .cs-card.text{background:var(--teal);border-color:var(--teal)}
 .cs-card.text .cs-body{justify-content:flex-start;padding:clamp(28px,3.4vw,40px)}
 .cs-card.text .cs-meta{color:#C6E084}
@@ -74,11 +80,11 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <meta property="og:title" content="Candidate stories">
 <meta property="og:description" content="Clinicians who moved to New Zealand and Australia with Ethicare: why they went, what was hard, and what life looks like now. In their own words, published with their consent.">
 <meta property="og:url" content="https://ethicareresourcing.com/candidate-stories">
-<meta property="og:image" content="https://ethicareresourcing.com/assets/stories/palmerston-north-friends-group.jpg">
+<meta property="og:image" content="https://ethicareresourcing.com/assets/stories/rezon-couple-coast.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Candidate stories | Ethicare Resourcing">
 <meta name="twitter:description" content="Clinicians who moved to New Zealand and Australia with Ethicare: why they went, what was hard, and what life looks like now. In their own words, published with their consent.">
-<meta name="twitter:image" content="https://ethicareresourcing.com/assets/stories/palmerston-north-friends-group.jpg">
+<meta name="twitter:image" content="https://ethicareresourcing.com/assets/stories/rezon-couple-coast.jpg">
 <link rel="stylesheet" href="insight-print.css">
 
 <link rel="stylesheet" href="prose-links.css">
@@ -135,15 +141,35 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 <header class="st-hero" data-screen-label="Candidate stories &middot; hero">
   <div class="shell">
     <nav class="st-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep" aria-hidden="true">&#8250;</span><span>Candidate stories</span></nav>
-    <span class="st-eyebrow">Candidate stories</span>
-    <h1>They were where you are now</h1>
-    <p class="st-stand">Clinicians who moved to New Zealand and Australia with us: why they went, what was hard, and what an ordinary week looks like now.</p>
-    <p class="st-by">Every story is told in their own words, and every photograph is theirs, published with their consent.</p>
+    <div class="cs-hgrid">
+      <div>
+      <span class="st-eyebrow">Candidate stories</span>
+      <h1>They were where you are now</h1>
+      <p class="st-stand">Clinicians who moved to New Zealand and Australia with us: why they went, what was hard, and what an ordinary week looks like now.</p>
+      <p class="st-by">Every story is told in their own words, and every photograph is theirs, published with their consent.</p>
+  
+      </div>
+      <figure class="cs-hfig">
+        <img src="assets/stories/rezon-couple-coast.jpg" alt="Rezon and his wife smiling for a selfie on a clifftop above the sea in New Zealand" width="1152" height="812" fetchpriority="high" decoding="async">
+        <figcaption>Rezon and his wife on the coast, in their first year in New Zealand.</figcaption>
+      </figure>
+    </div>
   </div>
 </header>
 
 <section class="cs" data-screen-label="Candidate stories &middot; stories">
   <div class="cs-grid">
+    <a class="cs-card wide" href="/insights/amal-and-sandra-wellington">
+      <div class="cs-ph"><img src="assets/stories/amal-sandra-theatre-clear.jpg" alt="Amal and Sandra in theatre scrubs and caps at work in Wellington" width="1440" height="860" loading="lazy" decoding="async"></div>
+      <div class="cs-body">
+        <p class="cs-meta">Anaesthetic technicians · New Zealand</p>
+        <h2>Two careers, one hospital in Wellington</h2>
+        <p class="cs-who">Sandra, an ODP from the NHS, and Amal, from a leading hospital in the UAE: a year in different countries with a new baby, now together in one place.</p>
+        <blockquote class="cs-q"><p>&ldquo;Both my wife and I secured positions, giving us the chance to build our careers together and reunite our family.&rdquo;</p></blockquote>
+        <span class="cs-tag">&#9654; Includes their airport reunion video</span>
+        <span class="cs-more">Read their story</span>
+      </div>
+    </a>
     <a class="cs-card" href="/insights/three-families-palmerston-north">
       <div class="cs-ph"><img src="assets/stories/palmerston-north-friends-group.jpg" alt="Rezon and friends with their families, arms outstretched for a selfie on a grassy hillside" width="937" height="855" loading="lazy" decoding="async"></div>
       <div class="cs-body">
