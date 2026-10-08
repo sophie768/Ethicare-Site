@@ -2101,11 +2101,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ethicareresourcing.com/insights/amal-and-sandra-wellington</loc>
-    <lastmod>2026-09-25</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://ethicareresourcing.com/insights/case-studies</loc>
     <lastmod>2026-09-20</lastmod>
     <priority>0.6</priority>
@@ -2208,6 +2203,11 @@
   <url>
     <loc>https://ethicareresourcing.com/insights/the-real-cost-of-an-unfilled-vacancy</loc>
     <lastmod>2026-09-20</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ethicareresourcing.com/candidate-stories</loc>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
