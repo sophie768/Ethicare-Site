@@ -27,3 +27,44 @@
 .df-note{font-size:13.5px;color:#555555;margin-top:6px;padding-top:14px;border-top:1px solid rgba(2,97,93,.12)}
 .df-head h2{margin:0 0 8px}.df-head p{font-size:16.5px;line-height:1.62;color:#555;margin:0;max-width:66ch}
 @media(max-width:560px){.df-opt{flex:1 1 100%;text-align:left}}
+
+/* ---- one question at a time (9 Oct 2026) ---- */
+.df.df-stepper{max-width:680px;border:1px solid #DCE7E1;border-radius:20px;box-shadow:0 18px 40px -28px rgba(1,49,47,.35);padding:clamp(28px,3.4vw,44px);margin:0}
+.df-stepper .df-intro{font-size:16px;line-height:1.6;color:#566660;margin:0 0 24px}
+.df-known{display:block;margin-top:8px;font-size:15px}
+.df-known strong{color:#02615D;font-family:'Work Sans',sans-serif;font-weight:600}
+.df-change{background:none;border:0;padding:0 0 0 6px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.df-prog{display:flex;align-items:center;gap:16px;margin:0 0 26px}
+.df-prog[hidden]{display:none}
+.df-n{font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#2F5E49;white-space:nowrap}
+.df-bar{flex:1;height:6px;border-radius:99px;background:#E6F1ED;overflow:hidden}
+.df-bar span{display:block;height:100%;background:#02615D;border-radius:99px;transition:width .3s ease}
+.df-stepper .df-q{margin:0}
+.df-stepper .df-q[hidden]{display:none}
+.df-stepper .df-ql{font-weight:600;font-size:clamp(23px,2.3vw,30px);line-height:1.2;letter-spacing:-.015em;color:#01312F;margin:0 0 24px;outline:none}
+.df-stepper .df-opts{display:grid;gap:12px}
+.df-stepper .df-opt{display:flex;align-items:center;gap:16px;width:100%;min-height:62px;padding:14px 20px;border-radius:12px;border:1.5px solid #CFDDD6;background:#fff;text-align:left;font-size:17px;color:#01312F;line-height:1.35}
+.df-stepper .df-opt::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #8FB0A4;background:#fff;box-sizing:border-box}
+.df-stepper .df-opt:hover{border-color:#02615D;background:#F7FAF8;color:#01312F}
+.df-stepper .df-opt:focus-visible{outline:3px solid #02615D;outline-offset:2px}
+.df-stepper .df-opt.sel{background:#E6F1ED;border-color:#02615D;color:#01312F;box-shadow:inset 0 0 0 1px #02615D}
+.df-stepper .df-opt.sel::before{border-color:#02615D;background:#02615D;box-shadow:inset 0 0 0 4px #fff}
+.df-nav{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-top:32px}
+.df-nav[hidden]{display:none}
+.df-next{display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:14px 30px;border:0;border-radius:12px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;cursor:pointer}
+.df-next:hover{background:#014E4B}
+.df-next:disabled{background:#9DB8AE;cursor:default}
+.df-back,.df-redo{background:none;border:0;padding:6px 0;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;color:#02615D;cursor:pointer}
+.df-back[hidden],.df-redo[hidden]{display:none}
+.df-next:focus-visible,.df-back:focus-visible,.df-redo:focus-visible,.df-change:focus-visible{outline:3px solid #02615D;outline-offset:3px}
+.df-stepper.is-done .df-out{margin-top:18px}
+.df-stepper .df-res{padding:22px 24px}
+@media(max-width:560px){.df.df-stepper{padding:24px 20px;border-radius:16px}.df-stepper .df-opt{flex:none}.df-next{width:100%;justify-content:center}}
+.df-stepper .df-run[hidden]{display:none}
+.df-rtitle{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(23px,2.3vw,30px);line-height:1.2;color:#01312F;margin:18px 0 0;outline:none}
+.df-rtitle[hidden]{display:none}
+/* a photo for each suggested place (9 Oct 2026) */
+.df-rimg{grid-column:1/-1;display:block;width:calc(100% + 40px);max-width:none;margin:-18px -20px 6px;height:clamp(140px,18vw,190px);object-fit:cover;border-radius:13px 13px 0 0}
+.df-stepper .df-rimg{width:calc(100% + 48px);margin:-22px -24px 8px}
+.df-res{overflow:hidden}
+.df-res.first{border-top:1px solid #D6E1DA}

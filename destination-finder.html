@@ -60,6 +60,7 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
 .kick{display:flex;align-items:center;gap:12px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--fern-text,#2F5E49);margin:0 0 14px}
 .kick::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none}
 .rt-note{font-size:15px;line-height:1.62;color:var(--muted,#555);max-width:66ch;margin:22px 0 0}
+.df-why{max-width:680px;margin:clamp(48px,5vw,72px) 0 0}.df-why h2{font-family:'Work Sans',sans-serif;font-weight:600;font-size:22px;color:#02615D;margin:0 0 10px}.df-why p{font-size:16.5px;line-height:1.7;color:#333;margin:0}
 </style>
 <link rel="canonical" href="https://ethicareresourcing.com/destination-finder">
 <link rel="icon" href="/assets/logo-mark.png">
@@ -115,8 +116,8 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
   <div class="rt-wrap in">
     <div>
       <p class="kick">Where could we live?</p>
-      <h1>Destination finder</h1>
-      <p class="lede">This is the one that gets decided by accident. A role comes up in a particular city, so that becomes the answer &mdash; and only later does anyone ask whether it was the right place for the people who came too. We understand why it happens that way. So our aim here is to give you the question back: start from what matters to you and your household, and see which places fit. Housing, the commute, schools and how far you are from a big hospital vary far more between regions than between the two countries.</p>
+      <h1>Find where you would live</h1>
+      <p class="lede">Tell us about the life you want, and we suggest three places that fit, with the honest trade-offs. About a minute.</p>
     </div>
   </div>
 </header>
@@ -127,11 +128,9 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
          /move was replaced on 29 Sep 2026, and restored here on 6 Oct 2026 — this page, Ask Ethicare and
          the Move stage all promised "tell us what matters and we show you three places", and for a week
          the button went to a list. -->
-    <div class="df-head">
-      <h2>Let us help you find the right destination</h2>
-      <p>Tell us what you would want from a place and what you would miss from home &mdash; a proper city or somewhere unhurried, the coast or the mountains, a big tertiary department or a broad regional scope, housing you can afford, and who is coming. We weigh the regions against your answers and show you three, with the trade-offs as well as the good bits.</p>
-    </div>
+
 <div class="df" data-destination-finder></div>
+    <div class="df-why"><h2>Why we ask</h2><p>This is the one that gets decided by accident. A role comes up in a particular city, so that becomes the answer &mdash; and only later does anyone ask whether it was the right place for the people who came too. We understand why it happens that way. So our aim here is to give you the question back: start from what matters to you and your household, and see which places fit. Housing, the commute, schools and how far you are from a big hospital vary far more between regions than between the two countries.</p></div>
     <p class="rt-note">Prefer to browse? Every region has its own guide: <a href="/destinations/">New Zealand destinations</a> or <a href="/destinations/australia">Australian destinations</a>.</p>
   </div>
 </section>
@@ -263,5 +262,6 @@ a.rt-card:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(1,49,47,.
   SEO Title: Where could we live? Choosing a region · Ethicare
   Meta Description: Housing, commute, schools and distance to a big hospital vary more between regions than between the two countries. Start from what matters to you and see which places fit.
 -->
+<script src="/register-prompt.js" defer></script>
 </body>
 </html>

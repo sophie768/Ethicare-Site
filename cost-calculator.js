@@ -455,7 +455,13 @@
     for (var k in d.flights) if (Object.prototype.hasOwnProperty.call(d.flights, k)) origins.push({ value: k, label: d.flights[k].label });
     var profs = [];
     for (var k2 in d.registration.labels) if (Object.prototype.hasOwnProperty.call(d.registration.labels, k2)) if (!(isAU() && /^(nursing|midwifery)$/.test(k2))) profs.push({ value: k2, label: d.registration.labels[k2] });
-    var s = '<div class="cc-stage"><div class="cc-shead"><span class="cc-stepn">A few questions</span><h2 tabindex="-1">Your move</h2><p class="cc-ssub">Only what changes the number. Anything you have already told us is filled in.</p></div>';
+    /* 9 Oct 2026 (Capital One, Sophie): the section heading and its sub-line gave way to a
+       progress line on the open question, "Question 3 of 6". The count follows the household:
+       "together" and "kids" only count when they apply. */
+    var applies = ESSENTIALS.filter(function (q) { return !((q === 'together' && !needsTogether()) || (q === 'kids' && !needsKids())); });
+    var doneN = 0; for (var an = 0; an < applies.length && answered(applies[an]); an++) doneN++;
+    var prog = '<div class="cc-prog"><span class="cc-progn">Question ' + Math.min(doneN + 1, applies.length) + ' of ' + applies.length + '</span><span class="cc-progbar" aria-hidden="true"><span style="width:' + Math.round((Math.min(doneN + 1, applies.length) / applies.length) * 100) + '%"></span></span></div>';
+    var s = '<div class="cc-stage"><div class="cc-shead"><h2 tabindex="-1" class="cc-sh-hidden">Your move</h2></div>';
     var lines = '', openQ = '', found = false;
     for (var n = 0; n < ESSENTIALS.length; n++) {
       var q = ESSENTIALS[n];
@@ -491,8 +497,9 @@
         + '</div><div class="cc-row-pills mt"><button type="button" class="cc-pill sm is-sel" data-ans="kids">That\u2019s right</button></div></div>';
       if (q === 'profession') openQ = '<div class="cc-card cc-q1"><h3>Your profession</h3><p class="cc-hint">The regulator, the fee and the pathway all change with it.</p><label class="cc-lab" for="cc-prof">Profession</label><select id="cc-prof" class="cc-select" data-set="profession"><option value="">Choose\u2026</option>' + options(profs, '') + '</select></div>';
     }
-    if (lines) s += '<div class="cc-card cc-alines">' + lines + '</div>';
+    if (openQ) openQ = openQ.replace('<div class="cc-card cc-q1">', '<div class="cc-card cc-q1">' + prog);
     s += openQ;
+    if (lines) s += '<div class="cc-card cc-alines"><p class="cc-ak-h">Your answers so far</p>' + lines + '</div>';
     if (ready()) s += '<div class="cc-card cc-q1"><h3>That is everything we need.</h3><p class="cc-hint">The estimate is built from these answers and our planning figures. Every figure on it can be changed.</p><button type="button" class="cc-nextb" data-stage="5">See my estimate<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>';
     return s + '</div>';
   }

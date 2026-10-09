@@ -386,6 +386,59 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-ask .pt-hint{margin-top:10px}
 .pt-pill.on{background:var(--teal);border-color:var(--teal);color:#fff}
 @media(max-width:640px){.pt-stage-h{gap:10px}.pt-badge{font-size:10.5px;padding:3px 8px}}
+
+/* ---- getting started, one question at a time (9 Oct 2026, plan-start.js) ---- */
+.pt-hero{padding:clamp(56px,7vw,104px) 0 clamp(64px,7vw,104px)}
+.ps-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(40px,6vw,96px);align-items:start}
+.ps-logo{height:48px;width:auto;display:block;margin:0 0 22px}
+.pt-hero .pt-lead.ps-lead{font-size:clamp(17px,1.5vw,19px);line-height:1.65;margin:0 0 clamp(32px,3.6vw,44px);max-width:52ch}
+.ps-wrap .pt-hero-ph{width:100%;aspect-ratio:4/5;object-fit:cover;margin-top:8px}
+.ps[data-ps]:not([hidden]) ~ #ctx-strip{display:none}
+.ps-card{background:#fff;border:1px solid #DCE7E1;border-radius:20px;padding:clamp(28px,3.4vw,44px);box-shadow:0 18px 40px -28px rgba(1,49,47,.35);max-width:620px}
+.ps-prog{display:flex;align-items:center;gap:16px;margin:0 0 26px}
+.ps-step{font-family:var(--display);font-weight:600;font-size:14px;color:#2F5E49;white-space:nowrap}
+.ps-bar{flex:1;height:6px;border-radius:99px;background:#E6F1ED;overflow:hidden}
+.ps-bar span{display:block;height:100%;background:#02615D;border-radius:99px;transition:width .3s ease}
+.ps-q{font-family:var(--display);font-weight:600;font-size:clamp(23px,2.3vw,30px);line-height:1.2;letter-spacing:-.015em;color:#01312F;margin:0 0 10px;outline:none}
+.ps-h{font-size:16px;line-height:1.6;color:#566660;margin:0 0 26px;max-width:46ch}
+.ps-q + .ps-tiles,.ps-q + .ps-in,.ps-q + label + .ps-in,.ps-q + label + .ps-selw{margin-top:22px}
+.ps-in,.ps-sel{width:100%;min-height:60px;padding:14px 18px;border:1.5px solid #B9CFC6;border-radius:12px;background:#fff;font-family:'Manrope',sans-serif;font-size:18px;color:#01312F}
+.ps-in:focus,.ps-sel:focus{outline:none;border-color:#02615D;box-shadow:0 0 0 4px rgba(166,200,74,.35)}
+.ps-selw{position:relative}
+.ps-sel{appearance:none;-webkit-appearance:none;padding-right:48px;cursor:pointer}
+.ps-selw::after{content:"";position:absolute;right:20px;top:50%;width:10px;height:10px;border-right:2px solid #02615D;border-bottom:2px solid #02615D;transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.ps-tiles{display:grid;gap:12px}
+.ps-tiles.is-long{gap:10px}
+.ps-tile{display:flex;align-items:center;gap:16px;width:100%;min-height:62px;padding:14px 20px;border:1.5px solid #CFDDD6;border-radius:12px;background:#fff;text-align:left;cursor:pointer;font-family:var(--display);font-weight:600;font-size:17px;color:#01312F;transition:border-color .15s ease,background .15s ease}
+.ps-tiles.is-long .ps-tile{min-height:54px;font-size:16px}
+.ps-tile:hover{border-color:#02615D;background:#F7FAF8}
+.ps-tile:focus-visible{outline:3px solid #02615D;outline-offset:2px}
+.ps-tile.is-on{border-color:#02615D;background:#E6F1ED;box-shadow:inset 0 0 0 1px #02615D}
+.ps-dot{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #8FB0A4;display:grid;place-items:center;background:#fff}
+.ps-tile.is-on .ps-dot{border-color:#02615D;background:#02615D;box-shadow:inset 0 0 0 4px #fff}
+.ps-tl{display:flex;flex-direction:column;gap:2px}
+.ps-ts{font-family:'Manrope',sans-serif;font-weight:400;font-size:14.5px;color:#566660}
+.ps-acts{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-top:32px}
+.ps-go{display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:14px 30px;border:0;border-radius:12px;background:#02615D;color:#fff;font-family:var(--display);font-weight:600;font-size:16.5px;text-decoration:none;cursor:pointer;transition:background .15s ease}
+.ps-go:hover{background:#014E4B;color:#fff}
+.ps-go:focus-visible,.ps-back:focus-visible,.ps-skip:focus-visible,.ps-out button:focus-visible{outline:3px solid #02615D;outline-offset:3px}
+.ps-back,.ps-skip,.ps-out button{background:none;border:0;padding:6px 0;font-family:var(--display);font-weight:600;font-size:15.5px;color:#02615D;cursor:pointer}
+.ps-skip{margin-left:auto;font-weight:500;color:#2F5E49;text-decoration:underline;text-underline-offset:3px}
+.ps-out{margin:20px 0 0;font-size:14.5px;color:#566660;max-width:620px}
+.ps-out button{font-size:14.5px;padding:0;text-decoration:underline;text-underline-offset:3px}
+.ps-sum{background:#fff;border:1px solid #DCE7E1;border-radius:20px;padding:clamp(28px,3.4vw,40px);box-shadow:0 18px 40px -28px rgba(1,49,47,.35);max-width:620px}
+.ps-done .pt-hero .ps-main > h2,.ps-done .pt-hero .ps-lead{display:none}
+.pt-hero .ps-hello{font-family:var(--display);font-weight:300;font-size:clamp(34px,4.8vw,54px);line-height:1.08;letter-spacing:-.02em;color:var(--teal);margin:0 0 clamp(26px,3vw,36px);max-width:18ch}
+.ps-sum .ps-now-k{margin-bottom:10px}
+.ps-sum-t{font-family:var(--display);font-weight:600;font-size:clamp(22px,2.2vw,28px);line-height:1.2;color:#01312F;margin:0 0 18px}
+.ps-chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;padding:0}
+.ps-chips li{padding:7px 14px;border-radius:999px;background:#E6F1ED;font-family:var(--display);font-weight:600;font-size:14.5px;color:#02615D}
+.ps-now{font-size:16.5px;line-height:1.6;color:#333;margin:0}
+.ps-now-k{display:block;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-bottom:4px}
+.ps-now strong{color:#02615D}
+.ps-sum .ps-acts{margin-top:26px}
+@media (max-width:900px){.ps-wrap{grid-template-columns:1fr}.ps-wrap .pt-hero-ph{display:none}}
+@media (max-width:560px){.ps-card,.ps-sum{padding:24px 20px;border-radius:16px}.ps-acts{gap:12px 18px}.ps-go{width:100%;justify-content:center}.ps-skip{margin-left:0}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Plan Ethicare","item":"https://ethicareresourcing.com/plan"},{"@type":"ListItem","position":3,"name":"Your plan"}]}</script>
 <link rel="stylesheet" href="prose-links.css">
@@ -446,18 +499,16 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
      candidates, reached from the link the team sends. -->
 <section class="pt-hero">
   <div class="shell">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:clamp(20px,4vw,56px);flex-wrap:wrap">
-      <div style="flex:1 1 420px;min-width:min(100%,420px)">
-        <img src="/assets/brand/plan-ethicare-logo-on-light.svg" alt="Plan Ethicare" width="330" height="137" style="height:48px;width:auto;display:block;margin:0 0 16px" decoding="async">
-        <p class="eyebrow">Free, no account</p>
+    <div class="ps-wrap">
+      <div class="ps-main">
+        <img src="/assets/brand/plan-ethicare-logo-on-light.svg" alt="Plan Ethicare" width="330" height="137" class="ps-logo" decoding="async">
         <h2>Your new life starts with a plan.</h2>
-        <p class="pt-lead">Moving to New Zealand or Australia is a big step. Plan Ethicare helps you explore what&rsquo;s possible and work through the practicalities, with your career, your family and your future in mind.</p>
-        <p class="pt-lead">From choosing where to live to finding a role and settling in, bring your next steps together in one place.</p>
+        <p class="pt-lead ps-lead">A few quick questions, then everything for your move in the order you need it. Free, with no account, and yours whether or not you find your role through us.</p>
+        <div class="ps" data-ps hidden aria-live="polite"></div>
+        <div id="ctx-strip" data-ctx-strip></div>
       </div>
       <img class="pt-hero-ph" src="assets/nz-life/family-kayak.jpg" alt="A family kayaking together in clear water on a sunny day in New Zealand" width="1400" height="1120" fetchpriority="high" decoding="async">
     </div>
-    <div id="ctx-strip" data-ctx-strip style="margin-top:clamp(22px,3vw,34px)"></div>
-    <p class="pt-fine" style="max-width:70ch">Free to use, with no account. Whether you find your role through Ethicare, apply directly or use another recruiter, this plan is yours.</p>
   </div>
 </section>
 
@@ -642,6 +693,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 <script src="candidate-context.js"></script>
 <script src="journey-nav.js"></script>
 <script src="move.js"></script>
+<script src="plan-start.js"></script>
 
 
 <!-- ================= SEO =================
@@ -725,5 +777,6 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 </script>
 <script src="mymove.js" defer></script>
 <script src="/form-safety.js" defer></script>
+<script src="/register-prompt.js" defer></script>
 </body>
 </html>

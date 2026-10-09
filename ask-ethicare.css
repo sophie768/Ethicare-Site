@@ -265,3 +265,11 @@
 .ask-instrument .aske-box textarea{min-height:76px;padding:8px 6px 4px}
 .ask-instrument .aske-go{align-self:flex-end}
 .aske-type{left:21px;top:22px;right:20px;white-space:normal;overflow:visible;text-overflow:clip}
+
+/* Ask page (9 Oct 2026): "Make this your page" sits under the lede on the dark hero, not inside the question card */
+.ask-hero-copy .ask-you{margin:clamp(30px,3.6vw,44px) 0 0;max-width:460px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.24)}
+.ask-hero-copy .ask-you:hover{border-color:#C6E084;box-shadow:none;background:rgba(255,255,255,.12)}
+.ask-hero-copy .ask-you .k{color:#fff}
+.ask-hero-copy .ask-you .d{color:#D5E6DF}
+.ask-hero-copy .ask-you .d strong{color:#fff}
+.askpage .ask-foot{border-top:0;padding-top:4px}

@@ -325,6 +325,32 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .cc-drv{font-family:var(--display);font-weight:600;font-size:17px;color:var(--teal);white-space:nowrap}
 .cc-drnote{font-size:15px;line-height:1.62;color:var(--muted);margin:14px 0 0;max-width:66ch;text-wrap:pretty}
 @media (max-width:640px){.cc-big{font-size:clamp(38px,12vw,52px)}.cc-th{padding-right:0}.cc-th.lead{padding:20px}}
+
+/* ---- one question at a time, Capital One style (9 Oct 2026) ---- */
+#ctx-strip[data-ctx-strip]{display:none}
+#cc-app:has(.cc-stage) .cc-tabs{display:none}
+.cc-sh-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.cc-stage .cc-shead{margin:0}
+.cc-stage .cc-card.cc-q1{max-width:680px;border:1px solid #DCE7E1;border-radius:20px;box-shadow:0 18px 40px -28px rgba(1,49,47,.35);padding:clamp(28px,3.4vw,44px);margin:0 0 24px}
+.cc-prog{display:flex;align-items:center;gap:16px;margin:0 0 26px}
+.cc-progn{font-family:var(--display);font-weight:600;font-size:14px;color:#2F5E49;white-space:nowrap}
+.cc-progbar{flex:1;height:6px;border-radius:99px;background:#E6F1ED;overflow:hidden}
+.cc-progbar span{display:block;height:100%;background:#02615D;border-radius:99px}
+.cc-stage .cc-q1 h3{font-size:clamp(23px,2.3vw,30px);line-height:1.2;letter-spacing:-.015em;color:#01312F;margin-bottom:10px}
+.cc-stage .cc-q1 .cc-hint{font-size:16px;line-height:1.6;color:#566660;margin-bottom:22px}
+.cc-stage .cc-q1 .cc-choices.stack{display:grid;gap:12px}
+.cc-stage .cc-q1 .cc-pill.wide{min-height:62px;font-size:17px;border:1.5px solid #CFDDD6;border-radius:12px;padding:14px 20px;width:100%}
+.cc-stage .cc-q1 .cc-pill{min-height:54px;font-size:16px;border:1.5px solid #CFDDD6}
+.cc-stage .cc-q1 .cc-pill:hover,.cc-stage .cc-q1 .cc-dest:hover{border-color:#02615D;background:#F7FAF8}
+.cc-stage .cc-q1 .cc-dest{border:1.5px solid #CFDDD6;border-radius:14px;padding:22px}
+.cc-stage .cc-q1 .cc-select{max-width:none;min-height:60px;font-size:18px;border:1.5px solid #B9CFC6;border-radius:12px;padding:14px 18px}
+.cc-stage .cc-alines{max-width:680px;border:0;background:#F3F7F4;border-radius:16px;padding:16px clamp(20px,2.4vw,28px)}
+.cc-ak-h{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin:6px 0 4px}
+.cc-stage .cc-aline:last-child{border-bottom:0}
+.cc-stage .cc-q1 .cc-dd{font-family:var(--body);font-size:14.5px}
+.cc-stage .cc-q1 .cc-dl{font-family:var(--display)}
+.cc-legalwrap{max-width:980px;margin:0 auto;padding:0 24px clamp(32px,4vw,48px)}
+.cc-legalwrap .cc-legal{font-size:14px;line-height:1.6;color:#566660;max-width:70ch;margin:0}
 </style>
 <link rel="stylesheet" href="prose-links.css">
 </head>
@@ -371,14 +397,12 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
       <div class="cc-copy">
       <span class="eyebrow">Cost of moving calculator</span>
       <h1>How much will it cost to move?</h1>
-      <p class="said">Know the number before you commit to it.</p>
-      <p class="lede">Answer a few questions and we&rsquo;ll build a likely estimate of the money you need to make the move and get established &mdash; registration, visas, flights, the rental bond and the gap before your first salary.</p>
+      <p class="lede">A few quick questions, then a likely budget for the move: registration, visas, flights, the rental bond and the weeks before your first pay.</p>
       <div class="cc-ticks">
         <span><svg viewBox="0 0 24 24" fill="none" stroke="#2F5E49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Two to three minutes</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="#2F5E49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Every figure editable &mdash; and sourced</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="#2F5E49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>No contact details needed</span>
       </div>
-      <p class="cc-legal">This is a planning estimate, not a quotation, and it is a moving budget rather than a cost-of-living calculator. Government charges, regulator fees and tenancy rules change &mdash; always confirm the current amount against the official source before making a financial decision.</p>
       </div>
       <div class="cc-heroart"><img src="assets/heroes/cost-of-relocating.svg" alt="A savings jar of coins, with one more coin going in" width="400" height="300" loading="lazy"></div>
     </div>
@@ -395,6 +419,8 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
       </noscript>
     </div>
   </section>
+
+  <div class="cc-legalwrap"><p class="cc-legal">This is a planning estimate, not a quotation, and it is a moving budget rather than a cost-of-living calculator. Government charges, regulator fees and tenancy rules change &mdash; always confirm the current amount against the official source before making a financial decision.</p></div>
 
   <section class="cc-how" data-screen-label="How the figures work">
     <div class="in">
@@ -514,5 +540,6 @@ h1,h2,h3,h4,h5,h6{font-family:'Work Sans',ui-sans-serif,sans-serif}
 -->
 <script src="nav.js" defer></script>
 <script src="/form-safety.js" defer></script>
+<script src="/register-prompt.js" defer></script>
 </body>
 </html>

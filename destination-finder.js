@@ -109,6 +109,7 @@
 
   function mount(host) {
     var fixed = (host.getAttribute('data-country') || '').toLowerCase(); if (fixed !== 'nz' && fixed !== 'au') fixed = '';
+    host.classList.remove('df');   /* the questions bring their own card; a host styled .df drew a box inside a box */
     host.innerHTML = QUESTIONS;
     var a = {}, qs = ['country', 'scale', 'outdoor', 'climate', 'scope', 'cost', 'hh'];
     var run = host.querySelector('#df-run'), out = host.querySelector('#df-out');
@@ -116,7 +117,7 @@
     function ready() { run.disabled = qs.some(function (q) { return !a[q]; }); }
     function pick(q, v) {
       var btn = host.querySelector('[data-q="' + q + '"] .df-opt[data-v="' + v + '"]'); if (!btn) return;
-      a[q] = v; host.querySelectorAll('[data-q="' + q + '"] .df-opt').forEach(function (b) { b.classList.remove('sel'); }); btn.classList.add('sel'); ready();
+      a[q] = v; host.querySelectorAll('[data-q="' + q + '"] .df-opt').forEach(function (b) { b.classList.remove('sel'); b.setAttribute('aria-pressed', 'false'); }); btn.classList.add('sel'); btn.setAttribute('aria-pressed', 'true'); ready(); if (window.__dfStep && host.__dfSync) host.__dfSync();
     }
     host.querySelectorAll('.df-opt').forEach(function (btn) {
       btn.addEventListener('click', function () { pick(btn.closest('[data-q]').dataset.q, btn.dataset.v); });
@@ -136,6 +137,80 @@
         if (hh && hm[hh]) pick('hh', hm[hh]);
       }
     } catch (e) {}
+
+    /* ---- ONE QUESTION AT A TIME (9 Oct 2026) ------------------------------------------------
+       Sophie: "look at capital one for the inspiration on how simple they have made it". All seven
+       questions used to sit on screen at once as rows of small pills. Now: one question per screen,
+       a progress line, full-width answers, Continue and Back. Questions already answered elsewhere
+       on the site (country, who is coming) are skipped and named in one line, with a way to change
+       them. The scoring and results above are unchanged. */
+    (function () {
+      window.__dfStep = true;
+      var df = host.querySelector('.df'); df.classList.add('df-stepper');
+      var all = [].slice.call(host.querySelectorAll('.df-q')).filter(function (q) { return !q.hidden; });
+      var key = function (q) { return q.querySelector('[data-q]').getAttribute('data-q'); };
+      var known = all.filter(function (q) { return a[key(q)]; });
+      var todo = all.filter(function (q) { return !a[key(q)]; });
+      if (!todo.length) todo = all.slice();
+      var k = 0;
+      all.forEach(function (q) {
+        var l = q.querySelector('.df-ql'), id = 'dfq-' + Math.random().toString(36).slice(2, 8);
+        l.id = id; l.setAttribute('tabindex', '-1');
+        var g = q.querySelector('.df-opts'); g.setAttribute('role', 'group'); g.setAttribute('aria-labelledby', id);
+        q.querySelectorAll('.df-opt').forEach(function (b) { b.type = 'button'; if (!b.hasAttribute('aria-pressed')) b.setAttribute('aria-pressed', b.classList.contains('sel') ? 'true' : 'false'); });
+      });
+      var intro = df.querySelector('.df-intro');
+      var prog = document.createElement('div'); prog.className = 'df-prog';
+      prog.innerHTML = '<span class="df-n" aria-live="polite"></span><span class="df-bar" aria-hidden="true"><span></span></span>';
+      df.insertBefore(prog, all[0]);
+      var nav = document.createElement('div'); nav.className = 'df-nav';
+      nav.innerHTML = '<button type="button" class="df-next"></button><button type="button" class="df-back"><span aria-hidden="true">&larr;</span> Back</button>';
+      df.insertBefore(nav, run);
+      var redo = document.createElement('button'); redo.type = 'button'; redo.className = 'df-redo'; redo.hidden = true;
+      redo.innerHTML = '<span aria-hidden="true">&larr;</span> Change my answers';
+      df.insertBefore(redo, out);
+      var rt = document.createElement('h2'); rt.className = 'df-rtitle'; rt.hidden = true; rt.textContent = 'Three places that could suit you'; rt.setAttribute('tabindex', '-1');
+      df.insertBefore(rt, out);
+      run.hidden = true;
+      var names = { nz: 'New Zealand', au: 'Australia', either: 'Still deciding', solo: 'Just me', partner: 'With a partner', children: 'With my children', 'partner-children': 'A partner and children', parent: 'With a parent' };
+      function introText() {
+        var shown = known.filter(function (q) { return todo.indexOf(q) < 0 && !q.hidden; });
+        var n = todo.length;
+        var h = (n === 1 ? 'One question' : ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven'][n] + ' quick questions') + ', then three places that fit.';
+        if (shown.length) h += ' <span class="df-known">Using what you told us: <strong>' + shown.map(function (q) { return names[a[key(q)]] || ''; }).filter(Boolean).join(' &middot; ') + '</strong> <button type="button" class="df-change">Change</button></span>';
+        intro.innerHTML = h;
+      }
+      function paint(focus) {
+        all.forEach(function (q) { q.hidden = todo[k] !== q; });
+        var q = todo[k], last = k === todo.length - 1;
+        prog.querySelector('.df-n').textContent = 'Question ' + (k + 1) + ' of ' + todo.length;
+        prog.querySelector('.df-bar span').style.width = Math.round(((k + 1) / todo.length) * 100) + '%';
+        var nx = nav.querySelector('.df-next');
+        nx.innerHTML = (last ? 'Show my suggestions' : 'Continue') + ' <span aria-hidden="true">&rarr;</span>';
+        nx.disabled = !a[key(q)];
+        nav.querySelector('.df-back').hidden = k === 0;
+        if (focus) { try { q.querySelector('.df-ql').focus({ preventScroll: true }); } catch (e) {} }
+      }
+      host.__dfSync = function () { if (!df.classList.contains('is-done')) paint(false); };
+      function asking(on) {
+        df.classList.toggle('is-done', !on);
+        prog.hidden = !on; nav.hidden = !on; intro.hidden = !on; redo.hidden = on; rt.hidden = on;
+        if (on) out.setAttribute('hidden', '');
+      }
+      nav.addEventListener('click', function (e) {
+        var b = e.target.closest('button'); if (!b) return;
+        if (b.classList.contains('df-back')) { if (k > 0) { k--; paint(true); } return; }
+        if (b.classList.contains('df-next')) {
+          if (k < todo.length - 1) { k++; paint(true); return; }
+          all.forEach(function (q) { q.hidden = true; });
+          asking(false); run.disabled = false; run.click(); try { rt.focus({ preventScroll: true }); } catch (er) {}
+          try { df.scrollIntoView({ block: 'start', behavior: 'smooth' }); } catch (er) {}
+        }
+      });
+      intro.addEventListener('click', function (e) { if (e.target.closest('.df-change')) { todo = all.slice(); k = 0; introText(); paint(true); } });
+      redo.addEventListener('click', function () { todo = all.slice(); k = 0; asking(true); introText(); paint(true); });
+      introText(); asking(true); paint(false);
+    })();
     run.addEventListener('click', function () {
       var ranked = DESTS.slice().sort(function (x, y) { return score(a, y) - score(a, x); });
       var chosen = a.country === 'either' ? ranked : ranked.filter(function (d) { return d.country === a.country; });
@@ -143,7 +218,7 @@
       var top3 = chosen.slice(0, 3);
       out.removeAttribute('hidden');
       out.innerHTML = top3.map(function (d, i) {
-        return '<div class="df-res' + (i === 0 ? ' first' : '') + '"><span class="df-rank">' + (i + 1) + '</span>'
+        return '<div class="df-res' + (i === 0 ? ' first' : '') + '">' + '<img class="df-rimg" src="/assets/finder/' + d.id + '.jpg" alt="" width="720" height="360" loading="lazy" decoding="async">' + '<span class="df-rank">' + (i + 1) + '</span>'
           + '<div class="df-rbody"><p class="df-rplace">' + d.name + '</p><p class="df-rsub">' + d.sub + '</p>'
           + '<ul class="df-rpros">' + d.pros.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul>'
           + '<p class="df-rcons"><strong>The honest bit:</strong> ' + d.cons + '</p>'

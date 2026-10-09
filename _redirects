@@ -31,12 +31,14 @@
 # /portal was the working name and 301s here so nothing that was shared breaks.
 # NOTE: .html → clean-URL rules carry 301! because Netlify will not apply a redirect when a file exists at
 # the source path unless the status is forced.
-/move	/move.html	200
-/move.html	/move	301!
-/plan	/move	301
-/my-move	/move#doing	301
-/portal	/move	301
-/portal.html	/move	301
+# 9 Oct 2026: move.html no longer exists (Plan Ethicare lives at /plan), so the old addresses
+# all go there. These were returning 404 in the 9 Oct audit.
+/move	/plan	301!
+/move.html	/plan	301!
+/my-move	/plan	301!
+/my-move.html	/plan	301!
+/portal	/plan	301!
+/portal.html	/plan	301!
 # Your Ethicare Space — private post-offer candidate area (noindex). Clean URL serves the file;
 # the .html form is forced (301!) so each candidate space has one address, same as /move.
 /your-ethicare-space	/your-ethicare-space.html	200

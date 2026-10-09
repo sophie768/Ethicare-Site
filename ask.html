@@ -67,14 +67,13 @@
         <img class="ask-logo" src="/assets/brand/ask-ethicare-logo.svg" alt="Ask Ethicare" width="462" height="137" decoding="async">
         <h1>What&rsquo;s on your <em>mind</em>?</h1>
         <p class="ask-lede">Ask it the way you&rsquo;d ask someone who has done this before. It answers from Ethicare&rsquo;s own guides and points you at the page you needed.</p>
-        <!-- The left column was 300px of empty teal. Real questions fill it with substance
-             rather than decoration, and show the breadth before anyone types. -->
-        <ul class="ask-eg" aria-label="Examples of what people ask">
-          <li>Will my registration transfer, or do I start again?</li>
-          <li>Would we actually be better off after tax?</li>
-          <li>Can my partner work on my visa?</li>
-          <li>Which city suits two careers and a school run?</li>
-        </ul>
+        <!-- 9 Oct 2026: the list of example questions repeated the buttons under the box, so it went;
+             "Make this your page" moved here from inside the question card, so the box stands alone. -->
+        <a class="ask-you" id="ask-you" href="/you">
+            <span class="k">Make this your page</span>
+            <span class="d">Three questions, thirty seconds &mdash; then every answer starts from you, and the guides are the ones you will actually need.</span>
+            <span class="b">Start <span aria-hidden="true">&rarr;</span></span>
+          </a>
       </div>
 
       <div class="ask-instrument">
@@ -99,11 +98,7 @@
              ask-you (below) swaps the wording once there are answers on this device. Ask itself
              already uses those answers — see ask-ethicare.js — whichever page you ask from. -->
         <div class="ask-foot">
-          <a class="ask-you" id="ask-you" href="/you">
-            <span class="k">Make this your page</span>
-            <span class="d">Three questions, thirty seconds &mdash; then every answer starts from you, and the guides are the ones you will actually need.</span>
-            <span class="b">Start <span aria-hidden="true">&rarr;</span></span>
-          </a>
+
           <p class="ask-fine">About twenty seconds an answer. AI-assisted, so check anything that matters with the regulator or immigration authority &mdash; and please leave out passport and bank details.</p>
         </div>
       </div>

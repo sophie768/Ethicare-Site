@@ -267,7 +267,7 @@
             return open ? cta : (known ? 'Change' : cta); })() + '</button></div>';
       h += '<div class="ecx-ed">';
       h += '<div class="ecx-grid">';
-      if (fields.indexOf('name') >= 0) h += '<div class="ecx-f"><label class="ecx-l" for="ecx-name">First name <span style="font-weight:400;color:#777">(optional)</span></label><input type="text" id="ecx-name" data-f="name" maxlength="40" autocomplete="given-name" value="' + esc(name()) + '" placeholder="So the page can say hello"></div>';
+      if (fields.indexOf('name') >= 0) h += '<div class="ecx-f"><label class="ecx-l" for="ecx-name">First name <span style="font-weight:400;color:#5f6b66">(optional)</span></label><input type="text" id="ecx-name" data-f="name" maxlength="40" autocomplete="given-name" value="' + esc(name()) + '" placeholder="So the page can say hello"></div>';
       if (fields.indexOf('dest') >= 0) h += sel('dest', 'Country', [['nz', 'New Zealand'], ['au', 'Australia'], ['both', 'Comparing both']], destMode(), 'Choose\u2026');
       var po = profOptions();
       if (fields.indexOf('profession') >= 0 && po.length) {

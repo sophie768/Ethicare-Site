@@ -124,7 +124,7 @@
           return '<a class="ask-mine-card" href="' + esc(href) + '"><span class="t">' + esc(r.t) + '</span><span class="d">' + esc(r.d) + '</span><span class="g" aria-hidden="true">&rarr;</span></a>';
         }).join('') +
         '</div>' +
-        '<a class="ask-mine-plan" href="/move">' +
+        '<a class="ask-mine-plan" href="/plan">' +
           '<span class="k">When you’re ready to plan</span>' +
           '<span class="t">Plan your move takes these same answers and sequences the whole thing &mdash; registration, visa, money, the people coming with you, the first month.</span>' +
           '<span class="b">Open Plan your move <span aria-hidden="true">&rarr;</span></span>' +

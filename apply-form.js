@@ -94,6 +94,28 @@
       $all('[data-group="destination"] .reg-opt').forEach(function (o) { o.classList.toggle('is-selected', o.getAttribute('data-value') === d); });
     } catch (e) {}
   }
+  /* 9 Oct 2026: never ask twice. Profession and who is coming are carried too, where the
+     answer maps 1:1 onto an option here, and only into empty fields. The first name the plan
+     stored goes into an empty name box (they add their surname). Everything stays editable. */
+  function seedMoreFromContext() {
+    try {
+      var ctx = window.EthicareContext; if (!ctx || !ctx.read || !ctx.read()) return;
+      var PMAP = { imaging: 'Medical imaging / radiography', sonography: 'Sonography', nuclearmed: 'Nuclear medicine', radtherapy: 'Radiation therapy',
+        psychology: 'Psychology', physio: 'Physiotherapy', ot: 'Occupational therapy', anaesthetic: 'Anaesthetic technology / theatre',
+        speech: 'Speech and language therapy', dietetics: 'Dietetics', socialwork: 'Social work' };
+      var ps = document.getElementById('f-profession'), pv = PMAP[ctx.profession && ctx.profession()];
+      if (ps && !ps.value && pv) { ps.value = pv; try { ps.dispatchEvent(new Event('change', { bubbles: true })); } catch (e) {} }
+      var HMAP = { alone: 'Just me', partner: 'With my partner', children: 'With my family', both: 'With my family', parent: 'With my family' };
+      var hv = HMAP[ctx.household && ctx.household()];
+      if (hv && !getVal('relocating_with')) {
+        setVal('relocating_with', hv);
+        $all('[data-group="relocating_with"] .reg-opt').forEach(function (o) { o.classList.toggle('is-selected', o.getAttribute('data-value') === hv); });
+        if (typeof toggleDependents === 'function') toggleDependents();
+      }
+      var nm = document.getElementById('f-name'), first = ctx.first && ctx.first();
+      if (nm && !nm.value && first) nm.value = first + ' ';
+    } catch (e) {}
+  }
 
   /* Arriving from a vacancy: /apply?role=<slug>[&intent=later]. The role is kept with the
      submission (hidden field role_of_interest, so the team knows which advert) and named in the
@@ -589,7 +611,7 @@
     try { history.replaceState(null, '', location.pathname); } catch (e) {}
   } else {
     loadDraft();
-    seedFromContext();
+    seedFromContext(); seedMoreFromContext();
     readRole();
     /* after loadDraft, so a saved step from the full form cannot strand the short one */
     slimForLater();
