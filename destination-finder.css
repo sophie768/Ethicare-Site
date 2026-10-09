@@ -1,0 +1,29 @@
+/* Destination finder — shared styles (see destination-finder.js) */
+.df{border:1px solid #C9DED3;border-radius:18px;box-shadow:inset 0 4px 0 #72A471;padding:clamp(22px,2.6vw,32px);margin:22px 0 0;background:#fff}
+.df-intro{font-size:15.5px;line-height:1.62;color:#555555;margin:0 0 22px;max-width:60ch}
+.df-q{margin-bottom:20px}
+.df-ql{font-family:'Work Sans',sans-serif;font-weight:600;font-size:14.5px;color:#02615D;display:block;margin:0 0 10px}
+.df-opts{display:flex;flex-wrap:wrap;gap:8px}
+.df-opt{min-height:42px;padding:9px 18px;border-radius:999px;border:1.5px solid #C9DED3;background:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#555555;cursor:pointer;transition:all .15s}
+.df-opt:hover{border-color:#02615D;color:#02615D}
+.df-opt.sel{background:#02615D;border-color:#02615D;color:#fff}
+.df-run{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:12px 24px;border-radius:12px;background:#02615D;color:#fff;border:0;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;cursor:pointer;margin-top:8px;transition:background .15s}
+.df-run:hover{background:#014A47}
+.df-run:disabled{opacity:.4;cursor:default}
+.df-out{margin-top:26px;display:grid;gap:14px}
+.df-out[hidden]{display:none}
+.df-res{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;background:#F3F7F4;border:1px solid #D6E1DA;border-radius:14px;padding:18px 20px}
+.df-res.first{border-top:3px solid #72A471}
+.df-rank{font-family:'Work Sans',sans-serif;font-weight:700;font-size:28px;line-height:1;color:#C9DED3;margin-top:4px}
+.df-res.first .df-rank{color:#72A471}
+.df-rplace{font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;color:#02615D;margin:0 0 2px}
+.df-rsub{font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#2F5E49;margin:0 0 10px}
+.df-rpros{list-style:none;margin:0 0 8px;padding:0;display:grid;gap:4px}
+.df-rpros li{font-size:14px;line-height:1.52;color:#333333;padding-left:16px;position:relative}
+.df-rpros li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:#72A471}
+.df-rcons{font-size:13.5px;line-height:1.5;color:#555555;margin:0 0 10px;border-left:2px solid #C9DED3;padding-left:10px}
+.df-rlink{font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#02615D}
+.df-rbody{grid-column:2}
+.df-note{font-size:13.5px;color:#555555;margin-top:6px;padding-top:14px;border-top:1px solid rgba(2,97,93,.12)}
+.df-head h2{margin:0 0 8px}.df-head p{font-size:16.5px;line-height:1.62;color:#555;margin:0;max-width:66ch}
+@media(max-width:560px){.df-opt{flex:1 1 100%;text-align:left}}

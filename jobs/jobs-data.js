@@ -23,10 +23,11 @@
                         Remove it when the reason has passed; unlike the
                         rotation, a pin does not expire on its own.
 
-     closes: "2026-10-14"   Application close date, ISO. Inside 21 days the card
-                        shows a "Closing in N days" flag and is promoted into the
-                        band automatically. Prefer this over a pin for anything
-                        time-bound: it can never go stale.
+     closes: "2026-10-14"   RETIRED 3 Oct 2026 (Sophie): closing dates are no longer shown
+                        to candidates. Most roles run until filled, a printed date
+                        that slips reads as careless, and a date that passes used to
+                        pull a live role off the board on its own. Leave it unset.
+                        The filter below still honours one if it is ever set again.
 
    Do NOT use pin for paid prominence. If an employer ever pays for placement
    that has to be disclosed on the page, and that is a Phase 3 decision.
@@ -38,6 +39,11 @@
    are the EMPLOYER'S commitment, not ours, so they follow the same rule as
    pay: we do not assert them on an employer's behalf. Each is a tri-state,
    and OMITTING the field is a valid, honest answer.
+
+     hours:       a string, or undefined. The contracted commitment as the
+                  employer states it ("1.0 FTE", "80 hours a fortnight",
+                  "8 sessions a week"). Same rule as the rest: if it is not
+                  confirmed, leave it out and the page says so.
 
      sponsorship: "yes" | "no" | undefined
      relocation:  "yes" | "no" | undefined
@@ -55,7 +61,141 @@
    Set them as each is confirmed. Every role currently sits undefined
    because none has been confirmed in writing yet.
    ============================================================ */
-window.ETHICARE_JOBS = [
+window.ETHICARE_JOBS_ALL = [
+  {
+    slug: "mri-technologist-wellington",
+    title: "MRI Medical Imaging Technologist",
+    profession: "Radiographer",
+    professionGuide: "/jobs/radiographer-new-zealand",
+    sector: "Public sector",
+    region: "Wellington",
+    location: "Wellington, New Zealand",
+    country: "New Zealand",
+    types: ["Permanent", "Full-time"],
+    posted: "2026-09-27",
+    pay: "Competitive \u2014 set by the APEX collective agreement covering MRI technologists",
+    lifestyle: "A capital city you can cross on foot, with the harbour on one side, the hills on the other, and the country's best coffee in between.",
+    summary: "An MRI technologist for a tertiary imaging department in Wellington: two Siemens scanners at 3T and 1.5T, and training if MRI is new to you.",
+    detail: "/jobs/vacancy/mri-technologist-wellington"
+  },
+  {
+    slug: "anaesthetist-gisborne",
+    title: "Consultant Anaesthetist",
+    profession: "Consultant Anaesthetist",
+    professionGuide: "/jobs/anaesthetist-new-zealand",
+    sector: "Public sector",
+    region: "Tairāwhiti / Gisborne",
+    location: "Gisborne, New Zealand",
+    country: "New Zealand",
+    types: ["Permanent", "Full-time"],
+    posted: "2026-09-27",
+    pay: "Competitive \u2014 set by the ASMS MECA scale",
+    lifestyle: "The first city in the world to see the sun, and one of the few where a consultant post comes with a surf break at the end of the street.",
+    summary: "A generalist anaesthetist for a 100-bed hospital on the East Coast: elective and emergency lists, ICU and HDU, obstetrics, and retrieval preparation.",
+    detail: "/jobs/vacancy/anaesthetist-gisborne"
+  },
+  {
+    slug: "radiation-oncologist-palmerston-north",
+    title: "Radiation Oncologist",
+    profession: "Radiation Oncologist",
+    professionGuide: "/jobs/medicine-new-zealand",
+    sector: "Public sector",
+    region: "Manawatū-Whanganui",
+    location: "Palmerston North, New Zealand",
+    country: "New Zealand",
+    hours: "1.0 FTE · Monday to Friday",
+    types: ["Permanent", "Full-time"],
+    posted: "2026-09-27",
+    pay: "Competitive \u2014 set by the ASMS MECA scale",
+    lifestyle: "A flat, easy university city with a ten-minute commute, the Tararua and Ruahine ranges on the horizon, and beaches, ski fields and lakes within reach for the weekend.",
+    summary: "A radiation oncologist for a regional cancer centre serving 600,000 people: three Varian TrueBeam linacs, RayStation planning, IMRT, VMAT, SBRT and DIBH.",
+    detail: "/jobs/vacancy/radiation-oncologist-palmerston-north"
+  },
+  {
+    slug: "ophthalmologist-palmerston-north",
+    title: "Ophthalmologist",
+    profession: "Ophthalmologist",
+    professionGuide: "/jobs/medicine-new-zealand",
+    sector: "Public sector",
+    region: "Manawatū-Whanganui",
+    location: "Palmerston North, New Zealand",
+    country: "New Zealand",
+    hours: "1.0 FTE",
+    types: ["Permanent", "Full-time"],
+    posted: "2026-09-27",
+    pay: "Competitive \u2014 set by the ASMS MECA scale",
+    lifestyle: "A flat, easy university city with a ten-minute commute, the Tararua and Ruahine ranges on the horizon, and beaches, ski fields and lakes within reach for the weekend.",
+    summary: "A comprehensive ophthalmologist for a regional service: four consultants, three registrars, a full laser suite and Centurion phaco. Subspecialty welcome.",
+    detail: "/jobs/vacancy/ophthalmologist-palmerston-north"
+  },
+  {
+    slug: "general-physician-whanganui",
+    title: "General Medicine Physician",
+    profession: "Consultant Physician",
+    professionGuide: "/jobs/medicine-new-zealand",
+    sector: "Public sector",
+    region: "Manawatū-Whanganui",
+    location: "Whanganui, New Zealand",
+    country: "New Zealand",
+    hours: "1.0 FTE",
+    types: ["Permanent", "Full-time"],
+    posted: "2026-09-27",
+    pay: "Competitive \u2014 set by the ASMS MECA scale",
+    lifestyle: "A river city with a heritage main street, surf beaches half an hour away, Mount Ruapehu's ski fields inland, and Wellington two and a half hours down the road.",
+    summary: "Two general physicians for a regional medical service: a team of nine, a 35-bed ward, an acute stroke unit and a six-bed critical care unit.",
+    detail: "/jobs/vacancy/general-physician-whanganui"
+  },
+  {
+    slug: "general-physician-wairarapa",
+    title: "Consultant General Physician",
+    profession: "Consultant Physician",
+    professionGuide: "/jobs/medicine-new-zealand",
+    sector: "Public sector",
+    region: "Wairarapa",
+    location: "Masterton, New Zealand",
+    country: "New Zealand",
+    hours: "80 hours a fortnight",
+    types: ["Permanent", "Full-time"],
+    posted: "2026-09-27",
+    pay: "Competitive \u2014 set by the ASMS MECA scale",
+    lifestyle: "Wine country an hour and a half over the hill from Wellington: vineyards, a slow main street, and the Tararua Range for the weekends.",
+    summary: "A general physician for a regional Department of Medicine: acute undifferentiated medicine, inpatient and outpatient work, room for a subspecialty.",
+    detail: "/jobs/vacancy/general-physician-wairarapa"
+  },
+  {
+    slug: "body-imaging-radiologist-waikato",
+    title: "Consultant Radiologist \u00b7 Body Imaging",
+    profession: "Consultant Radiologist",
+    professionGuide: "/jobs/consultant-radiologist-new-zealand",
+    sector: "Public sector",
+    region: "Waikato",
+    location: "Hamilton, New Zealand",
+    country: "New Zealand",
+    hours: "80 hours a fortnight",
+    types: ["Permanent", "Full-time"],
+    posted: "2026-09-27",
+    pay: "Competitive \u2014 set by the ASMS MECA scale",
+    lifestyle: "City amenities on the Waikato River with world-famous gardens, and an easy drive to Raglan's surf and the Coromandel when the weekend comes.",
+    summary: "A body radiologist for a tertiary teaching hospital: hepatobiliary, urology, gynaecology and GI reporting, CT colonography and pelvic MRI.",
+    detail: "/jobs/vacancy/body-imaging-radiologist-waikato"
+  },
+  {
+    slug: "addictions-psychiatrist-tauranga",
+    title: "Consultant Psychiatrist \u00b7 Addictions",
+    profession: "Consultant Psychiatrist",
+    professionGuide: "/jobs/psychiatrist-new-zealand",
+    sector: "Public sector",
+    region: "Bay of Plenty",
+    location: "Tauranga, New Zealand",
+    country: "New Zealand",
+    hours: "0.6 FTE · 48 hours a fortnight",
+    types: ["Permanent", "Part-time"],
+    posted: "2026-09-27",
+    pay: "Competitive \u2014 set by the ASMS MECA scale",
+    lifestyle: "Beach city on the Bay of Plenty: Mount Maunganui's surf at the end of the working day, kiwifruit country inland, and one of New Zealand's sunniest climates.",
+    summary: "A part-time consultant psychiatrist for an established specialist addiction service in the Bay of Plenty: assessment, treatment and consultation.",
+    detail: "/jobs/vacancy/addictions-psychiatrist-tauranga"
+  },
   {
     slug: "msk-radiologist-bunbury",
     title: "Musculoskeletal Radiologist",
@@ -81,6 +221,7 @@ window.ETHICARE_JOBS = [
     region: "Wellington",
     location: "Wellington, New Zealand",
     country: "New Zealand",
+    hours: "8 sessions a week",
     types: ["Permanent","8 sessions per week"],
     posted: "2026-07-29",
     pay: "Competitive — confirmed with you before you decide",
@@ -110,7 +251,7 @@ window.ETHICARE_JOBS = [
     profession: "Occupational Therapist",
     professionGuide: "/jobs/occupational-therapist-new-zealand",
     sector: "Private sector",
-    region: "Gisborne",
+    region: "Tairāwhiti / Gisborne",
     location: "Gisborne, New Zealand",
     country: "New Zealand",
     types: ["Permanent","Full-time"],
@@ -291,7 +432,9 @@ window.ETHICARE_JOBS = [
     country: "Australia",
     types: ["Permanent","Full-time"],
     posted: "2026-07-15",
-    pay: "Excellent salary package, discussed with you",
+    /* 8 Oct 2026, Sophie: pay and visa are not mentioned for this role. `hide` drops those
+       lines from the facts panel and the card instead of showing "to confirm". */
+    hide: ["pay", "sponsorship"],
     lifestyle: "A desirable coastal city two hours south of Perth: beaches and cafe culture, excellent schools, affordable housing and easy access to WA's coastline, forests and wineries.",
     summary: "Perform a broad range of general radiography examinations with a leading private imaging provider in coastal Bunbury, using modern equipment in a supportive, development-focused team.",
     detail: "/jobs/vacancy/diagnostic-radiographer-bunbury"
@@ -350,7 +493,7 @@ window.ETHICARE_JOBS = [
     profession: "Anaesthetic Technician",
     professionGuide: "/jobs/anaesthetic-technician-new-zealand",
     sector: "Public sector",
-    region: "Gisborne",
+    region: "Tairāwhiti / Gisborne",
     location: "Gisborne, New Zealand",
     country: "New Zealand",
     types: ["Permanent","Full-time"],
@@ -489,3 +632,28 @@ window.ETHICARE_JOBS = [
     detail: "/jobs/vacancy/breast-radiologist-waikato"
   }
 ];
+
+
+/* ---- a closed role is not a live role (2 Oct 2026) ----------------------------------------
+   Six places read this list — the job board, the homepage, the two country pages, the
+   profession pages and the hero rail — and not one of them checked `closes`. A Gisborne
+   anaesthetist role that closed on 30 September was still being advertised on 1 October,
+   printing "Closes 30 September 2026" underneath itself, and every future role would have
+   done the same on the morning after its closing date.
+
+   Filtering here rather than in each consumer means the next page someone builds inherits it
+   instead of forgetting it. ETHICARE_JOBS_ALL keeps the unfiltered list for the vacancy detail
+   pages, which still need to render a role a candidate has reached from an old link — better
+   that they land on the page and read that it has closed than on a 404.
+
+   No `closes` date means open: plenty of roles run until filled, and absence is not expiry.
+   As of 3 Oct 2026 no vacancy sets one, so nothing is filtered — the board is what Sophie
+   puts on it. The filter stays because it costs nothing and catches a date set in future. */
+window.ETHICARE_JOBS = (function () {
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  return window.ETHICARE_JOBS_ALL.filter(function (j) {
+    if (!j.closes) return true;
+    var d = new Date(j.closes + 'T23:59:59');
+    return isNaN(d.getTime()) ? true : d >= today;   // an unparseable date is not grounds to hide a job
+  });
+})();

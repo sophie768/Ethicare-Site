@@ -12,6 +12,8 @@ html{scroll-behavior:smooth}
 .cg{--primary:#02615D;--accent:#02615D;--secondary:#72A471;--highlight:#A6C84A;--au:#D9A084;--au-text:#A34438;--nz:#72A471;--nz-text:#2F5E49;--sage:#C9DED3;--bg:#FCFBF8;--text:#333;--text2:#2F5E49;--divider:#E4E9E5;--maxw:1180px;--display:'Work Sans',ui-sans-serif,sans-serif;--body:'Manrope',ui-sans-serif,sans-serif}
 .cg{background:#FCFBF8;font-family:var(--body);color:var(--text);line-height:1.72}
 .cg h1,.cg h2,.cg h3,.cg :is(h2,h3,h4){font-family:var(--display);color:var(--accent);text-wrap:balance}
+/* the accent rule above outranks the cover and footer sheets by load order; those two sit on dark and keep their own colours */
+.cg .cover h1{color:#FCFBF8}.cg .site-footer .f-col :is(h2,h4){color:#C9DED3}
 .cg p,.cg li{text-wrap:pretty}
 /* NB: no `color:inherit` here — shell.css's bare `a{color:inherit}` (0,0,1) already
    prevents default blue, at a specificity that bare-class rules can beat. Adding an

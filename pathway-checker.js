@@ -19,7 +19,18 @@
   function pad(n) { return n < 10 ? '0' + n : String(n); }
   var LSK = 'ethicare_pathway_checker_draft_v1';
   var SENT = 'ethicare_pathway_checker_sent_v1';
-  var A0 = { profession: '', destination: '', qualCountry: '', qualLevel: '', recentCountry: '', registered: '', regCountry: '', practising: '', lastPractised: '', regProgress: '', english: '', doctorStage: '', doctorSpecialist: '', doctorSpecQual: '', odpExp: '', odpStanding: '' };
+  /* The "email this to me" route promises delivery — and until a transactional sender exists
+     nothing delivers it: Netlify Forms notifies Ethicare, never the candidate. Rather than
+     rewrite the copy (and rewrite it back), the route is gated. Flip this to true the moment
+     the send-result function is live and the whole flow returns exactly as written. */
+  /* one switch for both tools, in site.js — see the note there */
+  var EMAIL_SENDER_LIVE = !!window.ETHICARE_EMAIL_LIVE;
+  /* docSpecCountry is written by setA and was missing from this list — the exact failure the
+     note below describes. The draft restore and decodeAnswers both filter through
+     Object.keys(A0), so the answer survived the session, then vanished on reload and from every
+     resumable ?r= link; after that the VOC4 country test fell back to qualCountry in silence,
+     and the same link could produce a different verdict than the session that made it. */
+  var A0 = { profession: '', destination: '', qualCountry: '', qualLevel: '', recentCountry: '', registered: '', regCountry: '', practising: '', lastPractised: '', regProgress: '', english: '', doctorStage: '', doctorSpecialist: '', doctorSpecQual: '', docSpecCountry: '', odpExp: '', odpStanding: '' };
   /* Profession question fields are declared in the DATA file, so derive them here rather than
      keeping a parallel list by hand. The hand-kept version had already fallen behind twice:
      a field missing from A0 is dropped when the saved draft is restored, so the answer looks
@@ -31,7 +42,18 @@
       (q[k].questions || []).forEach(function (x) { if (x.field && !(x.field in A0)) A0[x.field] = ''; });
     });
   })();
-  var L0 = { name: '', email: '', phone: '', country: '', dest: '', timeframe: '', consent: false, priorities: [], party: '' };
+  var L0 = { name: '', email: '', phone: '', question: '', country: '', dest: '', timeframe: '', optRoles: false, optUpdate: false, priorities: [], party: '' };
+
+  /* ---------------- consent ----------------
+     Two opt-ins, both unticked, neither a condition of getting the result. The exact wording is
+     held here rather than inline because what someone agreed to is only meaningful alongside the
+     words they read: if this copy changes, CONSENT_V changes with it, and both are submitted. A
+     consent record without its wording cannot be reconstructed after the fact. */
+  var CONSENT_V = '2026-09-01';
+  var OPTS = {
+    optRoles: 'Email me when a role comes up in my profession — New Zealand or Australia',
+    optUpdate: 'Send me the quarterly update — what’s changed in registration, visas and pay, and anything new we’ve built'
+  };
 
   var st = { step: 1, answers: assign({}, A0), err: '', errKeys: [], lead: assign({}, L0), leadErr: '', leadDone: false, emailMe: false };
   var moveFocus = false;   // set on step changes only — never while someone is typing
@@ -39,13 +61,92 @@
   function assign(t) { for (var i = 1; i < arguments.length; i++) { var s = arguments[i]; for (var k in s) if (Object.prototype.hasOwnProperty.call(s, k)) t[k] = s[k]; } return t; }
   function D() { return window.ETHICARE_PATHWAYS || null; }
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  /* "A, B and C" — built from a list whose length varies with what was answered, so the copy
+     can never name a criterion the candidate did not give an answer to. */
+  function andList(l) { return l.length < 2 ? (l[0] || '') : l.slice(0, -1).join(', ') + ' and ' + l[l.length - 1]; }
   var DRAFT_MAX_AGE = 30 * 24 * 60 * 60 * 1000; // a month-old draft is dropped rather than shown as current
   function save() { try { localStorage.setItem(LSK, JSON.stringify({ answers: st.answers, step: st.step, ts: Date.now() })); } catch (e) {} }
 
+  /* ---------------- resumable link ----------------
+     The checker is deterministic: the same answers always resolve to the same route. So a link
+     back into a result needs to carry the ANSWERS, not the result — a few hundred bytes in the
+     URL rather than a stored row. Nothing is kept server-side, there is no record to expire or
+     to breach, and reopening the link recomputes against TODAY'S registry, so someone returning
+     in six months sees current guidance rather than a cached verdict that has quietly gone stale.
+     Empty answers are dropped before encoding to keep the link short enough to survive email
+     clients that wrap long URLs. */
+  function encodeAnswers() {
+    var slim = {};
+    Object.keys(st.answers).forEach(function (k) { if (st.answers[k]) slim[k] = st.answers[k]; });
+    try {
+      return btoa(unescape(encodeURIComponent(JSON.stringify(slim))))
+        .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    } catch (e) { return ''; }
+  }
+  function decodeAnswers(s) {
+    try {
+      var b = s.replace(/-/g, '+').replace(/_/g, '/');
+      while (b.length % 4) b += '=';
+      var o = JSON.parse(decodeURIComponent(escape(atob(b))));
+      if (!o || typeof o !== 'object') return null;
+      var keep = {};
+      /* Only keys the CURRENT form defines, and only strings — an old link whose fields have
+         since been retired degrades to a partial answer set rather than injecting dead keys. */
+      Object.keys(A0).forEach(function (k) { if (typeof o[k] === 'string') keep[k] = o[k]; });
+      return keep;
+    } catch (e) { return null; }
+  }
+  function resumeLink() {
+    var c = encodeAnswers();
+    if (!c) return '';
+    return location.origin + '/pathway-checker?r=' + c;
+  }
+
   /* ---------------- state ---------------- */
+  /* ---- answers that belong to a profession, or to a country (1 Oct 2026) ------------------
+     setA wrote one key and cleared nothing else, so changing your mind left the old answer
+     working in the background. A doctor who switched to physiotherapy kept qualLevel 'cct':
+     no option in the generic list matches it, so the select showed "Select…" while the
+     required-field check — which only tests truthiness — passed on a value the candidate could
+     not see and had not chosen. A stale doctorStage of 'smo' went on suppressing country rules
+     for a profession that never asked the question. Narrowing from both countries to one left
+     every question from the dropped country answered, hidden, and still submitted.
+
+     The lists are derived from the data file rather than hand-kept, for the same reason A0 is
+     above: a hand-kept list falls behind, and the symptom is an answer that quietly stops
+     being the candidate's. */
+  var PROF_SCOPED = ['qualLevel', 'doctorStage', 'doctorSpecialist', 'doctorSpecQual', 'docSpecCountry', 'odpExp', 'odpStanding'];
+  function profFieldCc() {
+    /* field → the country it is asked for, or '' when it is asked of both */
+    var d = D(), q = (d && d.profQuestions) || {}, out = {};
+    Object.keys(q).forEach(function (k) {
+      (q[k].questions || []).forEach(function (x) { if (x.field) out[x.field] = x.cc || ''; });
+    });
+    return out;
+  }
+  function dropStale(k) {
+    var a = st.answers, m = profFieldCc(), drop = [];
+    if (k === 'profession') {
+      drop = PROF_SCOPED.concat(Object.keys(m));
+    } else {
+      var tg = targets();
+      Object.keys(m).forEach(function (f) { if (m[f] && tg.indexOf(m[f]) < 0) drop.push(f); });
+      if (tg.indexOf('nz') < 0) drop.push('odpExp', 'odpStanding');
+    }
+    drop.forEach(function (f) { if (f in a) a[f] = ''; });
+    /* Dropping the profession's questions can shorten the form. Leaving someone on a step that
+       no longer exists strands them on a blank panel; the result step is a sentinel, not a
+       position, so it is left alone. */
+    if (st.step !== RESULT && st.step > qsteps()) st.step = qsteps();
+  }
   function setA(k, v) {
-    var a = st.answers;
+    var a = st.answers, was = a[k];
     a[k] = v;
+    if (was !== v && (k === 'profession' || k === 'destination')) dropStale(k);
+    /* The country select is hidden when the answer is not "yes", but the value persisted and
+       branches downstream read it. Clearing it at source holds even if a future branch forgets
+       to check `registered`. */
+    if (k === 'registered' && v !== 'yes') a.regCountry = '';
     st.err = '';
     save(); render();
   }
@@ -59,17 +160,14 @@
     if (!a.english) return null;
     var href = cc === 'au' ? d.english.au.url : null;
     var tests = ['IELTS', 'OET', 'PTE', 'TOEFL', 'Another test'], body;
-    var FIRST_LANG = 'English is my first language';
     var RECOG_ROUTE = 'I trained and practised in English in a recognised country';
     var recog = (d.english && d.english.recognisedCountries) || [];
-    if (a.english === FIRST_LANG || a.english === RECOG_ROUTE) {
+    if (a.english === RECOG_ROUTE) {
       /* Both regulators run an exemption, and neither takes it on your word: each is tied to a
          country list AND to where you were educated. So we say "likely", name the list, and
          send them to the standard rather than declaring an exemption we cannot grant. */
       var qc = a.qualCountry, on = !!qc && recog.indexOf(qc) >= 0;
-      body = a.english === FIRST_LANG
-        ? 'There is a first-language route with both regulators, but it is not granted on nationality alone — it is tied to a list of recognised countries and to where you were educated. '
-        : 'That route exists with both regulators. It turns on where you were educated and examined, not on where you were born. ';
+      body = 'That route exists with both regulators. It turns on where you were educated and examined, not on where you were born or which language you grew up speaking. ';
       body += on
         ? 'Your qualification from ' + theCountry(qc).replace(/^The /, 'the ') + ' is on the list that recurs in both standards, so an exemption is likely. Check the conditions before you rely on it — they usually reach back to your secondary schooling as well as your degree.'
         : (qc
@@ -109,7 +207,14 @@
     return '<div class="pw-follow"><div class="pw-followk">' + esc(set.kicker) + '</div>' +
       set.questions.map(function (q, i) {
         var control;
-        if (q.type === 'select') {
+        /* A question is a dropdown if it HAS dropdown options, not only if someone remembered
+           the flag (1 Oct 2026). Four questions — psychAuArea, atQual, sltAssoc, sltAssocAu —
+           carry `placeholder` and `extras` but no `type: 'select'`, so this fell through to the
+           button branch and called optRow(undefined), which threw and took the whole step-six
+           panel with it. Psychologists, anaesthetic technicians and speech and language
+           therapists could not get past that step at all. Inferring from the shape fixes all
+           four and the next one someone adds without the flag. */
+        if (q.type === 'select' || (!q.opts && (q.extras || q.optionsFrom))) {
           /* A long list is a dropdown, not fifty buttons. Options come from a named rule so
              the list has one home, with the escape hatches appended after it. */
           var d2 = D() || {}, rule = (d2.rules || {})[q.optionsFrom] || { countries: [] };
@@ -155,7 +260,7 @@
       } else if (a.qualCountry) {
         out.push({ title: 'The standard overseas pathway applies', group: 'route', body: 'The abridged pathway is limited to qualifications from the UK, Ireland, Canada and South Africa with current registration in one of those countries. Everyone else goes through the standard route. That is not a lesser outcome — the standard is identical — but the Board looks more closely at your course content, so a detailed syllabus or course description matters as much as your certificate.', css: 'sand', href: ot.url, linkLabel: 'OTBNZ — overseas qualified' });
       }
-      out.push({ title: 'English: an exemption may apply to you', group: 'need', body: 'OTBNZ asks for proof of English only if English is <strong>not</strong> your first language, and it accepts OET or IELTS. If English is your first language you should not need a test at all. We would still advise checking the Board’s current English language policy before planning around it — requirements change, and the Board publishes this one separately from the main application page.', css: 'mint', href: 'https://otboard.org.nz/document/8497/704%20English%20language%20policy%20for%20registration.pdf', linkLabel: 'OTBNZ English language policy' });
+      out.push({ title: 'English: an exemption may apply to you', group: 'need', body: 'OTBNZ publishes its English language policy separately from the main application page, and it accepts OET or IELTS. Whether a test is required turns on the Board’s own criteria rather than on the language you grew up speaking, so read the policy before planning around an exemption — and note that requirements change.', css: 'mint', href: 'https://otboard.org.nz/document/8497/704%20English%20language%20policy%20for%20registration.pdf', linkLabel: 'OTBNZ English language policy' });
       if (a.otReferee === 'no' || a.otReferee === 'unsure') {
         out.push({ title: 'Your referees need one specific person', group: 'need', body: 'Three referees, and at least one must be an occupational therapist you have worked with for more than six months in the last two years. On the standard pathway that person is also asked to read your competence self-assessment and confirm it represents your practice fairly. If you are not sure who that would be, start thinking about it now rather than at the point of applying.', css: 'sand' });
       }
@@ -196,36 +301,62 @@
           if (voc4.approvedAreas) out.push({ title: 'Check your area of medicine against the list — it is shorter than people expect', group: 'route', body: 'The fast track covers nine areas, and the list is the eligibility test rather than a guide to it: <strong>' + voc4.approvedAreas.join('</strong>; <strong>') + '</strong>. ' + esc(voc4.notOnList || '') + (voc4.countryScope ? ' ' + esc(voc4.countryScope) : ''), css: 'sand', href: voc4.listUrl || voc4.qualListUrl, linkLabel: 'MCNZ — approved qualifications list (PDF)' });
           if (voc4.ukAwardRule && specQual === 'United Kingdom') out.push({ title: 'What has to sit alongside the fellowship', group: 'need', body: esc(voc4.ukAwardRule) + ' There is no third option, which is the part worth checking before you apply rather than after.', css: 'sand' });
           if (voc4.voc3Carveouts) out.push({ title: 'Two cases the fast track deliberately sends elsewhere', group: 'need', body: 'Named in the list\u2019s own footnotes: <strong>' + voc4.voc3Carveouts.join('</strong> <strong>') + '</strong> Neither is a refusal \u2014 both are assessments by the college that trains the specialty, which is a different application rather than a lesser one.', css: 'sand' });
-          var miss = [];
-          if (a.docRecent24 === 'no') miss.push('the 24 months in 5 years at 0.5 FTE');
-          if (a.docRecent12 === 'no') miss.push('the 12 months within the last 18');
-          if (a.docOffer === 'no' || a.docOffer === 'exploring') miss.push('a New Zealand job offer at consultant or specialist level');
-          if (a.docRecent24 || a.docRecent12 || a.docOffer) {
-            var offerOnly = miss.length === 1 && miss[0].indexOf('job offer') >= 0;
-            out.push({
-              title: miss.length ? (offerOnly ? 'One thing outstanding, and it is the ordinary one' : 'Where your answers sit against VOC4') : 'Your answers meet the VOC4 criteria we can check',
-              group: 'route',
-              body: miss.length
-                ? (offerOnly
-                  ? 'On the criteria we can check, the only one outstanding is <strong>the job offer</strong> — and almost nobody has it at this stage. It does not weaken your position: it sets the order. Secure the role, then apply, rather than applying and waiting. Your recency answers are the part that would be genuinely hard to fix, and those look met.'
-                  : 'Against the Council’s published criteria, the gap is <strong>' + miss.join('</strong>, and <strong>') + '</strong>. That is worth knowing now rather than after you have paid. Recency gaps close with time in post; a job offer closes with a job. Neither is a permanent bar, and neither is something we would gloss over.')
-                : 'You told us you have the 24 months in 5 years at 0.5 FTE, the 12 months within the last 18, and a consultant-level New Zealand offer. Those are the criteria we can test from your answers. What remains is the part only the Council can confirm — that your qualification is on the approved list by name, and that your recent practice was in a comparable health system country.',
-              css: miss.length ? 'sand' : 'mint', href: voc4.url, linkLabel: 'MCNZ — VOC4 fast-track'
-            });
+          /* ---- three criteria, three states, and "not sure" is the third (1 Oct 2026) ------
+             The gap list was built from an exact 'no', and the card that renders when the list
+             is empty says "You told us you have the 24 months…". So a consultant who answered
+             "I'd need to check my dates" to both recency questions was told their answers met
+             the criteria, in words they had never said. An unknown is neither a pass nor a
+             fail: it is the thing to go and check, and it gets its own card.
+
+             'interviewing' sits with the unknowns rather than the gaps for the same reason —
+             an offer being negotiated is not an offer held, and it is not a refusal either. */
+          var CRIT = [
+            { f: 'docRecent24', label: 'the 24 months in 5 years at 0.5 FTE', gap: ['no'], open: ['unsure'] },
+            { f: 'docRecent12', label: 'the 12 months within the last 18', gap: ['no'], open: ['unsure'] },
+            { f: 'docOffer', label: 'a New Zealand job offer at consultant or specialist level', gap: ['no', 'exploring'], open: ['interviewing'] }
+          ];
+          var miss = [], open = [], met = [], asked = false;
+          CRIT.forEach(function (c) {
+            var v = a[c.f];
+            if (!v) return;
+            asked = true;
+            if (c.gap.indexOf(v) >= 0) miss.push(c.label);
+            else if (c.open.indexOf(v) >= 0) open.push(c.label);
+            else met.push(c.label);
+          });
+          if (asked) {
+            var offerOnly = miss.length === 1 && !open.length && miss[0].indexOf('job offer') >= 0;
+            var vTitle, vBody;
+            if (miss.length) {
+              vTitle = offerOnly ? 'One thing outstanding, and it is the ordinary one' : 'Where your answers sit against VOC4';
+              vBody = offerOnly
+                ? 'On the criteria we can check, the only one outstanding is <strong>the job offer</strong> — and almost nobody has it at this stage. It does not weaken your position: it sets the order. Secure the role, then apply, rather than applying and waiting. Your recency answers are the part that would be genuinely hard to fix, and those look met.'
+                : 'Against the Council’s published criteria, the gap is <strong>' + andList(miss) + '</strong>. That is worth knowing now rather than after you have paid. Recency gaps close with time in post; a job offer closes with a job. Neither is a permanent bar, and neither is something we would gloss over.';
+              if (open.length) vBody += ' You also told us you would need to check <strong>' + andList(open) + '</strong>, so that is not counted either way here.';
+            } else if (open.length) {
+              vTitle = 'Worth checking before you count on VOC4';
+              vBody = 'You told us you would need to check <strong>' + andList(open) + '</strong>, so we have not counted it for or against you. '
+                + (met.length ? 'On what you did tell us, ' + andList(met) + ' ' + (met.length > 1 ? 'look met' : 'looks met') + '. ' : '')
+                + 'It is worth pinning down before you apply rather than after: these are the first criteria the Council tests, and they are answerable from your own payslips and rosters. Nothing in your answers rules the fast track out — we simply cannot tell you it is met.';
+            } else {
+              vTitle = 'Your answers meet the VOC4 criteria we can check';
+              vBody = 'You told us you have ' + andList(met) + '. Those are the criteria we can test from your answers. What remains is the part only the Council can confirm — that your qualification is on the approved list by name, and that your recent practice was in a comparable health system country.';
+            }
+            out.push({ title: vTitle, group: 'route', body: vBody, css: (miss.length || open.length) ? 'sand' : 'mint', href: voc4.url, linkLabel: 'MCNZ — VOC4 fast-track' });
           }
           if (a.docIntent === 'temporary') out.push({ title: 'For a defined period, look at the locum scope first', group: 'route', body: 'You told us you are thinking of up to 12 months. The <strong>special purpose — locum tenens</strong> scope exists for exactly that, and it is a lighter application than vocational registration. Be clear about the trade: it is temporary, and it does not convert into vocational registration — deciding to stay means a fresh application through VOC3 or VOC4. If there is a real chance you will stay, the vocational route first is usually the cheaper path overall.', css: 'sand' });
           out.push({ title: 'The comparable health system list applies to you too', group: 'route', body: 'This is the part that catches specialists out. VOC4\u2019s recency requirement must be served in a country the Council recognises as having a comparable health system — so the country list is not a general-scope-only concern. A consultant with the right fellowship whose recent practice sits outside those countries does not meet the recency test.', css: 'sand', href: chs.url, linkLabel: 'MCNZ — comparable health system criteria' });
           var xi = voc4.extraInfoSpecialties || [], myArea = mine && mine.area;
           if (myArea && xi.join('|').toLowerCase().indexOf(myArea.toLowerCase()) >= 0) {
             out.push({ title: 'Your specialty carries an extra step on VOC4', group: 'need', body: '' + myArea.charAt(0).toUpperCase() + myArea.slice(1) + ' is one of three areas where the Council asks for <strong>additional information</strong> on a VOC4 application — the others being obstetrics &amp; gynaecology and anatomical pathology. It is not an obstacle, just a form to have ready rather than a surprise mid-assessment. It is also why the Council notes that ' + myArea.toLowerCase() + ' applications may take longer than the ' + (voc4.processing || '').split(';')[0].trim() + ' target.', css: 'sand', href: voc4.url, linkLabel: 'MCNZ — VOC4 fast-track' });
-          /* The country is necessary, never sufficient — and the card above reads as an
-             invitation. The list covers NINE areas of medicine and radiology is not among
-             them, so a UK radiologist holding a CCT would otherwise be told the fast track
-             may be open when it is closed to their specialty outright. Read at source
-             27 August 2026 from the list PDF, not from the VOC4 landing page. */
-          if (voc4.approvedAreas) out.push({ title: 'Check your area of medicine against the list — it is shorter than people expect', group: 'route', body: 'The fast track covers nine areas, and the list is the eligibility test rather than a guide to it: <strong>' + voc4.approvedAreas.join('</strong>; <strong>') + '</strong>. ' + esc(voc4.notOnList || '') + (voc4.countryScope ? ' ' + esc(voc4.countryScope) : ''), css: 'sand', href: voc4.listUrl || voc4.qualListUrl, linkLabel: 'MCNZ — approved qualifications list (PDF)' });
-          if (voc4.ukAwardRule && specQual === 'United Kingdom') out.push({ title: 'What has to sit alongside the fellowship', group: 'need', body: esc(voc4.ukAwardRule) + ' There is no third option, which is the part worth checking before you apply rather than after.', css: 'sand' });
-          if (voc4.voc3Carveouts) out.push({ title: 'Two cases the fast track deliberately sends elsewhere', group: 'need', body: 'Named in the list\u2019s own footnotes: <strong>' + voc4.voc3Carveouts.join('</strong> <strong>') + '</strong> Neither is a refusal \u2014 both are assessments by the college that trains the specialty, which is a different application rather than a lesser one.', css: 'sand' });
+          /* The three cards that were duplicated here (the approved-areas list, the UK award
+             rule and the VOC3 carve-outs) are already pushed above, unconditionally, for every
+             VOC4 applicant. Repeating them inside this specialty branch rendered each one twice
+             on the result — in practice for psychiatrists, the only profession whose area is on
+             the extra-information list. Removed 1 Oct 2026; the cards themselves are unchanged.
+             (The approved-areas list was read at source 27 August 2026 from the list PDF rather
+             than the VOC4 landing page, because the landing page reads as an invitation while
+             the list is the eligibility test — radiology, for one, is not on it.) */
           }
           if (voc4.recentAdditions) out.push({ title: 'The list changes — check it by date', group: 'need', body: 'The approved-qualification list was last updated <strong>' + esc(voc4.listUpdated) + '</strong>, adding <strong>' + voc4.recentAdditions.join('</strong>, <strong>') + '</strong>. If anyone told you VOC4 was closed to your specialty more than a few months ago, that advice may simply be out of date. Read the current list rather than trusting a summary — including ours.', css: 'mint', href: voc4.listUrl, linkLabel: 'MCNZ — approved qualifications (PDF)' });
           if (voc4.epicFirst) out.push({ title: 'Start the verification before the application', group: 'need', body: voc4.epicFirst + ' This is the most common cause of a VOC4 application sitting still while the applicant believes it is being assessed.', css: 'sand' });
@@ -292,7 +423,7 @@
         out.push({ title: 'Three different questions, and people answer the wrong one first', group: 'route', body: '<strong>Can I practise?</strong> That is Ahpra and the Psychology Board. <strong>Can I call myself a clinical psychologist?</strong> That is an <em>area of practice endorsement</em> on top of general registration. <strong>Do I need a migration assessment?</strong> That is the APS — a separate organisation that is not the registration gateway. ' + pb.aps + ' People routinely start with the APS because it is the name they know, and it does not move them one step closer to practising.', css: 'mint', href: pb.url, linkLabel: 'Psychology Board — overseas applicants' });
         out.push({ title: 'The route, in the Board’s own order', group: 'route', body: pb.sequence.map(function (s, i) { return '<strong>' + (i + 1) + '.</strong> ' + s; }).join('<br>'), css: 'sand', href: pb.url, linkLabel: 'Psychology Board — transitional program' });
         out.push({ title: '“Provisional” does not mean they think you are a novice', group: 'need', body: 'This is the part that offends experienced clinicians, so it is worth being plain: provisional registration is the category you <em>hold while completing</em> the transitional program, not a judgement on your career. ' + pb.transitional.meanwhile + ' ' + pb.provisionalCaveat, css: 'mint' });
-        out.push({ title: 'What the transitional program actually requires', group: 'need', body: '<strong>The job:</strong> ' + pb.transitional.work + ' <strong>The plan:</strong> ' + pb.transitional.plan + ' <strong>The finish:</strong> ' + pb.transitional.finish + ' Note the order this forces — you need an Australian position before you can complete the program, so the job comes first, not last.', css: 'sand' });
+        out.push({ title: 'What the transitional program requires', group: 'need', body: '<strong>The job:</strong> ' + pb.transitional.work + ' <strong>The plan:</strong> ' + pb.transitional.plan + ' <strong>The finish:</strong> ' + pb.transitional.finish + ' Note the order this forces — you need an Australian position before you can complete the program, so the job comes first, not last.', css: 'sand' });
         out.push({ title: 'The exam need not be the last hurdle', group: 'need', body: pb.exam + ' Most people leave it to the end and then wait on a result. Sitting it during the program removes it from the critical path.', css: 'mint' });
         var pa = a.psychAuArea;
         if (pa && pa !== 'unsure') {
@@ -300,7 +431,7 @@
           out.push({ title: endorsed ? 'Your area is an endorsement, not a registration' : 'General registration is the whole of it for you', group: 'route', body: endorsed ? pb.endorsement + ' So the sequence is general registration first, then endorsement assessed separately — and it is possible to hold the first without the second. That is not a failure state: you can practise as a psychologist within your competence, you simply cannot use the endorsed title.' : 'With no specialist area to endorse, general registration is the whole question for you — one process rather than two.', css: 'sand' });
           if (endorsed) {
             var code = pb.apsCodes[pa];
-            out.push({ title: 'And it decides your migration occupation too', group: 'need', body: code ? 'If you later need a skilled migration assessment and you hold the matching Australian endorsement, the APS can assess you as <strong>' + esc(code) + '</strong>. Without that endorsement the outcome is generally <strong>' + esc(pb.apsFallback) + '</strong> — the same person, a different occupation code, and it can change which visa lists you appear on.' : 'For migration, the APS assesses against the endorsement you actually hold. Without a matching Australian endorsement the outcome is generally <strong>' + esc(pb.apsFallback) + '</strong>, which can change which visa lists you appear on.', css: 'sand' });
+            out.push({ title: 'And it decides your migration occupation too', group: 'need', body: code ? 'If you later need a skilled migration assessment and you hold the matching Australian endorsement, the APS can assess you as <strong>' + esc(code) + '</strong>. Without that endorsement the outcome is generally <strong>' + esc(pb.apsFallback) + '</strong> — the same person, a different occupation code, and it can change which visa lists you appear on.' : 'For migration, the APS assesses against the endorsement you hold. Without a matching Australian endorsement the outcome is generally <strong>' + esc(pb.apsFallback) + '</strong>, which can change which visa lists you appear on.', css: 'sand' });
           }
         }
       }
@@ -309,23 +440,20 @@
       if (a.psychIntern === 'no' || a.psychIntern === 'partial') out.push({ title: 'The internship is the part to resolve first', body: 'You have told us your training did not include a full supervised internship, and that is the requirement that most often stops an overseas psychology application — in both countries. Get a view on it from the regulator before you spend money on anything else, because the answer can change whether the move is realistic this year.', css: 'sand' });
       if (cc === 'nz' && a.psychScope && a.psychScope !== 'unsure') {
         var scopeLabel = { clinical: 'clinical', counselling: 'counselling', educational: 'educational', general: 'general psychologist' }[a.psychScope];
-        out.push({ title: 'You are applying into the ' + scopeLabel + ' scope', body: (a.psychScope === 'clinical' ? 'That is the scope most public sector roles are written around, which is helpful — and also the one with the most specific training requirements. ' : a.psychScope === 'general' ? 'The general scope is broader than the specialist scopes but opens fewer of the roles that name a scope in the job description. Worth checking against the roles you actually want. ' : 'Roles in this scope are fewer in number than clinical ones and concentrated in particular services, so location matters more than it would otherwise. ') + 'The Board grants the scope your training supports, so confirm the match before you apply rather than after.', css: 'mint' });
+        out.push({ title: 'You are applying into the ' + scopeLabel + ' scope', body: (a.psychScope === 'clinical' ? 'That is the scope most public sector roles are written around, which is helpful — and also the one with the most specific training requirements. ' : a.psychScope === 'general' ? 'The general scope is broader than the specialist scopes but opens fewer of the roles that name a scope in the job description. Worth checking against the roles you want. ' : 'Roles in this scope are fewer in number than clinical ones and concentrated in particular services, so location matters more than it would otherwise. ') + 'The Board grants the scope your training supports, so confirm the match before you apply rather than after.', css: 'mint' });
       }
       if (cc === 'au' && a.psychEndorse === 'yes') out.push({ title: 'Endorsement is a second assessment', body: 'General registration and an area of practice endorsement are decided separately, and the endorsement is the slower of the two. Your overseas specialist title does not carry across on its own. Plan for registration first and endorsement alongside it, not as one step.', css: 'sand' });
     }
     if (key === 'dietitian' && cc === 'au' && (a.dietPlacement === 'no' || a.dietPlacement === 'unsure')) out.push({ title: 'Supervised placement is assessed too', body: 'Dietitians Australia looks at supervised professional practice alongside the academic qualification. If your programme did not include a placement, or you are not certain it did, confirm it early — it is easier to evidence now than to reconstruct later.', css: 'sand' });
     /* Nursing sits in the shared builder, not in present()'s, for the same reason midwifery
-       does: registered and enrolled nurses are supported:false in both countries, so present()
+       does: nurses are supported:false in both countries, so present()
        never runs for them and anything pushed there is dead code. This builder feeds BOTH the
        recruited and the not-recruited paths, which is what "the guidance is free whether or not
        we ever place you" actually requires. Read the notes off the record so the verified
        content has exactly one home. */
     if (key === 'nursing' && cc === 'nz') {
       var nu = ((D().records || {}).nursing || {}).nz || {};
-      /* The exemption question is settled for enrolled nurses and open for everyone else, so
-         they get different notes rather than one hedged paragraph covering both. */
-      var scopeNote = a.profession === 'enrolled-nurse' ? nu.enNote : nu.selfCheckNote;
-      if (scopeNote) out.push(scopeNote);
+      if (nu.selfCheckNote) out.push(nu.selfCheckNote);
       /* Order is deliberate: the market note comes BEFORE cost and OSCE. The Council itself
          tells IQNs to explore work before paying for registration, and a candidate who reads
          only the first note should get that one rather than a fee table. */
@@ -339,18 +467,14 @@
       /* Same shared-builder reasoning as New Zealand: nurses are supported:false in both
          countries, so present() never runs for them. */
       var na = ((D().records || {}).nursing || {}).au || {};
-      if (a.profession === 'enrolled-nurse') {
-        if (na.enNote) out.push(na.enNote);
-      } else {
-        /* Pathway 2 is placed second only because Pathway 1 has to be named first for it to
-           make sense. It is the note most likely to change what someone believes. */
-        if (na.streamlinedNote) out.push(na.streamlinedNote);
-        if (na.pathway2Note) out.push(na.pathway2Note);
-        if (na.notStreamlinedNote) out.push(na.notStreamlinedNote);
-        if (na.npNote) out.push(na.npNote);
-        if (na.timingNote) out.push(na.timingNote);
-        if (na.orientationNote) out.push(na.orientationNote);
-      }
+      /* Pathway 2 is placed second only because Pathway 1 has to be named first for it to
+         make sense. It is the note most likely to change what someone believes. */
+      if (na.streamlinedNote) out.push(na.streamlinedNote);
+      if (na.pathway2Note) out.push(na.pathway2Note);
+      if (na.notStreamlinedNote) out.push(na.notStreamlinedNote);
+      if (na.npNote) out.push(na.npNote);
+      if (na.timingNote) out.push(na.timingNote);
+      if (na.orientationNote) out.push(na.orientationNote);
     }
     /* Australia, completed specialists. The Board runs three doors and the difference between
        them is worth more to a consultant than anything else on the page, so name the one that
@@ -363,7 +487,7 @@
         out.push({ title: 'Australia has a fast track, and ' + mine.specialty.toLowerCase() + ' is on it', group: 'route', body: 'The <strong>Expedited Specialist pathway</strong> lets you apply <strong>directly to Ahpra</strong> for specialist registration, with no specialist-college comparability assessment \u2014 the step that takes the longest on the ordinary route. One condition decides it, and it is not your specialty or your country: your exact qualification must be named on the Board\u2019s <strong>accepted qualifications list</strong>. Check yours by name before you plan around this.', css: 'mint' });
         out.push({ title: 'What follows registration on the fast track', group: 'need', body: 'It is expedited, not unconditional. You complete <strong>six months of supervised practice</strong> in Australia, with reports from the supervising health service and your supervisors, plus Board-approved orientation and cultural safety requirements. Worth knowing before you agree a start date or a package.', css: 'sand' });
       } else if (st2 === 'assessing') {
-        out.push({ title: mine.specialty + ' is being assessed \u2014 not yet open', group: 'route', body: 'Australia\u2019s Expedited Specialist pathway does not currently cover you. Ahpra confirmed in January 2026 that <strong>' + mine.specialty.toLowerCase() + '</strong> qualifications were being assessed for the accepted list, so this may change \u2014 but a qualification only counts once it has actually been added. Plan on <strong>specialist recognition</strong>, and treat the fast track as a possible bonus rather than the plan.', css: 'sand' });
+        out.push({ title: mine.specialty + ' is being assessed \u2014 not yet open', group: 'route', body: 'Australia\u2019s Expedited Specialist pathway does not currently cover you. Ahpra confirmed in January 2026 that <strong>' + mine.specialty.toLowerCase() + '</strong> qualifications were being assessed for the accepted list, so this may change \u2014 but a qualification only counts once it has been added. Plan on <strong>specialist recognition</strong>, and treat the fast track as a possible bonus rather than the plan.', css: 'sand' });
       } else if (st2 === 'considering') {
         out.push({ title: mine.specialty + ' is a named priority, which is not the same as open', group: 'route', body: 'This is the detail worth being precise about, because the language around it invites the wrong conclusion. <strong>' + mine.specialty + '</strong> is named among the next specialties under consideration for the Expedited Specialist pathway \u2014 alongside dermatology, general surgery and otolaryngology \u2014 but none of them are open. Being a priority confers nothing until a qualification is added to the accepted list. Your route today is <strong>specialist recognition</strong>.', css: 'sand' });
       }
@@ -385,7 +509,10 @@
        wrong are which modalities need their own scope and which scopes TTMRA reaches. */
     if (cc === 'nz' && (key === 'imaging' || key === 'mri' || key === 'sonographer')) {
       var ms = (D().rules || {}).nzMrtbScopes;
-      var fromAu = /austral/i.test(a.regCountry || '');
+      /* Registration CURRENTLY HELD, not a country left in a hidden select. Without the
+         `registered` test this fired for someone who answered "previously registered" or "my
+         country does not require it", and it also inverts the exam note below. */
+      var fromAu = a.registered === 'yes' && /austral/i.test(a.regCountry || '');
       if (ms) {
         if (a.profession === 'radiographer') {
           out.push({ title: 'CT does not need its own registration', group: 'route', body: 'This one costs people time, because they go looking for a requirement that is not there. <strong>CT sits inside the Medical Imaging Technologist scope</strong>, as do <strong>mammography</strong> and <strong>angiography</strong>, where you have appropriate training. You register once, in the MIT scope, and your CT experience counts as experience rather than as a second registration. It matters commercially rather than legally — CT is often what gets you the job.', css: 'mint' });
@@ -397,7 +524,7 @@
           out.push({ title: 'Trans-Tasman recognition does not cover this scope', group: 'route', body: 'Australian registration reaches the Medical Imaging Technologist, Radiation Therapist and Nuclear Medicine Technologist scopes in New Zealand. It does <strong>not</strong> reach <strong>MRI</strong> or <strong>sonography</strong>. For this scope you apply as an internationally qualified applicant, and the Board assesses your qualification and clinical experience in full. The Board states this on its Trans-Tasman page and again in its examination policy, so it is not a grey area.', css: 'sand' });
         }
         if (key === 'mri') {
-          out.push({ title: 'No formal MRI qualification is not the end of it', group: 'route', body: 'This route is genuinely hard to find, and it is the reason an experienced MRI radiographer should not rule New Zealand out. The Board\u2019s prescribed qualifications include a route needing all three of: an <strong>undergraduate medical imaging or radiation therapy qualification approved by the Board</strong>, at least <strong>2.5 years FTE MRI practice</strong> meeting its clinical experience requirements, and a <strong>pass in a Board MRI examination</strong>. Employer-trained MRI experience can count — what it needs is to be documented, and the Board has a separate MRI clinical experience form for exactly that.', css: 'mint' });
+          out.push({ title: 'No formal MRI qualification is not the end of it', group: 'route', body: 'This route is hard to find, and it is the reason an experienced MRI radiographer should not rule New Zealand out. The Board\u2019s prescribed qualifications include a route needing all three of: an <strong>undergraduate medical imaging or radiation therapy qualification approved by the Board</strong>, at least <strong>2.5 years FTE MRI practice</strong> meeting its clinical experience requirements, and a <strong>pass in a Board MRI examination</strong>. Employer-trained MRI experience can count — what it needs is to be documented, and the Board has a separate MRI clinical experience form for exactly that.', css: 'mint' });
         }
         out.push({ title: 'Registration is not the thing that lets you work', group: 'need', body: 'You cannot practise in a protected scope without <strong>both</strong> registration and a current <strong>annual practising certificate</strong>. The timing catches people out: you must wait until you are <strong>resident in New Zealand, or can evidence your move</strong>, before applying for the APC. So it is deliberately the last step, not something to chase in parallel — budget for the gap between being registered and being able to start.', css: 'sand' });
         if (!fromAu && ms.examIsNotAutomatic) {
@@ -429,7 +556,7 @@
         if (!nzReg) {
           out.push({ title: 'Check whether your exact qualification is already recognised — first', group: 'route', body: 'This is the ten-minute check that decides months. If the Board has <strong>already assessed the same qualification as yours — ' + mr.recognisedTest + ' —</strong> and found it substantially equivalent, or based on similar competencies, to an approved Australian qualification, you are on the <strong>Recognised International Qualification Pathway</strong> and no individual assessment is needed. It is open to all three divisions. The test is exact: a different year or a renamed degree from the same university is a different qualification. Look yours up before you prepare a portfolio you may not need.', css: 'mint', href: mr.recognisedUrl, linkLabel: 'MRPBA — is my qualification recognised?' });
           out.push({ title: 'If it is not on the list, the assessment comes before the application', group: 'need', body: 'The order is the part people get wrong, and getting it wrong costs a cycle. On the <strong>Qualification Assessment Pathway</strong> the Board <strong>must assess your qualification portfolio before you apply for registration</strong> — not alongside it. A portfolio means every medical radiation practice qualification you hold, submitted on the Board’s <strong>' + mr.portfolioForm + '</strong> form. Three outcomes are possible: <strong>' + mr.assessmentOutcomes.join('</strong>; <strong>') + '</strong>. The middle one is the one to plan for — relevant, but with further requirements before general registration.', css: 'sand', href: mr.assessmentUrl, linkLabel: 'MRPBA — assessment of international qualifications' });
-          out.push({ title: 'An exam is not automatically part of this', group: 'route', body: 'Nothing in the Australian route says “internationally qualified, therefore examination”, and reading it that way puts people off a move they would have made. The <strong>national examination is used where a more detailed objective assessment of professional capability is required</strong> — in circumstances the Board determines, after it has assessed your qualification. So the honest sequence is: assessment first, then any additional requirements, which <em>can</em> include the examination. Do not budget for it, or rule the move out because of it, before the Board has told you it applies.', css: 'mint', href: mr.examUrl, linkLabel: 'MRPBA — national examination' });
+          out.push({ title: 'An exam is not automatically part of this', group: 'route', body: 'Nothing in the Australian route says “internationally qualified, therefore examination”, and reading it that way puts people off a move they would have made. The <strong>national examination is used where a more detailed objective assessment of professional capability is required</strong> — in circumstances the Board determines, after it has assessed your qualification. So the sequence is: assessment first, then any additional requirements, which <em>can</em> include the examination. Do not budget for it, or rule the move out because of it, before the Board has told you it applies.', css: 'mint', href: mr.examUrl, linkLabel: 'MRPBA — national examination' });
         }
       }
     }
@@ -446,7 +573,8 @@
       var sp = (D().rules || {}).auSpa;
       if (sp) {
         var sa = sp.assoc[a.sltAssocAu], trained2 = sa && a.qualCountry === sa.country,
-            mraAu = !!sa && trained2 && !sa.suspended && !sa.excluded;
+            mraAu = !!sa && trained2 && !sa.suspended && !sa.excluded,
+            unsureAu = a.sltAssocAu === 'unsure';
         out.push({ title: 'CPSP is the thing to aim at, and it is not membership', group: 'route', body: 'Speech pathology is self-regulating in Australia — there is no Ahpra registration. What matters is <strong>' + esc(sp.credential) + '</strong>, and joining the association does not confer it: overseas-trained speech pathologists become eligible only by completing a skills assessment. ' + sp.whyCredential, css: 'mint', href: sp.url, linkLabel: 'Speech Pathology Australia' });
         if (mraAu) {
           out.push({ title: 'The Mutual Recognition Agreement looks open to you', group: 'route', body: 'You trained in ' + esc(sa.country) + ' and hold ' + esc(sa.name) + ' ' + esc(sa.credential) + ' — the two things the MRA requires together. Note the Association names the <strong>exact credential</strong>, not just the association, so ordinary membership is not the same answer as certified membership. You will need a letter of good standing from ' + esc(sa.name) + '.', css: 'mint', href: sp.guideUrl, linkLabel: 'SPA — OSQCA guide for applicants' });
@@ -456,9 +584,14 @@
           out.push({ title: 'One exclusion applies to you specifically', group: 'route', body: 'NZSTA Full Members are covered by the MRA <strong>with the exception of those who ' + esc(sa.excluded) + '</strong>. That is you, so the OSQCA route applies instead — a longer process, but an open one.', css: 'sand', href: sp.guideUrl, linkLabel: 'SPA — OSQCA guide for applicants' });
         } else if (sa && !trained2) {
           out.push({ title: 'Membership alone will not open the MRA', group: 'route', body: 'The MRA requires that you completed your qualifying degree in the member country <strong>and</strong> hold that country’s credential. You hold ' + esc(sa.name) + ' ' + esc(sa.credential) + ' but trained in ' + esc(a.qualCountry || 'another country') + ', so the OSQCA route applies.', css: 'sand', href: sp.guideUrl, linkLabel: 'SPA — OSQCA guide for applicants' });
+        } else if (unsureAu) {
+          /* "I'd need to check" used to fall through the association lookup and land on the
+             OSQCA cards as though it were settled. It is one question, and it decides the
+             whole route, so we say which question rather than answering it for them. */
+          out.push({ title: 'One answer decides your route here, and it is worth checking', group: 'route', body: 'The MRA is open only where two things are both true: you hold the <strong>named credential</strong> of ASHA, SAC, RCSLT, NZSTA or IASLT, <strong>and</strong> you completed your qualifying degree in that same country. Ordinary membership is not the same as certified membership — the Association names the exact credential, which is where most people find they are not where they assumed. If both are true, the MRA is the short route. If either is not, OSQCA applies. Your certificate will say which.', css: 'sand', href: sp.guideUrl, linkLabel: 'SPA — OSQCA guide for applicants' });
         }
         if (!mraAu) {
-          out.push({ title: 'OSQCA: four stages, and what each one costs', group: 'need', body: sp.stages.map(function (s) { return '<strong>Stage ' + s.n + '</strong> — ' + s.focus + '. ' + s.fee + ', outcome ' + s.outcome + '.'; }).join('<br>') + '<br><br>' + sp.totalFee + ' if you clear every stage first time. ' + sp.resubmitNote + ' ' + sp.noOsce, css: 'sand', href: sp.guideUrl, linkLabel: 'SPA — OSQCA guide for applicants' });
+          out.push({ title: unsureAu ? 'OSQCA: four stages, and what each one costs — if the MRA is not open to you' : 'OSQCA: four stages, and what each one costs', group: 'need', body: (unsureAu ? 'This is the route for everyone the MRA does not cover, so read it as the fallback until you have checked your credential. ' : '') + sp.stages.map(function (s) { return '<strong>Stage ' + s.n + '</strong> — ' + s.focus + '. ' + s.fee + ', outcome ' + s.outcome + '.'; }).join('<br>') + '<br><br>' + sp.totalFee + ' if you clear every stage first time. ' + sp.resubmitNote + ' ' + sp.noOsce, css: 'sand', href: sp.guideUrl, linkLabel: 'SPA — OSQCA guide for applicants' });
           out.push({ title: 'The portfolio is where most of the work sits', group: 'need', body: sp.portfolioNote + ' If your practice has been entirely paediatric language or entirely adult dysphagia, that is the thing to plan around early — not a bar, but it shapes which cases you can build. ' + esc(sp.aqf), css: 'mint' });
         }
         if (a.sltEnglishAu === 'mra-uni') out.push({ title: 'You look exempt from the English test', group: 'need', body: 'An entry-level qualification conducted in English at a university in the UK, Canada, New Zealand, the USA or Ireland exempts you from English testing altogether. Note it keys off the <strong>university’s country</strong>, not the language alone. The Association can still ask for evidence if something in your application raises a question.', css: 'mint' });
@@ -477,13 +610,20 @@
           out.push({ title: 'The Mutual Recognition Agreement looks open to you', group: 'route', body: 'You trained in ' + esc(am.country) + ' and hold ' + esc(am.name) + ' membership, which is the combination the <strong>MRA</strong> is built on — and you meet the dysphagia competency, without which the MRA is closed. It is an expedited process rather than automatic recognition: NZSTA still asks for its own evidence, including a letter of good standing sent directly from ' + esc(am.name) + ' and a criminal conviction record dated within three months. Cost is ' + nz1.mra.fee + '.', css: 'mint', href: nz1.mra.url, linkLabel: 'NZSTA — Mutual Recognition Agreement' });
         } else if (am && !trainedThere) {
           out.push({ title: 'Your membership will not carry you through the MRA — and this catches people out', group: 'route', body: 'You hold ' + esc(am.name) + ' membership but trained in ' + esc(a.qualCountry || 'another country') + ', and the MRA does not work that way. ' + nz1.mra.trainedRule + ' NZSTA answers this exact question on its own page, so it is settled rather than a judgement call. Your route is the <strong>Qualifications Approval Process</strong> — not a lesser outcome, but a different form and a different fee, and worth knowing before you pay for the wrong one.', css: 'sand', href: nz1.qap.url, linkLabel: 'NZSTA — Qualifications Approval Process' });
+        } else if (am && trainedThere && a.sltDysphagia === 'unsure') {
+          /* Same class of bug as the association lookup: dys was `=== 'yes'`, so "I'd need to
+             check" became a settled "dysphagia closes the MRA". It is a competency the
+             candidate can establish in an afternoon, and the answer changes the route. */
+          out.push({ title: 'Your route turns on the dysphagia competency', group: 'route', body: 'You trained in ' + esc(am.country) + ' and hold ' + esc(am.name) + ' membership, which is the combination the <strong>MRA</strong> is built on. The one thing left is the dysphagia competency: without it the MRA is closed and the <strong>Qualifications Approval Process</strong> applies instead, with a condition on your membership. With it, the MRA is the shorter route. Worth establishing from your training records and current scope before you choose a form — and if the competency is within reach where you are now, worth completing first.', css: 'sand', href: nz1.mra.url, linkLabel: 'NZSTA — Mutual Recognition Agreement' });
         } else if (am && !dys) {
           out.push({ title: 'Dysphagia closes the MRA, but not the door', group: 'route', body: 'You cannot apply under the MRA without meeting the dysphagia competency requirements. Since 12 June 2023 you may apply under the <strong>Qualifications Approval Process</strong> instead, and NZSTA may grant Registered Membership carrying the condition <strong>' + esc(nz1.dysphagiaCondition) + '</strong>. Be clear-eyed about what that means: NZSTA states it will restrict the job opportunities open to you here. It is workable for community, paediatric and education-based roles and a genuine obstacle in acute adult work — so if dysphagia competence is within reach where you are now, it is worth completing before you apply.', css: 'sand', href: nz1.qap.url, linkLabel: 'NZSTA — Qualifications Approval Process' });
+        } else if (a.sltAssoc === 'unsure') {
+          out.push({ title: 'One answer decides your route here, and it is worth checking', group: 'route', body: 'You told us you would need to check which association you belong to, and it decides the whole route. The <strong>MRA</strong> is open only to <strong>certified</strong> members of ASHA, SAC, RCSLT, Speech Pathology Australia or IASLT who also trained in that association’s country — and who meet the dysphagia competency. Ordinary membership is not the same as certified membership, which is where most people find they are not where they assumed. Everyone else applies through the <strong>Qualifications Approval Process</strong>: the ordinary route rather than a fallback, at ' + nz1.qap.fee + ', taking ' + nz1.qap.processing + '. Your membership certificate will say which category you hold.', css: 'sand', href: nz1.qap.url, linkLabel: 'NZSTA — Qualifications Approval Process' });
         } else {
           out.push({ title: 'The Qualifications Approval Process is your route', group: 'route', body: 'The MRA is only open to certified members of ASHA, SAC, RCSLT, Speech Pathology Australia or IASLT who also trained in that association’s country. Everyone else applies through the <strong>Qualifications Approval Process</strong>, which is the ordinary route rather than a fallback: NZSTA assesses your qualification and experience individually. Cost is ' + nz1.qap.fee + ', and processing takes ' + nz1.qap.processing + '.', css: 'sand', href: nz1.qap.url, linkLabel: 'NZSTA — Qualifications Approval Process' });
         }
         if (a.sltHours === 'no') out.push({ title: 'Your recent hours point to a Return to Practice condition', group: 'need', body: 'Registered Membership expects certified evidence of <strong>1,000 hours in the past five years</strong>. Below that, NZSTA does not decline you — one of its published outcomes is <strong>Registered Member — Return to Practice</strong>, which is membership with a plan attached rather than a refusal. Worth raising with an employer early, because it shapes your first months rather than your application.', css: 'sand' });
-        if (a.sltSupervised === 'newgrad' || a.sltSupervised === 'no') out.push({ title: 'Newly qualified is a recognised category here', group: 'need', body: 'A year of supervised clinical practice — 36 weeks full-time, 30 hours a week — is the threshold for unrestricted Registered Membership. Without it, NZSTA can grant <strong>Registered Member — New Graduate</strong>. That is a real category with its own framework, not a deferral, so the honest answer is apply and be assessed rather than wait a year.', css: 'sand' });
+        if (a.sltSupervised === 'newgrad' || a.sltSupervised === 'no') out.push({ title: 'Newly qualified is a recognised category here', group: 'need', body: 'A year of supervised clinical practice — 36 weeks full-time, 30 hours a week — is the threshold for unrestricted Registered Membership. Without it, NZSTA can grant <strong>Registered Member — New Graduate</strong>. That is a real category with its own framework, not a deferral, so the answer is apply and be assessed a year.', css: 'sand' });
         out.push({ title: 'What NZSTA will want, and the one deadline inside it', group: 'need', body: 'Both routes ask for: ' + nz1.qap.criteria.slice(0, 5).join('; ') + '. Two documents carry their own clocks — the criminal conviction record must be dated <strong>no more than three months</strong> before NZSTA receives it, and a letter of good standing no more than a year, sent directly from your association. Order them in the right order and you will not pay twice.', css: 'mint' });
         out.push({ title: 'There is no appeal, so the route matters more than usual', group: 'need', body: nz1.appealNote, css: 'sand' });
       }
@@ -517,7 +657,9 @@
        sonographer arrives assuming mutual recognition covers them; it does not. */
     if (cc === 'nz' && (a.profession === 'sonographer' || a.profession === 'mri')) {
       var ms = (D().rules || {}).nzMrtbScopes, meScope = a.profession === 'mri' ? 'MRI' : 'sonography';
-      if (ms && (a.regCountry === 'Australia' || a.qualCountry === 'Australia')) {
+      /* Qualifying in Australia is reason enough to be told this; being registered there is
+         too, but only if the registration is current — the country arm needed the guard. */
+      if (ms && ((a.registered === 'yes' && a.regCountry === 'Australia') || a.qualCountry === 'Australia')) {
         out.push({ title: 'Trans-Tasman recognition does not reach ' + meScope, group: 'route', body: 'This one catches Australian practitioners out. Mutual recognition covers the <strong>' + ms.ttmraScopes.join('</strong>, <strong>') + '</strong> scopes \u2014 and <strong>not ' + ms.ttmraExcluded.join(' or ') + '</strong>. So however well established you are in Australia, you apply to the Board as an <strong>internationally qualified</strong> practitioner, with your qualification and clinical experience assessed against the New Zealand scope. Same Board, different door, and a materially different fee.', css: 'sand' });
       }
     }
@@ -539,7 +681,7 @@
     if (cc === 'nz' && (profOf() || {}).record === 'doctor' && a.qualLevel === 'fellowship-no-cct') {
       var fnc = (D().rules || {}).nzDoctorComparable;
       out.push({ title: 'A fellowship exam is not specialist registration — and that changes your route', group: 'route', body: 'This is worth being precise about, because it is the single most common misreading of the UK system. <strong>FRCR, MRCP, FRCA and their equivalents are examinations sat during training.</strong> The <strong>CCT</strong> is what completes that training and places you on the GMC specialist register. Holding the fellowship without the CCT means you are not yet a specialist for registration purposes here either — so the vocational (specialist) pathways are not the ones to aim at, and applying into them invites a decline on the first criterion rather than a discussion.', css: 'mint' });
-      if (fnc) out.push({ title: 'What is open to you instead is often better news', group: 'route', body: 'The <strong>' + esc(fnc.pathway) + '</strong> sits under the <strong>general scope</strong>, and it turns on <strong>' + esc(fnc.basis) + '</strong> rather than on holding a completed specialist award. If you have been working in the United Kingdom, that is exactly the evidence it asks for. So the honest answer — fellowship, no CCT — does not close a door; it points at a different and genuinely available one. The Council’s <strong>Competent Authority</strong> pathway may also apply if your primary medical degree and internship were both completed in the UK or Ireland.', css: 'sand', href: fnc.url, linkLabel: 'MCNZ — Comparable Health System pathway' });
+      if (fnc) out.push({ title: 'What is open to you instead is often better news', group: 'route', body: 'The <strong>' + esc(fnc.pathway) + '</strong> sits under the <strong>general scope</strong>, and it turns on <strong>' + esc(fnc.basis) + '</strong> rather than on holding a completed specialist award. If you have been working in the United Kingdom, that is exactly the evidence it asks for. So the answer — fellowship, no CCT — does not close a door; it points at a different and genuinely available one. The Council’s <strong>Competent Authority</strong> pathway may also apply if your primary medical degree and internship were both completed in the UK or Ireland.', css: 'sand', href: fnc.url, linkLabel: 'MCNZ — Comparable Health System pathway' });
       var voc4r = (D().rules || {}).nzVoc4 || {};
       /* RESOLVED 27 August 2026 against the approved-qualification list PDF itself. Every UK
          entry is Fellowship/Membership AND (CCT by the GMC or PMETB, OR CCST by the STA) —
@@ -607,6 +749,24 @@
   }
 
   /* ---------------- recognition outlook ---------------- */
+  /* ONE route decision for Australian medical radiation (8 Oct 2026, external review P0-01).
+     The result used to say "no country-based streamlined route" in one paragraph, "a streamlined
+     route looks more likely" in the outlook, "you may be on the Comparable Regulator Pathway" in
+     the routes, and "no country-specific shortcut" in the panel below — four sources, four
+     answers. Every one of those sections now reads this instead.
+       ttmra       current NZ registration (practising certificate) -> mutual recognition
+       comparable  UK/Irish qualification, diagnostic radiography or radiation therapy -> the
+                   Comparable Regulator Pathway is worth checking first (the Board confirms it)
+       nm-excluded UK/Irish qualification in nuclear medicine -> that pathway is not open
+       individual  everything else -> recognised-qualification list, then portfolio assessment */
+  function auMedRadRoute() {
+    var a = st.answers, qc = a.qualCountry || '', rc = a.regCountry || '';
+    if (/new zealand/i.test(rc) && a.registered === 'yes') return 'ttmra';
+    if (/united kingdom|ireland/i.test(qc)) return a.profession === 'nuclear-medicine' ? 'nm-excluded' : 'comparable';
+    return 'individual';
+  }
+  function isAuMedRad(cc, key) { return cc === 'au' && (key === 'imaging' || key === 'mri'); }
+
   function outlookFor(cc, key, r, isSpec) {
     var d = D(), a = st.answers;
     var o = d.outlooks && d.outlooks[key + '.' + cc];
@@ -633,6 +793,19 @@
     }
     if (o.ttmra && regC && ((cc === 'nz' && regC === 'Australia') || (cc === 'au' && regC === 'New Zealand'))) {
       tier = 'strong'; why = d.rules.ttmra.why.replace('{country}', regC).replace('{theCountry}', theCountry(regC).replace(/^The /, 'the ')); basis = 'Trans-Tasman mutual recognition';
+    }
+    if (isAuMedRad(cc, key)) {
+      var rt = auMedRadRoute();
+      if (rt === 'ttmra' || rt === 'comparable') {
+        tier = 'strong';
+        why = rt === 'ttmra'
+          ? 'Your current New Zealand registration and practising certificate may let you use Trans-Tasman mutual recognition. The Board confirms it when you apply.'
+          : 'Your route may be shorter than a full assessment. The Board treats the HCPC (United Kingdom) and CORU (Ireland) as comparable regulators for diagnostic radiography and radiation therapy, so check the Comparable Regulator Pathway first. It depends on your qualification and the year it was accredited, and the Board confirms eligibility.';
+        basis = rt === 'ttmra' ? 'Based on your registration in New Zealand' : 'Based on your training in ' + a.qualCountry;
+      } else {
+        tier = 'assessed'; why = (o.whys && o.whys.assessed) || why;
+        if (rt === 'nm-excluded') basis = 'Based on your training in ' + a.qualCountry + ' (nuclear medicine)';
+      }
     }
     if (r.status === 'streamlined' && tier !== 'strong') { tier = 'strong'; why = 'The streamlined pathway described above currently applies to your combination — the regulator confirms eligibility.'; }
     var T = d.outlookTiers;
@@ -758,6 +931,22 @@
         'Attend your registration meeting in New Zealand within two weeks of starting, then work under supervision before applying to move to the full vocational scope'
       ] });
     }
+    if (isAuMedRad(cc, key)) {
+      r.auRoute = auMedRadRoute();
+      /* The headline, status and first step follow the same decision as everything below. */
+      var first = r.auRoute === 'comparable' ? 'Check your qualification against the Comparable Regulator Pathway (HCPC or CORU accreditation, and the year)'
+        : r.auRoute === 'ttmra' ? 'Check that your New Zealand practising certificate is current for mutual recognition' : null;
+      if (r.auRoute === 'comparable') {
+        r.status = 'streamlined';
+        r.headline = 'Start with the Comparable Regulator Pathway';
+      } else if (r.auRoute === 'ttmra') {
+        r.status = 'streamlined';
+        r.headline = 'Trans-Tasman mutual recognition may apply';
+      }
+      if (first && Array.isArray(r.steps)) r.steps = r.steps.map(function (x) {
+        return typeof x === 'string' && /^See whether MRPBA recognises/.test(x) ? first : x;
+      });
+    }
     r.fired = fired;
     r.ttmra = a.registered === 'yes' && ((cc === 'nz' && a.regCountry === 'Australia') || (cc === 'au' && a.regCountry === 'New Zealand'));
     r.outlookData = outlookFor(cc, key, r, isSpec);
@@ -788,6 +977,10 @@
     } else if (r.ttmra) {
       lines.push('Because you\u2019re registered in ' + a.regCountry + ', ' + (d.rules.ttmraTerm || 'Trans-Tasman Mutual Recognition') +
         ' may apply. You still apply to the regulator, which confirms eligibility.');
+    } else if (r.auRoute === 'comparable') {
+      lines.push('Because you trained in ' + theCountry(a.qualCountry).replace(/^The /, 'the ') + ', the Comparable Regulator Pathway is the route to check first. It depends on your qualification and when it was accredited, not on your passport, and the Board confirms eligibility.');
+    } else if (r.auRoute === 'nm-excluded') {
+      lines.push('The Comparable Regulator Pathway does not cover nuclear medicine, so your qualification goes through the recognised-qualification check and, if it is not listed, a portfolio assessment.');
     } else if (r.profRoute) {
       lines.push('Your answers point at ' + r.profRoute + ' rather than at a country-based rule. This is one of the professions that keys off where and how you trained rather than which passport you hold — the regulator still confirms eligibility.');
     } else if (a.qualCountry) {
@@ -841,16 +1034,19 @@
     if (isOther) {
       return assign(base, {
         headline: fill(nr.headline), paras: nr.paras.map(fill), steps: [], notes: [],
-        why: ['You told us you are ' + who + ' looking at ' + country + '. That sits outside the professions we recruit there, and we do not hold verified guidance for it either \u2014 so rather than guess, we point you at the official register.']
+        why: ['You told us you are ' + who + ' looking at ' + country + '. We do not hold verified registration guidance for that yet \u2014 so rather than guess, we point you at the official register, and you are welcome to ask us directly.']
       });
     }
-    /* No role, but the route still stands. The pill still says the honest thing. */
-    var noRole = 'We are not recruiting this profession into ' + country + ' at the moment, so there is no role we can put in front of you. The registration route below still applies, and it is still yours to use \u2014 free, whether you ever work with us or not.';
+    /* No ADVERTISED vacancy, not "we do not recruit you". The page used to say the second
+       thing, which turns away people Ethicare would want to hear from (Sophie, 3 Oct 2026). */
+    var noRole = 'We don\u2019t currently have any vacancies listed for your profession in ' + country +
+      ', but we\u2019d still love to hear what you\u2019re looking for \u2014 send us your CV or get in touch. ' +
+      'The registration route below applies either way, and it is yours to use free, whether you ever work with us or not.';
     return assign(base, {
       headline: r.headline,
       paras: [noRole].concat(r.paras || []),
       steps: r.steps || [],
-      why: ['You told us you are ' + who + ' looking at ' + country + '. We are not recruiting that profession there at the moment, so this is the registration route without a job attached.']
+      why: ['You told us you are ' + who + ' looking at ' + country + '. We have no vacancy listed for that profession there today, so this is the registration route on its own \u2014 tell us what you are looking for and we will keep it in mind.']
     });
   }
 
@@ -920,6 +1116,11 @@
     }
     if (s === 4) {
       if (!a.registered) need('registered', 'your registration status');
+      /* The country is rendered the moment someone answers "yes" but was never required, so
+         "I am registered" with no country passed the step \u2014 and a dozen rules downstream read
+         regCountry to decide whether a Trans-Tasman or competent-authority route is open. A
+         blank there is not a small gap; it is the difference between two routes. */
+      if (a.registered === 'yes' && !a.regCountry) need('regCountry', 'the country you are registered in');
       if (!a.regProgress) need('regProgress', 'whether you\u2019ve started registration');
     }
     if (s === 5) {
@@ -1101,6 +1302,14 @@
     });
     var cName = function (cc) { return cc === 'nz' ? 'New Zealand' : 'Australia'; };
     var caveat = '<p class="pw-hint" style="margin:16px 0 0;font-size:13.5px">Reproduced from the regulators\u2019 own pages and checked on the dates shown. They change without notice \u2014 confirm on the official page before you apply. Ethicare accepts no responsibility for decisions made on what you read here.</p>';
+    if (!rules.length && ccs.indexOf('au') >= 0 && isAuMedRad('au', myRec)) {
+      var rt2 = auMedRadRoute();
+      var txt = rt2 === 'ttmra' ? 'With current New Zealand registration and a practising certificate, Trans-Tasman mutual recognition may apply. Otherwise the routes below depend on your qualification, not your passport.'
+        : rt2 === 'comparable' ? 'Australia\u2019s shorter route here depends on your qualification, not your passport: an HCPC- or CORU-accredited diagnostic radiography or radiation therapy qualification may use the Comparable Regulator Pathway. Your result sets out what to check.'
+        : rt2 === 'nm-excluded' ? 'The Comparable Regulator Pathway for UK and Irish qualifications does not cover nuclear medicine. Your result sets out the recognised-qualification check and the portfolio assessment.'
+        : 'Australia\u2019s routes here depend on your qualification and registration, not your passport: mutual recognition for New Zealand registrants, the Comparable Regulator Pathway for HCPC- or CORU-accredited qualifications, the recognised-qualification list, and otherwise a portfolio assessment.';
+      return '<div class="pw-follow"><div class="pw-followk">Before you choose</div><p class="pw-hint" style="margin:0;font-size:14.5px">' + txt + '</p></div>';
+    }
     if (!rules.length) {
       return '<div class="pw-follow"><div class="pw-followk">Before you choose</div>' +
         '<p class="pw-hint" style="margin:0;font-size:14.5px">For this profession there is no country-specific shortcut \u2014 everyone follows the same assessment, wherever they trained. Where you qualified still shapes what the regulator looks at, but it does not put you on a different route, so there is no list to be on or off.</p>' + caveat + '</div>';
@@ -1220,7 +1429,7 @@
   function step6() {
     var set = profQuestionSet();
     return head(6, set && set.kicker ? set.kicker : 'A few things specific to your profession') +
-      '<p class="pw-sub">These are the questions that actually change your answer — they are different for every profession, which is why they come last.</p>' +
+      '<p class="pw-sub">These are the questions that change your answer — they are different for every profession, which is why they come last.</p>' +
       profQuestionsBlock();
   }
   function formHtml() {
@@ -1230,14 +1439,16 @@
        nav row's narrow right-hand slot, sized for the old three-item truncated string; now
        that it lists everything outstanding it would wrap to six lines there and shove the
        primary action down the page. role="alert" still announces it from here. */
-    var nav = (st.err ? '<p class="pw-err" role="alert">' + esc(st.err) + '</p>' : '') +
+    var nav = (st.err ? '<p class="pw-err" id="pw-err" role="alert">' + esc(st.err) + '</p>' : '') +
       '<div class="pw-nav">' +
       (step > 1 ? '<button type="button" class="pw-back" data-act="back">\u2190 Back</button>' : '<span></span>') +
       '<div class="pw-navr">' +
       '<button type="button" class="pw-next" data-act="next">' + (step === qsteps() ? 'See my starting point' : 'Continue') + ' \u2192</button>' +
       '</div></div>';
     return '<div class="pw-card">' + progressHead() +
-      '<div class="pw-main">' + body + nav + '</div>' +
+      '<div class="pw-main">' +
+      (st.seeded && step === 1 ? '<p class="pw-priv" style="margin:0 0 18px;text-align:left">Prefilled from your plan on <a href="/plan">Move</a>. Change anything that is not right \u2014 nothing here is fixed.</p>' : '') +
+      body + nav + '</div>' +
       (step === qsteps() ? '<p class="pw-priv">Your result first \u2014 no contact details needed.</p>' : '') + '</div>';
   }
 
@@ -1279,7 +1490,7 @@
     }
 
     if (r.outlook) {
-      out.push('<section class="pw-bsec"><h3 class="pw-bk">What depends on individual assessment</h3>' +
+      out.push('<section class="pw-bsec"><h3 class="pw-bk">' + (r.outlook.tier === 'strong' ? 'How your route compares' : 'What depends on individual assessment') + '</h3>' +
         '<p class="pw-bhead sm">' + esc(r.outlook.label) + '</p>' +
         (r.outlook.why ? '<p class="pw-bp">' + esc(r.outlook.why) + '</p>' : '') +
         (r.outlook.basis ? '<p class="pw-bbasis">' + esc(r.outlook.basis) + '</p>' : '') + '</section>');
@@ -1369,27 +1580,50 @@
   /* Registration is the first decision, not the last one. The result used to end at the
      regulator's door; this routes on to the three things people ask next — what could I
      do, can we afford it, and what happens to the rest of our life. */
+  /* The result ends on three actions and nothing that competes with them (brief §39):
+     add the pathway to the Move plan, ask Ethicare a follow-up, or go straight to the
+     regulator. "Add to my Move" writes destination + profession into the shared plan
+     (the key candidate-context.js reads) before the anchor navigates to /move. */
   function onwardBlock(res) {
     if (!res || !res.length) return '';
-    var served = res.filter(function (r) { return !r.notRecruited && r.jobsHref; });
-    var links = [];
-    if (served.length) {
-      links.push({ href: served[0].jobsHref, k: 'Roles', t: 'See the roles we are recruiting', n: 'What is actually open for your profession right now, and where.' });
-    } else {
-      links.push({ href: '/jobs/professions', k: 'Roles', t: 'The professions we recruit', n: 'We do not place every profession. This is the list, honestly.' });
+    var acts = [];
+    acts.push('<a class="pw-nextc pw-primeact" href="/plan" data-act="addmove"><span class="k">Save this</span>' +
+      '<span class="t">Add this to my Move plan</span>' +
+      '<span class="n">Registration is one part of the move. Add your pathway and we\u2019ll help you work through the rest in order \u2014 jobs, visas, costs and settling in.</span>' +
+      '<span class="go" aria-hidden="true">\u2192</span></a>');
+    acts.push('<a class="pw-nextc" href="/#ask"><span class="k">Ask Ethicare</span>' +
+      '<span class="t">Ask about your result</span>' +
+      '<span class="n">Costs, documents, exams or what happens next \u2014 ask in your own words. No contact details needed.</span>' +
+      '<span class="go" aria-hidden="true">\u2192</span></a>');
+    var off = res.filter(function (r) { return r.officialUrl; })[0];
+    if (off) {
+      acts.push('<a class="pw-nextc" href="' + esc(off.officialUrl) + '" target="_blank" rel="noopener"><span class="k">Official source</span>' +
+        '<span class="t">' + esc(res.length > 1 ? 'Open the regulators' : off.regulator) + '</span>' +
+        '<span class="n">The authority sets the rules and makes the decision. Check the current requirements before you apply or pay a fee.</span>' +
+        '<span class="go" aria-hidden="true">\u2197</span></a>');
     }
-    links.push({ href: '/cost-calculator', k: 'Money', t: 'Could we afford the move?', n: 'Set-up costs, the flights, the first months\u2019 rent \u2014 before you commit to anything.' });
-    var au = res.some(function (r) { return r.cc === 'au'; }), nz = res.some(function (r) { return r.cc === 'nz'; });
-    var plan = (au && !nz) ? { href: '/guides/moving-to-australia', t: 'Plan the move to Australia' }
-      : (nz && !au) ? { href: '/guides/moving-to-new-zealand', t: 'Plan the move to New Zealand' }
-      : { href: '/resources', t: 'Plan the whole move' };
-    links.push({ href: plan.href, k: 'The move', t: plan.t, n: 'Visas, shipping, schools, banking and the order to do them in.' });
-    return '<section class="pw-next"><h3>Where next</h3><div class="pw-nextgrid">' +
-      links.map(function (l) {
-        return '<a class="pw-nextc" href="' + esc(l.href) + '"><span class="k">' + esc(l.k) + '</span>' +
-          '<span class="t">' + esc(l.t) + '</span><span class="n">' + esc(l.n) + '</span>' +
-          '<span class="go" aria-hidden="true">\u2192</span></a>';
-      }).join('') + '</div></section>';
+    return '<section class="pw-next"><h3>What now?</h3><div class="pw-nextgrid">' + acts.join('') + '</div></section>';
+  }
+
+  /* Merge the checker's destination + profession into the shared plan (ethicare_portal_v1),
+     never clobbering other fields a candidate has already set on /move. Profession is mapped
+     from the checker's id back to the portal key candidate-context expects; if the catalogue
+     is not loaded, destination alone still carries and Move asks for the rest. */
+  function saveToMove() {
+    try {
+      var a = st.answers;
+      var d = a.destination === 'australia' ? 'au' : a.destination === 'new-zealand' ? 'nz' : '';
+      var rev = {}, CK = (window.ETHICARE_PROFESSIONS && window.ETHICARE_PROFESSIONS.checker) || {};
+      for (var k in CK) if (CK[k]) rev[CK[k]] = k;
+      var portalKey = rev[a.profession] || '';
+      var p = null; try { p = JSON.parse(localStorage.getItem('ethicare_portal_v1') || 'null'); } catch (e) {}
+      p = (p && typeof p === 'object') ? p : {};
+      if (d) { p.dest = d; p.set = true; }
+      if (portalKey) p.profession = portalKey;
+      p.fromChecker = true;
+      localStorage.setItem('ethicare_portal_v1', JSON.stringify(p));
+      if (window.track) window.track('pathway_added_to_move', { profession: a.profession, country: a.destination });
+    } catch (e) {}
   }
 
   /* Render one presented button (label/href/cls/arrow/external) as an anchor.
@@ -1421,9 +1655,9 @@
       var easier = rank[t0] < rank[t1] ? res[0] : res[1], harder = rank[t0] < rank[t1] ? res[1] : res[0];
       stands = '<div class="pw-stands"><h4>What stands out</h4><p>On what you have told us, the ' + esc(easier.country) +
         ' route looks the more straightforward of the two, while ' + esc(harder.country) +
-        ' is more likely to involve a further assessment stage. That does not make it the better move \u2014 pay, the roles actually open, where you would live and what you want outside work all matter more than which registration is quicker.</p></div>';
+        ' is more likely to involve a further assessment stage. That does not make it the better move \u2014 pay, the roles open, where you would live and what you want outside work all matter more than which registration is quicker.</p></div>';
     } else if (t0 && t1) {
-      stands = '<div class="pw-stands"><h4>What stands out</h4><p>Both routes look broadly comparable at this stage, so registration is unlikely to be the thing that decides between them. Pay, available roles and where you would want to live are the more useful comparison.</p></div>';
+      stands = '<div class="pw-stands"><h4>What stands out</h4><p>Both routes reach registration by individual assessment, so neither is a clear shortcut on the evidence here \u2014 but that is not the same as the two being equal. Costs, any exams, the evidence required and timescales can still differ; each country\u2019s result above sets out what remains to be confirmed. Weigh those alongside pay, the roles open and where you would want to live.</p></div>';
     }
     return '<div class="pw-compare"><h3 class="pw-comph">How your pathways compare</h3><div class="pw-cgrid">' + cols + '</div>' + stands + '</div>';
   }
@@ -1439,7 +1673,7 @@
     var reg = (d.notRecruited && d.notRecruited.regulatorsPage) || '/resources/healthcare-regulators';
     return '<div class="pw-lead" id="pw-lead-panel">' +
       '<h3>What we can still help with</h3>' +
-      '<p class="pw-leadp">There is no role for us to put in front of you, so we are not going to ask for your details. But registration is only one half of this move. The visa, the money, the schools, where to actually live and what a week there really costs are the same questions whatever your profession \u2014 and every bit of that is free to read here, with no account and nothing sent to us. Your regulator is the authority on the registration itself; the rest of it we can genuinely help you think through.</p>' +
+      '<p class="pw-leadp">There is no role for us to put in front of you, so we are not going to ask for your details. But registration is only one half of this move. The visa, the money, the schools, where to live and what a week there costs are the same questions whatever your profession \u2014 and every bit of that is free to read here, with no account and nothing sent to us. Your regulator is the authority on the registration itself; the rest of it we can genuinely help you think through.</p>' +
       '<div class="pw-leadbtns">' +
       '<a class="pw-b1" href="/resources">Guides for the whole move \u2192</a>' +
       '<a class="pw-b2" href="' + esc(reg) + '">All official regulators \u2192</a>' +
@@ -1447,12 +1681,22 @@
       '</div></div>';
   }
 
+  /* One opt-in. Unticked by default — a pre-ticked box is not consent, and on a page whose
+     whole argument is that we do not overstate, it is the detail that costs the most trust. */
+  function optTick(key, l) {
+    var on = !!l[key];
+    return '<button type="button" class="pw-consent' + (on ? ' is-sel' : '') + '" role="checkbox" aria-checked="' + (on ? 'true' : 'false') + '" data-act="opt" data-v="' + key + '"><i>' +
+      (on ? '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>' : '') +
+      '</i><span>' + esc(OPTS[key]) + '</span></button>';
+  }
+
   function leadPanel(res) {
     var d = D() || {}, l = st.lead;
     if (st.leadDone) {
       return '<div class="pw-done"><span class="pw-donei"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>' +
         '<div><h3>Thanks, ' + esc((l.name.trim().split(/\s+/)[0]) || 'there') + ' — we\u2019ve got it</h3>' +
-        '<p>' + (st.emailMe ? 'Your starting point is on its way to you, and ' : 'Someone from the team will be in touch shortly. In the meantime, your starting point above links straight to the official regulator — and ') + 'our <a href="/guides/australia-registration">Australia</a> and <a href="/guides/new-zealand-registration">New Zealand</a> registration guides walk the whole journey.</p></div></div>';
+        '<p>' + (st.emailMe ? 'Your starting point is on its way to you, and ' : 'Someone from the team will be in touch shortly. In the meantime, your starting point above links straight to the official regulator — and ') + 'our <a href="/guides/australia-registration">Australia</a> and <a href="/guides/new-zealand-registration">New Zealand</a> registration guides walk the whole journey.</p>' +
+        '<p class="pw-leadpriv">Keep this link and you can reopen your starting point any time — it recomputes against the current rules, so it will not go stale. <button type="button" class="pw-b2" data-act="copylink">Copy a link back to this</button></p></div></div>';
     }
     var chips = (d.priorities || []).map(function (p) {
       return '<button type="button" class="pw-chip' + (l.priorities.indexOf(p) >= 0 ? ' is-sel' : '') + '" data-act="priority" data-v="' + esc(p) + '">' + esc(p) + '</button>';
@@ -1462,26 +1706,28 @@
     }).join('');
     var served = (res || []).filter(function (r) { return !r.notRecruited; }).map(function (r) { return r.country; });
     var where = (!served.length || served.length === (res || []).length) ? 'Australia or New Zealand' : served.join(' and ');
+    var a = st.answers, prof = profOf(), sb = [];
+    if (prof && prof.id !== 'other') sb.push(prof.label);
+    sb.push(a.destination === 'australia' ? 'Australia' : a.destination === 'new-zealand' ? 'New Zealand' : 'Australia or New Zealand');
+    if (a.qualCountry) sb.push('qualified in ' + a.qualCountry);
+    if (a.registered === 'yes' && a.regCountry) sb.push('registered in ' + a.regCountry);
+    var shareSummary = sb.join(' \u00b7 ');
     return '<div class="pw-lead" id="pw-lead-panel">' +
-      '<h3>' + (st.emailMe ? 'Email my starting point to me' : 'Want help with the next step?') + '</h3>' +
+      '<h3>' + (st.emailMe ? 'Email my result to me' : 'Want help with your next step?') + '</h3>' +
       '<p class="pw-leadp">' + (st.emailMe
-        ? 'Add your name and email and we\u2019ll send this starting point to you — worth keeping, and worth showing whoever is moving with you. The Ethicare team sees the same summary, so we can help with the next step if you want us to.'
-        : 'If you\u2019d like, tell us a little more about your plans and the Ethicare team can contact you about suitable opportunities in ' + esc(where) + '. No pressure — the result above is yours either way.') + '</p>' +
+        ? 'Add your name and email and we\u2019ll send this result to you \u2014 worth keeping, and worth showing whoever is moving with you.'
+        : 'Send us your result and the question you\u2019d like help with, and the Ethicare team can explain the recruitment support available for your profession and destination. No pressure \u2014 the result above is yours either way.') + '</p>' +
+      '<div class="pw-share"><span class="pw-sharek">Sent with your enquiry</span><p class="pw-sharev">' + esc(shareSummary) + '</p><button type="button" class="pw-b3" data-act="back">Change my answers</button></div>' +
       '<div class="pw-fields">' +
         '<div class="pw-f"><label for="pw-ln">First name' + req() + '</label><input id="pw-ln" data-lead="name" value="' + esc(l.name) + '" autocomplete="given-name"></div>' +
         '<div class="pw-f"><label for="pw-le">Email' + req() + '</label><input id="pw-le" type="email" data-lead="email" value="' + esc(l.email) + '" autocomplete="email"></div>' +
-        '<div class="pw-f"><label for="pw-lp">WhatsApp / mobile' + optn() + '</label><input id="pw-lp" type="tel" inputmode="tel" data-lead="phone" value="' + esc(l.phone) + '" autocomplete="tel"></div>' +
-        '<div class="pw-f"><label for="pw-lc">Current country</label><div class="pw-sel"><select id="pw-lc" data-lead="country"><option value="">Select&hellip;</option>' + opts(d.countriesTop || [], l.country) + '<option value="" disabled>──────────</option>' + opts(d.countriesAll || [], l.country) + '</select>' + chev() + '</div></div>' +
-        '<div class="pw-f"><label for="pw-ld">Preferred destination</label><div class="pw-sel"><select id="pw-ld" data-lead="dest"><option value="">Select&hellip;</option>' + opts(['Australia', 'New Zealand', 'Either', 'Not sure yet'], l.dest) + '</select>' + chev() + '</div></div>' +
-        '<div class="pw-f"><label for="pw-lt">Expected move timeframe</label><div class="pw-sel"><select id="pw-lt" data-lead="timeframe"><option value="">Select&hellip;</option>' + opts(d.timeframes || [], l.timeframe) + '</select>' + chev() + '</div></div>' +
+        '<div class="pw-f"><label for="pw-lp">Phone' + optn() + '</label><input id="pw-lp" type="tel" inputmode="tel" data-lead="phone" value="' + esc(l.phone) + '" autocomplete="tel"></div>' +
+        (st.emailMe ? '' : '<div class="pw-f wide"><label for="pw-lq">Your question' + optn() + '</label><textarea id="pw-lq" data-lead="question" rows="3" placeholder="Costs, documents, timing, the roles available\u2026">' + esc(l.question || '') + '</textarea></div>') +
       '</div>' +
-      '<div class="pw-q">What matters most about your move? <span class="pw-opt-note">(choose up to three)</span></div><div class="pw-row wrap">' + chips + '</div>' +
-      '<div class="pw-q">Who would be moving with you?</div><div class="pw-row wrap">' + party + '</div>' +
-      '<button type="button" class="pw-consent' + (l.consent ? ' is-sel' : '') + '" data-act="consent"><i>' + (l.consent ? '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>' : '') + '</i>' +
-      '<span>I\u2019d like Ethicare to contact me about relevant opportunities. See our <a href="/privacy-policy">privacy policy</a>.' + (st.emailMe ? ' <em>Optional — we\u2019ll email your starting point either way.</em>' : '') + '</span></button>' +
-      '<div class="pw-leadbtns"><button type="button" class="pw-b1" data-act="submit">' + (st.emailMe ? 'Send me my starting point' : 'Send to the Ethicare team') + '</button>' +
-      '<a class="pw-b2" href="/apply">Register fully &amp; send your CV \u2192</a>' +
-      (st.leadErr ? '<span class="pw-err" role="alert">' + esc(st.leadErr) + '</span>' : '') + '</div></div>';
+      (st.emailMe ? '' : '<div class="pw-q">Keep me posted <span class="pw-opt-note">(optional, unticked)</span></div>' + optTick('optRoles', l) + optTick('optUpdate', l)) +
+      '<p class="pw-leadpriv">We use these details only to reply. Job alerts and updates are separate and optional. See our <a href="/privacy-policy">privacy policy</a>.</p>' +
+      '<div class="pw-leadbtns"><button type="button" class="pw-b1" data-act="submit">' + (st.emailMe ? 'Email me my result' : 'Send my result and question') + '</button>' +
+      (st.leadErr ? '<span class="pw-err" id="pw-lead-err" role="alert">' + esc(st.leadErr) + '</span>' : '') + '</div></div>';
   }
 
   var CONFIRM = {
@@ -1524,19 +1770,20 @@
       '<p class="pw-rsum">' + esc(bits.length ? 'Based on what you told us: ' + bits.join(' \u00b7 ') : 'Based on what you told us') + '</p></div>' +
       '<div class="pw-resacts"><button type="button" class="pw-b2" data-act="back">Change my answers</button>' +
       '<button type="button" class="pw-b2" data-act="print">Print or save as PDF</button>' +
-      (st.leadDone || allOutside ? '' : '<button type="button" class="pw-b2" data-act="emailme">Email this to me</button>') +
+      '<button type="button" class="pw-b2" data-act="copylink">Copy a link back to this</button>' +
+      (st.leadDone || allOutside || !EMAIL_SENDER_LIVE ? '' : '<button type="button" class="pw-b2" data-act="emailme">Email this to me</button>') +
       '<button type="button" class="pw-b3" data-act="restart">Start again</button></div></div>' +
       confirmBlock(res) +
       compareBlock(res) +
       '<div class="pw-briefs">' + res.map(resultCard).join('') + '</div>' +
       onwardBlock(res) +
-      '<p class="pw-disc">General guidance, not a registration assessment and not immigration advice. Everything here is taken from the regulator’s own published guidance on the date shown, but requirements change without notice and only the regulator can decide your application. <strong>Ethicare accepts no responsibility for decisions taken on the strength of this page — check the official source before you apply, pay a fee or resign a post.</strong></p>' +
+      '<p class="pw-disc">Planning guidance, not a registration assessment or immigration advice. Your pathway depends on your qualifications, registration history and circumstances, and requirements and fees can change — confirm the next step with the official sources above. The relevant authority makes the decision.</p>' +
       (allOutside ? outsidePanel() : leadPanel(res)) + '</div>';
   }
 
   /* ---------------- lead form plumbing ---------------- */
   function readLead() {
-    ['name', 'email', 'phone', 'country', 'dest', 'timeframe'].forEach(function (k) {
+    ['name', 'email', 'phone', 'question', 'country', 'dest', 'timeframe'].forEach(function (k) {
       var el = app.querySelector('[data-lead="' + k + '"]');
       if (el) st.lead[k] = el.value;
     });
@@ -1544,25 +1791,66 @@
   function submitLead() {
     readLead();
     var l = st.lead;
-    if (!l.name.trim() || !/.+@.+\..+/.test(l.email)) { st.leadErr = 'A first name and a valid email are needed.'; render(); return; }
-    // marketing consent is never the price of getting your own result — only the
-    // "contact me about opportunities" route requires the tick
-    if (!st.emailMe && !l.consent) { st.leadErr = 'Please tick the consent box so we\u2019re allowed to contact you.'; render(); return; }
+    /* DESIGN-SYSTEM.md form standard: the message alone is not enough — the control that failed
+       carries aria-invalid + aria-describedby, focus lands on it, and both clear on correction.
+       leadErrKeys names the controls; render() does the marking; the input handler does the
+       clearing. */
+    var bad = [];
+    if (!l.name.trim()) bad.push('name');
+    if (!/.+@.+\..+/.test(l.email)) bad.push('email');
+    if (bad.length) { st.leadErr = 'A first name and a valid email are needed.'; st.leadErrKeys = bad; moveFocus = 'leaderror'; render(); return; }
+    /* Requesting a conversation IS the request — a name and a valid email are enough to submit.
+       The two email opt-ins are genuinely optional and never gate the send; each is recorded
+       (yes/no) either way, so someone can ask to talk without subscribing to anything. */
+    st.leadErrKeys = [];
     var form = document.getElementById('pw-netlify-form');
     if (!form) { st.leadDone = true; st.leadErr = ''; render(); return; }
     var res = results().map(function (r) { return r.country + ': ' + r.statusLabel + ' — ' + r.regulator + (r.outlook ? ' — outlook: ' + r.outlook.label : ''); }).join(' | ');
     var payload = assign({}, st.answers, {
-      name: l.name, email: l.email, phone: l.phone, country: l.country, dest: l.dest,
+      name: l.name, email: l.email, phone: l.phone, question: l.question || '', country: l.country, dest: l.dest,
       timeframe: l.timeframe, priorities: l.priorities.join(', '), party: l.party,
-      consent: l.consent ? 'yes' : 'no', result_summary: res,
+      opt_roles: l.optRoles ? 'yes' : 'no',
+      opt_quarterly: l.optUpdate ? 'yes' : 'no',
+      consent_version: CONSENT_V,
+      consent_wording: [l.optRoles ? OPTS.optRoles : null, l.optUpdate ? OPTS.optUpdate : null].filter(Boolean).join(' | ') || 'none ticked',
+      resume_link: resumeLink(),
+      result_summary: res,
       email_copy: st.emailMe ? 'yes — candidate asked for their starting point by email' : 'no'
     });
+    /* Never skip a key. The old version did `if (el) el.value = ...`, so any answer without a
+       matching hidden input in pathway-checker.html was dropped in silence — which is exactly
+       what happened to every profession-specific field (psychAuArea, docIntent, sltAssoc and
+       19 others): captured on screen, shown in the result, never delivered. The hidden form was
+       a third hand-kept copy of a list the data file owns, and it had fallen behind. Creating
+       the input on demand makes that class of bug impossible; the static list is kept in step
+       so Netlify still registers each column at deploy time. */
     Object.keys(payload).forEach(function (k) {
       var el = form.elements[k];
-      if (el) el.value = payload[k];
+      if (!el) {
+        el = document.createElement('input');
+        el.type = 'hidden'; el.name = k;
+        form.appendChild(el);
+      }
+      el.value = payload[k];
     });
     try { localStorage.setItem(SENT, '1'); } catch (e) {}
-    HTMLFormElement.prototype.submit.call(form);
+    /* Fire-and-forget, with keepalive: the native form submit navigates immediately and would
+       cancel an ordinary fetch mid-flight. The candidate's copy must not depend on the Netlify
+       Forms round trip, and a failed send must never block the submission that reaches us. */
+    if (EMAIL_SENDER_LIVE) {
+      try {
+        fetch('/.netlify/functions/send-result', {
+          method: 'POST', keepalive: true,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: l.name, email: l.email, summary: res, resumeLink: resumeLink() })
+        }).catch(function () {});
+      } catch (e) {}
+    }
+    if (window.EthicareLead) window.EthicareLead.send('pathway-checker', payload);
+    /* Through the safety net (form-safety.js), so a refused post is emailed to the office
+       instead of lost. Native submit only if that script is missing. */
+    if (window.EthicareForms) window.EthicareForms.send(form, { noLead: true, onFail: function () { try { localStorage.removeItem(SENT); } catch (e) {} st.leadErr = 'This did not send. Your answers are still here: please try again in a minute, or email hello@ethicareresourcing.com.'; moveFocus = 'leaderror'; render(); } });
+    else HTMLFormElement.prototype.submit.call(form);
   }
 
   /* ---------------- events ---------------- */
@@ -1594,6 +1882,7 @@
     } else if (act === 'print') {
       window.print();
     } else if (act === 'emailme') {
+      if (!EMAIL_SENDER_LIVE) return;
       readLead(); st.emailMe = true; moveFocus = true; render();
     } else if (act === 'restart') {
       try { localStorage.removeItem(LSK); localStorage.removeItem(SENT); } catch (er) {}
@@ -1610,10 +1899,29 @@
       var pv = b.getAttribute('data-v');
       st.lead.party = st.lead.party === pv ? '' : pv;
       render();
-    } else if (act === 'consent') {
-      readLead(); st.lead.consent = !st.lead.consent; st.leadErr = ''; render();
+    } else if (act === 'opt') {
+      readLead();
+      var ok = b.getAttribute('data-v');
+      st.lead[ok] = !st.lead[ok]; st.leadErr = ''; st.leadErrKeys = []; render();
+    } else if (act === 'copylink') {
+      var link = resumeLink();
+      if (!link) return;
+      var done = function () {
+        b.textContent = 'Link copied';
+        setTimeout(function () { b.textContent = 'Copy a link back to this'; }, 2600);
+      };
+      /* A present clipboard API is not a working one — permissions policy, a non-secure context
+         and some Safari paths all REJECT rather than being absent. The fallback therefore hangs
+         off the rejection, not off feature detection, or a blocked copy leaves the person with
+         no link and no error. */
+      var manual = function () { window.prompt('Copy your link:', link); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(link).then(done, manual);
+      else manual();
     } else if (act === 'submit') {
       submitLead();
+    } else if (act === 'addmove') {
+      saveToMove();
+      /* no preventDefault: the anchor then navigates to /move with the plan saved */
     }
   });
   app.addEventListener('change', function (e) {
@@ -1622,16 +1930,43 @@
     var l = e.target.getAttribute && e.target.getAttribute('data-lead');
     if (l) st.lead[l] = e.target.value;
   });
+  /* Cleanup on correction — the half of the form standard most often missed. As soon as a
+     lead field that failed holds an acceptable value, its invalid state goes, and when no field
+     is still failing the message goes with it. Direct DOM, no re-render: a re-render mid-typing
+     would move the caret. */
+  app.addEventListener('input', function (e) {
+    var t = e.target;
+    if (!t || !t.hasAttribute || !t.hasAttribute('aria-invalid') || !t.getAttribute('data-lead')) return;
+    var k = t.getAttribute('data-lead');
+    var ok = k === 'email' ? /.+@.+\..+/.test(t.value) : !!t.value.trim();
+    if (!ok) return;
+    t.removeAttribute('aria-invalid'); t.removeAttribute('aria-describedby');
+    st.leadErrKeys = (st.leadErrKeys || []).filter(function (x) { return x !== k; });
+    if (!st.leadErrKeys.length) { st.leadErr = ''; var m = app.querySelector('#pw-lead-err'); if (m) m.parentNode.removeChild(m); }
+  });
 
   function goResult() {
     var map = { australia: 'Australia', 'new-zealand': 'New Zealand', both: 'Either', unsure: 'Not sure yet' };
-    if (window.track) window.track('pathway_completed', {
-      profession: st.answers.profession, country: st.answers.destination, reg_progress: st.answers.regProgress
-    });
     st.step = RESULT; st.err = '';
+    /* Fired AFTER the step advances, because results() returns [] off the result step \u2014 so the
+       spec's `outcome` prop (what the checker actually concluded) can only be read from here.
+       It previously sent reg_progress instead, which is where the person said they were, not
+       what the tool told them: the drop-off question the spec asks cannot be answered with it. */
+    if (window.track) window.track('pathway_completed', {
+      profession: st.answers.profession,
+      country: st.answers.destination,
+      outcome: results().map(function (r) { return r.statusLabel; }).filter(Boolean).join(' / ')
+    });
     st.lead.dest = st.lead.dest || map[st.answers.destination] || '';
     moveFocus = true;
-    save(); render();
+    save();
+    /* A short, honest pause before the result: each line names work the checker has just done
+       (site/loading-lines.js, set "checker"). Reduced-motion users see the lines without the pulse. */
+    if (window.EthicareLoading) {
+      app.innerHTML = '<div style="min-height:220px;display:grid;place-items:center;padding:40px 22px"><span data-pw-wait></span></div>';
+      var stopWait = window.EthicareLoading.start(app.querySelector('[data-pw-wait]'), 'checker', { interval: 550 });
+      setTimeout(function () { stopWait(); render(); }, 1100);
+    } else render();
   }
 
   /* One render path. On a step change (never on a keystroke) focus moves to the new
@@ -1680,13 +2015,37 @@
       var grp = ctl && ctl.closest ? (ctl.closest('.pw-opts') || ctl.closest('.pw-grid') || ctl.closest('.pw-f') || ctl.parentNode) : null;
       if (grp && grp.setAttribute) {
         grp.setAttribute('data-unanswered', '1');
+        /* Tie the message to the thing that failed: the select itself, or the option group
+           when the question answers through buttons. Cleared by construction — a corrected
+           question leaves errKeys above, and the next render draws it without these. */
+        var tgt = (ctl.tagName === 'SELECT' || ctl.tagName === 'INPUT') ? ctl : grp;
+        tgt.setAttribute('aria-invalid', 'true');
+        if (st.err) tgt.setAttribute('aria-describedby', 'pw-err');
         if (!firstBad) firstBad = ctl;
       }
     });
 
+    /* Lead form: mark the failing controls and land focus on the first one. */
+    var firstLeadBad = null;
+    if (st.leadErr && st.leadErrKeys && st.leadErrKeys.length) {
+      st.leadErrKeys.forEach(function (k) {
+        var els = k === 'opts' ? app.querySelectorAll('.pw-consent') : app.querySelectorAll('[data-lead="' + k + '"]');
+        Array.prototype.forEach.call(els, function (el) {
+          el.setAttribute('aria-invalid', 'true');
+          el.setAttribute('aria-describedby', 'pw-lead-err');
+          if (!firstLeadBad) firstLeadBad = el;
+        });
+      });
+    }
+
     if (!moveFocus) return;
     var mode = moveFocus;
     moveFocus = false;
+    if (mode === 'leaderror' && firstLeadBad) {
+      focusEl(firstLeadBad);
+      bringIntoView(firstLeadBad.closest('.pw-f') || firstLeadBad);
+      return;
+    }
     // on a failed Continue, land on the question that is missing rather than the step heading
     if (mode === 'error' && firstBad) {
       focusEl(firstBad);
@@ -1720,6 +2079,11 @@
       } else if (!fresh) { localStorage.removeItem(LSK); localStorage.removeItem(SENT); }
     }
   } catch (e) {}
+  /* A draft saved before 30 Sep 2026 may hold the retired "English is my first language"
+     answer. Leave it in place and the result would rest on a claim no regulator accepts,
+     so clear it and ask again. */
+  try { if (st.answers.english === 'English is my first language') delete st.answers.english; } catch (e) {}
+
   try {
     var q = (location.search.match(/[?&]profession=([^&]+)/) || [])[1];
     if (q) {
@@ -1730,6 +2094,59 @@
     if (qd) {
       var dst = decodeURIComponent(qd);
       if (['australia', 'new-zealand', 'both', 'unsure'].indexOf(dst) >= 0 && st.answers.profession) { st.answers.destination = dst; st.step = 3; }
+    }
+  } catch (e) {}
+  try {
+    /* ONE onboarding (candidate-journey review, 14 Sep 2026). If Move already holds the answer, do
+       not ask it again here. Seeds only what the person told Move, only when nothing more specific
+       is present (no fresh draft, no ?profession=), and only where the two vocabularies map 1:1 —
+       candidate-context.js returns '' for 'imaging' (radiographer or MRI?) and 'medicine' (which
+       specialty?), so those stay empty and the form asks. Destination is always safe to carry.
+       Seeded answers land on step 1, not the result: the person sees them and can change them. */
+    var ctx = window.EthicareContext, dC = D();
+    if (ctx && ctx.has() && !draftFresh && !st.answers.profession && dC) {
+      var pp = ctx.pathwayProfession();
+      if (pp && dC.professions.some(function (p) { return p.id === pp; })) st.answers.profession = pp;
+      var dm = ctx.destMode ? ctx.destMode() : ctx.dest();
+      var cdst = dm === 'au' ? 'australia' : dm === 'nz' ? 'new-zealand' : dm === 'both' ? 'both' : '';
+      if (cdst) st.answers.destination = cdst;
+      if (st.answers.profession || cdst) st.seeded = true;
+      /* 28 Sep 2026: the answers strip above the checker now shows what was carried in, so the
+         form no longer needs to re-show it — open on the first question that is still unanswered,
+         exactly as a ?profession= link does. */
+      if (st.answers.profession && st.answers.profession !== 'other') st.step = cdst ? 3 : 2;
+    }
+  } catch (e) {}
+  /* 28 Sep 2026 — shared answers (candidate-context.js): seed from what the candidate has already said, write back what they say here, and show the strip. */
+  try {
+    var ctxS = window.EthicareContext;
+    if (ctxS && ctxS.mount) {
+      ctxS.mount('#ctx-strip', { intro: 'Tell us your profession and where you are thinking of, and the checker starts from there.' });
+      ctxS.onChange(function () {
+        var dm2 = ctxS.destMode(), pp2 = ctxS.pathwayProfession(), dC2 = D(), changed = false;
+        var cd2 = dm2 === 'au' ? 'australia' : dm2 === 'nz' ? 'new-zealand' : dm2 === 'both' ? 'both' : '';
+        /* These write the two fields setA guards, so they clear what they invalidate too —
+           otherwise changing profession in the shared strip leaves behind exactly the stale
+           answers setA now drops. */
+        if (cd2 && st.answers.destination !== cd2) { st.answers.destination = cd2; dropStale('destination'); changed = true; }
+        if (pp2 && dC2 && dC2.professions.some(function (p) { return p.id === pp2; }) && st.answers.profession !== pp2) { st.answers.profession = pp2; dropStale('profession'); changed = true; }
+        if (changed && typeof render === 'function') render();
+      });
+    }
+  } catch (e) {}
+  try {
+    /* A resumable link wins over both the saved draft and ?profession= — it is the most
+       specific intent on the page. Unlike the draft restore, this DOES land straight on the
+       result: the answers came from us, and the verdict is recomputed live against the current
+       registry, so what they see is today's guidance rather than a cached one. */
+    var rq = (location.search.match(/[?&]r=([^&]+)/) || [])[1];
+    if (rq) {
+      var restored = decodeAnswers(decodeURIComponent(rq));
+      if (restored && restored.profession) {
+        st.answers = assign({}, A0, restored);
+        st.step = RESULT;
+        if (window.track) window.track('pathway_resumed', { profession: st.answers.profession });
+      }
     }
   } catch (e) {}
   try {

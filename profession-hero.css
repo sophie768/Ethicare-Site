@@ -8,7 +8,7 @@
 .hero .wrap{display:block;grid-template-columns:none;gap:0;width:100%;position:relative;z-index:2;padding-top:clamp(40px,6vw,64px);padding-bottom:clamp(40px,6vw,64px)}
 .hero .bg{position:absolute;inset:0;z-index:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;max-width:none;min-width:0;border:0;border-radius:0;box-shadow:none;aspect-ratio:auto;background:var(--teal)}
-.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,53,51,.9) 0%,rgba(1,53,51,.72) 40%,rgba(1,53,51,.34) 70%,rgba(1,53,51,.08) 100%)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(1,53,51,.77) 0%,rgba(1,53,51,.36) 40%,rgba(1,53,51,.17) 70%,rgba(1,53,51,.04) 100%)}
 .hero .copy{position:relative;z-index:2;max-width:660px}
 .hero .eyebrow{color:#fff}
 .hero .btn-row{margin-top:24px}
@@ -16,6 +16,6 @@
 /* neutralise any leftover framed-illustration markup */
 .hero .hero-art{display:none!important}
 @media (max-width:880px){
-  .hero .bg::after{background:linear-gradient(178deg,rgba(1,53,51,.5) 0%,rgba(1,53,51,.72) 52%,rgba(1,53,51,.9) 100%)}
+  .hero .bg::after{background:linear-gradient(178deg,rgba(1,53,51,.25) 0%,rgba(1,53,51,.36) 52%,rgba(1,53,51,.77) 100%)}
   .hero .bg img{object-position:center 32%}
 }

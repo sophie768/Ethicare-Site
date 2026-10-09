@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script defer data-domain="ethicareresourcing.com" src="https://plausible.io/js/script.tagged-events.js"></script>
 <title>Working in New Zealand | Ethicare Resourcing</title>
-<meta name="description" content="Working in New Zealand as an internationally qualified clinician — the professions we recruit, registration and pay, the regions, and honest guidance on the whole move.">
+<meta name="description" content="Working in New Zealand as an internationally qualified clinician — the professions we recruit, registration and pay, the regions, and guidance on the whole move.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shell.css">
 <link rel="canonical" href="https://ethicareresourcing.com/new-zealand">
 <link rel="icon" href="/assets/logo-mark.png">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ethicare Resourcing">
 <meta property="og:title" content="Working in New Zealand | Ethicare Resourcing">
-<meta property="og:description" content="The professions we recruit into New Zealand, registration and pay, the regions, and honest guidance on the whole move.">
+<meta property="og:description" content="The professions we recruit into New Zealand, registration and pay, the regions, and guidance on the whole move.">
 <meta property="og:url" content="https://ethicareresourcing.com/new-zealand">
 <meta property="og:image" content="https://ethicareresourcing.com/assets/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -75,6 +75,10 @@ main .hv38:hover{background:#A6C84A;transform:scale(1.5)}
 main .hv39:hover{background:#A6C84A;transform:scale(1.5)}
 main .hv40:hover{background:#A6C84A;transform:scale(1.5)}
 main .hv41:hover{background:#A6C84A;transform:scale(1.5)}
+/* Region map pins are 12x12 and fail SC 2.5.8 at every width. Per the house
+   rule the dot stays small and the TARGET is expanded with an ::after overlay,
+   so nothing moves and no pin grows visually. */
+main .hv29::after,main .hv30::after,main .hv31::after,main .hv32::after,main .hv33::after,main .hv34::after,main .hv35::after,main .hv36::after,main .hv37::after,main .hv38::after,main .hv39::after,main .hv40::after,main .hv41::after{content:"";position:absolute;top:50%;left:50%;width:24px;height:24px;transform:translate(-50%,-50%)}
 main .hv42:hover{padding-left:6px;color:#02615D}
 main .hv43:hover{padding-left:6px;color:#02615D}
 main .hv44:hover{padding-left:6px;color:#02615D}
@@ -133,98 +137,96 @@ main .hv93:hover{transform:translateY(-3px);border-color:#72A471}
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header" data-header>
+  <svg class="ec-sprite" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden"><defs><symbol id="ec-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol><symbol id="ec-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol><symbol id="ec-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol><symbol id="ec-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.2-4.6A8 8 0 1 1 21 12z"/></symbol><symbol id="ec-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16a3 3 0 0 1 6 0M14.5 10H18M14.5 14H17"/></symbol><symbol id="ec-passport" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10.5" r="3"/><path d="M9 17h6"/></symbol><symbol id="ec-coins" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6.5" width="19" height="11" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5h.01M18 14.5h.01"/></symbol><symbol id="ec-family" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9.5" r="2.5"/><path d="M15.8 14.3A5 5 0 0 1 21 19"/></symbol><symbol id="ec-xray" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M12 7v10M12 9c-1.8 0-3.2.5-4.2 1.4M12 9c1.8 0 3.2.5 4.2 1.4M12 12c-1.8 0-3.2.5-4.2 1.4M12 12c1.8 0 3.2.5 4.2 1.4M12 15c-1.4 0-2.5.4-3.3 1M12 15c1.4 0 2.5.4 3.3 1"/></symbol><symbol id="ec-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9.5" y="2.5" width="5" height="4" rx="1.2"/><path d="M12 6.5L4.8 17.4a9 9 0 0 0 14.4 0z"/><path d="M8.6 14.6a5 5 0 0 0 6.8 0"/></symbol><symbol id="ec-atom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)"/></symbol><symbol id="ec-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></symbol><symbol id="ec-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol><symbol id="ec-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10M10 20v-6h4v6"/></symbol><symbol id="ec-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11.5" width="18" height="5.5" rx="1.5"/><path d="M6 11.5l1.6-4.2A2 2 0 0 1 9.5 6h5a2 2 0 0 1 1.9 1.3l1.6 4.2"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17" cy="17.5" r="1.5"/></symbol><symbol id="ec-koru" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21c.4-6.5 3-11.4 7.4-13.4 3.4-1.5 6.1.2 6.1 2.9 0 2.2-1.7 3.7-3.7 3.7-1.7 0-2.9-1.2-2.9-2.6 0-1.2 1-2.1 2.1-2.1"/><path d="M8.2 14.5L5 13.4M10 11.3L7.4 9.2M12.6 8.6l-1.2-2.8"/></symbol><symbol id="ec-stethoscope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v2a5 5 0 0 0 10 0v-1"/><circle cx="20" cy="12" r="2"/></symbol><symbol id="ec-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 6.6a5 5 0 0 0-8.8-1.6 5 5 0 0 0-8.8 1.6C2 11 12 20 12 20s10-9 8.8-13.4z"/><path d="M4 12h4l2-3 3 6 2-3h5"/></symbol><symbol id="ec-mind" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4a6 6 0 0 0-6 6c0 2 .8 3.4 2 4.5V20h7v-3h2a2 2 0 0 0 2-2v-2l1.5-.5L18 9.4A6 6 0 0 0 12 4z"/></symbol><symbol id="ec-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-7 4 14 3-7h4"/></symbol><symbol id="ec-mask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3"/><path d="M4.5 13a7.5 5.5 0 0 1 15 0z"/><path d="M8 16.5l-1 2.5M12 16.5v3M16 16.5l1 2.5"/></symbol><symbol id="ec-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></symbol><symbol id="ec-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></symbol><symbol id="ec-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7.5a3.5 3.5 0 0 0 0-7h-7a3.5 3.5 0 0 1 0-7H16"/></symbol><symbol id="ec-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol><symbol id="ec-filecheck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 15l2 2 4-4"/></symbol><symbol id="ec-interview" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h12v8H8l-5 4z"/><path d="M15 9h6v8l-3-2.5h-6V13"/></symbol><symbol id="ec-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2.5" width="6" height="3.5" rx="1"/><path d="M9 13l2 2 4-4"/></symbol><symbol id="ec-pack" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></symbol><symbol id="ec-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol><symbol id="ec-calc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7h7"/><circle cx="9" cy="12" r=".6"/><circle cx="12" cy="12" r=".6"/><circle cx="15" cy="12" r=".6"/><circle cx="9" cy="16" r=".6"/><circle cx="12" cy="16" r=".6"/><circle cx="15" cy="16" r=".6"/></symbol><symbol id="ec-scales" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7.5 21h9M4.5 7h15"/><path d="M4.5 7L2 13a2.5 2.5 0 0 0 5 0zM19.5 7L17 13a2.5 2.5 0 0 0 5 0z"/></symbol><symbol id="ec-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="8" r=".6"/></symbol><symbol id="ec-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol><symbol id="ec-quote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 7c-3 .8-5 3.4-5 6.4V17h5v-5H7.2c.2-1.6 1.4-2.9 3.1-3.4zM20 7c-3 .8-5 3.4-5 6.4V17h5v-5h-2.8c.2-1.6 1.4-2.9 3.1-3.4z"/></symbol><symbol id="ec-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol><symbol id="ec-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 5H9a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2.5zM21.5 5H15a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h7.5z"/></symbol><symbol id="ec-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></symbol></defs></svg>
   <div class="shell">
-    <a class="brand" href="/"><img src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+    <a class="brand" href="/"><img src="/assets/logo-mark.png" alt="" width="387" height="387"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
     <nav class="site-nav" aria-label="Primary" data-nav>
-      <div class="navitem has-sub"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav">
-          <a href="/australia">Working in Australia</a>
-          <a href="/australia#professions">Find your profession</a>
-          <a href="/australia#destinations">Explore destinations</a>
-        </div>
+      <div class="navitem has-sub has-mega"><a href="/australia">Australia<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Australia"><a class="mp-tile is-primary" href="/australia"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-globe"/></svg></span><span class="mp-tl">Working in Australia</span></a><a class="mp-tile" href="/jobs/medical-imaging-australia"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-briefcase"/></svg></span><span class="mp-tl">Find your profession</span></a><a class="mp-tile" href="/destinations/australia"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pin"/></svg></span><span class="mp-tl">Explore destinations</span></a><a class="mp-tile" href="/my-pack"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pack"/></svg></span><span class="mp-tl">Create my pack</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Before you move</span><a class="mp-row" href="/guides/australia-registration"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-badge"/></svg></span><span class="mp-rt"><span class="mp-rn">Registration</span><span class="mp-rd">Ahpra and the board for your profession</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/australia-visa"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-passport"/></svg></span><span class="mp-rt"><span class="mp-rn">Visas &amp; the move</span><span class="mp-rd">Employer-sponsored and skilled routes</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/australia-salary"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-coins"/></svg></span><span class="mp-rt"><span class="mp-rn">Pay &amp; tax</span><span class="mp-rd">Salaries, super and take-home pay</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/australia-family"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-family"/></svg></span><span class="mp-rt"><span class="mp-rn">Moving with family</span><span class="mp-rd">Schools, childcare and partners&#x27; work</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div><div class="mp-col"><span class="mp-h">Medical imaging roles</span><a class="mp-row" href="/jobs/radiographer-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Radiographer</span><span class="mp-rd">X-ray, CT and MRI careers</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/jobs/sonographer-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-wave"/></svg></span><span class="mp-rt"><span class="mp-rn">Sonographer</span><span class="mp-rd">Ultrasound careers and accreditation</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/jobs/nuclear-medicine-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-atom"/></svg></span><span class="mp-rt"><span class="mp-rn">Nuclear medicine</span><span class="mp-rd">Nuclear medicine technologist careers</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/jobs/radiation-therapist-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-target"/></svg></span><span class="mp-rt"><span class="mp-rn">Radiation therapist</span><span class="mp-rd">Radiation therapy careers</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
       </div>
-      <div class="navitem has-sub"><a href="/new-zealand" aria-current="page">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav">
-          <a href="/new-zealand">Working in New Zealand</a>
-          <a href="/new-zealand#professions">Find your profession</a>
-          <a href="/new-zealand#destinations">Explore destinations</a>
-        </div>
+      <div class="navitem has-sub has-mega"><a href="/new-zealand" aria-current="page">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="New Zealand"><a class="mp-tile is-primary" href="/new-zealand"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-globe"/></svg></span><span class="mp-tl">Working in New Zealand</span></a><a class="mp-tile" href="/jobs/professions"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-briefcase"/></svg></span><span class="mp-tl">Find your profession</span></a><a class="mp-tile" href="/destinations/"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pin"/></svg></span><span class="mp-tl">Explore destinations</span></a><a class="mp-tile" href="/my-pack"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pack"/></svg></span><span class="mp-tl">Create my pack</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Before you move</span><a class="mp-row" href="/guides/new-zealand-registration"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-badge"/></svg></span><span class="mp-rt"><span class="mp-rn">Registration</span><span class="mp-rd">Your board, documents and timelines</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/new-zealand-visa"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-passport"/></svg></span><span class="mp-rt"><span class="mp-rn">Visas</span><span class="mp-rd">Work visas and the Green List</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/new-zealand-salary"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-coins"/></svg></span><span class="mp-rt"><span class="mp-rn">Pay</span><span class="mp-rd">Pay bands and the agreements behind them</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/new-zealand-family"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-family"/></svg></span><span class="mp-rt"><span class="mp-rn">Moving with family</span><span class="mp-rd">Schools, partners and settling in</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div><div class="mp-col"><span class="mp-h">Once you arrive</span><a class="mp-row" href="/guides/new-zealand-first-month"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-calendar"/></svg></span><span class="mp-rt"><span class="mp-rn">Your first month</span><span class="mp-rd">What to sort out in your first weeks</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/renting-in-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-home"/></svg></span><span class="mp-rt"><span class="mp-rn">Renting a home</span><span class="mp-rd">How renting works and what it costs</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/driving-and-licences"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-car"/></svg></span><span class="mp-rt"><span class="mp-rn">Driving &amp; licences</span><span class="mp-rd">Driving on and converting your licence</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/te-ao-maori-at-work"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-koru"/></svg></span><span class="mp-rt"><span class="mp-rn">Te ao Māori at work</span><span class="mp-rd">Tikanga and Te Tiriti in healthcare</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
       </div>
-      <a href="/jobs/">Jobs</a>
-      <div class="navitem has-sub"><a href="/move">Move <span class="ar" aria-hidden="true">↗</span></a>
-        <div class="subnav">
-          
-          <a href="/resources">Guides &amp; resources</a>
-          <a href="/pathway-checker">Registration pathway checker</a>
-        </div>
+      <div class="navitem has-sub has-mega"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Jobs"><a class="mp-tile is-primary" href="/jobs/"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-list"/></svg></span><span class="mp-tl">All live roles</span></a><a class="mp-tile" href="/jobs/professions"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-grid"/></svg></span><span class="mp-tl">Every profession</span></a><a class="mp-tile" href="/pathway-checker"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-route"/></svg></span><span class="mp-tl">Pathway checker</span></a><a class="mp-tile" href="/build-your-cv"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-file"/></svg></span><span class="mp-tl">Build your CV</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Careers in New Zealand</span><a class="mp-row mp-row-s" href="/jobs/medicine-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-stethoscope"/></svg></span><span class="mp-rt"><span class="mp-rn">Medicine</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/nursing-midwifery-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-heart"/></svg></span><span class="mp-rt"><span class="mp-rn">Nursing &amp; midwifery</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/mental-health-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-mind"/></svg></span><span class="mp-rt"><span class="mp-rn">Mental health</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/allied-health-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-pulse"/></svg></span><span class="mp-rt"><span class="mp-rn">Allied health</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/medical-imaging-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Medical imaging &amp; radiation therapy</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/theatre-perioperative-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-mask"/></svg></span><span class="mp-rt"><span class="mp-rn">Theatre &amp; perioperative</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div><div class="mp-col"><span class="mp-h">Careers in Australia</span><a class="mp-row" href="/jobs/medical-imaging-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Medical imaging &amp; radiation therapy</span><span class="mp-rd">Where we recruit in Australia now</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/jobs/coming-to-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-briefcase"/></svg></span><span class="mp-rt"><span class="mp-rn">Other healthcare professions</span><span class="mp-rd">Register your interest for later</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
+      </div>
+      <div class="navitem has-sub has-mega"><a href="/plan">Plan Ethicare<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Plan Ethicare"><a class="mp-tile is-primary" href="/plan"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-clipboard"/></svg></span><span class="mp-tl">Your plan, all in one place</span></a><a class="mp-tile" href="/my-pack"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pack"/></svg></span><span class="mp-tl">Create my pack</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Plan your move</span><a class="mp-row" href="/destination-finder"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-compass"/></svg></span><span class="mp-rt"><span class="mp-rn">Destination finder</span><span class="mp-rd">Places that suit the life you want</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/pathway-checker"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-route"/></svg></span><span class="mp-rt"><span class="mp-rn">Registration pathway checker</span><span class="mp-rd">Your route to registration</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/cost-calculator"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-calc"/></svg></span><span class="mp-rt"><span class="mp-rn">Moving cost calculator</span><span class="mp-rd">What the move is likely to cost</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/australia-vs-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-scales"/></svg></span><span class="mp-rt"><span class="mp-rn">Compare the two countries</span><span class="mp-rd">Australia and New Zealand side by side</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav">
           <a href="/about-ethicare">About Ethicare</a>
+          <a href="/candidate-stories">Candidate stories</a>
+          <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
         </div>
       </div>
+      <a href="/ask">Ask Ethicare</a>
       <a href="/employers">For Employers</a>
       <a class="nav-cta" href="/contact">Contact</a>
     </nav>
   </div>
 </header>
+
 <main id="main-content" tabindex="-1">
 <div style="background:#FCFBF8">
 
-
-
-<section data-screen-label="NZ landing · hero" style="position:relative;overflow:hidden;background:#02615D;display:flex;align-items:flex-end;min-height:min(86vh,780px)">
-  <img src="assets/central-otago/central-otago-southern-alps-around-lake-wanaka-458241931.jpg" alt="Snow-capped peaks of the Southern Alps above tussock hills and a green paddock near Lake Wanaka" fetchpriority="high" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 64%">
-  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,49,47,.20) 0%,rgba(1,49,47,.06) 38%,rgba(1,49,47,.46) 100%),linear-gradient(102deg,rgba(1,49,47,.72) 0%,rgba(1,49,47,.56) 34%,rgba(1,49,47,.22) 66%,rgba(1,49,47,.06) 100%)"></div>
-  <div style="position:relative;width:100%;max-width:1180px;margin:0 auto;padding:clamp(56px,7vw,66px) clamp(22px,3vw,40px) clamp(38px,5vw,58px)">
+<!-- Hero copy centred rather than bottom-anchored, 15 Sep 2026. The vertical scrim's mid
+     stops were raised with it: they dipped to .06 at 38%, which is where the text now sits.
+     The 102deg left-side wash is unchanged — it is what carries contrast on this hero. -->
+<section data-screen-label="NZ landing · hero" style="position:relative;overflow:hidden;background:#02615D;display:flex;align-items:center;min-height:min(78vh,700px)">
+  <img src="assets/nz-general/nz-general-a-beautiful-shot-of-two-2101607848.jpg" alt="Two peaks above a New Zealand lake" fetchpriority="high" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 64%" width="1500" height="1010">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,49,47,.15) 0%,rgba(1,49,47,.18) 30%,rgba(1,49,47,.15) 56%,rgba(1,49,47,.29) 86%,rgba(1,49,47,.62) 100%),linear-gradient(102deg,rgba(1,49,47,.62) 0%,rgba(1,49,47,.28) 34%,rgba(1,49,47,.11) 66%,rgba(1,49,47,.03) 100%)"></div>
+  <div style="position:relative;width:100%;max-width:1180px;margin:0 auto;padding:clamp(64px,7vh,96px) clamp(22px,3vw,40px) clamp(40px,6vh,76px)">
     <div style="max-width:min(820px,70%);min-width:min(100%,300px)">
-      <nav aria-label="Breadcrumb" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:500;font-size:13px;color:rgba(255,255,255,.88);margin-bottom:22px">
-        <a href="/" style="color:rgba(255,255,255,.88);white-space:nowrap">Home</a><span style="opacity:.5">/</span><span style="font-weight:600;color:#fff;white-space:nowrap">New Zealand</span>
+      <nav aria-label="Breadcrumb" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:500;font-size:13px;color:#fff;margin-bottom:22px">
+        <a href="/" style="color:#fff;white-space:nowrap">Home</a><span style="opacity:.5">/</span><span style="font-weight:600;color:#fff;white-space:nowrap">New Zealand</span>
       </nav>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
         <span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span>
         <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C6E084;white-space:nowrap">Working in New Zealand</span>
       </div>
-      <h1 style="font-weight:300;font-size:clamp(40px,6.2vw,72px);line-height:1.03;letter-spacing:-.033em;color:#fff;margin-bottom:20px">A calm, honest guide for one of life&rsquo;s biggest decisions</h1>
-      <p style="font-size:clamp(17px,1.9vw,20px);line-height:1.6;color:rgba(255,255,255,.9);max-width:50ch">Moving to New Zealand isn&rsquo;t one big decision, but dozens of smaller ones made over months. Start wherever your questions are loudest.</p>
+      <h1 style="font-weight:300;font-size:clamp(36px,5.2vw,60px);line-height:1.05;letter-spacing:-.033em;color:#fff;margin-bottom:18px">Your healthcare career.<br>Your life in New Zealand.</h1>
+      <p style="font-size:clamp(17px,1.9vw,20px);line-height:1.6;color:#fff;max-width:46ch">What if life outside work became the best part of the move? Blue skies, sea air and a different rhythm to the week &mdash; and, underneath it, calm, honest guidance on registration, pay, places and the plan, from people who have made the move themselves.</p>
       <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:30px">
         <a href="#professions" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 26px;border-radius:12px;background:#FCFBF8;color:#02615D;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:transform .15s ease,background .15s ease" data-hv="hv2" class="hv2">Find your profession <span aria-hidden="true">&rarr;</span></a>
-        <a href="#pathway" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 26px;border-radius:12px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:transform .15s ease,background .15s ease" data-hv="hv3" class="hv3">Check my registration pathway</a>
-        <a href="/jobs/" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 26px;border-radius:12px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:transform .15s ease,background .15s ease" data-hv="hv3" class="hv3">See live roles <span aria-hidden="true">&rarr;</span></a>
+        <a href="#life" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 26px;border-radius:12px;background:rgba(1,49,47,.42);border:1.5px solid rgba(255,255,255,.5);color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:transform .15s ease,background .15s ease" data-hv="hv3" class="hv3">Explore life in New Zealand <span aria-hidden="true">&rarr;</span></a>
+        <a href="/ask" style="display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:11px 22px 11px 12px;border-radius:12px;background:rgba(252,251,248,.1);border:1.5px solid rgba(255,255,255,.28);color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:transform .15s ease,background .15s ease" data-hv="hv3" class="hv3"><img src="/assets/brand/ask-ethicare-mark.svg" alt="" width="220" height="137" style="height:26px;width:auto" decoding="async">Not sure where to start? Ask Ethicare <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
       <div style="display:flex;flex-wrap:wrap;gap:clamp(22px,3.4vw,52px);margin-top:clamp(38px,5vw,60px);padding-top:26px;border-top:1px solid rgba(255,255,255,.24)">
         <div style="flex:1 1 190px;max-width:280px">
           <div style="font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(32px,3.6vw,44px);line-height:1;letter-spacing:-.03em;color:#C6E084">2<span style="font-size:.46em;font-weight:500;letter-spacing:0">nd</span></div>
-          <p style="font-size:15px;line-height:1.45;color:rgba(255,255,255,.86);margin-top:10px">Most peaceful country in the world<span style="display:block;margin-top:5px;font-size:13px;color:rgba(255,255,255,.68)">Global Peace Index 2026</span></p>
+          <p style="font-size:15px;line-height:1.45;color:#fff;margin-top:10px">Most peaceful country in the world<span style="display:block;margin-top:5px;font-size:13px;color:#fff">Global Peace Index 2026</span></p>
         </div>
         <div style="flex:1 1 190px;max-width:280px">
           <div style="font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(32px,3.6vw,44px);line-height:1;letter-spacing:-.03em;color:#C6E084">1<span style="font-size:.46em;font-weight:500;letter-spacing:0">st</span></div>
-          <p style="font-size:15px;line-height:1.45;color:rgba(255,255,255,.86);margin-top:10px">Life&ndash;work balance, three years running<span style="display:block;margin-top:5px;font-size:13px;color:rgba(255,255,255,.68)">Remote, 2025</span></p>
+          <p style="font-size:15px;line-height:1.45;color:#fff;margin-top:10px">Life&ndash;work balance, three years running<span style="display:block;margin-top:5px;font-size:13px;color:#fff">Remote, 2025</span></p>
         </div>
         <div style="flex:1 1 190px;max-width:280px">
           <div style="font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(32px,3.6vw,44px);line-height:1;letter-spacing:-.03em;color:#C6E084">128<span style="font-size:.46em;font-weight:500;letter-spacing:0">km</span></div>
-          <p style="font-size:15px;line-height:1.45;color:rgba(255,255,255,.86);margin-top:10px">The furthest you&rsquo;re ever from the sea</p>
+          <p style="font-size:15px;line-height:1.45;color:#fff;margin-top:10px">The furthest you&rsquo;re ever from the sea</p>
         </div>
       </div>
   </div>
 </section>
 
-  <nav aria-label="On this page" style="background:#E3ECE5;border-bottom:1px solid #C9DED3">
-    <div style="max-width:1180px;margin:0 auto;padding:15px clamp(22px,3vw,40px);display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 26px">
-      <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;flex:none">On this page</span>
-      <a href="#why" style="font-family:'Work Sans',sans-serif;font-weight:500;font-size:14.5px;color:#02615D;text-decoration:underline;text-decoration-color:#A6C84A;text-decoration-thickness:2px;text-underline-offset:4px;padding:5px 0" data-hv="hv4" class="hv4">Why New Zealand</a>
-      <a href="#life" style="font-family:'Work Sans',sans-serif;font-weight:500;font-size:14.5px;color:#02615D;text-decoration:underline;text-decoration-color:#A6C84A;text-decoration-thickness:2px;text-underline-offset:4px;padding:5px 0" data-hv="hv5" class="hv5">Life here</a>
-      <a href="#working" style="font-family:'Work Sans',sans-serif;font-weight:500;font-size:14.5px;color:#02615D;text-decoration:underline;text-decoration-color:#A6C84A;text-decoration-thickness:2px;text-underline-offset:4px;padding:5px 0" data-hv="hv6" class="hv6">Working here</a>
-      <a href="#professions" style="font-family:'Work Sans',sans-serif;font-weight:500;font-size:14.5px;color:#02615D;text-decoration:underline;text-decoration-color:#A6C84A;text-decoration-thickness:2px;text-underline-offset:4px;padding:5px 0" data-hv="hv7" class="hv7">Professions</a>
-      <a href="#opportunities" style="font-family:'Work Sans',sans-serif;font-weight:500;font-size:14.5px;color:#02615D;text-decoration:underline;text-decoration-color:#A6C84A;text-decoration-thickness:2px;text-underline-offset:4px;padding:5px 0" data-hv="hv7" class="hv7">Live roles</a>
-      <a href="#pathway" style="font-family:'Work Sans',sans-serif;font-weight:500;font-size:14.5px;color:#02615D;text-decoration:underline;text-decoration-color:#A6C84A;text-decoration-thickness:2px;text-underline-offset:4px;padding:5px 0" data-hv="hv8" class="hv8">Registration &amp; pay</a>
-      <a href="#destinations" style="font-family:'Work Sans',sans-serif;font-weight:500;font-size:14.5px;color:#02615D;text-decoration:underline;text-decoration-color:#A6C84A;text-decoration-thickness:2px;text-underline-offset:4px;padding:5px 0" data-hv="hv9" class="hv9">Destinations</a>
-      <a href="#family" style="font-family:'Work Sans',sans-serif;font-weight:500;font-size:14.5px;color:#02615D;text-decoration:underline;text-decoration-color:#A6C84A;text-decoration-thickness:2px;text-underline-offset:4px;padding:5px 0" data-hv="hv10" class="hv10">Your family</a>
+
+<!-- Picture the life (Sophie, 6 Oct 2026): "What does life really look like in these places. that is what
+     the whole site is missing." Lead with the life, then the practical half. Her words. -->
+<section id="the-life" data-screen-label="NZ landing · picture the life" style="padding:clamp(64px,7.4vw,100px) 0 clamp(48px,5vw,72px);background:#FCFBF8">
+  <div style="max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(14px,1.6vw,20px);margin-top:clamp(36px,4.5vw,60px)">
+      <figure style="margin:0;position:relative;border-radius:18px;overflow:hidden;background:#E3ECE5"><img src="assets/nz-life/wellington-waterfront-commute.jpg" alt="Cyclists and walkers on the Wellington waterfront path with the harbour and city behind" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block"><figcaption style="position:absolute;left:0;right:0;bottom:0;padding:40px 18px 14px;background:linear-gradient(180deg,rgba(1,49,47,0),rgba(1,49,47,.7));color:#fff"><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#C6E084">Tuesday, 8.10am</span><span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;margin-left:10px">The commute, by the harbour</span></figcaption></figure>
+      <figure style="margin:0;position:relative;border-radius:18px;overflow:hidden;background:#E3ECE5"><img src="assets/nz-general/nz-general-dog-on-beach-in-new-1871314090.jpg" alt="A dog at the water&rsquo;s edge on a wide beach at sunset" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block"><figcaption style="position:absolute;left:0;right:0;bottom:0;padding:40px 18px 14px;background:linear-gradient(180deg,rgba(1,49,47,0),rgba(1,49,47,.7));color:#fff"><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#C6E084">Tuesday, 5.45pm</span><span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;margin-left:10px">The dog, the beach, after work</span></figcaption></figure>
+      <figure style="margin:0;position:relative;border-radius:18px;overflow:hidden;background:#E3ECE5"><img src="assets/nz-life/piha-surf.jpg" alt="Surfers walking out at Piha with Lion Rock behind them" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block"><figcaption style="position:absolute;left:0;right:0;bottom:0;padding:40px 18px 14px;background:linear-gradient(180deg,rgba(1,49,47,0),rgba(1,49,47,.7));color:#fff"><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#C6E084">Saturday, 8am</span><span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;margin-left:10px">Piha, before the crowds</span></figcaption></figure>
+      <figure style="margin:0;position:relative;border-radius:18px;overflow:hidden;background:#E3ECE5"><img src="assets/au-life/vineyard-sparkling-wine.jpg" alt="Two glasses of sparkling ros&eacute; on a wall above rows of vines" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block"><figcaption style="position:absolute;left:0;right:0;bottom:0;padding:40px 18px 14px;background:linear-gradient(180deg,rgba(1,49,47,0),rgba(1,49,47,.7));color:#fff"><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#C6E084">Saturday, 1pm</span><span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;margin-left:10px">Lunch at the vineyard</span></figcaption></figure>
+      <figure style="margin:0;position:relative;border-radius:18px;overflow:hidden;background:#E3ECE5"><img src="assets/nz-life/mountain-camp-chair.jpg" alt="Someone in a camp chair with a mug, looking out over mountain ridges at dusk" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block"><figcaption style="position:absolute;left:0;right:0;bottom:0;padding:40px 18px 14px;background:linear-gradient(180deg,rgba(1,49,47,0),rgba(1,49,47,.7));color:#fff"><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#C6E084">Saturday night</span><span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;margin-left:10px">Camping, with a view</span></figcaption></figure>
+      <figure style="margin:0;position:relative;border-radius:18px;overflow:hidden;background:#E3ECE5"><img src="assets/nz-life/snow.jpg" alt="A snowboarder carving down a sunny slope above a valley" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block"><figcaption style="position:absolute;left:0;right:0;bottom:0;padding:40px 18px 14px;background:linear-gradient(180deg,rgba(1,49,47,0),rgba(1,49,47,.7));color:#fff"><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#C6E084">Sunday, in winter</span><span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;margin-left:10px">The slopes, two hours from home</span></figcaption></figure>
     </div>
-  </nav>
+  </div>
+</section>
 
 <section data-screen-label="NZ landing · welcome" style="padding:clamp(56px,6.4vw,84px) 0;background:#E3ECE5">
   <div style="max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px);display:flex;flex-wrap:wrap;gap:clamp(34px,6vw,96px);align-items:center">
@@ -237,7 +239,9 @@ main .hv93:hover{transform:translateY(-3px);border-color:#72A471}
         <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">A note from our founder</span>
       </div>
       <h2 style="font-weight:300;font-size:clamp(30px,3.8vw,44px);line-height:1.08;letter-spacing:-.028em;margin-bottom:22px">Kia ora. I&rsquo;m so glad you&rsquo;re here</h2>
-      <p style="font-size:clamp(18px,1.55vw,20px);line-height:1.55;color:#3E4B47;max-width:56ch">New Zealand shaped my own family&rsquo;s story, and I&rsquo;ve had the privilege of walking many healthcare families through this same decision. Whatever stage you&rsquo;re at, I hope this reads less like a sales pitch and more like advice from someone who understands the move.</p>
+      <p style="font-size:clamp(18px,1.55vw,20px);line-height:1.55;color:#3E4B47;max-width:56ch">New Zealand shaped my own family&rsquo;s story, and I&rsquo;ve walked many healthcare families through this same decision. Whatever stage you&rsquo;re at, I hope this reads like advice from someone who has done it.</p>
+      <p style="font-size:clamp(18px,1.55vw,20px);line-height:1.55;color:#3E4B47;max-width:56ch;margin-top:18px">One of the things I loved most about living in New Zealand was the blue sky and the quality of the light. Of course there were cloudy days too, but I really noticed the difference from home. Even on a crisp, chilly morning the sun would often be shining. You&rsquo;d wrap up, step outside into the fresh air and feel glad to be out in it. It&rsquo;s one of the everyday things I still miss.</p>
+      <p style="font-size:clamp(18px,1.55vw,20px);line-height:1.55;color:#3E4B47;max-width:56ch;margin-top:18px">And then there&rsquo;s the coffee. New Zealanders take it almost as seriously as the Italians, which suited me perfectly. A really good coffee, a crisp morning and a blue sky &mdash; sometimes it&rsquo;s the little things you remember most.</p>
       <div style="display:flex;align-items:center;gap:18px;margin-top:28px;padding-top:22px;border-top:1px solid rgba(2,97,93,.28);flex-wrap:wrap">
         <div>
           <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:26px;line-height:1;color:#02615D">Sophie</div>
@@ -249,303 +253,81 @@ main .hv93:hover{transform:translateY(-3px);border-color:#72A471}
   </div>
 </section>
 
-<section id="why" data-screen-label="NZ landing · why New Zealand" style="padding:clamp(84px,9vw,132px) 0 clamp(40px,4.4vw,58px)">
+<section id="journey" data-screen-label="NZ landing &middot; the journey" style="padding:clamp(64px,7.4vw,104px) 0 0;background:#FCFBF8">
   <div style="max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px)">
-    <div style="display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,80px);align-items:flex-start">
-      <div style="flex:1 1 300px;max-width:460px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-          <span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span>
-          <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">Before you decide</span>
-        </div>
-        <h2 style="font-weight:300;font-size:clamp(34px,4.6vw,54px);line-height:1.04;letter-spacing:-.032em;margin-bottom:20px">Why New Zealand?</h2>
-        <p style="font-family:'Work Sans',sans-serif;font-weight:400;font-size:clamp(18px,1.7vw,21px);line-height:1.45;color:#2F5E49">A move this big is about far more than the job.</p>
-      </div>
-      <div style="flex:1.35 1 400px;max-width:640px">
-        <p style="font-size:17px;line-height:1.68;color:#555555;margin-bottom:18px">New Zealand is the second most peaceful country in the world, and the most peaceful in the Asia&ndash;Pacific. It has ranked first in the world for life&ndash;work balance three years running, measured across factors including statutory leave, working hours, healthcare and safety. Life outside work is taken seriously here.</p>
-        <p style="font-size:17px;line-height:1.68;color:#555555">If you have children, the schooling picture is reassuring: New Zealand&rsquo;s 15-year-olds perform above the OECD average in maths, reading and science. And on happiness, New Zealand ranks 11th globally, ahead of Australia, the United States and the United Kingdom, and the highest-ranked English-speaking country in the world.</p>
-      </div>
+    <div style="max-width:720px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">The journey</span></div>
+      <h2 style="font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(34px,4.6vw,56px);line-height:1.04;letter-spacing:-.032em;color:#02615D;text-wrap:balance">Wherever you are, there&rsquo;s a place to start</h2>
     </div>
-
-    <div style="display:flex;flex-wrap:wrap;gap:clamp(30px,5vw,80px);margin-top:clamp(48px,6vw,84px);padding-top:30px;border-top:1.5px solid #02615D">
-      <div style="flex:1 1 300px;max-width:480px">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em;margin-bottom:22px">What people love</h3>
-        <div style="display:flex;flex-direction:column;gap:20px">
-          <div>
-            <div style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:17px;color:#333333;margin-bottom:4px">Scope of practice</div>
-            <p style="font-size:15px;line-height:1.6;color:#555555">Often more autonomy and room to work at the top of your training.</p>
-          </div>
-          <div>
-            <div style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:17px;color:#333333;margin-bottom:4px">A different pace of life</div>
-            <p style="font-size:15px;line-height:1.6;color:#555555">Smaller teams, shorter commutes in many regions, and life outside work matters.</p>
-          </div>
-        </div>
-      </div>
-      <div style="flex:1 1 300px;max-width:480px">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em;margin-bottom:22px">Worth knowing</h3>
-        <div style="display:flex;flex-direction:column;gap:20px">
-          <div>
-            <div style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:17px;color:#333333;margin-bottom:4px">It&rsquo;s a long way from home</div>
-            <p style="font-size:15px;line-height:1.6;color:#555555">Flights back to the UK, South Africa or elsewhere are a real cost to plan for.</p>
-          </div>
-          <div>
-            <div style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:17px;color:#333333;margin-bottom:4px">A high cost of living</div>
-            <p style="font-size:15px;line-height:1.6;color:#555555">Housing, groceries and everyday essentials cost more than many people expect.</p>
-          </div>
-        </div>
-      </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:clamp(16px,1.9vw,22px);margin-top:clamp(34px,4vw,52px)">
+      <a href="/guides/why-people-move" data-hv="hv17" class="hv17" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:16px;overflow:hidden;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease"><img loading="lazy" decoding="async" src="assets/nz-life/queenstown-dusk.jpg" alt="Lupins flowering in a meadow below mountains at dusk" style="width:100%;height:clamp(150px,15vw,188px);object-fit:cover;display:block" width="1500" height="1000"><span style="display:flex;flex-direction:column;gap:9px;padding:24px 24px 26px"><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">Exploring New Zealand</span><span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:21px;line-height:1.22;letter-spacing:-.01em;color:#02615D">Is this right for us?</span><span style="font-size:15px;line-height:1.55;color:#2F5E49">The life, the trade-offs, and what people say once they&rsquo;re here.</span><span style="margin-top:4px;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14.5px;color:#02615D">Why people move <span aria-hidden="true">&rarr;</span></span></span></a>
+      <div style="display:flex;flex-direction:column;background:#FCFBF8;border:1px solid #C9DED3;border-radius:16px;overflow:hidden"><img loading="lazy" decoding="async" src="assets/nz-life/nz-life-clinician-portrait.jpg" alt="A smiling clinician in a surgical cap and scrubs" style="width:100%;height:clamp(150px,15vw,188px);object-fit:cover;display:block" width="1600" height="844"><div style="display:flex;flex-direction:column;gap:9px;padding:24px 24px 26px"><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">Finding a role</span><span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:21px;line-height:1.22;letter-spacing:-.01em;color:#02615D">Could I work here?</span><span style="font-size:15px;line-height:1.55;color:#2F5E49">The work itself &mdash; and the practical steps that get you there.</span><div style="display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:6px"><a href="/pathway-checker?destination=new-zealand" data-hv="hv57" class="hv57" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px">Check registration</a><a href="#professions" data-hv="hv57" class="hv57" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px">Find your profession</a><a href="/guides/new-zealand-salary" data-hv="hv57" class="hv57" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px">Explore salaries</a></div></div></div>
+      <div style="display:flex;flex-direction:column;background:#FCFBF8;border:1px solid #C9DED3;border-radius:16px;overflow:hidden"><img loading="lazy" decoding="async" src="assets/wellington/reloc/city-centre-dusk.jpg" alt="Wellington city centre at dusk" style="width:100%;height:clamp(150px,15vw,188px);object-fit:cover;display:block" width="1500" height="1001"><div style="display:flex;flex-direction:column;gap:9px;padding:24px 24px 26px"><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">Planning my move</span><span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:21px;line-height:1.22;letter-spacing:-.01em;color:#02615D">How do we do it?</span><span style="font-size:15px;line-height:1.55;color:#2F5E49">Visas, money, where to live and the first month &mdash; pulled into one plan.</span><div style="display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:6px"><a href="/cost-calculator?destination=nz" data-hv="hv57" class="hv57" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px">Estimate relocation costs</a><a href="/plan" data-hv="hv57" class="hv57" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px">Build your plan</a></div></div></div>
     </div>
-
-    <div style="display:flex;flex-wrap:wrap;gap:14px 44px;margin-top:clamp(34px,4vw,48px)">
-      <a href="/guides/about-new-zealand" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px" data-hv="hv12" class="hv12">Get to know Aotearoa, the land, Te Tiriti and te reo <span aria-hidden="true">&rarr;</span></a>
-      <a href="/guides/living-in-new-zealand" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px" data-hv="hv13" class="hv13">Read the honest guide to living in New Zealand <span aria-hidden="true">&rarr;</span></a>
-    </div>
-
-    <div style="margin-top:clamp(30px,3.4vw,42px);padding-top:16px;border-top:1px solid rgba(2,97,93,.28)">
-      <span style="display:block;font-family:'Work Sans',sans-serif;font-weight:600;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px">Sources</span>
-      <div style="display:flex;flex-wrap:wrap;gap:4px 28px;font-size:13px;line-height:1.6;color:#2F5E49">
-        <span>Global Peace Index 2026, Institute for Economics &amp; Peace</span>
-        <span>Global Life-Work Balance Index 2025, Remote</span>
-        <span>OECD PISA 2022, OECD</span>
-        <span>World Happiness Report 2026, University of Oxford</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="life" data-screen-label="NZ landing · life outside work" style="padding:clamp(48px,5.2vw,72px) 0 0;background:#FCFBF8">
-  <div style="max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px)">
-    <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,5vw,80px);align-items:flex-end">
-      <div style="flex:1 1 320px;max-width:560px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-          <span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span>
-          <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">Life outside the hospital</span>
-        </div>
-        <h2 style="font-weight:300;font-size:clamp(34px,4.6vw,54px);line-height:1.04;letter-spacing:-.032em">And then there are the weekends</h2>
-      </div>
-      <p style="flex:1 1 280px;max-width:420px;font-family:'Work Sans',sans-serif;font-weight:400;font-size:clamp(18px,1.7vw,21px);line-height:1.45;color:#2F5E49;padding-bottom:6px">The role is why you come. Life outside work is often why you stay.</p>
-    </div>
-  </div>
-  <figure style="position:relative;margin-top:clamp(38px,5vw,60px)">
-    <img src="assets/nz-life/family-beach-walk.jpg" width="1600" height="1067" loading="lazy" decoding="async" alt="A family walking barefoot along a quiet beach on an overcast afternoon, houses set into the headland behind them" style="width:100%;height:clamp(320px,54vh,580px);object-fit:cover;object-position:center 52%">
-    <figcaption style="position:absolute;inset:auto 0 0 0;background:linear-gradient(180deg,rgba(8,40,31,0),rgba(8,40,31,.82))">
-      <div style="max-width:1180px;margin:0 auto;padding:80px clamp(22px,3vw,40px) 30px">
-        <div style="font-family:'Work Sans',sans-serif;font-weight:500;font-size:clamp(22px,3vw,32px);line-height:1.1;letter-spacing:-.024em;color:#fff">Not the holiday, the weekend</div>
-        <div style="font-size:15px;color:rgba(255,255,255,.88);margin-top:9px">A beach twenty minutes from town, on an ordinary overcast afternoon</div>
-      </div>
-    </figcaption>
-  </figure>
-  <div style="max-width:1180px;margin:0 auto;padding:clamp(16px,2vw,20px) clamp(22px,3vw,40px) clamp(84px,9vw,132px)">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:clamp(14px,1.6vw,20px)">
-      <figure style="position:relative;border-radius:18px;overflow:hidden;background:#E3ECE5">
-        <img src="assets/nz-life/cathedral-cove.jpg" alt="A golden surf beach backed by native bush on the North Island's east coast" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover">
-        <figcaption style="position:absolute;inset:auto 0 0 0;padding:52px 16px 15px;background:linear-gradient(180deg,rgba(8,40,31,0),rgba(8,40,31,.88))">
-          <div style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;line-height:1.22;color:#fff">Wild-coast weekends</div>
-          <div style="font-size:13px;line-height:1.42;color:rgba(255,255,255,.84);margin-top:4px">Empty, bush-backed beaches a short drive from town</div>
-        </figcaption>
-      </figure>
-      <figure style="position:relative;border-radius:18px;overflow:hidden;background:#E3ECE5">
-        <img src="assets/nz-life/abel-tasman.jpg" alt="The golden-sand crescent and turquoise water of Kaiteriteri, gateway to the Abel Tasman" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover">
-        <figcaption style="position:absolute;inset:auto 0 0 0;padding:52px 16px 15px;background:linear-gradient(180deg,rgba(8,40,31,0),rgba(8,40,31,.88))">
-          <div style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;line-height:1.22;color:#fff">Abel Tasman</div>
-          <div style="font-size:13px;line-height:1.42;color:rgba(255,255,255,.84);margin-top:4px">Golden sand and calm water at the top of the South Island</div>
-        </figcaption>
-      </figure>
-      <figure style="position:relative;border-radius:18px;overflow:hidden;background:#E3ECE5">
-        <img src="assets/nz-life/family-bush-walk.jpg" alt="A family of four smiling on a bush walk beside a waterfall" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover">
-        <figcaption style="position:absolute;inset:auto 0 0 0;padding:52px 16px 15px;background:linear-gradient(180deg,rgba(8,40,31,0),rgba(8,40,31,.88))">
-          <div style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;line-height:1.22;color:#fff">A walk before lunch</div>
-          <div style="font-size:13px;line-height:1.42;color:rgba(255,255,255,.84);margin-top:4px">Native bush and waterfalls, minutes from town</div>
-        </figcaption>
-      </figure>
-      <figure style="position:relative;border-radius:18px;overflow:hidden;background:#E3ECE5">
-        <img src="assets/nz-life/family-bike.jpg" alt="A father watching his son ride a bike along a seafront promenade at sunset" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover">
-        <figcaption style="position:absolute;inset:auto 0 0 0;padding:52px 16px 15px;background:linear-gradient(180deg,rgba(8,40,31,0),rgba(8,40,31,.88))">
-          <div style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;line-height:1.22;color:#fff">Seafront evenings</div>
-          <div style="font-size:13px;line-height:1.42;color:rgba(255,255,255,.84);margin-top:4px">Learning to ride as the sun drops over the water</div>
-        </figcaption>
-      </figure>
-    </div>
-    <a href="#destinations" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;margin-top:clamp(26px,3vw,36px);padding:13px 26px;border-radius:12px;background:transparent;border:1.5px solid #72A471;color:#02615D;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:background .15s ease,transform .15s ease" data-hv="hv14" class="hv14">See what life&rsquo;s like, region by region <span aria-hidden="true">&rarr;</span></a>
-  </div>
-</section>
-
-<figure data-screen-label="NZ landing · candidate voice" style="display:flex;flex-wrap:wrap;background:#E3ECE5">
-  <div style="flex:1 1 340px;position:relative;min-height:clamp(300px,38vw,460px)">
-    <img src="assets/northland/kabiri/night-sky-homes.jpeg" alt="Houses under a clear, star-filled Northland night sky" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-  </div>
-  <div style="flex:1 1 400px;display:flex;flex-direction:column;justify-content:center;padding:clamp(38px,4.6vw,76px) clamp(26px,4.4vw,72px)">
-    <span aria-hidden="true" style="display:block;width:32px;height:3px;border-radius:2px;background:#A6C84A;margin-bottom:26px"></span>
-    <blockquote style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(19px,2.1vw,26px);line-height:1.48;color:#02615D;max-width:34ch">&ldquo;Northland is absolutely beautiful. I love hiking and photography, so having beaches, forests, coastal walks and incredible scenery so close by is a real highlight. It&rsquo;s much quieter than I was used to &mdash; for anyone who enjoys the outdoors and a laid-back beach lifestyle, it&rsquo;s a great place to live.&rdquo;</blockquote>
-    <figcaption style="margin-top:26px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:#2F5E49">Emad Kabiri, Anaesthetic Technician, moved from Iran to Northland &middot; photograph his own</figcaption>
-  </div>
-</figure>
-
-<section id="working" data-screen-label="NZ landing · what it's like to work here" style="position:relative;overflow:hidden;background:#02615D;padding:clamp(64px,7.4vw,104px) 0;margin:clamp(56px,7vw,96px) 0">
-  <img src="assets/nz-life/rainforest-boardwalk.jpg" alt="A boardwalk winding through dense New Zealand native bush" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
-  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,49,47,.56),rgba(1,49,47,.84))"></div>
-  <div style="position:relative;max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px)">
-    <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,5vw,80px);align-items:flex-end;margin-bottom:clamp(38px,4.6vw,56px)">
-      <div style="flex:1 1 320px;max-width:560px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-          <span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span>
-          <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C6E084">The day to day</span>
-        </div>
-        <h2 style="font-weight:300;font-size:clamp(32px,4.2vw,50px);line-height:1.05;letter-spacing:-.03em;color:#FCFBF8">Practising in New Zealand healthcare</h2>
-      </div>
-      <p style="flex:1 1 300px;max-width:460px;font-size:16.5px;line-height:1.62;color:rgba(252,251,248,.86);padding-bottom:6px">Beyond the registration and the paperwork, the day-to-day culture of practising here is part of what draws people. A few things our clinicians consistently notice. Your profession guide goes deeper for your specific role.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(24px,3vw,40px)">
-      <div style="padding-top:22px;border-top:1px solid rgba(255,255,255,.3)">
-        <span style="display:block;font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#C6E084;margin-bottom:12px">Where you&rsquo;ll work</span>
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:21px;line-height:1.25;color:#FCFBF8;margin-bottom:12px">Public, private or community</h3>
-        <p style="font-size:16px;line-height:1.62;color:rgba(252,251,248,.86)">Work might be in a Health New Zealand hospital, private provider or community setting. The environment shapes the pace, variety and feel of your working week.</p>
-      </div>
-      <div style="padding-top:22px;border-top:1px solid rgba(255,255,255,.3)">
-        <span style="display:block;font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#C6E084;margin-bottom:12px">The culture</span>
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:21px;line-height:1.25;color:#FCFBF8;margin-bottom:12px">Less hierarchy, more team</h3>
-        <p style="font-size:16px;line-height:1.62;color:rgba(252,251,248,.86)">Teams tend to be collaborative and relatively flat, with first-name relationships and multidisciplinary working part of everyday practice.</p>
-      </div>
-      <div style="padding-top:22px;border-top:1px solid rgba(255,255,255,.3)">
-        <span style="display:block;font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#C6E084;margin-bottom:12px">Equity at the centre</span>
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:21px;line-height:1.25;color:#FCFBF8;margin-bottom:12px">Care shaped by Te Tiriti</h3>
-        <p style="font-size:16px;line-height:1.62;color:rgba(252,251,248,.86)">Te Tiriti o Waitangi influences how healthcare is designed and delivered, with a particular focus on equity and improving outcomes for M&#257;ori.</p>
-      </div>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(34px,4vw,48px)">
-      <a href="#professions" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 26px;border-radius:12px;background:#FCFBF8;color:#02615D;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:transform .15s ease,background .15s ease" data-hv="hv15" class="hv15">See your profession guide <span aria-hidden="true">&rarr;</span></a>
-      <a href="/guides/new-zealand-healthcare" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 26px;border-radius:12px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:transform .15s ease,background .15s ease" data-hv="hv16" class="hv16">Understand the healthcare system</a>
+    <div style="margin-top:clamp(30px,3.6vw,44px)">
+      <a href="/my-pack" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 26px;border-radius:12px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:background .15s ease,transform .15s ease">Open every guide <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
 
 <section id="professions" data-screen-label="NZ landing · profession guides" style="padding:clamp(56px,6.4vw,84px) 0;background:#E3ECE5">
   <div style="max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px)">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-      <span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span>
-      <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">Guides by profession</span>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">Professions</span></div>
+    <h2 style="font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(30px,3.8vw,46px);line-height:1.06;letter-spacing:-.03em;margin-bottom:14px">Find your profession</h2>
+    <p style="font-size:clamp(17px,1.5vw,19px);line-height:1.55;color:#555555;max-width:52ch">We recruit across New Zealand healthcare &mdash; medicine, medical imaging, allied health, mental health and theatre &mdash; for the large healthcare organisations we work with. Nursing is the one area without vacancies at the moment &mdash; employers recruit overseas nurses only when they cannot fill from within New Zealand &mdash; but its guide is here all the same.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(18px,2.2vw,26px);margin-top:clamp(34px,4vw,52px)">
+      <a href="/jobs/medicine-new-zealand" data-hv="hv61" class="hv61" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #E4EDE7;border-radius:14px;padding:clamp(26px,2.8vw,32px);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease"><h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:21px;line-height:1.24;margin-bottom:8px">Medicine</h3><p style="font-size:15px;line-height:1.55;color:#2F5E49;margin-bottom:16px">GPs, hospital doctors and specialists.</p><span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span></a>
+      <a href="/jobs/nursing-midwifery-new-zealand" data-hv="hv62" class="hv62" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #E4EDE7;border-radius:14px;padding:clamp(26px,2.8vw,32px);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease"><h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:21px;line-height:1.24;margin-bottom:8px">Nursing &amp; midwifery</h3><p style="font-size:15px;line-height:1.55;color:#2F5E49;margin-bottom:16px">Registration and the move, explained &mdash; no vacancies at the moment.</p><span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span></a>
+      <a href="/jobs/medical-imaging-new-zealand" data-hv="hv63" class="hv63" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #E4EDE7;border-radius:14px;padding:clamp(26px,2.8vw,32px);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease"><h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:21px;line-height:1.24;margin-bottom:8px">Medical imaging &amp; radiation therapy</h3><p style="font-size:15px;line-height:1.55;color:#2F5E49;margin-bottom:16px">Radiography, MRI, ultrasound, nuclear medicine and radiation therapy.</p><span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span></a>
+      <a href="/jobs/allied-health-new-zealand" data-hv="hv64" class="hv64" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #E4EDE7;border-radius:14px;padding:clamp(26px,2.8vw,32px);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease"><h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:21px;line-height:1.24;margin-bottom:8px">Allied health</h3><p style="font-size:15px;line-height:1.55;color:#2F5E49;margin-bottom:16px">Physiotherapy, occupational therapy, speech-language therapy and dietetics.</p><span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span></a>
+      <a href="/jobs/mental-health-new-zealand" data-hv="hv65" class="hv65" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #E4EDE7;border-radius:14px;padding:clamp(26px,2.8vw,32px);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease"><h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:21px;line-height:1.24;margin-bottom:8px">Mental health</h3><p style="font-size:15px;line-height:1.55;color:#2F5E49;margin-bottom:16px">Psychiatry, psychology, occupational therapy and social work.</p><span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span></a>
+      <a href="/jobs/theatre-perioperative-new-zealand" data-hv="hv66" class="hv66" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #E4EDE7;border-radius:14px;padding:clamp(26px,2.8vw,32px);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease"><h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:21px;line-height:1.24;margin-bottom:8px">Theatre &amp; perioperative</h3><p style="font-size:15px;line-height:1.55;color:#2F5E49;margin-bottom:16px">Anaesthetic technicians and perioperative roles.</p><span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span></a>
     </div>
-    <h2 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,38px);line-height:1.12;letter-spacing:-.018em;margin-bottom:16px">Find your profession</h2>
-    <p style="font-size:clamp(18px,1.55vw,20px);line-height:1.5;color:#555555;max-width:54ch">These are the nine roles we recruit into New Zealand. Each guide is the single home for that role: the regulator, the pathway in order, the documents, and what the work is like. Our <a href="/pathway-checker?destination=new-zealand">pathway checker</a> goes wider, covering more than twenty healthcare professions including ones we don&rsquo;t recruit for, because the answer is worth having either way.</p>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:clamp(18px,2.2vw,26px);margin-top:clamp(34px,4vw,52px)">
-      <a href="/jobs/sonographer-new-zealand" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease" class="profcard">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Sonographers</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:32ch;margin-bottom:14px">MRTB registration, the pathway in order, and what the work is like.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/jobs/radiographer-new-zealand" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease" class="profcard">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Radiographers</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:32ch;margin-bottom:14px">Registration for diagnostic radiographers, and the day to day.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/jobs/radiation-therapist-new-zealand" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease" class="profcard">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Radiation therapists</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:32ch;margin-bottom:14px">Recognition of your training, scope of practice and indicative pay.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/jobs/physiotherapist-new-zealand" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease" class="profcard">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Physiotherapists</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:32ch;margin-bottom:14px">Physiotherapy Board registration and the settings you could work in.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/jobs/occupational-therapist-new-zealand" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease" class="profcard">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Occupational therapists</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:32ch;margin-bottom:14px">Registration, caseloads and where OTs are most in demand.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/jobs/anaesthetist-new-zealand" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease" class="profcard">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Anaesthetists</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:32ch;margin-bottom:14px">Generalist theatre breadth, and one of the quicker registration routes.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/jobs/emergency-medicine-new-zealand" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease" class="profcard">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Emergency medicine</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:32ch;margin-bottom:14px">Smaller departments, consultants on the floor, retrieval within reach.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/jobs/psychiatrist-new-zealand" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease" class="profcard">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Psychiatrists</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:32ch;margin-bottom:14px">Community-first services, and time for the conversation.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/jobs/gp-new-zealand" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease" class="profcard">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">General practitioners</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:32ch;margin-bottom:14px">Vocational registration, rural and urban practice, and the honest picture.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/jobs/obstetrics-gynaecology-new-zealand" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease" class="profcard">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Obstetrics &amp; gynaecology</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:32ch;margin-bottom:14px">A midwife-led maternity model, and mixed obstetric and gynaecological lists.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/jobs/paediatrician-new-zealand" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease" class="profcard">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Paediatricians</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:32ch;margin-bottom:14px">General paediatric breadth, and child health that reaches outside the hospital.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/jobs/consultant-radiologist-new-zealand" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease" class="profcard">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Consultant radiologists</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:32ch;margin-bottom:14px">Specialist registration, recognition of training and reporting workload.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/jobs/psychologist-new-zealand" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease" class="profcard">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Psychologists</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:32ch;margin-bottom:14px">Board registration, scopes of practice and clinical settings.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/jobs/anaesthetic-technician-new-zealand" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease" class="profcard">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Anaesthetic technicians</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:32ch;margin-bottom:14px">Registration, theatre teams and what to expect from the role.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Explore <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <div style="display:flex;flex-direction:column;justify-content:center;gap:14px;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(26px,2.8vw,34px)">
-        <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49">Not listed?</span>
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:21px;line-height:1.25">A different healthcare profession</h3>
-        <p style="font-size:15px;line-height:1.6;color:#555555">We recruit into the professions here. If yours is not one of them, you can go straight to the body that registers you.</p>
-        <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
-          <a href="/resources/healthcare-regulators" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px;align-self:flex-start" data-hv="hv22" class="hv22">View official healthcare regulators <span aria-hidden="true">&rarr;</span></a>
-          <a href="/jobs/professions" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#2F5E49;border-bottom:1px solid rgba(47,94,73,.4);padding-bottom:2px;align-self:flex-start" data-hv="hv23" class="hv23">Every profession we recruit into <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </div>
-    </div>
+    <p style="font-size:16px;line-height:1.65;color:#555555;margin-top:clamp(26px,3vw,34px)">Can&rsquo;t see your profession? <a href="/pathway-checker?destination=new-zealand" style="font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px" data-hv="hv22" class="hv22">Check your pathway <span aria-hidden="true">&rarr;</span></a></p>
   </div>
 </section>
 
-<section id="pathway" data-screen-label="NZ landing · registration &amp; pay" style="padding:clamp(56px,6.4vw,84px) 0;background:#FCFBF8;border-top:1px solid rgba(2,97,93,.28);border-bottom:1px solid rgba(2,97,93,.28)">
+<section id="life" data-screen-label="NZ landing · why New Zealand & life" style="padding:clamp(64px,7.4vw,100px) 0 0">
   <div style="max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px)">
-    <div style="display:flex;flex-wrap:wrap;gap:clamp(28px,4.6vw,76px);align-items:center">
-      <div style="flex:1.2 1 380px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-          <span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span>
-          <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">Registration &amp; pay</span>
-        </div>
-        <h2 style="font-weight:300;font-size:clamp(28px,3.4vw,42px);line-height:1.08;letter-spacing:-.03em;margin-bottom:18px">Can I practise here, and what would I earn?</h2>
-        <p style="font-size:17px;line-height:1.62;color:#555555;max-width:52ch">Registration depends on your profession, where you qualified and your experience. Answer a few questions and we&rsquo;ll show you the pathway most likely to apply to you.</p>
-      </div>
-      <div style="flex:1 1 280px;max-width:340px;display:flex;flex-direction:column;gap:16px">
-        <a href="/pathway-checker?destination=new-zealand" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:16px 26px;border-radius:12px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;text-align:center;transition:background .15s ease,transform .15s ease" data-hv="hv24" class="hv24">Check my registration pathway <span aria-hidden="true">&rarr;</span></a>
-        <p style="font-size:15px;line-height:1.6;color:#2F5E49">Not sure where to start? <a href="/contact" style="font-weight:600;color:#02615D;border-bottom:2px solid #72A471" data-hv="hv25" class="hv25">Talk to us <span aria-hidden="true">&rarr;</span></a></p>
-      </div>
+    <div style="max-width:660px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">Before you decide</span></div>
+      <h2 style="font-weight:300;font-size:clamp(34px,4.6vw,54px);line-height:1.04;letter-spacing:-.032em;margin-bottom:16px">Why New Zealand?</h2>
+      <p style="font-family:'Work Sans',sans-serif;font-weight:400;font-size:clamp(18px,1.7vw,21px);line-height:1.45;color:#2F5E49;max-width:48ch">A move this big is about far more than the job. The role is why you come &mdash; life outside it is often why you stay.</p>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:clamp(26px,4.6vw,76px);align-items:flex-start;margin-top:clamp(38px,4.6vw,58px);padding-top:30px;border-top:1px solid rgba(2,97,93,.28)">
-      <div style="flex:1.2 1 380px">
-        <span style="display:block;font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-bottom:12px">On pay</span>
-        <p style="font-size:17px;line-height:1.66;color:#555555;max-width:54ch">Most public healthcare roles here are paid under a national collective agreement rather than negotiated individually. Your step on the scale is the same in Invercargill as it is in Auckland, and the ladder is published. We can point you at the documents rather than asking you to trust a figure.</p>
-      </div>
-      <div style="flex:1 1 280px;max-width:340px">
-        <a href="/guides/new-zealand-salary" style="display:flex;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid rgba(2,97,93,.28);transition:padding .15s ease" data-hv="hv26" class="hv26">
-          <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;color:#02615D">Salary, explained honestly</span>
-          <span aria-hidden="true" style="color:#72A471;margin-left:auto">&rarr;</span>
-        </a>
-        <a href="/guides/new-zealand-pay-agreements" style="display:flex;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid rgba(2,97,93,.28);transition:padding .15s ease" data-hv="hv27" class="hv27">
-          <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;color:#02615D">Which agreement sets your pay</span>
-          <span aria-hidden="true" style="color:#72A471;margin-left:auto">&rarr;</span>
-        </a>
-      </div>
+  </div>
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(16px,2vw,20px) clamp(22px,3vw,40px) 0">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:clamp(14px,1.6vw,20px)">
+      <figure style="position:relative;border-radius:18px;overflow:hidden;background:#E3ECE5"><img src="assets/nz-life/nz-surf.jpg" alt="Two surfers walking out at a black-sand west-coast beach in the evening light" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover"><figcaption style="position:absolute;inset:auto 0 0 0;padding:52px 16px 15px;background:linear-gradient(180deg,rgba(8,40,31,0),rgba(8,40,31,.88))"><div style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;line-height:1.22;color:#fff">Wild-coast surf</div><div style="font-size:13px;line-height:1.42;color:rgba(255,255,255,.84);margin-top:4px">Black-sand beaches on the west coast</div></figcaption></figure>
+      <figure style="position:relative;border-radius:18px;overflow:hidden;background:#E3ECE5"><img src="assets/central-otago/reloc/snowboard-lesson.jpg" alt="Skiers and snowboarders on a bright, snowy slope in the Southern Alps" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover"><figcaption style="position:absolute;inset:auto 0 0 0;padding:52px 16px 15px;background:linear-gradient(180deg,rgba(8,40,31,0),rgba(8,40,31,.88))"><div style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;line-height:1.22;color:#fff">Winter, within reach</div><div style="font-size:13px;line-height:1.42;color:rgba(255,255,255,.84);margin-top:4px">Ski fields a few hours from most cities</div></figcaption></figure>
+      <figure style="position:relative;border-radius:18px;overflow:hidden;background:#E3ECE5"><img src="assets/nz-life/nz-mtb.jpg" alt="A mountain biker riding a singletrack trail through golden bushland at sunset" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover"><figcaption style="position:absolute;inset:auto 0 0 0;padding:52px 16px 15px;background:linear-gradient(180deg,rgba(8,40,31,0),rgba(8,40,31,.88))"><div style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;line-height:1.22;color:#fff">On two wheels</div><div style="font-size:13px;line-height:1.42;color:rgba(255,255,255,.84);margin-top:4px">Trails that start close to home</div></figcaption></figure>
     </div>
+  </div>
+  <figure style="display:flex;flex-wrap:wrap;background:#E3ECE5;margin-top:clamp(40px,5vw,64px)">
+    <div style="flex:1 1 340px;position:relative;min-height:clamp(300px,38vw,460px)"><img src="assets/northland/kabiri/night-sky-homes.jpeg" alt="Houses under a clear, star-filled Northland night sky" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" width="2048" height="1536"></div>
+    <div style="flex:1 1 400px;display:flex;flex-direction:column;justify-content:center;padding:clamp(38px,4.6vw,76px) clamp(26px,4.4vw,72px)">
+      <span aria-hidden="true" style="display:block;width:32px;height:3px;border-radius:2px;background:#A6C84A;margin-bottom:26px"></span>
+      <blockquote style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(19px,2.1vw,26px);line-height:1.48;color:#02615D;max-width:34ch">&ldquo;Northland is absolutely beautiful. I love hiking and photography, so having beaches, forests, coastal walks and incredible scenery so close by is a real highlight. It&rsquo;s much quieter than I was used to &mdash; for anyone who enjoys the outdoors and a laid-back beach lifestyle, it&rsquo;s a great place to live.&rdquo;</blockquote>
+      <figcaption style="margin-top:26px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;letter-spacing:.02em;color:#2F5E49">Emad Kabiri, Anaesthetic Technician, moved from Iran to Northland &middot; photograph his own</figcaption>
+      <a href="/insights/emad-iran-to-northland" style="display:inline-block;margin-top:14px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14.5px;color:#02615D;border-bottom:1px solid #72A471;padding-bottom:2px">Read Emad&rsquo;s story &rarr;</a>
+    </div>
+  </figure>
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(28px,3.4vw,44px) clamp(22px,3vw,40px) 0">
+    <p style="font-size:17px;line-height:1.68;color:#555555;max-width:64ch">It is a long way from home &mdash; flights back to the UK, South Africa or elsewhere are a cost to plan for &mdash; and housing, groceries and everyday essentials cost more than many people expect. <a href="/guides/living-in-new-zealand" data-hv="hv13" class="hv13" style="font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:1px">The guide to living here &mdash; figures and sources &rarr;</a></p>
   </div>
 </section>
 
+<section id="working" data-screen-label="NZ landing · working in NZ healthcare" style="position:relative;overflow:hidden;background:#02615D;padding:clamp(120px,14vw,200px) 0 clamp(56px,6vw,84px);margin-top:clamp(56px,7vw,96px)">
+  <img src="assets/clinical/hospital-corridor-trolley-team.jpg" alt="A clinical team moving a patient along a hospital corridor" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 32%" width="2600" height="1800">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(1,49,47,.74) 0%,rgba(1,49,47,.40) 42%,rgba(1,49,47,0) 72%),linear-gradient(0deg,rgba(1,49,47,.40) 0%,rgba(1,49,47,0) 50%)"></div>
+  <div style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:clamp(22px,3vw,48px)">
+    <div style="max-width:620px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C6E084">The day to day</span></div>
+      <h2 style="font-weight:300;font-size:clamp(30px,3.8vw,46px);line-height:1.06;letter-spacing:-.03em;color:#FCFBF8">Working in New Zealand healthcare</h2>
+      <p style="font-size:clamp(17px,1.55vw,19px);line-height:1.55;color:rgba(252,251,248,.86);max-width:52ch;margin-top:14px">Explore the health system, working environments, cultural safety and Te Tiriti.</p>
+    </div>
+    <a href="/guides/new-zealand-healthcare" data-hv="hv15" class="hv15" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 26px;border-radius:12px;background:#FCFBF8;color:#02615D;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:transform .15s ease,background .15s ease;flex:none">Understand the healthcare system <span aria-hidden="true">&rarr;</span></a>
+  </div>
+</section>
 
 <section id="destinations" data-screen-label="NZ landing · destination guides" style="padding:clamp(84px,9vw,132px) 0 0">
   <div style="max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px)">
@@ -558,40 +340,33 @@ main .hv93:hover{transform:translateY(-3px);border-color:#72A471}
         <h2 style="font-weight:300;font-size:clamp(34px,4.6vw,54px);line-height:1.04;letter-spacing:-.032em">Explore New Zealand, region by region</h2>
       </div>
       <div style="flex:1 1 300px;max-width:440px;padding-bottom:6px">
-        <p style="font-family:'Work Sans',sans-serif;font-weight:400;font-size:clamp(17px,1.6vw,20px);line-height:1.45;color:#2F5E49;margin-bottom:12px">Explore the hospitals, neighbourhoods, cost of living and lifestyle in each region.</p>
-        <p style="font-size:16px;line-height:1.65;color:#555555">For visas, registration, renting and schools, see our <a href="/destinations/new-zealand-relocation-guide" style="font-weight:600;color:#02615D;border-bottom:2px solid #72A471" data-hv="hv28" class="hv28">Moving to New Zealand</a> guide.</p>
+        <p style="font-family:'Work Sans',sans-serif;font-weight:400;font-size:clamp(17px,1.6vw,20px);line-height:1.45;color:#2F5E49">Compare each region the way you&rsquo;d choose &mdash; the hospitals and the work, housing and rents, schools, and what an ordinary weekend looks like.</p>
       </div>
     </div>
   </div>
-  <figure style="margin-top:clamp(38px,5vw,60px)">
-    <img src="assets/nz-life/wellington-waterfront-commute.jpg" width="1600" height="1067" loading="lazy" decoding="async" alt="People cycling and walking along Wellington's waterfront path on a clear afternoon, the city and hillside suburbs beyond" style="width:100%;height:clamp(300px,48vh,520px);object-fit:cover;object-position:center 58%">
-    <figcaption style="max-width:1180px;margin:0 auto;padding:18px clamp(22px,3vw,40px) 0;font-family:'Work Sans',sans-serif;font-size:15px;font-weight:500;line-height:1.55;color:#2F5E49">
-      <span style="display:block;max-width:64ch;padding-left:16px;border-left:2px solid #A6C84A">Wellington&rsquo;s waterfront on an ordinary weekday. For a lot of people here, this is the commute.</span>
-    </figcaption>
-  </figure>
   <div style="max-width:1180px;margin:0 auto;padding:clamp(44px,5.4vw,72px) clamp(22px,3vw,40px) clamp(84px,9vw,132px)">
     <div style="display:flex;flex-wrap:wrap;gap:clamp(30px,4.4vw,68px);align-items:flex-start">
         <div style="flex:1.45 1 470px;max-width:560px;background:#E3ECE5;border-radius:20px;padding:clamp(16px,2vw,26px)">
           <div style="position:relative;width:100%;aspect-ratio:734/1026">
-            <img src="assets/nz-regions-map-tight.png" alt="Map of New Zealand with its regions shown in Ethicare brand greens and teals, across the North and South Islands" loading="lazy" style="width:100%;height:100%;object-fit:contain">
-            <a href="/destinations/northland-new-zealand" title="Northland" aria-label="Northland" style="position:absolute;left:62.3%;top:8%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#02615D;border:2px solid #fff;box-shadow:0 2px 8px rgba(1,49,47,.4);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv29" class="hv29"></a>
-            <a href="/destinations/auckland-new-zealand" title="Auckland" aria-label="Auckland" style="position:absolute;left:67.4%;top:16.3%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#02615D;border:2px solid #fff;box-shadow:0 2px 8px rgba(1,49,47,.4);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv30" class="hv30"></a>
-            <a href="/destinations/waikato-new-zealand" title="Waikato" aria-label="Waikato" style="position:absolute;left:72.9%;top:26.5%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#02615D;border:2px solid #fff;box-shadow:0 2px 8px rgba(1,49,47,.4);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv31" class="hv31"></a>
-            <a href="/destinations/bay-of-plenty-new-zealand" title="Bay of Plenty" aria-label="Bay of Plenty" style="position:absolute;left:84.7%;top:26.5%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#02615D;border:2px solid #fff;box-shadow:0 2px 8px rgba(1,49,47,.4);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv32" class="hv32"></a>
-            <a href="/destinations/hawkes-bay-new-zealand" title="Hawke's Bay" aria-label="Hawke's Bay" style="position:absolute;left:85.8%;top:37.4%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#02615D;border:2px solid #fff;box-shadow:0 2px 8px rgba(1,49,47,.4);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv33" class="hv33"></a>
-            <a href="/destinations/gisborne-new-zealand" title="Gisborne" aria-label="Gisborne" style="position:absolute;left:92.4%;top:29.8%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#02615D;border:2px solid #fff;box-shadow:0 2px 8px rgba(1,49,47,.4);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv34" class="hv34"></a>
-            <a href="/destinations/palmerston-north-new-zealand" title="Palmerston North" aria-label="Palmerston North" style="position:absolute;left:75.6%;top:39.7%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#02615D;border:2px solid #fff;box-shadow:0 2px 8px rgba(1,49,47,.4);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv35" class="hv35"></a>
-            <a href="/destinations/wellington-new-zealand" title="Wellington" aria-label="Wellington" style="position:absolute;left:75.9%;top:49.4%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#02615D;border:2px solid #fff;box-shadow:0 2px 8px rgba(1,49,47,.4);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv36" class="hv36"></a>
-            <a href="/destinations/nelson-tasman-new-zealand" title="Nelson Tasman" aria-label="Nelson Tasman" style="position:absolute;left:50%;top:51.4%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#02615D;border:2px solid #fff;box-shadow:0 2px 8px rgba(1,49,47,.4);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv37" class="hv37"></a>
-            <a href="/destinations/christchurch-new-zealand" title="Christchurch" aria-label="Christchurch" style="position:absolute;left:40.7%;top:67.9%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#02615D;border:2px solid #fff;box-shadow:0 2px 8px rgba(1,49,47,.4);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv38" class="hv38"></a>
-            <a href="/destinations/central-otago-new-zealand" title="Central Otago" aria-label="Central Otago" style="position:absolute;left:18.3%;top:77.5%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#02615D;border:2px solid #fff;box-shadow:0 2px 8px rgba(1,49,47,.4);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv39" class="hv39"></a>
-            <a href="/destinations/dunedin-new-zealand" title="Dunedin" aria-label="Dunedin" style="position:absolute;left:30.9%;top:81.3%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#02615D;border:2px solid #fff;box-shadow:0 2px 8px rgba(1,49,47,.4);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv40" class="hv40"></a>
-            <a href="/destinations/southland-new-zealand" title="Southland" aria-label="Southland" style="position:absolute;left:19%;top:91%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#02615D;border:2px solid #fff;box-shadow:0 2px 8px rgba(1,49,47,.4);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv41" class="hv41"></a>
+            <img src="assets/nz-regions-map-tight.png" alt="Map of New Zealand with its regions shown in Ethicare brand greens and teals, across the North and South Islands" loading="lazy" style="width:100%;height:100%;object-fit:contain" width="734" height="1026">
+            <a href="/destinations/northland-new-zealand" title="Northland" aria-label="Northland" style="position:absolute;left:62.3%;top:8%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:radial-gradient(circle,#02615D 0 4px,#fff 4px 6px,rgba(1,49,47,0) 6.5px);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv29" class="hv29"></a>
+            <a href="/destinations/auckland-new-zealand" title="Auckland" aria-label="Auckland" style="position:absolute;left:67.4%;top:16.3%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:radial-gradient(circle,#02615D 0 4px,#fff 4px 6px,rgba(1,49,47,0) 6.5px);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv30" class="hv30"></a>
+            <a href="/destinations/waikato-new-zealand" title="Waikato" aria-label="Waikato" style="position:absolute;left:72.9%;top:26.5%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:radial-gradient(circle,#02615D 0 4px,#fff 4px 6px,rgba(1,49,47,0) 6.5px);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv31" class="hv31"></a>
+            <a href="/destinations/bay-of-plenty-new-zealand" title="Bay of Plenty" aria-label="Bay of Plenty" style="position:absolute;left:84.7%;top:26.5%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:radial-gradient(circle,#02615D 0 4px,#fff 4px 6px,rgba(1,49,47,0) 6.5px);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv32" class="hv32"></a>
+            <a href="/destinations/hawkes-bay-new-zealand" title="Hawke's Bay" aria-label="Hawke's Bay" style="position:absolute;left:85.8%;top:37.4%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:radial-gradient(circle,#02615D 0 4px,#fff 4px 6px,rgba(1,49,47,0) 6.5px);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv33" class="hv33"></a>
+            <a href="/destinations/gisborne-new-zealand" title="Gisborne" aria-label="Gisborne" style="position:absolute;left:92.4%;top:29.8%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:radial-gradient(circle,#02615D 0 4px,#fff 4px 6px,rgba(1,49,47,0) 6.5px);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv34" class="hv34"></a>
+            <a href="/destinations/palmerston-north-new-zealand" title="Palmerston North" aria-label="Palmerston North" style="position:absolute;left:75.6%;top:39.7%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:radial-gradient(circle,#02615D 0 4px,#fff 4px 6px,rgba(1,49,47,0) 6.5px);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv35" class="hv35"></a>
+            <a href="/destinations/wellington-new-zealand" title="Wellington" aria-label="Wellington" style="position:absolute;left:75.9%;top:49.4%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:radial-gradient(circle,#02615D 0 4px,#fff 4px 6px,rgba(1,49,47,0) 6.5px);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv36" class="hv36"></a>
+            <a href="/destinations/nelson-tasman-new-zealand" title="Nelson Tasman" aria-label="Nelson Tasman" style="position:absolute;left:50%;top:51.4%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:radial-gradient(circle,#02615D 0 4px,#fff 4px 6px,rgba(1,49,47,0) 6.5px);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv37" class="hv37"></a>
+            <a href="/destinations/christchurch-new-zealand" title="Christchurch" aria-label="Christchurch" style="position:absolute;left:40.7%;top:67.9%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:radial-gradient(circle,#02615D 0 4px,#fff 4px 6px,rgba(1,49,47,0) 6.5px);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv38" class="hv38"></a>
+            <a href="/destinations/central-otago-new-zealand" title="Central Otago" aria-label="Central Otago" style="position:absolute;left:18.3%;top:77.5%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:radial-gradient(circle,#02615D 0 4px,#fff 4px 6px,rgba(1,49,47,0) 6.5px);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv39" class="hv39"></a>
+            <a href="/destinations/dunedin-new-zealand" title="Dunedin" aria-label="Dunedin" style="position:absolute;left:30.9%;top:81.3%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:radial-gradient(circle,#02615D 0 4px,#fff 4px 6px,rgba(1,49,47,0) 6.5px);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv40" class="hv40"></a>
+            <a href="/destinations/southland-new-zealand" title="Southland" aria-label="Southland" style="position:absolute;left:19%;top:91%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:radial-gradient(circle,#02615D 0 4px,#fff 4px 6px,rgba(1,49,47,0) 6.5px);transition:transform .18s ease,background .18s ease" style-before="content:'';position:absolute;left:50%;top:50%;width:30px;height:30px;transform:translate(-50%,-50%);border-radius:50%" data-hv="hv41" class="hv41"></a>
           </div>
         </div>
       <div style="flex:1.25 1 330px">
         <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(21px,2vw,26px);line-height:1.2;margin-bottom:12px">Picture settling somewhere specific</h3>
-        <p style="font-size:16.5px;line-height:1.62;color:#555555;max-width:52ch">Honest detail on each area so you can imagine the everyday, from the commute to the schools to the weekends, before you ever get on a plane.</p>
+        <p style="font-size:16.5px;line-height:1.62;color:#555555;max-width:52ch">Detail on each area so you can imagine the everyday, from the commute to the schools to the weekends, before you ever get on a plane.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0 clamp(18px,2.4vw,36px);margin-top:clamp(26px,3vw,36px);border-top:1.5px solid #02615D">
           <a href="/destinations/auckland-new-zealand" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:46px;padding:6px 0;border-bottom:1px solid rgba(2,97,93,.3);font-family:'Work Sans',sans-serif;font-weight:500;font-size:15.5px;color:#02615D;transition:padding .15s ease" data-hv="hv42" class="hv42">Auckland <span aria-hidden="true" style="color:#72A471">&rarr;</span></a>
           <a href="/destinations/northland-new-zealand" style="display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:46px;padding:6px 0;border-bottom:1px solid rgba(2,97,93,.3);font-family:'Work Sans',sans-serif;font-weight:500;font-size:15.5px;color:#02615D;transition:padding .15s ease" data-hv="hv43" class="hv43">Northland <span aria-hidden="true" style="color:#72A471">&rarr;</span></a>
@@ -609,183 +384,98 @@ main .hv93:hover{transform:translateY(-3px);border-color:#72A471}
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(26px,3vw,36px)">
           <a href="/destinations/new-zealand-relocation-guide" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 26px;border-radius:12px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:background .15s ease,transform .15s ease" data-hv="hv55" class="hv55">Open Moving to New Zealand <span aria-hidden="true">&rarr;</span></a>
-          <a href="#destinations" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 26px;border-radius:12px;background:transparent;border:1.5px solid #72A471;color:#02615D;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:background .15s ease,transform .15s ease" data-hv="hv56" class="hv56">Explore by region <span aria-hidden="true">&rarr;</span></a>
+          
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="family" data-screen-label="NZ landing · bringing your family" style="padding:clamp(56px,6.4vw,84px) 0">
-  <div style="max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px);display:flex;flex-wrap:wrap;gap:clamp(30px,4.6vw,72px);align-items:center">
-    <figure style="flex:1 1 320px;border-radius:20px;overflow:hidden;box-shadow:0 18px 44px rgba(1,49,47,.1)">
-      <img src="assets/nz-life/arrivals-welcome.jpg" loading="lazy" decoding="async" alt="A family arriving at a New Zealand airport, walking beneath a bilingual te reo M&#257;ori and English welcome sign" style="width:100%;aspect-ratio:3/2;object-fit:cover">
-    </figure>
-    <div style="flex:1.15 1 380px">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-        <span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span>
-        <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">Bringing your family</span>
-      </div>
-      <h2 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,38px);line-height:1.12;letter-spacing:-.018em;margin-bottom:18px">Can my family come too?</h2>
-      <p style="font-size:clamp(18px,1.55vw,20px);line-height:1.5;color:#3E4B47;max-width:48ch">For the healthcare professionals we work with, partners are usually eligible to work in New Zealand, children can generally come with you, and many healthcare roles offer a pathway to residence.</p>
-      <p style="font-size:17px;line-height:1.65;color:#555555;max-width:54ch;margin-top:18px">The exact visa route depends on your role and circumstances, but for most candidates this can be a family move, not something you do alone.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:clamp(24px,3vw,34px)">
-        <a href="/guides/new-zealand-visa" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px" data-hv="hv57" class="hv57">Visas &amp; residence <span aria-hidden="true">&rarr;</span></a>
-        <a href="/guides/new-zealand-family" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px" data-hv="hv58" class="hv58">Moving with family <span aria-hidden="true">&rarr;</span></a>
-        <a href="/guides/new-zealand-education" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px" data-hv="hv59" class="hv59">Schools &amp; education <span aria-hidden="true">&rarr;</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="belonging" data-screen-label="NZ landing · belonging" style="padding:clamp(56px,6.4vw,84px) 0;background:#E3ECE5">
-  <div style="max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px);display:flex;flex-wrap:wrap;gap:clamp(30px,4.6vw,72px);align-items:center">
-    <div style="flex:1.15 1 380px;max-width:56ch">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-        <span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span>
-        <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">Life beyond work</span>
-      </div>
-      <h2 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,38px);line-height:1.12;letter-spacing:-.018em;margin-bottom:18px">A job is only part of a life</h2>
-      <p style="font-size:clamp(18px,1.55vw,20px);line-height:1.5;color:#3E4B47">Moving country means rebuilding the everyday things too, friendships, routines, community and a sense of belonging.</p>
-      <p style="font-size:17px;line-height:1.65;color:#555555;margin-top:18px">New Zealand is home to well-established South African, Filipino, Indian and many other international communities. Whether you are looking for familiar food, a faith community, cultural groups or people who understand what it is like to start again somewhere new, you will not be doing it alone.</p>
-      <p style="margin-top:24px"><a href="/guides/new-zealand-community" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px" data-hv="hv60" class="hv60">Explore community &amp; belonging <span aria-hidden="true">&rarr;</span></a></p>
-    </div>
-    <figure style="flex:1 1 320px;border-radius:20px;overflow:hidden;box-shadow:0 18px 44px rgba(1,49,47,.1)">
-      <img src="assets/nz-life/nz-life-family-bbq.jpg" loading="lazy" decoding="async" alt="Friends and family gathered around a shared table outdoors on a summer evening" style="width:100%;aspect-ratio:4/3;object-fit:cover">
-    </figure>
-  </div>
-</section>
-
-<!-- THE EVERYDAY — mirrors the Australian hub's #everyday section. The three New Zealand national
-     chapters were only reachable from destination guides and the resources library, never from
-     this hub. Cream between Soft Sage above and the cream #journey below. -->
-<section id="everyday" data-screen-label="NZ landing · the everyday" style="padding:clamp(56px,6.4vw,84px) 0 0">
+<section id="family" data-screen-label="NZ landing · family and belonging" style="padding:clamp(56px,6.4vw,84px) 0">
   <div style="max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px)">
-    <div style="max-width:660px">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-        <span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span>
-        <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">The everyday</span>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">The people coming with you</span></div>
+    <h2 style="font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(30px,3.8vw,46px);line-height:1.06;letter-spacing:-.03em;margin-bottom:clamp(28px,3.2vw,40px);max-width:22ch">You won&rsquo;t be doing this alone</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(18px,2.4vw,28px)">
+      <div style="background:#E3ECE5;border-radius:18px;padding:clamp(28px,3vw,38px)">
+        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:22px;line-height:1.22;margin-bottom:14px">Can my family come too?</h3>
+        <p style="font-size:16.5px;line-height:1.62;color:#3E4B47;max-width:46ch">For the healthcare professionals we work with, partners are usually eligible to work, children can generally come with you, and many roles offer a pathway to residence. The exact route depends on your role &mdash; but for most, this is a family move, not something you do alone.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:22px">
+          <a href="/guides/new-zealand-visa" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px" data-hv="hv57" class="hv57">Visas &amp; residence <span aria-hidden="true">&rarr;</span></a>
+          <a href="/guides/new-zealand-family" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px" data-hv="hv58" class="hv58">Moving with family <span aria-hidden="true">&rarr;</span></a>
+          <a href="/guides/new-zealand-education" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px" data-hv="hv59" class="hv59">Schools &amp; education <span aria-hidden="true">&rarr;</span></a>
+        </div>
       </div>
-      <h2 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,38px);line-height:1.12;letter-spacing:-.018em;margin-bottom:18px">The admin nobody warns you about</h2>
-      <p style="font-size:clamp(18px,1.55vw,20px);line-height:1.5;color:#3E4B47">Three things that quietly decide how your first few months feel. All three are easier if you understand them before you fly.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:clamp(14px,1.8vw,20px);margin-top:clamp(28px,3.4vw,40px)">
-      <a href="/guides/driving-and-licences" data-hv="hv91" class="hv91" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Driving &amp; licences</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:34ch;margin-bottom:14px">Converting an overseas licence, the road rules that catch people out, and what buying a used car involves: WOF, rego and Road User Charges.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Read the guide <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/guides/money-tax-and-banking" data-hv="hv92" class="hv92" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Money, tax &amp; banking</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:34ch;margin-bottom:14px">Your IRD number, a first payslip explained line by line, KiwiSaver, building a credit history from nothing, and sending money home.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Read the guide <span aria-hidden="true">&rarr;</span></span>
-      </a>
-      <a href="/guides/renting-in-new-zealand" data-hv="hv93" class="hv93" style="display:flex;flex-direction:column;color:inherit;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;padding:clamp(24px,2.6vw,30px);transition:transform .18s ease,border-color .18s ease">
-        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;line-height:1.25;margin-bottom:8px">Renting</h3>
-        <p style="font-size:15px;line-height:1.55;color:#2F5E49;max-width:34ch;margin-bottom:14px">The application pack that wins a viewing, how bond works, your tenancy rights, the Healthy Homes standards, and the scams to watch for.</p>
-        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D">Read the guide <span aria-hidden="true">&rarr;</span></span>
-      </a>
+      <div style="background:#E3ECE5;border-radius:18px;padding:clamp(28px,3vw,38px)">
+        <h3 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:22px;line-height:1.22;margin-bottom:14px">Finding your feet, and your people</h3>
+        <p style="margin:0 0 16px;padding:14px 16px;border-radius:12px;background:#fff;border-left:4px solid #A6C84A;font-size:15.5px;line-height:1.55;color:#3E4B47"><strong style="color:#02615D">The second friendliest country in the world.</strong> New Zealand came second, just behind Costa Rica, in Cond&eacute; Nast Traveller&rsquo;s 2026 Readers&rsquo; Choice Awards, voted for by its readers (October 2026). <a href="https://www.stuff.co.nz/travel/361043376/nz-named-worlds-second-friendliest-country-just-missing-top-spot-fraction" target="_blank" rel="noopener" style="color:#02615D;font-weight:600">Source &rarr;</a></p>
+        <p style="font-size:16.5px;line-height:1.62;color:#3E4B47;max-width:46ch">Belonging matters just as much if you&rsquo;re moving on your own. New Zealand is small and welcoming, and the first months are easier when you know what to expect &mdash; the friendships, the communities already here, and the honest dip that comes around month three.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:22px">
+          <a href="/guides/new-zealand-community" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px" data-hv="hv57" class="hv57">Finding community <span aria-hidden="true">&rarr;</span></a>
+          <a href="/guides/new-zealand-first-month" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px" data-hv="hv58" class="hv58">Your first month <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="journey" data-screen-label="NZ landing · guides &amp; resources" style="padding:clamp(56px,6.4vw,84px) 0 0">
+
+<!-- Ask + Move, named as a pair (6 Oct 2026 review: "Ask Ethicare = help me understand. Plan Ethicare
+     = help me do it." — the two things that separate this from an agency with vacancies). -->
+<section id="understand-and-do" data-screen-label="NZ landing &middot; Ask and Plan" style="padding:clamp(64px,7.4vw,100px) 0;background:#01312F;color:#fff">
   <div style="max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px)">
-    <div style="max-width:660px">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-        <span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span>
-        <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">Guides &amp; resources</span>
-      </div>
-      <h2 style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(28px,3.2vw,38px);line-height:1.12;letter-spacing:-.018em;margin-bottom:18px">From deciding to settling in</h2>
-      <p style="font-size:clamp(18px,1.55vw,20px);line-height:1.5;color:#555555;max-width:52ch">Registration, visas, the CV, the costs, the schools, the first few weeks. Six areas, written to be returned to rather than read in one go.</p>
+    <div style="max-width:60ch;margin-bottom:clamp(28px,3.6vw,44px)">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C6E084">Still weighing it up?</span></div>
+      <h2 style="font-weight:300;font-size:clamp(32px,4.2vw,50px);line-height:1.06;letter-spacing:-.03em;color:#fff;margin:0 0 14px">Help me understand. Help me plan my move.</h2>
+      <p style="font-size:clamp(17px,1.5vw,19px);line-height:1.6;color:#CFE3DC;margin:0">Two things we built for exactly this decision, both free, whether or not your job comes from us.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:clamp(18px,2.2vw,28px);margin-top:clamp(30px,3.6vw,44px)">
-      <a href="/resources#step-01" style="display:flex;flex-direction:column;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease" data-hv="hv61" class="hv61">
-        <figure style="margin:0;overflow:hidden;background:#E6F1ED"><img src="assets/step-1.jpg" alt="" loading="lazy" decoding="async" style="width:100%;aspect-ratio:16/10;object-fit:cover"></figure>
-        <div style="padding:16px 18px 20px;display:flex;flex-direction:column;gap:5px">
-          <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.1em;color:#2F5E49">01</span>
-          <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:19px;line-height:1.25;letter-spacing:-.01em;color:#02615D">Deciding</span>
-          <span style="font-size:14.5px;line-height:1.55;color:#2F5E49">An honest look at the life and the trade-offs</span>
-        </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(16px,2vw,24px)">
+      <a href="/ask" style="display:block;background:#02615D;border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:clamp(24px,2.8vw,36px);text-decoration:none;color:#fff">
+        <img src="/assets/brand/ask-ethicare-logo.svg" alt="Ask Ethicare" width="462" height="137" style="height:44px;width:auto;display:block;margin-bottom:18px" decoding="async">
+        <p style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#C6E084;margin:0 0 8px">Help me understand</p>
+        <p style="font-size:17px;line-height:1.6;color:#E6F1ED;margin:0 0 18px">Ask anything about working, registering or moving to New Zealand, the way you&rsquo;d ask someone who has done it. It answers from our own guides and points you at the page you needed.</p>
+        <p style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:16.5px;line-height:1.5;color:#C6E084;margin:0 0 20px">&ldquo;Will my registration transfer to New Zealand?&rdquo; &middot; &ldquo;Could my partner work on my visa?&rdquo; &middot; &ldquo;Where would suit a family with two careers?&rdquo;</p>
+        <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;color:#fff;border-bottom:2px solid #A6C84A;padding-bottom:2px">Ask Ethicare <span aria-hidden="true">&rarr;</span></span>
       </a>
-      <a href="/resources#step-02" style="display:flex;flex-direction:column;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease" data-hv="hv62" class="hv62">
-        <figure style="margin:0;overflow:hidden;background:#E6F1ED"><img src="assets/step-2.jpg" alt="" loading="lazy" decoding="async" style="width:100%;aspect-ratio:16/10;object-fit:cover"></figure>
-        <div style="padding:16px 18px 20px;display:flex;flex-direction:column;gap:5px">
-          <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.1em;color:#2F5E49">02</span>
-          <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:19px;line-height:1.25;letter-spacing:-.01em;color:#02615D">Registration &amp; pay</span>
-          <span style="font-size:14.5px;line-height:1.55;color:#2F5E49">Licensing, eligibility, your regulator and the published pay scales</span>
-        </div>
+      <a href="/plan" style="display:block;background:#FCFBF8;border-radius:20px;padding:clamp(24px,2.8vw,36px);text-decoration:none;color:#02615D">
+        <p style="font-family:'Work Sans',sans-serif;font-weight:300;font-size:34px;line-height:1;letter-spacing:-.02em;color:#02615D;margin:0 0 18px;height:44px;display:flex;align-items:center"><img src="/assets/brand/plan-ethicare-logo-on-light.svg" alt="Plan Ethicare" width="330" height="137" style="height:44px;width:auto;display:block" decoding="async"></p>
+        <p style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin:0 0 8px">Help me plan my move</p>
+        <p style="font-size:17px;line-height:1.6;color:#3E4B47;margin:0 0 18px">The whole move, sequenced &mdash; registration, visa, money, the people coming with you, the first month &mdash; in the order it actually happens, saved as you go.</p>
+        <p style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:16.5px;line-height:1.5;color:#2F5E49;margin:0 0 20px">Eight stages. Start at whichever one you are at.</p>
+        <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;color:#02615D;border-bottom:2px solid #72A471;padding-bottom:2px">Open Plan Ethicare <span aria-hidden="true">&rarr;</span></span>
       </a>
-      <a href="/resources#step-03" style="display:flex;flex-direction:column;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease" data-hv="hv63" class="hv63">
-        <figure style="margin:0;overflow:hidden;background:#E6F1ED"><img src="assets/step-3.jpg" alt="" loading="lazy" decoding="async" style="width:100%;aspect-ratio:16/10;object-fit:cover"></figure>
-        <div style="padding:16px 18px 20px;display:flex;flex-direction:column;gap:5px">
-          <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.1em;color:#2F5E49">03</span>
-          <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:19px;line-height:1.25;letter-spacing:-.01em;color:#02615D">CV &amp; interviews</span>
-          <span style="font-size:14.5px;line-height:1.55;color:#2F5E49">Presenting your experience to NZ employers</span>
-        </div>
-      </a>
-      <a href="/resources#step-04" style="display:flex;flex-direction:column;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease" data-hv="hv64" class="hv64">
-        <figure style="margin:0;overflow:hidden;background:#E6F1ED"><img src="assets/step-4.jpg" alt="" loading="lazy" decoding="async" style="width:100%;aspect-ratio:16/10;object-fit:cover"></figure>
-        <div style="padding:16px 18px 20px;display:flex;flex-direction:column;gap:5px">
-          <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.1em;color:#2F5E49">04</span>
-          <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:19px;line-height:1.25;letter-spacing:-.01em;color:#02615D">Visas</span>
-          <span style="font-size:14.5px;line-height:1.55;color:#2F5E49">The routes, and what they mean for your family</span>
-        </div>
-      </a>
-      <a href="/resources#step-05" style="display:flex;flex-direction:column;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease" data-hv="hv65" class="hv65">
-        <figure style="margin:0;overflow:hidden;background:#E6F1ED"><img src="assets/step-5.jpg" alt="" loading="lazy" decoding="async" style="width:100%;aspect-ratio:16/10;object-fit:cover"></figure>
-        <div style="padding:16px 18px 20px;display:flex;flex-direction:column;gap:5px">
-          <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.1em;color:#2F5E49">05</span>
-          <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:19px;line-height:1.25;letter-spacing:-.01em;color:#02615D">Preparing to move</span>
-          <span style="font-size:14.5px;line-height:1.55;color:#2F5E49">Costs, flights, shipping, schools, pets</span>
-        </div>
-      </a>
-      <a href="/resources#step-06" style="display:flex;flex-direction:column;background:#FCFBF8;border:1px solid #C9DED3;border-radius:18px;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease" data-hv="hv66" class="hv66">
-        <figure style="margin:0;overflow:hidden;background:#E6F1ED"><img src="assets/step-6.jpg" alt="" loading="lazy" decoding="async" style="width:100%;aspect-ratio:16/10;object-fit:cover"></figure>
-        <div style="padding:16px 18px 20px;display:flex;flex-direction:column;gap:5px">
-          <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.1em;color:#2F5E49">06</span>
-          <span style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:19px;line-height:1.25;letter-spacing:-.01em;color:#02615D">Settling in</span>
-          <span style="font-size:14.5px;line-height:1.55;color:#2F5E49">The first weeks, and the months after them</span>
-        </div>
-      </a>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px;margin-top:clamp(30px,3.6vw,44px)">
-      <a href="/resources" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 26px;border-radius:12px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:background .15s ease,transform .15s ease" data-hv="hv67" class="hv67">Open the guides <span aria-hidden="true">&rarr;</span></a>
-      <p style="font-size:15px;line-height:1.6;color:#555555;max-width:44ch">Or <a href="/move" style="font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D;border-bottom:2px solid #72A471" data-hv="hv68" class="hv68">head to Ethicare Move</a> &mdash; everything you need to start planning your journey.</p>
     </div>
   </div>
-  <figure style="margin-top:clamp(44px,5.4vw,72px)">
-    <img src="assets/nz-life/lake-from-high-track.jpg" width="1500" height="512" alt="Lake W&#257;naka and the surrounding ranges seen from a high walking track" loading="lazy" decoding="async" style="width:100%;height:clamp(220px,32vh,400px);object-fit:cover;object-position:50% 55%">
-  </figure>
 </section>
 
 <section id="opportunities" data-screen-label="NZ landing · roles and next step" style="padding:clamp(64px,7.4vw,104px) 0">
   <div style="max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px)">
     <div style="max-width:640px">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-        <span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span>
-        <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">Live roles</span>
-      </div>
-      <h2 style="font-weight:300;font-size:clamp(32px,4.2vw,50px);line-height:1.05;letter-spacing:-.03em;margin-bottom:20px">Roles across New Zealand</h2>
-      <p style="font-size:clamp(18px,1.55vw,20px);line-height:1.5;color:#555555;max-width:52ch">See what is on the job board now, or tell us your profession and where you would like to be and we will let you know when something fits.</p>
-      <div style="margin-top:clamp(26px,3vw,36px)">
-        <a href="/jobs/" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 26px;border-radius:12px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:background .15s ease,transform .15s ease" data-hv="hv69" class="hv69">See current roles <span aria-hidden="true">&rarr;</span></a>
-      </div>
-      <p style="margin-top:clamp(22px,2.6vw,30px);font-size:15px;line-height:1.65;color:#2F5E49;max-width:52ch">Not ready to look yet? <a href="/contact" style="font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D;border-bottom:2px solid #72A471" data-hv="hv70" class="hv70">Talk to us</a> &mdash; whether you are curious or close to deciding, there is no pressure in a conversation. You can also <a href="/apply" style="font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D;border-bottom:2px solid #72A471" data-hv="hv71" class="hv71">register your interest</a> and hear from us when something suits.</p>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><span aria-hidden="true" style="display:block;width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none"></span><span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49">Live roles</span></div>
+      <h2 style="font-weight:300;font-size:clamp(32px,4.2vw,50px);line-height:1.05;letter-spacing:-.03em;margin-bottom:18px">Roles open in New Zealand now</h2>
+      <p style="font-size:clamp(17px,1.5vw,19px);line-height:1.5;color:#555555;max-width:56ch">A snapshot of what&rsquo;s live. We work with several employers, so more moves happen than ever reach the board &mdash; if nothing here fits your profession or region, tell us and we&rsquo;ll be in touch when something does.</p>
     </div>
+    <div id="nz-live-roles" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(16px,2vw,22px);margin-top:clamp(30px,3.6vw,44px);max-width:1000px"></div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(28px,3vw,40px)">
+      <a href="/jobs/" data-hv="hv69" class="hv69" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 26px;border-radius:12px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:background .15s ease,transform .15s ease">See all New Zealand roles <span aria-hidden="true">&rarr;</span></a>
+      <a href="/contact" data-hv="hv14" class="hv14" style="display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:13px 26px;border-radius:12px;background:transparent;border:1.5px solid #72A471;color:#02615D;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;transition:background .15s ease,transform .15s ease">Discuss my options <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <p style="margin-top:clamp(22px,2.6vw,30px);font-size:15px;line-height:1.65;color:#2F5E49;max-width:56ch">Curious or close to deciding, there&rsquo;s no pressure in a conversation &mdash; or <a href="/register-interest" style="font-family:'Work Sans',sans-serif;font-weight:600;color:#02615D;border-bottom:2px solid #72A471" data-hv="hv71" class="hv71">register your interest</a> and hear from us when something suits.</p>
   </div>
 </section>
-
-
+<script src="jobs/jobs-data.js"></script>
+<script>(function(){var el=document.getElementById('nz-live-roles');if(!el||!window.ETHICARE_JOBS)return;var jobs=window.ETHICARE_JOBS.filter(function(j){return (j.country||'')==='New Zealand';}).slice(0,3);if(!jobs.length){el.style.display='none';return;}el.innerHTML=jobs.map(function(j){var chips=(j.types||[]).slice(0,2).map(function(t){return "<span style='font-family:Work Sans,sans-serif;font-weight:600;font-size:12px;color:#2F5E49;background:#E3ECE5;border-radius:999px;padding:5px 12px'>"+t+"</span>";}).join(' ');return "<a href='"+j.detail+"' data-hv='hv92' class='hv92' style='display:flex;flex-direction:column;background:#FCFBF8;border:1px solid #E4EDE7;border-radius:14px;padding:24px;color:inherit;text-decoration:none;transition:transform .18s ease,border-color .18s ease'><span style='font-family:Work Sans,sans-serif;font-weight:600;font-size:18.5px;line-height:1.25;color:#02615D;margin-bottom:6px'>"+j.title+"</span><span style='font-family:Work Sans,sans-serif;font-weight:600;font-size:13.5px;color:#555;margin-bottom:14px'>"+j.location+" &middot; "+j.sector+"</span><span style='display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px'>"+chips+"</span><span style='margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:Work Sans,sans-serif;font-weight:600;font-size:14.5px;color:#02615D'>View role &rarr;</span></a>";}).join('');})();</script>
 
 </div>
+
+<div class="shell" style="padding:clamp(36px,5vw,64px) 0 clamp(44px,6vw,76px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>
+<script src="page-feedback.js" defer></script>
 <footer class="site-footer">
   <div class="shell">
     <div class="f-cols">
       <div class="f-brand">
-        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt=""><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
-        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Calm, honest guidance for one of life&rsquo;s biggest moves.</p>
+        <a class="brand light" href="/"><img decoding="async" src="assets/logo-mark.png" alt="" width="387" height="387" loading="lazy"><span>Ethicare<strong>&nbsp;Resourcing</strong></span></a>
+        <p>Specialist healthcare recruitment and relocation across New Zealand and Australia. Support through one of life’s biggest moves.</p>
         <div class="f-contact">
           <span><span class="f-k">Email</span><a href="mailto:hello@ethicareresourcing.com">hello@ethicareresourcing.com</a></span>
           <span><span class="f-k">Phone</span><a href="tel:+442046266580">+44 20 4626 6580</a></span>
@@ -798,64 +488,13 @@ main .hv93:hover{transform:translateY(-3px);border-color:#72A471}
         </div>
       </div>
       <div class="f-col"><h2>Destinations</h2><a href="/new-zealand">Careers in New Zealand</a><a href="/australia">Careers in Australia</a><a href="/destinations/">NZ destination guides</a><a href="/destinations/australia">AU destination guides</a></div>
-      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/resources">Guides &amp; resources</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
+      <div class="f-col"><h2>Candidates</h2><a href="/jobs/">Live roles &amp; professions</a><a href="/jobs/professions">All professions</a><a href="/my-pack">Create my pack</a><a href="/pathway-checker">Registration pathway checker</a><a href="/apply">Apply / submit your CV</a></div>
       <div class="f-col"><h2>Company</h2><a href="/about-ethicare">About Ethicare</a><a href="/employers">For employers</a><a href="/submit-a-vacancy">Submit a vacancy</a><a href="/contact">Contact us</a></div>
     </div>
     <div class="f-base"><span>&copy; 2026 Ethicare Resourcing<span class="f-sep">&middot;</span><a href="/privacy-policy">Privacy Policy</a><span class="f-sep">&middot;</span><a href="/how-we-use-your-information">Your information</a><span class="f-sep">&middot;</span><a href="/equality-diversity-and-inclusion">Equality &amp; inclusion</a><span class="f-sep">&middot;</span><a href="/modern-slavery-statement">Modern slavery</a></span><span>Care &middot; Clarity &middot; Long-term thinking</span></div>
   </div>
 </footer>
 
-<!-- ============================================================
-     INTERNAL LINK MAP — /new-zealand
-     ============================================================
-  HEADER NAV — Brand/Home → / · Australia → /australia · New Zealand [current] · Jobs → /jobs/
-    · Ethicare Move → /move · About → /about-ethicare · For employers → /employers · Contact → /contact
-  HERO / IN-PAGE — Why New Zealand → #why · Life outside work → #life · What it's like to work here → #working
-    · Find your profession → #professions · Registration & pay → #pathway · Destinations → #destinations · Family → #family
-  WELCOME — Read my story (Sophie Careem) → /about-ethicare
-  WHY NEW ZEALAND — Get to know Aotearoa → /guides/about-new-zealand
-    · Honest guide to living in New Zealand → /guides/living-in-new-zealand
-    · Understand the healthcare system → /guides/new-zealand-healthcare
-  FIND YOUR PROFESSION (#professions) — five families:
-    Medical imaging & radiation → /jobs/medical-imaging-new-zealand
-    Allied health              → /jobs/allied-health-new-zealand
-    Medicine                   → /jobs/medicine-new-zealand
-    Anaesthetists              → /jobs/anaesthetist-new-zealand
-    Emergency medicine         → /jobs/emergency-medicine-new-zealand
-    Obstetrics & gynaecology   → /jobs/obstetrics-gynaecology-new-zealand
-    Paediatricians             → /jobs/paediatrician-new-zealand
-    Psychiatrists              → /jobs/psychiatrist-new-zealand
-    Mental health              → /jobs/mental-health-new-zealand
-    Theatre & perioperative    → /jobs/theatre-perioperative-new-zealand
-    Looking for a different profession → /resources/healthcare-regulators
-    Every profession we recruit into   → /jobs/professions
-  REGISTRATION & PAY (#pathway) — Check my registration pathway → /pathway-checker?destination=new-zealand
-    · Salary, explained honestly → /guides/new-zealand-salary · Which agreement sets your pay → /guides/new-zealand-pay-agreements
-  DESTINATIONS (#destinations) — Moving to New Zealand (master) → /destinations/new-zealand-relocation-guide
-    Regions map + list, all 13 → /destinations/{region}-new-zealand:
-      northland · auckland · waikato · bay-of-plenty · hawkes-bay · gisborne · palmerston-north
-      · wellington · nelson-tasman · christchurch · central-otago · dunedin · southland
-  FAMILY (#family) — Visas & residence → /guides/new-zealand-visa · Moving with family → /guides/new-zealand-family
-    · Schools & education → /guides/new-zealand-education · Community & belonging → /guides/new-zealand-community
-  THE EVERYDAY (#everyday) — Driving & licences → /guides/driving-and-licences
-    · Money, tax & banking → /guides/money-tax-and-banking · Renting → /guides/renting-in-new-zealand
-  GUIDES & RESOURCES — six steps → /resources#step-01 … #step-06 · Open the guides → /resources · Ethicare Move → /move
-  FINAL CTA — See current roles → /jobs/ · Register your interest → /apply · Talk to us → /contact
-  FOOTER — Careers in New Zealand → /new-zealand · Careers in Australia → /australia
-    · NZ destination guides → /destinations · AU destination guides → /destinations/australia
-    · Live roles & professions → /jobs/ · All professions → /jobs/professions · Guides & resources → /resources
-    · Registration pathway checker → /pathway-checker · Ethicare Move → /move
-    · About Ethicare → /about-ethicare · For employers → /employers · Submit a vacancy → /submit-a-vacancy · Contact us → /contact
-    · Privacy Policy → /privacy-policy · Your information → /how-we-use-your-information
-    · Equality & inclusion → /equality-diversity-and-inclusion · Modern slavery → /modern-slavery-statement
-    · hello@ethicareresourcing.com · +44 20 4626 6580
-     ============================================================
-   Page Title:       Working in New Zealand | Ethicare Resourcing
-   URL Slug:         /new-zealand
-   SEO Title:        Working in New Zealand — Healthcare Careers & Relocation | Ethicare
-   Meta Description: Working in New Zealand as an internationally qualified clinician — the professions we
-     recruit, registration and pay, all 13 regions, and honest guidance on the whole move.
-     ============================================================ -->
 <script src="site.js"></script>
 <script src="nav.js" defer></script>
 </body>

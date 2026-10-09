@@ -2,6 +2,15 @@
 
 [build]
   publish = "."
+  # Privacy guard (7 Oct 2026). Personal welcome books made for individual candidate
+  # families must never be served from the public site, even if a copy lands in the repo
+  # again. They are removed from every deploy here; the originals belong outside the
+  # site folder. Nothing on the site links to them.
+  # Archived 8 Oct 2026 (kept in the repo and in the intranet Archive, never served): the 13
+  # regional brochures, three old draft guides, and the retired webinar page.
+  # Also (7 Oct 2026): working notes, setup SQL and build scripts live in the repo for us,
+  # not on the public site — DELETE-THESE.md and friends were readable by anyone.
+  command = "rm -f 'assets/downloads/Welcome to Wellington - '*.html 'assets/downloads/Your First Year in Wellington - '*.html && find . -name '*.md' -not -path './.git/*' -not -path './node_modules/*' -not -path './netlify/*' -delete && rm -rf supabase tools __pycache__ && rm -f assets/downloads/*-brochure.pdf 'assets/downloads/Emergency Medicine in New Zealand - Ethicare.html' 'assets/downloads/Moving to New Zealand - Ethicare.html' 'assets/downloads/Moving to New Zealand - The Master Guide.html' webinar-medical-imaging-australia.html"
 
 # Ask Ethicare's server-side LLM proxy lives here. Without this block Netlify
 # never bundles it and /.netlify/functions/ask-ethicare returns 404.
@@ -17,6 +26,288 @@
 
 # Retired root comparison page → canonical guides URL (301)
 [[redirects]]
+  # The page answers the question for both countries, so "here" never meant
+  # anything on it — renamed to match its own H1 on 28 Sep 2026.
+  from = "/can-i-work-here"
+  to = "/can-i-work-there"
+  status = 301
+  force = true
+
+[[redirects]]
+  # 6 Oct 2026: the region finder got its proper name. Fragments (#finder) carry across.
+  from = "/where-would-we-live"
+  to = "/destination-finder"
+  status = 301
+  force = true
+
+# 7 Oct 2026: the earnings page has a plain name. The old address keeps working.
+[[redirects]]
+  from = "/is-it-worth-it"
+  to = "/what-could-i-earn"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/is-it-worth-it.html"
+  to = "/what-could-i-earn"
+  status = 301
+  force = true
+
+# 7 Oct 2026: destination pages are folders, so Netlify used to bounce
+# /destinations/sydney-australia to /destinations/sydney-australia/ before serving it.
+# Every link and every canonical tag uses the address without the slash, so serve that
+# address directly (a rewrite, not a redirect). Add a line here for any new destination.
+[[redirects]]
+  from = "/destinations/adelaide-australia"
+  to = "/destinations/adelaide-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/auckland-new-zealand"
+  to = "/destinations/auckland-new-zealand/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/bay-of-plenty-new-zealand"
+  to = "/destinations/bay-of-plenty-new-zealand/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/brisbane-australia"
+  to = "/destinations/brisbane-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/bunbury-australia"
+  to = "/destinations/bunbury-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/bundaberg-australia"
+  to = "/destinations/bundaberg-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/canberra-australia"
+  to = "/destinations/canberra-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/central-otago-new-zealand"
+  to = "/destinations/central-otago-new-zealand/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/christchurch-new-zealand"
+  to = "/destinations/christchurch-new-zealand/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/darwin-australia"
+  to = "/destinations/darwin-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/dunedin-new-zealand"
+  to = "/destinations/dunedin-new-zealand/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/geelong-australia"
+  to = "/destinations/geelong-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/gisborne-new-zealand"
+  to = "/destinations/gisborne-new-zealand/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/gold-coast-australia"
+  to = "/destinations/gold-coast-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/hawkes-bay-new-zealand"
+  to = "/destinations/hawkes-bay-new-zealand/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/hobart-australia"
+  to = "/destinations/hobart-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/mandurah-australia"
+  to = "/destinations/mandurah-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/melbourne-australia"
+  to = "/destinations/melbourne-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/nelson-tasman-new-zealand"
+  to = "/destinations/nelson-tasman-new-zealand/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/new-south-wales-australia"
+  to = "/destinations/new-south-wales-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/newcastle-australia"
+  to = "/destinations/newcastle-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/northland-new-zealand"
+  to = "/destinations/northland-new-zealand/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/palmerston-north-new-zealand"
+  to = "/destinations/palmerston-north-new-zealand/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/perth-australia"
+  to = "/destinations/perth-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/queensland-australia"
+  to = "/destinations/queensland-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/south-australia-australia"
+  to = "/destinations/south-australia-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/southland-new-zealand"
+  to = "/destinations/southland-new-zealand/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/sydney-australia"
+  to = "/destinations/sydney-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/tasmania-australia"
+  to = "/destinations/tasmania-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/victoria-australia"
+  to = "/destinations/victoria-australia/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/waikato-new-zealand"
+  to = "/destinations/waikato-new-zealand/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/wellington-new-zealand"
+  to = "/destinations/wellington-new-zealand/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/destinations/western-australia-australia"
+  to = "/destinations/western-australia-australia/index.html"
+  status = 200
+  force = true
+
+
+[[redirects]]
+  # 7 Oct 2026: short address for social posts. Query strings (to, role, utm_*) carry across.
+  from = "/start"
+  to = "/interested"
+  status = 301
+  force = true
+
+[[redirects]]
+  # 7 Oct 2026: one place for guides. "Create my pack" replaces both the resources
+  # library and the single-guide request page. Query strings carry across, so the old
+  # /request-a-guide?guide=<area> links still tick that guide.
+  from = "/request-a-guide"
+  to = "/my-pack"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/resources"
+  to = "/my-pack"
+  status = 301
+  force = true
+
+[[redirects]]
+  # 8 Oct 2026: the medical imaging webinar page was dropped. Old links land on the profession page.
+  from = "/webinar-medical-imaging-australia"
+  to = "/jobs/medical-imaging-australia"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/webinar-medical-imaging-australia.html"
+  to = "/jobs/medical-imaging-australia"
+  status = 301
+  force = true
+
+[[redirects]]
+  # 6 Oct 2026: Ethicare Move became Plan Ethicare — the tool plans; "move" is what the
+  # person is doing. Old links keep working. Fragments (#s3) carry across.
+  from = "/move"
+  to = "/plan"
+  status = 301
+  force = true
+
+[[redirects]]
+  # move-steps was the eight-stage rebuild; on 29 Sep 2026 /move became that
+  # page, so the rebuild's URL folds into it.
+  from = "/move-steps"
+  to = "/plan"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/australia-vs-new-zealand"
   to = "/guides/australia-vs-new-zealand"
   status = 301
@@ -30,6 +321,77 @@
   status = 301
   force = true
 
+# Australia launched medical-imaging-first (Sep 2026). The non-imaging AU family
+# routers are not built yet; their single canonical surface is the brewing hub,
+# which captures interest. force=true so the redirect wins even if a stale file
+# lingers. Remove a line here when that family's AU offering goes live.
+[[redirects]]
+  from = "/jobs/medicine-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/jobs/nursing-midwifery-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/jobs/mental-health-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+[[redirects]]
+# The six Australian professions Ethicare does not yet recruit (allied health, mental
+# health, nursing & midwifery, medicine, theatre & perioperative, psychology) redirect to
+# the one page that says what IS recruited there. The pages stay in the repo, finished and
+# dormant, until each profession goes live — these six lines are what keeps them off the
+# site, so deleting one publishes a page promising a service we do not offer.
+  from = "/jobs/allied-health-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/jobs/theatre-perioperative-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/jobs/psychologist-australia"
+  to = "/jobs/coming-to-australia"
+  status = 301
+  force = true
+
+# Internal-only surfaces: the Netlify Forms declaration page and the design
+# prototypes are reachable but must never be indexed (14 Sep 2026).
+# /pack/ itself must never list anything: each space is reached only by its own link.
+[[redirects]]
+  from = "/pack/"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[headers]]
+  for = "/_forms/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/prototypes/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/thank-you"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+# 8 Oct 2026: the candidate welcome packs go out through My Plan only. Served, so the link in a
+# candidate's space works, but kept out of search.
+[[headers]]
+  for = "/assets/downloads/*-candidate-welcome-pack.pdf"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 # Security + caching headers
 [[headers]]
   for = "/*"
@@ -38,8 +400,47 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
 
+# Content-addressed assets (images, fonts, downloads) never change under the
+# same filename — cache them for a year.
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Stylesheets and scripts are NOT fingerprinted (site.css, shell.css, move.js),
+# so they must be re-checked on every load, exactly like the HTML that calls them.
+# 5 Oct 2026: the previous "hour, then stale-while-revalidate for a week" served a
+# returning visitor the NEW ask.html with the OLD candidate-context.js for an hour or
+# more after every deploy, and ask-mine.js then failed on a function the old script did
+# not have. Sophie saw the page do nothing; so would every returning candidate. A
+# conditional request is a 304 and a few bytes — the cost of re-checking is nothing
+# next to a page that silently does not work after a release.
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# HTML must always be checked — content and pricing change.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Candidates' private spaces (/pack/<slug>, see site/pack/README.md). The link is the
+# credential — decided 15 Sep 2026, same position as the named PDFs — so the page must
+# never sit in a shared cache or a back-button history on a hospital or library machine,
+# and never be indexed even if a <meta> tag is lost. Kept last so it wins over /*.css and
+# /*.js for pack.css and pack.js too; no-store is the stricter directive either way.
+[[headers]]
+  for = "/pack/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Cache-Control = "private, no-store"
+    Referrer-Policy = "no-referrer"

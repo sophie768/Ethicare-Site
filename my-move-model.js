@@ -1,4 +1,4 @@
-/* My Move planner — data model + controlled vocabularies (prototype, 30 Aug 2026).
+/* My Plan planner — data model + controlled vocabularies (prototype, 30 Aug 2026).
    The planner is built around five record types, NOT pages:
      TASKS      what still needs doing        {id,section,title,why,links{nz,au}|link,status,due,note}
      COSTS      what it costs / gets back     {id,section,category,label,estimate,actual,funding,date,receipt}
@@ -77,8 +77,8 @@ window.MM = (function () {
     { id: 'fx', section: 'money', title: 'Plan how you’ll move your money', why: 'The rate and the fee both matter on a sum this size.', links: { nz: '/guides/money-tax-and-banking', au: '/guides/australia-money' } },
     { id: 'budget', section: 'money', tool: true, title: 'Build your move budget', why: 'Know the number before you resign anything.', link: '/cost-calculator' },
     { id: 'flights', section: 'travel', title: 'Price and book flights', why: 'Baggage allowance is part of the shipping decision.', links: { nz: '/guides/new-zealand-relocation', au: '/guides/australia-relocation' } },
-    { id: 'shipping', section: 'travel', title: 'Decide what ships and what you sell', why: 'Sea freight takes weeks; quotes vary widely.', links: { nz: '/guides/bringing-pets-and-belongings', au: '/guides/australia-relocation' } },
-    { id: 'pets', section: 'travel', resources: { nz: [{ label: 'Ministry for Primary Industries', href: 'https://www.mpi.govt.nz/bring-send-items-to-nz/animals-to-nz/' }], au: [{ label: 'Dept of Agriculture, Fisheries and Forestry', href: 'https://www.agriculture.gov.au/biosecurity-trade/cats-dogs' }] }, title: 'Start the pet import process if you have pets', why: 'The longest lead time of anything on this list.', links: { nz: '/guides/bringing-pets-and-belongings', au: '/guides/australia-pets' } },
+    { id: 'shipping', section: 'travel', title: 'Decide what ships and what you sell', why: 'Sea freight takes weeks; quotes vary widely.', links: { nz: '/guides/nz/bringing-pets-and-belongings', au: '/guides/australia-relocation' } },
+    { id: 'pets', section: 'travel', resources: { nz: [{ label: 'Ministry for Primary Industries', href: 'https://www.mpi.govt.nz/bring-send-items-to-nz/animals-to-nz/' }], au: [{ label: 'Dept of Agriculture, Fisheries and Forestry', href: 'https://www.agriculture.gov.au/biosecurity-trade/cats-dogs' }] }, title: 'Start the pet import process if you have pets', why: 'The longest lead time of anything on this list.', links: { nz: '/guides/nz/bringing-pets-and-belongings', au: '/guides/australia-pets' } },
     { id: 'arrival-transport', section: 'travel', title: 'Sort transport for the first fortnight', why: 'Rental car, or public transport where it actually works.', links: { nz: '/guides/driving-and-licences', au: '/guides/australia-driving' } },
     { id: 'temp-home', section: 'home', title: 'Book temporary accommodation', why: 'Almost nobody signs a lease before landing.', links: { nz: '/guides/renting-in-new-zealand', au: '/guides/australia-renting' } },
     { id: 'rental', section: 'home', resources: { nz: [{ label: 'Tenancy Services', href: 'https://www.tenancy.govt.nz' }] }, title: 'Understand how renting works there', why: 'Bond, references and viewing culture differ.', links: { nz: '/guides/renting-in-new-zealand', au: '/guides/australia-renting' } },
@@ -115,9 +115,9 @@ window.MM = (function () {
     jobs: {
       version: 'jobs-v1-2026-08',
       label: 'Yes, I’d like to hear about suitable job opportunities',
-      body: 'We work with healthcare employers across Australia and New Zealand. If a suitable opportunity comes up for your profession, location preferences and timeline, we can let you know. This is optional and never needed for your Move Plan.'
+      body: 'We work with healthcare employers across Australia and New Zealand. If a suitable opportunity comes up for your profession, location preferences and timeline, we can let you know. This is optional and never needed for your Plan.'
     },
-    plan: { version: 'plan-v1-2026-08', label: 'Move Plan reminders', body: 'Occasional nudges about tasks with deadlines — visa, registration, licence conversion.' },
+    plan: { version: 'plan-v1-2026-08', label: 'Plan reminders', body: 'Occasional nudges about tasks with deadlines — visa, registration, licence conversion.' },
     reg: { version: 'reg-v1-2026-08', label: 'Registration updates', body: 'When a regulator changes its process or fees for your profession.' },
     news: { version: 'news-v1-2026-08', label: 'Useful relocation updates', body: 'New guides, cost data and destination material. Nothing weekly.' }
   };

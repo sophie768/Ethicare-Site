@@ -2,7 +2,7 @@
 
    ONE source of truth for: which healthcare professions exist, who registers
    them in each country, and how far Ethicare's own support for each has got.
-   Read by Ethicare Move (site/move.js) and by the internal build
+   Read by Plan Ethicare (site/move.js) and by the internal build
    plan so the two can never disagree.
 
    Regulators verified 20 August 2026 against:
@@ -46,7 +46,7 @@ window.ETHICARE_PROFESSIONS = (function () {
       au: { reg: true, body: 'the Medical Radiation Practice Board of Australia', href: 'https://www.medicalradiationpracticeboard.gov.au/' },
       support: { nz: 'recruiting', au: 'recruiting' } },
 
-    { key: 'medicine', label: 'Medicine', group: 'Medicine & dentistry',
+    { key: 'medicine', label: 'Medicine', group: 'Medicine',
       nz: { reg: true, body: 'the Medical Council of New Zealand', href: 'https://www.mcnz.org.nz/' },
       au: { reg: true, body: 'the Medical Board of Australia', href: 'https://www.medicalboard.gov.au/' },
       support: { nz: 'recruiting', au: 'recruiting' } },
@@ -127,7 +127,7 @@ window.ETHICARE_PROFESSIONS = (function () {
         note: 'Not a registered profession nationally. Most employers require AASW eligibility.' },
       support: { nz: 'soon', au: 'soon' } },
 
-    { key: 'anaesthetic', label: 'Anaesthetic technology', group: 'Perioperative & laboratory',
+    { key: 'anaesthetic', label: 'Anaesthetic technology', group: 'Perioperative',
       nz: { reg: true, body: 'the Medical Sciences Council of New Zealand', href: 'https://www.mscouncil.org.nz/',
         note: 'A registered profession in New Zealand, unlike Australia.' },
       au: { reg: false, body: 'no national regulator', href: 'https://www.ahpra.gov.au/',
@@ -199,29 +199,33 @@ window.ETHICARE_PROFESSIONS = (function () {
     au: {}
   };
 
-  /* Published registration guide / checklist PDFs, by profession and country.
-     Presence here is what lets the planner offer a document rather than a
-     promise. */
+  /* Registration guide and checklist, by profession and country. These are
+     pages, not PDFs: each guide carries its checklist on the page so that what
+     you tick can never go stale, and the planner links straight to it. (Until
+     26 Sep 2026 this map named PDF files that were never produced — the planner
+     was offering a download that 404'd for every profession.) */
   var DOCS = {
     nz: {
-      imaging: ['ethicare-mrtb-registration-guide.pdf', 'ethicare-mrtb-registration-checklist.pdf'],
-      sonography: ['ethicare-mrtb-registration-guide.pdf', 'ethicare-mrtb-registration-checklist.pdf'],
-      radtherapy: ['ethicare-mrtb-registration-guide.pdf', 'ethicare-mrtb-registration-checklist.pdf'],
-      anaesthetic: ['Anaesthetic_Technician_MSCNZ_Registration_Guide.pdf', 'Anaesthetic_Technician_MSCNZ_Registration_Checklist.pdf'],
-      ot: ['Occupational_Therapy_OTBNZ_Registration_Guide.pdf', 'Occupational_Therapy_OTBNZ_Registration_Checklist.pdf'],
-      physio: ['ethicare-pbnz-registration-guide.pdf', 'ethicare-pbnz-registration-checklist.pdf'],
-      psychology: ['ethicare-psychologist-nzpb-registration-guide.pdf', 'ethicare-psychologist-nzpb-registration-checklist.pdf'],
-      medicine: ['GP_MCNZ_Registration_Guide.pdf', 'GP_MCNZ_Registration_Checklist.pdf', 'Radiologist_MCNZ_Registration_Guide.pdf', 'Radiologist_MCNZ_Registration_Checklist.pdf']
+      imaging:     ['/guides/new-zealand-registration-mrtb', '/guides/new-zealand-registration-mrtb#checklist'],
+      sonography:  ['/guides/new-zealand-registration-mrtb', '/guides/new-zealand-registration-mrtb#checklist'],
+      radtherapy:  ['/guides/new-zealand-registration-mrtb', '/guides/new-zealand-registration-mrtb#checklist'],
+      nuclearmed:  ['/guides/new-zealand-registration-mrtb', '/guides/new-zealand-registration-mrtb#checklist'],
+      anaesthetic: ['/guides/new-zealand-registration-mscnz', '/guides/new-zealand-registration-mscnz#checklist'],
+      ot:          ['/guides/new-zealand-registration-otbnz', '/guides/new-zealand-registration-otbnz#checklist'],
+      physio:      ['/guides/new-zealand-registration-pbnz', '/guides/new-zealand-registration-pbnz#checklist'],
+      psychology:  ['/guides/new-zealand-registration-nzpb', '/guides/new-zealand-registration-nzpb#checklist'],
+      medicine:    ['/guides/new-zealand-registration-mcnz', '/guides/new-zealand-registration-mcnz#checklist']
     },
     au: {
-      imaging: ['ethicare-radiographer-australia-registration-guide.pdf', 'ethicare-radiographer-australia-registration-checklist.pdf'],
-      radtherapy: ['ethicare-radiation-therapist-australia-registration-guide.pdf', 'ethicare-radiation-therapist-australia-registration-checklist.pdf'],
-      nuclearmed: ['ethicare-nuclear-medicine-australia-registration-guide.pdf', 'ethicare-nuclear-medicine-australia-registration-checklist.pdf'],
-      sonography: ['ethicare-sonographer-australia-accreditation-guide.pdf']
+      imaging:    ['/guides/australia-registration-mrpba', '/guides/australia-registration-mrpba#checklist'],
+      radtherapy: ['/guides/australia-registration-mrpba', '/guides/australia-registration-mrpba#checklist'],
+      nuclearmed: ['/guides/australia-registration-mrpba', '/guides/australia-registration-mrpba#checklist'],
+      sonography: ['/guides/australia-registration-asar', '/guides/australia-registration-asar#checklist'],
+      medicine:   ['/guides/australia-registration-radiologists', '/guides/australia-registration-radiologists#checklist']   /* consultant radiologists */
     }
   };
 
-  var DOCS_PATH = '/assets/downloads/';
+  var DOCS_PATH = '';   // page paths are already absolute
 
   /* WHICH PROFESSIONS THE PATHWAY CHECKER ANSWERS BY NAME.
      `pathway-checker-data.js` is the source of truth for pathway coverage, and this
@@ -243,8 +247,15 @@ window.ETHICARE_PROFESSIONS = (function () {
   };
 
   function get(key) { for (var i = 0; i < P.length; i++) if (P[i].key === key) return P[i]; return null; }
-  function list() { return P.slice(); }
-  function options() { return P.map(function (p) { return { value: p.key, label: p.label }; }); }
+  /* The planner only offers professions the pathway checker can actually answer by name.
+     The catalogue stays wider on purpose (it names the correct regulator for 26 professions,
+     which the checker's "we have no route for you" result links out to) — but offering
+     Physician associate or Chiropractic in a plan that then cannot produce a pathway is a
+     promise the page cannot keep. Give the checker a verified entry and it appears here. */
+  function inChecker(key) { return Object.prototype.hasOwnProperty.call(CHECKER, key) && CHECKER[key] !== null; }
+  function list() { return P.filter(function (x) { return inChecker(x.key); }); }
+  function listAll() { return P.slice(); }
+  function options() { return list().map(function (p) { return { value: p.key, label: p.label }; }); }
 
   /* Everything the planner needs about one profession in one country. */
   function forCountry(key, dest) {
@@ -271,7 +282,7 @@ window.ETHICARE_PROFESSIONS = (function () {
   }
 
   return {
-    list: list, get: get, options: options, forCountry: forCountry,
+    list: list, listAll: listAll, inChecker: inChecker, get: get, options: options, forCountry: forCountry,
     pages: PAGE, extraPages: EXTRA_PAGES, docs: DOCS, docsPath: DOCS_PATH,
     checker: CHECKER,
     checked: '20 August 2026'

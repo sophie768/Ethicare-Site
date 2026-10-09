@@ -8,10 +8,10 @@
    property that made the stacked cover safe (contrast independent of the photo), just
    rotated 90deg — so any portrait or landscape asset can be swapped in without
    re-checking AA. It is NOT the tier-1 immersive overlay: there is no scrim over text. */
-.hsplit{position:relative;overflow:hidden;background:var(--warm)}
+.hsplit{position:relative;overflow:hidden;background:#F7F4EE}
 .hsplit .art{position:absolute;top:0;right:0;bottom:0;width:54%;z-index:0}
 .hsplit .art img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
-.hsplit .art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#FCFBF8 0,rgba(252,251,248,.98) 40px,rgba(252,251,248,.82) 120px,rgba(252,251,248,.36) 210px,rgba(252,251,248,0) 300px)}
+.hsplit .art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#F7F4EE 0,rgba(247,244,238,.98) 40px,rgba(247,244,238,.82) 120px,rgba(247,244,238,.36) 210px,rgba(247,244,238,0) 300px)}
 .hsplit .in{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:52px 22px 44px}
 .hsplit .copy{max-width:min(50%,600px)}
 .hsplit h1{font-family:var(--display);font-weight:600;font-size:clamp(36px,4.4vw,54px);line-height:1.06;letter-spacing:-.02em;color:var(--teal);margin:0 0 18px}
@@ -19,7 +19,9 @@
 .hsplit .btn-row{margin-top:30px}
 
 /* the fact rail under the hero — the three things worth knowing before scrolling */
-.hrail{position:relative;z-index:3;background:var(--teal);color:#fff}
+/* One step lighter than the closing section and the footer (#01312F), so the
+   page has a hierarchy of darks rather than three identical bands. */
+.hrail{position:relative;z-index:3;background:#01413E;color:#fff}
 .hrail .in{max-width:1200px;margin:0 auto;padding:18px 22px 20px;display:grid;grid-template-columns:repeat(3,1fr)}
 .hrail .c{display:flex;flex-direction:column;gap:5px;min-width:0}
 .hrail .c+.c{padding-left:clamp(18px,3vw,38px);border-left:1px solid rgba(255,255,255,.24)}
@@ -116,6 +118,7 @@
 .ctapanel{background:var(--teal);color:#fff;border-radius:22px;padding:60px 44px 64px;text-align:center}
 .ctapanel h2{font-family:var(--display);font-weight:600;font-size:clamp(27px,3.2vw,38px);line-height:1.15;letter-spacing:-.015em;margin:0 0 16px;color:#fff}
 .ctapanel p{font-size:17.5px;line-height:1.7;color:rgba(255,255,255,.88);max-width:56ch;margin:0 auto 32px}
+.ctapanel .eyebrow{justify-content:center;color:#C6E084}
 .ctapanel .btn-row{justify-content:center}
 .ctapanel .btn-lime{background:#A6C84A;color:#01312F;border:0}
 .ctapanel .btn-lime:hover{filter:brightness(.93)}
@@ -189,7 +192,7 @@
 
 @media(max-width:1000px){
 .hsplit .art{position:relative;width:100%;height:250px}
-.hsplit .art::after{background:linear-gradient(0deg,#FCFBF8 0,rgba(252,251,248,.7) 36px,rgba(252,251,248,0) 62%)}
+.hsplit .art::after{background:linear-gradient(0deg,#F7F4EE 0,rgba(247,244,238,.7) 36px,rgba(247,244,238,0) 62%)}
 .hsplit .copy{max-width:100%}
 .hrail .in{grid-template-columns:1fr}
 .hrail .c+.c{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.24);padding-top:14px;margin-top:14px}
@@ -213,4 +216,76 @@
 .scen5{grid-template-columns:1fr}
 .faq{grid-template-columns:1fr}
 .tline{grid-template-columns:1fr}
+}
+
+/* FRAMED PHOTO (Sep 2026) — hub heroes match the profession pages: white page,
+   photograph whole in a rounded frame, no fade. */
+.hsplit{background:#FFFFFF}
+/* The frame was stretched from the top of the hero to the rail, so its height
+   came from however long that page’s copy happened to be: 682px on allied
+   health, 628 on medicine, 557 on nursing, 536 on theatre. Six pages in the
+   same family, six different photo shapes. Anchored at the top with a fixed
+   ratio instead, so every hub hero is the same frame (Sophie, 28 Sep 2026). */
+.hsplit .art{top:clamp(28px,3vw,40px)!important;bottom:auto!important;right:max(22px,calc((100vw - 1200px)/2 + 22px))!important;width:min(47%,580px)!important;aspect-ratio:29/32;height:auto!important;border-radius:20px!important;overflow:hidden!important;box-shadow:0 30px 60px -38px rgba(1,49,47,.45)!important}
+.hsplit .art img{border-radius:20px}
+.hsplit .art::after{display:none!important}
+/* Tall enough that the fixed frame always clears whatever sits beneath it.
+   header.phero>.in in prof-split.css sets a shorter min-height and applies
+   to the same elements, so this one is written to outrank it rather than
+   depend on which stylesheet the page happens to load last. */
+header.hsplit:not(.nophoto)>.in,
+.hsplit:not(.nophoto)>.in{min-height:clamp(420px,calc(47vw*32/29 + 88px),728px);display:flex;align-items:center}
+@media (max-width:1000px){
+  .hsplit .art{position:relative!important;top:auto!important;bottom:auto!important;right:auto!important;width:auto!important;aspect-ratio:auto!important;margin:18px 22px 0;height:clamp(220px,52vw,360px)!important;border-radius:18px}
+  .hsplit:not(.nophoto)>.in{min-height:0;display:block;padding-top:24px}
+}
+
+/* ============================================================================
+   THE CLOSING SECTION  (Sophie, 28 Sep 2026)
+   One dark band per page, always doing the same job: the page's last word.
+   Used more than once it stops being a signal and becomes decoration, so it
+   belongs on the closing section and nowhere else.
+
+   The ground is #01312F, which was already in the stylesheet as the text
+   colour on lime buttons rather than as a surface. It is deep enough to read
+   as depth instead of as a coloured block, and green enough that nobody would
+   call it black. It also fixes a compromise: the brand lime #A6C84A only
+   reaches 3.83:1 on the old #02615D panel, which is why the lighter #C6E084
+   had to exist. On #01312F the real brand lime reaches 7.41:1.
+
+   What changes besides the colour, and why: the panel goes edge to edge
+   instead of being a rounded card floating on cream, because a card reads as
+   an aside and a band reads as a stop; the type goes left with a rule running
+   off the eyebrow; and the onward links are pulled up inside the band, where
+   before they were orphaned on white underneath it.
+   ============================================================================ */
+.section.closing{background:#01312F;padding-block:clamp(56px,8vw,96px) clamp(40px,5vw,60px);
+  margin-top:clamp(30px,4vw,56px)}
+.section.closing .wrap{max-width:1180px}
+.section.closing .ctapanel{background:transparent;border-radius:0;padding:0;text-align:left;max-width:none}
+.section.closing .ctapanel .eyebrow{display:flex;align-items:center;gap:14px;justify-content:flex-start;
+  font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:#A6C84A;margin:0 0 18px}
+.section.closing .ctapanel .eyebrow::after{content:"";flex:1;height:1px;background:#074A47;max-width:240px}
+.section.closing .ctapanel h2{color:#FCFBF8;font-size:clamp(31px,5vw,58px);line-height:1.02;
+  letter-spacing:-.024em;margin:0 0 20px;max-width:24ch;text-wrap:balance}
+.section.closing .ctapanel p{color:#C4DDD5;font-size:clamp(16px,1.7vw,18.5px);line-height:1.65;
+  max-width:58ch;margin:0 0 34px}
+.section.closing .ctapanel .btn-row{justify-content:flex-start;gap:12px;flex-wrap:wrap}
+.section.closing .btn-lime{background:#A6C84A;color:#04211F;border:0;font-weight:600}
+.section.closing .btn-lime:hover{background:#B8D766}
+.section.closing .btn-out{background:transparent;color:#DCEAE5;border:1px solid #074A47}
+.section.closing .btn-out:hover{background:#0A3F3C;border-color:#0F5A55;color:#FCFBF8}
+.section.closing .onwardbar{border-top:1px solid #074A47;margin-top:clamp(40px,5vw,64px);padding-top:26px}
+.section.closing .onwardbar a{color:#C4DDD5}
+.section.closing .onwardbar a:hover{color:#A6C84A}
+.section.closing .onwardbar a.lead{color:#FCFBF8}
+.section.closing .onwardbar a.end{color:#A6C84A}
+/* No guide chapter uses .ctapanel today, but the guides print to PDF and a
+   dark band there would waste a page of ink, so the guard is here in advance. */
+@media print{
+  .section.closing{background:#fff !important;padding-block:0 !important}
+  .section.closing .ctapanel h2,.section.closing .onwardbar a.lead{color:#02615D !important}
+  .section.closing .ctapanel p,.section.closing .onwardbar a{color:#333 !important}
+  .section.closing .ctapanel .eyebrow{color:#5C7A1F !important}
 }

@@ -9,6 +9,7 @@
 .dfhead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 24px}
 .dfhead h3{font-size:var(--t-h3);flex:1 1 auto;min-width:0}
 .dfcount{flex:none;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.02em;color:var(--muted);white-space:nowrap}
+@media(max-width:600px){.dfcount{white-space:normal;flex:1 1 100%}}
 .dfsub{margin-top:8px;font-size:var(--t-meta);color:var(--muted);max-width:62ch}
 .rrow{display:grid;grid-template-columns:1fr auto;gap:10px 28px;align-items:start;padding:clamp(17px,1.9vw,22px) 0}
 /* rules go BETWEEN rows only — .dfam already draws above the first one, and inverting

@@ -53,7 +53,7 @@
   /* ---------------- step 1 ---------------- */
   function step1() {
     var d = D(), a = st.answers;
-    return '<div class="mc-intro">' + eyebrow('Plan your move') +
+    return '<div class="mc-intro">' + '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap">' + eyebrow('Plan your move') + '<img src="assets/heroes/packing-and-shipping.svg" alt="An open packing box with a roll of tape" width="90" height="68" style="width:90px;height:auto;flex:none">' + '</div>' +
       '<h1>Your moving checklist</h1>' +
       '<p class="mc-said">No two international moves look the same.</p>' +
       '<p class="mc-lede">Moving alone raises different questions from relocating with a partner or children \u2014 and sometimes it makes sense for one person to go ahead of everyone else. Answer two questions and we\u2019ll build the checklist that fits your circumstances.</p>' +
@@ -143,8 +143,21 @@
       }).join('') + '</nav>';
 
     var body = secs.map(function (sec) {
+      /* Drawings mark STATES and STEPS, small. A section mark at 72px is what these
+         files were always right for — the same art fails at hero scale. */
+      var secIcon = {
+        'the-move': 'before-you-leave',
+        money: 'money-tax-and-banking',
+        housing: 'driving-and-licences',
+        preparation: 'packing-and-shipping',
+        children: 'schools-and-education',
+        partner: 'partner-registration',
+        pets: 'bringing-your-pet',
+        'settling-in': 'settling-in'
+      }[sec.id];
+      var secIconHtml = secIcon ? '<img src="assets/heroes/' + secIcon + '.svg" alt="" width="72" height="54" style="width:72px;height:auto;float:right;margin-left:16px">' : '';
       return '<section id="' + sec.id + '" class="mc-sec" data-screen-label="' + esc(sec.title) + '">' +
-        eyebrow(sec.eyebrow) + '<h2>' + esc(sec.title) + '</h2>' +
+        secIconHtml + eyebrow(sec.eyebrow) + '<h2>' + esc(sec.title) + '</h2>' +
         (sec.intro ? '<p class="mc-sintro">' + esc(sec.intro) + '</p>' : '') +
         '<div class="mc-items">' + sec.items.map(itemHtml).join('') + '</div>' +
         '</section>';
@@ -190,12 +203,41 @@
     return m;
   }
 
+/* 28 Sep 2026 — shared answers (candidate-context.js): seed from what the candidate has already said, write back what they say here, and show the strip. */
+  var WHO_FROM_CTX = { alone: 'solo', partner: 'couple', children: 'parentKids', both: 'familyKids', parent: 'solo' };
+  var WHO_TO_CTX = { solo: 'alone', couple: 'partner', parentKids: 'children', familyKids: 'both' };
+  var ctxSyncing = false;
+  function mcShareBack(k, v) {
+    var ctx = window.EthicareContext; if (!ctx || !ctx.write || ctxSyncing) return;
+    var patch = {};
+    if (k === 'dest' && (v === 'au' || v === 'nz') && ctx.destMode() !== 'both') patch.dest = v;
+    if (k === 'who' && WHO_TO_CTX[v]) patch.household = WHO_TO_CTX[v];
+    if (Object.keys(patch).length) ctx.write(patch);
+  }
+  function mcSeed() {
+    var ctx = window.EthicareContext; if (!ctx || !ctx.has()) return false;
+    var changed = false, d = ctx.destMode ? ctx.destMode() : ctx.dest(), w = WHO_FROM_CTX[ctx.household()];
+    if (d && st.answers.dest !== d) { st.answers.dest = d; changed = true; }
+    /* the destination is answered, so the checklist opens on the question it still needs */
+    if (st.answers.dest && st.step === 1) { st.step = 2; changed = true; }
+    if (w && st.answers.who !== w) { st.answers.who = w; if (w !== 'parentKids' && w !== 'familyKids') st.answers.ages = []; changed = true; }
+    return changed;
+  }
+  (function () {
+    var ctx = window.EthicareContext; if (!ctx) return;
+    var hadSaved = false; try { hadSaved = !!localStorage.getItem(LSK); } catch (e) {}
+    if (!hadSaved && mcSeed()) { ctxSyncing = true; try { save(); } catch (e) {} ctxSyncing = false; }
+    ctx.onChange(function () { if (mcSeed()) { ctxSyncing = true; try { save(); render(); } catch (e) {} ctxSyncing = false; } });
+    ctx.mount('#ctx-strip', { intro: 'Tell us who is coming and where, and the checklist keeps only what applies to your household.' });
+  })();
+
   /* ---------------- events ---------------- */
   app.addEventListener('click', function (e) {
     var p = e.target.closest('[data-pick]');
     if (p) {
       var k = p.getAttribute('data-pick'), v = p.getAttribute('data-v');
       st.answers[k] = v;
+      mcShareBack(k, v);
       if (k === 'who' && v !== 'parentKids' && v !== 'familyKids') st.answers.ages = [];
       st.err = '';
       if (k === 'dest') { st.step = 2; moveFocus = true; }
