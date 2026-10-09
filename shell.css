@@ -743,3 +743,91 @@ header h1:has(+ .keyline){margin-bottom:15px}
 @media (max-width:760px){
   header .keyline{padding-left:14px;max-width:none}
 }
+
+/* ---------------------------------------------------------------------------
+   MEGA PANEL (9 Oct 2026) — tiles on the left, icon rows on the right.
+   Markup: _header.html (.has-mega > .subnav.mpanel). Desktop = a full-width
+   white card under the header; inside the mobile menu it stacks.
+   --------------------------------------------------------------------------- */
+.site-header .ic{display:block;flex:none}
+.subnav.mpanel a{white-space:normal;letter-spacing:0}
+.mp-tile{display:flex;text-decoration:none;color:#1F2A27}
+.mp-ti{display:grid;place-items:center;color:#02615D;background:#F3F7F4;transition:background .15s ease,color .15s ease}
+.mp-tile.is-primary .mp-ti{background:#02615D;color:#fff}
+.mp-tl{font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;color:#1F2A27}
+.mp-h{display:block;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;color:#02615D;letter-spacing:-.01em}
+.mp-col{display:flex;flex-direction:column;min-width:0}
+.subnav.mpanel .mp-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;width:100%;box-sizing:border-box;text-decoration:none}
+.mp-ri{display:grid;place-items:center;color:#02615D;background:#F3F7F4;transition:background .15s ease}
+.mp-rt{display:flex;flex-direction:column;min-width:0}
+.mp-rn{font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;color:#1F2A27;line-height:1.3}
+.mp-rd{font-family:'Manrope',ui-sans-serif,sans-serif;font-weight:500;color:#566660;line-height:1.35}
+.mp-chev{color:#02615D}
+.subnav.mpanel a:focus-visible{outline:3px solid #02615D;outline-offset:2px}
+
+@media (min-width:1300px){
+  .site-nav .navitem.has-mega{position:static}
+  .subnav.mpanel{position:absolute;left:0;right:0;top:100%;min-width:0;padding:10px 24px 28px;background:transparent;border:0;border-radius:0;box-shadow:none;display:none}
+  .site-nav .navitem:hover>.subnav.mpanel,.site-nav .navitem:focus-within>.subnav.mpanel,.site-nav .navitem.open>.subnav.mpanel{display:block}
+  .mp-in{max-width:1180px;margin:0 auto;background:#fff;border:1px solid #E4E9E5;border-radius:20px;box-shadow:0 28px 60px -24px rgba(1,49,47,.30),0 2px 6px rgba(1,49,47,.06);padding:36px 40px 32px;display:grid;grid-template-columns:auto 1fr;gap:48px;max-height:calc(100vh - 120px);overflow-y:auto}
+  .mp-tiles{display:grid;grid-template-columns:repeat(2,148px);gap:22px 20px;align-content:start}
+  .subnav.mpanel .mp-tile{flex-direction:column;align-items:center;gap:12px;padding:0;background:none;border-radius:0;text-align:center}
+  .mp-ti{width:148px;height:96px;border-radius:16px}
+  .mp-tl{font-size:15px;line-height:1.3;max-width:148px}
+  .subnav.mpanel .mp-tile:hover{background:none}
+  .mp-tile:hover .mp-ti{background:#02615D;color:#fff}
+  .mp-tile.is-primary:hover .mp-ti{background:#014E4B}
+  .mp-tile:hover .mp-tl{text-decoration:underline;text-underline-offset:3px;color:#02615D}
+  .mp-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px 36px;align-content:start}
+  .mp-h{font-size:20px;line-height:1.2;margin:0 0 12px 10px}
+  .mp-h2{margin-top:18px}
+  .subnav.mpanel .mp-row{gap:16px;padding:9px 10px;border-radius:14px;color:#1F2A27}
+  .mp-ri{width:48px;height:48px;border-radius:12px}
+  .mp-rn{font-size:15.5px}
+  .mp-rd{font-size:13.5px;margin-top:2px}
+  .subnav.mpanel .mp-row:hover{background:#F3F7F4}
+  .mp-row:hover .mp-ri{background:#fff}
+  .mp-row:hover .mp-rn{color:#02615D}
+  .mp-chev{transition:transform .15s ease}
+  .mp-row:hover .mp-chev{transform:translateX(3px)}
+}
+@media (max-width:1299px){
+  .subnav.mpanel{padding:4px 0 14px;flex-direction:column}
+  .site-nav .navitem.open>.subnav.mpanel{display:block}
+  .mp-tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+  .subnav.mpanel .mp-tile{flex-direction:row;align-items:center;gap:10px;padding:8px;min-height:56px;border:1px solid #E4E9E5;border-radius:12px;background:#fff}
+  .mp-ti{width:36px;height:36px;border-radius:10px}
+  .mp-ti .ic{width:20px;height:20px}
+  .mp-tl{font-size:14px;line-height:1.25}
+  .mp-h{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#2F5E49;margin:14px 0 4px 4px}
+  .subnav.mpanel .mp-row{gap:12px;padding:8px 4px;min-height:56px;border-radius:10px;color:#1F2A27}
+  .mp-ri{width:40px;height:40px;border-radius:10px}
+  .mp-ri .ic{width:20px;height:20px}
+  .mp-rn{font-size:15px}
+  .mp-rd{font-size:13px}
+  .mp-chev{display:none}
+}
+
+.subnav.mpanel .mp-row-s{padding-top:6px;padding-bottom:6px}
+.mp-row-s .mp-ri{width:40px;height:40px;border-radius:10px}
+
+/* Menu feature blocks (9 Oct 2026) — added by nav.js; desktop only */
+.mp-feat{display:none}
+@media (min-width:1300px){
+  .mp-in.has-feat{max-width:1320px;grid-template-columns:auto 1fr 272px;gap:40px}
+  .mp-in.has-feat .mp-cols{grid-template-columns:repeat(auto-fit,minmax(236px,1fr));gap:8px 28px}
+  .mp-feat{display:flex;flex-direction:column;border-radius:18px;background:#F3F7F4;overflow:hidden;align-self:start}
+  .mpf-img{display:block;height:150px;background:#E3ECE5}
+  .mpf-img img{display:block;width:100%;height:100%;object-fit:cover}
+  .mpf-body{display:flex;flex-direction:column;gap:8px;padding:18px 20px 20px}
+  .mpf-eb{font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49}
+  .mpf-t{font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;font-size:18px;line-height:1.25;color:#1F2A27}
+  .mpf-p{font-family:'Manrope',ui-sans-serif,sans-serif;font-weight:500;font-size:13.5px;line-height:1.45;color:#566660}
+  .subnav.mpanel a.mpf-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:10px 18px;border-radius:999px;background:#02615D;color:#fff;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;font-size:14px;text-decoration:none}
+  .subnav.mpanel a.mpf-btn:hover{background:#014E4B;color:#fff}
+  .mpf-jobs{display:flex;flex-direction:column;gap:6px;margin:2px 0}
+  .subnav.mpanel a.mpf-job{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:2px;padding:10px 12px;border-radius:12px;background:#fff;text-decoration:none}
+  .subnav.mpanel a.mpf-job:hover{background:#E6F1ED}
+  .mpf-jt{font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;font-size:14px;line-height:1.3;color:#1F2A27}
+  .mpf-jl{font-family:'Manrope',ui-sans-serif,sans-serif;font-weight:500;font-size:12.5px;color:#566660}
+}

@@ -60,7 +60,7 @@
     '.site-header a.pk-nav.on,.pk-nav.on{display:inline-flex}' +
     '.pk-nav b{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;border-radius:11px;background:#02615D;color:#fff;font-size:12.5px}' +
     '.pk-nav:hover{background:#C9DED3}' +
-    '@media(max-width:900px){.pk-nav{position:fixed;right:14px;bottom:14px;z-index:60;box-shadow:0 10px 26px -10px rgba(1,49,47,.55);background:#02615D;color:#fff!important}.pk-nav b{background:#A6C84A;color:#01312F}}';
+    'a.pk-nav.pk-float{position:fixed;right:16px;bottom:16px;z-index:70;margin:0;padding:12px 18px;box-shadow:0 10px 26px -10px rgba(1,49,47,.55);background:#02615D;color:#fff!important}a.pk-nav.pk-float:hover{background:#014E4B}.pk-float b{background:#A6C84A;color:#01312F}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
   /* ---- buttons ---- */
@@ -87,14 +87,25 @@
 
   /* ---- header counter ---- */
   var nav = null;
+  /* 9 Oct 2026: under 1600px the counter floats bottom-right and must live on <body>.
+     Inside the header it was trapped: the header's blur and the mobile menu's slide-in
+     both pin "fixed" children to them, so it pushed Contact off the edge on laptops and
+     was hidden inside the closed menu on phones. Wide screens keep it in the top bar. */
+  var WIDE = window.matchMedia ? window.matchMedia('(min-width:1600px)') : { matches: true };
+  function place() {
+    if (!nav) return;
+    var cta = document.querySelector('.site-header .nav-cta');
+    if (WIDE.matches && cta && cta.parentNode) { if (nav.nextSibling !== cta) cta.parentNode.insertBefore(nav, cta); nav.classList.remove('pk-float'); }
+    else { if (nav.parentNode !== document.body) document.body.appendChild(nav); nav.classList.add('pk-float'); }
+  }
   function ensureNav() {
     if (nav || /^\/my-pack/.test(location.pathname)) return nav;
-    var cta = document.querySelector('.site-header .nav-cta');
-    if (!cta || !cta.parentNode) return null;
+    if (!document.querySelector('.site-header .nav-cta')) return null;
     nav = document.createElement('a');
     nav.className = 'pk-nav';
     nav.href = '/my-pack';
-    cta.parentNode.insertBefore(nav, cta);
+    place();
+    if (WIDE.addEventListener) WIDE.addEventListener('change', place); else if (WIDE.addListener) WIDE.addListener(place);
     return nav;
   }
   function paintNav() {

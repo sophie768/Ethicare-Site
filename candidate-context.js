@@ -103,7 +103,7 @@
     if (p.journeyStage && jstage(p.journeyStage)) return p.journeyStage;
     var m = JMAP().moveToJourney[p.stage]; return m && jstage(m) ? m : '';
   }
-  function first() { var p = read(); return p && p.first ? String(p.first).trim().slice(0, 40) : ''; }
+  function first() { var p = read(); var f = p && (p.first || p.name) ? String(p.first || p.name).trim().split(/\s+/)[0] : ''; return f.slice(0, 40); }  /* 9 Oct 2026: Plan stores `first`, the answers strip stores `name`; read either */
   /* The stage number went from the pages on 2 Oct 2026 — it implied a fixed order the
      site then contradicts, and told a candidate arriving with an offer that they had
      skipped six things. The name alone is what the strip now shows. */

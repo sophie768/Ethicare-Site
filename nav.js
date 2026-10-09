@@ -319,3 +319,72 @@
   var s = document.createElement('script'); s.src = '/pack-core.js'; s.async = true;
   (document.head || document.documentElement).appendChild(s);
 })();
+
+
+/* ---------------------------------------------------------------------------
+   MENU FEATURE BLOCKS (9 Oct 2026). Each mega panel gets one feature on its
+   right that changes with the heading: a photo and one action for the two
+   countries, the three newest live roles for Jobs, and the visitor's own plan
+   for Plan Ethicare. Added here rather than in _header.html so the roles stay
+   current without rewriting every page. Desktop only; the menu works without it.
+   --------------------------------------------------------------------------- */
+(function () {
+  function esc(t) { return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  var chev = '<svg class="ic" width="16" height="16" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg>';
+  function card(o) {
+    return (o.img ? '<span class="mpf-img"><img alt="" width="600" height="380" decoding="async" data-src="' + o.img + '"></span>' : '') +
+      '<span class="mpf-body"><span class="mpf-eb">' + esc(o.eb) + '</span><span class="mpf-t">' + esc(o.t) + '</span>' +
+      (o.p ? '<span class="mpf-p">' + esc(o.p) + '</span>' : '') +
+      '<a class="mpf-btn" href="' + o.href + '">' + esc(o.btn) + chev + '</a></span>';
+  }
+  var FEAT = {
+    '/australia': function () { return card({ img: '/assets/menu/menu-australia.jpg', eb: 'Living in Australia', t: 'Where in Australia would suit you?', p: 'Tell us about the life you want and see which cities and regions fit it.', btn: 'Find my destination', href: '/destination-finder' }); },
+    '/new-zealand': function () { return card({ img: '/assets/menu/menu-new-zealand.jpg', eb: 'Living in New Zealand', t: 'Which region fits your life?', p: 'Tell us about the life you want and see which regions fit it.', btn: 'Find my destination', href: '/destination-finder' }); },
+    '/plan': function () {
+      var c = window.EthicareContext, J = window.ETHICARE_JOURNEY || [], n = c && c.has && c.has() && c.stageNumber ? c.stageNumber() : 0;
+      if (n && J.length) return card({ eb: 'Your plan', t: 'Stage ' + n + ' of ' + J.length, p: 'Your answers are saved on this device. Carry on where you left off.', btn: 'Continue my plan', href: '/plan' });
+      return card({ img: '/assets/menu/menu-registration.jpg', eb: 'Before you apply', t: 'Check your registration pathway', p: 'A few questions about your training, and you see what Ahpra or your New Zealand council will ask for.', btn: 'Check my pathway', href: '/pathway-checker' });
+    },
+    '/jobs/': function () {
+      return '<span class="mpf-body"><span class="mpf-eb">Newest roles</span><span class="mpf-jobs" data-mpf-jobs><span class="mpf-p">Loading the latest roles&hellip;</span></span>' +
+        '<a class="mpf-btn" href="/jobs/">All live roles' + chev + '</a></span>';
+    }
+  };
+  function paintJobs(box) {
+    var list = window.ETHICARE_JOBS || window.ETHICARE_JOBS_ALL;
+    if (!box || !list || !list.length) return;
+    var j = list.slice().filter(function (x) { return x && x.detail && x.title; })
+      .sort(function (a, b) { return String(b.posted || '').localeCompare(String(a.posted || '')); }).slice(0, 3);
+    box.innerHTML = j.map(function (x) {
+      return '<a class="mpf-job" href="' + esc(x.detail) + '"><span class="mpf-jt">' + esc(x.title) + '</span><span class="mpf-jl">' + esc(x.location || x.region || '') + '</span></a>';
+    }).join('');
+  }
+  var jobsLoading = false;
+  function loadJobs(box) {
+    if (window.ETHICARE_JOBS || window.ETHICARE_JOBS_ALL) { paintJobs(box); return; }
+    if (jobsLoading) return; jobsLoading = true;
+    var s = document.createElement('script'); s.src = '/jobs/jobs-data.js'; s.async = true;
+    s.onload = function () { paintJobs(box); };
+    s.onerror = function () { box.innerHTML = '<span class="mpf-p">See every role we are recruiting for now.</span>'; };
+    document.head.appendChild(s);
+  }
+  function init() {
+    var items = document.querySelectorAll('.site-nav .navitem.has-mega');
+    for (var i = 0; i < items.length; i++) (function (item) {
+      var link = item.querySelector(':scope > a'), inner = item.querySelector('.mp-in');
+      var key = link && link.getAttribute('href'), make = FEAT[key];
+      if (!inner || !make || inner.querySelector('.mp-feat')) return;
+      var f = document.createElement('div'); f.className = 'mp-feat' + (key === '/jobs/' ? ' mp-feat-jobs' : '');
+      f.innerHTML = make(); inner.appendChild(f); inner.classList.add('has-feat');
+      var woke = false;
+      function wake() {
+        if (key === '/plan') f.innerHTML = make();             /* reflect the latest answers */
+        if (woke) return; woke = true;
+        var im = f.querySelector('img[data-src]'); if (im) im.src = im.getAttribute('data-src');
+        if (key === '/jobs/') loadJobs(f.querySelector('[data-mpf-jobs]'));
+      }
+      item.addEventListener('mouseenter', wake); item.addEventListener('focusin', wake);
+    })(items[i]);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();

@@ -14,10 +14,10 @@
 /settling-in.html	/settling-in	301!
 /arriving	/settling-in	301
 
-# Webinar — medical imaging in Australia (Mon 21 Sep 2026)
-/webinar-medical-imaging-australia	/webinar-medical-imaging-australia.html	200
-/webinar-medical-imaging-australia.html	/webinar-medical-imaging-australia	301!
-/webinar	/webinar-medical-imaging-australia	301
+# Webinar page retired 8 Oct 2026; removed 9 Oct 2026. Old links land on the profession page.
+/webinar-medical-imaging-australia	/jobs/medical-imaging-australia	301!
+/webinar-medical-imaging-australia.html	/jobs/medical-imaging-australia	301!
+/webinar	/jobs/medical-imaging-australia	301!
 
 # Retired 7 Sep 2026 — the ten NZ "*_Relocation_Guide" twins. Each duplicated its own
 # destination guide off the canonical URL and was reachable only by its own legacy slug.
