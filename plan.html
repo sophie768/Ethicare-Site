@@ -439,6 +439,20 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .ps-sum .ps-acts{margin-top:26px}
 @media (max-width:900px){.ps-wrap{grid-template-columns:1fr}.ps-wrap .pt-hero-ph{display:none}}
 @media (max-width:560px){.ps-card,.ps-sum{padding:24px 20px;border-radius:16px}.ps-acts{gap:12px 18px}.ps-go{width:100%;justify-content:center}.ps-skip{margin-left:0}}
+
+/* talk to us, folded into Save, share or download (10 Oct 2026) */
+.pt-talk{margin:24px 0;background:#fff;border:1px solid #DCE7E1;border-radius:16px;padding:0}
+.pt-talk[hidden]{display:none}
+.pt-talk>summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:4px;padding:22px 60px 22px 26px;position:relative}
+.pt-talk>summary::-webkit-details-marker{display:none}
+.pt-talk>summary::after{content:"+";position:absolute;right:24px;top:50%;transform:translateY(-50%);font-family:var(--display);font-size:26px;color:#02615D}
+.pt-talk[open]>summary::after{content:"\2212"}
+.pt-talk>summary:focus-visible{outline:3px solid #02615D;outline-offset:2px;border-radius:16px}
+.pt-talk-k{font-family:var(--display);font-weight:600;font-size:19px;color:#02615D}
+.pt-talk-d{font-size:15.5px;color:#566660}
+.pt-talk[open]{padding-bottom:22px}
+.pt-talk[open]>*:not(summary){margin-left:26px;margin-right:26px}
+.pt-talk h2[data-send-h]{display:none}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Plan Ethicare","item":"https://ethicareresourcing.com/plan"},{"@type":"ListItem","position":3,"name":"Your plan"}]}</script>
 <link rel="stylesheet" href="prose-links.css">
@@ -467,7 +481,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
       <div class="navitem has-sub has-mega"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="New Zealand"><a class="mp-tile is-primary" href="/new-zealand"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-globe"/></svg></span><span class="mp-tl">Working in New Zealand</span></a><a class="mp-tile" href="/jobs/professions"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-briefcase"/></svg></span><span class="mp-tl">Find your profession</span></a><a class="mp-tile" href="/destinations/"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pin"/></svg></span><span class="mp-tl">Explore destinations</span></a><a class="mp-tile" href="/my-pack"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pack"/></svg></span><span class="mp-tl">Create my pack</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Before you move</span><a class="mp-row" href="/guides/new-zealand-registration"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-badge"/></svg></span><span class="mp-rt"><span class="mp-rn">Registration</span><span class="mp-rd">Your board, documents and timelines</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/new-zealand-visa"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-passport"/></svg></span><span class="mp-rt"><span class="mp-rn">Visas</span><span class="mp-rd">Work visas and the Green List</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/new-zealand-salary"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-coins"/></svg></span><span class="mp-rt"><span class="mp-rn">Pay</span><span class="mp-rd">Pay bands and the agreements behind them</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/new-zealand-family"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-family"/></svg></span><span class="mp-rt"><span class="mp-rn">Moving with family</span><span class="mp-rd">Schools, partners and settling in</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div><div class="mp-col"><span class="mp-h">Once you arrive</span><a class="mp-row" href="/guides/new-zealand-first-month"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-calendar"/></svg></span><span class="mp-rt"><span class="mp-rn">Your first month</span><span class="mp-rd">What to sort out in your first weeks</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/renting-in-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-home"/></svg></span><span class="mp-rt"><span class="mp-rn">Renting a home</span><span class="mp-rd">How renting works and what it costs</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/driving-and-licences"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-car"/></svg></span><span class="mp-rt"><span class="mp-rn">Driving &amp; licences</span><span class="mp-rd">Driving on and converting your licence</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/te-ao-maori-at-work"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-koru"/></svg></span><span class="mp-rt"><span class="mp-rn">Te ao Māori at work</span><span class="mp-rd">Tikanga and Te Tiriti in healthcare</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
       </div>
-      <div class="navitem has-sub has-mega"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a>
+      <div class="navitem has-sub has-mega"><a href="/jobs/">Find jobs<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Jobs"><a class="mp-tile is-primary" href="/jobs/"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-list"/></svg></span><span class="mp-tl">All live roles</span></a><a class="mp-tile" href="/jobs/professions"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-grid"/></svg></span><span class="mp-tl">Every profession</span></a><a class="mp-tile" href="/pathway-checker"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-route"/></svg></span><span class="mp-tl">Pathway checker</span></a><a class="mp-tile" href="/build-your-cv"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-file"/></svg></span><span class="mp-tl">Build your CV</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Careers in New Zealand</span><a class="mp-row mp-row-s" href="/jobs/medicine-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-stethoscope"/></svg></span><span class="mp-rt"><span class="mp-rn">Medicine</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/nursing-midwifery-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-heart"/></svg></span><span class="mp-rt"><span class="mp-rn">Nursing &amp; midwifery</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/mental-health-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-mind"/></svg></span><span class="mp-rt"><span class="mp-rn">Mental health</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/allied-health-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-pulse"/></svg></span><span class="mp-rt"><span class="mp-rn">Allied health</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/medical-imaging-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Medical imaging &amp; radiation therapy</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/theatre-perioperative-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-mask"/></svg></span><span class="mp-rt"><span class="mp-rn">Theatre &amp; perioperative</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div><div class="mp-col"><span class="mp-h">Careers in Australia</span><a class="mp-row" href="/jobs/medical-imaging-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Medical imaging &amp; radiation therapy</span><span class="mp-rd">Where we recruit in Australia now</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/jobs/coming-to-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-briefcase"/></svg></span><span class="mp-rt"><span class="mp-rn">Other healthcare professions</span><span class="mp-rd">Register your interest for later</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
       </div>
       <div class="navitem has-sub has-mega"><a href="/plan" aria-current="page">Plan Ethicare<span class="cv" aria-hidden="true">&#9662;</span></a>
@@ -557,8 +571,50 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 })();
 </script>
 
-  <section class="pt-sec" id="send">
+  <section class="pt-details">
     <div class="shell">
+      <div class="pt-keep-h">
+        <div>
+          <h2 style="font-family:var(--display);font-size:clamp(22px,2.6vw,28px);font-weight:600;color:var(--teal);margin-bottom:6px">Save, share or download your plan</h2>
+          <p class="note" style="font-size:15.5px;line-height:1.6;color:var(--muted);max-width:64ch;margin-bottom:0">Your plan is saved in this browser, on this device. It doesn&rsquo;t follow you to your phone or another computer by itself &mdash; use your link below to take it with you.</p>
+        </div>
+        <img src="assets/heroes/move-plan.svg" alt="" width="176" height="132" loading="lazy" class="pt-keep-i">
+      </div>
+      <!-- Downloading and carrying the plan across belong together: they are the same question
+           asked twice (Sophie, 3 Oct 2026). Nothing moves between devices on its own; the link
+           is what carries it. Said the same way here and on every saved page. -->
+      <div class="pt-card">
+        <p class="pt-k">Take it with you</p>
+        <div class="pt-two" style="gap:clamp(26px,3.4vw,44px);align-items:start">
+          <div>
+            <p class="pt-sk">As a document</p>
+            <p class="note">Your stages, answers, saved pages and next step, ready to view, print or download. A fixed copy &mdash; it won&rsquo;t change as your plan does.</p>
+            <div class="pt-name">
+              <label for="planName">Put your name on it <span>optional</span></label>
+              <input id="planName" type="text" maxlength="40" autocomplete="given-name" placeholder="First name" data-plan-first>
+              <span class="pt-hint">Only used on your plan.</span>
+            </div>
+            <div class="pt-signrow" style="margin-top:10px">
+              <button class="pt-btn ghost" type="button" data-doc="view">View as a page</button>
+              <button class="pt-btn ghost" type="button" data-doc="word">Download as Word</button>
+            </div>
+          </div>
+          <div>
+            <p class="pt-sk">On another device</p>
+            <p class="note">Nothing moves from one device to another on its own. This link is what carries it: open it on your phone or another computer and your answers, ticked stages and saved pages come with you.</p>
+            <div class="pt-signrow" style="margin-top:16px">
+              <button class="pt-btn ghost" type="button" data-getlink>Get my link</button>
+            </div>
+            <div data-linkbox hidden style="margin-top:14px">
+              <input data-linkout type="text" readonly aria-label="Your plan link" style="font-size:14px;width:100%;min-height:46px;padding:11px 14px;border:1.5px solid #C9DED3;border-radius:11px;background:#fff;font-family:var(--body);color:var(--text)" onclick="this.select()">
+              <div class="pt-signrow" style="margin-top:8px"><button class="pt-quiet" type="button" data-linkcopy>Copy link<span data-linkcopied style="margin-left:8px;color:#2F5E49"></span></button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <details class="pt-talk" id="send">
+        <summary><span class="pt-talk-k">Rather we picked this up with you?</span><span class="pt-talk-d">Send us a summary of your plan and we&rsquo;ll read it before we speak.</span></summary>
+
       <h2 data-send-h>Rather we picked this up with you?</h2>
       <p class="note" data-send-note>Send us what you have so far and we will read it before we speak. Nothing goes anywhere until you press send &mdash; and you can see exactly what it contains below.</p>
       <div class="pt-cols" data-send-cols>
@@ -595,50 +651,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
           <a class="pt-btn ghost" href="/contact">Talk to us</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="pt-details">
-    <div class="shell">
-      <div class="pt-keep-h">
-        <div>
-          <h2 style="font-family:var(--display);font-size:clamp(22px,2.6vw,28px);font-weight:600;color:var(--teal);margin-bottom:6px">Keep this plan</h2>
-          <p class="note" style="font-size:15.5px;line-height:1.6;color:var(--muted);max-width:64ch;margin-bottom:0">Your answers shape every tool on the site; change them in the strip at the top and everything follows.</p>
-        </div>
-        <img src="assets/heroes/move-plan.svg" alt="" width="176" height="132" loading="lazy" class="pt-keep-i">
-      </div>
-      <!-- Downloading and carrying the plan across belong together: they are the same question
-           asked twice (Sophie, 3 Oct 2026). Nothing moves between devices on its own; the link
-           is what carries it. Said the same way here and on every saved page. -->
-      <div class="pt-card">
-        <p class="pt-k">Take it with you</p>
-        <div class="pt-two" style="gap:clamp(26px,3.4vw,44px);align-items:start">
-          <div>
-            <p class="pt-sk">As a document</p>
-            <p class="note">Your stages, answers, saved pages and next step, ready to view, print or download. A fixed copy &mdash; it won&rsquo;t change as your plan does.</p>
-            <div class="pt-name">
-              <label for="planName">Put your name on it <span>optional</span></label>
-              <input id="planName" type="text" maxlength="40" autocomplete="given-name" placeholder="First name" data-plan-first>
-              <span class="pt-hint">Only used on your plan.</span>
-            </div>
-            <div class="pt-signrow" style="margin-top:10px">
-              <button class="pt-btn ghost" type="button" data-doc="view">View as a page</button>
-              <button class="pt-btn ghost" type="button" data-doc="word">Download as Word</button>
-            </div>
-          </div>
-          <div>
-            <p class="pt-sk">On another device</p>
-            <p class="note">Nothing moves from one device to another on its own. This link is what carries it: open it on your phone or another computer and your answers, ticked stages and saved pages come with you.</p>
-            <div class="pt-signrow" style="margin-top:16px">
-              <button class="pt-btn ghost" type="button" data-getlink>Get my link</button>
-            </div>
-            <div data-linkbox hidden style="margin-top:14px">
-              <input data-linkout type="text" readonly aria-label="Your plan link" style="font-size:14px;width:100%;min-height:46px;padding:11px 14px;border:1.5px solid #C9DED3;border-radius:11px;background:#fff;font-family:var(--body);color:var(--text)" onclick="this.select()">
-              <div class="pt-signrow" style="margin-top:8px"><button class="pt-quiet" type="button" data-linkcopy>Copy link<span data-linkcopied style="margin-left:8px;color:#2F5E49"></span></button></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </details>
       <div class="pt-signrow">
         <a class="pt-btn ghost" href="/apply">Send us your CV</a>
         <button class="pt-quiet" type="button" data-clear>Clear my plan from this device</button>

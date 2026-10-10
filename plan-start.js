@@ -79,7 +79,7 @@
       + (i > 0 ? '<button type="button" class="ps-back" data-ps-back><span aria-hidden="true">&larr;</span> Back</button>' : '')
       + '<button type="button" class="ps-skip" data-ps-skipq>' + (q.optional ? 'Skip' : 'Skip this question') + '</button>'
       + '</div></div>'
-      + '<p class="ps-out"><button type="button" data-ps-skipall>Skip to the eight stages</button> &middot; Your answers stay on this device. Nothing is sent to us.</p>';
+      + '<p class="ps-out"><button type="button" data-ps-skipall>Skip to the eight stages</button> &middot; Your plan is saved in this browser and nothing is sent to us. To use it on another device, get your link at the bottom of the page.</p>';
     root.innerHTML = h;
     if (focus) { var el = root.querySelector('#ps-in') || root.querySelector('#ps-q'); try { el.focus({ preventScroll: true }); } catch (e) {} }
   }

@@ -388,3 +388,16 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
+
+/* "Jobs" reads as "Find jobs" in the top menu (10 Oct 2026). _header.html already says so and
+   every page picks it up the next time sync-header.py runs; until then this relabels pages
+   that still carry the old header. Text only: the link, its panel and everything else stay. */
+(function () {
+  function relabel() {
+    document.querySelectorAll('.site-header .navitem > a[href="/jobs/"]').forEach(function (a) {
+      var t = a.firstChild;
+      if (t && t.nodeType === 3 && t.nodeValue.trim() === 'Jobs') t.nodeValue = 'Find jobs';
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', relabel); else relabel();
+})();

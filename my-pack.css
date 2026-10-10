@@ -132,3 +132,10 @@ h1,h2,h3{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .mp-picked{max-height:172px;-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent);mask-image:linear-gradient(180deg,#000 82%,transparent);padding-bottom:10px}
 .mp-panel{padding:20px 22px 18px}
 .mp-form{gap:10px}
+
+/* 10 Oct 2026: guides first, email last. The send form waits until the pack has guides in it,
+   so the email reads as the last step, not a registration up front. */
+.mp-panel:has(ul[data-mp-picked][hidden]) #mp-send,
+.mp-panel:has(ul[data-mp-picked]:empty) #mp-send,
+.mp-panel:has(ul[data-mp-picked][hidden]) [data-mp-edit]{display:none}
+.mp-picked li small,.mp-picked small{color:#C8DFDB}

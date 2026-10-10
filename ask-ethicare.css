@@ -273,3 +273,5 @@
 .ask-hero-copy .ask-you .d{color:#D5E6DF}
 .ask-hero-copy .ask-you .d strong{color:#fff}
 .askpage .ask-foot{border-top:0;padding-top:4px}
+.ask-hero-copy .ask-free{margin:14px 0 0;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#C6E084}
+.askpage .ask-hero-copy h1{font-size:clamp(38px,4.6vw,62px)}
