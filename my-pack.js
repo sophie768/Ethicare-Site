@@ -185,6 +185,11 @@
         '<button type="button" data-rm="' + i.id + '" aria-label="Remove ' + esc(i.t) + '">&times;</button></li>';
     }).join('');
     pickedEl.hidden = !n;
+    /* The email comes last: nothing to send, nothing to ask for (final review, 10 Oct 2026). */
+    var sendEl = root.querySelector('#mp-send'), laterEl = root.querySelector('[data-mp-later]');
+    if (sendEl) sendEl.hidden = !n;
+    if (laterEl) laterEl.hidden = !!n;
+    if (editBtn) editBtn.textContent = libEl && !libEl.hidden ? '\u2212 Hide the full list' : (n ? '+ Add or remove guides' : '+ Or choose guides yourself');
   }
 
   /* ---- the library, behind "Add or remove guides" ---- */
@@ -193,7 +198,8 @@
   function openLib(open, scroll) {
     if (!libEl) return;
     libEl.hidden = !open;
-    if (editBtn) { editBtn.setAttribute('aria-expanded', String(open)); editBtn.textContent = open ? '\u2212 Hide the full list' : '+ Add or remove guides'; }
+    if (editBtn) editBtn.setAttribute('aria-expanded', String(open));
+    drawPanel();
     if (open && scroll) libEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   if (editBtn) editBtn.addEventListener('click', function () { openLib(libEl.hidden, true); });

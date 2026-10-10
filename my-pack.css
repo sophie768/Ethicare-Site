@@ -132,3 +132,10 @@ h1,h2,h3{font-family:'Work Sans',ui-sans-serif,sans-serif}
 .mp-picked{max-height:172px;-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent);mask-image:linear-gradient(180deg,#000 82%,transparent);padding-bottom:10px}
 .mp-panel{padding:20px 22px 18px}
 .mp-form{gap:10px}
+
+/* Four steps, guides before email (final review, 10 Oct 2026). */
+.mp-steps{list-style:none;counter-reset:mps;display:flex;flex-wrap:wrap;gap:8px 10px;margin:18px 0 0;padding:0}
+.mp-steps li{counter-increment:mps;display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 8px;border-radius:999px;background:#E6F1ED;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#02615D}
+.mp-steps li::before{content:counter(mps);display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#02615D;color:#fff;font-size:12px}
+.mp-later{margin:14px 0 0;padding-top:14px;border-top:1px solid rgba(255,255,255,.2);font-size:14.5px;line-height:1.55;opacity:.9}
+.mp-form[hidden],.mp-later[hidden]{display:none}

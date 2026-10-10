@@ -1,10 +1,17 @@
 /* Ethicare — header navigation. One implementation shared by every page that
-   renders the site header. Breakpoint matches the stylesheets (900px). */
+   renders the site header. Mobile behaviour follows the visible hamburger (see isMobile). */
 (function () {
   var BP = '(max-width: 900px)';
   function nav() { return document.querySelector('[data-nav]'); }
   function toggle() { return document.querySelector('[data-nav-toggle]'); }
-  function isMobile() { return window.matchMedia && window.matchMedia(BP).matches; }
+  /* The stylesheets collapse the menu at 1199px (site.css) or 1299px (shell.css), not at BP, so
+     between those widths the hamburger showed but a parent tap navigated instead of opening its
+     sub-menu. The visible hamburger is the truth; BP is only the fallback. */
+  function isMobile() {
+    var t = toggle();
+    if (t && window.getComputedStyle) return window.getComputedStyle(t).display !== 'none';
+    return window.matchMedia && window.matchMedia(BP).matches;
+  }
 
   function close(focusBtn) {
     var n = nav(), t = toggle();

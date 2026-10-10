@@ -273,3 +273,8 @@
 .ask-hero-copy .ask-you .d{color:#D5E6DF}
 .ask-hero-copy .ask-you .d strong{color:#fff}
 .askpage .ask-foot{border-top:0;padding-top:4px}
+
+/* Final review, 10 Oct 2026: the one-line promise under the opening. */
+.ask-lede + .ask-lede{margin-top:12px}
+.ask-free{margin:16px 0 22px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;color:#A6C84A}
+.ask-fine a{color:inherit;text-decoration:underline;text-underline-offset:2px}

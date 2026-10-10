@@ -143,6 +143,18 @@ p,li,figcaption,dd,summary{text-wrap:pretty}
   .site-nav a{padding:13px 12px;font-size:16px;line-height:24px;min-height:48px}
   .site-nav .nav-cta{margin:8px 0 0;text-align:center}
 }
+/* Ask Ethicare beside the hamburger at collapsed widths (final review, 10 Oct 2026). The pill
+   inside the panel is hidden there so the link is not offered twice. */
+.hdr-ask{display:none}
+@media (max-width:1199px){
+  .hdr-ask{display:inline-flex;align-items:center;margin-left:auto;min-height:44px;padding:0 16px;border-radius:999px;background:#02615D;color:#fff;font-weight:600;font-size:14.5px;text-decoration:none;white-space:nowrap}
+  .hdr-ask:hover{background:#014E4B;color:#fff}
+  .hdr-ask:focus-visible{outline:3px solid #02615D;outline-offset:3px}
+  .hdr-ask + .nav-toggle{margin-left:10px}
+  .site-nav .nav-cta{display:none}
+}
+@media (max-width:480px){.site-header .shell{gap:10px}.hdr-ask{padding:0 14px}.hdr-ask-x{display:none}}
+@media (max-width:359px){.site-header .brand span{font-size:16px}}
 
 /* ---------------- FOOTER ---------------- */
 .site-footer{background:#01312F;color:rgba(255,255,255,.82);margin-top:0}
