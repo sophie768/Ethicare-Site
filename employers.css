@@ -217,3 +217,18 @@ h3{font-weight:600;font-size:var(--t-h3);line-height:1.25}
 .skip-link{position:absolute;top:-52px;left:16px;z-index:2000;background:#02615D;color:#fff;font-family:var(--display);font-weight:600;font-size:14px;padding:12px 20px;border-radius:0 0 12px 12px;transition:top .15s ease}
 .skip-link:focus{top:0}
 #main-content{outline:none}
+
+/* Case study photo: landscape team shot, cropped to keep all three faces */
+.case img.case-photo{height:auto;aspect-ratio:4/3;object-position:56% 40%;box-shadow:0 24px 50px -28px rgba(1,49,47,.35)}
+@media (max-width:880px){.case img.case-photo{aspect-ratio:16/9;object-position:center 35%}}
+
+/* Proof band, Lemonade-style (10 Oct 2026 mock-up) */
+.proof .set{text-align:center;max-width:1080px;margin:0 auto}
+.proof .p{align-items:center;gap:0}
+.proof .pi{display:grid;place-items:center;width:clamp(132px,13vw,168px);aspect-ratio:1;border-radius:50%;background:#F1F5F2;color:#02615D;margin-bottom:28px}
+.proof .pi svg{width:clamp(52px,5vw,64px);height:auto}
+.proof .k{font-family:var(--display);font-weight:600;font-size:17px;color:var(--text);margin-bottom:6px}
+.proof .n{font-weight:600;font-size:clamp(36px,3.6vw,48px);letter-spacing:-.02em;margin-bottom:8px}
+.proof .l{max-width:24ch;margin:0 auto}
+.proof .fn{text-align:center;margin-left:auto;margin-right:auto}
+@media (max-width:760px){.proof .set{gap:52px}.proof .n{font-size:40px}}

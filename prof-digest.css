@@ -42,4 +42,4 @@
 }
 @media print{.acc-i{border:0}.acc-i>summary .pm{display:none}}
 .acc-i>summary::after,.acc-i>summary::before{content:none!important;display:none!important}
-body:has(header.phero.au) .acc-i .lbl{color:#A34438}
+body:has(header.phero.au) .acc-i .lbl{color:#B32C62}

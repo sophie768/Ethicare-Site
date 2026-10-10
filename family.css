@@ -8,7 +8,7 @@ body.nz{--soft:#E3ECE5;--band:#E3ECE5}
 /* --fern-text is "the colour small text takes on a light surface", not a hue name.
    On AU pages that colour is Clay; remapping it here keeps every rule below
    country-agnostic instead of forking .eyebrow/.plist/.facts/.onward five times. */
-body.au{--soft:#F3F7F4;--band:#F3F7F4;--fern-text:#A34438}
+body.au{--soft:#F3F7F4;--band:#F3F7F4;--fern-text:#B32C62}
 body.global{--soft:#E6F1ED;--band:#E6F1ED}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}

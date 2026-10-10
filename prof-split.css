@@ -20,8 +20,8 @@ header.phero .crumb .here{color:#02615D;font-weight:600}
 header.phero .crumb .sep{opacity:.55;color:#555}
 header.phero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin:0 0 16px}
 header.phero .eyebrow::before{content:"";width:28px;height:3px;border-radius:3px;background:#A6C84A!important;display:inline-block;flex:none}
-header.phero.au .eyebrow{color:#A34438}
-header.phero.au .eyebrow::before{background:#D9A084!important}
+header.phero.au .eyebrow{color:#B32C62}
+header.phero.au .eyebrow::before{background:#B32C62!important}
 header.phero h1{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(34px,4.1vw,52px);line-height:1.07;letter-spacing:-.02em;color:#02615D;margin:0 0 18px;text-shadow:none;max-width:none}
 header.phero .sub{font-family:'Manrope',sans-serif;font-style:normal;font-size:clamp(17px,1.8vw,20px);line-height:1.55;color:#333;max-width:42ch;margin:0;opacity:1}
 header.phero .btn-row{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}

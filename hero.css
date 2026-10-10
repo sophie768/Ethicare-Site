@@ -136,9 +136,9 @@
   .hero.cream .hero-badge img.hero-illus{max-width:296px;}
 }
 /* Australia accent — terracotta divider + eyebrow on the cream hero */
-.hero.cream.au{--hero-rule:#D9A084;}
-.hero.cream.au .eyebrow{color:#A34438;}
-.hero.cream.au .eyebrow::before{background:#D9A084;}
+.hero.cream.au{--hero-rule:#B32C62;}
+.hero.cream.au .eyebrow{color:#B32C62;}
+.hero.cream.au .eyebrow::before{background:#B32C62;}
 
 /* ==========================================================================
    DUO HERO — dual-country comparison pages (.hero.duo)
@@ -154,7 +154,7 @@
 .hero.duo h1{text-wrap:balance;}
 .hero.duo h1,.hero.duo h1 em{color:#fff;}
 .hero.duo .eyebrow{color:#C6E084;}
-.hero.duo.au .eyebrow{color:#EFC3AA;}
+.hero.duo.au .eyebrow{color:#C6E084;}
 .hero.duo .hero-sub{color:rgba(255,255,255,.88);}
 .hero.duo .crumb,.hero.duo .crumb a{color:rgba(255,255,255,.85);}
 .hero.duo .crumb a:hover,.hero.duo .crumb .here{color:#fff;}
@@ -165,7 +165,7 @@
 .hero.duo .duo-tags .t{display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.30);border-radius:var(--r-pill);padding:8px 16px;}
 .hero.duo .duo-tags i{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .hero.duo .duo-tags i.nz{background:#72A471;}
-.hero.duo .duo-tags i.au{background:#D9A084;}
+.hero.duo .duo-tags i.au{background:#B32C62;}
 .hero.duo .duo-tags .orsep{color:rgba(255,255,255,.78);font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:15px;}
 @media (max-width:880px){
   .hero.duo::before{background:linear-gradient(180deg,rgba(1,49,47,.40) 0%,rgba(1,49,47,.58) 100%);}

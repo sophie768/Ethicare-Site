@@ -55,8 +55,8 @@
 .qfact .n{display:block;margin-top:7px;font-size:var(--t-meta,15px);line-height:1.55;color:var(--muted);max-width:32ch}
 .qfact a{color:inherit;border-bottom:1px solid rgba(2,97,93,.35)}
 .qfact a:hover{border-bottom-color:currentColor}
-.au .qfact .k,.au .qfact .n{color:#A34438}
-.au .faq summary::after,.au .acc summary::after{color:#A34438}
+.au .qfact .k,.au .qfact .n{color:#B32C62}
+.au .faq summary::after,.au .acc summary::after{color:#B32C62}
 
 /* --- Reading measure -----------------------------------------------------
    Long-form copy sits in a controlled column; editorial headings stay wide. */
@@ -67,9 +67,9 @@
 .qa summary{padding:clamp(16px,2vw,22px) 0}
 .qa .qw{display:block;min-width:0;flex:1 1 auto}
 .qa .k{display:block;font-family:var(--display);font-weight:600;font-size:var(--t-eyebrow,12.5px);letter-spacing:.1em;text-transform:uppercase;color:#2F5E49;margin-bottom:7px}
-.qa.au .k{color:#A34438}
+.qa.au .k{color:#B32C62}
 .qa .v{display:block;font-family:var(--display);font-weight:600;font-size:clamp(17px,1.7vw,20px);line-height:1.3;color:var(--teal);letter-spacing:-.01em}
 .qa .ans{max-width:56ch}
 .qa .ans a{color:#2F5E49;border-bottom:1px solid currentColor}
-.qa.au .ans a{color:#A34438}
+.qa.au .ans a{color:#B32C62}
 .qa .ans a:hover{color:var(--teal)}

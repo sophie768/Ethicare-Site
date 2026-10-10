@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="../shell.css">
 <style>
 :root{
-  --brand:#02615D; --au:#D9A084; --au-deep:#01312F; --secondary:#D9A084; --highlight:#EFC3AA;
+  --brand:#02615D; --au:#D98AA9; --au-deep:#01312F; --secondary:#D98AA9; --highlight:#C6E084;
   --sage:#EBDFD3; --soft:#F7F4EE; --bg:#FCFBF8; --white:#FFFFFF; --ink:#333333; --muted:#555555;
   --divider:#D6E1DA; --maxw:1180px; --ease:cubic-bezier(.22,.61,.36,1);
 }
@@ -24,7 +24,7 @@ body{font-family:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
-.eyebrow{font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--au-text,#A34438);display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.eyebrow{font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--au-text,#B32C62);display:flex;align-items:center;gap:8px;margin-bottom:16px}
 .eyebrow::before{content:"";width:26px;height:2px;background:var(--highlight)}
 
 /* ---------- HERO ---------- */
@@ -37,8 +37,8 @@ a{color:inherit;text-decoration:none}
 .btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:15px;padding:13px 24px;border-radius:999px;transition:transform .25s var(--ease),background .25s,box-shadow .25s,border-color .25s}
 .btn-primary{background:var(--brand);color:#fff;box-shadow:0 12px 30px rgba(1,49,47,.08)}
 .btn-primary:hover{transform:translateY(-2px);background:var(--au-deep);box-shadow:0 12px 30px rgba(1,49,47,.08)}
-.btn-ghost{background:transparent;color:var(--au-text,#A34438);border:1.5px solid var(--divider)}
-.btn-ghost:hover{border-color:var(--au-text,#A34438);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--au-text,#B32C62);border:1.5px solid var(--divider)}
+.btn-ghost:hover{border-color:var(--au-text,#B32C62);transform:translateY(-2px)}
 .btn .arr{transition:transform .25s var(--ease)}
 .btn:hover .arr{transform:translateX(3px)}
 .h-art{position:relative;height:430px;border-radius:14px;overflow:hidden;border:7px solid #fff;box-shadow:0 12px 30px rgba(1,49,47,.08);background:linear-gradient(180deg,rgba(2,97,93,0.05),rgba(2,97,93,0.5)),repeating-linear-gradient(135deg,rgba(255,255,255,0.05) 0 22px,rgba(255,255,255,0) 22px 44px),linear-gradient(155deg,var(--secondary),var(--au) 70%);display:flex;align-items:center;justify-content:center;flex-direction:column;color:rgba(255,255,255,.92);text-align:center}
@@ -72,16 +72,16 @@ section.block{padding:78px 0}
 .opp::before{content:"";position:absolute;inset:0 auto 0 0;width:5px}
 .opp.metro::before{background:var(--secondary)}
 .opp.regional::before{background:var(--highlight)}
-.opp .tagline{font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--au-text,#A34438)}
+.opp .tagline{font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--au-text,#B32C62)}
 .opp.regional .tagline{color:#02615D}
 .opp h3{font-size:23px;color:var(--brand);letter-spacing:-.01em;margin-top:8px;font-weight:600}
 .opp .sub{margin-top:8px;color:var(--ink);font-size:15.5px}
 .opp ul{list-style:none;margin-top:16px;display:grid;gap:8px}
 .opp li{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;color:var(--ink)}
-.opp li svg{width:18px;height:18px;flex:none;margin-top:4px;color:var(--au-text,#A34438)}
+.opp li svg{width:18px;height:18px;flex:none;margin-top:4px;color:var(--au-text,#B32C62)}
 .opp.regional li svg{color:#02615D}
 .opp .demand{margin-top:24px;padding-top:18px;border-top:1px solid var(--divider);font-size:13.5px;color:var(--muted)}
-.opp .demand b{color:var(--au-text,#A34438)}
+.opp .demand b{color:var(--au-text,#B32C62)}
 @media(max-width:820px){.split-grid{grid-template-columns:1fr}}
 
 /* ---------- STATE CARDS ---------- */
@@ -98,7 +98,7 @@ section.block{padding:78px 0}
 .scard .body{padding:22px 28px 26px;display:flex;flex-direction:column;flex:1}
 .scard .desc{color:var(--muted);font-size:14.5px}
 .placewrap{margin-top:24px;display:grid;gap:16px}
-.pgroup .pl{display:flex;align-items:center;gap:8px;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--au-text,#A34438);margin-bottom:8px}
+.pgroup .pl{display:flex;align-items:center;gap:8px;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--au-text,#B32C62);margin-bottom:8px}
 .pgroup.reg .pl{color:#02615D}
 .pgroup .pl .dot{width:9px;height:9px;border-radius:2px;background:var(--secondary)}
 .pgroup.reg .pl .dot{background:var(--highlight)}
@@ -106,7 +106,7 @@ section.block{padding:78px 0}
 .chips span{font-family:'Work Sans',sans-serif;font-weight:600;font-size:12.5px;color:var(--ink);background:var(--bg);border:1px solid var(--divider);border-radius:999px;padding:5px 12px}
 .pgroup.reg .chips span{background:#FAF7F3;border-color:#EBDFD3}
 .scard .demand-note{margin-top:auto;padding-top:18px;display:flex;gap:8px;align-items:flex-start;font-size:13.5px;color:var(--ink)}
-.scard .demand-note .pill{flex:none;font-family:'Work Sans',sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:var(--sage);color:var(--au-text,#A34438);margin-top:4px}
+.scard .demand-note .pill{flex:none;font-family:'Work Sans',sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:var(--sage);color:var(--au-text,#B32C62);margin-top:4px}
 .scard .demand-note .pill.high{background:var(--highlight);color:#FFFFFF}
 .scard .foot{padding:0 28px 24px}
 .scard .foot .soon{display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:var(--bg);border:1px dashed var(--divider);border-radius:999px;padding:7px 14px}
@@ -119,10 +119,10 @@ section.block{padding:78px 0}
 .relo p{margin-top:16px;color:#333333;font-size:17px;max-width:50ch}
 .relo .actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
 .relo .card-note{background:var(--white);border-radius:12px;padding:26px 28px;box-shadow:0 12px 30px rgba(1,49,47,.08)}
-.relo .card-note .k{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--au-text,#A34438);font-weight:700}
+.relo .card-note .k{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--au-text,#B32C62);font-weight:700}
 .relo .card-note ul{list-style:none;margin-top:16px;display:grid;gap:8px}
 .relo .card-note li{display:flex;gap:8px;align-items:flex-start;font-size:15px;color:var(--ink)}
-.relo .card-note li svg{width:18px;height:18px;flex:none;margin-top:4px;color:var(--au-text,#A34438)}
+.relo .card-note li svg{width:18px;height:18px;flex:none;margin-top:4px;color:var(--au-text,#B32C62)}
 @media(max-width:820px){.relo .ri{grid-template-columns:1fr;gap:24px}}
 </style>
 <link rel="canonical" href="https://ethicareresourcing.com/destinations/australia">
@@ -138,12 +138,12 @@ section.block{padding:78px 0}
 <meta name="twitter:title" content="Australia Destination Guides · Ethicare Resourcing">
 <meta name="twitter:description" content="Explore Australia state by state: where the healthcare opportunities are, metro versus regional, and the major cities across all six states.">
 <meta name="twitter:image" content="https://ethicareresourcing.com/assets/nt/nt-uluru-sunset.jpg">
-<style id="au-orange-accent">.hero .eyebrow{color:#EFC3AA}.hero .eyebrow::before{background:#EFC3AA}.eyebrow{color:#A34438}.eyebrow::before{background:#A6C84A}</style>
-<style id="au-palette-tune">:root{--primary:#02615D;--accent:#02615D;--au:#D9A084;--highlight:#02615D;--secondary:#02615D}</style>
+<style id="au-orange-accent">.hero .eyebrow{color:#C6E084}.hero .eyebrow::before{background:#C6E084}.eyebrow{color:#B32C62}.eyebrow::before{background:#A6C84A}</style>
+<style id="au-palette-tune">:root{--primary:#02615D;--accent:#02615D;--au:#D98AA9;--highlight:#02615D;--secondary:#02615D}</style>
 <style id="au-hero-teal"></style>
 <style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}.hero .eyebrow::before{background:#A6C84A!important}</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"Australia","item":"https://ethicareresourcing.com/australia"},{"@type":"ListItem","position":3,"name":"Destinations"}]}</script>
-<style id="au-link-tokens">:root{--link-ink:#A34438;--link-rule:#D9A084}</style>
+<style id="au-link-tokens">:root{--link-ink:#B32C62;--link-rule:#D98AA9}</style>
 <link rel="stylesheet" href="../prose-links.css">
 <link rel="stylesheet" href="../destination-finder.css">
 </head>
@@ -162,22 +162,32 @@ section.block{padding:78px 0}
       <div class="navitem has-sub has-mega"><a href="/new-zealand">New Zealand<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="New Zealand"><a class="mp-tile is-primary" href="/new-zealand"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-globe"/></svg></span><span class="mp-tl">Working in New Zealand</span></a><a class="mp-tile" href="/jobs/professions"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-briefcase"/></svg></span><span class="mp-tl">Find your profession</span></a><a class="mp-tile" href="/destinations/"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pin"/></svg></span><span class="mp-tl">Explore destinations</span></a><a class="mp-tile" href="/my-pack"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pack"/></svg></span><span class="mp-tl">Create my pack</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Before you move</span><a class="mp-row" href="/guides/new-zealand-registration"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-badge"/></svg></span><span class="mp-rt"><span class="mp-rn">Registration</span><span class="mp-rd">Your board, documents and timelines</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/new-zealand-visa"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-passport"/></svg></span><span class="mp-rt"><span class="mp-rn">Visas</span><span class="mp-rd">Work visas and the Green List</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/new-zealand-salary"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-coins"/></svg></span><span class="mp-rt"><span class="mp-rn">Pay</span><span class="mp-rd">Pay bands and the agreements behind them</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/new-zealand-family"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-family"/></svg></span><span class="mp-rt"><span class="mp-rn">Moving with family</span><span class="mp-rd">Schools, partners and settling in</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div><div class="mp-col"><span class="mp-h">Once you arrive</span><a class="mp-row" href="/guides/new-zealand-first-month"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-calendar"/></svg></span><span class="mp-rt"><span class="mp-rn">Your first month</span><span class="mp-rd">What to sort out in your first weeks</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/renting-in-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-home"/></svg></span><span class="mp-rt"><span class="mp-rn">Renting a home</span><span class="mp-rd">How renting works and what it costs</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/driving-and-licences"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-car"/></svg></span><span class="mp-rt"><span class="mp-rn">Driving &amp; licences</span><span class="mp-rd">Driving on and converting your licence</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/te-ao-maori-at-work"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-koru"/></svg></span><span class="mp-rt"><span class="mp-rn">Te ao Māori at work</span><span class="mp-rd">Tikanga and Te Tiriti in healthcare</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
       </div>
-      <div class="navitem has-sub has-mega"><a href="/jobs/">Jobs<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Jobs"><a class="mp-tile is-primary" href="/jobs/"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-list"/></svg></span><span class="mp-tl">All live roles</span></a><a class="mp-tile" href="/jobs/professions"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-grid"/></svg></span><span class="mp-tl">Every profession</span></a><a class="mp-tile" href="/pathway-checker"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-route"/></svg></span><span class="mp-tl">Pathway checker</span></a><a class="mp-tile" href="/build-your-cv"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-file"/></svg></span><span class="mp-tl">Build your CV</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Careers in New Zealand</span><a class="mp-row mp-row-s" href="/jobs/medicine-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-stethoscope"/></svg></span><span class="mp-rt"><span class="mp-rn">Medicine</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/nursing-midwifery-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-heart"/></svg></span><span class="mp-rt"><span class="mp-rn">Nursing &amp; midwifery</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/mental-health-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-mind"/></svg></span><span class="mp-rt"><span class="mp-rn">Mental health</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/allied-health-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-pulse"/></svg></span><span class="mp-rt"><span class="mp-rn">Allied health</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/medical-imaging-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Medical imaging &amp; radiation therapy</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/theatre-perioperative-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-mask"/></svg></span><span class="mp-rt"><span class="mp-rn">Theatre &amp; perioperative</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div><div class="mp-col"><span class="mp-h">Careers in Australia</span><a class="mp-row" href="/jobs/medical-imaging-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Medical imaging &amp; radiation therapy</span><span class="mp-rd">Where we recruit in Australia now</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/jobs/coming-to-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-briefcase"/></svg></span><span class="mp-rt"><span class="mp-rn">Other healthcare professions</span><span class="mp-rd">Register your interest for later</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
+      <div class="navitem has-sub has-mega"><a href="/jobs/">Find jobs<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Jobs"><a class="mp-tile is-primary" href="/jobs/"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-list"/></svg></span><span class="mp-tl">All live roles</span></a><a class="mp-tile" href="/jobs/professions"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-grid"/></svg></span><span class="mp-tl">Every profession</span></a><a class="mp-tile" href="/build-your-cv"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-file"/></svg></span><span class="mp-tl">Build your CV</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Careers in New Zealand</span><a class="mp-row mp-row-s" href="/jobs/medicine-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-stethoscope"/></svg></span><span class="mp-rt"><span class="mp-rn">Medicine</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/nursing-midwifery-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-heart"/></svg></span><span class="mp-rt"><span class="mp-rn">Nursing &amp; midwifery</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/mental-health-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-mind"/></svg></span><span class="mp-rt"><span class="mp-rn">Mental health</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/allied-health-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-pulse"/></svg></span><span class="mp-rt"><span class="mp-rn">Allied health</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/medical-imaging-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Medical imaging &amp; radiation therapy</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/theatre-perioperative-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-mask"/></svg></span><span class="mp-rt"><span class="mp-rn">Theatre &amp; perioperative</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div><div class="mp-col"><span class="mp-h">Careers in Australia</span><a class="mp-row" href="/jobs/medical-imaging-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Medical imaging &amp; radiation therapy</span><span class="mp-rd">Where we recruit in Australia now</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/jobs/coming-to-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-briefcase"/></svg></span><span class="mp-rt"><span class="mp-rn">Other healthcare professions</span><span class="mp-rd">Register your interest for later</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
       </div>
-      <div class="navitem has-sub has-mega"><a href="/plan">Plan Ethicare<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Plan Ethicare"><a class="mp-tile is-primary" href="/plan"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-clipboard"/></svg></span><span class="mp-tl">Your plan, all in one place</span></a><a class="mp-tile" href="/my-pack"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pack"/></svg></span><span class="mp-tl">Create my pack</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Plan your move</span><a class="mp-row" href="/destination-finder"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-compass"/></svg></span><span class="mp-rt"><span class="mp-rn">Destination finder</span><span class="mp-rd">Places that suit the life you want</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/pathway-checker"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-route"/></svg></span><span class="mp-rt"><span class="mp-rn">Registration pathway checker</span><span class="mp-rd">Your route to registration</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/cost-calculator"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-calc"/></svg></span><span class="mp-rt"><span class="mp-rn">Moving cost calculator</span><span class="mp-rd">What the move is likely to cost</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/australia-vs-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-scales"/></svg></span><span class="mp-rt"><span class="mp-rn">Compare the two countries</span><span class="mp-rd">Australia and New Zealand side by side</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
+      <div class="navitem has-sub has-mega"><a href="/plan">Plan your move<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Plan your move"><a class="mp-tile is-primary" href="/plan"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-clipboard"/></svg></span><span class="mp-tl">Your plan, all in one place</span></a><a class="mp-tile" href="/my-pack"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pack"/></svg></span><span class="mp-tl">Create my pack</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Plan your move</span><a class="mp-row" href="/destination-finder"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-compass"/></svg></span><span class="mp-rt"><span class="mp-rn">Destination finder</span><span class="mp-rd">Places that suit the life you want</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/pathway-checker"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-route"/></svg></span><span class="mp-rt"><span class="mp-rn">Registration pathway checker</span><span class="mp-rd">Your route to registration</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/cost-calculator"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-calc"/></svg></span><span class="mp-rt"><span class="mp-rn">Moving cost calculator</span><span class="mp-rd">What the move is likely to cost</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/australia-vs-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-scales"/></svg></span><span class="mp-rt"><span class="mp-rn">Compare the two countries</span><span class="mp-rd">Australia and New Zealand side by side</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav">
+        <div class="subnav slist">
           <a href="/about-ethicare">About Ethicare</a>
           <a href="/candidate-stories">Candidate stories</a>
           <a href="/clinical-standard">Our clinical standard</a>
           <a href="/insights">Insights</a>
+          <a href="/contact">Contact us</a>
         </div>
       </div>
       <a href="/ask">Ask Ethicare</a>
-      <a href="/employers">For Employers</a>
+      <div class="navitem has-sub nav-emp"><a href="/employers">For Employers<span class="cv" aria-hidden="true">&#9662;</span></a>
+        <div class="subnav slist">
+          <a href="/employers">Recruiting with Ethicare</a>
+          <a href="/submit-a-vacancy">Submit a vacancy</a>
+          <a href="/employers/medical-imaging-australia">Medical imaging in Australia</a>
+          <a href="/insights/international-recruitment-toolkit">International recruitment toolkit</a>
+          <a href="/insights/case-studies">Case studies</a>
+          <a href="/employers#enquiry">Talk to us</a>
+        </div>
+      </div>
       <a class="nav-cta" href="/contact">Contact</a>
     </nav>
   </div>
@@ -208,7 +218,7 @@ section.block{padding:78px 0}
 <!-- The Destination finder, first (Sophie, 6 Oct 2026: "when a candidate clicks on destination guides,
      it comes up with a checker"). Six questions with the country already answered; three regions
      that fit, with the trade-offs; then the guides below for the reading. -->
-<section class="block" id="finder" data-screen-label="Destination guides &middot; finder" style="background:#F3F7F4"><div class="wrap">
+<section class="block" id="finder" data-screen-label="Destination guides &middot; finder" style="background:#F7F4EE"><div class="wrap">
   <div class="sec-head">
     <div class="eyebrow">Destination finder</div>
     <h2>Let us help you find the right destination</h2>
@@ -408,17 +418,17 @@ section.block{padding:78px 0}
 </div></section>
 
 <!-- CITY & TOWN GUIDES -->
-<section class="block" id="towns" style="background:#F3F7F4"><div class="wrap" style="padding-top:60px;padding-bottom:64px">
+<section class="block" id="towns" style="background:#F7F4EE"><div class="wrap" style="padding-top:60px;padding-bottom:64px">
   <style>
   .citygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
   .ccard{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--divider);border-radius:12px;overflow:hidden;text-decoration:none;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
   .ccard:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(1,49,47,.08)}
   .ccard .cimg{height:158px;background-size:cover;background-position:center}
   .ccard .cbody{padding:18px 22px 22px;display:flex;flex-direction:column;flex:1}
-  .ccard .cst{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--au-text,#A34438);margin-bottom:4px}
+  .ccard .cst{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--au-text,#B32C62);margin-bottom:4px}
   .ccard h3{font-size:20px;color:var(--brand);margin:0 0 4px;letter-spacing:-.01em}
   .ccard p{font-size:14px;color:var(--muted);margin:0 0 16px;line-height:1.55}
-  .ccard .go{margin-top:auto;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--au-text,#A34438)}
+  .ccard .go{margin-top:auto;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--au-text,#B32C62)}
   @media(max-width:780px){.citygrid{grid-template-columns:1fr}}
   </style>
   <div class="sec-head">

@@ -12,6 +12,6 @@
 .photoband .wrap{padding-top:clamp(54px,7vw,90px);padding-bottom:clamp(54px,7vw,90px)}
 .photoband .eyebrow{color:#C6E084}
 .photoband .eyebrow::before{background:#A6C84A!important}
-.photoband.au .eyebrow{color:#EFC3AA}
+.photoband.au .eyebrow{color:#C6E084}
 .photoband .big{font-family:var(--display);font-weight:600;font-size:clamp(26px,3.4vw,40px);line-height:1.16;letter-spacing:-.01em;color:#fff;max-width:28ch;margin:16px 0 0;text-wrap:pretty}
 .photoband .sub{font-family:'Playfair Display',Georgia,serif;font-size:clamp(16px,1.7vw,19px);line-height:1.6;color:rgba(255,255,255,.84);max-width:50ch;margin:24px 0 0}

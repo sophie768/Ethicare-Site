@@ -94,8 +94,8 @@
 
 /* Australian editions: clay carries small text and rules on every light surface.
    The drawing itself is unchanged — colour identity lives in the page chrome. */
-.hero.au .eyebrow,.hero.au .hero-sub{color:#A34438!important}
-.hero.au .btn-row .btn{border-bottom-color:#D9A084!important}
+.hero.au .eyebrow,.hero.au .hero-sub{color:#B32C62!important}
+.hero.au .btn-row .btn{border-bottom-color:#B32C62!important}
 
 /* Policy and legal pages keep the flat deep-teal band. */
 .hero.policy{background:#02615D!important;border-bottom:0}

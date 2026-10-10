@@ -8,7 +8,7 @@
    already remapped to Clay on body.au there, so every rule below that uses it is
    country-agnostic. These three add the accent/edge the pattern needs. */
 body.nz{--fam-accent:#72A471;--fam-edge:#C9DED3}
-body.au{--fam-accent:#D9A084;--fam-edge:#EBDFD3}
+body.au{--fam-accent:#B32C62;--fam-edge:#EBDFD3}
 body.global{--fam-accent:#72A471;--fam-edge:#C9DED3}
 
 /* the professions in this family, as columns — read before the routing list, so it

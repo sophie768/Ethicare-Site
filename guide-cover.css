@@ -20,7 +20,7 @@
 .cov-ct:last-child{justify-self:end}
 .cov-ct i{width:8px;height:8px;border-radius:50%;flex:none}
 .cov-ct i.nz{background:#72A471}
-.cov-ct i.au{background:#D9A084}
+.cov-ct i.au{background:#B32C62}
 .cov-in{max-width:1180px;width:100%;margin:0 auto;padding:clamp(40px,5vw,62px) 32px clamp(38px,4.5vw,54px)}
 .cov-eb{display:flex;align-items:center;gap:16px;margin-bottom:24px;font-family:'Work Sans',ui-sans-serif,sans-serif;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#C6E084}
 .cov-eb i{display:block;width:28px;height:2px;background:#A6C84A;flex:none}

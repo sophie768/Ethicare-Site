@@ -42,8 +42,8 @@ header.hero.cream .btn-primary{background:#02615D;color:#fff;border-color:#02615
 header.hero.cream .btn-primary:hover{background:#014E4B}
 header.hero.cream .btn-ghost,header.hero.cream .btn-secondary{background:transparent;border:2px solid #02615D;color:#02615D}
 header.hero.cream .hero-art::after{display:none!important}
-header.hero.cream.au .eyebrow{color:#A34438}
-header.hero.cream.au .hero-sub::after{background:#D9A084}
+header.hero.cream.au .eyebrow{color:#B32C62}
+header.hero.cream.au .hero-sub::after{background:#B32C62}
 
 /* Reference pages with no photograph (contacts): text only, calmer and shorter. */
 header.hero.cream.no-art{min-height:0}

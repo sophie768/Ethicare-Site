@@ -11,7 +11,7 @@
      that loaded ONLY the shell fell back to serif on a transparent background and
      had to redeclare its own :root — which is how token drift started. */
   --teal:#02615D; --green:#02615D; --sage:#72A471; --lime:#A6C84A;
-  --nz:#72A471; --au:#D9A084; --au-text:#A34438;
+  --nz:#72A471; --au:#B32C62; --au-text:#B32C62;
   --mint:#C9DED3; --soft:#E6F1ED; --soft-green:#E6F1ED; --warm:#FCFBF8;
   --white:#fff; --text:#333333; --muted:#555555;
   --display:'Work Sans',sans-serif; --body:'Manrope',sans-serif;
@@ -236,8 +236,8 @@ a{color:inherit;text-decoration:none}
 .regionmega .explore{display:inline-block;margin-top:16px;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:600;font-size:13.5px;white-space:nowrap}
 .nzmega .megah,.nzmega .rj .n,.nzmega .explore{color:#2F5E49}
 .nzmega .rj a:hover,.nzmega .pg a:hover{color:#2F5E49}
-.aumega .megah,.aumega .rj .n,.aumega .explore{color:#A34438}
-.aumega .rj a:hover,.aumega .pg a:hover{color:#A34438}
+.aumega .megah,.aumega .rj .n,.aumega .explore{color:#B32C62}
+.aumega .rj a:hover,.aumega .pg a:hover{color:#B32C62}
 @media(min-width:1200px){
   /* stretch nav items to full header height so hover bridges to the panel with no gap */
   .site-nav .navitem{align-self:stretch}
@@ -285,7 +285,7 @@ p,li,figcaption,dd,summary{text-wrap:pretty}
 .wf-onward .wf-lbl{display:flex;align-items:center;gap:8px;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49}
 .wf-onward .wf-ttl{font-weight:600;font-size:17.5px;line-height:1.25;letter-spacing:-.01em;color:#02615D}
 .wf-onward .arw{font-size:15px;line-height:1;color:#2F5E49;transition:transform .18s ease}
-.wf-onward.au .arw{color:#D9A084}
+.wf-onward.au .arw{color:#B32C62}
 .wf-onward .wf-prev:hover .arw{transform:translateX(-3px)}
 .wf-onward .wf-next{text-align:right;align-items:flex-end}
 .wf-onward .wf-next .wf-lbl{justify-content:flex-end}
@@ -495,8 +495,8 @@ p:last-child{margin-bottom:0}
    fern 2.89:1, and the .85-opacity labels fell to 2.02. Text on the LIGHT fills
    goes to #01312F (apricot 6.28, fern 4.90); the deep-teal winter card keeps
    #fff (7.32). Selected on the inline fill so no chapter markup changes. */
-.season:is([style*="#D9A084"],[style*="#d9a084"],[style*="#72A471"],[style*="#72a471"],[style*="#A6C84A"],[style*="#a6c84a"]){color:#01312F}
-.season:is([style*="#D9A084"],[style*="#d9a084"],[style*="#72A471"],[style*="#72a471"],[style*="#A6C84A"],[style*="#a6c84a"]) :is(.m,.tl){opacity:1}
+.season:is([style*="#D9A084"],[style*="#d9a084"],[style*="#D98AA9"],[style*="#72A471"],[style*="#72a471"],[style*="#A6C84A"],[style*="#a6c84a"]){color:#01312F}
+.season:is([style*="#D9A084"],[style*="#d9a084"],[style*="#D98AA9"],[style*="#72A471"],[style*="#72a471"],[style*="#A6C84A"],[style*="#a6c84a"]) :is(.m,.tl){opacity:1}
 
 /* 2.5.8 Target Size (Minimum): breadcrumb and chapter-nav links measured 21px
    tall. Both parents are flex/grid with align-items:center, so a min-height
@@ -738,7 +738,7 @@ header .keyline{
   color:#02615D;
   max-width:34ch;
 }
-header.phero.au .keyline{border-left-color:#D9A084}
+header.phero.au .keyline{border-left-color:#B32C62}
 header h1:has(+ .keyline){margin-bottom:15px}
 @media (max-width:760px){
   header .keyline{padding-left:14px;max-width:none}
@@ -945,3 +945,13 @@ html body .s > cite{color:#2F5E49}
 html body main .takeaway p a,html body main .v a{text-decoration:underline!important;text-underline-offset:3px}
 html body .takeaway p a,html body .v > a,html body :is(.wrap,.rt-wrap,.shell) :is(p,li,figcaption) > a:not([class]){text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 html body :is(main,article,section) p > a:not([class]){text-decoration-line:underline;text-underline-offset:3px}
+
+/* About and For Employers: simple lists, one link per row (10 Oct 2026, after Capital One's "More"). */
+@media (min-width:1300px){
+  html body .subnav.slist{min-width:320px;padding:0;gap:0;border:1px solid #E4E9E5;border-top:3px solid #02615D;border-radius:0 0 16px 16px;box-shadow:0 24px 50px -22px rgba(1,49,47,.32);overflow:hidden;background:#fff}
+  html body .subnav.slist a{display:block;min-height:0;padding:19px 26px;border-radius:0;border-bottom:1px solid #E4E9E5;font-family:'Work Sans',ui-sans-serif,sans-serif;font-weight:500;font-size:17px;line-height:1.3;color:#02615D;background:#fff}
+  html body .subnav.slist a:last-child{border-bottom:0}
+  html body .subnav.slist a:hover,html body .subnav.slist a:focus-visible{background:#F3F7F4;color:#014E4B}
+  html body .subnav.slist a:focus-visible{outline:3px solid #02615D;outline-offset:-3px}
+  html body .navitem.nav-emp .subnav.slist{left:auto;right:0}
+}
