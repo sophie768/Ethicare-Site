@@ -402,7 +402,7 @@ window.ETHICARE_JOBS_ALL = [
     posted: "2026-07-15",
     pay: "Competitive salary + benefits, discussed with you",
     lifestyle: "A relaxed Queensland coastal city: warm climate, beautiful beaches, the Southern Great Barrier Reef and national parks nearby, with affordable housing and a welcoming community.",
-    summary: "Perform high-quality screening and diagnostic mammography within an experienced multidisciplinary imaging team at a values-led private provider, with modern technology and genuine support for your development.",
+    summary: "Perform high-quality screening and diagnostic mammography within an experienced multidisciplinary imaging team at a values-led private provider, with modern technology and support for your development.",
     detail: "/jobs/vacancy/mammographer-bundaberg"
   },
   {
@@ -418,7 +418,7 @@ window.ETHICARE_JOBS_ALL = [
     posted: "2026-07-15",
     pay: "Competitive salary + full benefits, discussed with you",
     lifestyle: "One of Australia's most scenic states: spectacular coastlines and wilderness national parks, a celebrated food, wine and arts scene, shorter commutes and a strong sense of community.",
-    summary: "Perform a broad range of general ultrasound examinations with a well-established private imaging provider, with roles in both Hobart and Launceston, modern equipment and an outstanding work-life balance.",
+    summary: "Perform a broad range of general ultrasound examinations with a well-established private imaging provider, with roles in both Hobart and Launceston, modern equipment and a good work-life balance.",
     detail: "/jobs/vacancy/sonographer-tasmania"
   },
   {
@@ -484,7 +484,7 @@ window.ETHICARE_JOBS_ALL = [
     posted: "2026-07-14",
     pay: "Competitive — set by the relevant collective agreement",
     lifestyle: "Porirua on Wellington's edge: harbour and coast, a proud Māori and Pasifika community, and the capital a short train ride away.",
-    summary: "Join a supportive, multidisciplinary community mental health team providing a range of psychological interventions, with genuine autonomy and ongoing training and development.",
+    summary: "Join a supportive, multidisciplinary community mental health team providing a range of psychological interventions, with clinical autonomy and ongoing training and development.",
     detail: "/jobs/vacancy/clinical-psychologist-porirua"
   },
   {
@@ -596,7 +596,7 @@ window.ETHICARE_JOBS_ALL = [
     posted: "2026-06-26",
     pay: "Competitive — set by the ASMS MECA scale",
     lifestyle: "A heritage river city with a thriving arts scene and character villas you can actually afford, with the Whanganui River and Mt Ruapehu both within easy reach.",
-    summary: "A general radiologist for a modern regional hospital, with a varied caseload and a genuine 70/30 clinical to non-clinical balance.",
+    summary: "A general radiologist for a modern regional hospital, with a varied caseload and a 70/30 clinical to non-clinical balance.",
     detail: "/jobs/vacancy/radiologist-whanganui"
   },
   {
