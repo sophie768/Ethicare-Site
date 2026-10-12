@@ -401,3 +401,68 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', relabel); else relabel();
 })();
+
+
+/* ---------------------------------------------------------------------------
+   STAGE LINE (12 Oct 2026). One quiet line above the footer on the tools and
+   guides that belong to a stage of the move: "Stage 3 of 8 · Can I work there?
+   Next: Make the numbers work". The stages are Plan Ethicare's eight. City guide
+   chapters are left out on purpose: they have their own chapter-to-chapter
+   navigation, and a second "next" would pull people out mid-guide.
+   --------------------------------------------------------------------------- */
+(function () {
+  var STAGES = [
+    { t: 'Imagine the possibilities', href: { nz: '/new-zealand', au: '/australia', any: '/' } },
+    { t: 'Choose your destination', href: { nz: '/destinations/', au: '/destinations/australia', any: '/guides/australia-vs-new-zealand' } },
+    { t: 'Can I work there?', href: { nz: '/guides/new-zealand-registration', au: '/guides/australia-registration', any: '/can-i-work-there' } },
+    { t: 'Make the numbers work', href: { any: '/what-could-i-earn' } },
+    { t: 'Where could we live?', href: { any: '/destination-finder' } },
+    { t: 'What jobs could I get?', href: { any: '/jobs/' } },
+    { t: 'How do we plan it all?', href: { any: '/plan' } },
+    { t: 'Settle into life', href: { any: '/settling-in' } }
+  ];
+  var G = '^/guides/';
+  var MAP = [
+    [6, [/^\/jobs\/vacancy\//, /^\/jobs(\/index)?$/, /^\/guides\/(australia|new-zealand)-(finding-a-role|interview)$/, /^\/(interview-prep|build-your-cv|cv-checker|before-you-accept|register-interest|apply)$/, /^\/guides\/negotiating-your-offer$/]],
+    [1, [/^\/(new-zealand|australia|candidate-stories)$/, new RegExp(G + '(about-australia|about-new-zealand|aotearoa-in-short|nz\\/aotearoa-in-short|living-in-australia|living-in-new-zealand|why-people-move)$'), /^\/insights\/(amal-and-sandra-wellington|emad-iran-to-northland|manchester-to-the-sunshine-coast|south-africa-to-auckland|three-families-palmerston-north)$/]],
+    [2, [/^\/destinations(\/index)?$/, /^\/destinations\/australia$/, /^\/destinations\/(australia|new-zealand)-relocation-guide$/, /^\/(guides\/)?australia-vs-new-zealand$/]],
+    [3, [new RegExp(G + '.*registration'), /^\/(pathway-checker|can-i-work-there)$/, /^\/jobs\/[a-z-]+-(australia|new-zealand)$/, /^\/jobs\/professions$/, new RegExp(G + '(australia|new-zealand)-healthcare$')]],
+    [4, [/^\/(what-could-i-earn|take-home-pay|cost-calculator)$/, new RegExp(G + '(australia-salary|new-zealand-salary|australia-vs-new-zealand-salary|australia-money|money-tax-and-banking|nz\\/money-tax-and-banking|australia-school-fees|new-zealand-pay-agreements|cost-of-relocating)$')]],
+    [5, [/^\/(destination-finder|where-would-we-live)$/, new RegExp(G + '(australia-renting|renting-in-new-zealand|nz\\/renting-in-new-zealand|australia-education|new-zealand-education|australia-family|new-zealand-family|australia-regional-life)$')]],
+    [7, [/^\/(my-pack|moving-checklist|request-a-guide)$/, new RegExp(G + '(australia-visa|new-zealand-visa|australia-relocation|new-zealand-relocation|before-you-leave|nz\\/before-you-leave|new-zealand-checklist|nz\\/relocation-checklist|driving-and-licences|nz\\/driving-and-licences|australia-driving|australia-pets|nz\\/bringing-pets-and-belongings|moving-with-teenagers|moving-to-australia|moving-to-new-zealand)$')]],
+    [8, [/^\/settling-in$/, new RegExp(G + '(new-zealand-first-month|nz\\/your-first-month|australia-community|new-zealand-community|australia-contacts|new-zealand-contacts|te-ao-maori-at-work|nz\\/te-ao-maori-at-work|australia-practice|new-zealand-practice)$')]]
+  ];
+  function stageFor(path) {
+    for (var i = 0; i < MAP.length; i++) for (var j = 0; j < MAP[i][1].length; j++) if (MAP[i][1][j].test(path)) return MAP[i][0];
+    return 0;
+  }
+  function country(path) {
+    try { var c = window.EthicareContext; var d = c && c.dest && c.dest(); if (d === 'au' || d === 'nz') return d; } catch (e) {}
+    if (/australia/.test(path)) return 'au';
+    if (/new-zealand|\/nz\//.test(path)) return 'nz';
+    return 'any';
+  }
+  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function build() {
+    if (document.querySelector('.stageline')) return;
+    var path = location.pathname.replace(/\.html$/, '').replace(/\/+$/, '') || '/';
+    if (path === '/jobs') path = '/jobs';
+    var n = stageFor(path); if (!n) return;
+    var foot = document.querySelector('footer.site-footer'); if (!foot) return;
+    var s = STAGES[n - 1], nx = STAGES[n], c = country(path);
+    var dots = '';
+    for (var i = 1; i <= 8; i++) dots += '<i' + (i < n ? ' class="done"' : i === n ? ' class="on"' : '') + '></i>';
+    var html = '<div class="sl-in">' +
+      '<span class="sl-dots" aria-hidden="true">' + dots + '</span>' +
+      '<p class="sl-now"><span class="sl-k">Stage ' + n + ' of 8</span> <span class="sl-t">' + esc(s.t) + '</span></p>' +
+      '<p class="sl-acts">' +
+      (nx ? '<a class="sl-next" href="' + (nx.href[c] || nx.href.any) + '">Next: ' + esc(nx.t) + ' <span aria-hidden="true">&rarr;</span></a>' : '<span class="sl-last">The last stage of the move</span>') +
+      '<a class="sl-all" href="/plan">See all 8 stages</a></p></div>';
+    var nav = document.createElement('nav');
+    nav.className = 'stageline';
+    nav.setAttribute('aria-label', 'Your move: stage ' + n + ' of 8');
+    nav.innerHTML = html;
+    foot.parentNode.insertBefore(nav, foot);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
+})();

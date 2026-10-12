@@ -1,12 +1,19 @@
+# Older copies retired (12 Oct 2026): each now points permanently at the current page.
+/new-zealand-redesign	/new-zealand	301!
+/new-zealand-redesign.html	/new-zealand	301!
+/home-router	/	301!
+/home-router.html	/	301!
+/destinations/Moving_to_New_Zealand	/destinations/new-zealand-relocation-guide	301!
+/destinations/Moving_to_New_Zealand.html	/destinations/new-zealand-relocation-guide	301!
 # The five-question routers (Design Map, agreed 7 Sep 2026). Level 0 pages: they own no
 # topic, they answer the question in a paragraph and hand off. Question 4 is /move, which
 # already exists — no router page is created for it.
-/can-i-work-here	/can-i-work-here.html	200
-/can-i-work-here.html	/can-i-work-here	301!
-/registration	/can-i-work-here	301
-/is-it-worth-it	/is-it-worth-it.html	200
-/is-it-worth-it.html	/is-it-worth-it	301!
-/pay-and-costs	/is-it-worth-it	301
+/can-i-work-here	/can-i-work-there	301!
+/can-i-work-here.html	/can-i-work-there	301!
+/registration	/can-i-work-there	301
+/is-it-worth-it	/what-could-i-earn	301!
+/is-it-worth-it.html	/what-could-i-earn	301!
+/pay-and-costs	/what-could-i-earn	301
 /where-would-we-live	/where-would-we-live.html	200
 /where-would-we-live.html	/where-would-we-live	301!
 /where-to-live	/where-would-we-live	301

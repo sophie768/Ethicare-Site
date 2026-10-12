@@ -955,3 +955,22 @@ html body :is(main,article,section) p > a:not([class]){text-decoration-line:unde
   html body .subnav.slist a:focus-visible{outline:3px solid #02615D;outline-offset:-3px}
   html body .navitem.nav-emp .subnav.slist{left:auto;right:0}
 }
+
+/* Stage line above the footer (12 Oct 2026): where this page sits in the 8 stages, and the next one. */
+html body .stageline{background:#F7F4EE;border-top:1px solid #E4E9E5}
+html body .stageline .sl-in{max-width:1180px;margin:0 auto;padding:22px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px}
+html body .stageline .sl-dots{display:flex;gap:5px;flex:none}
+html body .stageline .sl-dots i{display:block;width:18px;height:4px;border-radius:2px;background:#D5DED8}
+html body .stageline .sl-dots i.done{background:#7FA99B}
+html body .stageline .sl-dots i.on{background:#02615D}
+html body .stageline .sl-now{margin:0;font-family:'Work Sans',ui-sans-serif,sans-serif;font-size:15px;color:#2B2B2B}
+html body .stageline .sl-k{font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-right:6px}
+html body .stageline .sl-t{font-weight:600}
+html body .stageline .sl-acts{margin:0 0 0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px}
+html body .stageline a{font-family:'Work Sans',ui-sans-serif,sans-serif;font-size:15px;color:#02615D;text-decoration:none}
+html body .stageline .sl-next{font-weight:600;border-bottom:2px solid #A6C84A;padding-bottom:1px}
+html body .stageline .sl-next:hover{border-bottom-color:#02615D}
+html body .stageline .sl-all{font-weight:500;text-decoration:underline;text-underline-offset:3px}
+html body .stageline .sl-last{font-size:15px;color:#555}
+html body .stageline a:focus-visible{outline:3px solid #02615D;outline-offset:3px;border-radius:2px}
+@media (max-width:760px){html body .stageline .sl-in{padding:20px;flex-direction:column;align-items:flex-start}html body .stageline .sl-acts{margin:0;flex-direction:column;align-items:flex-start;gap:10px}}

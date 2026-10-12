@@ -1183,7 +1183,7 @@
   }
 
   function head(n, title) {
-    return '<h3 class="pw-ask">' + esc(title) + '</h3>';
+    return '<h2 class="pw-ask">' + esc(title) + '</h2>';
   }
   var ICONS = {
     person: '<svg viewBox="0 0 24 24" fill="none" stroke="#02615D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c1.5-3.4 4.4-5 8-5s6.5 1.6 8 5"></path></svg>',
