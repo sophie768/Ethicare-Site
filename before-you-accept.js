@@ -96,7 +96,7 @@
       return '<div class="oc-ask"><span class="eyebrow light">Nothing outstanding</span>'
         + '<h2>You know what you are signing</h2>'
         + '<p class="oc-askp">You have confirmed every point on this list. That is a rarer position than you might think, and a good one to be in before you sign anything &mdash; keep a copy for your own records.</p>'
-        + '<div class="oc-askacts" data-print-hide><a class="oc-b1" href="/contact">Talk it through with us</a></div></div>';
+        + '<div class="oc-askacts" data-print-hide><a class="oc-b1" href="/ask">Ask Ethicare about your offer</a></div></div>';
     }
     var shown = st.showAll ? list : list.slice(0, n);
     var head = list.length <= n

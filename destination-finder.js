@@ -223,7 +223,7 @@
           + '<ul class="df-rpros">' + d.pros.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul>'
           + '<p class="df-rcons"><strong>The honest bit:</strong> ' + d.cons + '</p>'
           + '<a class="df-rlink" href="' + d.guide + '">Read the ' + d.name + ' guide &rarr;</a></div></div>';
-      }).join('') + '<p class="df-note">These are suggestions based on your answers, not a recommendation. Visit if you possibly can &mdash; a week in a place tells you something no page can. If you are torn between two, <a href="/contact">say so</a> &mdash; we have had this conversation many times.</p>';
+      }).join('') + '<p class="df-note">These are suggestions based on your answers, not a recommendation. Visit if you possibly can &mdash; a week in a place tells you something no page can. If you are torn between two, <a href="/ask">ask Ethicare to compare them</a>.</p>';
       /* Keep the supporting guides on the page in the country of the results (8 Oct 2026):
          an Australian result was pointing families at the New Zealand family and community guides. */
       try {

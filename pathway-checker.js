@@ -1034,13 +1034,13 @@
     if (isOther) {
       return assign(base, {
         headline: fill(nr.headline), paras: nr.paras.map(fill), steps: [], notes: [],
-        why: ['You told us you are ' + who + ' looking at ' + country + '. We do not hold verified registration guidance for that yet \u2014 so rather than guess, we point you at the official register, and you are welcome to ask us directly.']
+        why: ['You told us you are ' + who + ' looking at ' + country + '. We do not hold verified registration guidance for that yet \u2014 so rather than guess, we point you at the official register.']
       });
     }
     /* No ADVERTISED vacancy, not "we do not recruit you". The page used to say the second
        thing, which turns away people Ethicare would want to hear from (Sophie, 3 Oct 2026). */
     var noRole = 'We don\u2019t currently have any vacancies listed for your profession in ' + country +
-      ', but we\u2019d still love to hear what you\u2019re looking for \u2014 send us your CV or get in touch. ' +
+      ', but we\u2019d still love to hear what you\u2019re looking for \u2014 send us your CV. ' +
       'The registration route below applies either way, and it is yours to use free, whether you ever work with us or not.';
     return assign(base, {
       headline: r.headline,

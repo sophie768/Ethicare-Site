@@ -246,7 +246,7 @@ function renderWeak() {
         '<span class="ip-weak-t">' + (x.v === 'work' ? 'Needs work' : 'No idea yet') + '</span></div>';
     }).join('') + '</div>' +
     '<div class="ip-weak-a"><button type="button" class="btn btn-primary" id="ip-copy">Copy the list</button>' +
-    '<a class="ip-link" href="/contact">Talk to the team &rarr;</a></div>';
+    '<a class="ip-link" href="/apply">Apply and send your CV &rarr;</a></div>';
 }
 
 /* ---------------- onward ---------------- */

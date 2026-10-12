@@ -10,7 +10,9 @@
   # regional brochures, three old draft guides, and the retired webinar page.
   # Also (7 Oct 2026): working notes, setup SQL and build scripts live in the repo for us,
   # not on the public site — DELETE-THESE.md and friends were readable by anyone.
-  command = "rm -f 'assets/downloads/Welcome to Wellington - '*.html 'assets/downloads/Your First Year in Wellington - '*.html && find . -name '*.md' -not -path './.git/*' -not -path './node_modules/*' -not -path './netlify/*' -delete && rm -rf supabase tools __pycache__ && rm -f assets/downloads/*-brochure.pdf 'assets/downloads/Emergency Medicine in New Zealand - Ethicare.html' 'assets/downloads/Moving to New Zealand - Ethicare.html' 'assets/downloads/Moving to New Zealand - The Master Guide.html' webinar-medical-imaging-australia.html"
+  # Ask Ethicare's search index is rebuilt from the pages on every deploy (12 Oct 2026). If the
+  # build of it fails, the copy already in the repo is used, so a deploy never breaks over it.
+  command = "(node tools/build-ask-index.js || echo 'ask-index: using the committed copy') && rm -f 'assets/downloads/Welcome to Wellington - '*.html 'assets/downloads/Your First Year in Wellington - '*.html && find . -name '*.md' -not -path './.git/*' -not -path './node_modules/*' -not -path './netlify/*' -delete && rm -rf supabase tools __pycache__ && rm -f assets/downloads/*-brochure.pdf 'assets/downloads/Emergency Medicine in New Zealand - Ethicare.html' 'assets/downloads/Moving to New Zealand - Ethicare.html' 'assets/downloads/Moving to New Zealand - The Master Guide.html' webinar-medical-imaging-australia.html"
 
 # Ask Ethicare's server-side LLM proxy lives here. Without this block Netlify
 # never bundles it and /.netlify/functions/ask-ethicare returns 404.

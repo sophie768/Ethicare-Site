@@ -649,7 +649,7 @@
       + '<p class="cc-big" tabindex="-1">Around ' + C + ' ' + fmt(roundish(t.grand)) + '</p>'
       + '<p class="cc-bigsub">For ' + esc(bits.join(' \u00b7 ')) + ', moving ' + esc((d.flights[st.origin] || d.flights.other).label) + ' to ' + esc(regionLabel()) + '.</p>'
       + '<p class="cc-bignote">This includes the costs and assumptions you selected. Every variable figure can still be changed.</p></div>'
-      + '<div class="cc-sumacts" data-print-hide><button type="button" class="cc-b2" data-print>Print or save as PDF</button><a class="cc-b3" href="/contact">Talk it through with us</a></div></div></div>';
+      + '<div class="cc-sumacts" data-print-hide><button type="button" class="cc-b2" data-print>Print or save as PDF</button><a class="cc-b3" href="/jobs/">See live roles</a></div></div></div>';
 
     /* Your move at a glance (6 Oct 2026 review): the four numbers a household actually decides on,
        then a plain reading of them. Total, cash at one time, employer support, eventual cost to you —

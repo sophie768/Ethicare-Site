@@ -612,8 +612,7 @@
     var line = $('[data-send-off-line]'); if (!line) return;
     var where = destName();
     line.textContent = 'We don\u2019t currently have any vacancies listed for your profession in ' + where +
-      ', but we\u2019d still love to hear what you\u2019re looking for. Send us your CV or get in touch to ' +
-      'discuss your plans and how we may be able to help.';
+      ', but we\u2019d still love to hear what you\u2019re looking for. Send us your CV and we will be in touch when something fits.';
   }
 
   /* ---------------- the link (no account: the link carries the answers) ---------------- */

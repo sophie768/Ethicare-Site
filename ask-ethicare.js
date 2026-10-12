@@ -64,7 +64,9 @@
       /* esc() has already turned the quotes and angle brackets safe, so the only thing being
          reconstructed here is an anchor around text we control the escaping of. Relative paths
          and https only — never a bare javascript: or data: target. */
-      .replace(/\[([^\]]+)\]\((\/[A-Za-z0-9\-._~/#?=&amp;%]*|https:\/\/[A-Za-z0-9\-._~:/#?=&amp;%]+)\)/g, '<a href="$2">$1</a>')
+      .replace(/\[([^\]]+)\]\((\/[A-Za-z0-9\-._~/#?=&amp;%]*)\)/g, '<a href="$2">$1</a>')
+      /* official pages open in a new tab, so the answer is still there when they come back */
+      .replace(/\[([^\]]+)\]\((https:\/\/[A-Za-z0-9\-._~:/#?=&amp;%]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   }
 
@@ -143,7 +145,7 @@
 
   function actionsHtml(ids, handoff) {
     var h = '';
-    if (handoff) h += '<div class="aske-handoff"><p><strong>This might be worth discussing with us.</strong> Some situations need a person, not a summary.</p><a href="/contact?from=ask">Talk to the Ethicare team &rarr;</a></div>';
+    if (handoff) h += '<div class="aske-handoff"><p><strong>This might be worth talking through with someone.</strong> A person reads every message.</p><a href="/contact?from=ask">Talk to the Ethicare team &rarr;</a></div>';
     /* The model can only be TOLD the id list; it can still return one that is not in the
        browser map (a typo, a hallucination, or the two lists drifting apart). Unfiltered,
        that threw on r.u and the whole answer vanished behind a catch. Drop unknown ids and
@@ -227,7 +229,7 @@
       ans.innerHTML = '<p><strong>' + lead + '</strong> ' + line + '</p>' +
         (cfg || many ? '' : '<p style="margin-top:12px"><button type="button" class="aske-retry">Try that again</button></p>') +
         '<p>In the meantime, these cover most of it: the <a href="/pathway-checker">pathway checker</a>, ' +
-        'the <a href="/resources">guides library</a>, or <a href="/contact">the team</a>.</p>';
+        'the <a href="/resources">guides library</a>, or <a href="/plan">your plan</a>.</p>';
       var again = ans.querySelector('.aske-retry');
       if (again) again.addEventListener('click', function () { ask(asked); });
       try { input.value = asked; input.focus(); } catch (e3) {}

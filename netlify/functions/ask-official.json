@@ -1,0 +1,2283 @@
+{
+  "_about": "Ask Ethicare's official-source settings (12 Oct 2026). 'domains' = what counts as an official site: links to these from the guides are collected into the index, and live look-ups are limited to 'search' only. 'facts' = short, checked extracts from official pages, each with its link and the date it was checked. Add Sophie's full website list to 'search' and 'domains'. Review every fact by its 'checked' date.",
+  "domains": [
+    "gov.au",
+    "govt.nz",
+    "health.nz",
+    "acc.co.nz",
+    "mcnz.org.nz",
+    "mrtboard.org.nz",
+    "psychologistsboard.org.nz",
+    "physioboard.org.nz",
+    "otboard.org.nz",
+    "mscouncil.org.nz",
+    "dietitiansboard.org.nz",
+    "nursingcouncil.org.nz",
+    "pharmacycouncil.org.nz",
+    "paramediccouncil.org.nz",
+    "dcnz.org.nz",
+    "speechtherapy.org.nz",
+    "apex.org.nz",
+    "asmirt.org",
+    "asar.com.au",
+    "ranzcr.com",
+    "speechpathologyaustralia.org.au",
+    "dietitiansaustralia.org.au",
+    "aasw.asn.au",
+    "gov.uk",
+    "1737.org.nz",
+    "lifeline.org.au",
+    "13yarn.org.au",
+    "deinternational.nsw.edu.au",
+    "study.vic.gov.au",
+    "eqi.com.au",
+    "education.wa.edu.au",
+    "education.sa.gov.au",
+    "study.tas.gov.au"
+  ],
+  "search": [
+    "immi.homeaffairs.gov.au",
+    "homeaffairs.gov.au",
+    "legislation.gov.au",
+    "ahpra.gov.au",
+    "medicalradiationpracticeboard.gov.au",
+    "medicalboard.gov.au",
+    "psychologyboard.gov.au",
+    "occupationaltherapyboard.gov.au",
+    "physiotherapyboard.gov.au",
+    "nursingmidwiferyboard.gov.au",
+    "pharmacyboard.gov.au",
+    "paramedicineboard.gov.au",
+    "ato.gov.au",
+    "servicesaustralia.gov.au",
+    "fairwork.gov.au",
+    "health.gov.au",
+    "healthdirect.gov.au",
+    "education.gov.au",
+    "smartmoveaustralia.gov.au",
+    "immigration.govt.nz",
+    "mcnz.org.nz",
+    "mrtboard.org.nz",
+    "psychologistsboard.org.nz",
+    "physioboard.org.nz",
+    "otboard.org.nz",
+    "mscouncil.org.nz",
+    "dietitiansboard.org.nz",
+    "nursingcouncil.org.nz",
+    "pharmacycouncil.org.nz",
+    "paramediccouncil.org.nz",
+    "dcnz.org.nz",
+    "swrb.govt.nz",
+    "ird.govt.nz",
+    "health.govt.nz",
+    "employment.govt.nz",
+    "tenancy.govt.nz",
+    "education.govt.nz",
+    "nzqa.govt.nz",
+    "nzta.govt.nz",
+    "acc.co.nz",
+    "asmirt.org",
+    "asar.com.au",
+    "ranzcr.com",
+    "apex.org.nz",
+    "iaa.govt.nz",
+    "mara.gov.au",
+    "startingblocks.gov.au",
+    "my.gov.au",
+    "agriculture.gov.au",
+    "mpi.govt.nz",
+    "ero.govt.nz",
+    "myschool.edu.au",
+    "healthpoint.co.nz",
+    "midwiferycouncil.health.nz",
+    "anzca.edu.au",
+    "racp.edu.au",
+    "ranzcog.edu.au",
+    "ranzcp.org",
+    "acem.org.au",
+    "rnzcgp.org.nz",
+    "racgp.org.au",
+    "hcpc-uk.org",
+    "gmc-uk.org",
+    "nmc.org.uk",
+    "ecfmg.org",
+    "arpansa.gov.au",
+    "acro.police.uk",
+    "justice.govt.nz",
+    "afp.gov.au",
+    "police.govt.nz"
+  ],
+  "facts": [
+    {
+      "topic": "age limit australia visa 482 skills in demand work visa",
+      "text": "The Skills in Demand visa (subclass 482) has no age limit.",
+      "source": "Smart Move Australia (Australian Government), Skills in Demand visa",
+      "url": "https://www.smartmoveaustralia.gov.au/visa-pathways/skills-demand-visa",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "age limit australia permanent residence 186 employer nomination scheme under 45 pr permanent residency resident",
+      "text": "The Employer Nomination Scheme (subclass 186) generally requires the applicant to be under 45 when they apply, with some exemptions. Home Affairs sets out the exemptions on its subclass 186 pages.",
+      "source": "Department of Home Affairs, Employer Nomination Scheme (subclass 186)",
+      "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/employer-nomination-scheme-186",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "age limit new zealand accredited employer work visa aewv",
+      "text": "Immigration New Zealand's Accredited Employer Work Visa page states no age requirement. Police certificates are needed from age 17 if the person's total time in New Zealand will be 24 months or more.",
+      "source": "Immigration New Zealand, Accredited Employer Work Visa",
+      "url": "https://www.immigration.govt.nz/visas/accredited-employer-work-visa/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "age limit new zealand green list straight to residence tier 1 pr permanent residency resident",
+      "text": "Straight to Residence Visa: \"You must be aged 55 or younger when you apply.\"",
+      "source": "Immigration New Zealand, Straight to Residence Visa",
+      "url": "https://www.immigration.govt.nz/visas/straight-to-residence-visa/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "age limit new zealand green list work to residence tier 2 pr permanent residency resident",
+      "text": "Work to Residence Visa: \"You must be aged 55 or younger when you apply.\"",
+      "source": "Immigration New Zealand, Work to Residence Visa",
+      "url": "https://www.immigration.govt.nz/visas/work-to-residence-visa/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "age limit new zealand skilled migrant category residence pr permanent residency resident",
+      "text": "Skilled Migrant Category Resident Visa: \"You must be aged 55 or younger when you apply.\"",
+      "source": "Immigration New Zealand, Skilled Migrant Category Resident Visa",
+      "url": "https://www.immigration.govt.nz/visas/skilled-migrant-category-resident-visa/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "ahpra english language test scores change april 2026",
+      "text": "From 23 April 2026, the National Boards updated the minimum scores of accepted English tests. Tests taken on or before 22 April 2026 are judged against the older scores; tests taken on or after 23 April 2026 against the new ones.",
+      "source": "Ahpra, Accepted English language tests",
+      "url": "https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/Accepted-English-language-tests",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "police certificate fingerprints fingerprinting new zealand visa character",
+      "text": "Immigration New Zealand: some issuing authorities \"may require a set of fingerprints when you request a police certificate.\" Private fingerprinting businesses operate in many areas of New Zealand; NZ Police only offer the service in some regions and on specific days. Bring a passport or other photo ID.",
+      "source": "Immigration New Zealand, Police certificates; NZ Police, having fingerprints taken",
+      "url": "https://www.immigration.govt.nz/process-to-apply/applying-for-a-visa/providing-evidence-and-documents-to-support-your-visa-application/good-character-requirements-and-police-certificates/police-certificates/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "police certificate new zealand visa 24 months stay who needs",
+      "text": "Immigration New Zealand: whether you need a police certificate depends on the visa and how long you plan to stay; for stays of 24 months or longer you must provide one with your application. Its 'How to get a police certificate' tool shows the process for each country.",
+      "source": "Immigration New Zealand, Police certificates",
+      "url": "https://www.immigration.govt.nz/process-to-apply/applying-for-a-visa/providing-evidence-and-documents-to-support-your-visa-application/good-character-requirements-and-police-certificates/police-certificates/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "police certificate how old valid six 6 months new zealand visa timing expiry",
+      "text": "Immigration New Zealand: a police certificate must be \"less than 6 months old when you submit your visa application\", and INZ may ask for a further certificate if the first becomes a year old from its date of issue before a decision is made.",
+      "source": "Immigration New Zealand, How to get a police certificate",
+      "url": "https://www.immigration.govt.nz/process-to-apply/applying-for-a-visa/providing-evidence-and-documents-to-support-your-visa-application/character-requirements-third-party-checks-and-police-certificates/get-a-police-certificate/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "1737 need to talk mental health crisis counsellor text call new zealand nz support struggling low depressed depression anxious anxiety lonely homesick suicidal suicide down overwhelmed stressed stress cope coping distress self harm unsafe",
+      "text": "In New Zealand you can \"text or call 1737 anytime to connect with a trained counsellor or peer support worker.\" It is \"a free, confidential helpline in New Zealand\". Counsellors are available 24/7, and peer support is available daily from 2pm to 10pm, by phone only.",
+      "source": "1737, How 1737 Works",
+      "url": "https://www.1737.org.nz/how-1737-works",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "healthline nurse advice phone free 24 hours new zealand nz sick unwell interpreter struggling low depressed depression anxious anxiety lonely homesick suicidal suicide down overwhelmed stressed stress cope coping distress self harm unsafe",
+      "text": "\"Call Healthline on 0800 611 116 for free, for advice from our trained registered nurses.\" Nurses are available \"any time - 24 hours a day, 7 days a week\", \"Phone calls are free from within New Zealand – this includes calls from a mobile phone\", and \"If you need to talk to someone in your own language, Healthline can arrange an interpreter.\"",
+      "source": "Ministry of Health (Manatū Hauora), Healthline",
+      "url": "https://www.health.govt.nz/your-health/services-and-support/health-care-services/healthline",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "emergency 111 police fire ambulance new zealand nz",
+      "text": "In New Zealand, call 111 when you need an emergency response from Police, Fire or Ambulance. The page says \"111 calls are free\", and you can call from a mobile phone even if you have no credit. If you are not sure whether it is an emergency, call 111 and the operator will help you decide.",
+      "source": "New Zealand Police, 111 Emergency Services",
+      "url": "https://www.police.govt.nz/call-111",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "lifeline crisis support suicide australia 13 11 14 text chat struggling low depressed depression anxious anxiety lonely homesick suicidal suicide down overwhelmed stressed stress cope coping distress self harm unsafe",
+      "text": "\"Lifeline's 13 11 14 crisis support service is available 24/7\" and \"The Lifeline phone service is available 24/7, to anyone in Australia.\" You can also text 0477 13 11 14 or use online chat. \"If life is in danger, call Triple Zero (000).\"",
+      "source": "Lifeline Australia, Lifeline crisis support - 13 11 14",
+      "url": "https://www.lifeline.org.au/131114",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "13yarn aboriginal torres strait islander crisis support australia yarn struggling low depressed depression anxious anxiety lonely homesick suicidal suicide down overwhelmed stressed stress cope coping distress self harm unsafe",
+      "text": "\"13YARN is the first national service of its kind for Aboriginal & Torres Strait Islander people in crisis.\" Call 13YARN (13 92 76). It is \"Available 24/7 across Australia from any phone\" and calls are free and confidential. \"If life is in danger call 000.\"",
+      "source": "13YARN, Home",
+      "url": "https://www.13yarn.org.au/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "interpreter translating tis national language australia 131 450 free",
+      "text": "TIS National's immediate phone interpreting is \"available 24 hours a day, every day of the year by calling 131 450.\" \"The majority of TIS National interpreting services are free to non-English speakers\", although calls from mobiles or from outside Australia may cost more, depending on your provider.",
+      "source": "TIS National (Department of Home Affairs), Interpreting services for non-English speakers",
+      "url": "https://www.tisnational.gov.au/en/Non-English-speakers/Interpreting-services",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "emergency triple zero 000 police fire ambulance australia",
+      "text": "In Australia, call Triple Zero (000) if someone is seriously injured or needs urgent medical help, if a life or property is threatened, or if you have just seen a serious accident or crime. \"Triple Zero calls are free.\" The operator will ask \"Do you want Police, Fire or Ambulance?\"",
+      "source": "Triple Zero (Australian Government), Home",
+      "url": "https://www.triplezero.gov.au/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "reciprocal health care agreement australia medicare countries uk ireland new zealand which countries",
+      "text": "\"As at 1 February 2024, Australia has Reciprocal Health Care Agreements with the following countries\": Belgium, Finland, Ireland, Italy, Malta, the Netherlands, New Zealand, Norway, Slovenia, Sweden and the United Kingdom. Cover for visitors from Italy and Malta is limited to 6 months from arrival. \"Reciprocal Health Care Agreements do not cover the cost of treatment as a private patient in a public or private hospital.\"",
+      "source": "Australian Government Department of Health, Note GN.3.9, Medicare Benefits Schedule",
+      "url": "https://www9.health.gov.au/mbs/fullDisplay.cfm?type=note&q=GN.3.9&criteria=reciprocal+health+care+agreement+australia",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "reciprocal health care ireland new zealand australia hospital only no gp",
+      "text": "\"Visitors from New Zealand and Ireland are entitled to public hospital care and PBS drugs only (not MBS services).\" This means GP and other out-of-hospital Medicare services are not covered for them under the agreement.",
+      "source": "Australian Government Department of Health, Note GN.3.9, Medicare Benefits Schedule",
+      "url": "https://www9.health.gov.au/mbs/fullDisplay.cfm?type=note&q=GN.3.9&criteria=reciprocal+health+care+agreement+australia",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "reciprocal health care uk united kingdom medicare australia enrol arrival british",
+      "text": "To use the UK agreement in Australia, \"you must have been living in the United Kingdom (UK) before arriving in Australia.\" It covers medically necessary care outside hospital, \"medically necessary care as a public patient in a public hospital including inpatient and outpatient services\", and some PBS medicines at the general rate. You enrol through myGov or with a Medicare enrolment form. You need your current visa, your passport, and proof of UK residence, such as a UK GHIC, an EHIC marked \"UK\", or two dated documents such as a lease, bank statement or utility account.",
+      "source": "Services Australia, Reciprocal Health Care Agreements - visiting from the United Kingdom",
+      "url": "https://www.servicesaustralia.gov.au/reciprocal-health-care-agreements-visiting-from-united-kingdom?context=22481",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "reciprocal health care new zealand nz citizen visiting australia medicare hospital",
+      "text": "New Zealand visitors must be \"a New Zealand citizen or resident of New Zealand before arriving in Australia\" and \"temporarily visiting Australia.\" \"Your cover is for public inpatient and outpatient hospital care only\". Visits to a doctor do not count as outpatient care.",
+      "source": "Services Australia, Reciprocal Health Care Agreements - visiting from New Zealand",
+      "url": "https://www.servicesaustralia.gov.au/reciprocal-health-care-agreements-visiting-from-new-zealand?context=22481",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "new zealand nz public healthcare eligibility work visa two years free hospital gp eligible",
+      "text": "In New Zealand you get the same publicly funded medical treatment as New Zealanders if you are \"in NZ on a work visa that's valid for 2 years or more\" (the visa starts on \"your first day in NZ\"). Australian citizens and permanent residents who have lived, or intend to live, in NZ for 2 years or more are also eligible. Otherwise \"you'll need to pay for all your medical care\", although ACC gives \"comprehensive, no-fault personal injury cover for all NZ residents and visitors.\"",
+      "source": "New Zealand Government (govt.nz), Healthcare if you're in NZ on a work visa",
+      "url": "https://www.govt.nz/browse/health-system/public-health-services/healthcare-on-a-work-visa/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "asms union senior doctors dentists consultants specialists new zealand pay",
+      "text": "ASMS says: \"We are the union for senior salaried doctors and dentists.\" It covers professional issues and employment matters, including collective agreements.",
+      "source": "Association of Salaried Medical Specialists (ASMS), About Us",
+      "url": "https://asms.org.nz/about-us/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "psa union allied health psychologist social worker occupational therapist new zealand pay",
+      "text": "PSA calls itself \"Aotearoa New Zealand's largest trade union\", representing \"more than 95,000 workers\". It says \"THE PSA IS THE UNION FOR ALLIED HEALTH\", and \"People working in more than 120 professions are covered including social workers.\" Its member stories include clinical psychologists and occupational therapists.",
+      "source": "New Zealand Public Service Association (PSA), Allied",
+      "url": "https://www.psa.org.nz/activity/allied",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "nzno nurses union new zealand nurses organisation midwives pay",
+      "text": "NZNO is \"The New Zealand Nurses Organisation Tōpūtanga Tapuhi Kaitiaki o Aotearoa (NZNO).\" Its chief executive says: \"We are more than 55,000 strong and growing.\"",
+      "source": "NZNO, media release: NZNO promises to 'go hard' for nursing with new campaign",
+      "url": "https://www.nzno.org.nz/about_us/media_releases/artmid/4731/articleid/6480/nzno-promises-to-go-hard-for-nursing-with-new-campaign",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "sorted money budgeting new zealand nz free government financial guidance",
+      "text": "\"Sorted's a free service run by Te Ara Ahunga Ora Retirement Commission\", which is \"the government-funded, independent agency dedicated to helping New Zealanders get ahead financially.\" \"We're not here to sell you anything.\"",
+      "source": "Sorted, All about us",
+      "url": "https://sorted.org.nz/about-us/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "moneysmart money budgeting australia free government asic",
+      "text": "Moneysmart is \"a Federal Government website, brought to you by the Australian Securities and Investments Commission (ASIC)\", offering \"free tools, tips and guidance.\"",
+      "source": "Moneysmart (ASIC), About us",
+      "url": "https://moneysmart.gov.au/about-us",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "kiwisaver pension retirement savings new zealand work visa eligible join",
+      "text": "You can join KiwiSaver if you are \"a New Zealand citizen, or entitled to live in New Zealand indefinitely\" and you \"live or normally live in New Zealand.\" \"You cannot join KiwiSaver if you have a temporary, visitor, work or student visa.\" If you are eligible, \"your employer might automatically enrol you into KiwiSaver\" when you start a new job.",
+      "source": "Inland Revenue (IRD), Joining KiwiSaver",
+      "url": "https://www.ird.govt.nz/kiwisaver/kiwisaver-individuals/joining-kiwisaver",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "superannuation super australia temporary resident visa employer dasp leaving",
+      "text": "Your employer \"may be required to make super contributions to a super fund on your behalf\". \"Generally, this does not depend on your visa (so long as you have work rights).\" If you leave after working on a temporary visa, \"you may be eligible to claim your super (less tax) as a Departing Australia superannuation payment (DASP)\". However, \"You can only submit a DASP claim after you have left Australia and your visa has expired.\"",
+      "source": "Australian Taxation Office, How superannuation applies to temporary residents",
+      "url": "https://www.ato.gov.au/individuals-and-families/super-for-individuals-and-families/super/temporary-residents-and-superannuation/how-superannuation-applies-to-temporary-residents",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "uk state pension abroad frozen annual increase new zealand national insurance voluntary",
+      "text": "\"Your State Pension will only increase each year if you live in\" the EEA, Gibraltar, Switzerland or a country with a social security agreement with the UK. You \"cannot get increases in Canada or New Zealand.\" \"You will not get yearly increases if you live outside these countries.\" \"You might be able to pay voluntary contributions to fill in gaps in your National Insurance record.\"",
+      "source": "GOV.UK, State Pension if you retire abroad: How your pension is affected",
+      "url": "https://www.gov.uk/state-pension-if-you-retire-abroad/rates-of-state-pension",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "uk state pension claim abroad international pension centre",
+      "text": "To claim the UK State Pension while living abroad, \"You must be within 4 months of your State Pension age to claim.\" You can contact the International Pension Centre or send it the international claim form.",
+      "source": "GOV.UK, State Pension if you retire abroad: Claim State Pension abroad",
+      "url": "https://www.gov.uk/state-pension-if-you-retire-abroad",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "MCNZ COPS certificate of professional status good standing how recent doctor New Zealand",
+      "text": "The Medical Council of New Zealand says: \"All COPS must be dated within 3 months of the date you will start practising in New Zealand.\" Letters of standing follow the same rule: \"The letter must be dated within 3 months of the date you will start practising in New Zealand.\"",
+      "source": "Medical Council of New Zealand, Certificate of professional status (COPS)",
+      "url": "https://www.mcnz.org.nz/registration/getting-registered/how-to-register/certificate-of-professional-status-cops/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "MRTB medical radiation technologist radiographer radiation therapist letter good standing how recent New Zealand",
+      "text": "The Medical Radiation Technologists Board says you need \"a Letter of good standing from each authority you've been registered with\" and \"The certificate must not be more than six months old at the date of your application.\"",
+      "source": "Medical Radiation Technologists Board, Internationally qualified registration",
+      "url": "https://www.mrtboard.org.nz/pre-registration/overseas-trained-how-to-register/ttmra",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "physiotherapy physio board certificate good standing COGS police certificate how recent New Zealand",
+      "text": "On the International General Pathway, the Physiotherapy Board says the Certificate of Good Standing (and the police certificate): \"Document must be less than three months old on the date you submit your application.\" The International Express Pathway page gives the same rule: \"Document must be less than 3 months old on the date you submit your application.\"",
+      "source": "Physiotherapy Board of New Zealand, International General Pathway",
+      "url": "https://physioboard.org.nz/international-general-pathway",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Ahpra certificate good standing registration status how recent Australia medical radiation practice all boards",
+      "text": "Ahpra says you must arrange \"a Certificate of Good Standing or Certificate of Registration Status from the registration authority\" in each jurisdiction where you are or were registered. \"These certificates must be provided to us directly from the overseas regulator\" and must be \"dated within three months of your application being received.\"",
+      "source": "Ahpra, Information for international practitioners",
+      "url": "https://www.ahpra.gov.au/Registration/International-practitioners.aspx",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Ahpra English test IELTS OET results how recent two years combine sittings Australia",
+      "text": "Under the English language skills registration standard, test results are accepted if obtained \"within the two years before the date you lodge your application for registration\", from \"one test sitting, or a maximum of two test sittings in a 12-month period\", and \"Results from different test providers cannot be combined.\" The standard covers most National Boards, including medical, medical radiation practice, physiotherapy, occupational therapy and psychology. Nursing and midwifery has its own standard.",
+      "source": "Ahpra, English language skills registration standard",
+      "url": "https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/English-language-skills-registration-standard.aspx",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "MCNZ English language test IELTS OET how recent two years doctor UK graduate exemption New Zealand",
+      "text": "The MCNZ English language policy says IELTS and OET results for doctors applying for registration are valid for \"2 years of an application for registration.\" Graduates of medical schools in the UK, Ireland and certain other countries who \"Speak English as a first language\" can meet the requirement without a test (Option B).",
+      "source": "Medical Council of New Zealand, English language policy (PDF)",
+      "url": "https://www.mcnz.org.nz/assets/Policies/English-language-policy.pdf",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "MRTB English IELTS OET how recent two years radiographer New Zealand",
+      "text": "The MRTB policy requires that \"IELTS results were achieved within two (2)-years immediately prior to their registration application\", although \"In limited circumstances the test result may be more than two (2)-years prior to their application date.\" The policy sets no validity period for OET.",
+      "source": "Medical Radiation Technologists Board, Policy: English language proficiency August 2024 (PDF)",
+      "url": "https://www.mrtboard.org.nz/assets_mrtb/Uploads/2024-Aug-English-Language-Policy.pdf",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "occupational therapy OT board English test IELTS OET how recent 24 months New Zealand",
+      "text": "The Occupational Therapy Board of New Zealand English language policy says: \"Test results must be no older than 24 months when they are submitted.\"",
+      "source": "Occupational Therapy Board of New Zealand, English language policy for registration (PDF)",
+      "url": "https://otboard.org.nz/document/8497/704%20English%20language%20policy%20for%20registration.pdf",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "physiotherapy physio English test results how recent two years New Zealand",
+      "text": "The Physiotherapy Board says: \"Test results must be less than 2 years old on the date you submit your application.\"",
+      "source": "Physiotherapy Board of New Zealand, English Proficiency Evidence (FAQ)",
+      "url": "https://physioboard.org.nz/faq/english-proficiency-evidence",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "social work SWRB English test how recent two years IELTS online New Zealand",
+      "text": "The Social Workers Registration Board says: \"The test must be completed within the two years immediately preceding an applicant commencing their application.\" IELTS Online results are not accepted.",
+      "source": "Social Workers Registration Board, Overseas qualifications",
+      "url": "https://swrb.govt.nz/registration/overseas-qualified-social-workers/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Immigration New Zealand residence English test results how recent two years skilled migrant",
+      "text": "For residence from work, Immigration New Zealand says \"your result must be no more than 2 years old at the time you apply.\"",
+      "source": "Immigration New Zealand, English language test results for residence from work",
+      "url": "https://www.immigration.govt.nz/process-to-apply/applying-for-a-visa/providing-evidence-and-documents-to-support-your-visa-application/english-language-requirements/english-language-test-results-for-residence-from-work/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Immigration New Zealand medical certificate chest x-ray how old three months visa",
+      "text": "Immigration New Zealand says: \"Your chest X-ray and medical examination results must be no more than 3 months old when we get your application.\"",
+      "source": "Immigration New Zealand, How to get an X-ray or medical examination",
+      "url": "https://www.immigration.govt.nz/process-to-apply/applying-for-a-visa/providing-evidence-and-documents-to-support-your-visa-application/health-requirements/how-to-get-an-x-ray-or-medical-examination/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Australia visa health examination medical results valid 12 months Home Affairs",
+      "text": "Home Affairs says: \"The results of your health assessment are valid for 12 months from the time you completed your examinations.\" It adds that a health undertaking \"will be valid for 6 months.\"",
+      "source": "Department of Home Affairs, After your health examinations",
+      "url": "https://immi.homeaffairs.gov.au/help-support/meeting-our-requirements/health/after-your-health-examinations",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Australia skilled visa police certificate which countries 12 months 10 years",
+      "text": "For skilled visas, Home Affairs asks for police certificates \"for every country where you've lived for 12 months in the past 10 years since turning 16.\" It also says \"Health examination results are generally valid for 12 months.\"",
+      "source": "Department of Home Affairs, Applying for a skilled visa (Check twice, submit once)",
+      "url": "https://immi.homeaffairs.gov.au/check-twice-submit-once/skilled-visa",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "New Zealand driving overseas licence 18 months 12 months 1 November 2026 convert NZTA",
+      "text": "NZTA says: \"You can currently drive in New Zealand using an overseas car licence for up to 18 months from your last date of entry.\" and \"From 1 November 2026, this reduces to 12 months.\" After that: \"If you'll be in New Zealand longer than this, you'll need to convert your licence if you want to keep driving.\"",
+      "source": "NZ Transport Agency Waka Kotahi, Factsheet 72 Overseas driver licences (July 2026)",
+      "url": "https://www.nzta.govt.nz/assets/resources/factsheets/72/docs/72-overseas-driver-licence.pdf",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "NSW driving overseas licence temporary visa six months permanent resident three months convert",
+      "text": "Temporary overseas visitors \"can drive in NSW using your overseas licence for up to six months\" and, if staying longer, \"will need to obtain a NSW driver's licence within six months.\" Permanent residents can drive \"up to three months from the date you arrive in Australia\" and \"must get a NSW licence within this three month period.\"",
+      "source": "NSW Government, Driving with an overseas or interstate licence in NSW",
+      "url": "https://www.nsw.gov.au/driving-boating-and-transport/driver-and-rider-licences/visiting-or-moving-to-nsw/visiting-from-overseas-or-interstate",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Victoria VicRoads driving overseas licence six months convert",
+      "text": "VicRoads says you can drive on an overseas licence if you \"only plan to reside and drive in Victoria for less than 6 months\", counted \"from the day you start living in Victoria\". \"If you want to drive in Victoria for more than 6 months, you'll need to convert your overseas licence.\"",
+      "source": "VicRoads, Driving with your overseas licence in Victoria",
+      "url": "https://www.vicroads.vic.gov.au/licences/convert-your-licence/driving-with-your-overseas-licence",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Queensland driving overseas licence permanent visa three months transfer",
+      "text": "Permanent (resident) visa holders cannot drive on an overseas licence once they have \"been living in Queensland for 3 months.\" Resident visas \"don't include temporary, business or guardian visas\", and the page gives no time limit for temporary visa holders.",
+      "source": "Queensland Government, Driving in Queensland on an interstate or overseas licence",
+      "url": "https://www.qld.gov.au/transport/licensing/driver-licensing/overseas/driving",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Western Australia WA driving overseas licence permanent resident three months transfer",
+      "text": "For permanent residents and citizens moving to WA: \"you can drive in Western Australia for up to 3 months using your overseas licence\", and within that period \"you will need to apply to transfer your overseas driver's licence to a WA driver's licence.\" No time limit is given for temporary visa holders.",
+      "source": "Department of Transport WA, Moving from overseas",
+      "url": "https://www.transport.wa.gov.au/licensing/drivers-licence/visit-move-wa/moving-from-overseas",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "South Australia SA driving overseas licence permanent resident 90 days three months",
+      "text": "SA.GOV.AU says: \"If you become a permanent resident of South Australia, you must get your South Australian driver's licence within 90 days.\" My Licence SA puts it as \"you have 3 months to get a South Australian driver's licence or permit.\" Neither page gives a time limit for visitors or temporary visa holders.",
+      "source": "SA.GOV.AU, Driving with your overseas licence in SA",
+      "url": "https://www.sa.gov.au/topics/driving-and-transport/licences/interstate-and-overseas/driving-with-an-overseas-licence",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Tasmania driving overseas licence temporary visa permanent visa six months conversion",
+      "text": "Transport Tasmania says you can drive on an overseas licence \"if you are a visitor or have a temporary visa\". For permanent visa holders, your \"permanent visa has not been issued for longer than six months\", or you are treated as unlicensed unless the Registrar approves an extension to the \"six month conversion period\".",
+      "source": "Transport Tasmania, Driving in Tasmania on an interstate or overseas licence",
+      "url": "https://www.transport.tas.gov.au/licensing/interstate_or_overseas_licences/driving_in_tasmania_on_an_interstate_or_overseas_licence",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "ACT Canberra driving overseas licence permanent visa three months temporary visa",
+      "text": "Access Canberra says permanent visa holders can \"continue to use you overseas licence for 3 months\" and then must \"hold an ACT Driver Licence to drive in the ACT\". Temporary visa holders who live in the ACT \"may choose to obtain an ACT driver licence\".",
+      "source": "Access Canberra, Drivers with licences from overseas",
+      "url": "https://www.accesscanberra.act.gov.au/driving-transport-and-parking/licences/drivers-with-licences-from-overseas",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Northern Territory NT driving overseas licence three months transfer new resident",
+      "text": "NT.GOV.AU says \"you can drive with your interstate or overseas licence for up to 3 months\" and \"If you remain in the NT for a continuous period of more than 3 months, you must transfer to an NT driver licence.\"",
+      "source": "NT.GOV.AU, Driving in the NT for new residents and visitors",
+      "url": "https://nt.gov.au/driving/licence/new-nt-residents-and-visitors/driver-licence-rules-for-new-nt-residents-and-visiting-drivers",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "NSW school fees 482 visa regional exemption Temporary Residents Program",
+      "text": "On the NSW Temporary Residents Program, \"Most temporary resident students pay the temporary resident application fee and tuition fee\". Since 1 January 2025, children on a 482 visa \"may be eligible for exemption from the Temporary Residents Program tuition fee\". To qualify, \"The student and sponsored parent must reside in an eligible NSW regional postcode\" and \"The student must be enrolled and attend an eligible regional NSW government school\". Also, \"The exemption does not apply to the Temporary Residents Program application fee.\"",
+      "source": "NSW DE International, Fact sheet: Exemption for 482 visa in a regional school / Temporary Residents Program",
+      "url": "https://www.deinternational.nsw.edu.au/__data/assets/pdf_file/0020/27641/Tuition-fee-exemption-if-student-holds-482-visa.pdf",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Queensland QLD school fees 482 visa dependants exempt",
+      "text": "The Queensland schedule lists subclass 482 (Skills in Demand and Temporary Skill Shortage streams) with \"Tuition fee payable\" marked \"No\", and no Authority to Enrol or application fee is needed. This applies where the visa is \"Held by the student or their parent and the student is listed as a dependent of that visa.\"",
+      "source": "Queensland Department of Education International, Schedule of visa subclasses and enrolment conditions",
+      "url": "https://ppr.qed.qld.gov.au/attachment/de-international-schedule-of-visa-subclasses-and-enrolment-conditions.pdf",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Western Australia WA school fees 482 visa family tuition fee",
+      "text": "\"457 and 482 visa holders have a local enrolment entitlement.\" \"They pay a family tuition fee of $4 000 per year\" \"regardless of the number of Pre-primary to Year 12 children enrolled at a public school.\" \"No family tuition fee is payable if the oldest child is in Kindergarten.\"",
+      "source": "WA Department of Education, Enrolment Framework for Students with a Visa in Public Schools",
+      "url": "https://www.education.wa.edu.au/web/policies/-/enrolment-framework-for-students-with-a-visa-in-public-schools",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "South Australia SA school fees 482 visa income threshold Adelaide",
+      "text": "Families pay the student fee if \"you're on a 482 visa\", \"your child or children attend government schools in the greater Adelaide region\" and \"your family's total income is over $78,000 per year (before tax).\" The page gives a 2027 maximum of $7,000 per primary student and $8,200 per high school student.",
+      "source": "SA Department for Education, Student fees and enrolment in school for subclass 482 visa holders",
+      "url": "https://www.education.sa.gov.au/parents-and-families/enrol-school-or-preschool/families-482-visas/student-fees-enrolment",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Tasmania TAS school fees 482 visa Temporary Resident Program",
+      "text": "The Tasmanian table lists subclass 482 Temporary Skill Shortage with \"TRP TUITION FEES PAYABLE?\" marked \"No\". It also marks \"APPLICATION FEE PAYABLE?\" and \"SCHOOL LEVIES PAYABLE?\" as \"Yes\".",
+      "source": "DECYP / Tasmanian Government Education International, Temporary Resident Program (TRP) Visas at a Glance",
+      "url": "https://study.tas.gov.au/wp-content/uploads/2025/12/TRP-Visas-at-a-Glance-V19.pdf",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "ACT Canberra school fees 482 visa fee exemption",
+      "text": "Subclass 482 (\"Skills in demand\") is not on the ACT list of fee-free visas. It is on the list where holders \"can apply for a fee exemption\". The ACT page states \"If you are not eligible, you need to pay school tuition fees\", and for a 482 exemption the \"Main visa applicant must be working and living in the ACT\".",
+      "source": "ACT Government, Enrol a child (dependant) of a temporary resident",
+      "url": "https://www.act.gov.au/education-and-training/international-students-and-temporary-visa-holders/enrol-a-child-dependant-of-a-temporary-resident",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Northern Territory NT school fees 482 visa",
+      "text": "The NT page says \"To find out if you need to pay fees, select your child's visa below.\" Its \"Working and skilled\" table lists subclass 482 (Temporary skill shortage visa) with \"Pay fees\" marked \"No\".",
+      "source": "NT.GOV.AU, School fees for international students",
+      "url": "https://nt.gov.au/learning/international-education/study-at-an-nt-government-school/school-fees-for-international-students",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "NSW driving overseas licence 3 months permanent resident",
+      "text": "\"If you're a permanent Australian resident, you'll need to get a NSW licence within 3 months to continue driving or riding.\"",
+      "source": "NSW Government, Moving your overseas licence to NSW",
+      "url": "https://www.nsw.gov.au/driving-boating-and-transport/driving-nsw/driver-and-rider-licences/visiting-or-moving-to-nsw/moving-your-overseas-licence",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Victoria VIC driving overseas licence convert 6 months",
+      "text": "\"If you're moving to Victoria and plan to live here for more than 6 months, you must convert\" your overseas licence.",
+      "source": "VicRoads, Convert overseas licence",
+      "url": "https://www.vicroads.vic.gov.au/licences/convert-your-licence/convert-overseas-licence",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Western Australia WA driving overseas licence transfer 3 months",
+      "text": "Australian citizens and permanent residents can drive on a valid overseas licence for up to three months. \"Within this 3-month period, you will need to apply to transfer your overseas driver's licence to a WA driver's licence.\"",
+      "source": "Transport WA, Moving from overseas",
+      "url": "https://www.transport.wa.gov.au/licensing/drivers-licence/visit-move-wa/moving-from-overseas",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "South Australia SA driving overseas licence 3 months",
+      "text": "Overseas licence holders must \"get a South Australian driver's licence or permit within 3 months of becoming a permanent resident\".",
+      "source": "SA.GOV.AU, Transfer your overseas driver's licence",
+      "url": "https://www.sa.gov.au/topics/driving-and-transport/licences/interstate-and-overseas/overseas-licence-transfer",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "ACT Canberra driving overseas licence permanent visa",
+      "text": "\"Where you are the holder of, or are granted, a permanent visa you must obtain an ACT drivers licence.\"",
+      "source": "Access Canberra, Drivers with licences from overseas",
+      "url": "https://www.accesscanberra.act.gov.au/driving-transport-and-parking/licences/drivers-with-licences-from-overseas",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Northern Territory NT driving overseas licence 3 months MVR",
+      "text": "\"You must transfer your overseas driver licence or motorcycle licence within 3 months of living in the Northern Territory\". You apply in person at an MVR office.",
+      "source": "NT.GOV.AU, Transfer your overseas driver licence",
+      "url": "https://nt.gov.au/driving/licence/new-nt-residents-and-visitors/transfer-your-overseas-licence",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Powerswitch Consumer NZ not-for-profit power plans",
+      "text": "Powerswitch describes itself this way: \"We're a not-for-profit, backed by Consumer NZ.\"",
+      "source": "Powerswitch, Compare and find cheap energy plans",
+      "url": "https://www.powerswitch.org.nz/",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Energy Made Easy coverage Australian Government Victoria WA NT",
+      "text": "\"Energy Made Easy is a free Australian Government energy price comparison service.\" It covers \"New South Wales, Queensland, South Australia, Tasmania and the Australian Capital Territory\". Victoria is sent to Victorian Energy Compare, WA to the Economic Regulation Authority and the NT to Power and Water.",
+      "source": "Energy Made Easy (Australian Energy Regulator), Who can use Energy Made Easy?",
+      "url": "https://www.energymadeeasy.gov.au/frequently-asked-questions/what-is-energy-made-easy",
+      "checked": "2026-10-12"
+    },
+    {
+      "topic": "Victoria VIC school fees 482 visa government school tuition free Melbourne",
+      "text": "Children of 482 visa holders do not pay tuition fees at Victorian government schools. This is Ethicare's own knowledge: the Department's International Student Visa Fee Table is not published, so families should confirm when they enrol.",
+      "source": "Ethicare (confirmed by Sophie Careem), with Study Victoria for enrolment",
+      "url": "https://www.study.vic.gov.au/en/international-student-program/schools-and-programs/temporary-student",
+      "checked": "2026-10-12"
+    }
+  ],
+  "directory": [
+    {
+      "id": "inz",
+      "org": "Immigration New Zealand",
+      "url": "https://www.immigration.govt.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "visas",
+      "tags": "visa immigration residence work visa requirements nz",
+      "use": "Visa information, applications and current requirements."
+    },
+    {
+      "id": "iaa",
+      "org": "Immigration Advisers Authority",
+      "url": "https://www.iaa.govt.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "visas",
+      "tags": "check adviser licensed immigration adviser register",
+      "use": "Register of licensed immigration advisers. Only when someone asks how to check an adviser they are already using."
+    },
+    {
+      "id": "homeaffairs",
+      "org": "Department of Home Affairs",
+      "url": "https://immi.homeaffairs.gov.au/",
+      "country": "AU",
+      "type": "official",
+      "category": "visas",
+      "tags": "visa immigration australia requirements subclass",
+      "use": "Australian visa and immigration information."
+    },
+    {
+      "id": "omara",
+      "org": "Office of the Migration Agents Registration Authority (OMARA)",
+      "url": "https://www.mara.gov.au/",
+      "country": "AU",
+      "type": "official",
+      "category": "visas",
+      "tags": "check migration agent register",
+      "use": "Register of migration agents. Only when someone asks how to check an agent they are already using."
+    },
+    {
+      "id": "pss",
+      "org": "PSS International Removals",
+      "url": "https://www.pssremovals.com/international-removals",
+      "country": "UK to NZ/AU",
+      "type": "commercial",
+      "category": "removals",
+      "tags": "removals shipping belongings furniture container move household uk",
+      "use": "Household removals and shipping from the UK."
+    },
+    {
+      "id": "johnmason",
+      "org": "John Mason International",
+      "url": "https://johnmason.com/",
+      "country": "UK to NZ/AU",
+      "type": "commercial",
+      "category": "removals",
+      "tags": "removals shipping belongings household uk",
+      "use": "International household removals."
+    },
+    {
+      "id": "anglopacific",
+      "org": "Anglo Pacific",
+      "url": "https://www.anglopacific.co.uk/",
+      "country": "UK to NZ/AU",
+      "type": "commercial",
+      "category": "removals",
+      "tags": "shipping boxes baggage belongings uk",
+      "use": "International shipping and baggage services."
+    },
+    {
+      "id": "sevenseas",
+      "org": "Seven Seas Worldwide",
+      "url": "https://www.sevenseasworldwide.com/",
+      "country": "International",
+      "type": "commercial",
+      "category": "removals",
+      "tags": "shipping boxes small shipment removals belongings",
+      "use": "International shipping and removals, including smaller shipments; check origin and destination."
+    },
+    {
+      "id": "crown",
+      "org": "Crown Relocations",
+      "url": "https://www.crownrelo.com/",
+      "country": "International",
+      "type": "commercial",
+      "category": "removals",
+      "tags": "relocation home search school search orientation settling removals",
+      "use": "Moving plus advertised home search, school search and orientation; confirm what the destination package includes."
+    },
+    {
+      "id": "elliott",
+      "org": "Elliott",
+      "url": "https://www.elliott.co.za/",
+      "country": "South Africa to overseas",
+      "type": "commercial",
+      "category": "removals",
+      "tags": "removals shipping south africa",
+      "use": "International moving from South Africa, including to Australia and New Zealand."
+    },
+    {
+      "id": "nzmovers",
+      "org": "New Zealand Movers",
+      "url": "https://www.newzealandmovers.co.nz/",
+      "country": "NZ",
+      "type": "commercial",
+      "category": "removals",
+      "tags": "removals moving new zealand arrival end",
+      "use": "Moving to New Zealand from overseas and within New Zealand."
+    },
+    {
+      "id": "mpi_pets",
+      "org": "Ministry for Primary Industries: bringing cats and dogs",
+      "url": "https://www.mpi.govt.nz/bring-send-to-nz/pets-travelling-to-nz/bringing-cats-and-dogs-to-nz",
+      "country": "NZ",
+      "type": "official",
+      "category": "pets",
+      "tags": "pet pets dog cat import quarantine bring",
+      "use": "Current cat and dog import rules; the process depends on travel date and origin."
+    },
+    {
+      "id": "agri_pets",
+      "org": "Department of Agriculture: cats and dogs",
+      "url": "https://www.agriculture.gov.au/biosecurity-trade/cats-dogs",
+      "country": "AU",
+      "type": "official",
+      "category": "pets",
+      "tags": "pet pets dog cat import quarantine bring",
+      "use": "Animal import and quarantine rules."
+    },
+    {
+      "id": "petair",
+      "org": "PetAir UK",
+      "url": "https://www.petairuk.com/",
+      "country": "UK to overseas",
+      "type": "commercial",
+      "category": "pets",
+      "tags": "pet transport fly dog cat uk",
+      "use": "Pet travel service; confirm route and package."
+    },
+    {
+      "id": "jetpets",
+      "org": "Jetpets",
+      "url": "https://www.jetpets.com.au/",
+      "country": "AU/international",
+      "type": "commercial",
+      "category": "pets",
+      "tags": "pet transport fly dog cat",
+      "use": "Pet transport; confirm origin and destination coverage."
+    },
+    {
+      "id": "seek_nz",
+      "org": "SEEK New Zealand",
+      "url": "https://www.seek.co.nz/",
+      "country": "NZ",
+      "type": "commercial",
+      "category": "partner work",
+      "tags": "partner spouse husband wife job search work",
+      "use": "General job search for a partner, across occupations and locations."
+    },
+    {
+      "id": "seek_au",
+      "org": "SEEK Australia",
+      "url": "https://www.seek.com.au/",
+      "country": "AU",
+      "type": "commercial",
+      "category": "partner work",
+      "tags": "partner spouse husband wife job search work",
+      "use": "General job search for a partner, across occupations and locations."
+    },
+    {
+      "id": "hays_nz",
+      "org": "Hays New Zealand",
+      "url": "https://www.hays.net.nz/",
+      "country": "NZ",
+      "type": "commercial",
+      "category": "partner work",
+      "tags": "partner recruiter job office professional",
+      "use": "Recruiter across many sectors, for a partner's job."
+    },
+    {
+      "id": "hays_au",
+      "org": "Hays Australia",
+      "url": "https://www.hays.com.au/",
+      "country": "AU",
+      "type": "commercial",
+      "category": "partner work",
+      "tags": "partner recruiter job office professional",
+      "use": "Recruiter across many sectors, for a partner's job."
+    },
+    {
+      "id": "hays_globalink",
+      "org": "Hays Globalink APAC",
+      "url": "https://www.hays.co.uk/globalink-apac",
+      "country": "UK/EU to NZ/AU",
+      "type": "commercial",
+      "category": "partner work",
+      "tags": "partner recruiter before moving",
+      "use": "Information for a partner moving to Australia or New Zealand who wants to speak to recruiters first."
+    },
+    {
+      "id": "rh_nz",
+      "org": "Robert Half New Zealand",
+      "url": "https://www.roberthalf.com/nz/en",
+      "country": "NZ",
+      "type": "commercial",
+      "category": "partner work",
+      "tags": "partner accountant accounting finance it technology",
+      "use": "Finance, accounting and technology recruitment, for a partner's job."
+    },
+    {
+      "id": "rh_au",
+      "org": "Robert Half Australia",
+      "url": "https://www.roberthalf.com/au/en",
+      "country": "AU",
+      "type": "commercial",
+      "category": "partner work",
+      "tags": "partner accountant accounting finance it technology office",
+      "use": "Finance, accounting, technology and business support recruitment, for a partner's job."
+    },
+    {
+      "id": "tradestaff",
+      "org": "Tradestaff",
+      "url": "https://www.tradestaff.co.nz/",
+      "country": "NZ",
+      "type": "commercial",
+      "category": "partner work",
+      "tags": "partner trade trades builder electrician industrial",
+      "use": "Trade and industrial work, for a partner."
+    },
+    {
+      "id": "awf",
+      "org": "AWF",
+      "url": "https://www.awf.co.nz/",
+      "country": "NZ",
+      "type": "commercial",
+      "category": "partner work",
+      "tags": "partner practical temporary work",
+      "use": "Practical and temporary work, for a partner."
+    },
+    {
+      "id": "workpac",
+      "org": "WorkPac",
+      "url": "https://www.workpac.com/",
+      "country": "AU",
+      "type": "commercial",
+      "category": "partner work",
+      "tags": "partner trade practical work",
+      "use": "Recruitment across roles and regions, for a partner."
+    },
+    {
+      "id": "trademe",
+      "org": "Trade Me Property",
+      "url": "https://www.trademe.co.nz/a/property",
+      "country": "NZ",
+      "type": "commercial",
+      "category": "housing",
+      "tags": "rent rental flat house property search",
+      "use": "Rental, flatmate and property searches."
+    },
+    {
+      "id": "tenancy",
+      "org": "Tenancy Services",
+      "url": "https://www.tenancy.govt.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "housing",
+      "tags": "rent rental tenancy bond market rent rights",
+      "use": "Tenancy rules and market rents by area."
+    },
+    {
+      "id": "rea",
+      "org": "realestate.com.au",
+      "url": "https://www.realestate.com.au/rent/",
+      "country": "AU",
+      "type": "commercial",
+      "category": "housing",
+      "tags": "rent rental house property search",
+      "use": "Rental property search."
+    },
+    {
+      "id": "domain",
+      "org": "Domain",
+      "url": "https://www.domain.com.au/rent/",
+      "country": "AU",
+      "type": "commercial",
+      "category": "housing",
+      "tags": "rent rental house property search",
+      "use": "Rental property search."
+    },
+    {
+      "id": "moe",
+      "org": "Ministry of Education",
+      "url": "https://www.education.govt.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "schools",
+      "tags": "school schools enrol enrolment children education",
+      "use": "Education and school enrolment information."
+    },
+    {
+      "id": "ero",
+      "org": "Education Review Office",
+      "url": "https://ero.govt.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "schools",
+      "tags": "school review early childhood kindergarten report",
+      "use": "School and early childhood review reports."
+    },
+    {
+      "id": "myschool",
+      "org": "My School",
+      "url": "https://www.myschool.edu.au/",
+      "country": "AU",
+      "type": "official",
+      "category": "schools",
+      "tags": "school schools research profile",
+      "use": "School profiles and information."
+    },
+    {
+      "id": "startingblocks",
+      "org": "Starting Blocks",
+      "url": "https://www.startingblocks.gov.au/",
+      "country": "AU",
+      "type": "official",
+      "category": "schools",
+      "tags": "childcare child care daycare early childhood kindergarten",
+      "use": "Early childhood education and care information and service search."
+    },
+    {
+      "id": "ird",
+      "org": "Inland Revenue",
+      "url": "https://www.ird.govt.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "money",
+      "tags": "tax ird number kiwisaver",
+      "use": "Tax, IRD numbers and KiwiSaver."
+    },
+    {
+      "id": "ato",
+      "org": "Australian Taxation Office",
+      "url": "https://www.ato.gov.au/",
+      "country": "AU",
+      "type": "official",
+      "category": "money",
+      "tags": "tax file number tfn super superannuation",
+      "use": "Tax file numbers, tax and super."
+    },
+    {
+      "id": "mygov_tax",
+      "org": "myGov: tax and super as a visa holder",
+      "url": "https://my.gov.au/en/services/living-arrangements/coming-to-australia/coming-to-australia-to-work/tax-and-superannuation-as-a-visa-holder",
+      "country": "AU",
+      "type": "official",
+      "category": "money",
+      "tags": "tax super superannuation arrive visa holder",
+      "use": "Starting point for tax and super when coming to work."
+    },
+    {
+      "id": "empnz",
+      "org": "Employment New Zealand",
+      "url": "https://www.employment.govt.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "money",
+      "tags": "employment rights leave agreement contract pay",
+      "use": "Employment rights, leave and employment agreements."
+    },
+    {
+      "id": "fairwork",
+      "org": "Fair Work Ombudsman",
+      "url": "https://www.fairwork.gov.au/",
+      "country": "AU",
+      "type": "official",
+      "category": "money",
+      "tags": "pay rights award workplace leave",
+      "use": "Pay and workplace rights; check which system and agreement applies."
+    },
+    {
+      "id": "inz_settle",
+      "org": "Immigration New Zealand: setting up your life",
+      "url": "https://www.immigration.govt.nz/live-in-new-zealand/",
+      "country": "NZ",
+      "type": "official",
+      "category": "settling in",
+      "tags": "arrive arrival settling set up bank housing services",
+      "use": "Arrival, housing, services, money and settling in."
+    },
+    {
+      "id": "healthpoint",
+      "org": "Healthpoint",
+      "url": "https://www.healthpoint.co.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "healthcare",
+      "tags": "gp doctor find local health service",
+      "use": "Find a GP or other local health service."
+    },
+    {
+      "id": "healthdirect",
+      "org": "healthdirect",
+      "url": "https://www.healthdirect.gov.au/",
+      "country": "AU",
+      "type": "official",
+      "category": "healthcare",
+      "tags": "gp doctor find health service",
+      "use": "Health information and service finder."
+    },
+    {
+      "id": "medicare",
+      "org": "Services Australia: Medicare",
+      "url": "https://www.servicesaustralia.gov.au/medicare",
+      "country": "AU",
+      "type": "official",
+      "category": "healthcare",
+      "tags": "medicare enrol eligibility healthcare",
+      "use": "Medicare enrolment and eligibility."
+    },
+    {
+      "id": "mrtb",
+      "org": "Medical Radiation Technologists Board",
+      "url": "https://www.mrtboard.org.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration",
+      "tags": "radiographer mit radiation therapist sonographer nuclear medicine imaging registration",
+      "use": "Medical imaging and radiation therapy registration and practising certificates."
+    },
+    {
+      "id": "mcnz",
+      "org": "Medical Council of New Zealand",
+      "url": "https://www.mcnz.org.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration",
+      "tags": "doctor medical registration",
+      "use": "Medical registration."
+    },
+    {
+      "id": "ncnz",
+      "org": "Nursing Council of New Zealand",
+      "url": "https://www.nursingcouncil.org.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration",
+      "tags": "nurse nursing registration",
+      "use": "Nursing registration."
+    },
+    {
+      "id": "midwifery",
+      "org": "Midwifery Council",
+      "url": "https://www.midwiferycouncil.health.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration",
+      "tags": "midwife midwifery registration",
+      "use": "Midwifery registration."
+    },
+    {
+      "id": "physio",
+      "org": "Physiotherapy Board of New Zealand",
+      "url": "https://www.physioboard.org.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration",
+      "tags": "physiotherapist physio registration",
+      "use": "Physiotherapy registration."
+    },
+    {
+      "id": "nzpb",
+      "org": "New Zealand Psychologists Board",
+      "url": "https://www.psychologistsboard.org.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration",
+      "tags": "psychologist psychology registration",
+      "use": "Registration for overseas-trained psychologists."
+    },
+    {
+      "id": "swrb",
+      "org": "Social Workers Registration Board",
+      "url": "https://swrb.govt.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration",
+      "tags": "social worker registration",
+      "use": "Social work registration and overseas qualifications."
+    },
+    {
+      "id": "msc",
+      "org": "Medical Sciences Council",
+      "url": "https://www.mscouncil.org.nz/",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration",
+      "tags": "anaesthetic technician odp medical laboratory registration",
+      "use": "Registration for professions the Council regulates, including anaesthetic technology."
+    },
+    {
+      "id": "ahpra",
+      "org": "Ahpra",
+      "url": "https://www.ahpra.gov.au/",
+      "country": "AU",
+      "type": "official",
+      "category": "registration",
+      "tags": "registration board national board australia",
+      "use": "Starting point for the National Boards and registration. Not every profession registers with Ahpra."
+    },
+    {
+      "id": "asar",
+      "org": "Australian Sonographer Accreditation Registry",
+      "url": "https://www.asar.com.au/",
+      "country": "AU",
+      "type": "official",
+      "category": "registration",
+      "tags": "sonographer accreditation ultrasound",
+      "use": "Sonographer accreditation and overseas qualifications."
+    },
+    {
+      "id": "dietitians_au",
+      "org": "Dietitians Australia",
+      "url": "https://dietitiansaustralia.org.au/",
+      "country": "AU",
+      "type": "commercial",
+      "category": "registration",
+      "tags": "dietitian dietetics assessment",
+      "use": "Professional body; information on working as a dietitian in Australia and its assessment."
+    },
+    {
+      "id": "ranzcr",
+      "org": "RANZCR: international medical graduates (radiology)",
+      "url": "https://www.ranzcr.com/join-our-professions/img/recognition-for-img",
+      "country": "AU/NZ",
+      "type": "official",
+      "category": "specialist college",
+      "tags": "radiologist radiology radiation oncologist specialist img college assessment",
+      "use": "Specialist recognition for overseas-trained radiologists and radiation oncologists."
+    },
+    {
+      "id": "anzca",
+      "org": "ANZCA: specialist international medical graduates (anaesthesia)",
+      "url": "https://www.anzca.edu.au/education-and-training/specialist-international-medical-graduates/simg-assessment-process",
+      "country": "AU/NZ",
+      "type": "official",
+      "category": "specialist college",
+      "tags": "anaesthetist anaesthesia anesthetist specialist simg college assessment",
+      "use": "Assessment process for overseas-trained specialist anaesthetists."
+    },
+    {
+      "id": "racp",
+      "org": "RACP: specialist assessment for overseas-trained physicians",
+      "url": "https://www.racp.edu.au/overseas-trained-physicians/specialist-assessment",
+      "country": "AU/NZ",
+      "type": "official",
+      "category": "specialist college",
+      "tags": "physician paediatrician pediatrician general medicine specialist assessment college",
+      "use": "Specialist assessment for overseas-trained physicians and paediatricians."
+    },
+    {
+      "id": "ranzcog_au",
+      "org": "RANZCOG: specialist international medical graduates in Australia",
+      "url": "https://ranzcog.edu.au/training/international-medical-graduates/simg-australia",
+      "country": "AU",
+      "type": "official",
+      "category": "specialist college",
+      "tags": "obstetrician gynaecologist obstetrics gynaecology o&g specialist simg college",
+      "use": "Assessment for overseas-trained obstetricians and gynaecologists in Australia."
+    },
+    {
+      "id": "ranzcog_nz",
+      "org": "RANZCOG: specialist international medical graduates in Aotearoa New Zealand",
+      "url": "https://ranzcog.edu.au/training/international-medical-graduates/simg-aotearoa-new-zealand/",
+      "country": "NZ",
+      "type": "official",
+      "category": "specialist college",
+      "tags": "obstetrician gynaecologist obstetrics gynaecology o&g specialist simg college",
+      "use": "Assessment for overseas-trained obstetricians and gynaecologists in New Zealand."
+    },
+    {
+      "id": "ranzcp",
+      "org": "RANZCP: assessment of international specialists (psychiatry)",
+      "url": "https://www.ranzcp.org/become-a-psychiatrist/international-specialists",
+      "country": "AU/NZ",
+      "type": "official",
+      "category": "specialist college",
+      "tags": "psychiatrist psychiatry specialist international college assessment",
+      "use": "Assessment pathways for overseas-trained psychiatrists."
+    },
+    {
+      "id": "acem",
+      "org": "ACEM: specialist assessment (emergency medicine)",
+      "url": "https://acem.org.au/Content-Sources/International-Qualified-Specialists/Assessment-of-Specialist-International-Medical-Gra/Specialist-Assessment",
+      "country": "AU/NZ",
+      "type": "official",
+      "category": "specialist college",
+      "tags": "emergency medicine physician ed consultant specialist simg college",
+      "use": "Specialist assessment for overseas-trained emergency physicians."
+    },
+    {
+      "id": "rnzcgp",
+      "org": "RNZCGP: overseas trained doctors (general practice)",
+      "url": "https://www.rnzcgp.org.nz/study-with-us/overseas-trained-gps/",
+      "country": "NZ",
+      "type": "official",
+      "category": "specialist college",
+      "tags": "gp general practitioner general practice fellowship overseas trained",
+      "use": "How overseas-trained GPs practising in New Zealand apply towards Fellowship."
+    },
+    {
+      "id": "racgp",
+      "org": "RACGP: specialist pathway for international GPs",
+      "url": "https://www.racgp.org.au/education/imgs/fellowship-pathways/fellowship-programs-for-imgs/practice-experience-program/expedited-pathway",
+      "country": "AU",
+      "type": "official",
+      "category": "specialist college",
+      "tags": "gp general practitioner general practice fellowship img expedited",
+      "use": "Fellowship pathway for overseas-trained GPs in Australia."
+    },
+    {
+      "id": "hcpc",
+      "org": "HCPC: practising outside the UK",
+      "url": "https://www.hcpc-uk.org/registration/your-registration/practising-outside-the-uk/",
+      "country": "UK",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "hcpc uk radiographer physio ot good standing certificate verification letter",
+      "use": "Getting confirmation of HCPC registration for an overseas regulator."
+    },
+    {
+      "id": "gmc",
+      "org": "GMC: certificate of good standing",
+      "url": "https://www.gmc-uk.org/registration-and-licensing/managing-your-registration/certificates/request-a-certificate-of-good-standing-from-us",
+      "country": "UK",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "gmc uk doctor good standing certificate ccps",
+      "use": "Requesting a certificate of good standing for an overseas regulator."
+    },
+    {
+      "id": "nmc",
+      "org": "NMC: certificate of current professional status",
+      "url": "https://www.nmc.org.uk/registration/working-outside-the-uk/",
+      "country": "UK",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "nmc uk nurse midwife good standing certificate ccps",
+      "use": "Requesting a certificate of current professional status for an overseas regulator."
+    },
+    {
+      "id": "mcnz_psv",
+      "org": "Medical Council of New Zealand: primary source verification (EPIC)",
+      "url": "https://mcnz.org.nz/get-registered/how-to-register/primary-source-verification",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "doctor medical qualification verification epic ecfmg myintealth primary source",
+      "use": "Doctors' qualifications are verified through ECFMG's EPIC service, via MyIntealth."
+    },
+    {
+      "id": "asmirt",
+      "org": "ASMIRT: overseas assessments",
+      "url": "https://asmirt.org/overseas-assessments/",
+      "country": "AU",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "radiographer radiation therapist nuclear medicine skills assessment migration asmirt",
+      "use": "Skills assessment for medical imaging and radiation therapy professionals moving to Australia."
+    },
+    {
+      "id": "arpansa_regulators",
+      "org": "ARPANSA: state and territory radiation regulators",
+      "url": "https://www.arpansa.gov.au/regulation-and-licensing/regulation/state-territory-regulators",
+      "country": "AU",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "radiation licence licensing use licence radiographer state territory regulator",
+      "use": "Which state or territory regulator issues radiation use licences."
+    },
+    {
+      "id": "vic_radiation",
+      "org": "Victorian Department of Health: radiation (radiographers)",
+      "url": "https://www.health.vic.gov.au/radiation/radiographers",
+      "country": "AU",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "victoria radiation licence radiographer use licence",
+      "use": "Radiation use licences for radiographers in Victoria."
+    },
+    {
+      "id": "acro",
+      "org": "ACRO Criminal Records Office (UK police certificates)",
+      "url": "https://acro.police.uk/s/",
+      "country": "UK",
+      "type": "official",
+      "category": "police checks",
+      "tags": "police certificate criminal record uk acro check",
+      "use": "UK police certificates for visas and registration."
+    },
+    {
+      "id": "nz_moj",
+      "org": "Ministry of Justice: get your own criminal record",
+      "url": "https://www.justice.govt.nz/criminal-records/get-your-own/",
+      "country": "NZ",
+      "type": "official",
+      "category": "police checks",
+      "tags": "police certificate criminal record new zealand check",
+      "use": "New Zealand criminal record check."
+    },
+    {
+      "id": "afp",
+      "org": "Australian Federal Police: national police certificate",
+      "url": "https://www.afp.gov.au/our-services/national-police-checks",
+      "country": "AU",
+      "type": "official",
+      "category": "police checks",
+      "tags": "police certificate check criminal record australia afp",
+      "use": "Australian national police certificate."
+    },
+    {
+      "id": "ielts",
+      "org": "IELTS",
+      "url": "https://ielts.org/",
+      "country": "International",
+      "type": "test provider",
+      "category": "english tests",
+      "tags": "english test ielts score book",
+      "use": "Official IELTS site: test types, dates and booking."
+    },
+    {
+      "id": "oet",
+      "org": "OET (Occupational English Test)",
+      "url": "https://www.occupationalenglishtest.org/",
+      "country": "International",
+      "type": "test provider",
+      "category": "english tests",
+      "tags": "english test oet occupational healthcare score book",
+      "use": "Official OET site: the English test for healthcare professionals."
+    },
+    {
+      "id": "pte",
+      "org": "PTE Academic",
+      "url": "https://www.pearsonpte.com/pte-academic/",
+      "country": "International",
+      "type": "test provider",
+      "category": "english tests",
+      "tags": "english test pte pearson score book",
+      "use": "Official PTE Academic site: dates, centres and score reports."
+    },
+    {
+      "id": "inz_police_get",
+      "org": "Immigration New Zealand: how to get a police certificate (by country)",
+      "url": "https://www.immigration.govt.nz/process-to-apply/applying-for-a-visa/providing-evidence-and-documents-to-support-your-visa-application/character-requirements-third-party-checks-and-police-certificates/get-a-police-certificate/",
+      "country": "NZ",
+      "type": "official",
+      "category": "police checks",
+      "tags": "police certificate country how to get fingerprints",
+      "use": "Shows how to get a police certificate from each country."
+    },
+    {
+      "id": "nzpolice_fp",
+      "org": "NZ Police: having fingerprints taken",
+      "url": "https://www.police.govt.nz/faq/having-fingerprints-taken",
+      "country": "NZ",
+      "type": "official",
+      "category": "police checks",
+      "tags": "fingerprints fingerprinting police certificate immigration",
+      "use": "Where to get fingerprints taken in New Zealand for an overseas police certificate."
+    },
+    {
+      "id": "nz_1737",
+      "org": "1737: How 1737 Works",
+      "url": "https://www.1737.org.nz/how-1737-works",
+      "country": "NZ",
+      "type": "official",
+      "category": "support lines",
+      "tags": "mental health crisis counsellor text call free 24/7 struggling low depressed depression anxious anxiety lonely homesick suicidal suicide down overwhelmed stressed stress cope coping distress self harm unsafe",
+      "use": "Free text or call support with a trained counsellor at any time in New Zealand."
+    },
+    {
+      "id": "nz_healthline",
+      "org": "Ministry of Health: Healthline",
+      "url": "https://www.health.govt.nz/your-health/services-and-support/health-care-services/healthline",
+      "country": "NZ",
+      "type": "official",
+      "category": "support lines",
+      "tags": "nurse advice 0800 611 116 free 24/7 interpreter struggling low depressed depression anxious anxiety lonely homesick suicidal suicide down overwhelmed stressed stress cope coping distress self harm unsafe",
+      "use": "Free 24/7 health advice from registered nurses in New Zealand."
+    },
+    {
+      "id": "nz_111",
+      "org": "New Zealand Police: 111 Emergency Services",
+      "url": "https://www.police.govt.nz/call-111",
+      "country": "NZ",
+      "type": "official",
+      "category": "support lines",
+      "tags": "emergency 111 police fire ambulance",
+      "use": "When and how to call 111 in New Zealand."
+    },
+    {
+      "id": "au_lifeline",
+      "org": "Lifeline: Crisis support 13 11 14",
+      "url": "https://www.lifeline.org.au/131114",
+      "country": "AU",
+      "type": "official",
+      "category": "support lines",
+      "tags": "crisis suicide 13 11 14 text chat 24/7 struggling low depressed depression anxious anxiety lonely homesick suicidal suicide down overwhelmed stressed stress cope coping distress self harm unsafe",
+      "use": "24/7 crisis support by phone, text or chat in Australia."
+    },
+    {
+      "id": "au_13yarn",
+      "org": "13YARN: Home",
+      "url": "https://www.13yarn.org.au/",
+      "country": "AU",
+      "type": "official",
+      "category": "support lines",
+      "tags": "aboriginal torres strait islander crisis 13 92 76 24/7 struggling low depressed depression anxious anxiety lonely homesick suicidal suicide down overwhelmed stressed stress cope coping distress self harm unsafe",
+      "use": "24/7 crisis support for Aboriginal and Torres Strait Islander people."
+    },
+    {
+      "id": "au_tis",
+      "org": "TIS National: Interpreting services for non-English speakers",
+      "url": "https://www.tisnational.gov.au/en/Non-English-speakers/Interpreting-services",
+      "country": "AU",
+      "type": "official",
+      "category": "support lines",
+      "tags": "interpreter translating 131 450 language free",
+      "use": "Phone interpreting at any time by calling 131 450, mostly free for non-English speakers."
+    },
+    {
+      "id": "au_000",
+      "org": "Triple Zero: Home",
+      "url": "https://www.triplezero.gov.au/",
+      "country": "AU",
+      "type": "official",
+      "category": "support lines",
+      "tags": "emergency 000 police fire ambulance",
+      "use": "When and how to call 000 in Australia."
+    },
+    {
+      "id": "au_rhca_list",
+      "org": "Department of Health: MBS Note GN.3.9 Reciprocal Health Care Agreements",
+      "url": "https://www9.health.gov.au/mbs/fullDisplay.cfm?type=note&q=GN.3.9&criteria=reciprocal+health+care+agreement+australia",
+      "country": "AU",
+      "type": "official",
+      "category": "healthcare",
+      "tags": "reciprocal health care medicare countries uk ireland nz",
+      "use": "Official list of countries with a Reciprocal Health Care Agreement with Australia and what is covered."
+    },
+    {
+      "id": "au_rhca_uk",
+      "org": "Services Australia: Reciprocal Health Care Agreements - visiting from the United Kingdom",
+      "url": "https://www.servicesaustralia.gov.au/reciprocal-health-care-agreements-visiting-from-united-kingdom?context=22481",
+      "country": "AU",
+      "type": "official",
+      "category": "healthcare",
+      "tags": "medicare uk reciprocal enrol arrival",
+      "use": "Medicare cover and enrolment for people arriving from the UK."
+    },
+    {
+      "id": "au_rhca_nz",
+      "org": "Services Australia: Reciprocal Health Care Agreements - visiting from New Zealand",
+      "url": "https://www.servicesaustralia.gov.au/reciprocal-health-care-agreements-visiting-from-new-zealand?context=22481",
+      "country": "AU",
+      "type": "official",
+      "category": "healthcare",
+      "tags": "medicare new zealand reciprocal hospital",
+      "use": "What New Zealanders are covered for in Australia."
+    },
+    {
+      "id": "au_rhca_visitors",
+      "org": "Services Australia: When Reciprocal Health Care Agreements apply and you visit Australia",
+      "url": "https://www.servicesaustralia.gov.au/when-reciprocal-health-care-agreements-apply-and-you-visit-australia?context=22481",
+      "country": "AU",
+      "type": "official",
+      "category": "healthcare",
+      "tags": "reciprocal health care visitors medicare",
+      "use": "Services Australia overview of reciprocal cover for visitors to Australia."
+    },
+    {
+      "id": "nz_health_workvisa",
+      "org": "govt.nz: Healthcare if you're in NZ on a work visa",
+      "url": "https://www.govt.nz/browse/health-system/public-health-services/healthcare-on-a-work-visa/",
+      "country": "NZ",
+      "type": "official",
+      "category": "healthcare",
+      "tags": "public healthcare eligibility work visa 2 years acc",
+      "use": "Whether a work visa holder can get publicly funded healthcare in New Zealand."
+    },
+    {
+      "id": "nz_health_eligibility",
+      "org": "Health New Zealand: Eligibility for publicly funded health and disability services",
+      "url": "https://info.health.nz/services-support/publicly-funded-health-and-disability-services",
+      "country": "NZ",
+      "type": "official",
+      "category": "healthcare",
+      "tags": "public healthcare eligibility free costs",
+      "use": "Health New Zealand overview of which health services are free or subsidised."
+    },
+    {
+      "id": "nz_asms",
+      "org": "ASMS: About Us",
+      "url": "https://asms.org.nz/about-us/",
+      "country": "NZ",
+      "type": "community",
+      "category": "pay and unions",
+      "tags": "union senior doctors dentists specialists collective agreement",
+      "use": "Union for senior salaried doctors and dentists in New Zealand."
+    },
+    {
+      "id": "nz_psa",
+      "org": "PSA: Home",
+      "url": "https://www.psa.org.nz/",
+      "country": "NZ",
+      "type": "community",
+      "category": "pay and unions",
+      "tags": "union public service allied health",
+      "use": "New Zealand's largest trade union, covering many public and health sector workers."
+    },
+    {
+      "id": "nz_psa_allied",
+      "org": "PSA: Allied",
+      "url": "https://www.psa.org.nz/activity/allied",
+      "country": "NZ",
+      "type": "community",
+      "category": "pay and unions",
+      "tags": "union allied health psychologist social worker occupational therapist",
+      "use": "PSA's page for allied health members, including social workers, psychologists and occupational therapists."
+    },
+    {
+      "id": "nz_nzno",
+      "org": "NZNO: Home",
+      "url": "https://www.nzno.org.nz/",
+      "country": "NZ",
+      "type": "community",
+      "category": "pay and unions",
+      "tags": "union nurses midwives nursing",
+      "use": "New Zealand Nurses Organisation, the union and professional body for nurses."
+    },
+    {
+      "id": "nz_sorted",
+      "org": "Sorted: All about us",
+      "url": "https://sorted.org.nz/about-us/",
+      "country": "NZ",
+      "type": "official",
+      "category": "money",
+      "tags": "money budgeting kiwisaver free government",
+      "use": "Free, government-funded money guidance for New Zealand."
+    },
+    {
+      "id": "au_moneysmart",
+      "org": "Moneysmart: About us",
+      "url": "https://moneysmart.gov.au/about-us",
+      "country": "AU",
+      "type": "official",
+      "category": "money",
+      "tags": "money budgeting super free government asic",
+      "use": "Free money tools and guidance for Australia from ASIC."
+    },
+    {
+      "id": "nz_kiwisaver",
+      "org": "Inland Revenue: Joining KiwiSaver",
+      "url": "https://www.ird.govt.nz/kiwisaver/kiwisaver-individuals/joining-kiwisaver",
+      "country": "NZ",
+      "type": "official",
+      "category": "money",
+      "tags": "kiwisaver retirement savings eligibility work visa",
+      "use": "Who can join KiwiSaver, including the rule for work visa holders."
+    },
+    {
+      "id": "au_ato_super_temp",
+      "org": "ATO: How superannuation applies to temporary residents",
+      "url": "https://www.ato.gov.au/individuals-and-families/super-for-individuals-and-families/super/temporary-residents-and-superannuation/how-superannuation-applies-to-temporary-residents",
+      "country": "AU",
+      "type": "official",
+      "category": "money",
+      "tags": "super superannuation temporary visa dasp employer",
+      "use": "How super works on a temporary visa and claiming it when you leave Australia."
+    },
+    {
+      "id": "uk_state_pension_abroad",
+      "org": "GOV.UK: State Pension if you retire abroad",
+      "url": "https://www.gov.uk/state-pension-if-you-retire-abroad",
+      "country": "UK",
+      "type": "official",
+      "category": "money",
+      "tags": "uk state pension abroad claim international pension centre",
+      "use": "How to claim the UK State Pension while living abroad."
+    },
+    {
+      "id": "uk_state_pension_rates",
+      "org": "GOV.UK: State Pension if you retire abroad - How your pension is affected",
+      "url": "https://www.gov.uk/state-pension-if-you-retire-abroad/rates-of-state-pension",
+      "country": "UK",
+      "type": "official",
+      "category": "money",
+      "tags": "uk state pension frozen annual increase voluntary national insurance",
+      "use": "Whether your UK State Pension goes up each year when you live abroad."
+    },
+    {
+      "id": "mcnz_cops",
+      "org": "Medical Council of New Zealand: Certificate of professional status (COPS)",
+      "url": "https://www.mcnz.org.nz/registration/getting-registered/how-to-register/certificate-of-professional-status-cops/",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "doctor COPS good standing 3 months",
+      "use": "Check how recent a doctor's COPS must be."
+    },
+    {
+      "id": "mcnz_english",
+      "org": "Medical Council of New Zealand: English language policy",
+      "url": "https://www.mcnz.org.nz/assets/Policies/English-language-policy.pdf",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "doctor English IELTS OET 2 years UK graduate",
+      "use": "Check English options and test validity for doctors."
+    },
+    {
+      "id": "mrtb_intl",
+      "org": "Medical Radiation Technologists Board: Internationally qualified registration",
+      "url": "https://www.mrtboard.org.nz/pre-registration/overseas-trained-how-to-register/ttmra",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "radiographer radiation therapist good standing 6 months",
+      "use": "Check documents and good standing rules for MRT registration."
+    },
+    {
+      "id": "mrtb_english",
+      "org": "Medical Radiation Technologists Board: English language proficiency policy",
+      "url": "https://www.mrtboard.org.nz/assets_mrtb/Uploads/2024-Aug-English-Language-Policy.pdf",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "radiographer English IELTS OET 2 years",
+      "use": "Check English test rules for MRT registration."
+    },
+    {
+      "id": "otbnz_english",
+      "org": "Occupational Therapy Board of NZ: English language policy for registration",
+      "url": "https://otboard.org.nz/document/8497/704%20English%20language%20policy%20for%20registration.pdf",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "occupational therapist English IELTS OET 24 months",
+      "use": "Check English test rules for OT registration."
+    },
+    {
+      "id": "otbnz_overseas",
+      "org": "Occupational Therapy Board of NZ: Overseas qualified practitioners",
+      "url": "https://www.otboard.org.nz/site/rp/overseas?nav=sidebar",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "occupational therapist overseas registration checklist",
+      "use": "See the overseas OT application process and checklist."
+    },
+    {
+      "id": "pbnz_general",
+      "org": "Physiotherapy Board of NZ: International General Pathway",
+      "url": "https://physioboard.org.nz/international-general-pathway",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "physiotherapist COGS police certificate 3 months",
+      "use": "Check physio documents and the 3 month rule."
+    },
+    {
+      "id": "pbnz_english",
+      "org": "Physiotherapy Board of NZ: English Proficiency Evidence",
+      "url": "https://physioboard.org.nz/faq/english-proficiency-evidence",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "physiotherapist English test 2 years",
+      "use": "Check English test validity for physios."
+    },
+    {
+      "id": "nzpb_overseas",
+      "org": "NZ Psychologists Board: Overseas trained registration",
+      "url": "https://psychologistsboard.org.nz/want-to-register/overseas-trained-how-to-register/",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "psychologist overseas registration good standing IELTS",
+      "use": "See the overseas psychologist application requirements."
+    },
+    {
+      "id": "swrb_overseas",
+      "org": "Social Workers Registration Board: Overseas qualifications",
+      "url": "https://swrb.govt.nz/registration/overseas-qualified-social-workers/",
+      "country": "NZ",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "social worker overseas English 2 years good standing",
+      "use": "Check overseas social worker registration requirements."
+    },
+    {
+      "id": "ahpra_intl",
+      "org": "Ahpra: Information for international practitioners",
+      "url": "https://www.ahpra.gov.au/Registration/International-practitioners.aspx",
+      "country": "AU",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "certificate good standing registration status 3 months",
+      "use": "Check certificate of good standing rules for all National Boards."
+    },
+    {
+      "id": "ahpra_english",
+      "org": "Ahpra: English language skills registration standard",
+      "url": "https://www.ahpra.gov.au/Registration/Registration-Standards/English-language-skills/English-language-skills-registration-standard.aspx",
+      "country": "AU",
+      "type": "official",
+      "category": "registration checks",
+      "tags": "English IELTS OET 2 years sittings",
+      "use": "Check English test validity and sitting rules in Australia."
+    },
+    {
+      "id": "inz_medical",
+      "org": "Immigration New Zealand: How to get an X-ray or medical examination",
+      "url": "https://www.immigration.govt.nz/process-to-apply/applying-for-a-visa/providing-evidence-and-documents-to-support-your-visa-application/health-requirements/how-to-get-an-x-ray-or-medical-examination/",
+      "country": "NZ",
+      "type": "official",
+      "category": "visas",
+      "tags": "medical chest x-ray 3 months visa",
+      "use": "Check how recent NZ visa medicals must be."
+    },
+    {
+      "id": "inz_english_res",
+      "org": "Immigration New Zealand: English language test results for residence from work",
+      "url": "https://www.immigration.govt.nz/process-to-apply/applying-for-a-visa/providing-evidence-and-documents-to-support-your-visa-application/english-language-requirements/english-language-test-results-for-residence-from-work/",
+      "country": "NZ",
+      "type": "official",
+      "category": "visas",
+      "tags": "residence English test 2 years",
+      "use": "Check English evidence for NZ residence."
+    },
+    {
+      "id": "ha_health_after",
+      "org": "Home Affairs: After your health examinations",
+      "url": "https://immi.homeaffairs.gov.au/help-support/meeting-our-requirements/health/after-your-health-examinations",
+      "country": "AU",
+      "type": "official",
+      "category": "visas",
+      "tags": "health examination medical 12 months",
+      "use": "Check how long Australian visa health results last."
+    },
+    {
+      "id": "ha_skilled_check",
+      "org": "Home Affairs: Applying for a skilled visa",
+      "url": "https://immi.homeaffairs.gov.au/check-twice-submit-once/skilled-visa",
+      "country": "AU",
+      "type": "official",
+      "category": "visas",
+      "tags": "skilled visa police certificate health checklist",
+      "use": "Check what to include with a skilled visa application."
+    },
+    {
+      "id": "nzta_fs72",
+      "org": "NZ Transport Agency: Factsheet 72 Overseas driver licences",
+      "url": "https://www.nzta.govt.nz/assets/resources/factsheets/72/docs/72-overseas-driver-licence.pdf",
+      "country": "NZ",
+      "type": "official",
+      "category": "driving",
+      "tags": "overseas licence 18 months 12 months convert",
+      "use": "Check how long you can drive in NZ on an overseas licence."
+    },
+    {
+      "id": "nzta_convert",
+      "org": "NZ Transport Agency: Converting a car licence",
+      "url": "https://www.nzta.govt.nz/driver-licences/new-residents-and-visitors/converting-to-nz-driver-licence/converting-a-car-licence",
+      "country": "NZ",
+      "type": "official",
+      "category": "driving",
+      "tags": "convert overseas car licence",
+      "use": "See how to convert to an NZ car licence."
+    },
+    {
+      "id": "nsw_driving",
+      "org": "NSW Government: Driving with an overseas or interstate licence in NSW",
+      "url": "https://www.nsw.gov.au/driving-boating-and-transport/driver-and-rider-licences/visiting-or-moving-to-nsw/visiting-from-overseas-or-interstate",
+      "country": "AU",
+      "type": "official",
+      "category": "driving",
+      "tags": "NSW overseas licence 6 months 3 months",
+      "use": "Check NSW overseas licence time limits."
+    },
+    {
+      "id": "vic_driving",
+      "org": "VicRoads: Driving with your overseas licence in Victoria",
+      "url": "https://www.vicroads.vic.gov.au/licences/convert-your-licence/driving-with-your-overseas-licence",
+      "country": "AU",
+      "type": "official",
+      "category": "driving",
+      "tags": "Victoria overseas licence 6 months convert",
+      "use": "Check Victoria overseas licence time limit."
+    },
+    {
+      "id": "qld_driving",
+      "org": "Queensland Government: Driving in Queensland on an interstate or overseas licence",
+      "url": "https://www.qld.gov.au/transport/licensing/driver-licensing/overseas/driving",
+      "country": "AU",
+      "type": "official",
+      "category": "driving",
+      "tags": "Queensland overseas licence 3 months permanent visa",
+      "use": "Check Queensland overseas licence rules."
+    },
+    {
+      "id": "wa_driving",
+      "org": "Department of Transport WA: Moving from overseas",
+      "url": "https://www.transport.wa.gov.au/licensing/drivers-licence/visit-move-wa/moving-from-overseas",
+      "country": "AU",
+      "type": "official",
+      "category": "driving",
+      "tags": "WA overseas licence 3 months transfer",
+      "use": "Check WA overseas licence rules."
+    },
+    {
+      "id": "sa_driving",
+      "org": "SA.GOV.AU: Driving with your overseas licence in SA",
+      "url": "https://www.sa.gov.au/topics/driving-and-transport/licences/interstate-and-overseas/driving-with-an-overseas-licence",
+      "country": "AU",
+      "type": "official",
+      "category": "driving",
+      "tags": "South Australia overseas licence 90 days permanent",
+      "use": "Check SA overseas licence rules."
+    },
+    {
+      "id": "tas_driving",
+      "org": "Transport Tasmania: Driving in Tasmania on an interstate or overseas licence",
+      "url": "https://www.transport.tas.gov.au/licensing/interstate_or_overseas_licences/driving_in_tasmania_on_an_interstate_or_overseas_licence",
+      "country": "AU",
+      "type": "official",
+      "category": "driving",
+      "tags": "Tasmania overseas licence permanent visa six months",
+      "use": "Check Tasmania overseas licence rules."
+    },
+    {
+      "id": "act_driving",
+      "org": "Access Canberra: Drivers with licences from overseas",
+      "url": "https://www.accesscanberra.act.gov.au/driving-transport-and-parking/licences/drivers-with-licences-from-overseas",
+      "country": "AU",
+      "type": "official",
+      "category": "driving",
+      "tags": "ACT Canberra overseas licence 3 months permanent visa",
+      "use": "Check ACT overseas licence rules."
+    },
+    {
+      "id": "nt_driving",
+      "org": "NT.GOV.AU: Driving in the NT for new residents and visitors",
+      "url": "https://nt.gov.au/driving/licence/new-nt-residents-and-visitors/driver-licence-rules-for-new-nt-residents-and-visiting-drivers",
+      "country": "AU",
+      "type": "official",
+      "category": "driving",
+      "tags": "Northern Territory overseas licence 3 months transfer",
+      "use": "Check NT overseas licence rules."
+    },
+    {
+      "id": "nsw_school_trp",
+      "org": "NSW DE International: Temporary Residents Program",
+      "url": "https://www.deinternational.nsw.edu.au/study-options/study-programs/temporary-residents",
+      "country": "AU",
+      "region": "NSW",
+      "type": "official",
+      "category": "schools",
+      "tags": "New South Wales, NSW, school enrolment, temporary residents, TRP, tuition fees, 482 visa, dependants",
+      "use": "How temporary visa holders enrol children in NSW public schools, and the fees."
+    },
+    {
+      "id": "nsw_school_482_regional",
+      "org": "NSW DE International: Fact sheet, exemption for 482 visa in a regional school",
+      "url": "https://www.deinternational.nsw.edu.au/__data/assets/pdf_file/0020/27641/Tuition-fee-exemption-if-student-holds-482-visa.pdf",
+      "country": "AU",
+      "region": "NSW",
+      "type": "official",
+      "category": "schools",
+      "tags": "New South Wales, NSW, 482 visa, regional, tuition fee exemption, school",
+      "use": "Conditions for the 482 tuition fee exemption at regional NSW public schools."
+    },
+    {
+      "id": "vic_school_temp",
+      "org": "Study Victoria: Temporary Student",
+      "url": "https://www.study.vic.gov.au/en/international-student-program/schools-and-programs/temporary-student",
+      "country": "AU",
+      "region": "VIC",
+      "type": "official",
+      "category": "schools",
+      "tags": "Victoria, VIC, school enrolment, temporary visa, government schools, fees",
+      "use": "How children on temporary visas enrol in Victorian government schools."
+    },
+    {
+      "id": "qld_school_eqi",
+      "org": "Education Queensland International: Temporary residents",
+      "url": "https://eqi.com.au/study-options/temporary-residents",
+      "country": "AU",
+      "region": "QLD",
+      "type": "official",
+      "category": "schools",
+      "tags": "Queensland, QLD, EQI, temporary residents, school enrolment, dependants, fees",
+      "use": "Enrolling children of temporary visa holders in Queensland state schools."
+    },
+    {
+      "id": "qld_school_visa_schedule",
+      "org": "Queensland Department of Education: Schedule of visa subclasses and enrolment conditions",
+      "url": "https://ppr.qed.qld.gov.au/attachment/de-international-schedule-of-visa-subclasses-and-enrolment-conditions.pdf",
+      "country": "AU",
+      "region": "QLD",
+      "type": "official",
+      "category": "schools",
+      "tags": "Queensland, QLD, visa subclass, 482, tuition fee, school",
+      "use": "Table showing which visa subclasses pay school fees in Queensland."
+    },
+    {
+      "id": "wa_school_visa",
+      "org": "WA Department of Education: Enrolment Framework for Students with a Visa in Public Schools",
+      "url": "https://www.education.wa.edu.au/web/policies/-/enrolment-framework-for-students-with-a-visa-in-public-schools",
+      "country": "AU",
+      "region": "WA",
+      "type": "official",
+      "category": "schools",
+      "tags": "Western Australia, WA, school enrolment, visa, 482, family tuition fee, TIWA",
+      "use": "Enrolment rules and fees for visa holders' children in WA public schools."
+    },
+    {
+      "id": "sa_school_482",
+      "org": "SA Department for Education: Student fees and enrolment for subclass 482 visa holders",
+      "url": "https://www.education.sa.gov.au/parents-and-families/enrol-school-or-preschool/families-482-visas/student-fees-enrolment",
+      "country": "AU",
+      "region": "SA",
+      "type": "official",
+      "category": "schools",
+      "tags": "South Australia, SA, Adelaide, 482 visa, school fees, income threshold, enrolment",
+      "use": "School fees and enrolment for families on a 482 visa in South Australia."
+    },
+    {
+      "id": "tas_school_trp",
+      "org": "Tasmanian Government Education International: Temporary Resident Program",
+      "url": "https://study.tas.gov.au/study/trp/",
+      "country": "AU",
+      "region": "TAS",
+      "type": "official",
+      "category": "schools",
+      "tags": "Tasmania, TAS, TRP, temporary resident, school enrolment, fees",
+      "use": "How children of temporary visa holders enrol in Tasmanian government schools."
+    },
+    {
+      "id": "tas_school_visas_glance",
+      "org": "Tasmanian Government Education International: TRP Visas at a Glance",
+      "url": "https://study.tas.gov.au/wp-content/uploads/2025/12/TRP-Visas-at-a-Glance-V19.pdf",
+      "country": "AU",
+      "region": "TAS",
+      "type": "official",
+      "category": "schools",
+      "tags": "Tasmania, TAS, visa subclass, 482, tuition fees, levies",
+      "use": "Table of which visas pay TRP tuition, application fees and levies."
+    },
+    {
+      "id": "act_school_temp",
+      "org": "ACT Government: Enrol a child (dependant) of a temporary resident",
+      "url": "https://www.act.gov.au/education-and-training/international-students-and-temporary-visa-holders/enrol-a-child-dependant-of-a-temporary-resident",
+      "country": "AU",
+      "region": "ACT",
+      "type": "official",
+      "category": "schools",
+      "tags": "Australian Capital Territory, ACT, Canberra, temporary resident, school enrolment, 482, fee exemption",
+      "use": "Enrolling a temporary resident's child in ACT public schools and applying for fee exemption."
+    },
+    {
+      "id": "nt_school_fees",
+      "org": "NT.GOV.AU: School fees for international students",
+      "url": "https://nt.gov.au/learning/international-education/study-at-an-nt-government-school/school-fees-for-international-students",
+      "country": "AU",
+      "region": "NT",
+      "type": "official",
+      "category": "schools",
+      "tags": "Northern Territory, NT, Darwin, school fees, visa, 482",
+      "use": "Check by visa type whether a child pays fees at an NT government school."
+    },
+    {
+      "id": "nsw_renting",
+      "org": "NSW Fair Trading: Renting a place to live",
+      "url": "https://www.nsw.gov.au/housing-and-construction/renting-a-place-to-live",
+      "country": "AU",
+      "region": "NSW",
+      "type": "official",
+      "category": "housing",
+      "tags": "New South Wales, NSW, renting, tenants, bond, Fair Trading, disputes",
+      "use": "NSW Fair Trading hub for tenants' rights, bonds and rental disputes."
+    },
+    {
+      "id": "vic_renting",
+      "org": "Consumer Affairs Victoria: Renting",
+      "url": "https://www.consumer.vic.gov.au/housing/renting",
+      "country": "AU",
+      "region": "VIC",
+      "type": "official",
+      "category": "housing",
+      "tags": "Victoria, VIC, renting, renters, bond, repairs, Consumer Affairs Victoria",
+      "use": "Victorian renters' rights and obligations on leases, bonds and repairs."
+    },
+    {
+      "id": "qld_rta",
+      "org": "Residential Tenancies Authority (Queensland)",
+      "url": "https://www.rta.qld.gov.au/",
+      "country": "AU",
+      "region": "QLD",
+      "type": "official",
+      "category": "housing",
+      "tags": "Queensland, QLD, RTA, renting, tenants, bond, disputes",
+      "use": "Queensland's tenancy authority for bonds, disputes and renting guides."
+    },
+    {
+      "id": "wa_renting",
+      "org": "Consumer Protection WA: Renting a home",
+      "url": "https://www.consumerprotection.wa.gov.au/renting-home",
+      "country": "AU",
+      "region": "WA",
+      "type": "official",
+      "category": "housing",
+      "tags": "Western Australia, WA, renting, tenants, bond, Consumer Protection",
+      "use": "WA tenants' guides on bonds, agreements, repairs and rental problems."
+    },
+    {
+      "id": "sa_renting",
+      "org": "Consumer and Business Services SA: Renting & Letting Advice",
+      "url": "https://cbs.sa.gov.au/sections/renting",
+      "country": "AU",
+      "region": "SA",
+      "type": "official",
+      "category": "housing",
+      "tags": "South Australia, SA, CBS, renting, tenants, bond",
+      "use": "SA renting rules, repairs and bond lodgement and checks."
+    },
+    {
+      "id": "tas_renting",
+      "org": "Consumer, Building and Occupational Services Tasmania: Renting",
+      "url": "https://www.cbos.tas.gov.au/topics/housing/renting",
+      "country": "AU",
+      "region": "TAS",
+      "type": "official",
+      "category": "housing",
+      "tags": "Tasmania, TAS, CBOS, renting, tenancy, bond, MyBond",
+      "use": "Tasmanian renting rules from starting a lease to ending it."
+    },
+    {
+      "id": "act_renting",
+      "org": "ACT Government: Rental laws in the ACT",
+      "url": "https://www.act.gov.au/housing-planning-and-property/renting/rental-laws-in-the-act",
+      "country": "AU",
+      "region": "ACT",
+      "type": "official",
+      "category": "housing",
+      "tags": "Australian Capital Territory, ACT, Canberra, renting, Renting Book, ACAT, tenants",
+      "use": "ACT renting rules, the Renting Book and where to resolve disputes."
+    },
+    {
+      "id": "nt_renting",
+      "org": "NT Consumer Affairs: Renting in the NT",
+      "url": "https://consumeraffairs.nt.gov.au/for-consumers/residential-tenancies",
+      "country": "AU",
+      "region": "NT",
+      "type": "official",
+      "category": "housing",
+      "tags": "Northern Territory, NT, Darwin, renting, tenants, Consumer Affairs, NTCAT",
+      "use": "NT renting rules, forms, fact sheets and where to get advice."
+    },
+    {
+      "id": "nsw_licence",
+      "org": "NSW Government (Transport for NSW): Moving your overseas licence to NSW",
+      "url": "https://www.nsw.gov.au/driving-boating-and-transport/driving-nsw/driver-and-rider-licences/visiting-or-moving-to-nsw/moving-your-overseas-licence",
+      "country": "AU",
+      "region": "NSW",
+      "type": "official",
+      "category": "driving",
+      "tags": "New South Wales, NSW, overseas licence, driver licence, transfer, Service NSW",
+      "use": "How and when to swap an overseas licence for a NSW licence."
+    },
+    {
+      "id": "vic_licence",
+      "org": "VicRoads: Convert overseas licence",
+      "url": "https://www.vicroads.vic.gov.au/licences/convert-your-licence/convert-overseas-licence",
+      "country": "AU",
+      "region": "VIC",
+      "type": "official",
+      "category": "driving",
+      "tags": "Victoria, VIC, VicRoads, overseas licence, convert, driver licence",
+      "use": "Converting an overseas licence to a Victorian licence."
+    },
+    {
+      "id": "qld_licence",
+      "org": "Queensland Government (TMR): Transferring to a Queensland licence",
+      "url": "https://www.qld.gov.au/transport/licensing/driver-licensing/overseas/transfer",
+      "country": "AU",
+      "region": "QLD",
+      "type": "official",
+      "category": "driving",
+      "tags": "Queensland, QLD, TMR, overseas licence, transfer, driver licence",
+      "use": "When and how overseas licence holders get a Queensland licence."
+    },
+    {
+      "id": "sa_licence",
+      "org": "SA.GOV.AU: Transfer your overseas driver's licence",
+      "url": "https://www.sa.gov.au/topics/driving-and-transport/licences/interstate-and-overseas/overseas-licence-transfer",
+      "country": "AU",
+      "region": "SA",
+      "type": "official",
+      "category": "driving",
+      "tags": "South Australia, SA, overseas licence, transfer, driver's licence",
+      "use": "Checking whether and how you can transfer an overseas licence in SA."
+    },
+    {
+      "id": "tas_licence",
+      "org": "Transport Tasmania: Converting an overseas licence",
+      "url": "https://www.transport.tas.gov.au/licensing/interstate_or_overseas_licences/converting_an_overseas_licence",
+      "country": "AU",
+      "region": "TAS",
+      "type": "official",
+      "category": "driving",
+      "tags": "Tasmania, TAS, overseas licence, convert, driver licence",
+      "use": "Converting an overseas car or motorcycle licence to a Tasmanian licence."
+    },
+    {
+      "id": "nt_licence",
+      "org": "NT.GOV.AU (MVR): Transfer your overseas driver licence",
+      "url": "https://nt.gov.au/driving/licence/new-nt-residents-and-visitors/transfer-your-overseas-licence",
+      "country": "AU",
+      "region": "NT",
+      "type": "official",
+      "category": "driving",
+      "tags": "Northern Territory, NT, Darwin, MVR, overseas licence, transfer",
+      "use": "Transferring an overseas licence at an NT Motor Vehicle Registry office."
+    },
+    {
+      "id": "nz_trademe",
+      "org": "Trade Me",
+      "url": "https://www.trademe.co.nz/",
+      "country": "NZ",
+      "type": "commercial",
+      "category": "buying and selling",
+      "tags": "New Zealand, NZ, Trade Me, auction, classifieds, second hand, furniture",
+      "use": "New Zealand's main auction and classifieds site for buying and selling."
+    },
+    {
+      "id": "nz_trademe_motors",
+      "org": "Trade Me Motors",
+      "url": "https://www.trademe.co.nz/a/motors",
+      "country": "NZ",
+      "type": "commercial",
+      "category": "cars",
+      "tags": "New Zealand, NZ, Trade Me, cars, used cars, buy a car",
+      "use": "Search new and used cars for sale across New Zealand."
+    },
+    {
+      "id": "nz_trademe_jobs",
+      "org": "Trade Me Jobs",
+      "url": "https://www.trademe.co.nz/a/jobs",
+      "country": "NZ",
+      "type": "commercial",
+      "category": "buying and selling",
+      "tags": "New Zealand, NZ, Trade Me, jobs, job board, partner employment",
+      "use": "New Zealand job board, useful for partners looking for work."
+    },
+    {
+      "id": "nz_turners",
+      "org": "Turners",
+      "url": "https://www.turners.co.nz/",
+      "country": "NZ",
+      "type": "commercial",
+      "category": "cars",
+      "tags": "New Zealand, NZ, Turners, used cars, car auctions, finance",
+      "use": "Large NZ used car network for buying, selling and car auctions."
+    },
+    {
+      "id": "au_gumtree",
+      "org": "Gumtree Australia",
+      "url": "https://www.gumtree.com.au/",
+      "country": "AU",
+      "type": "commercial",
+      "category": "buying and selling",
+      "tags": "Australia, Gumtree, classifieds, second hand, furniture, cars",
+      "use": "Australian classifieds for new and second hand goods, cars and more."
+    },
+    {
+      "id": "au_carsales",
+      "org": "carsales",
+      "url": "https://www.carsales.com.au/",
+      "country": "AU",
+      "type": "commercial",
+      "category": "cars",
+      "tags": "Australia, carsales, used cars, new cars, buy a car",
+      "use": "Australia's main site for new and used car listings."
+    },
+    {
+      "id": "nz_aa",
+      "org": "AA New Zealand (New Zealand Automobile Association)",
+      "url": "https://www.aa.co.nz/",
+      "country": "NZ",
+      "type": "commercial",
+      "category": "cars",
+      "tags": "New Zealand, NZ, AA, roadside assistance, membership, driving",
+      "use": "NZ motoring member organisation offering roadside help and driver services."
+    },
+    {
+      "id": "au_nrma",
+      "org": "NRMA",
+      "url": "https://www.mynrma.com.au/",
+      "country": "AU",
+      "region": "NSW",
+      "type": "commercial",
+      "category": "cars",
+      "tags": "Australia, New South Wales, NSW, ACT, NRMA, roadside assistance, membership",
+      "use": "Member-owned motoring club offering roadside assistance and member benefits."
+    },
+    {
+      "id": "au_racv",
+      "org": "RACV (Royal Automobile Club of Victoria)",
+      "url": "https://www.racv.com.au/",
+      "country": "AU",
+      "region": "VIC",
+      "type": "commercial",
+      "category": "cars",
+      "tags": "Australia, Victoria, VIC, RACV, roadside assistance, car insurance",
+      "use": "Victoria's motoring club for roadside assistance and car insurance."
+    },
+    {
+      "id": "nz_realestate",
+      "org": "realestate.co.nz",
+      "url": "https://www.realestate.co.nz/",
+      "country": "NZ",
+      "type": "commercial",
+      "category": "housing",
+      "tags": "New Zealand, NZ, property, rentals, homes for sale, realestate.co.nz",
+      "use": "New Zealand property listings for homes to rent or buy."
+    },
+    {
+      "id": "wa_reiwa",
+      "org": "REIWA (Real Estate Institute of Western Australia)",
+      "url": "https://reiwa.com.au/",
+      "country": "AU",
+      "region": "WA",
+      "type": "commercial",
+      "category": "housing",
+      "tags": "Western Australia, WA, Perth, REIWA, rentals, property for sale",
+      "use": "WA property portal from the state's real estate institute, listing homes to rent or buy."
+    },
+    {
+      "id": "au_flatmates",
+      "org": "Flatmates.com.au",
+      "url": "https://flatmates.com.au/",
+      "country": "AU",
+      "type": "commercial",
+      "category": "housing",
+      "tags": "Australia, flatmates, share house, room for rent, short-term",
+      "use": "Find a room or flatmate in shared housing across Australia."
+    },
+    {
+      "id": "nz_powerswitch",
+      "org": "Powerswitch (Consumer NZ)",
+      "url": "https://www.powerswitch.org.nz/",
+      "country": "NZ",
+      "type": "community",
+      "category": "bills",
+      "tags": "New Zealand, NZ, Powerswitch, Consumer NZ, electricity, power plans, compare",
+      "use": "Not-for-profit comparison of NZ power plans, backed by Consumer NZ."
+    },
+    {
+      "id": "au_energymadeeasy",
+      "org": "Energy Made Easy (Australian Government, AER)",
+      "url": "https://www.energymadeeasy.gov.au/",
+      "country": "AU",
+      "type": "official",
+      "category": "bills",
+      "tags": "Australia, NSW, QLD, SA, TAS, ACT, energy, electricity, gas, compare plans",
+      "use": "Free government comparison of electricity and gas plans in NSW, Qld, SA, Tas and the ACT."
+    }
+  ],
+  "_directory_about": "From 'Ask Ethicare — useful organisations and relocation directory' (6 Oct 2026). Commercial entries are options to compare, never recommendations or partners. Left out on purpose: the two commercial visa services (New Zealand Shores, Go Matilda Visas), because Ethicare does not name visa companies or advisers until it has a checked partnership (Sophie, 6 Oct 2026). Links were re-checked 12 Oct 2026 for the providers only where the original file had lost its links; recheck all entries quarterly."
+}
