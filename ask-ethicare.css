@@ -275,3 +275,15 @@
 .askpage .ask-foot{border-top:0;padding-top:4px}
 .ask-hero-copy .ask-free{margin:14px 0 0;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#C6E084}
 .askpage .ask-hero-copy h1{font-size:clamp(38px,4.6vw,62px)}
+
+/* The question box under the thread once someone has asked (12 Oct 2026) — see ask-ethicare.js */
+.aske-follow{margin-top:clamp(22px,2.6vw,30px)}
+.aske-follow .aske-box{flex-direction:row}
+.aske-follow .aske-chips{margin-top:12px}
+.askpage .inr .aske-thread:not([hidden]){margin-bottom:0}
+.askpage .inr .aske-follow{background:#FCFBF8;border-radius:16px;padding:clamp(18px,2.4vw,26px);margin:16px 0 clamp(40px,6vw,72px)}
+@media(max-width:640px){.aske-follow .aske-box{flex-direction:column}.aske-follow .aske-go{align-self:stretch;justify-content:center}}
+.ask-hero.is-asked,.you-ask-grid.is-asked{grid-template-columns:1fr}
+.ask-instrument[hidden]{display:none}
+.askpage .inr .aske-follow .ask-fine{margin-top:14px}
+.you-ask .inr .aske-follow{margin-bottom:clamp(30px,5vw,56px)}

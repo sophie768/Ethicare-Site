@@ -21,6 +21,7 @@
   var goBtn = form.querySelector('.aske-go');
   var thread = document.querySelector('[data-aske-thread]');
   var chips = document.querySelector('[data-aske-chips]');
+  var followBox = null;
   var history = [];   // {role, content} — user/assistant only; session memory, never stored
   var busy = false;
 
@@ -173,6 +174,27 @@
     turn.className = 'aske-turn';
     turn.innerHTML = '<p class="aske-you"><span>You asked</span>' + esc(q.trim()) + '</p><div class="aske-ans"><p class="aske-wait">Ethicare is thinking&hellip;</p></div>';
     thread.appendChild(turn);
+    /* The question box follows the conversation (12 Oct 2026, Sophie: "the question box should
+       move down when someone already asked a question"). On the first question the box and the
+       topic buttons move to sit under the thread, so the next question is asked below the last
+       answer, the way a chat reads. Same elements, moved rather than copied, so every listener
+       still works. */
+    if (!followBox) {
+      followBox = document.createElement('div');
+      followBox.className = 'aske-follow';
+      thread.parentNode.insertBefore(followBox, thread.nextSibling);
+      var inst = form.closest('.ask-instrument');
+      followBox.appendChild(form);
+      if (chips) followBox.appendChild(chips);
+      /* On /ask and /you the box sat in a card beside the intro. Take the small print with it,
+         put the card away, and let the intro run full width above the conversation. */
+      if (inst) {
+        var fine = inst.querySelector('.ask-fine');
+        if (fine) followBox.appendChild(fine);
+        inst.hidden = true;
+        if (inst.parentNode) inst.parentNode.classList.add('is-asked');
+      }
+    }
     /* Bring the turn into view (2 Oct 2026). On the homepage this form sits 38,000px down a
        62,000px page, and the answer takes about twenty seconds to arrive — long enough to look
        away, scroll, and never see it land. On /ask the form IS the page so nobody noticed.
