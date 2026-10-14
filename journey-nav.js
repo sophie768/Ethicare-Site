@@ -47,7 +47,7 @@
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
   var CSS =
-    '.jn-bar{max-width:1180px;margin:clamp(34px,4.5vw,52px) auto 0;padding:22px clamp(22px,3vw,32px) clamp(40px,5vw,64px);border-top:1px solid rgba(2,97,93,.65);' +
+    '.jn-bar{max-width:1180px;margin:clamp(34px,4.5vw,52px) auto 0;padding:22px clamp(22px,3vw,32px) clamp(64px,7vw,88px);border-top:1px solid rgba(2,97,93,.65);' +
       'display:grid;grid-template-columns:1fr auto 1fr;gap:14px 20px;align-items:center}' +
     '.jn-bar a,.jn-bar button{font-family:"Work Sans",ui-sans-serif,sans-serif;text-decoration:none;color:#02615D}' +
     '.jn-step{display:flex;flex-direction:column;gap:3px;min-height:48px;justify-content:center;font-size:15.5px;font-weight:600;line-height:1.3}' +

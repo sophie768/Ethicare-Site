@@ -246,7 +246,7 @@
                : 'Ask Ethicare could not answer just then.';
       var line = cfg ? 'This one is at our end, not yours, and we are on it.'
                : many ? 'Give it a minute and try again.'
-               : 'It is usually momentary. Your question is still here — try it again.';
+               : 'It is usually momentary. Your question is still here — try it again. If it keeps happening, ask one thing at a time: a shorter question gets a faster answer.';
       track('assistant_failed', { status: String(st || 'network') });
       ans.innerHTML = '<p><strong>' + lead + '</strong> ' + line + '</p>' +
         (cfg || many ? '' : '<p style="margin-top:12px"><button type="button" class="aske-retry">Try that again</button></p>') +

@@ -55,9 +55,9 @@
   }
   var SPOTS = [
     { sel: '.df-out:not([hidden])', from: 'destination-finder', where: 'end', t: 'Want us to look out for roles in places like these?', d: 'Register with Ethicare in a minute and we&rsquo;ll tell you when something fits.' },
-    { sel: '#cc-app .cc-glance', from: 'cost-calculator', where: 'app', t: 'Want help making the numbers work?', d: 'Register with Ethicare and we&rsquo;ll look out for roles with relocation support that fits your move.' },
+    { sel: '#cc-app .cc-glance', from: 'cost-calculator', where: 'app', t: 'Want help making the numbers work?', d: 'Register with Ethicare and we&rsquo;ll tell you about roles with relocation support that suits your move.' },
     { sel: '.ps-sum', from: 'plan', where: 'after', t: 'Want us to look out for roles while you plan?', d: 'Register with Ethicare in a minute. Nothing goes to an employer without your say-so.' },
-    { sel: '.pw-resacts', from: 'pathway-checker', where: 'after', t: 'Want us to look out for roles that fit your registration?', d: 'Register with Ethicare in a minute and we&rsquo;ll be in touch when something suits you.' }
+    { sel: '.pw-resacts', from: 'pathway-checker', where: 'after', t: 'Want to hear about roles that match your registration?', d: 'Register with Ethicare in a minute and we&rsquo;ll be in touch when something suits you.' }
   ];
   function place() {
     if (registered()) return;
@@ -87,7 +87,7 @@
       window.removeEventListener('scroll', onScroll); clearTimeout(t);
       var n = document.createElement('aside'); n.className = 'rgn'; n.setAttribute('aria-label', 'Register with Ethicare');
       n.innerHTML = '<span class="rgn-e">Free &middot; takes a minute</span><p class="rgn-k">Looking to move in the next year?</p>'
-        + '<p class="rgn-d">Register with Ethicare and we&rsquo;ll look out for roles that fit you.</p>'
+        + '<p class="rgn-d">Register with Ethicare and we&rsquo;ll tell you when a role suits you.</p>'
         + '<ul class="rgn-l"><li>Tell us your profession and where you&rsquo;d like to work</li><li>We look out for roles that match</li><li>Nothing goes to an employer without your say-so</li></ul>'
         + '<a class="rgn-go" href="/register-interest?from=home-nudge"><span>Register<span class="rgn-long"> with Ethicare</span></span> <span aria-hidden="true">&rarr;</span></a>'
         + '<button type="button" class="rgn-x" aria-label="Close">&times;</button>';

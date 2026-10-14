@@ -379,8 +379,9 @@
       var woke = false;
       function wake() {
         if (key === '/plan') f.innerHTML = make();             /* reflect the latest answers */
+        /* the plan card is rebuilt on every open, so its picture has to be re-attached every time too */
+        var im = f.querySelector('img[data-src]'); if (im && !im.src) im.src = im.getAttribute('data-src');
         if (woke) return; woke = true;
-        var im = f.querySelector('img[data-src]'); if (im) im.src = im.getAttribute('data-src');
         if (key === '/jobs/') loadJobs(f.querySelector('[data-mpf-jobs]'));
       }
       item.addEventListener('mouseenter', wake); item.addEventListener('focusin', wake);
