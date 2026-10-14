@@ -438,11 +438,14 @@
   function stop() { if (stopped) return; stopped = true; clearTimeout(timer); el.remove(); box.classList.remove('is-typing'); }
   function tick() {
     if (stopped) return;
+    /* a question put in the box by a page link or a retry arrives without an input event */
+    if (ta.value || document.activeElement === ta) { stop(); return; }
     var q = Q[qi];
     if (dir > 0) { ci++; el.textContent = q.slice(0, ci); if (ci >= q.length) { dir = -1; timer = setTimeout(tick, 2200); return; } timer = setTimeout(tick, 38 + Math.random() * 40); }
     else { ci -= 3; if (ci <= 0) { ci = 0; el.textContent = ''; dir = 1; qi = (qi + 1) % Q.length; timer = setTimeout(tick, 500); return; } el.textContent = q.slice(0, ci); timer = setTimeout(tick, 18); }
   }
   ['focus', 'input', 'pointerdown', 'touchstart'].forEach(function (ev) { ta.addEventListener(ev, stop, { once: true, passive: true }); });
   document.querySelectorAll('[data-aske-chips] button').forEach(function (b) { b.addEventListener('click', stop, { once: true }); });
+  if (ta.value) { stop(); return; }
   timer = setTimeout(tick, 900);
 })();

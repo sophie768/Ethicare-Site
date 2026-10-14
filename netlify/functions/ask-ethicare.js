@@ -543,7 +543,12 @@ exports.handler = async function (event) {
           text = textOf(d2);
         }
       }
-      if (!text) return json(502, { error: 'Empty answer' });
+      if (!text) {
+        /* ?debug=1 returns what the API sent back (no keys, no prompt) so an empty answer can be
+           diagnosed from the browser instead of the function log. */
+        const dbg = event.queryStringParameters && event.queryStringParameters.debug === '1';
+        return json(502, dbg ? { error: 'Empty answer', stop_reason: d && d.stop_reason, blocks: ((d && d.content) || []).map(function (b) { return b.type + (b.text ? ':' + b.text.slice(0, 80) : ''); }), usage: d && d.usage, model: d && d.model } : { error: 'Empty answer' });
+      }
       return json(200, { text: addEndorsementNote(cleanLinks(text)) });
     }
 
