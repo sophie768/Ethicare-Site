@@ -510,7 +510,10 @@ exports.handler = async function (event) {
 
   const h = event.headers || {};
   const origin = h.origin || h.Origin || '';
-  if (origin && ALLOWED.indexOf(origin) === -1) return json(403, { error: 'Forbidden' });
+  /* Netlify's deploy previews and branch deploys of this site (deploy-preview-N--…, branch--…)
+     may call the function too, so a fix can be tested before it is merged. Nothing else. */
+  const preview = /^https:\/\/[a-z0-9-]+--ethicareresourcing\.netlify\.app$/.test(origin);
+  if (origin && ALLOWED.indexOf(origin) === -1 && !preview) return json(403, { error: 'Forbidden' });
   if ((event.body || '').length > MAX_BODY) return json(413, { error: 'Too large' });
 
   const ip = h['x-nf-client-connection-ip'] || h['client-ip'] || (h['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
