@@ -173,6 +173,85 @@
     if (prof && dst) qs.push('destination=' + dst);
     return '/pathway-checker' + (qs.length ? '?' + qs.join('&') : '');
   }
+
+  /* 14 Oct 2026 (Sophie: "the other thing we should provide a link to is the destination guide").
+     When the question names a place we have a guide for, a card for that guide is added first. */
+  var PLACE_RX = [
+    ['auckland-new-zealand', 'Auckland', /\bauckland|\bt[āa]maki/i],
+    ['bay-of-plenty-new-zealand', 'Bay of Plenty', /bay of plenty|\btauranga|\brotorua|\bwhakat[āa]ne/i],
+    ['central-otago-new-zealand', 'Central Otago', /central otago|\bqueenstown|\bw[āa]naka|\balexandra\b|\bcromwell/i],
+    ['christchurch-new-zealand', 'Christchurch', /\bchristchurch|\bcanterbury|\b[ōo]tautahi/i],
+    ['dunedin-new-zealand', 'Dunedin', /\bdunedin|\b[ōo]tepoti/i],
+    ['gisborne-new-zealand', 'Gisborne', /\bgisborne|\btair[āa]whiti/i],
+    ['hawkes-bay-new-zealand', "Hawke\u2019s Bay", /hawke.?s bay|\bnapier|\bhastings/i],
+    ['nelson-tasman-new-zealand', 'Nelson Tasman', /\bnelson|\btasman|\bmarlborough|\bblenheim/i],
+    ['northland-new-zealand', 'Northland', /\bnorthland|\bwhang[āa]rei|\bkerikeri|\bbay of islands/i],
+    ['palmerston-north-new-zealand', 'Palmerston North', /palmerston|\bmanawat[ūu]|\bwhanganui/i],
+    ['southland-new-zealand', 'Southland', /\bsouthland|\binvercargill|\bgore\b/i],
+    ['waikato-new-zealand', 'Waikato', /\bwaikato|\bhamilton/i],
+    ['wellington-new-zealand', 'Wellington', /\bwellington|\bwairarapa|\bmasterton|\bhutt\b|\bk[āa]piti|\bporirua/i],
+    ['adelaide-australia', 'Adelaide', /\badelaide/i], ['brisbane-australia', 'Brisbane', /\bbrisbane/i],
+    ['bunbury-australia', 'Bunbury', /\bbunbury/i], ['bundaberg-australia', 'Bundaberg', /\bbundaberg/i],
+    ['canberra-australia', 'Canberra', /\bcanberra|\bACT\b/i], ['darwin-australia', 'Darwin', /\bdarwin/i],
+    ['geelong-australia', 'Geelong', /\bgeelong/i], ['gold-coast-australia', 'Gold Coast', /gold coast/i],
+    ['hobart-australia', 'Hobart', /\bhobart/i], ['mandurah-australia', 'Mandurah', /\bmandurah/i],
+    ['melbourne-australia', 'Melbourne', /\bmelbourne/i], ['newcastle-australia', 'Newcastle', /\bnewcastle/i],
+    ['perth-australia', 'Perth', /\bperth/i], ['sydney-australia', 'Sydney', /\bsydney/i],
+    ['new-south-wales-australia', 'New South Wales', /new south wales|\bNSW\b/i], ['queensland-australia', 'Queensland', /\bqueensland|\bQLD\b/i],
+    ['south-australia-australia', 'South Australia', /south australia/i], ['tasmania-australia', 'Tasmania', /\btasmania/i],
+    ['victoria-australia', 'Victoria', /\bvictoria\b/i], ['western-australia-australia', 'Western Australia', /western australia|\bWA\b/i]
+  ];
+  function placeCard() {
+    var q = '';
+    for (var i = history.length - 1; i >= 0; i--) if (history[i].role === 'user') { q = history[i].content; break; }
+    for (var j = 0; j < PLACE_RX.length; j++) if (PLACE_RX[j][2].test(q)) {
+      return '<a class="aske-act" href="/destinations/' + PLACE_RX[j][0] + '"><span class="at">' + esc(PLACE_RX[j][1]) + ' destination guide</span><span class="ad">Hospitals, suburbs, costs and everyday life there</span><span class="ag" aria-hidden="true">&rarr;</span></a>';
+    }
+    return '';
+  }
+
+  /* 14 Oct 2026 (Sophie): also the profession guide for the role, and the healthcare guide for
+     the country, when the question names them. */
+  var PROF_PAGES = {
+    nz: { radiologist: ['consultant-radiologist-new-zealand', 'Consultant radiologists in New Zealand'], anaesthetist: ['anaesthetist-new-zealand', 'Anaesthetists in New Zealand'],
+      psychiatrist: ['psychiatrist-new-zealand', 'Psychiatrists in New Zealand'], 'emergency-medicine': ['emergency-medicine-new-zealand', 'Emergency medicine in New Zealand'],
+      gp: ['gp-new-zealand', 'GPs in New Zealand'], 'specialist-doctor': ['medicine-new-zealand', 'Doctors in New Zealand'], doctor: ['medicine-new-zealand', 'Doctors in New Zealand'],
+      mri: ['medical-imaging-new-zealand', 'Medical imaging in New Zealand'], 'nuclear-medicine': ['nuclear-medicine-new-zealand', 'Nuclear medicine in New Zealand'],
+      'radiation-therapist': ['radiation-therapist-new-zealand', 'Radiation therapists in New Zealand'], sonographer: ['sonographer-new-zealand', 'Sonographers in New Zealand'],
+      radiographer: ['radiographer-new-zealand', 'Radiographers in New Zealand'], physiotherapist: ['physiotherapist-new-zealand', 'Physiotherapists in New Zealand'],
+      'occupational-therapist': ['occupational-therapist-new-zealand', 'Occupational therapists in New Zealand'], psychologist: ['psychologist-new-zealand', 'Psychologists in New Zealand'],
+      'speech-language-therapist': ['speech-language-therapist-new-zealand', 'Speech-language therapists in New Zealand'], dietitian: ['dietitian-new-zealand', 'Dietitians in New Zealand'],
+      'social-worker': ['social-worker-new-zealand', 'Social workers in New Zealand'], 'anaesthetic-technician': ['anaesthetic-technician-new-zealand', 'Anaesthetic technicians in New Zealand'],
+      midwife: ['nursing-midwifery-new-zealand', 'Nursing and midwifery in New Zealand'], 'registered-nurse': ['nursing-midwifery-new-zealand', 'Nursing and midwifery in New Zealand'] },
+    au: { radiologist: ['consultant-radiologist-australia', 'Consultant radiologists in Australia'], 'specialist-doctor': ['medicine-australia', 'Doctors in Australia'], doctor: ['medicine-australia', 'Doctors in Australia'],
+      anaesthetist: ['medicine-australia', 'Doctors in Australia'], psychiatrist: ['mental-health-australia', 'Mental health in Australia'], gp: ['medicine-australia', 'Doctors in Australia'], 'emergency-medicine': ['medicine-australia', 'Doctors in Australia'],
+      mri: ['medical-imaging-australia', 'Medical imaging in Australia'], 'nuclear-medicine': ['nuclear-medicine-australia', 'Nuclear medicine in Australia'],
+      'radiation-therapist': ['radiation-therapist-australia', 'Radiation therapists in Australia'], sonographer: ['sonographer-australia', 'Sonographers in Australia'],
+      radiographer: ['radiographer-australia', 'Radiographers in Australia'], psychologist: ['psychologist-australia', 'Psychologists in Australia'],
+      physiotherapist: ['allied-health-australia', 'Allied health in Australia'], 'occupational-therapist': ['allied-health-australia', 'Allied health in Australia'],
+      'speech-language-therapist': ['allied-health-australia', 'Allied health in Australia'], dietitian: ['allied-health-australia', 'Allied health in Australia'], 'social-worker': ['allied-health-australia', 'Allied health in Australia'],
+      'anaesthetic-technician': ['theatre-perioperative-australia', 'Theatre and perioperative in Australia'], midwife: ['nursing-midwifery-australia', 'Nursing and midwifery in Australia'], 'registered-nurse': ['nursing-midwifery-australia', 'Nursing and midwifery in Australia'] }
+  };
+  function questionFacts() {
+    var q = '';
+    for (var i = history.length - 1; i >= 0; i--) if (history[i].role === 'user') { q = history[i].content; break; }
+    var prof = '';
+    for (var j = 0; j < PROF_RX.length; j++) if (PROF_RX[j][1].test(q)) { prof = PROF_RX[j][0]; break; }
+    var nzQ = /new zealand|\bnz\b|aotearoa/i.test(q), auQ = /australia/i.test(q);
+    var place = null;
+    for (var k = 0; k < PLACE_RX.length; k++) if (PLACE_RX[k][2].test(q)) { place = PLACE_RX[k]; break; }
+    if (place && !nzQ && !auQ) { if (/new-zealand$/.test(place[0])) nzQ = true; else auQ = true; }
+    return { q: q, prof: prof, cc: nzQ && !auQ ? 'nz' : auQ && !nzQ ? 'au' : '', place: place };
+  }
+  function extraCards() {
+    var f = questionFacts(), h = '';
+    if (f.place) h += '<a class="aske-act" href="/destinations/' + f.place[0] + '"><span class="at">' + esc(f.place[1]) + ' destination guide</span><span class="ad">Hospitals, suburbs, costs and everyday life there</span><span class="ag" aria-hidden="true">&rarr;</span></a>';
+    var pg = f.cc && f.prof && PROF_PAGES[f.cc][f.prof];
+    if (pg) h += '<a class="aske-act" href="/jobs/' + pg[0] + '"><span class="at">' + esc(pg[1]) + '</span><span class="ad">Registration, how the work differs and indicative pay</span><span class="ag" aria-hidden="true">&rarr;</span></a>';
+    if (f.cc === 'nz') h += '<a class="aske-act" href="/guides/new-zealand-healthcare"><span class="at">Healthcare in New Zealand</span><span class="ad">How the system works, for you and your family</span><span class="ag" aria-hidden="true">&rarr;</span></a>';
+    if (f.cc === 'au') h += '<a class="aske-act" href="/guides/australia-healthcare"><span class="at">Healthcare in Australia</span><span class="ad">How the system works, for you and your family</span><span class="ag" aria-hidden="true">&rarr;</span></a>';
+    return h;
+  }
   function actionsHtml(ids, handoff) {
     var h = '';
     if (handoff) h += '<div class="aske-handoff"><p><strong>This might be worth talking through with someone.</strong> A person reads every message.</p><a href="/contact?from=ask">Talk to the Ethicare team &rarr;</a></div>';
@@ -181,7 +260,10 @@
        that threw on r.u and the whole answer vanished behind a catch. Drop unknown ids and
        render what is left. */
     ids = ids.filter(function (id) { return !!KB.resources[id]; });
-    if (ids.length) h += '<div class="aske-acts">' + ids.map(function (id) {
+    var extra = extraCards(), nExtra = (extra.match(/aske-act/g) || []).length;
+    var fq = questionFacts();
+    var skip = { nz_destinations: !!fq.place, au_destinations: !!fq.place, professions: !!(fq.cc && fq.prof), nz_healthcare: fq.cc === 'nz', au_healthcare: fq.cc === 'au' };
+    if (ids.length || extra) h += '<div class="aske-acts">' + extra + ids.filter(function (id) { return !skip[id]; }).slice(0, Math.max(1, 4 - nExtra)).map(function (id) {
       var r = KB.resources[id];
       var ext = /^https?:/.test(r.u);
       return '<a class="aske-act" href="' + (id === 'talk_to_team' ? '/contact?from=ask' : id === 'pathway_checker' ? pathwayHref() : r.u) + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '><span class="at">' + r.t + '</span><span class="ad">' + r.d + '</span><span class="ag" aria-hidden="true">&rarr;</span></a>';
