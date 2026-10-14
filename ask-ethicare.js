@@ -77,7 +77,7 @@
     var jobs = window.ETHICARE_JOBS;
     if (!jobs || !jobs.length) return [];
     return jobs.slice(0, 24).map(function (j) {
-      return { title: String(j.title || j.role || ''), country: String(j.country || '') };
+      return { title: String(j.title || j.role || ''), country: String(j.country || ''), location: String(j.location || '') };
     });
   }
 
@@ -283,7 +283,7 @@
     var asked = q.trim();          /* the question itself — n is the history index, not the text */
     var turn = document.createElement('div');
     turn.className = 'aske-turn';
-    turn.innerHTML = '<p class="aske-you"><span>You asked</span>' + esc(q.trim()) + '</p><div class="aske-ans"><p class="aske-wait">Ethicare is thinking&hellip;</p></div>';
+    turn.innerHTML = '<p class="aske-you"><span>You asked</span>' + esc(q.trim()) + '</p><div class="aske-ans"><p class="aske-wait">Thinking this through<p class="aske-wait">Ethicare is thinking&hellip;</p>hellip;</p></div>';
     thread.appendChild(turn);
     /* The question box follows the conversation (12 Oct 2026, Sophie: "the question box should
        move down when someone already asked a question"). On the first question the box and the
@@ -358,13 +358,18 @@
          and not us. 503 means the key is not set, which is a configuration fault and will not
          fix itself on a retry; everything else is worth one retry. The question is kept either
          way, because retyping it is the thing that makes people give up (3 Oct 2026). */
-      var st = e && e.status, cfg = st === 503, many = st === 429;
+      var st = e && e.status, cfg = st === 503, many = st === 429, net = !st, slow = st === 504 || (e && e.name === 'AbortError');
+      /* 15 Oct 2026 (Sophie): plain, human, no theatre. */
       var lead = cfg ? 'Ask Ethicare is not available at the moment.'
                : many ? 'That is a lot of questions in a short time.'
-               : 'Ask Ethicare could not answer just then.';
+               : net ? 'We\u2019ve lost the connection.'
+               : slow ? 'That took a little longer than expected.'
+               : 'Sorry, I couldn\u2019t find a reliable answer just now.';
       var line = cfg ? 'This one is at our end, not yours, and we are on it.'
                : many ? 'Give it a minute and try again.'
-               : 'It is usually momentary. Your question is still here — try it again. If it keeps happening, ask one thing at a time: a shorter question gets a faster answer.';
+               : net ? 'Please try again.'
+               : slow ? 'Shall we try again?'
+               : 'Your question is still here. Try it again, or ask one thing at a time: a shorter question gets a faster answer.';
       track('assistant_failed', { status: String(st || 'network') });
       ans.innerHTML = '<p><strong>' + lead + '</strong> ' + line + '</p>' +
         (cfg || many ? '' : '<p style="margin-top:12px"><button type="button" class="aske-retry">Try that again</button></p>') +

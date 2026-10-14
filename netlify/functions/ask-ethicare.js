@@ -235,24 +235,24 @@ function cleanLinks(text) {
    missing), and an answer that lost its block — cut off at the token cap — gets one built from
    the question instead of no cards at all. */
 const RE_ACTIONS = /\n[ \t>*#_]*\**\s*NEXT[ _]?ACTIONS\s*:?\s*\**[ \t]*([a-z_, \t\n]*)$/i;
-function leadIds(q, c) {
-  const t = String(q || '').toLowerCase();
-  const au = /australia|queensland|victoria|nsw|new south wales|perth|brisbane|melbourne|sydney|adelaide|tasmania|ahpra|482/.test(t);
-  const nz = /new zealand|\bnz\b|auckland|wellington|christchurch|gisborne|hamilton|dunedin|tauranga|palmerston|aewv|green list/.test(t);
+function leadIds(q, c, all) {
+  const t = String(q || '').toLowerCase(), whole = String(all || q || '').toLowerCase();
+  const au = /australia|queensland|victoria|nsw|new south wales|perth|brisbane|melbourne|sydney|adelaide|tasmania|ahpra|482/.test(whole);
+  const nz = /new zealand|\bnz\b|auckland|wellington|christchurch|gisborne|hamilton|dunedin|tauranga|palmerston|aewv|green list/.test(whole);
   const dest = au && !nz ? 'au' : nz && !au ? 'nz' : (c && c.dest === 'au' ? 'au' : c && c.dest === 'nz' ? 'nz' : '');
   const ids = [];
   if (/\bvisa|immigration|residen|sponsor|green list|482|aewv/.test(t)) ids.push(dest === 'au' ? 'au_visa' : 'nz_visa', dest ? '' : 'au_visa');
   if (/\bjobs?\b|vacanc|\brole|position|hiring|recruit|opening|apply/.test(t)) ids.push('jobs');
   if (/regist|pathway|licen|ahpra|mrpba|council|board|qualif|recogni/.test(t)) ids.push('pathway_checker');
-  if (/\bpay\b|paid|salary|salaries|earn|income|take.home|\btax|wage/.test(t)) ids.push('take_home_pay', dest === 'au' ? 'au_salary' : 'nz_salary');
   if (/family|partner|spouse|child|school|kids|wife|husband/.test(t)) ids.push(dest === 'au' ? 'au_family' : 'nz_family');
+  if (/salary|salaries|earn|income|take.home|\btax|wage|\bpaid\b|\bpay\b(?!\s+(fees|for|a fee))/.test(t)) ids.push('take_home_pay', dest === 'au' ? 'au_salary' : 'nz_salary');
   if (/\bcost|afford|budget|expensive|relocat/.test(t)) ids.push('cost_calculator');
   if (/where.*(live|suit)|which (city|town|region)|destination/.test(t)) ids.push('where_to_live');
   return ids.filter(function (id, i, a) { return id && RESOURCES[id] && a.indexOf(id) === i; });
 }
-function shapeActions(text, question, context) {
+function shapeActions(text, question, context, all) {
   const t = String(text || '');
-  const lead = leadIds(question, context);
+  const lead = leadIds(question, context, all);
   const m = t.match(RE_ACTIONS);
   let ids = m ? m[1].split(/[\n,]/).map(function (x) { return x.trim().toLowerCase(); }).filter(function (x) { return RESOURCES[x]; }) : [];
   if (!lead.length && ids.length) return t;
@@ -364,6 +364,7 @@ const SYSTEM = [
   'Accuracy rules — never break these:',
   '- Never invent registration requirements, visa eligibility, fees, processing times, salaries, vacancies or relocation packages. If you are not confident, say what you would check and where. Regulators and immigration authorities make the final decisions; say so with a light contextual caveat, not a wall of disclaimers.',
   '- Salaries: indicative rounded bands only, always naming the agreement or framework that sets them (e.g. NZ public pay is set by collective agreements such as APEX and the ASMS MECA). For any specific live vacancy the package is "competitive" — never quote a figure against a named live role.',
+  '- HARD RULE ON NUMBERS (15 Oct 2026): quote a salary, fee, threshold or any other figure ONLY if it appears in the site extracts or official text given to you in this request, and say where it comes from. If no figure is given, do not estimate one, not even "roughly" or "typically": say that the guide has the bands and link to it. An invented figure is the worst answer you can give.',
   '- Never name any employer except Health New Zealand / Te Whatu Ora.',
   /* Australian scope (6 Oct 2026, Sophie's words): "for roles in Australia we are only focusing on
      medical imaging at present but this will change in the coming weeks. if you are interested in
@@ -387,6 +388,7 @@ const SYSTEM = [
   'VISAS. Ethicare does not give immigration advice and has no visa partner. Never name, recommend, or suggest looking for a visa company, immigration adviser, migration agent or immigration lawyer, and never say Ethicare can connect someone with one. Never mention Health New Zealand\u2019s International Recruitment Centre or its immigration service, or any employer\u2019s recruitment service. For anything about eligibility, visa choice, conditions, fees or processing times, direct them to the official source and nothing else: Immigration New Zealand for New Zealand, the Australian Department of Home Affairs for Australia. Describe routes only in the general terms the nz_visa and au_visa guides use, and say the official site decides.',
   '- Shape of a visa answer: lead with the likely routes for their profession and destination (for New Zealand usually the Accredited Employer Work Visa, and for Green List occupations the Straight to Residence or Work to Residence visas; for Australia usually the employer-sponsored 482 route, with permanent routes after it), in the general terms the guides use, with the official site named as the decider. The "Ethicare does not give immigration advice" line is one short sentence at the END, not the opening. Under NEXT_ACTIONS put nz_visa or au_visa first, before pathway_checker. If the destination is not known from the question or what they have told the site, give one line for each country and end with: Are you looking at New Zealand or Australia?',
   '- If they ask who can advise them on their own visa, say: Immigration New Zealand, or the Department of Home Affairs for Australia — and that Ethicare does not give immigration advice or recommend an adviser.',
+  '- Do not bring up the adviser registers (the IAA, MARA) or how to find an adviser unless they ask how to check whether an adviser is licensed.',
   '- What Ethicare does do (Sophie, 6 Oct 2026): for the candidates it places, it supports them through the visa process where it can — the practical side, the paperwork and the sequence, alongside the employer — and some employers have their own in-house immigration services, which Ethicare will tell its candidates about when their employer does. Say this when someone asks what help they would get; never name the employer, never promise what a particular employer offers, and never present it as immigration advice.',
   '- If they ask whether they need an adviser or agent, or mention paying for one, say this (Sophie\u2019s words, 6 Oct 2026): visa agents can be expensive and are not always necessary if you have the time to navigate the process yourself; many people do, and it can save a good deal of money. The official sites set out each route step by step, and an employer-sponsored route is usually the employer\u2019s process as much as the candidate\u2019s. Put it as a choice, not advice: some people value having someone else carry it, and a complicated history is a fair reason to.',
   /* Questions about themselves (6 Oct 2026, Sophie). "I am a sonographer from South Africa with
@@ -459,7 +461,9 @@ function jobsBlock(jobs) {
   const clean = jobs.slice(0, 24).map(function (j) {
     const title = String((j && j.title) || '').replace(/[\r\n]+/g, ' ').slice(0, 90);
     const country = String((j && j.country) || '').replace(/[\r\n]+/g, ' ').slice(0, 30);
-    return title ? '- ' + title + (country ? ' — ' + country : '') : '';
+    /* 15 Oct 2026: the town too, so "the Gisborne anaesthetist role" can be confirmed rather than hedged */
+    const loc = String((j && j.location) || '').replace(/[\r\n]+/g, ' ').slice(0, 60);
+    return title ? '- ' + title + (loc ? ' — ' + loc : country ? ' — ' + country : '') : '';
   }).filter(Boolean);
   if (!clean.length) return 'Live Ethicare vacancies: unavailable right now — route people to the jobs page rather than guessing.';
   return 'Live Ethicare vacancies right now (' + clean.length + ' — never invent others; packages are "competitive"):\n' + clean.join('\n');
@@ -621,7 +625,7 @@ exports.handler = async function (event) {
         const dbg = event.queryStringParameters && event.queryStringParameters.debug === '1';
         return json(502, dbg ? { error: 'Empty answer', stop_reason: d && d.stop_reason, blocks: ((d && d.content) || []).map(function (b) { return b.type + (b.text ? ':' + b.text.slice(0, 80) : ''); }), usage: d && d.usage, model: d && d.model } : { error: 'Empty answer' });
       }
-      const out = addEndorsementNote(cleanLinks(shapeActions(finish(d, text), messages[messages.length - 1].content, payload.context)));
+      const out = addEndorsementNote(cleanLinks(shapeActions(finish(d, text), messages[messages.length - 1].content, payload.context, messages.filter(function (m) { return m.role === 'user'; }).map(function (m) { return m.content; }).join(' '))));
       const dbgOk = event.queryStringParameters && event.queryStringParameters.debug === '1';
       return json(200, dbgOk ? { text: out, stop_reason: d && d.stop_reason, blocks: ((d && d.content) || []).map(function (b) { return b.type; }), usage: d && d.usage, model: d && d.model, ms: Date.now() - started } : { text: out });
     }
