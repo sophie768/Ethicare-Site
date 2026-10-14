@@ -229,6 +229,9 @@
 .hsplit .art{top:clamp(28px,3vw,40px)!important;bottom:auto!important;right:max(22px,calc((100vw - 1200px)/2 + 22px))!important;width:min(47%,580px)!important;aspect-ratio:29/32;height:auto!important;border-radius:20px!important;overflow:hidden!important;box-shadow:0 30px 60px -38px rgba(1,49,47,.45)!important}
 .hsplit .art img{border-radius:20px}
 .hsplit .art::after{display:none!important}
+/* The copy column must stop short of the frame: 50% of the 1200px band overran a 580px
+   photo by ~24px at desktop widths (allied health sub-line ran under the picture, 14 Oct 2026). */
+.hsplit:not(.nophoto) .copy{max-width:calc(100% - min(47vw,580px) - clamp(24px,3vw,40px))!important}
 /* Tall enough that the fixed frame always clears whatever sits beneath it.
    header.phero>.in in prof-split.css sets a shorter min-height and applies
    to the same elements, so this one is written to outrank it rather than
@@ -236,6 +239,7 @@
 header.hsplit:not(.nophoto)>.in,
 .hsplit:not(.nophoto)>.in{min-height:clamp(420px,calc(47vw*32/29 + 88px),728px);display:flex;align-items:center}
 @media (max-width:1000px){
+  .hsplit:not(.nophoto) .copy{max-width:100%!important}
   .hsplit .art{position:relative!important;top:auto!important;bottom:auto!important;right:auto!important;width:auto!important;aspect-ratio:auto!important;margin:18px 22px 0;height:clamp(220px,52vw,360px)!important;border-radius:18px}
   .hsplit:not(.nophoto)>.in{min-height:0;display:block;padding-top:24px}
 }
