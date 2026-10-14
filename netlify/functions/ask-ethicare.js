@@ -495,34 +495,55 @@ exports.handler = async function (event) {
 
   try {
     if (anthropicKey) {
-      const search = process.env.ASK_WEB_SEARCH === 'on' && (OFFICIAL.search || []).length;
-      const body = { model: MODEL_ANTHROPIC, max_tokens: MAX_TOKENS, system: system, messages: messages };
-      if (search) body.tools = [{ type: 'web_search_20250305', name: 'web_search', max_uses: 2, allowed_domains: OFFICIAL.search }];
-      /* Stop before Netlify does, so the page gets a clear "briefly unavailable" rather than a
-         silent cut-off. ASK_TIMEOUT_MS can be raised once the function limit has been raised. */
-      const ctl = new AbortController();
-      const timer = setTimeout(function () { ctl.abort(); }, +process.env.ASK_TIMEOUT_MS || (search ? 25000 : 9500));
-      let r;
-      try {
-        r = await fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST',
-          signal: ctl.signal,
-          headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': anthropicKey,
-            'anthropic-version': '2023-06-01'
-          },
-          body: JSON.stringify(body)
-        });
-      } finally { clearTimeout(timer); }
-      if (!r.ok) {
-        console.error('ask-ethicare: Anthropic ' + r.status + ' — ' + (await r.text()).slice(0, 500));
-        return json(502, { error: 'Upstream error' });
+      /* 14 Oct 2026. Questions about pay or moving came back with an empty answer on the live
+         site while registration questions worked. With web search on, the model spends the
+         turn searching and the API returns stop_reason "pause_turn" with no text block yet;
+         the answer only arrives on a follow-up call, and there was never time for one inside
+         Netlify's 10-second limit. So: search is only enabled when ASK_TIMEOUT_MS says the
+         limit has been raised, a paused turn is continued while time remains, and if there is
+         still no text the question is asked again without search rather than returning "". */
+      const budget = +process.env.ASK_TIMEOUT_MS || 9500;
+      const started = Date.now();
+      const search = process.env.ASK_WEB_SEARCH === 'on' && budget >= 20000 && (OFFICIAL.search || []).length;
+      const headers = { 'Content-Type': 'application/json', 'x-api-key': anthropicKey, 'anthropic-version': '2023-06-01' };
+      async function call(msgs, withSearch) {
+        const body = { model: MODEL_ANTHROPIC, max_tokens: MAX_TOKENS, system: system, messages: msgs };
+        if (withSearch) body.tools = [{ type: 'web_search_20250305', name: 'web_search', max_uses: 2, allowed_domains: OFFICIAL.search }];
+        const ctl = new AbortController();
+        const left = Math.max(1500, budget - (Date.now() - started));
+        const timer = setTimeout(function () { ctl.abort(); }, left);
+        let r;
+        try {
+          r = await fetch('https://api.anthropic.com/v1/messages', { method: 'POST', signal: ctl.signal, headers: headers, body: JSON.stringify(body) });
+        } finally { clearTimeout(timer); }
+        if (!r.ok) {
+          console.error('ask-ethicare: Anthropic ' + r.status + ' \u2014 ' + (await r.text()).slice(0, 500));
+          return null;
+        }
+        return r.json();
       }
-      const d = await r.json();
-      /* With search on, the answer arrives as several text blocks around the search results;
-         only the text blocks are the answer. */
-      const text = (d.content || []).filter(function (b) { return b.type === 'text'; }).map(function (b) { return b.text; }).join('');
+      function textOf(d) { return (d && d.content || []).filter(function (b) { return b.type === 'text'; }).map(function (b) { return b.text; }).join('').trim(); }
+      let msgs = messages.slice();
+      let d = await call(msgs, search);
+      if (!d) return json(502, { error: 'Upstream error' });
+      let text = textOf(d);
+      /* a paused search turn: hand the content back and let the model finish, while time allows */
+      let hops = 0;
+      while (!text && d.stop_reason === 'pause_turn' && hops < 2 && budget - (Date.now() - started) > 4000) {
+        hops++;
+        msgs = msgs.concat([{ role: 'assistant', content: d.content }]);
+        d = await call(msgs, search);
+        if (!d) break;
+        text = textOf(d);
+      }
+      if (!text) {
+        console.warn('ask-ethicare: no text (stop_reason=' + (d && d.stop_reason) + ', blocks=' + ((d && d.content) || []).map(function (b) { return b.type; }).join(',') + ')');
+        if (budget - (Date.now() - started) > 3000) {
+          const d2 = await call(messages, false);
+          text = textOf(d2);
+        }
+      }
+      if (!text) return json(502, { error: 'Empty answer' });
       return json(200, { text: addEndorsementNote(cleanLinks(text)) });
     }
 
