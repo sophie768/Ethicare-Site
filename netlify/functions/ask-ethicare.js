@@ -553,15 +553,18 @@ exports.handler = async function (event) {
       const started = Date.now();
       const search = process.env.ASK_WEB_SEARCH === 'on' && budget >= 20000 && (OFFICIAL.search || []).length;
       const headers = { 'Content-Type': 'application/json', 'x-api-key': anthropicKey, 'anthropic-version': '2023-06-01' };
-      /* 14 Oct 2026. Every answer took about six seconds whatever its visible length, answers were
-         cut mid-word at 60–90 words, and harder questions came back with no text at all: the
-         output budget was being spent before the visible answer. Hidden reasoning is switched
-         off explicitly so the whole budget goes on the answer; if the API ever rejects the flag
-         the call is repeated without it. */
+      /* 14–15 Oct 2026. Every answer took about six seconds whatever its visible length, answers
+         were cut mid-word at 60–90 words, and harder questions came back with no text at all:
+         the API's usage metadata showed the whole output budget (700 of 700 tokens) spent on
+         the model's hidden reasoning, which runs by default on this model. On Sonnet 5.5 the
+         only way to turn up-front reasoning off is thinking.type "between_tools" ("disabled"
+         is rejected with a 400), with output_config.effort at low or medium. See
+         platform.claude.com/docs/en/models/sonnet-5-5/migration-guide. If the API ever rejects
+         the setting, the call is repeated without it rather than failing. */
       let noThinking = true;
       async function call(msgs, withSearch) {
         const body = { model: MODEL_ANTHROPIC, max_tokens: MAX_TOKENS, system: [{ type: 'text', text: buildStatic(), cache_control: { type: 'ephemeral' } }, { type: 'text', text: buildDynamic(payload.jobs, payload.context, messages) }], messages: msgs };
-        if (noThinking) body.thinking = { type: 'disabled' };
+        if (noThinking) { body.thinking = { type: 'between_tools' }; body.output_config = { effort: 'medium' }; }
         if (withSearch) body.tools = [{ type: 'web_search_20250305', name: 'web_search', max_uses: 2, allowed_domains: OFFICIAL.search }];
         const ctl = new AbortController();
         const left = Math.max(1500, budget - (Date.now() - started));
