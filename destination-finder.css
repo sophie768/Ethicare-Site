@@ -68,3 +68,11 @@
 .df-stepper .df-rimg{width:calc(100% + 48px);margin:-22px -24px 8px}
 .df-res{overflow:hidden}
 .df-res.first{border-top:1px solid #D6E1DA}
+
+/* Save the shortlist to Plan Ethicare (14 Oct 2026) */
+.df-save{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin:6px 0 2px}
+.df-savebtn{min-height:50px;padding:12px 24px;border:0;border-radius:12px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;cursor:pointer}
+.df-savebtn:hover{background:#014E4B}
+.df-savebtn:disabled{background:#A6C84A;color:#01312F;cursor:default}
+.df-savebtn:focus-visible{outline:3px solid #02615D;outline-offset:3px}
+.df-saved a{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D}

@@ -353,6 +353,43 @@ a.mrow .mg{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;l
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ethicareresourcing.com/"},{"@type":"ListItem","position":2,"name":"New Zealand","item":"https://ethicareresourcing.com/new-zealand"},{"@type":"ListItem","position":3,"name":"Moving to New Zealand","item":"https://ethicareresourcing.com/destinations/new-zealand-relocation-guide"},{"@type":"ListItem","position":4,"name":"Your first month"}]}</script>
 <link rel="stylesheet" href="../../prose-links.css">
 <link rel="stylesheet" href="../../stacked-hero.css">
+<style id="fam-check-css">
+.fam-check{margin:26px 0 34px;padding:clamp(20px,3vw,30px);border:1px solid #D6E4DD;border-radius:18px;background:#fff}
+.fc-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px}.fc-h h3{margin:0;font-size:21px}
+.fc-n{font-family:'Work Sans',sans-serif;font-weight:600;color:#2F5E49;white-space:nowrap}
+.fc-bar{height:8px;border-radius:99px;background:#E6F1ED;margin:12px 0 8px;overflow:hidden}.fc-bar span{display:block;height:100%;width:0;background:#A6C84A;border-radius:99px;transition:width .3s}
+.fam-check ul{list-style:none;padding:0;margin:0}
+.fam-check li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid #EEF3F0;margin:0}
+.fam-check li::before{content:none}
+.fam-check li:first-child{border-top:0}
+.fam-check label{display:flex;align-items:flex-start;gap:12px;cursor:pointer;font-size:16.5px;line-height:1.45;color:#1E2B26}
+.fam-check input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:#02615D}
+.fam-check li a{flex:none;font-weight:600;font-size:14.5px}
+.fc-act{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:16px}
+.fc-act span{font-weight:600;color:#2F5E49}
+.fc-btn{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;padding:13px 22px;border-radius:10px;border:0;background:#02615D;color:#fff;cursor:pointer}
+.fc-note{margin:10px 0 0;font-size:13.5px;color:#666}
+@media(prefers-reduced-motion:reduce){.fc-bar span{transition:none}}
+</style>
+<script>
+(function(){
+  var KEY='ethicare_firstmonth_nz_v1';
+  function init(){
+    var box=document.querySelector('[data-fam-check]'); if(!box) return;
+    var boxes=box.querySelectorAll('[data-fc]'), st={};
+    try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){}
+    function paint(){var n=0;boxes.forEach(function(b){if(b.checked)n++;});box.querySelector('[data-fc-n]').textContent=n+' of '+boxes.length;box.querySelector('[data-fc-bar]').style.width=Math.round(n/boxes.length*100)+'%';}
+    boxes.forEach(function(b){b.checked=!!st[b.getAttribute('data-fc')];b.addEventListener('change',function(){st[b.getAttribute('data-fc')]=b.checked;try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}paint();});});
+    paint();
+    var sv=box.querySelector('[data-fc-save]'),msg=box.querySelector('[data-fc-msg]');
+    sv.addEventListener('click',function(){
+      try{var f=JSON.parse(localStorage.getItem('ethicare_myfile_v1')||'{}')||{};f.saved=f.saved||{};f.saved[location.pathname.replace(/\.html$/,'')]={t:'Your first month in New Zealand, with your checklist',ts:Date.now()};f.updated=Date.now();localStorage.setItem('ethicare_myfile_v1',JSON.stringify(f));
+        msg.innerHTML='Saved. <a href="/plan#myfile">See it in your plan</a>';}catch(e){msg.textContent='This browser is not letting us save.';}
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -373,7 +410,7 @@ a.mrow .mg{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;l
         <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Jobs"><a class="mp-tile is-primary" href="/jobs/"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-list"/></svg></span><span class="mp-tl">All live roles</span></a><a class="mp-tile" href="/jobs/professions"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-grid"/></svg></span><span class="mp-tl">Every profession</span></a><a class="mp-tile" href="/build-your-cv"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-file"/></svg></span><span class="mp-tl">Build your CV</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Careers in New Zealand</span><a class="mp-row mp-row-s" href="/jobs/medicine-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-stethoscope"/></svg></span><span class="mp-rt"><span class="mp-rn">Medicine</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/nursing-midwifery-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-heart"/></svg></span><span class="mp-rt"><span class="mp-rn">Nursing &amp; midwifery</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/mental-health-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-mind"/></svg></span><span class="mp-rt"><span class="mp-rn">Mental health</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/allied-health-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-pulse"/></svg></span><span class="mp-rt"><span class="mp-rn">Allied health</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/medical-imaging-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Medical imaging &amp; radiation therapy</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/theatre-perioperative-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-mask"/></svg></span><span class="mp-rt"><span class="mp-rn">Theatre &amp; perioperative</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div><div class="mp-col"><span class="mp-h">Careers in Australia</span><a class="mp-row" href="/jobs/medical-imaging-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Medical imaging &amp; radiation therapy</span><span class="mp-rd">Where we recruit in Australia now</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/jobs/coming-to-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-briefcase"/></svg></span><span class="mp-rt"><span class="mp-rn">Other healthcare professions</span><span class="mp-rd">Register your interest for later</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
       </div>
       <div class="navitem has-sub has-mega"><a href="/plan">Plan your move<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Plan your move"><a class="mp-tile is-primary" href="/plan"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-clipboard"/></svg></span><span class="mp-tl">Your plan, all in one place</span></a><a class="mp-tile" href="/my-pack"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pack"/></svg></span><span class="mp-tl">Create my pack</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Plan your move</span><a class="mp-row" href="/destination-finder"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-compass"/></svg></span><span class="mp-rt"><span class="mp-rn">Destination finder</span><span class="mp-rd">Places that suit the life you want</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/pathway-checker"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-route"/></svg></span><span class="mp-rt"><span class="mp-rn">Registration pathway checker</span><span class="mp-rd">Your route to registration</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/cost-calculator"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-calc"/></svg></span><span class="mp-rt"><span class="mp-rn">Moving cost calculator</span><span class="mp-rd">What the move is likely to cost</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/australia-vs-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-scales"/></svg></span><span class="mp-rt"><span class="mp-rn">Compare the two countries</span><span class="mp-rd">Australia and New Zealand side by side</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
+        <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Plan your move"><a class="mp-tile is-primary" href="/plan"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-clipboard"/></svg></span><span class="mp-tl">Your plan</span></a><a class="mp-tile" href="/my-pack"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pack"/></svg></span><span class="mp-tl">Your pack</span></a><a class="mp-tile" href="/you"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-heart"/></svg></span><span class="mp-tl">Your page</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Plan your move</span><a class="mp-row" href="/destination-finder"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-compass"/></svg></span><span class="mp-rt"><span class="mp-rn">Destination finder</span><span class="mp-rd">Places that suit the life you want</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/pathway-checker"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-route"/></svg></span><span class="mp-rt"><span class="mp-rn">Registration pathway checker</span><span class="mp-rd">Your route to registration</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/cost-calculator"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-calc"/></svg></span><span class="mp-rt"><span class="mp-rn">Moving cost calculator</span><span class="mp-rd">What the move is likely to cost</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/australia-vs-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-scales"/></svg></span><span class="mp-rt"><span class="mp-rn">Compare the two countries</span><span class="mp-rd">Australia and New Zealand side by side</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav slist">
@@ -424,7 +461,7 @@ a.mrow .mg{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;l
       <a href="/guides/renting-in-new-zealand" data-sec="renting-in-new-zealand"><span class="tick"></span>Renting in New Zealand</a>
       <a href="/guides/new-zealand-education" data-sec="schools-education"><span class="tick"></span>Schools &amp; education</a>
       <a href="/guides/driving-and-licences" data-sec="driving-and-licences"><span class="tick"></span>Driving &amp; licences</a>
-      <a href="/guides/new-zealand-visa" data-sec="your-move"><span class="tick"></span>Your move, step by step</a>
+      <a href="/guides/new-zealand-visa" data-sec="your-move"><span class="tick"></span>Immigration &amp; visas</a>
       <a href="/guides/nz/bringing-pets-and-belongings" data-sec="bringing-pets-and-belongings"><span class="tick"></span>Bringing pets &amp; belongings</a>
       <a href="/guides/before-you-leave" data-sec="before-you-leave"><span class="tick"></span>Before you leave home</a>
       <a class="active" aria-current="page" href="/guides/new-zealand-first-month" data-sec="your-first-month"><span class="tick"></span>Your first month</a>
@@ -436,41 +473,66 @@ a.mrow .mg{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;l
   </aside>
   <main class="content">
 <section id="your-first-month">
-  <p class="lead">Four weeks, in the order that works. Doing tasks out of sequence is what costs people time.</p>
+  <p class="lead">A flexible plan for your first four weeks: what to organise early, what can wait, and what to expect along the way.</p>
       <span class="gl-read"><img decoding="async" src="../../assets/kettle-52-sage.png" alt="" width="170" height="192" loading="lazy"><span class="rt"><b>Kettle on.</b> A longer read &mdash; about 7 min</span></span>
 
-  <h2>Four things unlock everything else</h2>
-  <p>They have to happen roughly in this order, because each one is asked for by the next. Get the chain right and the first fortnight is easy. Get it wrong and you&rsquo;ll spend a month being told to come back with something you don&rsquo;t have yet.</p>
+  <h2>Four things to organise early</h2>
+  <p>Most forms, appointments and rental applications ask for at least one of these, so sort them out first. The best order depends on your visa and how you apply.</p>
   <div class="facts">
     <div class="fact"><div class="k">1 &middot; A New Zealand address</div><div class="v">Everything else is asked in relation to it. A short-term rental, serviced apartment or a friend&rsquo;s spare room all count &mdash; you don&rsquo;t need the permanent one yet.</div></div>
-    <div class="fact"><div class="k">2 &middot; A bank account</div><div class="v">Open it before you fly if you can; most banks let you start the process from overseas and finish it in branch with your passport and address.</div></div>
-    <div class="fact"><div class="k">3 &middot; An IRD number</div><div class="v">Apply in your first few days. It needs the address and the bank account, and your employer needs it before your first pay run.</div></div>
+    <div class="fact"><div class="k">2 &middot; A bank account</div><div class="v">Open it before you fly if you can; most banks let you start the process from overseas and finish it in branch with your passport and proof of address.</div></div>
+    <div class="fact"><div class="k">3 &middot; An IRD number</div><div class="v">Apply as a new arrival, ideally before your visa&rsquo;s travel date passes, as that route can be faster. You&rsquo;ll need a New Zealand bank account or Inland Revenue&rsquo;s IR997 identity form. Your employer needs the number before your first pay run. <a href="https://www.ird.govt.nz/situations/work-or-study-in-new-zealand" target="_blank" rel="noopener">Inland Revenue&rsquo;s steps</a></div></div>
     <div class="fact"><div class="k">4 &middot; A phone number</div><div class="v">Asked for by almost every form, appointment and rental application you&rsquo;ll make. A prepay SIM at the airport is enough to start.</div></div>
   </div>
   <div class="panel">
     <div class="pt">The one that costs real money</div>
     <ul>
       <li>Your employer will ask you to complete an <strong>IR330 tax code declaration</strong> before your first pay run. If you have no IRD number yet, you&rsquo;re taxed at the no-notification rate &mdash; considerably higher than your real rate &mdash; until you produce one.</li>
-      <li>It&rsquo;s refunded eventually, but "eventually" can mean the end of the tax year. Open the bank account before you fly, apply for the IRD number in your first few days, and this never becomes a problem.</li>
+      <li>It&rsquo;s refunded eventually, but "eventually" can mean the end of the tax year. Apply for the IRD number as soon as you can, and give it to your employer as soon as it arrives.</li>
     </ul>
   </div>
 
-  <h2>Four weeks, roughly</h2>
-  <p>Adjust for who&rsquo;s arriving with you &mdash; the list changes quite a lot if there are children in it.</p>
+  <h2>A flexible four-week plan</h2>
+  <p>Use it as a guide, not a timetable. Move things around to fit your start date, your visa and who is arriving with you.</p>
   <div class="facts">
     <div class="fact"><div class="k">Week one &middot; Land and anchor</div><div class="v">Sleep, a SIM card, the bank account finished in branch, the IRD application in. Walk your temporary neighbourhood. Register the household with a GP near where you&rsquo;ll live. Feels: disorienting, and faster than you expected.</div></div>
-    <div class="fact"><div class="k">Week two &middot; Wheels and paperwork</div><div class="v">Start the licence conversion, rent or buy a car, get an a local public transport card. First shifts and orientation. If children are with you, contact schools and check the zone for any address before you sign. Feels: busy, productive, tiring.</div></div>
-    <div class="fact"><div class="k">Week three &middot; Viewings and the dip</div><div class="v">Serious house-hunting, references ready, applications in the same day. Somewhere in here the adrenaline runs out. Feels: harder than week one, and completely normal.</div></div>
-    <div class="fact"><div class="k">Week four &middot; Settle and join</div><div class="v">Lease signed, utilities and broadband connected, KiwiSaver decided. Join one thing that isn&rsquo;t work. Feels: like the beginning of an ordinary life rather than a very long trip.</div></div>
+    <div class="fact"><div class="k">Week two &middot; Wheels and paperwork</div><div class="v">Start the licence conversion, rent or buy a car, get a local public transport card. First shifts and orientation. If children are with you, contact schools and check the zone for any address before you sign. Feels: busy, productive, tiring.</div></div>
+    <div class="fact"><div class="k">Week three &middot; Viewings and the dip</div><div class="v">Serious house-hunting, references ready, applications in the same day. For many people, this is when the adrenaline runs out. Feels: harder than week one, and completely normal.</div></div>
+    <div class="fact"><div class="k">Week four &middot; Settle and join</div><div class="v">Lease signed, utilities and broadband connected. If you hold residence, decide on KiwiSaver. Join one thing that isn&rsquo;t work. Feels: like the beginning of an ordinary life rather than a very long trip.</div></div>
   </div>
 
-  <h2>Around week three, most people crash a bit</h2>
-  <p>The first fortnight runs on adrenaline and admin. There&rsquo;s a list, the list gets shorter, and every day contains something new. Then the list runs out, the novelty thins, and you&rsquo;re left in a house you didn&rsquo;t choose carefully, in a city where you know six people, doing a job in a system that does things slightly differently from the one you spent your career learning.</p>
-  <p>It usually lands somewhere between day fifteen and day twenty-five. It&rsquo;s extremely common, it says nothing whatsoever about whether you made the right decision, and it passes.</p>
-  <p>What helps is knowing it&rsquo;s coming. What helps more is having something in the calendar for that week that isn&rsquo;t admin.</p>
+  <div class="fam-check" data-fam-check id="checklist">
+    <div class="fc-h"><h3>Your first-month checklist</h3><span class="fc-n" data-fc-n>0 of 9</span></div>
+    <div class="fc-bar"><span data-fc-bar></span></div>
+    <ul>
+      <li><label><input type="checkbox" data-fc="address"> <span>Somewhere to stay, with an address to give</span></label> <a href="/guides/renting-in-new-zealand">How</a></li>
+      <li><label><input type="checkbox" data-fc="bank"> <span>Open a New Zealand bank account</span></label> <a href="/guides/money-tax-and-banking">How</a></li>
+      <li><label><input type="checkbox" data-fc="ird"> <span>Apply for an IRD number and give it to my employer</span></label> <a href="https://www.ird.govt.nz/situations/work-or-study-in-new-zealand" target="_blank" rel="noopener">How</a></li>
+      <li><label><input type="checkbox" data-fc="sim"> <span>Get a New Zealand phone number</span></label></li>
+      <li><label><input type="checkbox" data-fc="gp"> <span>Enrol with a GP</span></label> <a href="/guides/new-zealand-healthcare">How</a></li>
+      <li><label><input type="checkbox" data-fc="licence"> <span>Check when I need to convert my driving licence</span></label> <a href="/guides/driving-and-licences">How</a></li>
+      <li><label><input type="checkbox" data-fc="school"> <span>If children are with me: check school zones and enrol</span></label> <a href="/guides/new-zealand-education">How</a></li>
+      <li><label><input type="checkbox" data-fc="home"> <span>Find a longer-term home, then connect power and broadband</span></label> <a href="/guides/renting-in-new-zealand">How</a></li>
+      <li><label><input type="checkbox" data-fc="join"> <span>Join one thing that isn&rsquo;t work</span></label> <a href="/guides/new-zealand-community">How</a></li>
+    </ul>
+    <div class="fc-act"><button type="button" class="btn btn-primary fc-btn" data-fc-save>Save this checklist to my plan</button><span data-fc-msg aria-live="polite"></span></div>
+    <p class="fc-note">Ticks are saved on this device only.</p>
+  </div>
+
+<!-- Real story: welcome bag left for an Ethicare candidate by her new Auckland team, first day. Photograph published with consent. -->
+  <aside class="real-story" style="display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:clamp(18px,2.4vw,30px);align-items:center;background:#fff;border:1px solid #C9DED3;border-left:4px solid #A6C84A;border-radius:16px;padding:clamp(18px,2.2vw,26px);max-width:920px;margin:clamp(28px,3.4vw,40px) auto">
+    <img src="../../assets/stories/team-welcome-bag-auckland.jpg" alt="Janita opening a jute bag printed with a kiwi and the words Sweet as, a card tucked inside" width="1062" height="1404" loading="lazy" decoding="async" style="width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:10px;display:block">
+    <div style="min-width:0">
+      <span style="display:block;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px">Real story &middot; day one</span>
+      <p style="font-size:16px;line-height:1.6;color:#333333;margin:0 0 12px">What Janita&rsquo;s new department left on her desk in her first week in Auckland: a bag of New Zealand things and a card from the team.</p>
+      <p style="font-size:14px;color:#555555;margin:0 0 12px">It cost them almost nothing and it is the part she mentioned first. If a team does this for you, that is a fair signal about the team.</p>
+      <a href="/insights/south-africa-to-auckland" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;text-decoration:underline;text-underline-offset:3px">Janita&rsquo;s first two years &rarr;</a>
+    </div>
+  </aside>
+  <style>@media(max-width:640px){.real-story{grid-template-columns:1fr!important}}</style>
 
   <h2>Six things that won&rsquo;t be done in a month</h2>
-  <p>A month is enough to be functional. It isn&rsquo;t enough to be settled, and expecting otherwise is the commonest way people make the first year harder than it needs to be.</p>
+  <p>A month is enough to be functional, not settled. These usually take longer, and the timings vary a lot from person to person.</p>
   <div class="facts">
     <div class="fact"><div class="k">Feeling at home in the department</div><div class="v">Three to six months before the systems, the shorthand and the referral pathways stop taking conscious effort.</div></div>
     <div class="fact"><div class="k">A settled circle of friends</div><div class="v">Six to twelve months, and it depends almost entirely on what you joined in month one.</div></div>
@@ -485,24 +547,35 @@ a.mrow .mg{font-family:'Work Sans',sans-serif;font-size:12.5px;font-weight:500;l
   </figure>
   <p>Each of these has a chapter of its own when you need the detail: <a href="/guides/money-tax-and-banking">Money, tax &amp; banking</a> for your IRD number, first payslip and KiwiSaver; <a href="/guides/driving-and-licences">Driving &amp; licences</a> for converting your licence and buying a car; and <a href="/guides/new-zealand-education">Schools &amp; education</a> for zoning and enrolment.</p>
 
+  <h2 id="family">If your family is with you</h2>
+  <p>A first month with a partner and children looks different from one on your own. Five things to plan for:</p>
+  <div class="facts">
+    <div class="fact"><div class="k">School enrolment</div><div class="v">State schools usually enrol by home zone, so check the zone before you sign a lease. Whether your children count as domestic students depends on your visa. <a href="/guides/new-zealand-education">Schools &amp; education</a></div></div>
+    <div class="fact"><div class="k">Childcare</div><div class="v">Early childhood places can have waiting lists, so contact centres before you arrive. Ask each one how your visa affects fees and funded hours.</div></div>
+    <div class="fact"><div class="k">Your partner&rsquo;s work</div><div class="v">Whether they can work, and for whom, depends on the visa they were granted. If they work in a regulated profession, their registration can take months, so start early.</div></div>
+    <div class="fact"><div class="k">Getting around</div><div class="v">Work out the school run and your commute before you choose where to live.</div></div>
+    <div class="fact"><div class="k">Routines</div><div class="v">A regular mealtime, bedtime and weekend plan helps children settle while everything else is new.</div></div>
+  </div>
+  <p>There is more in <a href="/guides/new-zealand-family">moving to New Zealand with your family</a>.</p>
+
   <h2 id="first-year">The shape of the first year</h2>
-  <p>The week-three dip is the first bend in a longer curve. Most people describe the same four phases on roughly the same timetable, and knowing the shape in advance takes most of the alarm out of the middle of it.</p>
+  <p>Many people describe something like these four phases, though the timing varies a lot. Knowing the shape in advance takes much of the alarm out of the middle of it.</p>
   <div class="timeline">
     <div class="tl"><div class="st">First weeks</div><div class="h">The honeymoon</div><div class="b">Everything is new &mdash; the scenery, the accents, the supermarket &mdash; and the adrenaline of setting up a life carries most of it. It does not stay this heightened, and that is not a loss.</div></div>
-    <div class="tl"><div class="st">First months</div><div class="h">The dip</div><div class="b">Once the novelty thins, the distance from home, the small frustrations and the effort of starting over tend to arrive together. It is the part nobody warns people about, it is well documented, and it says nothing about whether the decision was right. Naming it takes away most of its power.</div></div>
+    <div class="tl"><div class="st">First months</div><div class="h">The dip</div><div class="b">Once the admin list runs out and the novelty thins, the distance from home, the small frustrations and the effort of starting over tend to arrive together. For some people it comes within weeks; for others, months. It says nothing about whether the decision was right. Having something in the calendar that isn&rsquo;t admin helps.</div></div>
     <div class="tl"><div class="st">Around six months</div><div class="h">Finding your feet</div><div class="b">Routines form: a GP, a favourite beach, people you would call on a bad day. Work stops taking conscious effort, the children have friends, and the place stops feeling like somewhere you are visiting.</div></div>
     <div class="tl"><div class="st">The first year</div><div class="h">Home</div><div class="b">You stop converting prices, you know the back roads, and you are the one giving the next arrival directions. It rarely happens in a moment. Somewhere in the first year, it has happened.</div></div>
   </div>
 
   <h2 id="yourself">Looking after yourself through it</h2>
-  <p>Admin and friendships are only part of it. Four things people who have been through the dip tend to say they wish they had known earlier.</p>
+  <p>Admin and friendships are only part of it. Four things people who have been through it often say they wish they had known earlier.</p>
   <div class="facts">
     <div class="fact"><div class="k">Homesickness is normal, not failure</div><div class="v">Missing home does not mean the decision was wrong; it means you valued what you left. It softens as the new life fills in around it, and saying it out loud shortens the process.</div></div>
     <div class="fact"><div class="k">Stay connected, and be here</div><div class="v">Regular calls home help. Living entirely online keeps one foot in the old life. Plan the trips back, then let yourself be fully here in between.</div></div>
-    <div class="fact"><div class="k">Judge it at a year, not at month three</div><div class="v">The first year has seasons, literally and emotionally. A &ldquo;was this a mistake?&rdquo; decision taken in the dip is taken on the worst evidence you will ever have. Most people who waited are glad they did.</div></div>
+    <div class="fact"><div class="k">Judge it at a year, not at month three</div><div class="v">The first year has seasons, literally and emotionally. A &ldquo;was this a mistake?&rdquo; decision taken in the dip is taken on the worst evidence you will ever have.</div></div>
     <div class="fact"><div class="k">Ask for help early</div><div class="v">A GP, a community group, a colleague, or us. Reaching out early is what the people who settled did, not a sign of struggling.</div></div>
   </div>
-  <p>The people side has a chapter of its own, <a href="/guides/new-zealand-community">finding your community</a>, and if a partner or children are moving with you, so does <a href="/guides/new-zealand-family">moving with your family</a>. What we do in those months is set out once, on <a href="/about-ethicare#after-you-land">the About page</a>.</p>
+  <p>The people side has a chapter of its own, <a href="/guides/new-zealand-community">finding your community</a>, What we do in those months is set out once, on <a href="/about-ethicare#after-you-land">the About page</a>.</p>
 <nav class="ch-nav"><a class="prev" href="/guides/before-you-leave"><span>Previous</span>Before you leave home</a><a class="up" href="/destinations/new-zealand-relocation-guide">All chapters</a><a class="next" href="/guides/new-zealand-checklist"><span>Next</span>The relocation checklist</a></nav>
 </section>
 <section class="nextstep-band" aria-label="Next step">

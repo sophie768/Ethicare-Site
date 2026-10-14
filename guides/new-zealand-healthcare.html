@@ -222,6 +222,43 @@ strong{color:var(--green)}
 <link rel="stylesheet" href="../prose-links.css">
 <link rel="stylesheet" href="../guide-hero-split.css">
 <!-- journey renumbered -->
+<style id="fam-check-css">
+.fam-check{margin:0;padding:clamp(20px,3vw,30px);border:1px solid #D6E4DD;border-radius:18px;background:#fff}
+.fc-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px}.fc-h h3{margin:0;font-size:21px}
+.fc-n{font-family:'Work Sans',sans-serif;font-weight:600;color:#2F5E49;white-space:nowrap}
+.fc-bar{height:8px;border-radius:99px;background:#E6F1ED;margin:12px 0 8px;overflow:hidden}.fc-bar span{display:block;height:100%;width:0;background:#A6C84A;border-radius:99px;transition:width .3s}
+.fam-check ul{list-style:none;padding:0;margin:0}
+.fam-check li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid #EEF3F0;margin:0}
+.fam-check li::before{content:none}
+.fam-check li:first-child{border-top:0}
+.fam-check label{display:flex;align-items:flex-start;gap:12px;cursor:pointer;font-size:16.5px;line-height:1.45;color:#1E2B26}
+.fam-check input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:#02615D}
+.fam-check li a{flex:none;font-weight:600;font-size:14.5px}
+.fc-act{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:16px}
+.fc-act span{font-weight:600;color:#2F5E49}
+.fc-btn{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;padding:13px 22px;border-radius:10px;border:0;background:#02615D;color:#fff;cursor:pointer}
+.fc-note{margin:10px 0 0;font-size:13.5px;color:#666}
+@media(prefers-reduced-motion:reduce){.fc-bar span{transition:none}}
+</style>
+<script>
+(function(){
+  var KEY='ethicare_health_check_nz_v1';
+  function init(){
+    var box=document.querySelector('[data-fam-check]'); if(!box) return;
+    var boxes=box.querySelectorAll('[data-fc]'), st={};
+    try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){}
+    function paint(){var n=0;boxes.forEach(function(b){if(b.checked)n++;});box.querySelector('[data-fc-n]').textContent=n+' of '+boxes.length;box.querySelector('[data-fc-bar]').style.width=Math.round(n/boxes.length*100)+'%';}
+    boxes.forEach(function(b){b.checked=!!st[b.getAttribute('data-fc')];b.addEventListener('change',function(){st[b.getAttribute('data-fc')]=b.checked;try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}paint();});});
+    paint();
+    var sv=box.querySelector('[data-fc-save]'),msg=box.querySelector('[data-fc-msg]');
+    sv.addEventListener('click',function(){
+      try{var f=JSON.parse(localStorage.getItem('ethicare_myfile_v1')||'{}')||{};f.saved=f.saved||{};f.saved[location.pathname.replace(/\.html$/,'')]={t:'Healthcare in New Zealand, with your first-steps checklist',ts:Date.now()};f.updated=Date.now();localStorage.setItem('ethicare_myfile_v1',JSON.stringify(f));
+        msg.innerHTML='Saved. <a href="/plan#myfile">See it in your plan</a>';}catch(e){msg.textContent='This browser is not letting us save.';}
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -241,7 +278,7 @@ strong{color:var(--green)}
         <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Jobs"><a class="mp-tile is-primary" href="/jobs/"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-list"/></svg></span><span class="mp-tl">All live roles</span></a><a class="mp-tile" href="/jobs/professions"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-grid"/></svg></span><span class="mp-tl">Every profession</span></a><a class="mp-tile" href="/build-your-cv"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-file"/></svg></span><span class="mp-tl">Build your CV</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Careers in New Zealand</span><a class="mp-row mp-row-s" href="/jobs/medicine-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-stethoscope"/></svg></span><span class="mp-rt"><span class="mp-rn">Medicine</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/nursing-midwifery-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-heart"/></svg></span><span class="mp-rt"><span class="mp-rn">Nursing &amp; midwifery</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/mental-health-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-mind"/></svg></span><span class="mp-rt"><span class="mp-rn">Mental health</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/allied-health-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-pulse"/></svg></span><span class="mp-rt"><span class="mp-rn">Allied health</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/medical-imaging-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Medical imaging &amp; radiation therapy</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/theatre-perioperative-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-mask"/></svg></span><span class="mp-rt"><span class="mp-rn">Theatre &amp; perioperative</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div><div class="mp-col"><span class="mp-h">Careers in Australia</span><a class="mp-row" href="/jobs/medical-imaging-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Medical imaging &amp; radiation therapy</span><span class="mp-rd">Where we recruit in Australia now</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/jobs/coming-to-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-briefcase"/></svg></span><span class="mp-rt"><span class="mp-rn">Other healthcare professions</span><span class="mp-rd">Register your interest for later</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
       </div>
       <div class="navitem has-sub has-mega"><a href="/plan">Plan your move<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Plan your move"><a class="mp-tile is-primary" href="/plan"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-clipboard"/></svg></span><span class="mp-tl">Your plan, all in one place</span></a><a class="mp-tile" href="/my-pack"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pack"/></svg></span><span class="mp-tl">Create my pack</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Plan your move</span><a class="mp-row" href="/destination-finder"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-compass"/></svg></span><span class="mp-rt"><span class="mp-rn">Destination finder</span><span class="mp-rd">Places that suit the life you want</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/pathway-checker"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-route"/></svg></span><span class="mp-rt"><span class="mp-rn">Registration pathway checker</span><span class="mp-rd">Your route to registration</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/cost-calculator"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-calc"/></svg></span><span class="mp-rt"><span class="mp-rn">Moving cost calculator</span><span class="mp-rd">What the move is likely to cost</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/australia-vs-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-scales"/></svg></span><span class="mp-rt"><span class="mp-rn">Compare the two countries</span><span class="mp-rd">Australia and New Zealand side by side</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
+        <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Plan your move"><a class="mp-tile is-primary" href="/plan"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-clipboard"/></svg></span><span class="mp-tl">Your plan</span></a><a class="mp-tile" href="/my-pack"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pack"/></svg></span><span class="mp-tl">Your pack</span></a><a class="mp-tile" href="/you"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-heart"/></svg></span><span class="mp-tl">Your page</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Plan your move</span><a class="mp-row" href="/destination-finder"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-compass"/></svg></span><span class="mp-rt"><span class="mp-rn">Destination finder</span><span class="mp-rd">Places that suit the life you want</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/pathway-checker"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-route"/></svg></span><span class="mp-rt"><span class="mp-rn">Registration pathway checker</span><span class="mp-rd">Your route to registration</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/cost-calculator"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-calc"/></svg></span><span class="mp-rt"><span class="mp-rn">Moving cost calculator</span><span class="mp-rd">What the move is likely to cost</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/australia-vs-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-scales"/></svg></span><span class="mp-rt"><span class="mp-rn">Compare the two countries</span><span class="mp-rd">Australia and New Zealand side by side</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav slist">
@@ -340,8 +377,9 @@ strong{color:var(--green)}
     <h2>A publicly funded system, built on care for everyone</h2>
     <p class="lead">New Zealand&rsquo;s health system is largely public, funded through taxation, and free or low-cost for residents and many people on longer work visas.</p>
     <p>For you, this matters in two ways. As a new resident, it shapes how you and your family will access care. And as a healthcare professional, it shapes the system you&rsquo;ll practise within: its values, its structure and its priorities. A little orientation now makes both feel far less unfamiliar.</p>
-    <div class="reassure">
-      <p>One reassurance up front: the fundamentals will feel recognisable to anyone from a comparable system. <strong>The differences are mostly in the details</strong>, a no-fault accident scheme, the way primary care works, and a strong, explicit commitment to equity.</p>
+    <div class="reassure" id="eligibility">
+      <p><strong>Check your eligibility first.</strong> Publicly funded care is for citizens, residents and people whose work visa lets them stay for two years or more (or who have already been here lawfully for two years in a row). Your partner and children are not covered because you are: each person&rsquo;s eligibility depends on their own visa. If someone in the family is not eligible, they pay for care at full price unless they have insurance, so settle this before you fly. Use <a href="https://www.healthnz.govt.nz/hospitals-services/eligibility-subsidies/publicly-funded-healthcare" target="_blank" rel="noopener">Health New Zealand&rsquo;s eligibility guide</a>.</p>
+      <p style="margin-top:10px;font-size:13.5px">Reviewed 14 October 2026. Eligibility rules change; confirm the current position at the source.</p>
     </div>
   </div>
 </section>
@@ -387,6 +425,7 @@ strong{color:var(--green)}
         <div class="fpt"><h3>No-fault</h3><p>If you&rsquo;re injured in an accident, you&rsquo;re covered regardless of who was to blame, at work, on the road, on the ski field or at home.</p></div>
         <div class="fpt"><h3>For everyone</h3><p>Cover extends to everyone in New Zealand, including international visitors and people on any visa, not only residents.</p></div>
         <div class="fpt"><h3>Treatment &amp; recovery</h3><p>It helps with treatment costs, and can contribute to rehabilitation and lost income while you recover from a covered injury.</p></div>
+        <div class="fpt"><h3>What it doesn&rsquo;t cover</h3><p>Illness, most gradual-process conditions, some treatments and part of the cost of others. It is not a substitute for health or travel insurance if you are not eligible for public care.</p></div>
       </div>
     </div>
   </div>
@@ -480,16 +519,32 @@ strong{color:var(--green)}
   </div>
   <div class="wrap reading" id="insurance-baseline">
     <h3 style="margin-top:clamp(44px,5vw,64px)">&ldquo;Optional&rdquo; depends on what you are used to</h3>
-    <p>Everything above is written as though not holding cover were the obvious default. For a clinician arriving from the UK or Ireland, it is. For a great many of the people we place, it is not, and this is the part worth saying plainly.</p>
-    <p>If you are coming from <strong>South Africa</strong>, a medical aid scheme is not a luxury upgrade at home. It is close to how a professional household gets care at all, the premium is a fixed and substantial line in the monthly budget, and stopping it would be unthinkable. The same is broadly true arriving from the <strong>United States</strong>, and from parts of the <strong>Gulf</strong> and <strong>Asia</strong> where employer-provided cover is the mechanism rather than a benefit.</p>
-    <p>So we watch people arrive here and immediately buy a comprehensive family policy, because that is what a responsible parent does where they come from. Often they did not need to, and nobody told them.</p>
-    <p>The reason it is different here is not that New Zealand insurance is better. It is that the two things insurance protects you against elsewhere are already covered: <strong>acute and emergency hospital care</strong> is provided by the public system for eligible residents, and <strong>anything caused by an accident</strong> is covered by ACC for everyone in the country, including visitors and people on any visa. The catastrophic scenarios. The crash, the sudden admission, the injury on a ski field, are the ones you are already covered for.</p>
+    <p>For a clinician arriving from the UK or Ireland, not holding cover is the obvious default. For many of the people we place, it is not.</p>
+    <p>If you are coming from <strong>South Africa</strong>, a medical aid scheme is close to how a professional household gets care at all; the premium is a fixed, substantial line in the monthly budget, and stopping it would be unthinkable. The same is broadly true arriving from the <strong>United States</strong>, and from parts of the <strong>Gulf</strong> and <strong>Asia</strong> where employer cover is the mechanism rather than a benefit. So families arrive and buy a comprehensive policy on day one, because that is what a responsible parent does where they come from.</p>
+    <p>The difference here is that, for eligible residents, the two things insurance protects you against elsewhere are already largely covered: <strong>acute and emergency hospital care</strong> through the public system, and <strong>treatment for accidental injury</strong> through ACC. What private insurance adds is choice and speed: elective surgery in weeks rather than months, your choice of specialist, a private room, and sometimes dental and optical extras.</p>
     <div class="reassure">
-      <p><strong>And one difference from Australia that matters if you are weighing both countries.</strong> Australia gives higher earners a tax reason to hold private hospital cover; New Zealand gives none. <a href="/guides/australia-healthcare">How the Australian system works</a> sets out that mechanism, and <a href="/guides/australia-vs-new-zealand">Australia versus New Zealand</a> compares the two properly.</p>
-      <p>The practical consequence is this: advice that is sound in Sydney is wrong in Wellington. Here the decision is purely about what you want, not about what you will otherwise be charged.</p>
+      <p><strong>If you are weighing Australia too:</strong> Australia gives higher earners a tax reason to hold private hospital cover; New Zealand gives none. Here the decision is only about what you want. <a href="/guides/australia-healthcare">How the Australian system works</a> explains the difference.</p>
     </div>
-    <p style="margin-top:26px">None of which makes cover pointless. Waiting times for <em>elective</em> procedures in the public system are real and can be long, and that is precisely what a policy buys you, a knee done in weeks rather than months, your choice of specialist, a private room. It buys time and choice. It does not buy safety, because you already have that.</p>
-    <p>Our suggestion: arrive, register with a GP, and give it three months before you decide. You will be in a far better position to judge what you want to insure once you have used the system rather than imagined it. If your employer offers cover as a benefit, take it. That is different, and it is free.</p>
+    <p style="margin-top:26px"><strong>Our suggestion:</strong> compare cover before you travel rather than after. Check first whether everyone in your family is eligible for public care; anyone who is not needs insurance from day one. If you are all eligible, you may not need comprehensive cover, but look at the policies before you leave, because pre-existing conditions and waiting periods are usually assessed when you join, not when you claim. If your employer offers cover as a benefit, take it.</p>
+  </div>
+</section>
+
+<!-- ============ FIRST STEPS CHECKLIST ============ -->
+<section class="section" id="first-steps">
+  <div class="wrap reading">
+    <div class="fam-check" data-fam-check>
+      <div class="fc-h"><h3>Your first healthcare steps in New Zealand</h3><span class="fc-n" data-fc-n>0 of 5</span></div>
+      <div class="fc-bar"><span data-fc-bar></span></div>
+      <ul>
+        <li><label><input type="checkbox" data-fc="elig"> <span>Check each family member&rsquo;s eligibility for publicly funded care</span></label> <a href="https://www.healthnz.govt.nz/hospitals-services/eligibility-subsidies/publicly-funded-healthcare" target="_blank" rel="noopener">How</a></li>
+        <li><label><input type="checkbox" data-fc="gp"> <span>Find a local GP practice taking enrolments</span></label> <a href="https://www.healthpoint.co.nz/gps-accident-urgent-medical-care/" target="_blank" rel="noopener">How</a></li>
+        <li><label><input type="checkbox" data-fc="rx"> <span>Arrange any ongoing prescriptions or specialist referrals</span></label></li>
+        <li><label><input type="checkbox" data-fc="line"> <span>Save Healthline (0800 611 116) and your nearest urgent care</span></label></li>
+        <li><label><input type="checkbox" data-fc="ins"> <span>Decide on private health and travel insurance before you fly</span></label> <a href="#insurance-baseline">How</a></li>
+      </ul>
+      <div class="fc-act"><button type="button" class="btn btn-primary fc-btn" data-fc-save>Save this checklist to my plan</button><span data-fc-msg aria-live="polite"></span></div>
+      <p class="fc-note">Ticks are saved on this device only.</p>
+    </div>
   </div>
 </section>
 
@@ -567,12 +622,12 @@ strong{color:var(--green)}
     </div>
 
     <div class="final" style="margin-top:40px;">
-      <span class="eyebrow">Free, any time</span>
-      <h2>Questions about practising here?</h2>
-      <p>Whether it&rsquo;s how the system works for your family or where your profession fits within it, we&rsquo;re glad to talk it through, and with the experience of having guided many clinicians before you.</p>
+      <span class="eyebrow">Your next step</span>
+      <h2>Put healthcare in your plan</h2>
+      <p>Save the checklist above to your plan, and use the family guide for schools, childcare and settling in.</p>
       <div class="btn-row">
-        <a href="/ask?q=How%20does%20the%20health%20system%20work%3F" class="btn btn-primary">Ask Ethicare about healthcare</a>
-        <a href="/jobs/" class="btn btn-secondary">Browse current opportunities</a>
+        <a href="/guides/new-zealand-family" class="btn btn-primary">Moving with your family</a>
+        <a href="/ask?q=How%20does%20the%20health%20system%20work%3F" class="btn btn-secondary">Ask Ethicare about healthcare</a>
       </div>
       <p class="small">Ethicare Resourcing · your guide to a life and career in New Zealand.</p>
     </div>

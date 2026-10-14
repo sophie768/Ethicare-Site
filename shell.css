@@ -974,3 +974,7 @@ html body .stageline .sl-all{font-weight:500;text-decoration:underline;text-unde
 html body .stageline .sl-last{font-size:15px;color:#555}
 html body .stageline a:focus-visible{outline:3px solid #02615D;outline-offset:3px;border-radius:2px}
 @media (max-width:760px){html body .stageline .sl-in{padding:20px;flex-direction:column;align-items:flex-start}html body .stageline .sl-acts{margin:0;flex-direction:column;align-items:flex-start;gap:10px}}
+
+/* iPhone zooms in on any form field under 16px and leaves the page zoomed, which cut the
+   pathway checker off at both edges on Sophie's phone (14 Oct 2026). 16px on small screens. */
+@media (max-width:760px){input:not([type=checkbox]):not([type=radio]):not([type=range]),select,textarea{font-size:16px!important}}

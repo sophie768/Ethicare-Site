@@ -95,7 +95,7 @@
     var w = words(summaryText());
     if (!w) push('02', 'Candidate summary', 'empty', 'A short summary is optional. If you use one, describe your profession, experience and the role you are seeking.');
     else if (w > 200) push('02', 'Candidate summary', 'thin', w + ' words. The limit is two hundred, and the cut usually improves it.');
-    else if (w < 80) push('02', 'Candidate summary', 'thin', 'Only ' + w + ' words. Aim for 80 to 130 — there is room to say what you bring.');
+    else if (w < 50) push('02', 'Candidate summary', 'thin', 'Only ' + w + ' words. 50 to 130 gives you room to say what you bring.');
     else if (!filled(f.sumWhy)) push('02', 'Candidate summary', 'thin', 'No line on why this country. Everyone reading it is wondering.');
     else if (!filled(f.sumOnly)) push('02', 'Candidate summary', 'thin', 'Nothing here yet that could only be you, which is the sentence a reader remembers.');
     else if (sameness(summaryText()).filler.length) push('02', 'Candidate summary', 'thin', 'It reads like other CVs in places — the phrases are flagged in the section.');
@@ -108,7 +108,7 @@
 
     var skills = f.soft.filter(function (r) { return filled(r.skill); });
     var unevidenced = skills.filter(function (r) { return !filled(r.story); });
-    if (!skills.length) push('04', 'Soft skills', 'empty', 'None chosen yet.');
+    if (!skills.length) push('04', 'Soft skills', 'empty', 'Optional. None chosen, which is fine if your work history shows them.');
     else if (skills.length > 4) push('04', 'Soft skills', 'thin', skills.length + ' skills. Past four it reads as a list rather than a choice.');
     else if (unevidenced.length) push('04', 'Soft skills', 'thin', unevidenced.length === 1 ? 'One skill has no example under it. That is the one you will be asked about.' : unevidenced.length + ' skills have no example under them.');
     else if (skills.some(function (r) { return sameness(r.skill).filler.length; })) push('04', 'Soft skills', 'thin', 'At least one is a phrase that turns up on nearly every CV. Your own words say more.');
@@ -189,12 +189,12 @@
         '</span><div class="cv-rowbtns">' +
         (i > 0 ? '<button class="cv-mini" type="button" data-up="roles" data-id="' + r.id + '">Move up</button>' : '') +
         removeBtn('roles', r.id) + '</div></div><div class="cv-grid">' +
-        '<div class="cv-f">' + rowInput('roles', r.id, 'title', gap ? 'Parental leave, study, caring, illness' : 'Job title', r.title) + '</div>' +
+        '<div class="cv-f">' + rowInput('roles', r.id, 'title', gap ? 'For example: career break, study, caring' : 'Job title', r.title) + '</div>' +
         '<div class="cv-f">' + rowInput('roles', r.id, 'org', 'Organisation', r.org) + '</div>' +
         '<div class="cv-f">' + rowInput('roles', r.id, 'loc', 'City, country', r.loc) + '</div>' +
         '<div class="cv-f">' + rowInput('roles', r.id, 'dates', 'April 2016 to present', r.dates) + '</div>' +
         '</div><div class="cv-f" style="margin-top:12px">' +
-        rowArea('roles', r.id, 'bullets', 4, gap ? 'One line is enough. The truth invites better assumptions than silence.' : 'What was specific to this job, one line each. Put the scale in — twelve patients a day, one in three on call.', r.bullets) +
+        rowArea('roles', r.id, 'bullets', 4, gap ? 'Optional, one line at most. You never need to give personal or medical reasons.' : 'What was specific to this job, one line each. Put the scale in — twelve patients a day, one in three on call.', r.bullets) +
         '<p class="cv-hint">One line per point. They print as bullets.</p></div></div>';
     },
     edu: function (r, i) {
@@ -381,11 +381,11 @@
     var w = words(summaryText());
     var wn = $('[data-words]');
     wn.className = 'cv-count' + (w > 200 ? ' over' : '');
-    wn.textContent = w === 0 ? 'Nothing written yet. Aim for 80 to 130 words.'
+    wn.textContent = w === 0 ? 'Nothing written yet. 50 to 130 words is plenty.'
       : w > 200 ? w + ' words — over the two hundred word ceiling by ' + (w - 200) + '.'
-      : w < 80 ? w + ' words. Aim for 80 to 130.'
+      : w < 50 ? w + ' words. 50 to 130 is plenty.'
       : w <= 130 ? w + ' words, which is a good length.'
-      : w + ' words. Still inside the ceiling, though 80 to 130 reads best.';
+      : w + ' words. Still inside the ceiling, though 50 to 130 reads best.';
 
     var sm = sameness(summaryText()), fl = '';
     if (sm.filler.length) fl += '<div class="cv-flag warm"><p class="cv-flag-k">This appears on nearly every CV</p><p>' + esc(sm.filler.join('  ·  ')) + '</p><p class="sm">Not wrong — invisible, which is worse. Replace each one with the thing you actually did, and it becomes yours.</p></div>';

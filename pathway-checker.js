@@ -1588,10 +1588,10 @@
     if (!res || !res.length) return '';
     var acts = [];
     acts.push('<a class="pw-nextc pw-primeact" href="/plan" data-act="addmove"><span class="k">Save this</span>' +
-      '<span class="t">Add this to my Move plan</span>' +
-      '<span class="n">Registration is one part of the move. Add your pathway and we\u2019ll help you work through the rest in order \u2014 jobs, visas, costs and settling in.</span>' +
+      '<span class="t">Add this to Plan Ethicare</span>' +
+      '<span class="n">Your profession, country and this result go into your plan, alongside jobs, visas, costs and settling in.</span>' +
       '<span class="go" aria-hidden="true">\u2192</span></a>');
-    acts.push('<a class="pw-nextc" href="/#ask"><span class="k">Ask Ethicare</span>' +
+    acts.push('<a class="pw-nextc" href="/ask"><span class="k">Ask Ethicare</span>' +
       '<span class="t">Ask about your result</span>' +
       '<span class="n">Costs, documents, exams or what happens next \u2014 ask in your own words. No contact details needed.</span>' +
       '<span class="go" aria-hidden="true">\u2192</span></a>');
@@ -1622,6 +1622,15 @@
       if (portalKey) p.profession = portalKey;
       p.fromChecker = true;
       localStorage.setItem('ethicare_portal_v1', JSON.stringify(p));
+      /* and the result itself, so it is listed under 'Your file' in the plan (14 Oct 2026) */
+      try {
+        var link = resumeLink(); if (link) {
+          var u = link.replace(/^https?:\/\/[^\/]+/, '');
+          var f = JSON.parse(localStorage.getItem('ethicare_myfile_v1') || '{}') || {}; f.saved = f.saved || {};
+          f.saved[u] = { t: 'Your registration pathway' + (a.destination === 'australia' ? ' (Australia)' : a.destination === 'new-zealand' ? ' (New Zealand)' : ''), ts: Date.now() };
+          f.updated = Date.now(); localStorage.setItem('ethicare_myfile_v1', JSON.stringify(f));
+        }
+      } catch (e2) {}
       if (window.track) window.track('pathway_added_to_move', { profession: a.profession, country: a.destination });
     } catch (e) {}
   }

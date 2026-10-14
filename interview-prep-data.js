@@ -682,6 +682,13 @@ function workedMore(dest) {
         ['The example', 'I have always asked who someone wants in the room and what they want their family told, and I argued for a double appointment for a man who needed an interpreter and was being rushed. I had not called that Te Tiriti before. The reasoning is the same.']
       ], 'It says how much preparation this actually took — one evening — and refuses to overclaim. Then it turns two principles into something concrete about its own ward. The last beat is the move that works: you almost certainly do this already, you have simply never labelled it that way.'),
 
+      q12: e('A radiographer from Johannesburg, first interview in New Zealand.', [
+        ['What I understand', 'Māori patients have worse outcomes across a lot of what I will be imaging, and fewer of the scans ordered get done. I read the equity section of the service’s annual plan and the Ministry’s Te Tiriti framework. That is one evening, and I am not an expert.'],
+        ['What I would actually do', 'Did-not-attend is where I would start. In my department at home I checked why people missed appointments before we discharged them, and most of it was transport or a letter they could not read. I would want to know how this department follows up a missed CT for a Māori patient, and whether I can ring rather than re-letter.'],
+        ['In the room', 'Ask who they want with them, explain what the scan involves before I position anyone, and use an interpreter rather than a relative if English is not their first language. None of that is special; it is the care I would want.'],
+        ['What I would ask of the service', 'Who the Māori health team are and how I refer, in my first week. And to be told when I get something wrong.']
+      ], 'It names the inequity plainly without lecturing, then spends most of its time on something concrete the candidate can affect from day one: missed appointments. The last beat asks the employer for help, which reads as humility rather than weakness.'),
+
       /* MORE-W-END */
     };
 }
@@ -810,6 +817,7 @@ function questionBank(dest) {
       { id: 'q10', q: 'One of our values is X — can you give us an example of what that looks like in your practice?', a: 'Their published values, by name. Services here interview against them directly, sometimes a question per value, marked separately. Do not recite all five. Take the one you have a real story for, say what it looks like on an ordinary day, then give the example.' }
     ];
     if (nz) core.push({ id: 'q11', q: 'How does Te Tiriti o Waitangi apply to your practice?', a: 'Less than you fear, and more than a definition. An evening of reading covers it: the three Ps — partnership, participation and protection — which is still the framing most panels use, and the five from the Waitangi Tribunal’s health inquiry (tino rangatiratanga, equity, active protection, options and partnership). Then say what one of them changes about your own job, and give your own example of adapting care. Nobody expects a history lesson, fluency in te reo or expertise you could not have. What is being tested is whether you take it seriously and will keep learning — so say plainly where you are up to.' });
+    if (nz) core.push({ id: 'q12', q: 'How would you contribute to improving health equity for Māori patients in your clinical practice?', a: 'This is now a core question for clinical roles, not an optional one. Start from the fact: Māori experience poorer outcomes across many measures and more barriers to timely care, and the same care for everyone does not produce the same outcomes. Then make it practical: barriers you would look for (transport, cost, language, appointment access), asking what the patient and whānau need rather than assuming, working with the Māori health team and kaupapa Māori services, and checking your own assumptions. Give one example from your own practice of removing a barrier. Close with where you are up to and how you will keep learning. Humility and specific action beat a definition.' });
     const byProf = {
       nursing: [
         { id: 'p1', q: 'How do you handle a deteriorating patient when you cannot get a review?', a: 'Your escalation pathway, the tools you use to communicate urgency, and persistence when the first call does not work.' },

@@ -54,7 +54,7 @@
       + '<a class="rgp-go" href="/register-interest?from=' + from + '" data-rgp-go="' + from + '">Register with Ethicare <span aria-hidden="true">&rarr;</span></a></div>';
   }
   var SPOTS = [
-    { sel: '.df-out:not([hidden])', from: 'destination-finder', where: 'end', t: 'Want us to look out for roles in places like these?', d: 'Register with Ethicare in a minute. We&rsquo;ll tell you when something fits, and plainly when it doesn&rsquo;t.' },
+    { sel: '.df-out:not([hidden])', from: 'destination-finder', where: 'end', t: 'Want us to look out for roles in places like these?', d: 'Register with Ethicare in a minute and we&rsquo;ll tell you when something fits.' },
     { sel: '#cc-app .cc-glance', from: 'cost-calculator', where: 'app', t: 'Want help making the numbers work?', d: 'Register with Ethicare and we&rsquo;ll look out for roles with relocation support that fits your move.' },
     { sel: '.ps-sum', from: 'plan', where: 'after', t: 'Want us to look out for roles while you plan?', d: 'Register with Ethicare in a minute. Nothing goes to an employer without your say-so.' },
     { sel: '.pw-resacts', from: 'pathway-checker', where: 'after', t: 'Want us to look out for roles that fit your registration?', d: 'Register with Ethicare in a minute and we&rsquo;ll be in touch when something suits you.' }

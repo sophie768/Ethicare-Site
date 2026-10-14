@@ -476,10 +476,25 @@
         var t0 = ns && ns.items.filter(function (it) { return it.tool; })[0];
         var tl = t0 ? tool(t0.tool, oneDest()) : null;
         nextEl.hidden = false;
-        nextEl.innerHTML = ns
-          ? '<span class="k">Your next step</span><h2>' + esc(ns.label) + '</h2><p>' + esc(tl ? tl.note : ns.items[0].note) + '</p>' +
-            (tl ? '<a class="pt-btn" href="' + tl.href + '" data-ctx-link>' + esc(tl.title) + ' <i aria-hidden="true">&rarr;</i></a>' : '<button class="pt-btn" type="button" data-go="' + ns.id + '" data-scroll="1">Open this stage <i aria-hidden="true">&rarr;</i></button>')
-          : '<span class="k">Every stage sorted</span><h2>Nothing left on the list.</h2><p>Come back to any stage below, or clear the ticks to start again.</p>';
+        /* The dashboard (13 Oct 2026, from the Plan Ethicare review Sophie shared): the journey
+           is the centre of the page. Whose move this is, how far through it they are, and one
+           next step, with saving and sharing moved to a quieter area further down. */
+        var doneN = list.filter(function (x) { return S.done[x.id]; }).length;
+        var pct = Math.round(doneN / list.length * 100);
+        var saved = savedItems().length, packN = window.EthicarePack ? window.EthicarePack.count() : 0;
+        var head = '<div class="pt-dash-h"><h2 class="pt-dash-t">Your move to ' + esc(destName()) + '</h2>' +
+          '<p class="pt-dash-s">Your personal plan, one step at a time.</p>' +
+          '<div class="pt-prog"><span class="pt-prog-l">Your progress</span><span class="pt-prog-n">' + doneN + ' of ' + list.length + ' stages done</span></div>' +
+          '<div class="pt-bar" role="progressbar" aria-label="Stages done" aria-valuemin="0" aria-valuemax="' + list.length + '" aria-valuenow="' + doneN + '"><span style="width:' + pct + '%"></span></div></div>';
+        var body = ns
+          ? '<div class="pt-dash-n"><span class="k">Your next step</span><h3>' + esc(ns.label) + '</h3><p>' + esc(tl ? tl.note : ns.items[0].note) + '</p>' +
+            (tl ? '<a class="pt-btn" href="' + tl.href + '" data-ctx-link>' + esc(tl.title) + ' <i aria-hidden="true">&rarr;</i></a>' : '<button class="pt-btn" type="button" data-go="' + ns.id + '" data-scroll="1">Open this stage <i aria-hidden="true">&rarr;</i></button>') + '</div>'
+          : '<div class="pt-dash-n"><span class="k">Every stage sorted</span><h3>Nothing left on the list.</h3><p>Come back to any stage below, or clear the ticks to start again.</p></div>';
+        var foot = '<div class="pt-dash-f">' +
+          '<a href="/my-pack">Your pack' + (packN ? ' <b>' + packN + '</b>' : '') + ' <i aria-hidden="true">&rarr;</i></a>' +
+          (saved ? '<a href="#myfile">Saved guides and notes <b>' + saved + '</b> <i aria-hidden="true">&rarr;</i></a>' : '') +
+          '<a href="#keep">Save or share your plan <i aria-hidden="true">&rarr;</i></a></div>';
+        nextEl.innerHTML = head + body + foot;
       }
     }
 
@@ -565,6 +580,11 @@
     /* Notes live in the same store as everything else, so they travel with the plan link and
        print into the document — otherwise someone types a real question here and loses it the
        day they clear their browser. The line underneath says exactly that. */
+    /* Ethicare at the moment it is useful (13 Oct 2026): offered on the jobs stage, where the
+       candidate has decided they are ready, rather than as a section of its own. */
+    if (sel.id === 'role') p += '<div class="pt-offer"><p class="pt-offer-k">Ready to be considered for roles?</p>' +
+      '<p>Send your CV and we will look out for roles that fit your profession and the place you want to live.</p>' +
+      '<a class="pt-btn" href="/apply">Apply and send your CV <i aria-hidden="true">&rarr;</i></a></div>';
     p += '<h3 class="pt-h3">Personal notes</h3>' +
       '<label class="sr-only" for="pt-note">Your notes for ' + esc(sel.label) + '</label>' +
       '<textarea class="pt-note" id="pt-note" rows="4" data-note="' + sel.id + '" placeholder="Questions to ask, what you have decided, anything you want to come back to."></textarea>' +

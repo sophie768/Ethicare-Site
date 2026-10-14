@@ -237,6 +237,40 @@ strong{color:var(--green)}
   .btn{width:100%}
   .nextstep{flex-direction:column;align-items:flex-start}
 }
+
+/* 14 Oct 2026 restructure */
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.rg-primary{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;background:#02615D;color:#fff;border-radius:20px;padding:clamp(24px,3.4vw,40px)}
+.rg-primary .eyebrow{color:#C6E084}.rg-primary h2{color:#fff;margin:6px 0 8px}.rg-primary p{color:rgba(255,255,255,.86);max-width:56ch;margin:0}
+.rg-primary .btn{background:#A6C84A;color:#01312F;border-color:#A6C84A}
+.rg-h{margin-top:clamp(34px,4vw,52px)}
+.rg-lead{max-width:68ch;color:#333;font-size:17px;line-height:1.6}
+.rg-four{list-style:none;padding:0;margin:22px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.rg-four a{display:flex;align-items:center;gap:16px;padding:20px 20px;border:1px solid #D6E4DD;border-radius:16px;background:#fff;text-decoration:none;color:inherit;height:100%;box-sizing:border-box}
+.rg-four a:hover{border-color:#02615D}
+.rg-four a,.rg-four a *{text-decoration:none!important;background-image:none!important}
+.rg-ic{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:12px;background:#E6F1ED;color:#02615D}
+.rg-t{flex:1;display:flex;flex-direction:column;gap:4px}.rg-t b{font-family:'Work Sans',sans-serif;font-size:18px;color:#01312F}.rg-t span{font-size:15px;line-height:1.5;color:#555;font-weight:400}
+.rg-go{font-size:28px;color:#02615D;line-height:1}
+@media(max-width:760px){.rg-four{grid-template-columns:1fr}}
+.bd-q{width:100%;max-width:560px;min-height:52px;padding:12px 18px;border:1.5px solid #C9DED3;border-radius:999px;font:inherit;font-size:16.5px;margin:18px 0 8px;background:#fff}
+.bd-q:focus{outline:none;border-color:#02615D;box-shadow:0 0 0 3px rgba(166,200,74,.35)}
+.bds{list-style:none;padding:0;margin:8px 0 0;background:#fff;border:1px solid #D6E4DD;border-radius:16px}
+.bd{display:flex;align-items:center;gap:16px 24px;padding:18px 22px;border-top:1px solid #E6EEE9}.bd:first-child{border-top:0}
+.bd[hidden]{display:none}
+.bd-t{flex:1;min-width:0}.bd-t h3{font-size:17.5px;margin:0 0 2px;color:#01312F}
+.bd-r{margin:0;font-size:15px;color:#2F5E49;font-weight:600}.bd-d{margin:4px 0 0;font-size:14.5px;color:#555;line-height:1.5}
+.bd-guide{display:inline-block;margin-top:6px;font-weight:600;font-size:14.5px}
+.bd-visit{flex:none;display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:8px 18px;border:1.5px solid #C9DED3;border-radius:999px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;text-decoration:none}
+.bd-visit:hover{border-color:#02615D}
+@media(max-width:560px){.bd{flex-direction:column;align-items:flex-start}}
+.rg-steps{list-style:none;padding:0;margin:20px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;counter-reset:none}
+.rg-steps li{display:flex;flex-direction:column;gap:6px;padding:20px;border-radius:16px;background:#F3F7F4;border:1px solid #D6E4DD}
+.rg-steps .n{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#02615D;color:#fff;font-weight:700;font-family:'Work Sans',sans-serif}
+.rg-steps b{font-family:'Work Sans',sans-serif;font-size:17px;color:#01312F}.rg-steps li>span:last-child{font-size:14.5px;color:#555;line-height:1.5}
+@media(max-width:860px){.rg-steps{grid-template-columns:1fr 1fr}}@media(max-width:520px){.rg-steps{grid-template-columns:1fr}}
+.rg-fine{margin-top:14px;font-size:14.5px;color:#555}
+.rg-also{margin-top:20px;font-size:15.5px;color:#333}
 </style>
 <link rel="stylesheet" href="../shell.css">
 <style>/* playfair-hero */ .hero-sub,.hero .kicker,.h-hero .pf{font-family:'Playfair Display',Georgia,serif;font-weight:500}
@@ -269,7 +303,7 @@ strong{color:var(--green)}
 <link rel="stylesheet" href="../disclose.css">
 <link rel="stylesheet" href="../prose-links.css">
 <style id="pwcta">.pwcta{display:flex;flex-wrap:wrap;align-items:center;gap:24px 40px;background:var(--soft);border:1px solid var(--mint);border-radius:var(--r-lg);padding:clamp(26px,3.4vw,40px)}.pwcta>div{flex:1 1 360px}.pwcta h2{font-family:var(--display);font-weight:600;font-size:clamp(22px,2.8vw,30px);color:var(--teal);letter-spacing:-.015em;margin:0 0 8px}.pwcta p{font-size:16px;line-height:1.7;color:var(--muted);max-width:56ch;margin:0}.pwcta .btn{flex:0 0 auto}</style>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"New Zealand","item":"https://ethicareresourcing.com/new-zealand"},{"@type":"ListItem","position":2,"name":"Your journey","item":"https://ethicareresourcing.com/new-zealand#journey"},{"@type":"ListItem","position":3,"name":"Stage 03 · Can I work there?"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need a job offer before I can register?","acceptedAnswer":{"@type":"Answer","text":"Usually not to begin the process, but the two are closely linked. For some professions a position or supervisor is part of the registration pathway, while for others you can register independently. In practice, registration, a job offer and your visa tend to move together, and that's exactly the choreography we help manage so nothing stalls waiting on something else."}},{"@type":"Question","name":"Will my overseas qualification be recognised?","acceptedAnswer":{"@type":"Answer","text":"For most clinicians from comparable healthcare systems, yes, though the route varies. Some qualifications are recognised directly; others are confirmed through an assessment, and occasionally a period of supervised practice. The answer depends on your profession and where you trained, which is the first thing we'll look at with you."}},{"@type":"Question","name":"Do I definitely have to sit an English test?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. Many clinicians who trained and have practised in English in a recognised country are exempt. Where evidence is required, IELTS (Academic) and OET are the widely accepted tests. We'll check whether an exemption applies to you before you book anything, and if you do need a test, our partners at Swoosh English will help you prepare."}},{"@type":"Question","name":"How much does registration cost?","acceptedAnswer":{"@type":"Answer","text":"Each board sets its own application and annual practising certificate fees, and there can be additional costs for English tests and certifying documents. For some candidates the total is significant, especially where an assessment or exam is needed, so budget for it early. The cost calculator helps you set it out."}},{"@type":"Question","name":"What if my situation is unusual?","acceptedAnswer":{"@type":"Answer","text":"Career breaks, training in more than one country, a niche specialty or a less common qualification can all change your route, and some situations will not meet the requirements. The pathway checker shows where you are likely to stand; the board makes the final decision."}}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"New Zealand","item":"https://ethicareresourcing.com/new-zealand"},{"@type":"ListItem","position":2,"name":"Your journey","item":"https://ethicareresourcing.com/new-zealand#journey"},{"@type":"ListItem","position":3,"name":"Stage 03 · Can I work there?"}]},{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need a job offer before I can register?", "acceptedAnswer": {"@type": "Answer", "text": "Usually not to begin the process. For some professions a position or supervisor is part of the registration pathway; for others you can register independently. In practice, registration, a job offer and your visa tend to move together."}}, {"@type": "Question", "name": "Will my overseas qualification be recognised?", "acceptedAnswer": {"@type": "Answer", "text": "Some overseas qualifications are recognised through established pathways, while others need further assessment, examinations or supervised practice. Eligibility depends on your profession, qualifications and individual circumstances. Your registration board makes the final decision."}}, {"@type": "Question", "name": "Do I definitely have to sit an English test?", "acceptedAnswer": {"@type": "Answer", "text": "Not necessarily. Many clinicians who trained and practised in English in a recognised country are exempt. Each board publishes who is exempt, so check its policy before you book a test. Where evidence is needed, IELTS (Academic) and OET are the widely accepted tests."}}, {"@type": "Question", "name": "How much does registration cost?", "acceptedAnswer": {"@type": "Answer", "text": "Each board sets its own application and annual practising certificate fees, and there can be extra costs for English tests, assessments, exams and certifying documents. For some candidates the total is significant, so budget for it early. The cost calculator helps you set it out."}}, {"@type": "Question", "name": "What if my situation is unusual?", "acceptedAnswer": {"@type": "Answer", "text": "Career breaks, training in more than one country, a niche specialty or a less common qualification can all change your route, and some situations will not meet the requirements. The pathway checker shows where you are likely to stand; the board makes the final decision."}}]}]</script>
 <style id="pick-block">
 .pickband{background:var(--soft,#E3ECE5);border-bottom:1px solid var(--mint,#C9DED3)}
 .pickband .wrap{padding-top:clamp(40px,5vw,60px);padding-bottom:clamp(40px,5vw,60px)}
@@ -307,7 +341,7 @@ strong{color:var(--green)}
         <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Jobs"><a class="mp-tile is-primary" href="/jobs/"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-list"/></svg></span><span class="mp-tl">All live roles</span></a><a class="mp-tile" href="/jobs/professions"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-grid"/></svg></span><span class="mp-tl">Every profession</span></a><a class="mp-tile" href="/build-your-cv"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-file"/></svg></span><span class="mp-tl">Build your CV</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Careers in New Zealand</span><a class="mp-row mp-row-s" href="/jobs/medicine-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-stethoscope"/></svg></span><span class="mp-rt"><span class="mp-rn">Medicine</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/nursing-midwifery-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-heart"/></svg></span><span class="mp-rt"><span class="mp-rn">Nursing &amp; midwifery</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/mental-health-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-mind"/></svg></span><span class="mp-rt"><span class="mp-rn">Mental health</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/allied-health-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-pulse"/></svg></span><span class="mp-rt"><span class="mp-rn">Allied health</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/medical-imaging-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Medical imaging &amp; radiation therapy</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row mp-row-s" href="/jobs/theatre-perioperative-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-mask"/></svg></span><span class="mp-rt"><span class="mp-rn">Theatre &amp; perioperative</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div><div class="mp-col"><span class="mp-h">Careers in Australia</span><a class="mp-row" href="/jobs/medical-imaging-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-xray"/></svg></span><span class="mp-rt"><span class="mp-rn">Medical imaging &amp; radiation therapy</span><span class="mp-rd">Where we recruit in Australia now</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/jobs/coming-to-australia"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-briefcase"/></svg></span><span class="mp-rt"><span class="mp-rn">Other healthcare professions</span><span class="mp-rd">Register your interest for later</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
       </div>
       <div class="navitem has-sub has-mega"><a href="/plan">Plan your move<span class="cv" aria-hidden="true">&#9662;</span></a>
-        <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Plan your move"><a class="mp-tile is-primary" href="/plan"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-clipboard"/></svg></span><span class="mp-tl">Your plan, all in one place</span></a><a class="mp-tile" href="/my-pack"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pack"/></svg></span><span class="mp-tl">Create my pack</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Plan your move</span><a class="mp-row" href="/destination-finder"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-compass"/></svg></span><span class="mp-rt"><span class="mp-rn">Destination finder</span><span class="mp-rd">Places that suit the life you want</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/pathway-checker"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-route"/></svg></span><span class="mp-rt"><span class="mp-rn">Registration pathway checker</span><span class="mp-rd">Your route to registration</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/cost-calculator"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-calc"/></svg></span><span class="mp-rt"><span class="mp-rn">Moving cost calculator</span><span class="mp-rd">What the move is likely to cost</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/australia-vs-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-scales"/></svg></span><span class="mp-rt"><span class="mp-rn">Compare the two countries</span><span class="mp-rd">Australia and New Zealand side by side</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
+        <div class="subnav mpanel"><div class="mp-in"><div class="mp-tiles" role="group" aria-label="Plan your move"><a class="mp-tile is-primary" href="/plan"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-clipboard"/></svg></span><span class="mp-tl">Your plan</span></a><a class="mp-tile" href="/my-pack"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-pack"/></svg></span><span class="mp-tl">Your pack</span></a><a class="mp-tile" href="/you"><span class="mp-ti"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#ec-heart"/></svg></span><span class="mp-tl">Your page</span></a></div><div class="mp-cols"><div class="mp-col"><span class="mp-h">Plan your move</span><a class="mp-row" href="/destination-finder"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-compass"/></svg></span><span class="mp-rt"><span class="mp-rn">Destination finder</span><span class="mp-rd">Places that suit the life you want</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/pathway-checker"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-route"/></svg></span><span class="mp-rt"><span class="mp-rn">Registration pathway checker</span><span class="mp-rd">Your route to registration</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/cost-calculator"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-calc"/></svg></span><span class="mp-rt"><span class="mp-rn">Moving cost calculator</span><span class="mp-rd">What the move is likely to cost</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a><a class="mp-row" href="/guides/australia-vs-new-zealand"><span class="mp-ri"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-scales"/></svg></span><span class="mp-rt"><span class="mp-rn">Compare the two countries</span><span class="mp-rd">Australia and New Zealand side by side</span></span><span class="mp-chev"><svg class="ic" width="18" height="18" aria-hidden="true" focusable="false"><use href="#ec-chev"/></svg></span></a></div></div></div></div>
       </div>
       <div class="navitem has-sub"><a href="/about-ethicare">About<span class="cv" aria-hidden="true">&#9662;</span></a>
         <div class="subnav slist">
@@ -376,331 +410,138 @@ strong{color:var(--green)}
   </div>
 </nav>
 
-<!-- ============ THREE CHOICES ============ -->
-<section class="pickband" id="do">
-  <div class="wrap">
-    <span class="eyebrow">What do you need help with?</span>
-    <h2>Three things you can do right now</h2>
-    <div class="pick-grid">
-      <a class="pick" href="/pathway-checker">
-        <span class="q">I don&rsquo;t know which pathway is mine</span>
-        <h3>Check my pathway</h3>
-        <p>Answer a few questions about your profession, where you trained and your current registration. Two minutes, and it points you at the official New Zealand routes.</p>
-        <span class="go">Open the pathway checker</span>
-      </a>
-      <a class="pick" href="/new-zealand#professions">
-        <span class="q">I want the detail for my profession</span>
-        <h3>Find my profession</h3>
-        <p>What registration involves for your role, board by board, with the requirements that apply to you rather than to everyone.</p>
-        <span class="go">See the professions</span>
-      </a>
-      <a class="pick" href="/guides/new-zealand-contacts">
-        <span class="q">I want the official links</span>
-        <h3>Get the forms and contacts</h3>
-        <p>Every regulator, application form and official page you&rsquo;ll need, in one place and kept current.</p>
-        <span class="go">Open the directory</span>
-      </a>
+<!-- ============ START HERE (14 Oct 2026, restructured from the registration guide review) ============ -->
+<section class="section rg-start" id="start">
+  <div class="wrap"><span id="do"></span>
+    <div class="rg-primary">
+      <div>
+        <span class="eyebrow">Start here</span>
+        <h2>Find your registration pathway</h2>
+        <p>A few questions about your profession and where you trained, and you see the official New Zealand route, what it is likely to ask of you, and the board that decides.</p>
+      </div>
+      <a class="btn btn-primary" href="/pathway-checker?destination=new-zealand">Check my registration pathway <span aria-hidden="true">&rarr;</span></a>
     </div>
-  </div>
-</section>
-
-<!-- ============ STICKY SECTION BAR ============ -->
-<nav class="secbar" aria-label="Sections of this guide">
-  <div class="wrap">
-    <a href="#start"><span class="lg">Four questions</span><span class="sm">Start</span></a>
-    <a href="#boards"><span class="lg">Your profession</span><span class="sm">Profession</span></a>
-    <a href="#faq"><span class="lg">Common questions</span><span class="sm">Questions</span></a>
-    <a class="act" href="/pathway-checker">Check my pathway <span aria-hidden="true">&rarr;</span></a>
-  </div>
-</nav>
-
-<!-- ============ INTRO ============ -->
-<section class="section" id="start">
-  <div class="wrap reading">
-    <span class="eyebrow">Before you commit</span>
-    <h2>Four things to explore first</h2>
-    <p class="rev-note" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;color:#2F5E49;margin:0 0 18px">Reviewed July 2026 &middot; checked against the current published guidance of each New Zealand registration board</p>
-    <p class="lead">Being qualified overseas does not automatically mean you can practise in New Zealand. Your options depend on your profession, qualifications, experience and right to work.</p>
-    <p>Some people have an established registration pathway. Others may need further assessment, examinations or supervised practice. Some will not meet the requirements.</p>
-    <ol class="four-q" style="list-style:none;padding:0;margin:28px 0 0;display:grid;gap:22px">
-      <li><h3 style="font-size:19px;margin:0 0 6px">1. Can I register in my profession?</h3><p style="margin:0 0 8px">Check whether your qualifications and experience meet your regulator&rsquo;s requirements, including any English language evidence or additional assessments. The regulator makes the registration decision.</p><a href="/pathway-checker?destination=new-zealand" style="font-weight:600">Explore my registration pathway <span aria-hidden="true">&rarr;</span></a></li>
-      <li><h3 style="font-size:19px;margin:0 0 6px">2. Are there suitable jobs for me?</h3><p style="margin:0 0 8px">Registration does not guarantee employment. Opportunities depend on your profession, experience, preferred location and employers&rsquo; current requirements.</p><a href="/jobs/" style="font-weight:600">Explore current opportunities <span aria-hidden="true">&rarr;</span></a></li>
-      <li><h3 style="font-size:19px;margin:0 0 6px">3. Do I meet the immigration requirements?</h3><p style="margin:0 0 8px">If you do not already have the right to work in New Zealand, you will need an appropriate visa. Requirements vary by visa and individual circumstances.</p><a href="/guides/new-zealand-visa" style="font-weight:600">Understand visas and work rights <span aria-hidden="true">&rarr;</span></a></li>
-      <li><h3 style="font-size:19px;margin:0 0 6px">4. Can I make the move work financially and practically?</h3><p style="margin:0 0 8px">Consider application fees, any assessments, relocation costs and the time involved, alongside your household&rsquo;s needs.</p><a href="/cost-calculator" style="font-weight:600">Explore costs and planning <span aria-hidden="true">&rarr;</span></a></li>
-    </ol>
-    <p style="margin-top:28px">You do not need every answer today. Start with your registration pathway, then explore the other requirements before making commitments.</p>
-  </div>
-</section>
-
-
-<!-- ============ HOW IT WORKS ============ -->
-<section class="section" style="background:var(--soft);">
-  <div class="wrap">
-    <span class="eyebrow">How registration works</span>
-    <h2 style="max-width:22ch;">Three things every board is checking</h2>
-    <p class="lead">The professions differ in detail, but underneath, each regulator is satisfying itself of the same three things before it lets you practise.</p>
-    <div class="how-grid">
-      <div class="how">
-        <span class="k">Qualifications</span>
-        <h3>You&rsquo;re properly trained</h3>
-        <p>Your degree and clinical training are assessed against New Zealand standards. Depending on your profession and where you trained, your qualification may be recognised directly, or you may need extra evidence, an assessment or an exam. Some qualifications will not meet the standard.</p>
-      </div>
-      <div class="how">
-        <span class="k">Competence</span>
-        <h3>You&rsquo;re safe and current</h3>
-        <p>Boards look at your recent experience, references and good standing with your current regulator, confirming you&rsquo;ve been practising and there&rsquo;s nothing on your record that would raise concern.</p>
-      </div>
-      <div class="how">
-        <span class="k">Communication</span>
-        <h3>You can communicate clearly</h3>
-        <p>Because clear communication keeps patients safe, most boards require evidence of English language ability, usually IELTS or OET, unless you trained and practised in English in a recognised country.</p>
-      </div>
-    </div>
+    <p class="rev-note" style="font-family:'Work Sans',sans-serif;font-weight:600;font-size:13px;color:#2F5E49;margin:26px 0 0">Reviewed July 2026 &middot; checked against the current published guidance of each New Zealand registration board</p>
+    <h2 class="rg-h">Four things to understand before you make the move</h2>
+    <p class="rg-lead">Being qualified overseas does not automatically mean you can practise here. Being eligible to apply is not the same as being approved: the board decides, and may add conditions such as supervised practice.</p>
+    <ul class="rg-four">
+      <li><a href="/pathway-checker?destination=new-zealand"><span class="rg-ic"><svg class="ic" width="26" height="26" aria-hidden="true" focusable="false"><use href="#ec-badge"/></svg></span><span class="rg-t"><b>Can I register?</b><span>Whether your qualifications and experience meet your board&rsquo;s requirements.</span></span><span class="rg-go" aria-hidden="true">&rsaquo;</span></a></li>
+      <li><a href="/jobs/"><span class="rg-ic"><svg class="ic" width="26" height="26" aria-hidden="true" focusable="false"><use href="#ec-briefcase"/></svg></span><span class="rg-t"><b>Can I find a job?</b><span>Registration does not guarantee a role. See what is open for your profession.</span></span><span class="rg-go" aria-hidden="true">&rsaquo;</span></a></li>
+      <li><a href="/guides/new-zealand-visa"><span class="rg-ic"><svg class="ic" width="26" height="26" aria-hidden="true" focusable="false"><use href="#ec-passport"/></svg></span><span class="rg-t"><b>Can I get a visa?</b><span>The work rights and visa requirements for you and your family.</span></span><span class="rg-go" aria-hidden="true">&rsaquo;</span></a></li>
+      <li><a href="/cost-calculator"><span class="rg-ic"><svg class="ic" width="26" height="26" aria-hidden="true" focusable="false"><use href="#ec-coins"/></svg></span><span class="rg-t"><b>Can I afford the move?</b><span>Fees, assessments, relocation costs and what you could earn.</span></span><span class="rg-go" aria-hidden="true">&rsaquo;</span></a></li>
+    </ul>
   </div>
 </section>
 
 <!-- ============ REGISTRATION BOARDS ============ -->
-<section class="section" id="boards" data-mobile-collapse>
+<section class="section" id="boards" style="background:var(--soft);">
   <div class="wrap">
     <span class="eyebrow">Find your regulator</span>
-    <h2>Who registers your profession</h2>
-    <p class="lead">Each profession has its own board, with its own process, fees and timelines. Start with yours.</p>
-    <div class="boards">
-      <div class="board">
-        <div class="roles">Radiographers · Sonographers · Mammographers · Nuclear medicine · MRI · Radiation therapists</div>
-        <div class="bmain">
-          <h3>Medical Radiation Technologists Board</h3>
-          <p>Registration is by scope of practice, so you are assessed against the specific modality you work in.</p>
-        </div>
-        <a href="https://www.mrtboard.org.nz" target="_blank" rel="noopener" class="lnk">mrtboard.org.nz</a>
-      </div>
-      <div class="board">
-        <div class="roles">Doctors · GPs · Consultant radiologists</div>
-        <div class="bmain">
-          <h3>Medical Council of New Zealand</h3>
-          <p>Pathways depend on your training, specialty and where you qualified. Most overseas-trained doctors register through a recognised pathway, often with a period of supervised practice.</p>
-        </div>
-        <a href="https://www.mcnz.org.nz" target="_blank" rel="noopener" class="lnk">mcnz.org.nz</a>
-      </div>
-      <div class="board">
-        <div class="roles">Physiotherapists</div>
-        <div class="bmain">
-          <h3>Physiotherapy Board of New Zealand</h3>
-          <p>Some applicants register directly; others complete an assessment of their qualifications and competence first.</p>
-        </div>
-        <a href="https://www.physioboard.org.nz" target="_blank" rel="noopener" class="lnk">physioboard.org.nz</a>
-      </div>
-      <div class="board">
-        <div class="roles">Occupational therapists</div>
-        <div class="bmain">
-          <h3>Occupational Therapy Board of New Zealand</h3>
-          <p>Assesses international qualifications against New Zealand standards, then grants registration and an annual practising certificate.</p>
-        </div>
-        <a href="https://www.otboard.org.nz" target="_blank" rel="noopener" class="lnk">otboard.org.nz</a>
-      </div>
-      <div class="board">
-        <div class="roles">Psychologists</div>
-        <div class="bmain">
-          <h3>New Zealand Psychologists Board</h3>
-          <p>Registers across several scopes of practice. Overseas-qualified applicants are assessed against the relevant scope, sometimes with supervised practice on the way to full registration.</p>
-        </div>
-        <a href="https://www.psychologistsboard.org.nz" target="_blank" rel="noopener" class="lnk">psychologistsboard.org.nz</a>
-      </div>
-      <div class="board">
-        <div class="roles">Anaesthetic technicians</div>
-        <div class="bmain">
-          <h3>Medical Sciences Council of New Zealand</h3>
-          <p>Also the regulator for medical laboratory science. Assesses qualifications and experience against the New Zealand scope and standards.</p>
-        </div>
-        <a href="https://www.mscouncil.org.nz" target="_blank" rel="noopener" class="lnk">mscouncil.org.nz</a>
-      </div>
-    </div>
-    <p class="boards-note">Boards set their own requirements and these can change. Always confirm the current detail at the source. Ethicare are recruitment specialists, not a registration authority; what we offer is experience of these pathways and help getting your application right.</p>
+    <h2>Find your registration authority</h2>
+    <label class="sr-only" for="bd-q">Search by profession or board</label>
+    <input id="bd-q" class="bd-q" type="search" placeholder="Search profession or board" autocomplete="off">
+    <ul class="bds">
+        <li class="bd"><div class="bd-t"><h3>Medical Radiation Technologists Board</h3><p class="bd-r">Radiographers, sonographers, mammographers, nuclear medicine, MRI and radiation therapists</p><p class="bd-d">Registration is by scope of practice, assessed against the modality you work in.</p><a class="bd-guide" href="/guides/new-zealand-registration-mrtb">Our step-by-step guide</a></div><a class="bd-visit" href="https://www.mrtboard.org.nz" target="_blank" rel="noopener">Visit <span aria-hidden="true">&#8599;</span><span class="sr-only"> Medical Radiation Technologists Board (opens in a new tab)</span></a></li>
+        <li class="bd"><div class="bd-t"><h3>Medical Council of New Zealand</h3><p class="bd-r">Doctors, GPs and specialists, including consultant radiologists</p><p class="bd-d">Pathways depend on your training, specialty and where you qualified; many include a period of supervised practice.</p><a class="bd-guide" href="/guides/new-zealand-registration-mcnz">Our step-by-step guide</a></div><a class="bd-visit" href="https://www.mcnz.org.nz" target="_blank" rel="noopener">Visit <span aria-hidden="true">&#8599;</span><span class="sr-only"> Medical Council of New Zealand (opens in a new tab)</span></a></li>
+        <li class="bd"><div class="bd-t"><h3>Physiotherapy Board of New Zealand</h3><p class="bd-r">Physiotherapists</p><p class="bd-d">Some applicants register directly; others are assessed first.</p><a class="bd-guide" href="/guides/new-zealand-registration-pbnz">Our step-by-step guide</a></div><a class="bd-visit" href="https://www.physioboard.org.nz" target="_blank" rel="noopener">Visit <span aria-hidden="true">&#8599;</span><span class="sr-only"> Physiotherapy Board of New Zealand (opens in a new tab)</span></a></li>
+        <li class="bd"><div class="bd-t"><h3>Occupational Therapy Board of New Zealand</h3><p class="bd-r">Occupational therapists</p><p class="bd-d">Assesses international qualifications against New Zealand standards.</p><a class="bd-guide" href="/guides/new-zealand-registration-otbnz">Our step-by-step guide</a></div><a class="bd-visit" href="https://www.otboard.org.nz" target="_blank" rel="noopener">Visit <span aria-hidden="true">&#8599;</span><span class="sr-only"> Occupational Therapy Board of New Zealand (opens in a new tab)</span></a></li>
+        <li class="bd"><div class="bd-t"><h3>New Zealand Psychologists Board</h3><p class="bd-r">Psychologists</p><p class="bd-d">Registers across several scopes; overseas applicants are assessed against the scope they apply for.</p><a class="bd-guide" href="/guides/new-zealand-registration-nzpb">Our step-by-step guide</a></div><a class="bd-visit" href="https://www.psychologistsboard.org.nz" target="_blank" rel="noopener">Visit <span aria-hidden="true">&#8599;</span><span class="sr-only"> New Zealand Psychologists Board (opens in a new tab)</span></a></li>
+        <li class="bd"><div class="bd-t"><h3>Medical Sciences Council of New Zealand</h3><p class="bd-r">Anaesthetic technicians and medical laboratory science</p><p class="bd-d">Assesses qualifications and experience against the New Zealand scope.</p><a class="bd-guide" href="/guides/new-zealand-registration-mscnz">Our step-by-step guide</a></div><a class="bd-visit" href="https://www.mscouncil.org.nz" target="_blank" rel="noopener">Visit <span aria-hidden="true">&#8599;</span><span class="sr-only"> Medical Sciences Council of New Zealand (opens in a new tab)</span></a></li>
+    </ul>
+    <p class="bd-none" hidden>No board matches that search. Try the <a href="/guides/new-zealand-contacts">full contacts directory</a>.</p>
+    <p class="boards-note">Boards set their own requirements and these can change, so always confirm the current detail with the board. Ethicare is a recruitment business, not a registration authority. Every board and official link is also in the <a href="/guides/new-zealand-contacts">contacts directory</a>.</p>
   </div>
 </section>
 
-<!-- ============ REGISTRATION JOURNEY ============ -->
-<section class="section" id="journey" data-mobile-collapse style="background:var(--soft);">
-  <div class="wrap">
-    <span class="eyebrow">The registration journey</span>
-    <h2>What the process usually looks like</h2>
-    <div class="regflow">
-      <div class="regstep"><span class="num">1</span><div><h3>Check your eligibility</h3><p>We look at your qualifications, experience and country of training together, and tell you which pathway fits and what the board will expect. This is where most uncertainty disappears.</p></div></div>
-      <div class="regstep"><span class="num">2</span><div><h3>Gather your documents</h3><p>Degree certificates, transcripts, proof of identity, references and a certificate of good standing from your current regulator. Some need to be certified or sent directly between bodies, so this stage rewards being organised early.</p></div></div>
-      <div class="regstep"><span class="num">3</span><div><h3>Sit any required English test</h3><p>If you need to evidence English, you&rsquo;ll book IELTS or OET. Many clinicians who trained and worked in English are exempt, we&rsquo;ll confirm whether this applies to you before you spend a penny.</p></div></div>
-      <div class="regstep"><span class="num">4</span><div><h3>Submit your application</h3><p>Your application and supporting evidence go to the board, with the relevant fee. From here it&rsquo;s an assessment process, and a job offer often runs in parallel rather than waiting until the end.</p></div></div>
-      <div class="regstep"><span class="num">5</span><div><h3>Registration &amp; scope of practice</h3><p>The board confirms your registration and the scope you can practise within. Some professions begin under a period of supervision; others move straight to general registration.</p></div></div>
-      <div class="regstep"><span class="num">6</span><div><h3>Annual practising certificate</h3><p>Registration is ongoing: you hold a current practising certificate, renewed each year, and keep up your professional development, exactly as you would at home.</p></div></div>
-    </div>
+<!-- ============ THE PROCESS ============ -->
+<section class="section" id="process">
+  <div class="wrap"><span id="journey"></span>
+    <span class="eyebrow">The registration process</span>
+    <h2>Four steps</h2>
+    <ol class="rg-steps">
+      <li><span class="n">1</span><b>Check your pathway</b><span>Your profession and where you trained decide the route.</span></li>
+      <li><span class="n">2</span><b>Gather your evidence</b><span>Qualifications, references, good standing and, if needed, English.</span></li>
+      <li><span class="n">3</span><b>Apply to your board</b><span>With the fee. The board assesses your application.</span></li>
+      <li><span class="n">4</span><b>Registration and practice</b><span>A scope of practice, then an annual practising certificate.</span></li>
+    </ol>
+    <p class="rg-fine">Additional examinations, supervision or other requirements depend on your profession and pathway.</p>
   </div>
 </section>
 
-<!-- ============ ENGLISH LANGUAGE ============ -->
-<section class="section" id="english" data-mobile-collapse>
-  <div class="wrap">
-    <span class="eyebrow">A common question</span>
-    <h2>English language requirements</h2>
-    <p class="lead">If you trained and have practised in English in a recognised country, you may not need a test; where evidence is required, two tests are widely accepted.</p>
-    <div class="eng">
-      <div class="eng-card">
-        <h3>The tests boards accept</h3>
-        <p>Each board sets its own required scores, and the healthcare versions of these tests are designed around real clinical communication.</p>
-        <div class="eng-tests">
-          <div class="eng-test"><b>IELTS</b><span>The Academic module is the one boards look for. A strong overall score with no weak individual band is the usual shape of the requirement.</span></div>
-          <div class="eng-test"><b>OET</b><span>Built specifically for healthcare, with reading, writing, listening and speaking set in clinical scenarios. Many clinicians find it the more natural fit.</span></div>
+<!-- ============ PRACTICAL DETAILS ============ -->
+<section class="section" id="details" style="background:var(--soft);">
+  <div class="wrap reading">
+    <span class="eyebrow">Practical details</span>
+    <h2>Before you apply</h2>
+    <div class="faq rg-more">
+      <details id="english">
+        <summary>Documents and English</summary>
+        <div class="ans">
+          <p>Boards ask for degree certificates, transcripts, proof of identity, references and a certificate of good standing from your current regulator. Some must be certified or sent directly between bodies, and they can take weeks to arrive, so start early.</p>
+          <p>Most boards need evidence of English unless you trained and practised in English in a recognised country. Each board publishes its exemptions and required scores. IELTS (Academic) and OET, which is built for healthcare, are the widely accepted tests. If you need to prepare, our endorsed partner <a href="https://swooshenglish.com" target="_blank" rel="noopener">Swoosh English</a> offers IELTS and OET preparation for healthcare professionals.</p>
         </div>
-        <p style="margin-top:16px;">We&rsquo;ll always check whether you&rsquo;re exempt before recommending a test, and which test plays to your strengths if you do need one.</p>
-      </div>
-      <div class="eng-partner">
-        <span class="tag">Partner we trust</span>
-        <h3>Swoosh English</h3>
-        <p>If you do need to sit a test, you won&rsquo;t be left to figure it out alone. We work with Swoosh English: friendly, focused IELTS and OET preparation built for healthcare professionals, so the language test becomes the least of your worries.</p>
-        <a href="https://swooshenglish.com" target="_blank" rel="noopener" class="lnk">Visit Swoosh English</a>
-      </div>
+      </details>
+      <details id="timeframe">
+        <summary>Fees and timelines</summary>
+        <div class="ans">
+          <p>Applications, English tests, assessments, exams and certified documents each carry a cost, and they vary by board and profession. For some candidates the total is significant, so budget for it early with the <a href="/cost-calculator">cost calculator</a>.</p>
+          <p>Getting documents together usually takes weeks; the board&rsquo;s assessment usually takes months, depending on your profession and pathway. Your job offer and visa normally progress at the same time, so you do not have to be registered before you apply for roles. Some pathways begin with a period of supervised practice.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
 
 <!-- ============ SOPHIE'S INSIGHT ============ -->
-<section class="section" style="background:var(--soft);">
+<section class="section">
   <div class="wrap">
     <div class="sophie">
       <div class="photo"><img src="../assets/photo-sophie.jpg" alt="Sophie Careem, founder of Ethicare Resourcing" loading="lazy" decoding="async" width="1254" height="1254"></div>
       <div>
         <span class="k">Sophie&rsquo;s insight</span>
-        <p>Registration is the part that worries people most. The mistake I see is leaving it too late: gathering documents and good-standing certificates takes longer than anyone expects, and a slow reference can hold up an otherwise strong application. So my advice is simple: check your route first, start the paperwork early and keep everything in one folder.</p>
+        <p>The mistake I see most is leaving registration too late. Documents and good-standing certificates take longer than anyone expects. Check your route first, start the paperwork early and keep everything in one folder.</p>
         <p class="sign">Sophie<span>CEO &amp; Founder, Ethicare Resourcing</span></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ GOOD TO KNOW / TRADE-OFFS ============ -->
-<section class="section">
-  <div class="wrap">
-    <span class="eyebrow">Worth knowing</span>
-    <h2>What&rsquo;s worth knowing before you start</h2>
-    <div class="tradeoffs">
-      <div class="trade"><span class="num">1</span><div><h3>Start earlier than feels necessary</h3><p>Certified documents and certificates of good standing can take weeks to arrive. The single biggest cause of delay is starting late, so begin gathering paperwork as soon as you&rsquo;re serious.</p></div></div>
-      <div class="trade"><span class="num">2</span><div><h3>There are fees along the way</h3><p>Registration applications, English tests, assessments and document certification each carry a cost. They vary by board and profession, so budget for them from the outset.</p></div></div>
-      <div class="trade"><span class="num">3</span><div><h3>Some pathways include supervision</h3><p>Depending on your profession and training, you may begin under a period of supervised practice. It&rsquo;s a normal, supportive runway into the New Zealand system, not a mark against you.</p></div></div>
-      <div class="trade"><span class="num">4</span><div><h3>Registration and the job run together</h3><p>You don&rsquo;t have to be fully registered before you start applying for roles. Registration, a job offer and your visa typically progress alongside one another, which is exactly where we help keep things moving.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TIMEFRAME ============ -->
-<section class="section" id="timeframe" data-mobile-collapse style="background:var(--soft);">
-  <div class="wrap">
-    <span class="eyebrow">How long does it take?</span>
-    <h2 style="max-width:24ch;">The timeline</h2>
-    <div class="tf">
-      <p class="lead" style="max-width:64ch;">Your profession, country of training and how quickly documents arrive all move the numbers. Starting early keeps them at the shorter end.</p>
-      <div class="tf-grid">
-        <div class="tf-item">
-          <div class="n">Weeks</div>
-          <div class="l">Getting documents together</div>
-          <div class="s">Transcripts, references and a certificate of good standing, the part most within your control.</div>
-        </div>
-        <div class="tf-item">
-          <div class="n">Months</div>
-          <div class="l">Board assessment</div>
-          <div class="s">From submitting a complete application to a registration decision. Varies by profession and pathway.</div>
-        </div>
-        <div class="tf-item">
-          <div class="n">Parallel</div>
-          <div class="l">Job &amp; visa alongside</div>
-          <div class="s">Registration rarely happens in isolation: your role and visa usually progress at the same time.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ FAQ ============ -->
-<section class="section" id="faq">
-  <div class="wrap">
+<section class="section" id="faq" style="background:var(--soft);">
+  <div class="wrap reading">
     <span class="eyebrow">Common questions</span>
-    <h2>The things people ask us first</h2>
+    <h2>The things people ask first</h2>
     <div class="faq">
-      <details open>
-        <summary>Do I need a job offer before I can register?</summary>
-        <div class="ans"><p>Usually not to begin the process, but the two are closely linked. For some professions a position or supervisor is part of the registration pathway, while for others you can register independently. In practice, registration, a job offer and your visa tend to move together, and that&rsquo;s exactly the choreography we help manage so nothing stalls waiting on something else.</p></div>
-      </details>
-      <details>
-        <summary>Will my overseas qualification be recognised?</summary>
-        <div class="ans"><p>For most clinicians from comparable healthcare systems, yes, though the route varies. Some qualifications are recognised directly; others are confirmed through an assessment, and occasionally a period of supervised practice. The answer depends on your profession and where you trained, which is the first thing we&rsquo;ll look at with you.</p></div>
-      </details>
-      <details>
-        <summary>Do I definitely have to sit an English test?</summary>
-        <div class="ans"><p>Not necessarily. Many clinicians who trained and have practised in English in a recognised country are exempt. Where evidence is required, IELTS (Academic) and OET are the widely accepted tests. We&rsquo;ll check whether an exemption applies to you before you book anything, and if you do need a test, our partners at Swoosh English will help you prepare.</p></div>
-      </details>
-      <details>
-        <summary>How much does registration cost?</summary>
-        <div class="ans"><p>Each board sets its own application and annual practising certificate fees, and there can be additional costs for English tests and certifying documents. For some candidates the total is significant, especially where an assessment or exam is needed, so budget for it early. The cost calculator helps you set it out.</p></div>
-      </details>
-      <details>
-        <summary>What if my situation is unusual?</summary>
-        <div class="ans"><p>Career breaks, training in more than one country, a niche specialty or a less common qualification can all change your route, and some situations will not meet the requirements. The pathway checker shows where you are likely to stand; the board makes the final decision.</p></div>
-      </details>
+<details open><summary>Do I need a job offer before I can register?</summary><div class="ans"><p>Usually not to begin the process. For some professions a position or supervisor is part of the registration pathway; for others you can register independently. In practice, registration, a job offer and your visa tend to move together.</p></div></details>
+<details><summary>Will my overseas qualification be recognised?</summary><div class="ans"><p>Some overseas qualifications are recognised through established pathways, while others need further assessment, examinations or supervised practice. Eligibility depends on your profession, qualifications and individual circumstances. Your registration board makes the final decision.</p></div></details>
+<details><summary>Do I definitely have to sit an English test?</summary><div class="ans"><p>Not necessarily. Many clinicians who trained and practised in English in a recognised country are exempt. Each board publishes who is exempt, so check its policy before you book a test. Where evidence is needed, IELTS (Academic) and OET are the widely accepted tests.</p></div></details>
+<details><summary>How much does registration cost?</summary><div class="ans"><p>Each board sets its own application and annual practising certificate fees, and there can be extra costs for English tests, assessments, exams and certifying documents. For some candidates the total is significant, so budget for it early. The cost calculator helps you set it out.</p></div></details>
+<details><summary>What if my situation is unusual?</summary><div class="ans"><p>Career breaks, training in more than one country, a niche specialty or a less common qualification can all change your route, and some situations will not meet the requirements. The pathway checker shows where you are likely to stand; the board makes the final decision.</p></div></details>
     </div>
   </div>
 </section>
 
-<!-- ============ NEXT STEP + RELATED ============ -->
-<section class="section" style="background:var(--soft);">
+<!-- ============ NEXT STEP ============ -->
+<section class="section">
   <div class="wrap">
     <div class="nextstep">
       <div class="meta">
-        <span class="k">Next · Stage 06</span>
-        <h2>CV &amp; interview preparation</h2>
-        <p>With your pathway to registration clear, the next step is presenting yourself well, a CV that speaks to New Zealand employers, and calm, practical preparation for the interview.</p>
+        <span class="k">Next &middot; Stage 04</span>
+        <h2>Make the numbers work</h2>
+        <p>What you could earn, what the move costs, and what is left after tax and rent.</p>
       </div>
-      <a href="/guides/new-zealand-interview" class="btn btn-light">Continue to Stage 06</a>
+      <a href="/what-could-i-earn" class="btn btn-light">Continue to Stage 04</a>
     </div>
-
-    <div style="margin-top:40px;">
-      <span class="eyebrow">Helpful alongside this step</span>
-      <h2 style="font-size:clamp(22px,3vw,28px);">Read a little deeper</h2>
-      <div class="related-grid">
-        <a href="/guides/new-zealand-contacts" class="rel">
-          <span class="k">Reference</span>
-          <h3>Useful contacts &amp; websites</h3>
-          <p>Every registration board and official link, gathered in one place.</p>
-          <span class="go">Open directory</span>
-        </a>
-        <a href="/destinations/new-zealand-relocation-guide" class="rel">
-          <span class="k">The national guide</span>
-          <h3>Moving to New Zealand</h3>
-          <p>The complete practical guide to the move: healthcare, banking, housing and settling in.</p>
-          <span class="go">Open the guide</span>
-        </a>
-        <a href="/guides/new-zealand-visa" class="rel">
-          <span class="k">Stage 07</span>
-          <h3>Immigration &amp; visas</h3>
-          <p>Green List pathways and the visa that runs alongside your registration.</p>
-          <span class="go">Look ahead</span>
-        </a>
-      </div>
-    </div>
+    <p class="rg-also">Also useful now: <a href="/plan">save your progress in Plan Ethicare</a> &middot; <a href="/guides/new-zealand-interview">CV and interview preparation</a> &middot; <a href="/guides/new-zealand-visa">visas and work rights</a></p>
   </div>
 </section>
 
-<!-- ============ FINAL CTA ============ -->
-<section class="section">
-  <div class="wrap">
-    <div class="final">
-      <span class="eyebrow">Free, any time</span>
-      <h2>Not sure which pathway is yours?</h2>
-      <p>The pathway checker shows what registration looks like for your profession and where you trained.</p>
-      <div class="btn-row">
-        <a href="/pathway-checker" class="btn btn-primary">Check your registration pathway</a>
-        <a href="/jobs/" class="btn btn-secondary">Browse current opportunities</a>
-      </div>
-      <p class="small">Ethicare Resourcing · your guide to a life and career in New Zealand.</p>
-    </div>
-  </div>
-</section>
+<script>
+/* Board search (14 Oct 2026) */
+(function(){var q=document.getElementById('bd-q');if(!q)return;var rows=document.querySelectorAll('.bds .bd'),none=document.querySelector('.bd-none');
+q.addEventListener('input',function(){var t=q.value.trim().toLowerCase(),n=0;rows.forEach(function(r){var ok=!t||r.textContent.toLowerCase().indexOf(t)>-1;r.hidden=!ok;if(ok)n++;});if(none)none.hidden=n>0;});})();
+</script>
+<script>(function(){function o(){var h=location.hash.slice(1);if(!h)return;var e=document.getElementById(h);if(e&&e.tagName==="DETAILS")e.open=true;}o();window.addEventListener("hashchange",o);})();</script>
 
 <div class="shell" style="padding:clamp(36px,5vw,64px) 0 clamp(44px,6vw,76px)"><page-feedback to="Sophie"></page-feedback></div>
 </main>

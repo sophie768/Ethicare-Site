@@ -223,7 +223,7 @@
           + '<ul class="df-rpros">' + d.pros.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul>'
           + '<p class="df-rcons"><strong>The honest bit:</strong> ' + d.cons + '</p>'
           + '<a class="df-rlink" href="' + d.guide + '">Read the ' + d.name + ' guide &rarr;</a></div></div>';
-      }).join('') + '<p class="df-note">These are suggestions based on your answers, not a recommendation. Visit if you possibly can &mdash; a week in a place tells you something no page can. If you are torn between two, <a href="/ask">ask Ethicare to compare them</a>.</p>';
+      }).join('') + '<div class="df-save"><button type="button" class="df-savebtn" data-df-save>Save these three to my plan</button><span class="df-saved" data-df-saved aria-live="polite"></span></div>' + '<p class="df-note">These are suggestions based on your answers, not a recommendation. Visit if you possibly can &mdash; a week in a place tells you something no page can. If you are torn between two, <a href="/ask">ask Ethicare to compare them</a>.</p>';
       /* Keep the supporting guides on the page in the country of the results (8 Oct 2026):
          an Australian result was pointing families at the New Zealand family and community guides. */
       try {
@@ -236,6 +236,32 @@
         });
       } catch (e) {}
       try { out.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } catch (e) {}
+      /* Save the shortlist into Plan Ethicare (14 Oct 2026). Same store as the "Save this" button
+         on every page (journey-nav.js), so the three guides appear under saved guides in the plan. */
+      var sv = out.querySelector('[data-df-save]');
+      if (sv) sv.addEventListener('click', function () {
+        try {
+          var KEY = 'ethicare_saved_v1', o = JSON.parse(localStorage.getItem(KEY) || '{}');
+          if (!o || typeof o !== 'object') o = {}; if (!Array.isArray(o.items)) o.items = [];
+          top3.slice().reverse().forEach(function (d) {
+            o.items = o.items.filter(function (it) { return it.u !== d.guide; });
+            o.items.unshift({ u: d.guide, t: d.name + ' (from your destination finder)', k: 'Destination', ts: Date.now() });
+          });
+          if (o.items.length > 60) o.items.length = 60;
+          localStorage.setItem(KEY, JSON.stringify(o));
+          /* and into My File (mymove.js), which is the 'Your file' list on the plan page */
+          var MF = 'ethicare_myfile_v1', f = JSON.parse(localStorage.getItem(MF) || '{}') || {};
+          f.saved = f.saved || {};
+          top3.forEach(function (d) { var u = d.guide.replace(/\/index\.html$/, '/').replace(/\.html$/, ''); f.saved[u] = { t: d.name + ' (from your destination finder)', ts: Date.now() }; });
+          f.updated = Date.now(); localStorage.setItem(MF, JSON.stringify(f));
+          sv.textContent = 'Saved to your plan';
+          sv.disabled = true;
+          out.querySelector('[data-df-saved]').innerHTML = '<a href="/plan#myfile">See them in your plan &rarr;</a>';
+          if (window.track) window.track('destination_finder_save', { top: top3.map(function (d) { return d.id; }).join(',') });
+        } catch (e) {
+          out.querySelector('[data-df-saved]').textContent = 'This browser is not letting us save. Note them down, or use the guide links above.';
+        }
+      });
       try { if (window.track) window.track('destination_finder_run', { country: a.country, top: top3.map(function (d) { return d.id; }).join(',') }); } catch (e) {}
     });
     ready();
