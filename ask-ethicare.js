@@ -144,6 +144,35 @@
     return { body: lines.join('\n').trim(), ids: ids, handoff: handoff };
   }
 
+
+  /* 14 Oct 2026 (Sophie: "when someone clicks on the pathway it takes them to the checker but
+     social worker is highlighted"). The checker seeds its profession from whatever the site
+     remembers, which is right on a cold visit and wrong straight after a question about a
+     different job. So the card carries the profession the question itself names, and the
+     destination if it names one: ?profession= wins over the remembered answer on the checker. */
+  var PROF_RX = [
+    ['radiologist', /\bradiolog/i], ['anaesthetist', /\banaesthetist|\banesthesiolog/i], ['psychiatrist', /\bpsychiatr/i],
+    ['emergency-medicine', /\bemergency (medicine|physician|consultant)|\bED consultant|\bFACEM/i], ['gp', /\bGP\b|general practi/i],
+    ['specialist-doctor', /\bconsultant\b|\bspecialist\b|\bphysician\b|\bsurgeon\b|\bpaediatrician|\bobstetric|\bSMO\b|\bfellowship/i],
+    ['doctor', /\bdoctor|\bregistrar|\bRMO\b|\bhouse officer|\bmedical officer|\bMBBS|\bMBChB/i],
+    ['mri', /\bMRI\b/i], ['nuclear-medicine', /nuclear med|\bNMT\b/i], ['radiation-therapist', /radiation therap|radiotherap/i],
+    ['sonographer', /sonograph|ultrasound/i], ['radiographer', /radiograph|\bMIT\b|medical imaging/i],
+    ['physiotherapist', /physio/i], ['occupational-therapist', /occupational therap|\bOT\b/i], ['psychologist', /psycholog/i],
+    ['speech-language-therapist', /speech/i], ['dietitian', /dietit|dietic/i], ['social-worker', /social work/i],
+    ['anaesthetic-technician', /anaesthetic tech|\bODP\b|operating department/i], ['midwife', /midwi/i], ['registered-nurse', /\bnurs/i]
+  ];
+  function pathwayHref() {
+    var q = '';
+    for (var i = history.length - 1; i >= 0; i--) if (history[i].role === 'user') { q = history[i].content; break; }
+    var prof = '';
+    for (var j = 0; j < PROF_RX.length; j++) if (PROF_RX[j][1].test(q)) { prof = PROF_RX[j][0]; break; }
+    var nz = /new zealand|\bnz\b|aotearoa/i.test(q), au = /australia/i.test(q);
+    var dst = nz && !au ? 'new-zealand' : au && !nz ? 'australia' : nz && au ? 'both' : '';
+    var qs = [];
+    if (prof) qs.push('profession=' + prof);
+    if (prof && dst) qs.push('destination=' + dst);
+    return '/pathway-checker' + (qs.length ? '?' + qs.join('&') : '');
+  }
   function actionsHtml(ids, handoff) {
     var h = '';
     if (handoff) h += '<div class="aske-handoff"><p><strong>This might be worth talking through with someone.</strong> A person reads every message.</p><a href="/contact?from=ask">Talk to the Ethicare team &rarr;</a></div>';
@@ -155,7 +184,7 @@
     if (ids.length) h += '<div class="aske-acts">' + ids.map(function (id) {
       var r = KB.resources[id];
       var ext = /^https?:/.test(r.u);
-      return '<a class="aske-act" href="' + (id === 'talk_to_team' ? '/contact?from=ask' : r.u) + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '><span class="at">' + r.t + '</span><span class="ad">' + r.d + '</span><span class="ag" aria-hidden="true">&rarr;</span></a>';
+      return '<a class="aske-act" href="' + (id === 'talk_to_team' ? '/contact?from=ask' : id === 'pathway_checker' ? pathwayHref() : r.u) + '"' + (ext ? ' target="_blank" rel="noopener"' : '') + '><span class="at">' + r.t + '</span><span class="ad">' + r.d + '</span><span class="ag" aria-hidden="true">&rarr;</span></a>';
     }).join('') + '</div>';
     return h;
   }
@@ -217,6 +246,13 @@
       var raw = await askLLM(history.slice(-12));
       history.push({ role: 'assistant', content: raw });
       var p = parse(raw);
+      /* 14 Oct 2026: a blank answer with two cards under it was seen on the live site. Never
+         show that: if parsing left nothing, show the raw text; if there was no text at all,
+         treat it as a failure so the reader gets the retry button rather than silence. */
+      if (!p.body) {
+        if (String(raw || '').trim()) p.body = String(raw).replace(/^[ \t>*#_]*\**\s*(NEXT[ _]?ACTIONS|HANDOFF).*$/gim, '').trim();
+        if (!p.body) { try { console.warn('ask-ethicare: empty answer', raw); } catch (e0) {} var eEmpty = new Error('empty'); eEmpty.status = 'empty'; throw eEmpty; }
+      }
       /* An answer with nothing to click is the one outcome the whole feature exists to avoid,
          so a parse miss or an omitted block falls back rather than ending in a dead stop. */
       /* Filter BEFORE the routed test, not only at render time: an answer whose ids are all

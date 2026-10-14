@@ -2097,7 +2097,24 @@
     var q = (location.search.match(/[?&]profession=([^&]+)/) || [])[1];
     if (q) {
       var id = decodeURIComponent(q), d0 = D();
-      if (d0 && d0.professions.some(function (p) { return p.id === id; })) { st.answers.profession = id; st.step = id === 'other' ? 1 : 2; }
+      if (d0 && d0.professions.some(function (p) { return p.id === id; })) {
+        st.answers.profession = id; st.step = id === 'other' ? 1 : 2;
+        /* 14 Oct 2026 (Sophie): arriving from Ask Ethicare with ?profession= used to leave the
+           answers strip showing whatever the site remembered ("Social work") while the checker
+           itself had moved on to the new profession. Write the link's profession back to the
+           shared answers, so the strip and the checker agree. The doctor ids all map to the
+           portal's single 'medicine' key. */
+        try {
+          var ctxW = window.EthicareContext, CKw = (window.ETHICARE_PROFESSIONS && window.ETHICARE_PROFESSIONS.checker) || {}, revW = {};
+          for (var kw in CKw) if (CKw[kw]) revW[CKw[kw]] = kw;
+          if (/^(gp|radiologist|anaesthetist|emergency-medicine|psychiatrist|specialist-doctor|doctor)$/.test(id)) revW[id] = 'medicine';
+          if (id === 'mri') revW[id] = 'imaging';
+          var patchW = {}; if (revW[id]) patchW.profession = revW[id];
+          var qdW = (location.search.match(/[?&]destination=([^&]+)/) || [])[1];
+          if (qdW === 'australia') patchW.dest = 'au'; else if (qdW === 'new-zealand') patchW.dest = 'nz'; else if (qdW === 'both') patchW.dest = 'both';
+          if (ctxW && ctxW.write && (patchW.profession || patchW.dest)) ctxW.write(patchW);
+        } catch (eW) {}
+      }
     }
     var qd = (location.search.match(/[?&]destination=([^&]+)/) || [])[1];
     if (qd) {
