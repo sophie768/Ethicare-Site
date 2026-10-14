@@ -24,7 +24,7 @@ const MODEL_OPENAI = 'gpt-4o';
 /* 14 Oct 2026: 1200 tokens took longer than Netlify's 10-second function limit on a
    multi-part question, so the page showed "could not answer". 700 fits inside it; raise it
    again once Netlify has lifted the limit and ASK_TIMEOUT_MS is set. */
-const MAX_TOKENS = 700;
+const MAX_TOKENS = 900;
 const MAX_BODY = 24000;
 const MAX_TURNS = 12;
 const ALLOWED = ['https://ethicareresourcing.com', 'https://www.ethicareresourcing.com', 'https://ethicareresourcing.netlify.app'];
@@ -228,6 +228,40 @@ function addEndorsementNote(text) {
 function cleanLinks(text) {
   return String(text || '').replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function (m, t, u) { return linkAllowed(u) ? m : t; });
 }
+/* 14 Oct 2026 (Sophie). The cards under an answer must fit the question: visa questions lead
+   with the visa guide, registration questions with the pathway checker, job questions with the
+   vacancies. The model chooses the ids, but it put the pathway checker first under a visa
+   answer, so the block is reshaped here: the id the question calls for goes first (added if
+   missing), and an answer that lost its block — cut off at the token cap — gets one built from
+   the question instead of no cards at all. */
+const RE_ACTIONS = /\n[ \t>*#_]*\**\s*NEXT[ _]?ACTIONS\s*:?\s*\**[ \t]*([a-z_, \t\n]*)$/i;
+function leadIds(q, c) {
+  const t = String(q || '').toLowerCase();
+  const au = /australia|queensland|victoria|nsw|new south wales|perth|brisbane|melbourne|sydney|adelaide|tasmania|ahpra|482/.test(t);
+  const nz = /new zealand|\bnz\b|auckland|wellington|christchurch|gisborne|hamilton|dunedin|tauranga|palmerston|aewv|green list/.test(t);
+  const dest = au && !nz ? 'au' : nz && !au ? 'nz' : (c && c.dest === 'au' ? 'au' : c && c.dest === 'nz' ? 'nz' : '');
+  const ids = [];
+  if (/\bvisa|immigration|residen|sponsor|green list|482|aewv/.test(t)) ids.push(dest === 'au' ? 'au_visa' : 'nz_visa', dest ? '' : 'au_visa');
+  if (/\bjobs?\b|vacanc|\brole|position|hiring|recruit|opening|apply/.test(t)) ids.push('jobs');
+  if (/regist|pathway|licen|ahpra|mrpba|council|board|qualif|recogni/.test(t)) ids.push('pathway_checker');
+  if (/\bpay\b|paid|salary|salaries|earn|income|take.home|\btax|wage/.test(t)) ids.push('take_home_pay', dest === 'au' ? 'au_salary' : 'nz_salary');
+  if (/family|partner|spouse|child|school|kids|wife|husband/.test(t)) ids.push(dest === 'au' ? 'au_family' : 'nz_family');
+  if (/\bcost|afford|budget|expensive|relocat/.test(t)) ids.push('cost_calculator');
+  if (/where.*(live|suit)|which (city|town|region)|destination/.test(t)) ids.push('where_to_live');
+  return ids.filter(function (id, i, a) { return id && RESOURCES[id] && a.indexOf(id) === i; });
+}
+function shapeActions(text, question, context) {
+  const t = String(text || '');
+  const lead = leadIds(question, context);
+  const m = t.match(RE_ACTIONS);
+  let ids = m ? m[1].split(/[\n,]/).map(function (x) { return x.trim().toLowerCase(); }).filter(function (x) { return RESOURCES[x]; }) : [];
+  if (!lead.length && ids.length) return t;
+  ids = lead.concat(ids.filter(function (id) { return lead.indexOf(id) === -1; }));
+  if (!ids.length) ids = ['pathway_checker', 'move_planner'];
+  ids = ids.slice(0, 4);
+  const body = m ? t.slice(0, m.index).replace(/\s+$/, '') : t.replace(/\s+$/, '');
+  return body + '\n\nNEXT_ACTIONS\n' + ids.join('\n');
+}
 
 const RESOURCES = {
   pathway_checker: 'Registration pathway checker',
@@ -351,6 +385,7 @@ const SYSTEM = [
      Health NZ's International Recruitment Centre or its immigration service either — it is a
      competitor for the same candidates. Official bodies only. */
   'VISAS. Ethicare does not give immigration advice and has no visa partner. Never name, recommend, or suggest looking for a visa company, immigration adviser, migration agent or immigration lawyer, and never say Ethicare can connect someone with one. Never mention Health New Zealand\u2019s International Recruitment Centre or its immigration service, or any employer\u2019s recruitment service. For anything about eligibility, visa choice, conditions, fees or processing times, direct them to the official source and nothing else: Immigration New Zealand for New Zealand, the Australian Department of Home Affairs for Australia. Describe routes only in the general terms the nz_visa and au_visa guides use, and say the official site decides.',
+  '- Shape of a visa answer: lead with the likely routes for their profession and destination (for New Zealand usually the Accredited Employer Work Visa, and for Green List occupations the Straight to Residence or Work to Residence visas; for Australia usually the employer-sponsored 482 route, with permanent routes after it), in the general terms the guides use, with the official site named as the decider. The "Ethicare does not give immigration advice" line is one short sentence at the END, not the opening. Under NEXT_ACTIONS put nz_visa or au_visa first, before pathway_checker. If the destination is not known from the question or what they have told the site, give one line for each country and end with: Are you looking at New Zealand or Australia?',
   '- If they ask who can advise them on their own visa, say: Immigration New Zealand, or the Department of Home Affairs for Australia — and that Ethicare does not give immigration advice or recommend an adviser.',
   '- What Ethicare does do (Sophie, 6 Oct 2026): for the candidates it places, it supports them through the visa process where it can — the practical side, the paperwork and the sequence, alongside the employer — and some employers have their own in-house immigration services, which Ethicare will tell its candidates about when their employer does. Say this when someone asks what help they would get; never name the employer, never promise what a particular employer offers, and never present it as immigration advice.',
   '- If they ask whether they need an adviser or agent, or mention paying for one, say this (Sophie\u2019s words, 6 Oct 2026): visa agents can be expensive and are not always necessary if you have the time to navigate the process yourself; many people do, and it can save a good deal of money. The official sites set out each route step by step, and an employer-sponsored route is usually the employer\u2019s process as much as the candidate\u2019s. Put it as a choice, not advice: some people value having someone else carry it, and a complicated history is a fair reason to.',
@@ -452,13 +487,22 @@ function contextBlock(c) {
     (c.dest === 'both' ? '\nThey are comparing the two countries: answer for both, side by side, unless the question names one.' : '');
 }
 
-function buildSystem(jobs, context, messages) {
-  const ctx = contextBlock(context);
-  const ground = groundingBlock(messages || [], context);
+/* The prompt in two parts: the fixed rules and resource list (identical on every call, so the
+   API can cache it and skip re-reading ~6k tokens each time — a second or two off every answer
+   inside Netlify's 10-second limit), then the per-question part: live roles, what the person
+   has told the site, and the grounding sections for this question. */
+function buildStatic() {
   return SYSTEM +
     '\n\nResource ids you may return under NEXT_ACTIONS:\n' +
-    Object.keys(RESOURCES).map(function (k) { return k + ' = ' + RESOURCES[k]; }).join('\n') +
-    '\n\n' + jobsBlock(jobs) + (ctx ? '\n\n' + ctx : '') + (ground ? '\n\n' + ground : '');
+    Object.keys(RESOURCES).map(function (k) { return k + ' = ' + RESOURCES[k]; }).join('\n');
+}
+function buildDynamic(jobs, context, messages) {
+  const ctx = contextBlock(context);
+  const ground = groundingBlock(messages || [], context);
+  return jobsBlock(jobs) + (ctx ? '\n\n' + ctx : '') + (ground ? '\n\n' + ground : '');
+}
+function buildSystem(jobs, context, messages) {
+  return buildStatic() + '\n\n' + buildDynamic(jobs, context, messages);
 }
 
 exports.handler = async function (event) {
@@ -506,8 +550,15 @@ exports.handler = async function (event) {
       const started = Date.now();
       const search = process.env.ASK_WEB_SEARCH === 'on' && budget >= 20000 && (OFFICIAL.search || []).length;
       const headers = { 'Content-Type': 'application/json', 'x-api-key': anthropicKey, 'anthropic-version': '2023-06-01' };
+      /* 14 Oct 2026. Every answer took about six seconds whatever its visible length, answers were
+         cut mid-word at 60–90 words, and harder questions came back with no text at all: the
+         output budget was being spent before the visible answer. Hidden reasoning is switched
+         off explicitly so the whole budget goes on the answer; if the API ever rejects the flag
+         the call is repeated without it. */
+      let noThinking = true;
       async function call(msgs, withSearch) {
-        const body = { model: MODEL_ANTHROPIC, max_tokens: MAX_TOKENS, system: system, messages: msgs };
+        const body = { model: MODEL_ANTHROPIC, max_tokens: MAX_TOKENS, system: [{ type: 'text', text: buildStatic(), cache_control: { type: 'ephemeral' } }, { type: 'text', text: buildDynamic(payload.jobs, payload.context, messages) }], messages: msgs };
+        if (noThinking) body.thinking = { type: 'disabled' };
         if (withSearch) body.tools = [{ type: 'web_search_20250305', name: 'web_search', max_uses: 2, allowed_domains: OFFICIAL.search }];
         const ctl = new AbortController();
         const left = Math.max(1500, budget - (Date.now() - started));
@@ -517,10 +568,24 @@ exports.handler = async function (event) {
           r = await fetch('https://api.anthropic.com/v1/messages', { method: 'POST', signal: ctl.signal, headers: headers, body: JSON.stringify(body) });
         } finally { clearTimeout(timer); }
         if (!r.ok) {
-          console.error('ask-ethicare: Anthropic ' + r.status + ' \u2014 ' + (await r.text()).slice(0, 500));
+          const err = (await r.text()).slice(0, 500);
+          console.error('ask-ethicare: Anthropic ' + r.status + ' \u2014 ' + err);
+          if (r.status === 400 && noThinking && /thinking/i.test(err) && budget - (Date.now() - started) > 3000) { noThinking = false; return call(msgs, withSearch); }
           return null;
         }
         return r.json();
+      }
+      /* An answer that hit the token cap ends mid-word. Cut it back to the last complete
+         sentence so it reads as finished, and log it so the cap can be looked at. */
+      function finish(d, t) {
+        if (!d || d.stop_reason !== 'max_tokens') return t;
+        console.warn('ask-ethicare: answer hit max_tokens (' + t.length + ' chars)');
+        if (RE_ACTIONS.test(t)) return t; /* the answer finished; only the block was clipped */
+        /* Back to the last complete sentence, and say so: a reader should never meet a cut
+           mid-word. The cards that follow are rebuilt from the question by shapeActions. */
+        const cut = Math.max(t.lastIndexOf('. '), t.lastIndexOf('.\n'), t.lastIndexOf('?\n'), t.lastIndexOf('!\n'));
+        const kept = cut > 80 ? t.slice(0, cut + 1) : t.replace(/\s+\S*$/, '') + '…';
+        return kept + '\n\nThat is the short version. The pages below carry the rest, and you can ask me to go deeper on any part of it.';
       }
       function textOf(d) { return (d && d.content || []).filter(function (b) { return b.type === 'text'; }).map(function (b) { return b.text; }).join('').trim(); }
       let msgs = messages.slice();
@@ -541,6 +606,7 @@ exports.handler = async function (event) {
         if (budget - (Date.now() - started) > 3000) {
           const d2 = await call(messages, false);
           text = textOf(d2);
+          if (text) d = d2;
         }
       }
       if (!text) {
@@ -549,7 +615,9 @@ exports.handler = async function (event) {
         const dbg = event.queryStringParameters && event.queryStringParameters.debug === '1';
         return json(502, dbg ? { error: 'Empty answer', stop_reason: d && d.stop_reason, blocks: ((d && d.content) || []).map(function (b) { return b.type + (b.text ? ':' + b.text.slice(0, 80) : ''); }), usage: d && d.usage, model: d && d.model } : { error: 'Empty answer' });
       }
-      return json(200, { text: addEndorsementNote(cleanLinks(text)) });
+      const out = addEndorsementNote(cleanLinks(shapeActions(finish(d, text), messages[messages.length - 1].content, payload.context)));
+      const dbgOk = event.queryStringParameters && event.queryStringParameters.debug === '1';
+      return json(200, dbgOk ? { text: out, stop_reason: d && d.stop_reason, blocks: ((d && d.content) || []).map(function (b) { return b.type; }), usage: d && d.usage, model: d && d.model, ms: Date.now() - started } : { text: out });
     }
 
     const r = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -574,4 +642,4 @@ exports.handler = async function (event) {
 };
 
 /* For local tests only (node tools/test-ask.js): exposes the search, never used on the site. */
-if (process.env.ASK_TEST) exports._test = { groundingBlock: groundingBlock, cleanLinks: cleanLinks, buildSystem: buildSystem };
+if (process.env.ASK_TEST) exports._test = { groundingBlock: groundingBlock, cleanLinks: cleanLinks, buildSystem: buildSystem, shapeActions: shapeActions, leadIds: leadIds };
