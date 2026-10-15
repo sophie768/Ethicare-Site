@@ -115,15 +115,13 @@ strong{color:var(--green)}
 .jobcard .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
 .jobcard .chip{font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.02em;color:var(--green);background:var(--soft);border-radius:999px;padding:5px 12px}
 .jobcard .sum{font-size:16px;line-height:1.6;color:var(--muted);margin-bottom:16px}
-/* Facets report a CONFIRMED employer commitment. Positive on Soft Sage with fern text
-   (4.9:1+), negative in Clay on a warm tint (5.45:1). An unconfirmed facet is a sentence,
-   not a chip: a grey chip would read as a soft no. */
+/* Facet chips: positive on Soft Sage with fern text (4.9:1+), negative in Clay on a warm
+   tint (5.45:1). Case-by-case relocation prints no chip — grey would read as a soft no. */
 .jobcard .facs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
 .jobcard .fac{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-weight:600;font-size:12.5px;border-radius:999px;padding:6px 13px}
 .jobcard .fac i{font-style:normal;font-size:13px;line-height:1}
 .jobcard .fac.y{color:#2F5E49;background:#E3ECE5}
 .jobcard .fac.n{color:#A34438;background:#FAF0ED}
-.jobcard .facask{font-size:13px;line-height:1.55;color:var(--muted);margin-bottom:16px;padding-left:12px;border-left:2px solid #C9DED3}
 .boardnote{max-width:74ch;margin:0 0 clamp(20px,2.4vw,28px);font-size:14.5px;line-height:1.6;color:var(--muted)}
 .jobcard .foot{margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-top:16px;border-top:1px solid var(--mint)}
 .jobcard .closes{font-family:var(--display);font-weight:600;font-size:12.5px;color:var(--muted)}
@@ -262,7 +260,7 @@ strong{color:var(--green)}
       <div class="fcount" id="count"><b>35</b> roles open now</div>
       <button class="fclear" id="clear" type="button">Clear filters</button>
     </div>
-    <p class="boardnote">Visa sponsorship, relocation support and family suitability are the employer&rsquo;s to offer. Where one is confirmed in writing, it is ticked on the card.</p>
+    <p class="boardnote">Every role here comes with employer visa sponsorship. Relocation support is ticked where the employer offers it; elsewhere it is agreed case by case.</p>
 
     <!-- #grid below is server-rendered from jobs-data.js as a no-JS/SEO fallback; the inline script re-renders it on load. When jobs-data.js changes, regenerate these static cards to match. -->
     <p class="jb-yours" id="yours" hidden></p>
@@ -428,35 +426,22 @@ strong{color:var(--green)}
   }
   function daysLeft(iso){ return Math.ceil((new Date(iso+'T00:00:00') - new Date())/86400000); }
 
-  /* Sponsorship, relocation and family support are the employer's commitments, so they are
-     reported, never claimed. A confirmed yes/no shows as a chip; anything unconfirmed says so
-     in one line rather than rendering blank (which reads as "no") or three "we'll confirm"
-     chips (which is noise, not information). */
+  /* Visa sponsorship, relocation and family support. The standing answers are filled in by
+     jobs-data.js (15 Oct 2026): sponsorship on every role, relocation in the private sector
+     and for doctors, case by case elsewhere. A yes or no shows as a chip; case-by-case
+     relocation and unset family support simply do not print — no "still to confirm" lines. */
   var FACETS = [
     { k:'sponsorship', yes:'Visa sponsorship', no:'No sponsorship' },
     { k:'relocation',  yes:'Relocation support', no:'No relocation package' },
     { k:'family',      yes:'Family friendly', no:'Not suited to families' }
   ];
   function facets(j){
-    var F = FACETS.filter(function(f){ return (j.hide||[]).indexOf(f.k) < 0; });
-    var set = F.filter(function(f){ return j[f.k]==='yes' || j[f.k]==='no'; });
-    var unset = F.filter(function(f){ return j[f.k]!=='yes' && j[f.k]!=='no'; });
-    var out = '';
-    if(set.length){
-      out += '<div class="facs">'+set.map(function(f){
-        var y = j[f.k]==='yes';
-        return '<span class="fac '+(y?'y':'n')+'">'+(y?'<i aria-hidden="true">&#10003;</i>':'<i aria-hidden="true">&times;</i>')+(y?f.yes:f.no)+'</span>';
-      }).join('')+'</div>';
-    }
-    /* Only worth saying per-card when SOME facets are confirmed and others are not. With none
-       confirmed the same sentence would repeat on every card, so the board-level note carries
-       it once instead. */
-    if(set.length && unset.length){
-      var names = unset.map(function(f){ return f.k==='family' ? 'family support' : f.k; });
-      var list = names.length===1 ? names[0] : names.slice(0,-1).join(', ')+' and '+names[names.length-1];
-      out += '<p class="facask">Still to confirm: '+list+'.</p>';
-    }
-    return out;
+    var set = FACETS.filter(function(f){ return (j.hide||[]).indexOf(f.k) < 0 && (j[f.k]==='yes' || j[f.k]==='no'); });
+    if(!set.length) return '';
+    return '<div class="facs">'+set.map(function(f){
+      var y = j[f.k]==='yes';
+      return '<span class="fac '+(y?'y':'n')+'">'+(y?'<i aria-hidden="true">&#10003;</i>':'<i aria-hidden="true">&times;</i>')+(y?f.yes:f.no)+'</span>';
+    }).join('')+'</div>';
   }
   /* A small photo of the place on every card: the role and the life around it together. */
   var PLACES=[[/Wellington|K\u0101piti|Kapiti|Porirua|Masterton/,'wellington'],[/Gisborne/,'gisborne'],[/Palmerston North|Whanganui/,'palmerston-north'],
