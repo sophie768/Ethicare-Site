@@ -503,6 +503,7 @@ html body .joinb.is-dark .wrapx{max-width:none}
 <style id="lime-eyebrow-rule">.eyebrow::before{background:#A6C84A!important}</style>
 <link rel="stylesheet" href="essential.css">
 <link rel="stylesheet" href="prose-links.css">
+<link rel="stylesheet" href="moment.css">
 </head>
 <body data-reg-nudge>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -559,8 +560,8 @@ html body .joinb.is-dark .wrapx{max-width:none}
      (candidate-context.js + the last page they read) — nothing is fetched or sent. -->
 <section class="wb" id="welcome-back" hidden aria-labelledby="wb-h" data-screen-label="Home &middot; welcome back">
   <div class="wb-in">
-    <p class="wb-eyebrow">Welcome back</p>
-    <h1 id="wb-h">Good to see you again<span data-wb-sep></span><span data-wb-name></span>.</h1>
+    <p class="wb-eyebrow" data-moment-greet-line hidden></p>
+    <h1 id="wb-h" data-moment-greet>Welcome back.</h1>
     <p class="wb-sub" data-wb-sub>Your answers are saved on this device, so everything below starts from where you are.</p>
     <div class="wb-card">
       <a class="wb-resume" href="/you" data-wb-resume>
@@ -573,6 +574,10 @@ html body .joinb.is-dark .wrapx{max-width:none}
         <a class="wb-tile" href="/my-pack"><span class="wb-ti"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-pack"/></svg></span><span class="wb-tt"><span class="wb-tn">Your pack</span><span class="wb-td" data-wb-note="pack">Guides to download in one email</span></span></a>
         <a class="wb-tile" href="/jobs/" data-wb-roles><span class="wb-ti"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-briefcase"/></svg></span><span class="wb-tt"><span class="wb-tn" data-wb-roles-l>Live roles</span><span class="wb-td" data-wb-note="briefcase">Open now</span></span></a>
         <a class="wb-tile" href="/you"><span class="wb-ti"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-info"/></svg></span><span class="wb-tt"><span class="wb-tn">Your page</span><span class="wb-td" data-wb-note="info">Guides that fit where you are</span></span></a>
+      </div>
+      <div class="wb-moment">
+        <div data-moment-tile></div>
+        <p class="mo-fact" data-moment-fact hidden></p>
       </div>
     </div>
     <p class="wb-foot">Saved on this device only. <a href="/you">Change my answers</a> <span aria-hidden="true">&middot;</span> <button type="button" data-wb-clear>Not you? Clear my answers</button></p>
@@ -745,6 +750,16 @@ html body .joinb.is-dark .wrapx{max-width:none}
 
 
 
+<section class="world" data-screen-label="Home &middot; across the world" aria-labelledby="world-h">
+  <div class="wrapx">
+    <div class="world-head">
+      <h2 id="world-h">Across the world</h2>
+      <span class="eyebrow">Different time zones. New possibilities.</span>
+    </div>
+    <div data-moment-world></div>
+  </div>
+</section>
+
 <section class="emp emp-line" data-screen-label="Home &middot; employers">
   <div class="wrapx"><p><span class="eyebrow">For employers</span> <b>Recruit. Relocate. Retain.</b> <a class="txtlink" href="/employers">Ethicare for employers <i aria-hidden="true">&rarr;</i></a></p></div>
 </section>
@@ -831,6 +846,8 @@ html body .joinb.is-dark .wrapx{max-width:none}
 <script src="journey.js"></script>
 <script src="portal-professions.js"></script>
 <script src="candidate-context.js"></script>
+<script src="good-to-know-data.js" defer></script>
+<script src="moment.js" defer></script>
 <script>(function(){
   /* Welcome back (30 Sep 2026). A first-time visitor meets the dream first — the hero, the two
      countries, the everyday, the reality — and only then the six questions, five phone-screens
@@ -844,9 +861,12 @@ html body .joinb.is-dark .wrapx{max-width:none}
   var sec = document.getElementById('start');
   var bar = document.querySelector('.trustbar');
   var head = sec && sec.querySelector('.work-head');
-  if (!ctx || !ctx.has || !sec || !bar || !head) return;
-  var homeSpot = sec.nextSibling;          /* where it sits for a first-time visitor */
-  var firstTime = head.innerHTML;          /* the head a first-time visitor reads */
+  /* 15 Oct 2026: the six-questions section (#start) no longer exists on this page, and the early
+     return that waited for it also switched off the welcome-back screen below. The screen now
+     paints on its own; the section moves only if it is there. */
+  if (!ctx || !ctx.has) return;
+  var homeSpot = sec ? sec.nextSibling : null;   /* where it sits for a first-time visitor */
+  var firstTime = head ? head.innerHTML : '';    /* the head a first-time visitor reads */
   function esc(t){return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
   function welcomeHead(){
     var name = ctx.first ? ctx.first() : '';
@@ -874,12 +894,10 @@ html body .joinb.is-dark .wrapx{max-width:none}
   function paintWelcome(){
     if (!wb) return false;
     var name = ctx.first ? ctx.first() : '';
-    wb.querySelector('[data-wb-sep]').textContent = name ? ', ' : '';
-    wb.querySelector('[data-wb-name]').textContent = name;
     var prof = (ctx.professionLabel && ctx.professionLabel()) || '', where = (ctx.destLabel && ctx.destLabel()) || '';
     var line = where ? (/[Cc]omparing/.test(where) ? 'You\u2019re weighing up both countries' : 'You\u2019re looking at ' + where) : '';
     if (prof) line = line ? line + ', as ' + (/^[aeiou]/i.test(prof) ? 'an ' : 'a ') + prof.toLowerCase() : 'You work in ' + prof.toLowerCase();
-    wb.querySelector('[data-wb-sub]').textContent = (line ? line + '. ' : '') + 'Everything here starts from where you left off.';
+    wb.querySelector('[data-wb-sub]').textContent = (name ? name + ', ' : '') + (line ? (name ? line.charAt(0).toLowerCase() + line.slice(1) : line) + '. ' : '') + 'Everything here starts from where you left off.';
     /* tile notes: progress through the plan, guides already in the pack */
     var J = window.ETHICARE_JOURNEY || [], n = ctx.stageNumber ? ctx.stageNumber() : 0;
     wb.querySelector('[data-wb-note="clipboard"]').textContent = n && J.length ? 'Stage ' + n + ' of ' + J.length : 'Your move, step by step';
@@ -898,8 +916,11 @@ html body .joinb.is-dark .wrapx{max-width:none}
     return true;
   }
   function apply(){
-    if (ctx.has() && paintWelcome()) {
-      wb.hidden = false; if (hero) hero.hidden = true;
+    var ok = ctx.has() && paintWelcome();
+    if (wb) wb.hidden = !ok; if (hero) hero.hidden = ok;
+    if (window.EthicareMoment && ok) { try { window.EthicareMoment.mount(wb); } catch (e) {} }
+    if (!sec || !head || !bar) return;
+    if (ok) {
       if (homeSpot && homeSpot.parentNode) homeSpot.parentNode.insertBefore(sec, homeSpot);
       sec.classList.remove('is-welcome');
       head.innerHTML = firstTime;
@@ -914,7 +935,7 @@ html body .joinb.is-dark .wrapx{max-width:none}
       head.innerHTML = firstTime;
     }
   }
-  sec.addEventListener('click', function(e){
+  if (sec) sec.addEventListener('click', function(e){
     var t = e.target.closest ? e.target.closest('[data-ctx-clear]') : null;
     if (!t) return;
     e.preventDefault();

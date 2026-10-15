@@ -19,6 +19,8 @@
 <link rel="stylesheet" href="you.css">
 <style id="trio-css">.trio{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}.trio a{display:inline-flex;align-items:baseline;gap:6px;padding:8px 14px;border-radius:999px;border:1px solid rgba(2,97,93,.25);background:rgba(255,255,255,.7);color:#02615D;font-family:'Work Sans',sans-serif;font-size:14px;line-height:1.35;text-decoration:none}.trio a,.trio a *{text-decoration:none!important;background-image:none!important}.trio a b{font-weight:700}.trio a:hover{border-color:#02615D}.trio a[aria-current]{background:#02615D;color:#fff;border-color:#02615D}.trio a:focus-visible{outline:3px solid #A6C84A;outline-offset:2px}.you-hero .trio a,.trio.on-dark a{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.35);color:#fff}.you-hero .trio a[aria-current],.trio.on-dark a[aria-current]{background:#A6C84A;border-color:#A6C84A;color:#01312F}</style>
 <style>main#main-content,main{padding-bottom:32px}</style>
+<link rel="stylesheet" href="moment.css">
+<style>body:not(.you-known) .you-moment{display:none}.you-greet-line{font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C6E084;margin:0 0 10px}</style>
 </head>
 <body class="you" data-strip-cta="Change my answers" data-strip-done="Show my page">
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -81,10 +83,14 @@
     <div class="you-hero-grid">
       <div class="you-hero-copy">
         <span class="eyebrow">Your page</span>
+        <p class="you-greet-line" data-moment-greet-line hidden></p>
         <h1 id="you-title">Make this your page</h1>
         <p class="you-lede" id="you-lede">Three questions, thirty seconds. Then the answers start from you, the guides are the ones you will actually need, and nothing here is about anyone else.</p>
         <p class="you-note" id="you-note">Saved on this device only &mdash; nothing is sent to us, and you can clear it any time.</p>
         <ul class="trio on-dark" aria-label="Your plan, pack and page"><li><a href="/plan"><b>Your plan</b> everything to do, in order</a></li><li><a href="/my-pack"><b>Your pack</b> the guides you choose, in one email</a></li><li><a href="/you" aria-current="page"><b>Your page</b> answers that start from you</a></li></ul>
+        <div class="you-moment" id="you-moment">
+          <div data-moment-tile></div>
+        </div>
       </div>
       <div class="you-setup" id="you-setup">
         <div id="ctx-strip" data-ctx-strip></div>
@@ -176,6 +182,8 @@
 <script src="portal-professions.js"></script>
 <script src="journey.js"></script>
 <script src="candidate-context.js"></script>
+<script src="good-to-know-data.js" defer></script>
+<script src="moment.js" defer></script>
 <script src="jobs/jobs-data.js"></script>
 <script src="ask-ethicare-knowledge.js"></script>
 <script src="ask-ethicare.js" defer></script>

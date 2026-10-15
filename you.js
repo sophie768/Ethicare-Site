@@ -37,10 +37,12 @@
 
   function cc() { var d = C.destMode(); return d === 'both' ? '' : d; }
   function where() { var d = cc(); return d === 'au' ? 'Australia' : d === 'nz' ? 'New Zealand' : 'New Zealand or Australia'; }
+  /* 15 Oct 2026: the opening comes from moment.js so every page agrees — "Kia ora. Welcome
+     back." for a saved New Zealand destination, "Welcome back." otherwise (G'day one visit
+     in four for Australia). The name moves to the line below; it is not shouted. */
   function greeting() {
-    var n = C.name(), d = C.destMode();
-    if (!n) return 'Your page';
-    return (d === 'nz' ? 'Kia ora, ' : 'Hello, ') + esc(n) + '.';
+    var M = window.EthicareMoment;
+    return M ? M.opening(C.destMode()) : 'Welcome back.';
   }
 
   function questions() {
@@ -85,7 +87,7 @@
     }
     var sum = C.summary();
     title.innerHTML = greeting();
-    lede.innerHTML = 'Everything here starts from your answers' + (sum ? ' — <strong>' + esc(sum) + '</strong>' : '') + '. Ask anything, read what fits, and when you’re ready, plan the move.';
+    lede.innerHTML = (C.name() ? esc(C.name()) + ', everything' : 'Everything') + ' here starts from your answers' + (sum ? ' — <strong>' + esc(sum) + '</strong>' : '') + '. Ask anything, read what fits, and when you’re ready, plan the move.';
     note.hidden = true;
 
     if (chips) chips.innerHTML = questions().map(function (q) { return '<button type="button" data-q="' + esc(q) + '">' + esc(q) + '</button>'; }).join('');

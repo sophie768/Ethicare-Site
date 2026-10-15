@@ -12,17 +12,17 @@
 (function () {
   var SETS = {
     ask: [
-      'Reading your question',
+      'Thinking this through',
       'Checking this against our own guides',
       'Looking for the official source behind it',
       'Making sure this is the right country and profession',
       'Working out what would actually help next'
     ],
-    generic: ['Working on it', 'Nearly there']
+    generic: ['Working on it']
   };
   /* Slow enough to read, fast enough not to look stuck. Below about 1.5s the line changes
      before it has been read, which reads as noise rather than progress. */
-  var EVERY = 2200;
+  var EVERY = 3000;
 
   function start(el, key) {
     var lines = SETS[key] || SETS.generic;
