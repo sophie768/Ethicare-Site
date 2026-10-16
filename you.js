@@ -78,7 +78,7 @@
     var known = C.has();
     document.body.classList.toggle('you-known', known);
     if (!known) {
-      title.textContent = 'Make this your page';
+      title.textContent = 'Your answers';
       lede.textContent = 'Three questions, thirty seconds. Then the answers start from you, the guides are the ones you will actually need, and nothing here is about anyone else.';
       note.hidden = false;
       ask.hidden = true; guides.hidden = true; grid.innerHTML = '';

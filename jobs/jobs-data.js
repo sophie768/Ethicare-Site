@@ -33,34 +33,33 @@
    that has to be disclosed on the page, and that is a Phase 3 decision.
 
    ------------------------------------------------------------
-   CANDIDATE FACETS — hours / sponsorship / relocation / family
+   CANDIDATE FACETS — sponsorship / relocation / family
    ------------------------------------------------------------
-   The things candidates scan for before they read the summary. Sophie set
-   the standing position on 15 Oct 2026, so the site states it rather than
-   printing "to confirm" on every role:
+   The three things candidates ask before they read the summary. All three
+   are the EMPLOYER'S commitment, not ours, so they follow the same rule as
+   pay: we do not assert them on an employer's behalf. Each is a tri-state,
+   and OMITTING the field is a valid, honest answer.
 
      hours:       a string, or undefined. The contracted commitment as the
                   employer states it ("1.0 FTE", "80 hours a fortnight",
-                  "8 sessions a week"). Undefined means full-time — every
-                  Ethicare role is full-time unless the role says otherwise
-                  (a Part-time type or an explicit hours string).
+                  "8 sessions a week"). Same rule as the rest: if it is not
+                  confirmed, leave it out and the page says so.
 
      sponsorship: "yes" | "no" | undefined
-                  Undefined means "yes": every role Ethicare advertises
-                  comes with employer visa sponsorship. Set "no" only for
-                  a role confirmed without it, or hide it with `hide`.
-
-     relocation:  "yes" | "no" | "case" | undefined
-                  Undefined is resolved by the rule below: "yes" for every
-                  private-sector role and every medical (doctor) role;
-                  "case" — agreed case by case with the employer — for the
-                  rest. Set a value to override the rule for one role.
-
+     relocation:  "yes" | "no" | undefined
      family:      "yes" | "no" | undefined
-                  Shown only when set. Never guessed.
 
-   The resolver at the foot of this file fills the defaults in, so every
-   page that reads the list gets the same answers.
+     "yes"     confirmed with the employer, in writing. Renders as a
+               positive chip. Do not set this from an assumption.
+     "no"      confirmed NOT available. Renders as a negative chip, which
+               is a kindness: it saves a candidate an application and a
+               month of hope.
+     undefined not yet confirmed. The card says we will confirm it, which
+               is what we actually do. NEVER guess to fill a gap — a wrong
+               "yes" here costs a candidate a move.
+
+   Set them as each is confirmed. Every role currently sits undefined
+   because none has been confirmed in writing yet.
    ============================================================ */
 window.ETHICARE_JOBS_ALL = [
   {
@@ -650,19 +649,6 @@ window.ETHICARE_JOBS_ALL = [
    No `closes` date means open: plenty of roles run until filled, and absence is not expiry.
    As of 3 Oct 2026 no vacancy sets one, so nothing is filtered — the board is what Sophie
    puts on it. The filter stays because it costs nothing and catches a date set in future. */
-/* ---- the standing defaults (15 Oct 2026) ----------------------------------------------
-   Hours are full-time unless a role says otherwise; visa sponsorship is a yes on every role;
-   relocation support is a yes in the private sector and for doctors, and agreed case by case
-   with the employer everywhere else. Applied once here so the board, the vacancy facts panel
-   and every other consumer agree. A value set on the role itself always wins. */
-window.ETHICARE_MEDICAL = /consultant|radiologist|oncologist|ophthalmologist|physician|psychiatrist|anaesthetist|surgeon|paediatrician|general practitioner|\bgp\b|doctor|registrar|rmo/i;
-window.ETHICARE_JOBS_ALL.forEach(function (j) {
-  var t = (j.types || []).join(' ');
-  if (!j.hours) j.hours = /part-time/i.test(t) ? (/full-time/i.test(t) ? 'Full-time or part-time' : 'Part-time') : 'Full-time';
-  if (!j.sponsorship) j.sponsorship = 'yes';
-  if (!j.relocation) j.relocation = (j.sector === 'Private sector' || window.ETHICARE_MEDICAL.test(j.profession || '')) ? 'yes' : 'case';
-});
-
 window.ETHICARE_JOBS = (function () {
   var today = new Date(); today.setHours(0, 0, 0, 0);
   return window.ETHICARE_JOBS_ALL.filter(function (j) {

@@ -285,7 +285,7 @@
       /* Once known, a way back to /you from every tool that carries the strip — except /you. */
       var onYou = /^\/you(\.html)?$/.test(location.pathname) || document.body.classList.contains('you');
       h += '<div class="ecx-foot"><span>' + esc(foot) + '</span>' + (known ? '<button type="button" data-clear>Clear my answers</button>' : '')
-         + (known && !onYou ? '<a class="ecx-you" href="/you">Your page <span aria-hidden="true">&rarr;</span></a>' : '')
+         + (known && !onYou ? '<a class="ecx-you" href="/you">Your answers <span aria-hidden="true">&rarr;</span></a>' : '')
          + (done ? '<button type="button" class="ecx-done" data-done>' + esc(done) + ' <span aria-hidden="true">&rarr;</span></button>' : '') + '</div></div>';
       el.className = 'ecx' + (open ? ' is-open' : ''); el.innerHTML = h;
     }

@@ -342,7 +342,7 @@
     '/new-zealand': function () { return card({ img: '/assets/menu/menu-new-zealand.jpg', eb: 'Living in New Zealand', t: 'Which region fits your life?', p: 'Tell us about the life you want and see which regions fit it.', btn: 'Find my destination', href: '/destination-finder' }); },
     '/plan': function () {
       var c = window.EthicareContext, J = window.ETHICARE_JOURNEY || [], n = c && c.has && c.has() && c.stageNumber ? c.stageNumber() : 0;
-      if (n && J.length) return card({ eb: 'Your plan', t: 'Stage ' + n + ' of ' + J.length, p: 'Your answers are saved on this device. Carry on where you left off.', btn: 'Continue my plan', href: '/plan' });
+      if (n && J.length) return card({ eb: 'Your step-by-step plan', t: 'Stage ' + n + ' of ' + J.length, p: 'Your answers are saved on this device. Carry on where you left off.', btn: 'Continue my plan', href: '/plan' });
       return card({ img: '/assets/menu/menu-registration.jpg', eb: 'Before you apply', t: 'Check your registration pathway', p: 'A few questions about your training, and you see what Ahpra or your New Zealand council will ask for.', btn: 'Check my pathway', href: '/pathway-checker' });
     },
     '/jobs/': function () {
