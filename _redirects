@@ -689,3 +689,23 @@
 /guides/radiologist-australia-vs-new-zealand.html	/guides/australia-vs-new-zealand	301
 /guides/sonographer-australia-vs-new-zealand	/guides/australia-vs-new-zealand	301
 /guides/sonographer-australia-vs-new-zealand.html	/guides/australia-vs-new-zealand	301
+
+# ---------------------------------------------------------------------------
+# Wix-era URLs (17 Oct 2026). The domain moved from Wix to Netlify today, and
+# Google still has the old pages indexed. Left alone they would 404 and the
+# ranking they hold would simply evaporate; a 301 passes it to the page that
+# now owns the topic. Some of this content was also WRONG — the old allied
+# health page put anaesthetic technicians under the wrong regulator and named
+# a speech-language therapy board that does not exist — so the sooner these
+# resolve to the current pages the better. The www -> apex rule in
+# netlify.toml runs first, so these match on the apex path.
+/new-zealand-registration	/guides/new-zealand-registration	301!
+/new-zealand-registration.html	/guides/new-zealand-registration	301!
+/copy-of-register-as-an-ahp	/jobs/allied-health-new-zealand	301!
+/copy-of-register-as-an-ahp-in-new-zea	/jobs/medicine-new-zealand	301!
+/new-zealand-overview	/new-zealand	301!
+/about-us	/about-ethicare	301!
+/our-vision-mission-values	/about-ethicare	301!
+/jobs-we-love	/jobs/	301!
+/candidates	/jobs/	301!
+/client-savings	/employers	301!

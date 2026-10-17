@@ -1,95 +1,81 @@
-# Go-live checklist
+# Go-live — record and remaining checks
 
-Written 17 October 2026. Netlify deletes `*.md` before publishing, so this never reaches the live site.
-
-The site itself is ready. Everything below is configuration and verification — none of it can be
-done from inside the repo, and all of it fails *silently* if it is wrong, which is why each item
-has a way to prove it worked rather than just a box to tick.
+Launched **17 October 2026, 14:29**. `ethicareresourcing.com` moved from Wix to Netlify.
+Netlify deletes `*.md` before publishing, so this never reaches the live site.
 
 ---
 
-## 1. The domain
+## Done
 
-`ethicareresourcing.com` still points at Wix. The Netlify site is `ethicareresourcing.netlify.app`.
+**The domain.** DNS edited at Wix at 14:08, propagated by 14:26, certificate provisioned 14:29.
+Wix remains the registrar and the DNS host; only the A and CNAME records changed.
 
-Already prepared in the repo, so nothing here needs changing first:
+| Record | Value |
+|---|---|
+| A, apex | `75.2.60.5` |
+| CNAME, `www` | `ethicareresourcing.netlify.app` |
 
-- 885 canonical tags and 881 `og:url` tags already say `https://ethicareresourcing.com`
-- `robots.txt` points the sitemap at the production domain
-- `sitemap.xml` lists 532 pages, all on the production domain
-- no page anywhere references `netlify.app`
+Removed: the two Wix A records (`185.230.63.171`, `185.230.63.186`) and `www → cdn3.wixdns.net`.
+Untouched, and must stay untouched: the Mailchimp DKIM keys (`k2`, `k3` → `mcsv.net`), the
+SendGrid keys (`s1`, `s2` → `u24647994`), SendGrid link branding (`em5783`), and the Resend
+records (`send`, `rsend` → `forge.rmta.net`). Nameservers were deliberately **not** changed,
+which is what kept the MX records — and therefore company email — out of the blast radius.
 
-**Order matters.** Add the custom domain in Netlify and let the certificate issue *before* you
-repoint DNS, or there is a window where the site is reachable over plain HTTP.
+In Netlify: apex is the primary domain, `www` redirects to it. That matches the 885 canonical
+tags, which all name the apex.
 
-**Prove it:** load `https://ethicareresourcing.com/sitemap.xml` and confirm it serves over HTTPS
-with no certificate warning, then spot-check three deep pages (a guide, a job page, a destination).
+**Environment variables.** All four the code requires are set against **Production**:
+`ANTHROPIC_API_KEY`, `RESEND_API_KEY`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE`.
 
----
+The other ten names in the source are defaults or fallbacks, correct as they stand:
 
-## 2. Environment variables
+- `PACK_FROM` / `PACK_NOTIFY` / `GUIDE_FROM` / `GUIDE_NOTIFY` / `BACKUP_FROM` / `BACKUP_NOTIFY`
+  fall back to `sophie@` and `hello@ethicareresourcing.com` in the function code.
+- `OPENAI_API_KEY` is only a second provider. The guard is "neither key set".
+- `ASK_WEB_SEARCH` and `ASK_TIMEOUT_MS` unset is **correct**. Search only works with the timeout
+  raised past 20s and Netlify's limit is 10s; turning it on without that returns empty answers.
+  See the note dated 14 Oct in `netlify/functions/ask-ethicare.js`.
+- `ASK_TEST` must stay unset in production.
 
-Four Netlify functions carry the features people actually use. Each one has a guard, so a missing
-key produces a handled error rather than a crash — which means **the visitor sees nothing wrong and
-you get no alert.** That is the risk.
+**Email.** Resend has the domain verified and is delivering. The 7 October log shows the full
+pack chain working: the candidate received their guides and `hello@` received the notification
+copy, from the `PACK_FROM` / `PACK_NOTIFY` defaults.
 
-| Function | Needs | What breaks without it |
-|---|---|---|
-| `ask-ethicare.js` | `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `ASK_WEB_SEARCH`, `ASK_TIMEOUT_MS`, `ASK_TEST` | Ask Ethicare — linked from the homepage hero |
-| `send-pack.js` | `RESEND_API_KEY`, `PACK_FROM`, `PACK_NOTIFY` | My Pack: the candidate never gets their guides |
-| `send-guide.js` | `RESEND_API_KEY`, `GUIDE_FROM`, `GUIDE_NOTIFY` | Single-guide emails |
-| `capture.js` / `form-backup.js` | `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE`, `BACKUP_FROM`, `BACKUP_NOTIFY` | Enquiries are not stored or backed up |
-
-Set these on the **production** site in Netlify, not only on a preview or branch deploy.
-
-**Prove it:** ask Ethicare a real question on the live domain and get an answer back. Request a pack
-to an address you control and watch it arrive.
-
----
-
-## 3. Credit on the Ask providers
-
-Ask runs on Anthropic and OpenAI. Out of credit looks exactly like a broken key from the visitor's
-side — a handled error and nothing in your inbox.
-
-**Prove it:** check the balance and set a billing alert on both.
+**Forms.** Form detection enabled, 18 forms registered, submissions captured (`my-pack` 3,
+`contact` 1), and a notification email confirmed as having arrived at the time.
 
 ---
 
-## 4. Form delivery — the one nobody has tested
+## Still to check
 
-Eleven pages carry Netlify forms:
+1. **Per-form notifications.** Only `my-pack` and `contact` have ever been submitted. Netlify
+   notifications can be set per form. Confirm the notification covers `candidate-registration`,
+   `employer-enquiry` and `vacancy` — the three where a missed message costs a placement.
+2. **Anthropic credit.** Nobody has looked. Out of credit is indistinguishable from a broken key
+   on the visitor's side. Set a billing alert.
+3. **Live verification**, on the real domain:
+   - `https://ethicareresourcing.com/sitemap.xml` over HTTPS
+   - `www.` and `http://` both land on the apex
+   - three deep pages — a guide, a job page, a destination
+   - Ask Ethicare answers a real question (this also proves the key and the credit)
+   - **send yourself an email at the company address and reply to it**
+4. **Force HTTPS** is on in Netlify.
+5. **Google Search Console** — add the property and submit the sitemap.
+6. **Don't cancel Wix yet.** Keep it a few days for rollback. If Wix also bills the mailboxes,
+   check what cancelling the site plan does to them before cancelling anything.
 
-```
-apply.html                      contact.html
-interested.html                 my-pack.html
-submit-a-vacancy.html           jobs/coming-to-australia.html
-employers/new-zealand-recruitment.html
-employers/australia-medical-imaging.html
-employers/medical-imaging-australia.html
-_forms/index.html               (the hidden declaration page — must stay deployed)
-```
+### Rollback, if ever needed
 
-Netlify only registers a form if it can parse it in the deployed HTML. Several of these are built or
-revealed by JavaScript, which is exactly why `_forms/index.html` exists — do not delete it.
-
-**Prove it:** submit every one of them on the live domain with a real address, and confirm each
-arrives both in the Netlify Forms dashboard and in the notification inbox. Until that is done,
-an applicant can fill in `apply.html`, see a thank-you page, and vanish.
+Put back A records `185.230.63.171` and `185.230.63.186`, point `www` at `cdn3.wixdns.net`,
+remove the `75.2.60.5` record. Live again on Wix within the hour.
 
 ---
 
 ## Not blocking, worth doing in the first fortnight
 
 - Around eight pages have meta descriptions over 165 characters, so Google will truncate them.
-  Cosmetic, and these pages have no rankings to protect yet.
 - `/interested` and `/register-interest` still overlap.
 - `is-it-worth-it.html` has no inbound links.
 - The mental-health hub hero is a photograph taken in a dental surgery.
-
-## Already closed
-
-- Review dates across all 532 pages are current — the stale July ones are gone.
-- No numeric placement claims and no retention percentage anywhere that would need substantiating.
-- `tools/audit-links.py` passes with 0 blocking problems.
-- `tools/audit-copy.py` reports 27 items, all triaged and accepted.
+- 18 forms are registered against 16 found in the code — worth checking for a stale duplicate
+  catching submissions nobody reads.
