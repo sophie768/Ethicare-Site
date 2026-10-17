@@ -42,11 +42,28 @@ def monogram(name):
     return ''.join(w[0].upper() for w in words[:2]) or name[:2].upper()
 
 
+def slug(name):
+    """send-my-bag, seven-seas-worldwide, petair-uk …"""
+    return re.sub(r'-+', '-', re.sub(r'[^a-z0-9]+', '-', name.lower())).strip('-')
+
+
+def find_logo(e):
+    """An explicit 'logo' path wins. Otherwise look for assets/providers/<slug>.<ext>,
+    so a logo file can simply be dropped in without editing this data file."""
+    if e.get('logo'):
+        return e['logo'] if os.path.exists(e['logo']) else None
+    for ext in ('svg', 'png', 'webp', 'jpg', 'jpeg'):
+        p = 'assets/providers/%s.%s' % (slug(e['name']), ext)
+        if os.path.exists(p):
+            return p
+    return None
+
+
 def logo_cell(e):
-    path = e.get('logo')
-    if path and os.path.exists(path):
-        return ('<span class="svc-logo"><img src="/%s" alt="" width="60" height="36" '
-                'loading="lazy" decoding="async"></span>' % path)
+    path = find_logo(e)
+    if path:
+        return ('<span class="svc-logo"><img src="/%s" alt="%s" width="60" height="36" '
+                'loading="lazy" decoding="async"></span>' % (path, esc(e['name'])))
     return '<span class="svc-logo" aria-hidden="true"><span class="svc-mono">%s</span></span>' % monogram(e['name'])
 
 
