@@ -150,7 +150,12 @@ for url, f, src in pages:
             mon = ['january','february','march','april','may','june','july','august',
                    'september','october','november','december'].index(m.group(3).lower()) + 1
             age = (TODAY.year - int(m.group(4))) * 12 + TODAY.month - mon
-            if age >= 4:
+            # 17 Oct 2026: this was >= 4 months, and it hid 64 pages stamped
+            # "July 2026" three months earlier — including every registration
+            # guide. On a site making regulatory claims a quarter is already
+            # long enough for a fee, a pathway or an English requirement to
+            # have moved, so the threshold is two months.
+            if age >= 2:
                 findings['dates'].append((url, f'{m.group(0).strip()} — {age} months old'))
 
     if run('punc'):

@@ -709,3 +709,16 @@
 /jobs-we-love	/jobs/	301!
 /candidates	/jobs/	301!
 /client-savings	/employers	301!
+# The rest of the Wix index, from Search Console's indexed-pages export
+# (17 URLs, exported 17 Oct 2026). Nine were Wix "copy-of-" duplicates of the
+# New Zealand pages — Wix's own page-duplication debris, all pointed at the
+# one page that now owns that ground.
+/copy-of-new-zealand	/new-zealand	301!
+/copy-of-new-zealand-1	/new-zealand	301!
+/copy-of-new-zealand-overview	/new-zealand	301!
+/copy-of-register-as-a-nurse-or-midwife	/jobs/nursing-midwifery-new-zealand	301!
+/nurses-and-midwives	/jobs/nursing-midwifery-new-zealand	301!
+/copy-of-support-for-candidates	/jobs/	301!
+/clients	/employers	301!
+/executive-search	/employers	301!
+/about-4	/about-ethicare	301!
