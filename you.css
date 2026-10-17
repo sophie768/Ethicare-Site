@@ -1,0 +1,70 @@
+/* /you — your page (5 Oct 2026). Sits on the Ask page's dark-teal system (ask-ethicare.css
+   is loaded first), so the instrument, chips and thread are already styled. This file is the
+   hero, the two-column ask band, the guides and the plan hand-off. */
+
+.you .wrapx{max-width:1180px;margin:0 auto;padding:0 clamp(22px,3vw,40px)}
+
+/* ---- hero: greeting on the left, the answers on the right -------------------------------- */
+.you-hero{background:#02615D;background-image:radial-gradient(900px 600px at 78% 30%,rgba(166,200,74,.22),transparent 60%),radial-gradient(1100px 800px at 0% 0%,rgba(1,49,47,.6),transparent 65%),linear-gradient(180deg,#02615D 0%,#024E4B 100%);color:#fff;padding:clamp(56px,7vw,96px) 0 clamp(48px,6vw,80px)}
+.you-hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,4.5vw,72px);align-items:start}
+.you-hero .eyebrow{color:#C6E084}
+.you-hero h1{font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(44px,6.2vw,80px);line-height:1.02;letter-spacing:-.03em;color:#fff;margin:8px 0 18px}
+.you-lede{font-size:clamp(18px,1.6vw,21px);line-height:1.55;color:#D6E8E0;max-width:34em;margin:0}
+.you-lede strong{color:#fff;font-weight:600}
+.you-note{font-size:14px;color:#A9CBBF;margin:18px 0 0}
+
+/* the strip as the set-up card: white, open, readable on teal */
+.you-setup .ecx{margin:0;border-left-width:4px;box-shadow:0 26px 60px rgba(1,30,28,.32)}
+.you-setup .ecx-note{font-size:15px;color:#333}
+.you-setup .ecx-l{font-size:14px}
+.you-setup .ecx-grid{grid-template-columns:1fr 1fr}
+@media(max-width:560px){.you-setup .ecx-grid{grid-template-columns:1fr}}
+/* empty state: the card is the whole point, so no open/close toggle and no second privacy line */
+body:not(.you-known) .you-setup .ecx-btn{display:none}
+body:not(.you-known) .you-note{display:none}
+.you-setup .ecx-foot button.ecx-done{background:#A6C84A;color:#01312F;font-size:15px;padding:11px 20px;min-height:42px}
+.you-setup .ecx-foot button.ecx-done:hover{background:#C6E084}
+/* once known, the strip is a quiet summary and the greeting carries the page */
+.you-known .you-setup .ecx{box-shadow:none}
+
+/* ---- what you get (empty state only) ---------------------------------------------------- */
+.you-promise{background:#FCFBF8;padding:clamp(40px,5vw,64px) 0;border-bottom:1px solid #E6EFE9}
+.you-known .you-promise{display:none}
+.you-promise-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+.you-promise-grid li{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:start}
+.you-promise-grid .n{grid-row:1/3;width:34px;height:34px;border-radius:50%;background:#02615D;color:#C6E084;font-family:'Work Sans',sans-serif;font-weight:700;font-size:15px;display:grid;place-items:center}
+.you-promise-grid strong{font-family:'Work Sans',sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:#02615D;padding-top:5px}
+.you-promise-grid p{margin:0;font-size:15px;line-height:1.55;color:#555}
+@media(max-width:860px){.you-promise-grid{grid-template-columns:1fr}}
+
+/* ---- ask band ------------------------------------------------------------------------------ */
+.you-ask{background:#F7F4EE;padding:clamp(48px,6vw,80px) 0}
+.you-ask-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,64px);align-items:start}
+.you-ask-copy .eyebrow{color:#2F5E49}
+.you-ask-copy h2{font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(26px,3vw,36px);line-height:1.12;letter-spacing:-.02em;color:#02615D;margin:6px 0 12px}
+.you-ask-copy p{font-size:17px;line-height:1.6;color:#555;margin:0}
+.you-ask .ask-instrument{background:#fff;border:1px solid #E0EAE4;border-radius:18px;padding:clamp(20px,2.4vw,28px);box-shadow:0 18px 44px rgba(1,49,47,.08)}
+.you-ask .ask-nameplate{font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#2F5E49;margin:0 0 12px}
+.you-ask .ask-fine{font-size:13px;line-height:1.55;color:#777;margin:16px 0 0}
+.you-ask .inr{margin-top:clamp(20px,3vw,32px)}
+
+/* ---- guides -------------------------------------------------------------------------------- */
+.you-guides{background:#F3F7F4;padding:clamp(48px,6vw,80px) 0}
+.you-guides-head{max-width:62ch;margin-bottom:clamp(22px,3vw,34px)}
+.you-guides-head .eyebrow{color:#2F5E49}
+.you-guides-head h2{font-family:'Work Sans',sans-serif;font-weight:300;font-size:clamp(28px,3.4vw,40px);line-height:1.1;letter-spacing:-.02em;color:#02615D;margin:6px 0 10px}
+.you-guides-head p{font-size:17px;line-height:1.6;color:#555;margin:0}
+.you-guides-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.you-card{display:flex;flex-direction:column;gap:5px;background:#fff;border:1px solid #DCE7E0;border-radius:14px;padding:18px 20px;text-decoration:none;transition:border-color .15s,transform .15s,box-shadow .15s}
+.you-card:hover{border-color:#02615D;transform:translateY(-1px);box-shadow:0 10px 24px rgba(1,49,47,.08)}
+.you-card .t{font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;line-height:1.3;color:#02615D}
+.you-card .d{font-size:14px;line-height:1.5;color:#555}
+.you-card .g{font-family:'Work Sans',sans-serif;color:#2F5E49;margin-top:4px}
+.you-plan{display:grid;grid-template-columns:1fr auto;gap:8px 28px;align-items:center;margin-top:clamp(22px,3vw,34px);background:#02615D;color:#fff;border-radius:18px;padding:clamp(22px,3vw,32px) clamp(22px,3vw,36px);text-decoration:none}
+.you-plan .k{grid-column:1;font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#C6E084}
+.you-plan .t{grid-column:1;font-size:clamp(17px,1.6vw,20px);line-height:1.5;color:#fff;max-width:60ch}
+.you-plan .b{grid-column:2;grid-row:1/3;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;color:#02615D;background:#C6E084;border-radius:999px;padding:12px 20px;white-space:nowrap}
+.you-plan:hover .b{background:#A6C84A}
+
+@media(max-width:860px){.you-hero-grid,.you-ask-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.you-plan{grid-template-columns:1fr}.you-plan .b{grid-column:1;grid-row:auto;justify-self:start;margin-top:6px}}

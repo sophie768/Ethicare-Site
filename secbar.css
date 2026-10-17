@@ -1,0 +1,29 @@
+/* ==========================================================================
+   STICKY SECTION BAR — bucket navigation for heavy pages
+   Replaces the "page at a glance" list on long guides: 3–4 named buckets
+   that stay visible while you read, with the current one underlined.
+   Pair with secbar.js (scroll highlighting + opening collapsed sections).
+   Load AFTER shell.css / the page sheet. Colours are literals on purpose so
+   the sheet works on any page, NZ or AU (deep teal is the constant).
+   ========================================================================== */
+.secbar{position:sticky;top:78px;z-index:40;background:#FCFBF8;border-bottom:1px solid #C9DED3;box-shadow:0 6px 18px rgba(1,49,47,.05)}
+.secbar .wrap{display:flex;align-items:stretch;gap:clamp(8px,2vw,30px)}
+.secbar a[href^="#"]{display:inline-flex;align-items:center;min-height:56px;padding:0 2px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;color:#555555;border-bottom:3px solid transparent;transition:color .15s ease,border-color .15s ease;white-space:nowrap}
+.secbar a[href^="#"]:hover{color:#02615D}
+.secbar a[href^="#"][aria-current="true"]{color:#02615D;border-bottom-color:#02615D}
+.secbar .act{margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 20px;border-radius:999px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;white-space:nowrap;transition:background .15s ease,transform .15s ease}
+.secbar .act:hover{background:#014E4B;color:#fff;transform:translateY(-1px)}
+.secbar .sm{display:none}
+main [id]{scroll-margin-top:144px}
+@media (max-width:760px){
+  /* one sticky bar, not two: let the header scroll away and give the bucket
+     bar the top slot. Two stacked bars cost a fifth of a phone screen. */
+  .site-header{position:static}
+  .secbar{top:0}
+  .secbar .wrap{gap:12px;justify-content:space-between}
+  .secbar a[href^="#"]{font-size:14.5px;min-height:44px}
+  .secbar .lg{display:none}
+  .secbar .sm{display:inline}
+  .secbar .act{display:none}
+  main [id]{scroll-margin-top:60px}
+}

@@ -1,6 +1,6 @@
 /* THE READING JOURNEY — read / still-to-read state on the guide library (/resources).
-   Agreed 30 Aug 2026: the six steps ARE the reading journey and they live here, not in a
-   second copy inside /move. This script is the only thing that was missing.
+   Agreed 30 Aug 2026: the reading journey lives here, not in a second copy inside /move.
+   Regrouped 8 Sep 2026 from the six steps to the eight agreed stages (#stage-01…08).
 
    Reads and writes the SAME store as the floating widget on guide pages:
      ethicare_myfile_v1  { saved: {url:{t,ts}}, read: {url:ts}, notes: {url:{...}} }
@@ -110,12 +110,12 @@
   }
 
   function paintProgress() {
-    /* The step ids sit on <p class="sectlabel">, not on a wrapping section — so a step's
+    /* The stage ids sit on <p class="sectlabel">, not on a wrapping section — so a stage's
        tiles are the .lib-wrap elements in the siblings that FOLLOW it, up to the next label. */
-    var labels = [].slice.call(document.querySelectorAll('p.sectlabel[id^="step-"]'));
+    var labels = [].slice.call(document.querySelectorAll('p.sectlabel[id^="stage-"]'));
     labels.forEach(function (label) {
       var ws = [], n = label.nextElementSibling;
-      while (n && !(n.matches && n.matches('p.sectlabel[id^="step-"]'))) {
+      while (n && !(n.matches && n.matches('p.sectlabel[id^="stage-"]'))) {
         if (n.querySelectorAll) ws = ws.concat([].slice.call(n.querySelectorAll('.lib-wrap')));
         n = n.nextElementSibling;
       }
@@ -135,7 +135,7 @@
         ? '<span>' + read + ' of ' + total + ' read</span>' +
           '<span class="rp-bar"><i style="width:' + pct + '%"></i></span>' +
           (listed ? '<span>' + listed + ' still to read</span>' : '')
-        : '<span class="rp-none">' + total + ' guides in this step. Add the ones you want and they will show as read once you have been through them.</span>';
+        : '<span class="rp-none">' + total + ' guides in this stage. Add the ones you want and they will show as read once you have been through them.</span>';
     });
   }
 

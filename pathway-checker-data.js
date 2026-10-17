@@ -114,7 +114,6 @@
     { id: 'social-worker', supported: { nz: false, au: false },          label: 'Social Worker',                   group: 'Allied health',  record: 'social-worker', jobs: { au: JOBS, nz: JOBS } },
     { id: 'anaesthetic-technician', supported: { nz: true, au: false }, label: 'Anaesthetic Technician / ODP',    group: 'Theatre',        record: 'anaesthetic-technician', jobs: { au: JOBS, nz: SITE + '/jobs/anaesthetic-technician-new-zealand' } },
     { id: 'registered-nurse', supported: { nz: false, au: false },       label: 'Registered Nurse',                group: 'Nursing',        record: 'nursing', jobs: { au: JOBS, nz: JOBS } },
-    { id: 'enrolled-nurse', supported: { nz: false, au: false },         label: 'Enrolled Nurse',                  group: 'Nursing',        record: 'nursing', jobs: { au: JOBS, nz: JOBS } },
     { id: 'midwife', supported: { nz: false, au: false },                label: 'Midwife',                         group: 'Nursing',        record: 'midwifery', jobs: { au: JOBS, nz: JOBS } },
     /* Medicine is split by ROLE, not by seniority, because the recruitment offering is
        role-specific: GPs into New Zealand, consultant radiologists into both. The two
@@ -325,9 +324,7 @@
        ALL THREE hold — education there, CURRENT registration there, and 1,800 hours of RN
        practice there in the last 10 years. Fail any one and it routes back to the competence
        assessment. So training in the UK on its own means nothing; a UK-trained nurse who has
-       spent the last decade in the UAE goes to the exam route.
-
-       Enrolled nurses never reach this question at all. */
+       spent the last decade in the UAE goes to the exam route. */
     nzNursingSelfCheck: {
       prof: 'nursing', cc: 'nz',
       shortLabel: 'Competence assessment may not be required',
@@ -429,7 +426,7 @@
       shortLabel: 'Streamlined IQRN standard',
       pathway: 'General registration for internationally qualified registered nurses',
       regulator: 'the Nursing and Midwifery Board of Australia',
-      appliesTo: 'Registered nurses only — not enrolled nurses, and not nurse practitioners on their own account.',
+      appliesTo: 'Registered nurses only — not nurse practitioners on their own account.',
       countries: ['United Kingdom', 'Ireland', 'United States', 'Canada', 'Singapore', 'Spain'],
       canadaNote: 'Canada counts only for British Columbia and Ontario.',
       pathway1: {
@@ -1172,7 +1169,9 @@
     'psychologist.au': { base: 'assessed', ttmra: true, lastReviewed: LAST,
       whys: { assessed: 'Overseas psychology training is individually assessed, and additional examination and supervised-practice requirements can apply depending on the route.' } },
     'psychologist.nz': { base: 'assessed', ttmra: true, lastReviewed: 'August 2026 (prescribed countries, five criteria and full fee schedule verified 26 Aug 2026)',
-      strong: { basis: 'training', countries: RULES.nzPsychPrescribed.countries, why: 'The Board treats {country} as having psychology training and regulation standards similar to New Zealand\u2019s, so it is one of five \u201Cprescribed\u201D countries. That buys you a lower application fee (NZ$720 rather than NZ$1,080), no curriculum documents, and a faster assessment \u2014 it is a cost-recovery classification, not a lower bar. Your qualifications, competence and fitness are still assessed individually, and the six-year and 1,500-hour training criteria apply exactly as they do to everyone else.' },
+      /* 8 Oct 2026 (external review 7.4): a prescribed country lowers the fee and speeds the
+         assessment; it is still an individual assessment, so it must not read as "streamlined". */
+      also: { tier: 'assessed', basis: 'training', countries: RULES.nzPsychPrescribed.countries, why: 'The Board treats {country} as having psychology training and regulation standards similar to New Zealand\u2019s, so it is one of five \u201Cprescribed\u201D countries. That buys you a lower application fee (NZ$720 rather than NZ$1,080), no curriculum documents, and a faster assessment \u2014 it is a cost-recovery classification, not a lower bar. Your qualifications, competence and fitness are still assessed individually, and the six-year and 1,500-hour training criteria apply exactly as they do to everyone else.' },
       whys: { assessed: 'The Board individually assesses training length, internship and registration evidence \u2014 and from July 2026, eligible overseas-trained psychologists enter the Raka Māui Competence Programme.' } },
     'nursing.au': { base: 'exam', ttmra: true, lastReviewed: 'August 2026 (NMBA Pathway 1 country list verified 18 Aug 2026)',
       strong: { basis: 'training', countries: ['United Kingdom', 'Ireland', 'United States', 'Canada', 'Singapore', 'Spain'], why: 'The NMBA\u2019s registration standard for internationally qualified registered nurses currently lists {country} among its approved countries for Pathway 1 \u2014 which also requires full registration there and at least 1,800 hours of registered-nurse practice since 1 January 2017. For Canada this currently covers British Columbia and Ontario only. The Self-check confirms your stream.' },
@@ -1182,7 +1181,7 @@
        not the page body. Keyed on TRAINING because that is the tool's first gate (Q2), but the
        why states the other two conditions, because country alone is never the answer here. */
     'nursing.nz': { base: 'exam', ttmra: true, lastReviewed: 'August 2026 (self-assessment tool logic + all fees verified 26 Aug 2026)',
-      strong: { basis: 'training', countries: RULES.nzNursingSelfCheck.countries, why: 'Your nursing education in {country} is the first of three conditions the Council\u2019s self-assessment tool tests. It only indicates you may NOT need the competence assessment when all three hold: education there, CURRENT registration there, and at least 1,800 hours of registered-nurse practice there within the last 10 years. Miss any one and the tool routes you back to the theory exam and the OSCE. For Canada this covers British Columbia and Ontario only, and it does not apply to enrolled nurses at all.' },
+      strong: { basis: 'training', countries: RULES.nzNursingSelfCheck.countries, why: 'Your nursing education in {country} is the first of three conditions the Council\u2019s self-assessment tool tests. It only indicates you may NOT need the competence assessment when all three hold: education there, CURRENT registration there, and at least 1,800 hours of registered-nurse practice there within the last 10 years. Miss any one and the tool routes you back to the theory exam and the OSCE. For Canada this covers British Columbia and Ontario only.' },
       whys: { exam: 'Documents are verified through TruMerit first (US$380), then the Council decides whether you need a competence assessment \u2014 a theory examination at a Pearson VUE centre (NZ$140) plus a two-day orientation (NZ$500) and an OSCE in Christchurch (NZ$3,000). Its self-assessment tool is the one thing that tells you whether that applies to you.' } },
     'doctor.au': { base: 'exam', ttmra: true, lastReviewed: 'August 2026 (competent authorities verified 18 Aug 2026)',
       strong: { basis: 'registration', countries: RULES.auDoctorCompetentAuthority.countries, why: 'Doctors on the Competent Authority pathway do not sit the AMC exams \u2014 your registration in {country} may be relevant. You must meet one of the seven category (A\u2013G) criteria, then complete 12 months of supervised practice.' },
@@ -1245,7 +1244,7 @@
         status: 'additional',
         profNote: { title: 'Three divisions, and you register in one', body: 'Medical radiation practice is registered in three divisions — diagnostic radiography, radiation therapy and nuclear medicine. You register in the one your training supports, and moving between them later is a new qualification rather than an endorsement. Be deliberate about which division your application names.', css: 'mint' },
         headline: 'Your qualification will need to be checked against the Australian registration pathway',
-        paras: ['Internationally qualified medical radiation practitioners are assessed by the Medical Radiation Practice Board of Australia. Depending on the qualification, the Board may recognise it or require additional assessment — the Board\u2019s decision, not this checker, determines your route.'],
+        paras: ['Internationally qualified medical radiation practitioners are assessed by the Medical Radiation Practice Board of Australia. Depending on the qualification, the Board may recognise it or require additional assessment — the Board\u2019s decision, not this checker, determines your route.', 'Three separate things get confused here, and separating them early saves money. <strong>Registration</strong> with the Board, administered through Ahpra, is what lets you practise. A <strong>skills assessment by ASMIRT</strong> is a different process used for certain skilled-visa routes — it is not registration, it does not guarantee registration, and not everyone needs one. A <strong>radiation-use licence</strong> is issued separately again by the state or territory you will work in. Which of the three apply depends on your visa route and where you land.'],
         officialUrl: 'https://www.medicalradiationpracticeboard.gov.au/Registration/Qualifications.aspx',
         steps: steps('See whether MRPBA recognises your qualification', 'Explore Australian imaging opportunities with Ethicare'),
         buttons: btns('Check my qualification with MRPBA', 'OFFICIAL', GUIDE_AU, 'Australian imaging opportunities'),
@@ -1271,7 +1270,7 @@
         status: 'additional',
         profNote: { title: 'MRI is experience, not a separate registration', body: 'In Australia MRI sits inside medical radiation practice rather than standing as its own credential. Your MRI experience is evidence supporting an application in the relevant division, not a registration in its own right.', css: 'mint' },
         headline: 'MRI in Australia sits within medical radiation practice registration',
-        paras: ['In Australia, MRI is generally practised within registered medical radiation practice. Your qualification and MRI experience will need to be checked against the Medical Radiation Practice Board\u2019s pathway for internationally qualified practitioners.'],
+        paras: ['In Australia, MRI is generally practised within registered medical radiation practice. Your qualification and MRI experience will need to be checked against the Medical Radiation Practice Board\u2019s pathway for internationally qualified practitioners.', 'Keep three things separate: <strong>registration</strong> with the Board through Ahpra is what lets you practise; a <strong>skills assessment by ASMIRT</strong> is a different process used for certain skilled-visa routes and is not registration; and a <strong>radiation-use licence</strong> comes separately from the state or territory you will work in.'],
         officialUrl: 'https://www.medicalradiationpracticeboard.gov.au/Registration/Qualifications.aspx',
         steps: steps('See whether MRPBA recognises your qualification', 'Explore Australian imaging opportunities with Ethicare'),
         buttons: btns('Check my qualification with MRPBA', 'OFFICIAL', GUIDE_AU, 'Australian imaging opportunities'),
@@ -1444,7 +1443,11 @@
         officialUrl: 'https://www.speechpathologyaustralia.org.au/',
         steps: steps('Apply to Speech Pathology Australia for assessment of your qualification', 'Talk to us about Australian speech pathology opportunities'),
         buttons: btns('Speech Pathology Australia', 'OFFICIAL', GUIDE_AU, 'Australian opportunities'),
-        lastReviewed: 'Verified 26 August 2026 against dietitiansaustralia.org.au (DSR three-stage process, timings and the three-year clock)'
+        /* This carried the dietetics stamp verbatim — copied from another profession's record
+           and printed to candidates as this one's own "last checked" line. Whether anyone ever
+           verified this record is therefore unknown, and inventing a date would be worse than
+           saying so. Replace this the day someone actually reads the source. */
+        lastReviewed: 'Source: speechpathologyaustralia.org.au. Last review date not recorded — treat requirements, timings and fees as indicative and confirm with the Association.'
       },
       nz: {
         regulator: 'New Zealand Speech-language Therapists\u2019 Association (NZSTA)',
@@ -1543,7 +1546,7 @@
       au: {
         regulator: 'Nursing and Midwifery Board of Australia (Ahpra)',
         status: 'individual',
-        profNote: { title: 'One board, three registers', group: 'route', body: 'Registered nurses, enrolled nurses and midwives are separate registrations with separate requirements. Midwifery is not a nursing endorsement in Australia — it is its own qualification and its own register.', css: 'mint' },
+        profNote: { title: 'One board, separate registers', group: 'route', body: 'Nursing and midwifery are separate registrations with separate requirements. Midwifery is not a nursing endorsement in Australia — it is its own qualification and its own register.', css: 'mint' },
         headline: 'Outcomes-based assessment with the NMBA',
         paras: ['Internationally qualified nurses and midwives are assessed against the NMBA\u2019s registration standards. Where a qualification is not substantially equivalent, the usual route is the outcomes-based assessment: a multiple-choice examination followed by an objective structured clinical examination.',
           'Both parts are booked and sat separately, and the clinical examination is held in a limited number of locations — worth planning around early.'],
@@ -1554,7 +1557,6 @@
         timingNote: { title: 'What the two routes actually take', group: 'need', body: 'Ahpra puts the existing assessment process at typically <strong>9\u201312 months</strong>, longer if an examination has to be re-sat, and an eligible streamlined application at <strong>1\u20136 months</strong> depending on complexity and how complete your evidence is. That gap is the whole reason it is worth establishing which route you are on before you plan anything else \u2014 or agree a start date.', css: 'mint' },
         orientationNote: { title: 'One requirement that follows you past registration', group: 'need', body: 'Every internationally qualified nurse who registers in Australia completes Part 2 of the orientation \u2014 online learning on the Australian healthcare context \u2014 <strong>within six months of registering</strong>. It does not gate your registration or your start date, but it is a condition, so put it in the diary rather than discovering it later.', css: 'mint' },
         npNote: { title: 'Nurse practitioner status does not carry across on its own', group: 'route', body: 'The streamlined standard is for registered nurses. If you are a nurse practitioner, general registration as a registered nurse comes first, and the endorsement is assessed separately against Australian requirements \u2014 including advanced practice hours and an approved or substantially equivalent postgraduate qualification. Plan them as two steps, in that order.', css: 'sand' },
-        enNote: { title: 'Enrolled nursing is a different register', group: 'route', body: 'Enrolled nurse registration has its own qualification requirement and is not a lesser version of registered nursing. If your qualification is a diploma-level nursing award, this is usually the register it maps to — confirm which one your application should name before you start.', css: 'sand' },
         steps: steps('Check the NMBA\u2019s international registration requirements', 'Explore Australian nursing opportunities with Ethicare'),
         buttons: btns('NMBA — international applicants', 'OFFICIAL', GUIDE_AU, 'Australian nursing opportunities'),
         lastReviewed: LAST
@@ -1562,11 +1564,11 @@
       nz: {
         regulator: 'Nursing Council of New Zealand',
         status: 'individual',
-        profNote: { title: 'Most nurses sit an exam and an OSCE — in Christchurch', body: 'The Council requires a competence assessment from <strong>some</strong> registered nurses and from <strong>all</strong> enrolled nurses. It has two parts: an online theory exam at a Pearson VUE centre, and a clinical part — a two-day orientation course plus an OSCE — which must be taken <strong>in person at the Nurse Maude Simulation &amp; Assessment Centre in Christchurch</strong>. That last detail is the one that reshapes plans: it means a trip to New Zealand, or arriving before you are registered.', css: 'mint' },
+        profNote: { title: 'Most nurses sit an exam and an OSCE — in Christchurch', body: 'The Council requires a competence assessment from <strong>some</strong> internationally qualified registered nurses. It has two parts: an online theory exam at a Pearson VUE centre, and a clinical part — a two-day orientation course plus an OSCE — which must be taken <strong>in person at the Nurse Maude Simulation &amp; Assessment Centre in Christchurch</strong>. That last detail is the one that reshapes plans: it means a trip to New Zealand, or arriving before you are registered.', css: 'mint' },
         headline: 'Registration with the Nursing Council of New Zealand',
         paras: ['Overseas-qualified nurses are assessed individually, and the Council’s own self-assessment tool sets out how it decides. Two requirements apply to everyone: you must be <strong>currently registered</strong> with an overseas regulatory authority, and you must evidence <strong>1,800 hours of post-registration nursing experience</strong> — roughly a year full-time. Without either, the tool tells you that you may not be able to register yet.',
           'Whether you also sit the competence assessment turns on a three-part test, and the third part is the one people miss. The Council recognises education, current registration and 1,800 hours of recent practice in the <strong>USA, UK, Ireland, Singapore, or the Canadian provinces of British Columbia and Ontario</strong> — but all three must be in that group, and the practice must fall within the last 10 years. A UK-trained nurse who has spent the last decade elsewhere sits the assessment like anyone else.',
-          'The theory exam is in two parts — Part A medication safety, Part B nursing knowledge — with three attempts, and you re-sit only the part you failed. The OSCE is 10 stations for registered nurses and 8 for enrolled nurses, 12 minutes each, also three attempts.'],
+          'The theory exam is in two parts — Part A medication safety, Part B nursing knowledge — with three attempts, and you re-sit only the part you failed. The OSCE is 10 stations, 12 minutes each, also three attempts.'],
         officialUrl: 'https://nursingcouncil.org.nz/IQN/IQN/Competence-assessment-process.aspx',
         selfCheckNote: { title: 'Use the Council\u2019s own self-assessment tool first', group: 'route', body: 'It is the Council\u2019s tool and it answers the only question that matters at this stage \u2014 whether you personally need the competence assessment. Everything else, including cost and how long the move takes, follows from that answer. The Council recognises six places: <strong>the USA, the UK, Ireland, Singapore, and the Canadian provinces of British Columbia and Ontario</strong>. It only indicates you may avoid the assessment when all three of these are true \u2014 you were <strong>educated</strong> there, you are <strong>currently registered</strong> there, and you have <strong>1,800 hours</strong> of registered-nurse practice there within the last 10 years. Miss one and you are on the exam route, so training in the UK on its own settles nothing. It is not a decision either: qualifications are assessed individually and the outcome is confirmed only at the end.', css: 'mint' },
         costNote: { title: 'What it costs, and what is payable before you can even apply', group: 'need', body: 'Two fees come before the Council will look at you, and neither is in New Zealand dollars: <strong>TruMerit</strong> document verification at <strong>US$380</strong>, and an international criminal history check through Fit2Work at <strong>AU$155 per country</strong> you have lived in. The Council\u2019s own application fee is <strong>NZ$485</strong>. If a competence assessment is required, add the theory exam at <strong>NZ$140</strong>, the orientation course at <strong>NZ$500</strong> and the OSCE at <strong>NZ$3,000</strong> \u2014 plus flights and accommodation in Christchurch. A failed OSCE re-sit is another NZ$3,000.', css: 'sand' },
@@ -1576,7 +1578,6 @@
         marketNote: { title: 'Check the job market before you spend anything', group: 'need', body: 'The Council is unusually direct about this: New Zealand has employed a large number of internationally qualified nurses in recent years, and it says demand is <strong>currently lower than previously</strong>, except in particular specialties or levels of experience \u2014 it names mental health and addiction. It encourages nurses to explore employment opportunities <em>before</em> applying for registration or coming to New Zealand. Being eligible to register and being likely to be hired are two different questions, and the second one is worth asking first.', css: 'mint' },
         registrationGateNote: { title: 'You must currently hold overseas registration', group: 'need', body: 'This is a hard gate rather than a preference. If your registration has lapsed, or you have never registered in the country where you qualified, the Council\u2019s own tool says you may not be able to register in New Zealand. Talk to us before spending anything on verification \u2014 lapsed registration is sometimes recoverable in the country that issued it, and that is usually the cheaper route.', css: 'sand' },
         hoursGateNote: { title: '1,800 hours, and where they were worked', group: 'need', body: '1,800 hours of post-registration practice \u2014 about a year full-time \u2014 is required of every internationally qualified nurse, and it is one of the documents TruMerit verifies. A second, separate hours test decides the competence assessment: 1,800 hours as a registered nurse <em>within the last 10 years</em>, worked in <strong>the USA, the UK, Ireland, Singapore, or the Canadian provinces of British Columbia or Ontario</strong>. Nurses often meet the first test and not the second \u2014 and it is the second that decides whether you sit the exam and the OSCE.', css: 'sand' },
-        enNote: { title: 'Enrolled nurses always sit the assessment', group: 'route', body: 'The exemption question does not arise for enrolled nurses: the Council requires the competence assessment from all of them. Your OSCE is 8 stations rather than 10, and it is the same in-person assessment in Christchurch. Enrolled nursing is also its own scope with its own qualification requirement, not a lesser version of registered nursing — confirm which scope your qualification maps to before applying.', css: 'sand' },
         osceNote: { title: 'The clinical part means travelling to Christchurch', group: 'need', body: 'The two-day orientation course and the OSCE are both in person at the Nurse Maude Simulation &amp; Assessment Centre in Christchurch — there is no overseas venue for this part, unlike the theory exam. Budget the flights and the time, and decide deliberately whether you sit it on a trip or after you arrive.', css: 'sand' },
         steps: ['Check whether employers are recruiting in your specialty before you spend anything',
           'Use the Council\u2019s self-assessment tool to find out whether you need a competence assessment',
@@ -1685,7 +1686,9 @@
         officialUrl: 'https://www.aasw.asn.au/',
         steps: steps('Apply to the AASW for assessment of your qualification', 'Talk to us about Australian social work opportunities'),
         buttons: btns('AASW', 'OFFICIAL', GUIDE_AU, 'Australian opportunities'),
-        lastReviewed: 'Verified 26 August 2026 against dietitiansaustralia.org.au (DSR three-stage process, timings and the three-year clock)'
+        /* Same copied dietetics stamp as the speech pathology record above — see the note
+           there. No date is asserted because none was recorded. */
+        lastReviewed: 'Source: aasw.asn.au. Last review date not recorded — treat requirements and timings as indicative and confirm with the AASW.'
       },
       nz: {
         regulator: 'Social Workers Registration Board (SWRB)',
@@ -1860,7 +1863,12 @@
   var INSTITUTIONS = [];
   var QUAL_LEVEL_HINTS = [];
 
-  var ENGLISH_OPTIONS = ['English is my first language', 'I trained and practised in English in a recognised country', 'IELTS', 'OET', 'PTE', 'TOEFL', 'Another test', 'I believe I meet an education / professional pathway', 'No', 'I\u2019m not sure'];
+  /* 30 Sep 2026 — "English is my first language" was removed. No regulator grants an
+     exemption on that claim: both tie it to a list of recognised countries AND to where you
+     were educated and examined. Someone born in Egypt who has spoken English since infancy
+     could honestly tick it and be told something that would not hold, which is the one thing
+     a checker must not do. The education route below is what the standards actually test. */
+  var ENGLISH_OPTIONS = ['I trained and practised in English in a recognised country', 'IELTS', 'OET', 'PTE', 'TOEFL', 'Another test', 'I believe I meet an education / professional pathway', 'No', 'I\u2019m not sure'];
   var PRIORITIES = ['Highest salary', 'Lower cost of living', 'Employer relocation support', 'Family-friendly location', 'Schools', 'Career progression', 'Work-life balance', 'Major city', 'Regional lifestyle', 'Beaches / outdoors', 'Warmer climate', 'Permanent relocation', 'I\u2019m still exploring'];
   var PARTY = ['Just me', 'Partner', 'Partner and child/children', 'Child/children', 'Other'];
   var TIMEFRAMES = ['As soon as possible', 'Within 3 months', '3–6 months', '6–12 months', '12+ months', 'Just exploring'];

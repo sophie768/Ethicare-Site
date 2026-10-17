@@ -19,7 +19,7 @@
         dollar figures here — that decision is editorial, not an
         oversight, and this page must not contradict it.
    2. This is NOT the New Zealand relocation checklist. That one
-      (/guides/nz/relocation-checklist, chapter 13 of the NZ guide) is a
+      (/guides/new-zealand-checklist, chapter 13 of the NZ guide) is a
       TIMELINE — roughly forty errands across six months, before and
       after you fly. This one is a DECISION checklist, personalised by
       household shape, covering both countries. They answer different
@@ -34,7 +34,7 @@
     var nz = dest === 'nz' || dest === 'both';
     var nzOnly = nz && !au;
     return {
-      destinations: '/destinations/',
+      destinations: (au && !nz) ? '/destinations/australia' : '/destinations/',
       registration: '/pathway-checker',
       costs: '/guides/cost-of-relocating',
       jobs: '/jobs/',
@@ -42,13 +42,17 @@
       offer: '/guides/negotiating-your-offer',
       visas: nzOnly ? '/guides/new-zealand-visa' : '/guides/australia-visa',
       officialVisas: nzOnly ? 'https://www.immigration.govt.nz/' : 'https://immi.homeaffairs.gov.au/',
+      medicals: nzOnly ? '/guides/new-zealand-visa#medicals' : '/guides/australia-visa#medicals',
+      findClinic: nzOnly
+        ? 'https://www.immigration.govt.nz/new-zealand-visas/apply-for-a-visa/tools-and-information/medical-info/panel-physicians'
+        : 'https://immi.homeaffairs.gov.au/help-support/meeting-our-requirements/health/arrange-your-health-examinations',
       housing: nzOnly ? '/guides/renting-in-new-zealand' : '/guides/moving-to-australia',
       healthcare: nzOnly ? '/guides/new-zealand-healthcare' : '/guides/australia-healthcare',
       education: nzOnly ? '/guides/new-zealand-education' : '/guides/australia-education',
       schoolFeesAU: '/guides/australia-school-fees',
       educationNZ: '/guides/new-zealand-education',
       family: nzOnly ? '/guides/new-zealand-family' : '/guides/australia-family',
-      pets: nzOnly ? '/guides/nz/bringing-pets-and-belongings' : '/guides/australia-pets',
+      pets: nzOnly ? '/guides/nz/bringing-your-pets' : '/guides/australia-pets',
       arrival: nzOnly ? '/guides/new-zealand-relocation' : '/guides/australia-relocation',
       firstMonth: nzOnly ? '/guides/new-zealand-first-month' : '/guides/australia-relocation',
       banking: nzOnly ? '/guides/money-tax-and-banking' : '/guides/moving-to-australia',
@@ -114,7 +118,8 @@
         { id: 'm1', title: 'I\u2019ve thought about what I want from the move', note: 'Career, lifestyle, finances \u2014 and whether this is a few years or a longer-term change. The answer changes what matters below.' },
         { id: 'm2', title: 'I\u2019ve researched the place, not just the job', note: 'Housing, transport, climate, airport access, and what an ordinary Tuesday would actually look like.', ctaLabel: 'Explore destinations', ctaHref: L.destinations },
         { id: 'm3', title: 'I know where my professional registration stands', note: 'Registration is profession-specific and usually sets the timeline for everything else on this list.', ctaLabel: 'Check my registration pathway', ctaHref: L.registration },
-        { id: 'm4', title: 'I understand the likely visa process', note: 'Read our summary alongside the official immigration source \u2014 the official one is the authority.', ctaLabel: 'Visa guide', ctaHref: L.visas, cta2Label: 'Official immigration site', cta2Href: L.officialVisas }
+        { id: 'm4', title: 'I understand the likely visa process', note: 'Read our summary alongside the official immigration source \u2014 the official one is the authority.', ctaLabel: 'Visa guide', ctaHref: L.visas, cta2Label: 'Official immigration site', cta2Href: L.officialVisas },
+        { id: 'm5', title: 'I\u2019ve found the approved clinic for my visa medical', note: au && nz ? 'Neither country lets your own GP do it, and everyone on the application is examined. Find your nearest approved clinic early \u2014 in some countries there are only one or two.' : au ? 'Your own GP cannot do it. Overseas you must use a Department-approved panel physician; inside Australia it is Bupa Medical Visa Services. Everyone on the application is examined.' : 'Your own GP cannot do it \u2014 it has to be an Immigration New Zealand panel physician, and everyone on the application is examined, children included.', ctaLabel: 'What the medical involves', ctaHref: L.medicals, cta2Label: 'Find an approved clinic', cta2Href: L.findClinic }
       ]
     });
 

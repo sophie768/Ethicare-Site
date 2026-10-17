@@ -3,14 +3,14 @@
    THIS IS NOT ETHICARE MOVE AND NOT MY MOVE. Three different things write to localStorage
    and their names used to collide dangerously:
      ethicare_myfile_v1  — THIS file: saved pages, read state, page notes
-     ethicare_portal_v1  — the Ethicare Move plan (move.js), named before the rename
-     ethicare_mymove_v2  — the My Move dashboard (my-move-planner.jsx)
+     ethicare_portal_v1  — the Plan Ethicare plan (move.js), named before the rename
+     ethicare_mymove_v2  — the My Plan dashboard (my-move-planner.jsx)
    Until 30 Aug 2026 this one was called `ethicare_mymove_v1`, which read as an older version
    of `_v2` and was one tidy-up away from being deleted along with every saved page and note.
    It is now `ethicare_myfile_v1`, and old data is migrated in on first load.
 
    Nothing leaves the browser; that privacy line is part of the UI copy.
-   Pages include this script; a [data-myfile-dash] container (Ethicare Move) also gets the dashboard
+   Pages include this script; a [data-myfile-dash] container (Plan Ethicare) also gets the dashboard
    and suppresses the floating widget. Upgrade path: swap the storage fns for account sync later. */
 (function () {
   var KEY = 'ethicare_myfile_v1';
@@ -79,7 +79,7 @@
     var bar = document.createElement('div'); bar.className = 'mm'; bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', 'My file — save this page, mark it read, keep notes');
     bar.innerHTML = '<button type="button" class="mm-b" data-mm="save"></button><button type="button" class="mm-b" data-mm="read"></button><button type="button" class="mm-b" data-mm="note" aria-expanded="false"></button>';
     var panel = document.createElement('div'); panel.className = 'mm-panel'; panel.hidden = true; panel.setAttribute('role', 'region'); panel.setAttribute('aria-label', 'Your notes on this page');
-    panel.innerHTML = '<h2>Your notes on this page</h2><textarea placeholder="Questions to ask, things to check, how you feel about it&hellip;"></textarea><p class="mm-st" aria-live="polite"></p><p class="mm-priv">Saved in this browser only &mdash; nothing is sent to Ethicare.</p><a class="mm-all" href="/move#myfile">Everything you&rsquo;ve saved &rarr;</a>';
+    panel.innerHTML = '<h2>Your notes on this page</h2><textarea placeholder="Questions to ask, things to check, how you feel about it&hellip;"></textarea><p class="mm-st" aria-live="polite"></p><p class="mm-priv">Saved in this browser only &mdash; nothing is sent to Ethicare.</p><a class="mm-all" href="/plan#myfile">Everything you&rsquo;ve saved &rarr;</a>';
     document.body.appendChild(bar); document.body.appendChild(panel);
     var bSave = bar.querySelector('[data-mm="save"]'), bRead = bar.querySelector('[data-mm="read"]'), bNote = bar.querySelector('[data-mm="note"]');
     var ta = panel.querySelector('textarea'), stEl = panel.querySelector('.mm-st'), tmr;
@@ -117,7 +117,7 @@
     return;
   }
 
-  /* ---------- dashboard (Ethicare Move) ---------- */
+  /* ---------- dashboard (Plan Ethicare) ---------- */
   var listEl = dash.querySelector('[data-myfile-list]') || dash;
   function items() {
     var urls = {}; Object.keys(d.saved).forEach(function (u) { urls[u] = 1; }); Object.keys(d.notes).forEach(function (u) { urls[u] = 1; }); Object.keys(d.read).forEach(function (u) { urls[u] = 1; });

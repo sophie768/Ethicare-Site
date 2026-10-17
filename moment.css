@@ -1,0 +1,67 @@
+/* moment.css — clocks, greeting fade and the Good to know line (15 Oct 2026). Loaded only by the
+   pages that use them: home, Your page, destination guides, interview prep. */
+.mo-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.mo-tile{min-width:0;background:#F3F7F4;border:1px solid #DCE5E0;border-radius:14px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start}
+.mo-tb{min-width:0}
+.mo-k{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#2F5E49;margin:0 0 6px}
+.mo-v{font-family:'Work Sans',sans-serif;font-weight:600;font-size:1.5rem;line-height:1.1;color:#02615D;margin:0;font-variant-numeric:tabular-nums}
+.mo-s{font-family:'Manrope',sans-serif;font-size:14px;line-height:1.45;color:#1F2A27;margin:4px 0 0}
+.mo-sub{font-family:'Manrope',sans-serif;font-size:12.5px;color:#5E6B66;margin:2px 0 0}
+.mo-more{margin-top:10px}
+.mo-more>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#02615D;text-decoration:underline;text-decoration-color:#A6C84A;text-underline-offset:3px;min-height:32px}
+.mo-more>summary::-webkit-details-marker{display:none}
+.mo-more[open]>summary{margin-bottom:10px}
+.mo-tiles-more .mo-tile{background:#fff}
+/* one quiet line */
+.mo-fact{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;font-family:'Manrope',sans-serif;font-size:15.5px;line-height:1.5;color:#1F2A27;margin:0}
+.mo-gk{font-family:'Work Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:#2F5E49;white-space:nowrap}
+.mo-gt{flex:1 1 32ch;min-width:0}
+/* inline clock in a hero meta row (destination guides, interview prep) */
+[data-moment-clock]{font-variant-numeric:tabular-nums}
+[data-moment-clock] .mo-l{font-weight:600}
+/* greeting: a short fade on arrival, none when motion is reduced */
+.mo-in{animation:mo-fade .5s ease-out both}
+@keyframes mo-fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.mo-in{animation:none}}
+/* the home strip */
+.world{background:#FCFBF8;padding:clamp(40px,5vw,64px) 0;border-top:1px solid #E6EEE9}
+.world-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;margin-bottom:18px}
+.world-head h2{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(1.25rem,2.2vw,1.6rem);line-height:1.2;color:#02615D;margin:0}
+.world-head .eyebrow{margin:0}
+.world .mo-tiles{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.world .mo-tile{background:#fff}
+/* on the welcome-back card: tile row under the two columns */
+.wb-moment{grid-column:1/-1;display:grid;gap:14px;padding-top:18px;border-top:1px solid #E6EEE9}
+/* on Your page hero (dark): the line and tile sit on a translucent panel */
+.you-moment{margin-top:22px;display:grid;gap:12px;max-width:560px}
+.you-moment .mo-tile{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16)}
+.you-moment .mo-k,.you-moment .mo-gk{color:#C6E084}
+.you-moment .mo-v{color:#fff}
+.you-moment .mo-s,.you-moment .mo-fact{color:#EEF3F0}
+.you-moment .mo-sub{color:#B7CDC3}
+.you-moment .mo-more>summary{color:#fff}
+.you-moment .mo-tiles-more .mo-tile{background:rgba(255,255,255,.08)}
+.mo-fact.on-dark{color:#EEF3F0}.mo-fact.on-dark .mo-gk{color:#C6E084}
+.wb-moment .mo-tiles{grid-template-columns:repeat(auto-fit,minmax(200px,340px))}
+
+/* analogue faces */
+.mo-face{flex:none;width:40px;height:40px}
+.mo-fc{fill:#fff;stroke:#02615D;stroke-width:1.5}
+.mo-tick{stroke:#02615D;stroke-width:1.5;stroke-linecap:round;opacity:.55}
+.mo-hh{stroke:#02615D;stroke-width:2.4;stroke-linecap:round}
+.mo-mh{stroke:#2F5E49;stroke-width:1.6;stroke-linecap:round}
+.mo-pin{fill:#A6C84A}
+.you-moment .mo-fc{fill:rgba(255,255,255,.06);stroke:#C6E084}.you-moment .mo-tick,.you-moment .mo-hh{stroke:#fff}.you-moment .mo-mh{stroke:#C6E084}
+/* the home row: three small faces, one line each */
+.mo-row{display:flex;flex-wrap:wrap;gap:14px 32px;align-items:center}
+.mo-item{display:flex;gap:10px;align-items:center;min-width:0}
+.mo-item .mo-face{width:34px;height:34px}
+.mo-ib{min-width:0}
+.mo-ib .mo-k{margin:0 0 2px;font-size:11px}
+.mo-t2{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;line-height:1.2;color:#02615D;margin:0;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mo-t2 .mo-d2{font-family:'Manrope',sans-serif;font-weight:500;font-size:13px;color:#5E6B66}
+.mo-row>.mo-more{margin:0;flex-basis:100%}
+.mo-row-more{margin-top:4px}
+.world{padding:clamp(22px,3vw,32px) 0}
+.world-head{margin-bottom:12px}
+.world-head h2{font-size:1.05rem}

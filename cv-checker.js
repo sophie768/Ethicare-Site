@@ -11,6 +11,11 @@
   var head = document.querySelector('[data-headline]');
   var wrap = document.querySelector('[data-resultwrap]');
   var destSel = document.getElementById('rvDest');
+  var profSel = document.getElementById('rvProf');
+  var profNote = document.querySelector('[data-profnote]');
+  var SK = window.EthicareCVSkills || null;
+  var racts = document.querySelector('[data-racts]');
+  var printMeta = document.querySelector('[data-printmeta]');
   var YEAR = new Date().getFullYear();
 
   var FILLER = ['excellent communication skills', 'good communication skills', 'strong communication skills', 'team player', 'works well in a team', 'work well in a team', 'hard working', 'hardworking', 'strong work ethic', 'passionate about', 'dedicated professional', 'highly motivated', 'self-motivated', 'self motivated', 'attention to detail', 'goes the extra mile', 'go the extra mile', 'fast-paced environment', 'fast paced environment', 'works well under pressure', 'work well under pressure', 'flexible and adaptable', 'proven track record', 'results-driven', 'can-do attitude', 'thinks outside the box', 'think outside the box', 'excellent interpersonal skills'];
@@ -66,6 +71,9 @@
 
   function updateMeter() {
     var w = wordCount(ta.value);
+    /* Cleanup on correction (DESIGN-SYSTEM.md form standard): once there is enough to check,
+       the box stops reporting itself invalid and the "not enough text" card goes with it. */
+    if (ta.getAttribute('aria-invalid') === 'true' && w >= 40) clearShort();
     if (!w) { meter.textContent = 'Nothing pasted yet.'; return; }
     var pages = Math.max(1, Math.round(w / 500));
     meter.textContent = w.toLocaleString() + (w === 1 ? ' word' : ' words') + ' \u00b7 roughly ' + pages + (pages === 1 ? ' page' : ' pages') + ' at eleven point';
@@ -95,7 +103,7 @@
     var re = /registrat|registered with|\bahpra\b|\bhcpc\b|\bnmc\b|medical council|\bapc\b|annual practising certificate|registration number/i;
     var m = re.exec(t);
     if (!m) return { s: 'fix', t: 'Registration is not mentioned', p: 'Nothing on the page says where you are registered or where you are in the process for ' + dest() + '. It is the first thing a reader checks, and its absence reads as not started. One line at the top is enough.' };
-    if (m.index < 1100) return { s: 'good', t: 'Registration is on page one', p: 'Where a reader looks for it. If your wording is vague about the stage you are at, the pathway checker will give you the right words for it.' };
+    if (m.index < 1100) return { s: 'good', t: 'Registration appears near the start', p: 'Where a reader looks for it. If your wording is vague about the stage you are at, the pathway checker will give you the right words for it.' };
     return { s: 'watch', t: 'Registration is buried', p: 'It is on the page, but far enough down that a reader skimming page one would not find it. Move it to the header block, under your contact details.' };
   }
 
@@ -103,7 +111,7 @@
     var hits = [];
     for (var i = 0; i < PERSONAL.length; i++) { if (PERSONAL[i].re.test(t)) hits.push(PERSONAL[i].label); }
     if (!hits.length) return { s: 'good', t: 'No personal details that should not be there', p: 'No date of birth, nationality, marital status or identity number. Convention in both countries is that none of it belongs on a CV, and including it can make a reader uneasy about handling the document at all.' };
-    return { s: 'fix', t: 'Details that do not belong on the page', p: 'These are standard on a CV in some countries and are not asked for in ' + dest() + '. Take them off. Where an immigration or registration process genuinely needs them, they are collected separately and securely.', list: hits };
+    return { s: 'fix', t: 'Details that do not belong on the page', p: 'These are standard on a CV in some countries and are not asked for in ' + dest() + '. Take them off. Where an immigration or registration process needs them, they are collected separately and securely.', list: hits };
   }
 
   function checkLocal(t) {
@@ -142,7 +150,7 @@
   }
 
   function checkDates(t) {
-    var re = /\b(19[7-9]\d|20[0-4]\d)\s*(?:\u2013|\u2014|-|to|until)\s*((?:19[7-9]\d|20[0-4]\d)|present|current|date|now)\b/gi;
+    var re = /\b(19[7-9]\d|20[0-4]\d)\s*(?:\u2013|\u2014|-|to|until)\s*(?:(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*|\d{1,2}[\/.]\s*)?((?:19[7-9]\d|20[0-4]\d)|present|current|date|now)\b/gi;
     var m, ranges = [];
     while ((m = re.exec(t)) !== null) {
       var end = /^\d{4}$/.test(m[2]) ? parseInt(m[2], 10) : YEAR;
@@ -156,18 +164,87 @@
       if (ranges[i][1] > reach) reach = ranges[i][1];
     }
     if (gaps.length) return { s: 'watch', t: 'Possible gaps in the chronology', p: 'Reading the dates in order, there may be time unaccounted for. If there is a reason, give it a line of its own \u2014 an unexplained gap invites worse assumptions than the truth, and dates read out of order can look like one.', list: gaps.slice(0, 3) };
-    if (ranges.length === 1) return { s: 'watch', t: 'Only one dated role', p: 'One date range on the page. A reader wants the sequence, not just the current job. Date every role, most recent first.' };
+    if (ranges.length === 1) return { s: 'watch', t: 'We found one clearly dated role', p: 'We could only read one date range. If you have more roles, check each has a start and end date we can read (for example Jan 2019 \u2013 Mar 2023, or 2019 \u2013 present). A reader wants the sequence, not just the current job. Date every role, most recent first.' };
     return { s: 'good', t: 'The chronology holds together', p: ranges.length + ' dated roles in sequence, with nothing obviously unaccounted for.' };
   }
 
   function checkVoice(t) {
     var lower = t.toLowerCase(), hits = found(PASSIVE, lower);
     if (!hits.length) return { s: 'good', t: 'Written in the active voice', p: 'No duty lists. Led, managed, developed, trained \u2014 that is what a reader is looking for.' };
-    if (hits.length <= 2) return { s: 'watch', t: 'A little duty-list language', p: 'A few phrases describe the job rather than what you did in it. Swap them for what you actually did: led, ran, set up, trained, redesigned.', list: hits };
+    if (hits.length <= 2) return { s: 'watch', t: 'A little duty-list language', p: 'A few phrases describe the job rather than what you did in it. Swap them for what you did: led, ran, set up, trained, redesigned.', list: hits };
     return { s: 'fix', t: 'It reads as a job description', p: 'Phrases like these describe what the post involved, not what you contributed \u2014 and a reader cannot tell a strong clinician from an average one in the same post. Rewrite each as something you did.', list: hits };
   }
 
   var CHECKS = [checkContact, checkRegistration, checkPersonal, checkLocal, checkSections, checkScale, checkDates, checkVoice, checkPhrases, checkLength];
+
+  /* ---------- profession checks (cv-skills-data.js, shared with the CV builder) ----------
+     Does this CV give an employer here the clinical evidence they need to shortlist? Nothing in
+     the library is mandatory: an area that is absent is never reported as a weakness on its own.
+     We only say when a whole dimension is unstated, when a stated area is thin, or when
+     equipment is described rather than named. */
+  function profession(t) {
+    if (!SK) return null;
+    var chosen = profSel && profSel.value;
+    if (chosen) return { key: chosen, guessed: false };
+    var g = SK.detect(t);
+    return g ? { key: g, guessed: true } : null;
+  }
+  /* "mental health" mid-sentence, but CT, MRI and EMDR stay as they are */
+  function lc(n) { return /^[A-Z][A-Z]/.test(n) ? n : n.charAt(0).toLowerCase() + n.slice(1); }
+  function names(list) { list = list.map(lc); return list.length < 3 ? list.join(' and ') : list.slice(0, -1).join(', ') + ' and ' + list[list.length - 1]; }
+
+  function checkAreas(t, P) {
+    var pr = P.primary; if (!pr) return null;
+    var found = pr.areas.filter(function (a) { return SK.any(t, a.terms); });
+    if (!found.length) return { s: 'fix', t: 'It is not clear ' + pr.title, p: 'Employers often shortlist on this, and a reader will not assume a skill you have not written down. Say which apply to you, for example ' + pr.examples + '. Leave out any you do not do; nobody does all of them.' };
+    return { s: 'good', t: 'Your ' + pr.noun + ' are easy to find', p: 'A reader scanning for these would find them. Make sure each one also shows up in the jobs where you did it, so a reader can tell how recent and how regular it is.', list: found.map(function (a) { return a.name; }) };
+  }
+
+  function checkDepth(t, P) {
+    var pr = P.primary; if (!pr) return null;
+    var withDepth = pr.areas.filter(function (a) { return a.depth && SK.any(t, a.terms); });
+    if (!withDepth.length) return null;
+    var thin = withDepth.filter(function (a) { return SK.hitsIn(t, a.depth.terms).length < 3; });
+    if (!thin.length) return { s: 'good', t: 'There is detail behind your ' + names(withDepth.map(function (a) { return a.name; })), p: 'Enough specifics for a reader to judge the level you work at, which is what decides whether you are put forward.' };
+    if (thin.length === 1) {
+      var a = thin[0];
+      return { s: 'watch', t: 'You mention ' + lc(a.name) + ', but not much about your ' + lc(a.name) + ' practice', p: 'A reader hiring for ' + lc(a.name) + ' looks for specifics before anything else. Consider adding ' + a.depth.ask + ', where they apply to you.' };
+    }
+    return { s: 'watch', t: 'Not much detail behind ' + names(thin.map(function (a) { return a.name; })), p: 'A reader hiring for these looks for specifics before anything else. Consider adding the following, where they apply to you.', list: thin.map(function (a) { return a.name + ': ' + a.depth.ask; }) };
+  }
+
+  function checkAlso(t, P, label) {
+    if (!P.also || !P.also.length) return null;
+    var missing = P.also.filter(function (d) { return !SK.any(t, d.terms); });
+    if (!missing.length) return { s: 'good', t: 'The rest of what a reader in your profession looks for is there', p: P.also.map(function (d) { return d.name; }).join(', ') + ': all on the page.' };
+    return { s: 'watch', t: missing.length === 1 ? 'One more thing a reader in your profession looks for' : 'More that a reader in your profession looks for', p: 'We could not find these. Add the ones that apply to you: they are often what separates two otherwise similar CVs.', list: missing.map(function (d) { return d.name + ': ' + d.ask; }) };
+  }
+
+  function checkKit(t, P) {
+    var k = P.kit; if (!k) return null;
+    var hasBrands = k.brands && k.brands.length, brand = hasBrands && SK.any(t, k.brands);
+    var sys = k.systems && k.systems.length ? SK.any(t, k.systems) : true;
+    var generic = k.generic && k.generic.length && SK.any(t, k.generic);
+    if (!hasBrands) {
+      if (sys) return { s: 'good', t: 'Your clinical system is named', p: 'A practice reading this knows how quickly you would find your way around theirs.' };
+      return { s: 'watch', t: 'Name the system you work in', p: 'We could not find ' + k.systemsName + '. A practice here will want to know how quickly you would find your way around theirs.' };
+    }
+    if (brand && sys) return { s: 'good', t: 'Equipment named the way a reader wants it', p: 'Manufacturer and model, and the systems around them. A department can match that to what it runs.' };
+    if (brand) return { s: 'watch', t: 'Name your systems too', p: 'Your equipment is named. Add ' + k.systemsName + ': it tells a reader how quickly you would find your way around theirs.' };
+    return { s: 'watch', t: generic ? 'Your equipment is described, not named' : 'No equipment named', p: 'Departments here run particular makes, and a reader matching you to theirs looks for the manufacturer and model: ' + k.example + '.' + (sys ? '' : ' Name ' + k.systemsName + ' as well.') };
+  }
+
+  function profChecks(t) {
+    var pf = profession(t);
+    if (profNote) profNote.textContent = '';
+    if (!pf || pf.key === 'other') {
+      if (profNote) profNote.textContent = pf ? '' : 'Choose your profession above and we will also check the clinical detail employers in it scan for, such as modalities, therapeutic approaches and equipment by name.';
+      return [];
+    }
+    var P = SK.get(pf.key), label = SK.label(pf.key);
+    if (profNote && pf.guessed) profNote.textContent = 'Checked as a CV for ' + label.toLowerCase().replace(/ — .*/, '') + '. If that is wrong, choose your profession above.';
+    return [checkAreas(t, P), checkDepth(t, P), checkAlso(t, P, label), checkKit(t, P)].filter(Boolean);
+  }
 
   /* ---------- render ---------- */
   var LABEL = { fix: 'A reader notices this', watch: 'Worth a second look', good: 'Reads well' };
@@ -176,14 +253,22 @@
   function run() {
     var t = ta.value;
     if (wordCount(t) < 40) {
+      /* The one validation failure this tool has. The message announces (role="alert"), the
+         textarea is marked invalid and described by it, and focus goes to the textarea — the
+         control that failed — rather than to the results heading below it. */
       head.textContent = 'Paste a bit more and we can be useful';
-      out.innerHTML = '<article class="rv-card watch"><div class="rv-top"><span class="rv-pill watch">Not enough to read</span><h3>There is not enough text to check</h3></div><p>Open your CV, select all of it, copy, and paste the whole document into the box above. Formatting does not matter and headings are welcome \u2014 several of the checks look for them.</p></article>';
+      out.innerHTML = '<article class="rv-card watch" id="cvc-short" role="alert"><div class="rv-top"><span class="rv-pill watch">Not enough to read</span><h3>There is not enough text to check</h3></div><p>Open your CV, select all of it, copy, and paste the whole document into the box above. Formatting does not matter and headings are welcome \u2014 several of the checks look for them.</p></article>';
       wrap.hidden = false;
-      show();
+      if (racts) racts.hidden = true;
+      ta.setAttribute('aria-invalid', 'true');
+      ta.setAttribute('aria-describedby', 'cvc-short');
+      ta.focus();
       return;
     }
+    clearShort();
     var results = [];
     for (var i = 0; i < CHECKS.length; i++) { results.push(CHECKS[i](t)); }
+    results = results.concat(profChecks(t));
     results.sort(function (a, b) { return ORDER[a.s] - ORDER[b.s]; });
 
     var fixes = 0, watches = 0;
@@ -210,23 +295,57 @@
     show();
   }
 
+  function destName() { return destSel && destSel.value === 'au' ? 'Australia' : 'New Zealand'; }
   function show() {
+    if (racts) racts.hidden = false;
+    if (printMeta) printMeta.textContent = 'Ethicare Resourcing CV check \u2014 for applications to ' + destName() + '. Guidance a reader here might give, not a decision; you are welcome to disagree with any of it. ethicareresourcing.com/cv-checker';
     var y = wrap.getBoundingClientRect().top + window.pageYOffset - 78;
     window.scrollTo({ top: y, behavior: 'smooth' });
     head.setAttribute('tabindex', '-1');
     head.focus({ preventScroll: true });
+  }
+  function clearShort() {
+    ta.removeAttribute('aria-invalid');
+    ta.removeAttribute('aria-describedby');
+    if (document.getElementById('cvc-short')) { out.innerHTML = ''; wrap.hidden = true; if (racts) racts.hidden = true; }
   }
 
   ta.addEventListener('input', updateMeter);
   runBtn.addEventListener('click', run);
   clearBtn.addEventListener('click', function () {
     ta.value = '';
+    clearShort();
     updateMeter();
     out.innerHTML = '';
     wrap.hidden = true;
+    if (racts) racts.hidden = true;
     ta.focus();
   });
   if (destSel) destSel.addEventListener('change', function () { if (!wrap.hidden) run(); });
+  if (profSel && SK) {
+    SK.PROFESSIONS.forEach(function (p) { var o = document.createElement('option'); o.value = p.value; o.textContent = p.label; profSel.appendChild(o); });
+    profSel.addEventListener('change', function () {
+      var ctx = window.EthicareContext, c = SK.TO_CONTEXT[profSel.value];
+      if (ctx && ctx.write && c) ctx.write({ profession: c });
+      if (!wrap.hidden) run();
+    });
+  }
+  /* 28 Sep 2026 — shared answers (candidate-context.js): seed from what the candidate has already said, write back what they say here, and show the strip. */
+  (function () {
+    var ctx = window.EthicareContext; if (!ctx || !destSel) return;
+    function seed() {
+      var changed = false, d = ctx.dest();
+      if (d && destSel.value !== d) { destSel.value = d; changed = true; }
+      var pk = SK && ctx.profession && SK.FROM_CONTEXT[ctx.profession()];
+      if (pk && profSel && profSel.value !== pk) { profSel.value = pk; changed = true; }
+      if (changed && !wrap.hidden) run();
+    }
+    seed();
+    destSel.addEventListener('change', function () { if (ctx.write && ctx.destMode() !== 'both') ctx.write({ dest: destSel.value }); });
+    ctx.onChange(seed);
+    ctx.mount('#ctx-strip', { intro: 'Tell us where you are applying and the checks that change with the destination follow.' });
+  })();
+  if (racts) { var printBtn = racts.querySelector('[data-print]'); if (printBtn) printBtn.addEventListener('click', function () { window.print(); }); }
   updateMeter();
 
   /* ---------------------------------------------------------------------------
@@ -323,6 +442,7 @@
       ta.value = draftToText(d);
       updateMeter();
       if (destSel && d.dest) destSel.value = d.dest;
+      if (profSel && d.profession && d.profession !== 'other') profSel.value = d.profession;
       ta.focus();
       run();
     });

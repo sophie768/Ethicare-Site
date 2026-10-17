@@ -22,7 +22,7 @@
     }).length;
     var label,href;
     if(n>0){label=n+(n===1?' live role':' live roles');href='#vacancy';}
-    else{label='Register your interest';href='/apply';}
+    else{label='Register with Ethicare';href='/register-interest';}
     el.setAttribute('href',href);
     el.innerHTML='';
     el.appendChild(document.createTextNode(label));

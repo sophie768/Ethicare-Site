@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Forms declared for Netlify | Ethicare Resourcing</title>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<!-- Netlify Forms discovers forms in static HTML at build time. <page-feedback> renders its form at
+     runtime inside a shadow root, so the field set is declared here once. Do not delete. -->
+<form name="page-feedback" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="page-feedback">
+  <input type="hidden" name="_subject" value="Page feedback — Ethicare website">
+  <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+  <input type="text" name="page"><input type="text" name="title"><input type="text" name="verdict"><input type="text" name="reason"><textarea name="comment"></textarea><input type="text" name="context">
+</form>
+<form name="personal-pack" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="personal-pack">
+  <input type="hidden" name="_subject" value="Personal pack requested — Ethicare website">
+  <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+  <input type="text" name="name"><input type="email" name="email"><input type="text" name="pack"><input type="text" name="summary">
+</form>
+</body>
+</html>

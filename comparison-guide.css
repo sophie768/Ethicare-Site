@@ -9,9 +9,11 @@ body.cg{margin:0}
 html{scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-.cg{--primary:#02615D;--accent:#02615D;--secondary:#72A471;--highlight:#A6C84A;--au:#D9A084;--au-text:#A34438;--nz:#72A471;--nz-text:#2F5E49;--sage:#C9DED3;--bg:#FCFBF8;--text:#333;--text2:#2F5E49;--divider:#E4E9E5;--maxw:1180px;--display:'Work Sans',ui-sans-serif,sans-serif;--body:'Manrope',ui-sans-serif,sans-serif}
+.cg{--primary:#02615D;--accent:#02615D;--secondary:#72A471;--highlight:#A6C84A;--au:#B32C62;--au-text:#B32C62;--nz:#72A471;--nz-text:#2F5E49;--sage:#C9DED3;--bg:#FCFBF8;--text:#333;--text2:#2F5E49;--divider:#E4E9E5;--maxw:1180px;--display:'Work Sans',ui-sans-serif,sans-serif;--body:'Manrope',ui-sans-serif,sans-serif}
 .cg{background:#FCFBF8;font-family:var(--body);color:var(--text);line-height:1.72}
 .cg h1,.cg h2,.cg h3,.cg :is(h2,h3,h4){font-family:var(--display);color:var(--accent);text-wrap:balance}
+/* the accent rule above outranks the cover and footer sheets by load order; those two sit on dark and keep their own colours */
+.cg .cover h1{color:#FCFBF8}.cg .site-footer .f-col :is(h2,h4){color:#C9DED3}
 .cg p,.cg li{text-wrap:pretty}
 /* NB: no `color:inherit` here — shell.css's bare `a{color:inherit}` (0,0,1) already
    prevents default blue, at a specificity that bare-class rules can beat. Adding an
@@ -165,3 +167,21 @@ html{scroll-behavior:smooth}
 .cg .cg-fig{margin:40px 0 0;max-width:920px}
 .cg .cg-fig img{width:100%;height:auto;aspect-ratio:1600/1067;object-fit:cover;border-radius:var(--r-md);display:block}
 .cg .cg-fig figcaption{margin-top:16px;font-family:var(--display);font-size:13.5px;font-weight:500;line-height:1.55;color:#2F5E49;max-width:64ch;padding-left:16px;border-left:2px solid var(--highlight)}
+
+/* Mobile: comparison tables become stacked topic cards (desktop table unchanged) */
+@media (max-width:760px){
+  .cg .cmp-wrap{margin-top:28px;overflow:visible;border-top:0}
+  .cg .cmp-wrap .tblscroll{overflow:visible}
+  .cg .cmp,.cg .cmp-wrap .tblscroll table{display:block;width:100%;min-width:0!important}
+  .cg .cmp thead{display:none}
+  .cg .cmp tbody{display:grid;gap:14px}
+  .cg .cmp tr{display:block;background:#fff;border:1px solid var(--divider);border-radius:var(--r-lg);padding:18px 18px 4px}
+  .cg .cmp tbody th{display:block;width:auto;padding:0 0 12px;border:0;font-size:17px;line-height:1.3;color:var(--text)}
+  .cg .cmp td{display:block;padding:12px 0 14px 14px;border-top:1px solid var(--divider);background:none!important;font-size:15.5px;line-height:1.55;overflow-wrap:anywhere}
+  .cg .cmp td::before{display:block;font-family:var(--display);font-weight:600;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+  .cg .cmp td.au{box-shadow:inset 3px 0 0 var(--au)}
+  .cg .cmp td.nz{box-shadow:inset 3px 0 0 var(--nz)}
+  .cg .cmp td.au::before{content:"Australia";color:var(--au-text)}
+  .cg .cmp td.nz::before{content:"New Zealand";color:var(--nz-text)}
+}
+@media (max-width:360px){.cg .cmp tr{padding:16px 14px 4px}.cg .cmp td{font-size:15px}}

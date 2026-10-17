@@ -682,18 +682,28 @@ function workedMore(dest) {
         ['The example', 'I have always asked who someone wants in the room and what they want their family told, and I argued for a double appointment for a man who needed an interpreter and was being rushed. I had not called that Te Tiriti before. The reasoning is the same.']
       ], 'It says how much preparation this actually took — one evening — and refuses to overclaim. Then it turns two principles into something concrete about its own ward. The last beat is the move that works: you almost certainly do this already, you have simply never labelled it that way.'),
 
+      q12: e('A radiographer from Johannesburg, first interview in New Zealand.', [
+        ['What I understand', 'Māori patients have worse outcomes across a lot of what I will be imaging, and fewer of the scans ordered get done. I read the equity section of the service’s annual plan and the Ministry’s Te Tiriti framework. That is one evening, and I am not an expert.'],
+        ['What I would actually do', 'Did-not-attend is where I would start. In my department at home I checked why people missed appointments before we discharged them, and most of it was transport or a letter they could not read. I would want to know how this department follows up a missed CT for a Māori patient, and whether I can ring rather than re-letter.'],
+        ['In the room', 'Ask who they want with them, explain what the scan involves before I position anyone, and use an interpreter rather than a relative if English is not their first language. None of that is special; it is the care I would want.'],
+        ['What I would ask of the service', 'Who the Māori health team are and how I refer, in my first week. And to be told when I get something wrong.']
+      ], 'It names the inequity plainly without lecturing, then spends most of its time on something concrete the candidate can affect from day one: missed appointments. The last beat asks the employer for help, which reads as humility rather than weakness.'),
+
       /* MORE-W-END */
     };
 }
 
 function professions(dest) {
+    /* One list, the same as the pathway checker's and the CV builder's (rule agreed 8 Sep 2026):
+       Ethicare provides guidance to every profession the checker covers, placed or not. */
     return [
-      { value: 'imaging', label: 'Medical imaging / radiography' }, { value: 'sonography', label: 'Sonography' },
-      { value: 'radtherapy', label: 'Radiation therapy' }, { value: 'nursing', label: 'Nursing' },
-      { value: 'midwifery', label: 'Midwifery' }, { value: 'medicine', label: 'Medicine' },
-      { value: 'psychology', label: 'Psychology' }, { value: 'anaesthetic', label: 'Anaesthetic technology' },
-      { value: 'physio', label: 'Physiotherapy' }, { value: 'ot', label: 'Occupational therapy' },
-      { value: 'speech', label: 'Speech and language therapy' }, { value: 'pharmacy', label: 'Pharmacy' },
+      { value: 'imaging', label: 'Medical imaging \u2014 radiography, MRI & nuclear medicine' }, { value: 'sonography', label: 'Sonography' },
+      { value: 'radtherapy', label: 'Radiation therapy' }, { value: 'physio', label: 'Physiotherapy' },
+      { value: 'ot', label: 'Occupational therapy' }, { value: 'psychology', label: 'Psychology' },
+      { value: 'speech', label: 'Speech & language therapy' }, { value: 'dietetics', label: 'Dietetics' },
+      { value: 'socialwork', label: 'Social work' }, { value: 'anaesthetic', label: 'Anaesthetic technology / ODP' },
+      { value: 'nursing', label: 'Nursing \u2014 registered or enrolled' }, { value: 'midwifery', label: 'Midwifery' },
+      { value: 'gp', label: 'General practice' }, { value: 'medicine', label: 'Hospital medicine \u2014 consultant, specialist or registrar' },
       { value: 'other', label: 'Another profession' },
       { value: 'all', label: 'Show every profession' }
     ];
@@ -807,6 +817,7 @@ function questionBank(dest) {
       { id: 'q10', q: 'One of our values is X — can you give us an example of what that looks like in your practice?', a: 'Their published values, by name. Services here interview against them directly, sometimes a question per value, marked separately. Do not recite all five. Take the one you have a real story for, say what it looks like on an ordinary day, then give the example.' }
     ];
     if (nz) core.push({ id: 'q11', q: 'How does Te Tiriti o Waitangi apply to your practice?', a: 'Less than you fear, and more than a definition. An evening of reading covers it: the three Ps — partnership, participation and protection — which is still the framing most panels use, and the five from the Waitangi Tribunal’s health inquiry (tino rangatiratanga, equity, active protection, options and partnership). Then say what one of them changes about your own job, and give your own example of adapting care. Nobody expects a history lesson, fluency in te reo or expertise you could not have. What is being tested is whether you take it seriously and will keep learning — so say plainly where you are up to.' });
+    if (nz) core.push({ id: 'q12', q: 'How would you contribute to improving health equity for Māori patients in your clinical practice?', a: 'This is now a core question for clinical roles, not an optional one. Start from the fact: Māori experience poorer outcomes across many measures and more barriers to timely care, and the same care for everyone does not produce the same outcomes. Then make it practical: barriers you would look for (transport, cost, language, appointment access), asking what the patient and whānau need rather than assuming, working with the Māori health team and kaupapa Māori services, and checking your own assumptions. Give one example from your own practice of removing a barrier. Close with where you are up to and how you will keep learning. Humility and specific action beat a definition.' });
     const byProf = {
       nursing: [
         { id: 'p1', q: 'How do you handle a deteriorating patient when you cannot get a review?', a: 'Your escalation pathway, the tools you use to communicate urgency, and persistence when the first call does not work.' },
@@ -867,6 +878,22 @@ function questionBank(dest) {
         { id: 'p1', q: 'How do you handle a prescribing error by a senior clinician?', a: 'How you raise it, what you do if brushed off, and how you record it.' },
         { id: 'p2', q: 'Describe counselling a patient who does not want to take a medicine.', a: 'Understanding the objection, what you can offer, and when you refer back.' },
         { id: 'p3', q: 'How do you keep current with formulary differences after moving country?', a: 'Recognising that brands, protocols and availability differ, and how you check rather than assume.' }
+      ],
+      /* DRAFT 8 Sep 2026 — gp, dietetics and socialwork added so the picker matches the pathway checker. Sophie to review before launch. */
+      gp: [
+        { id: 'p1', q: 'How do you manage a fifteen-minute consultation with three problems in it?', a: 'How you agree what today is for, what you safely defer and how you book it, and the one thing you never leave until the next appointment.' },
+        { id: 'p2', q: 'Tell us about a patient you nearly missed.', a: 'The presentation, what made you look again, and what changed in your own practice afterwards. Reflection reads as strength here.' },
+        { id: 'p3', q: 'How do you work with the practice team?', a: 'Specific handovers to nurses and reception, what you delegate and how it is written, and how you take a concern from a receptionist seriously.' }
+      ],
+      dietetics: [
+        { id: 'p1', q: 'How do you assess someone whose weight loss is unintentional?', a: 'Screening and assessment in the order you actually do it, what you rule out, and what you start that day.' },
+        { id: 'p2', q: 'Tell us about a nutrition plan a patient did not follow.', a: 'Why they did not, what you changed about the plan rather than the patient, and what you now ask earlier.' },
+        { id: 'p3', q: 'How do you work in a ward multidisciplinary team?', a: 'When you speak up on a round, what you document that others rely on, and how you handle a plan you disagree with.' }
+      ],
+      socialwork: [
+        { id: 'p1', q: 'How do you assess risk when a family does not want you involved?', a: 'Building enough trust to see, what you cannot negotiate on, and how you tell them what you must do.' },
+        { id: 'p2', q: 'Describe a discharge you were uncomfortable with.', a: 'What was missing, what you said and to whom, what you documented, and what happened.' },
+        { id: 'p3', q: 'How do you work with someone whose goals differ from their family\u2019s?', a: 'Whose voice you privilege and how you show it, capacity and consent, and how you hold the family.' }
       ],
       other: [
         { id: 'p1', q: 'What does good practice look like in your profession here?', a: 'Show you have looked into scope, standards and how your role sits in the team locally.' },
@@ -989,6 +1016,34 @@ function byProfMore(dest) {
         { id: 'p8', q: 'How would you contribute on a ward round?', a: 'What you prepare, the two things you raise, and what you never raise in front of the patient.' },
         { id: 'p9', q: 'What do you know about how pharmacy works here?', a: nz ? 'Pharmac and the funded schedule, and the consequence when something is not funded.' : 'The PBS, authority prescribing, and the consequence when something is not subsidised.' },
         { id: 'p10', q: 'What do you do when you are not sure?', a: 'What you look up in front of people, and the categories you never guess on.' }
+      ],
+      /* DRAFT 8 Sep 2026 — see note in questionBank. */
+      gp: [
+        { id: 'p4', q: 'How do you manage uncertainty when you cannot refer today?', a: 'Safety-netting that is specific \u2014 what to watch for, when to come back, who to call \u2014 and how you document it.' },
+        { id: 'p5', q: 'How do you approach a patient asking for a prescription you do not think is right?', a: 'Antibiotics, opioids or a certificate: what you explore first, how you say no without losing them, and what you offer instead.' },
+        { id: 'p6', q: 'What do you know about how general practice works here?', a: nz ? 'Enrolment with a practice, co-payments and the PHO, ACC for injuries, and the funding model behind your day \u2014 plus one practical question underneath it.' : 'Medicare billing, bulk billing and gap fees, chronic condition management plans and My Health Record \u2014 plus one practical question underneath it.' },
+        { id: 'p7', q: 'How do you keep long-term conditions on track across a practice population?', a: 'Recalls, registers, who runs the clinics, and one measure you have actually moved.' },
+        { id: 'p8', q: 'Describe a home visit or an after-hours contact that worried you.', a: 'What you saw, what you did that evening, and how you handed over the next morning.' },
+        { id: 'p9', q: 'How do you handle a complaint about yourself?', a: 'What you say to the patient first, what you write, who you tell, and what you took from it.' },
+        { id: 'p10', q: 'How would you settle into a practice where you are the newcomer?', a: 'What you would ask in the first month, how you learn the local referral pathways, and what you would not change in your first year.' }
+      ],
+      dietetics: [
+        { id: 'p4', q: 'How do you manage enteral or parenteral nutrition safely?', a: 'Your checks before you start, refeeding risk, who monitors what, and an escalation you have actually made.' },
+        { id: 'p5', q: 'How do you adapt advice across cultures and food traditions?', a: 'Asking before assuming, what you change in the plan, and one example that taught you something.' },
+        { id: 'p6', q: 'What do you know about how dietetics works here?', a: nz ? 'Hospital and community roles, who funds what, M\u0101ori models of health and kai, and the scope you would be practising in \u2014 plus one practical question underneath it.' : 'Public hospitals, Medicare chronic condition referrals, the NDIS and aged care, and the scope you would be practising in \u2014 plus one practical question underneath it.' },
+        { id: 'p7', q: 'How do you prioritise a caseload you cannot get through?', a: 'What you triage on, what you offer instead of nothing, and how you escalate capacity in writing.' },
+        { id: 'p8', q: 'How do you support someone with an eating disorder alongside the team?', a: 'Your role and its limits, how you keep the plan consistent across the team, and where risk sits.' },
+        { id: 'p9', q: 'Tell us about an audit or service change you led.', a: 'Numbers before and after, who you had to convince, and whether it lasted.' },
+        { id: 'p10', q: 'How do you supervise students or assistants?', a: 'How the delegated task is written, what you keep, and when you review.' }
+      ],
+      socialwork: [
+        { id: 'p4', q: 'How do you manage a caseload you cannot get through?', a: 'What you triage on, what you offer instead of nothing, and how you escalate capacity in writing.' },
+        { id: 'p5', q: 'What do you know about how social work operates here?', a: nz ? 'Registration with the Social Workers Registration Board, Oranga Tamariki and the statutory framework, Te Tiriti and working with wh\u0101nau \u2014 plus one practical question underneath it.' : 'AASW accreditation rather than registration, state child-protection systems, the NDIS and aged care \u2014 plus one practical question underneath it.' },
+        { id: 'p6', q: 'Tell us about a safeguarding decision you made under pressure.', a: 'The information you had, the threshold you applied, who you consulted, and what you would do the same again.' },
+        { id: 'p7', q: 'How do you keep professional boundaries with a client who tests them?', a: 'A real instance, what you said, and how you used supervision.' },
+        { id: 'p8', q: 'How do you work with a colleague whose judgement you question?', a: 'Raising it with them first, when you escalate, and how you keep the client at the centre.' },
+        { id: 'p9', q: 'How do you look after yourself in this work?', a: 'Specific habits, how you use supervision, and what you do when you notice you are not coping.' },
+        { id: 'p10', q: 'How do you record and share information lawfully?', a: 'What you write, who can see it, consent and its limits, and one time you had to decide quickly.' }
       ],
       other: [
         { id: 'p4', q: 'How would you explain what your profession contributes to someone outside it?', a: 'One sentence that includes the judgement in your role, then one example with a consequence.' },

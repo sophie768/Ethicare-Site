@@ -91,4 +91,29 @@ thead{display:table-header-group}
 /* FAQ and disclosure content prints expanded — a reader cannot open it */
 details>*{display:block !important}
 details>summary{list-style:none;font-weight:600}
+
+/* --- family D: the registration-guide hero (.rg-hero) -------------------
+   Added 3 Oct 2026 after the first real PDF build. Three faults showed up at
+   once: the illustration was unconstrained and took a whole A4 page to
+   itself; the .rg-status label and value ran together ("RegulatorNew Zealand
+   Psychologists Board") because the block display collapsed; and the white
+   source link was invisible on white paper. The illustration belongs in the
+   PDF — it is the one place a drawn scene does work a photograph cannot —
+   but as a figure beside the title block, not a plate. */
+.rg-hero{background:#fff !important;padding:0 0 6mm !important;break-inside:avoid}
+.rg-hero,.rg-hero *{color:#02615D !important;text-shadow:none !important}
+.rg-hero .grid{display:block !important}
+.rg-hero .art{float:right !important;width:62mm !important;max-width:62mm !important;margin:0 0 5mm 7mm !important;padding:0 !important;background:transparent !important;box-shadow:none !important;border-radius:2mm !important;overflow:hidden}
+.rg-hero .art img{width:100% !important;height:auto !important;max-height:none !important;border-radius:2mm !important}
+.rg-hero .gl-read{display:none !important}          /* "kettle on, a longer read" is a web cue */
+.rg-hero .crumb{display:none !important}
+.rg-hero h1{margin-top:1mm !important}
+.rg-hero .lead{font-size:10.5pt !important;max-width:none !important}
+/* the status panel: a plain definition list on paper */
+.rg-status{display:block !important;background:transparent !important;border:0 !important;border-top:0.5pt solid #C9DED3 !important;border-radius:0 !important;overflow:visible !important;margin-top:5mm !important;clear:both}
+.rg-status div{background:transparent !important;padding:2.5mm 0 !important;border-bottom:0.5pt solid #C9DED3 !important;break-inside:avoid}
+.rg-status .k{display:block !important;font-size:7.5pt !important;letter-spacing:.1em !important;color:#2F5E49 !important;margin-bottom:1mm !important}
+.rg-status .v{display:block !important;font-size:9.5pt !important;color:#333333 !important;line-height:1.45 !important}
+.rg-status a{color:#02615D !important;text-decoration:underline !important}
+
 }

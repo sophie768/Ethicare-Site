@@ -1,10 +1,10 @@
 /* Ethicare — destination chapter styles, AUSTRALIA palette.
    Shared by the Bunbury hub and its nine chapters. Loaded after shell.css.
    Tokens follow the AU side of the brand: deep teal constant, Apricot accent,
-   Clay #A34438 for all small text on light surfaces, lime only as the 28px rule.
+   Clay #B32C62 for all small text on light surfaces, lime only as the 28px rule.
    Structural rules use --rule-tint (3.0:1+ on every brand surface); the pale
    hairline is for card edges only. */
-:root{--primary:#02615D;--accent:#02615D;--secondary:#D9A084;--highlight:#A6C84A;--clay:#A34438;--bg:#FCFBF8;--soft:#F7F4EE;--cool:#F3F7F4;--white:#fff;--text:#333333;--text2:#555555;--divider:#EBDFD3;--rule-tint:rgba(2,97,93,.65);--maxw:1180px}
+:root{--primary:#02615D;--accent:#02615D;--secondary:#D98AA9;--highlight:#A6C84A;--clay:#B32C62;--bg:#FCFBF8;--soft:#F7F4EE;--cool:#F7F4EE;--white:#fff;--text:#333333;--text2:#555555;--divider:#EBDFD3;--rule-tint:rgba(2,97,93,.65);--maxw:1180px}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.65;font-size:17px;letter-spacing:-.003em;-webkit-font-smoothing:antialiased}
@@ -13,7 +13,7 @@ img{max-width:100%;display:block}
 a{color:var(--accent);text-decoration:none}
 a:hover{color:var(--clay)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
-::selection{background:#EFC3AA;color:#02615D}
+::selection{background:#C6E084;color:#02615D}
 h1,h2,h3{text-wrap:balance}
 p,li,figcaption{text-wrap:pretty}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
@@ -24,7 +24,7 @@ p,li,figcaption{text-wrap:pretty}
 
 /* eyebrow — the 28px lime rule, on every page */
 .eyebrow{font-family:'Work Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.eyebrow::before{content:"";width:28px;height:3px;border-radius:2px;background:#A6C84A;flex:none}
+.eyebrow::before{content:"";width:28px;height:3px;border-radius:2px;background:#B32C62;flex:none}
 
 /* hero — STACKED: photograph above, copy on solid deep teal below.
    Contrast never depends on the photograph, so any image can be swapped in
@@ -32,12 +32,13 @@ p,li,figcaption{text-wrap:pretty}
    brightness instead of being darkened exactly where the text sits.
    The chapter photo band is deliberately shorter than a hub cover's, so the
    hub still reads as the bigger page inside the same pattern. */
-.hero{position:relative;display:block;overflow:hidden;background:#02615D}
-.hero .photo{position:relative;height:clamp(190px,26vh,290px);background-size:cover;background-position:center 52%}
-.hero .scrim{display:none}
-.hero.hub .photo{height:clamp(250px,38vh,400px)}
-.hero .inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:clamp(38px,4.6vw,58px) 28px clamp(36px,4.2vw,50px);width:100%}
-.hero .eyebrow{color:#EFC3AA}
+.hero{position:relative;display:flex;align-items:flex-end;overflow:hidden;background:#02615D;min-height:clamp(340px,50vh,470px)}
+.hero.hub{min-height:clamp(420px,64svh,600px)}
+.hero .photo{position:absolute;inset:0;background-size:cover;background-position:center 50%}
+.hero .scrim{display:block;position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,49,47,.15) 0%,rgba(1,49,47,.08) 42%,rgba(1,49,47,.68) 100%)}
+.hero .photo::after,.hero::after,.hero::before{display:none}
+.hero .inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:clamp(40px,6vw,76px) 28px clamp(34px,4.4vw,54px);width:100%}
+.hero .eyebrow{color:#C6E084}
 .hero h1{color:#fff;font-weight:300;font-size:clamp(38px,5.8vw,70px);line-height:1.04;letter-spacing:-.028em;max-width:18ch;margin-top:16px}
 .hero .sub{color:rgba(255,255,255,.92);font-family:'Work Sans',sans-serif;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:16px}
 .wf-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:'Work Sans',sans-serif;font-weight:500;font-size:13px;color:rgba(255,255,255,.88);margin-bottom:20px}
@@ -45,7 +46,7 @@ p,li,figcaption{text-wrap:pretty}
 .wf-crumb a:hover{color:#fff}
 .wf-crumb .sep{opacity:.5}
 .wf-crumb .here{font-weight:600;color:#fff;white-space:nowrap}
-@media(max-width:700px){.hero .photo{height:clamp(150px,22vh,205px)}.hero.hub .photo{height:clamp(190px,30vh,265px)}}
+@media(max-width:700px){.hero{min-height:clamp(300px,54vh,380px)}.hero.hub{min-height:clamp(340px,60vh,450px)}}
 
 /* layout */
 .shell{max-width:var(--maxw);margin:0 auto;padding:56px 28px 0;display:block}
@@ -111,7 +112,7 @@ p,li,figcaption{text-wrap:pretty}
 .takeaway .tt{display:flex;align-items:center;gap:10px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:19px;margin-bottom:10px}
 .takeaway .tt .dot{width:11px;height:11px;background:#A6C84A;border-radius:50%;flex:none}
 .takeaway p{color:rgba(255,255,255,.92);margin-bottom:0;max-width:64ch}
-.takeaway .hl{color:#EFC3AA;font-weight:600}
+.takeaway .hl{color:#C6E084;font-weight:600}
 .quote{margin:40px 0}
 .quote .mark{font-family:'Work Sans',sans-serif;font-weight:700;font-size:64px;color:var(--secondary);line-height:.5;display:block}
 .quote .q{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(22px,2.8vw,30px);line-height:1.3;color:var(--accent);letter-spacing:-.015em;max-width:26ch;margin-top:10px}
@@ -221,11 +222,19 @@ html,body{background:#fff!important}
 .site-header,.site-footer,.backtop,.nav-toggle,.site-nav,.skip-link,.sidebar,.otp,.ch-nav,.ch-print{display:none!important}
 .shell{display:block!important;max-width:none!important;width:auto!important;padding:0!important;margin:0!important}
 .content,.wrap{max-width:none!important;width:auto!important;padding-left:0!important;padding-right:0!important}
-.hero{height:auto!important;min-height:0!important}
-.hero .photo{height:52mm!important}
+.hero{display:block!important;min-height:0!important;height:auto!important}
+.hero .photo{position:relative!important;height:48mm!important}
+.hero .scrim{display:none!important}
+.hero .inner{position:relative!important;background:#02615D!important;padding:8mm!important}
 .content section{padding:9mm 0!important}
 figure,.fact,.panel,.stat,.takeaway,.sophie,.linkcard,table,.tl,.cbar{break-inside:avoid!important}
 figure img{height:auto!important;max-height:115mm!important}
 h1,h2,h3{break-after:avoid!important}
 .backtop{display:none!important}
 }
+
+/* Match the standard chapter index (21 Sep 2026): the markup uses h2, which
+   nothing here styled, so it rendered as a large heading. */
+.otp{background:#C9DED3;border-color:#D6E1DA}
+.otp h2{font-family:'Work Sans',sans-serif;font-size:12px;line-height:1.3;letter-spacing:.12em;text-transform:uppercase;color:#02615D;margin:0 0 16px;font-weight:700;grid-column:1/-1}
+.otp a{border-top-color:#D6E1DA}

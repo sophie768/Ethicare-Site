@@ -1,0 +1,74 @@
+/* ==========================================================================
+   ETHICARE RESOURCING — PRINT KIT FOR THE REGISTRATION GUIDES + CHECKLISTS
+   --------------------------------------------------------------------------
+   The registration guides (MRTB, PBNZ, NZPB, MRPBA) and the tickable
+   checklist are Design Components: class-less markup, every style inline.
+   So this sheet selects by ELEMENT, by INLINE-STYLE SUBSTRING and by the
+   data-print attribute the templates carry — never by class.
+     data-print="hide"   internal blocks (link map, ship notes, SEO), button
+                         rows, the keep-a-copy band itself
+     data-print="band"   a dark deep-teal band: prints as a bordered white
+                         block with teal type, so ink is spent on content
+   A4 by request (6 Sep 2026). Loaded with media="print" from each template's
+   helmet, so it never affects first paint.
+   ========================================================================== */
+
+@page{size:A4;margin:14mm}
+
+@media print{
+*{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+html,body{background:#fff !important;font-size:10.5pt !important}
+
+/* --- never printed ------------------------------------------------------ */
+[data-print="hide"],a[href="#main-content"],header img,header nav{display:none !important}
+
+/* --- hero: white, teal type, no photograph or drawing ------------------- */
+header{background:#fff !important;color:#02615D !important;border-bottom:0.5pt solid #C9DED3 !important}
+header *{color:#02615D !important}
+header>div{padding:0 0 6mm !important;display:block !important;max-width:none !important}
+header h1{font-size:24pt !important;line-height:1.1 !important;max-width:none !important;margin:2mm 0 4mm !important}
+header p{font-size:11.5pt !important;color:#333 !important;max-width:none !important}
+
+/* --- bands: full sheet width, tighter rhythm ---------------------------- */
+main>section{border:0 !important}
+main>section>div{max-width:none !important;padding:6mm 0 !important}
+[data-print="band"]{background:#fff !important;color:#333 !important;border:0.5pt solid #02615D !important;border-radius:3mm !important;margin:3mm 0 !important;break-inside:avoid !important}
+[data-print="band"]>div{padding:5mm 6mm !important}
+[data-print="band"] h2,[data-print="band"] h3,[data-print="band"] h4,[data-print="band"] span{color:#02615D !important}
+[data-print="band"] p{color:#333 !important}
+[data-print="band"] [style*="rgba(1,49,47"]{background:#FCFBF8 !important}
+[data-print="band"] [style*="background:#FCFBF8"]{border:0.5pt solid #C9DED3 !important}
+
+/* --- type --------------------------------------------------------------- */
+h2{font-size:15pt !important;line-height:1.15 !important;max-width:none !important}
+h3{font-size:11.5pt !important}
+h4{font-size:10.5pt !important}
+h1,h2,h3,h4{break-after:avoid !important}
+p,li,dd,dt{font-size:10.5pt !important;line-height:1.5 !important;max-width:none !important}
+p{orphans:3;widows:3}
+main [style*="font-size:12.5px"],main [style*="font-size:11.5px"]{font-size:8pt !important}
+
+/* --- blocks that must never split across a page ------------------------ */
+main li,main details,main dl>div,main [style*="border-radius:16px"],main [style*="border-radius:14px"],main [style*="border-left:4px"],main [style*="border-left:3px"]{break-inside:avoid !important}
+main [style*="border-radius:16px"],main [style*="border-radius:14px"]{box-shadow:none !important;border:0.5pt solid #C9DED3 !important}
+
+/* --- disclosures print open: a reader cannot click ---------------------- */
+details>*{display:block !important}
+details>summary span[aria-hidden]{display:none !important}
+details>summary{padding:3mm 0 1mm !important}
+
+/* --- checklist: the tick box prints as a box, ticked or not ------------- */
+button[role="checkbox"]{-webkit-appearance:none;appearance:none;border:1.5pt solid #02615D !important;border-radius:1.5mm !important;width:5mm !important;height:5mm !important}
+button[role="checkbox"][aria-checked="true"]{background:#02615D !important}
+
+/* --- links: show the destination for anything off-site ----------------- */
+main a{color:#02615D !important;text-decoration:none !important}
+main a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#555;word-break:break-all}
+main a[href^="/"]::after{content:" (ethicareresourcing.com" attr(href) ")";font-size:8pt;color:#555;word-break:break-all}
+main a[href^="/"] span::after,main a[href^="/"] *::after{content:none !important}
+
+/* --- grids: two columns is the most A4 can carry ----------------------- */
+main [style*="grid-template-columns:repeat(auto-fit"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:3mm !important}
+main [style*="minmax(220px"]{grid-template-columns:repeat(4,minmax(0,1fr)) !important}
+main img{max-width:100% !important;height:auto !important}
+}

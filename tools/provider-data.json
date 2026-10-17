@@ -1,0 +1,397 @@
+{
+  "_README": [
+    "The provider directory. ONE source of truth: edit this file, then run",
+    "    python3 -I tools/build-provider-directory.py",
+    "which rewrites the directory block on every page listed in 'pages'.",
+    "",
+    "RULES THIS FILE EXISTS TO ENFORCE:",
+    "  1. A company is listed for a route only if the company's OWN website names",
+    "     that route. 'International' or 'worldwide' is not a route.",
+    "  2. 'evidence' says what we checked, in plain words. It is shown to the",
+    "     reader under the company name. If you cannot write it, do not list them.",
+    "  3. An accreditation is only stated as confirmed if it was found on the",
+    "     accrediting body's OWN register. Otherwise say the company claims it.",
+    "  4. 'checked' is the date a human last read the company's page. Changing a",
+    "     description does not refresh it. Re-reading the page does.",
+    "  5. An origin with no verified company shows 'absent' text. That is a",
+    "     legitimate state. Do not fill it to make the page look complete."
+  ],
+  "pages": [
+    {
+      "file": "guides/nz/shipping-your-belongings.html",
+      "dest": "nz",
+      "groups": [
+        "removals",
+        "luggage"
+      ]
+    },
+    {
+      "file": "guides/nz/bringing-your-pets.html",
+      "dest": "nz",
+      "groups": [
+        "pets"
+      ]
+    }
+  ],
+  "destinations": {
+    "nz": {
+      "label": "New Zealand",
+      "authority": "MPI",
+      "authorityUrl": "https://www.mpi.govt.nz/bring-send-to-nz/pets-travelling-to-nz/"
+    },
+    "au": {
+      "label": "Australia",
+      "authority": "the Department of Agriculture, Fisheries and Forestry",
+      "authorityUrl": "https://www.agriculture.gov.au/biosecurity-trade/cats-dogs"
+    }
+  },
+  "origins": [
+    {
+      "code": "uk",
+      "label": "United Kingdom"
+    },
+    {
+      "code": "ie",
+      "label": "Ireland"
+    },
+    {
+      "code": "za",
+      "label": "South Africa"
+    },
+    {
+      "code": "ae",
+      "label": "United Arab Emirates"
+    },
+    {
+      "code": "ca",
+      "label": "Canada"
+    },
+    {
+      "code": "us",
+      "label": "United States"
+    }
+  ],
+  "groups": {
+    "removals": {
+      "icon": "ec-car",
+      "title": "Household removals",
+      "note": "Furniture and a full household, priced by volume."
+    },
+    "luggage": {
+      "icon": "ec-pack",
+      "title": "Suitcases and boxes",
+      "note": "Compare these against extra airline bags before you book either."
+    },
+    "pets": {
+      "icon": "ec-heart",
+      "title": "Pet relocation",
+      "note": "Start six months out. The veterinary timetable, not the flight, is what decides your date. Not one company we checked says plainly that it files your MPI paperwork and books your quarantine place &mdash; most tell you to do both yourself. Ask any company which approved facility it books into, and who sends what to MPI."
+    }
+  },
+  "absent": {
+    "removals": "We have not yet found a removals company in this country that publishes a route to {DEST} on its own website. Several advertise international moves without naming the country, which is not the same thing, so none is listed here. Ask any firm you approach to confirm the route in writing, and compare them against a company shipping out of a neighbouring country.",
+    "luggage": "We have not yet found a luggage shipping company in this country that publishes a route to {DEST} on its own website. Price extra airline bags first: for clothes and personal things they are often cheaper than any shipment, and they arrive when you do.",
+    "pets": "We have not yet found a pet relocation company in this country that publishes a route to {DEST} on its own website. This is the group where it matters most, so we would rather leave it empty than send you to a company that cannot do it. Ask anyone you approach which {AUTH}-approved quarantine facility they book into, and how many times they have done this route."
+  },
+  "pending": "We are still reading what companies publish about this route. Nothing is named here until we have found it on the company's own website, so this is empty rather than guessed. In the meantime, ask any company you approach to confirm in writing that they collect from your address and deliver to {DEST}.",
+  "entries": [
+    {
+      "origin": "uk",
+      "dest": "nz",
+      "group": "removals",
+      "checked": "17 October 2026",
+      "name": "PSS International Removals",
+      "url": "https://www.pssremovals.com/shipping-to-new-zealand",
+      "desc": "Household goods and personal effects by sea or air. Their New Zealand page leads on boxes, so ask about the full removals service separately.",
+      "evidence": "Publishes a UK&ndash;New Zealand route. BAR Overseas, FIDI and FAIM accreditation shown on their own site."
+    },
+    {
+      "origin": "uk",
+      "dest": "nz",
+      "group": "removals",
+      "checked": "17 October 2026",
+      "name": "Seven Seas Worldwide",
+      "url": "https://www.sevenseasworldwide.com/moving/international-relocation/moving-to-new-zealand/",
+      "desc": "Boxes and sole-use part-container loads by sea or air, for Auckland, Wellington or Christchurch.",
+      "evidence": "Publishes a UK&ndash;New Zealand route, with UK collection points and the three New Zealand ports named."
+    },
+    {
+      "origin": "uk",
+      "dest": "nz",
+      "group": "removals",
+      "checked": "17 October 2026",
+      "name": "Crown Relocations",
+      "url": "https://www.crownrelo.com/uk/en-gb/moving-to/new-zealand",
+      "desc": "Packing, shipping and storage for a full household, with their own offices in Auckland, Wellington and Christchurch.",
+      "evidence": "Publishes a New Zealand service and New Zealand office addresses."
+    },
+    {
+      "origin": "uk",
+      "dest": "nz",
+      "group": "removals",
+      "checked": "17 October 2026",
+      "name": "John Mason International",
+      "url": "https://johnmason.com/international-removals/new-zealand/",
+      "desc": "Sole-use containers and shared part-loads by sea or air, with export packing and storage. Offices on Merseyside and in Essex.",
+      "evidence": "Publishes a UK&ndash;New Zealand route. They claim BAR, FIDI/FAIM and IAM membership; none of those bodies publishes a register we could search to confirm it."
+    },
+    {
+      "origin": "uk",
+      "dest": "nz",
+      "group": "removals",
+      "checked": "17 October 2026",
+      "name": "Anglo Pacific World Movers",
+      "url": "https://www.anglopacific.co.uk/removals_to_new_zealand.htm",
+      "desc": "Full containers and shared groupage by sea, plus air freight and vehicle shipping. No pet service.",
+      "evidence": "Publishes a UK&ndash;New Zealand route. Their site carries no dated content after 2021, though the company is active at Companies House (01342357).",
+      "_note": "Sophie to decide whether the stale-website line stays. The route and the company are both real; the site simply has not been updated in years. Removing the sentence means a candidate cannot tell."
+    },
+    {
+      "origin": "uk",
+      "dest": "nz",
+      "group": "luggage",
+      "checked": "17 October 2026",
+      "name": "Send My Bag",
+      "url": "https://www.sendmybag.com/baggage-shipping-destinations/new-zealand/",
+      "desc": "Suitcases, boxes and sports equipment collected by courier from your door. No packing, no furniture.",
+      "evidence": "Publishes a UK&ndash;New Zealand route."
+    },
+    {
+      "origin": "uk",
+      "dest": "nz",
+      "group": "luggage",
+      "checked": "17 October 2026",
+      "name": "Seven Seas Worldwide",
+      "url": "https://www.sevenseasworldwide.com/moving/international-relocation/moving-to-new-zealand/",
+      "desc": "Also ships individual boxes and suitcases by sea &mdash; worth a quote alongside a courier.",
+      "evidence": "Publishes a UK&ndash;New Zealand route."
+    },
+    {
+      "origin": "uk",
+      "dest": "nz",
+      "group": "pets",
+      "checked": "17 October 2026",
+      "name": "PetAir UK",
+      "url": "https://www.petairuk.com/destinations/pet-travel-to-australasia/taking-pets-to-new-zealand/",
+      "desc": "Flights, documentation, veterinary certification and crates for cats and dogs leaving the UK. Run by vets.",
+      "evidence": "Publishes a UK&ndash;New Zealand route, the import permit requirement and the ten days in an MPI-approved facility."
+    },
+    {
+      "origin": "uk",
+      "dest": "nz",
+      "group": "pets",
+      "checked": "17 October 2026",
+      "name": "PBS Pet Travel",
+      "url": "https://www.pbspettravel.co.uk/destinations/pet-travel-new-zealand/",
+      "desc": "Flights, paperwork, IATA crates and road transport, from Gatwick.",
+      "evidence": "Publishes a UK&ndash;New Zealand route; IPATA membership confirmed on IPATA&rsquo;s own register, since 2007. They tell you to book quarantine and file with MPI yourself."
+    },
+    {
+      "origin": "ie",
+      "dest": "nz",
+      "group": "luggage",
+      "checked": "17 October 2026",
+      "name": "Seven Seas Worldwide",
+      "url": "https://www.sevenseasworldwide.com/en-ie/international-shipping/ireland-to-new-zealand/",
+      "desc": "Collects boxes and suitcases from an Irish address and ships them by sea.",
+      "evidence": "Publishes an Ireland&ndash;New Zealand route, with collection from your door."
+    },
+    {
+      "origin": "ie",
+      "dest": "nz",
+      "group": "pets",
+      "checked": "17 October 2026",
+      "name": "Pets on Board",
+      "url": "https://pets-on-board.ie/index.php/services/pet-transport/",
+      "desc": "Pet export by airfreight from Dublin, with boarding, a mobile vet and customs clearance.",
+      "evidence": "Publishes an Ireland&ndash;New Zealand route. They say they are IPATA members; we could not find them on IPATA&rsquo;s own list. They publish nothing about New Zealand import permits or booking quarantine, so ask them about both."
+    },
+    {
+      "origin": "za",
+      "dest": "nz",
+      "group": "removals",
+      "checked": "17 October 2026",
+      "name": "Stuttaford Van Lines",
+      "url": "https://www.stuttafordvanlines.co.za/international-move/moving-to-new-zealand/",
+      "desc": "Full household removals from eight South African branches, including vehicle shipping and storage.",
+      "evidence": "Publishes a South Africa&ndash;New Zealand route. Their FAIM accreditation is confirmed on FIDI&rsquo;s own register, for the Johannesburg branch."
+    },
+    {
+      "origin": "za",
+      "dest": "nz",
+      "group": "removals",
+      "checked": "17 October 2026",
+      "name": "Seven Seas Worldwide",
+      "url": "https://www.sevenseasworldwide.com/en-za/moving/international-relocation/new-zealand/",
+      "desc": "Sole-use container loads, with depots in Johannesburg, Cape Town, Durban and Port Elizabeth.",
+      "evidence": "Publishes a South Africa&ndash;New Zealand route."
+    },
+    {
+      "origin": "za",
+      "dest": "nz",
+      "group": "luggage",
+      "checked": "17 October 2026",
+      "name": "Seven Seas Worldwide",
+      "url": "https://www.sevenseasworldwide.com/en-za/moving/international-relocation/new-zealand/",
+      "desc": "Boxes and suitcases by sea, with customs and quarantine clearance included.",
+      "evidence": "Publishes a South Africa&ndash;New Zealand route."
+    },
+    {
+      "origin": "za",
+      "dest": "nz",
+      "group": "pets",
+      "checked": "17 October 2026",
+      "name": "Global Paws",
+      "url": "https://globalpaws.co.za/countries/new-zealand/",
+      "desc": "Pet export from Johannesburg and Somerset West: veterinary preparation, crates and flights.",
+      "evidence": "Publishes a South Africa&ndash;New Zealand route and the ten-day quarantine requirement. Their IPATA membership is confirmed on IPATA&rsquo;s own register."
+    },
+    {
+      "origin": "za",
+      "dest": "nz",
+      "group": "pets",
+      "checked": "17 October 2026",
+      "name": "AeroPets Worldwide",
+      "url": "https://aeropets.co.za/international-pet-travel-service/pets-to-new-zealand/",
+      "desc": "Pet export from Johannesburg, covering veterinary requirements and documentation.",
+      "evidence": "Publishes a South Africa&ndash;New Zealand route. Their IPATA membership is confirmed on IPATA&rsquo;s own register."
+    },
+    {
+      "origin": "ca",
+      "dest": "nz",
+      "group": "removals",
+      "checked": "17 October 2026",
+      "name": "Seven Seas Worldwide",
+      "url": "https://www.sevenseasworldwide.com/en-ca/shipping/shipping-to-destinations/new-zealand/",
+      "desc": "Household goods or a self-load container from Vancouver or Toronto. They estimate 116 days by sea.",
+      "evidence": "Publishes a Canada&ndash;New Zealand route, with both Canadian depot addresses and the transit estimate on their own page."
+    },
+    {
+      "origin": "ca",
+      "dest": "nz",
+      "group": "luggage",
+      "checked": "17 October 2026",
+      "name": "Seven Seas Worldwide",
+      "url": "https://www.sevenseasworldwide.com/en-ca/shipping/shipping-to-destinations/new-zealand/",
+      "desc": "Boxes, suitcases and excess baggage from Vancouver or Toronto. At about 116 days by sea, pack for a long gap.",
+      "evidence": "Publishes a Canada&ndash;New Zealand route."
+    },
+    {
+      "origin": "us",
+      "dest": "nz",
+      "group": "removals",
+      "checked": "17 October 2026",
+      "name": "Seven Seas Worldwide",
+      "url": "https://www.sevenseasworldwide.com/en-us/shipping/shipping-to-destinations/new-zealand/",
+      "desc": "Household goods or a self-load container. Their US estimate is 129 days by sea &mdash; longer than from Canada.",
+      "evidence": "Publishes a USA&ndash;New Zealand route. Their US entity and incorporation number are published on the site."
+    },
+    {
+      "origin": "us",
+      "dest": "nz",
+      "group": "luggage",
+      "checked": "17 October 2026",
+      "name": "Seven Seas Worldwide",
+      "url": "https://www.sevenseasworldwide.com/en-us/shipping/shipping-to-destinations/new-zealand/",
+      "desc": "Boxes, suitcases and excess baggage. They publish one US address rather than a depot network, so check collection first.",
+      "evidence": "Publishes a USA&ndash;New Zealand route."
+    },
+    {
+      "origin": "us",
+      "dest": "nz",
+      "group": "pets",
+      "checked": "17 October 2026",
+      "name": "Starwood Pet Travel",
+      "url": "https://starwoodpet.com/locations/new-zealand",
+      "desc": "Pet transport from the United States to New Zealand and Australia, from Cape Coral, Florida.",
+      "evidence": "Publishes a USA&ndash;New Zealand route in its own words. It names no company number and no trade body membership we could find, which is less than the others here publish, so ask who you are dealing with."
+    },
+    {
+      "origin": "us",
+      "dest": "nz",
+      "group": "pets",
+      "checked": "17 October 2026",
+      "name": "Air Animal Pet Movers",
+      "url": "https://airanimal.com/destination.cfm?country=NZ",
+      "desc": "Pet transport from Tampa, Florida, with import permit applications and USDA declarations.",
+      "evidence": "Publishes a USA&ndash;New Zealand route; IPATA membership confirmed on IPATA&rsquo;s own register. Their page still says MAF, which became MPI years ago, so check anything regulatory against MPI direct."
+    }
+  ],
+  "excluded": [
+    {
+      "name": "Airpets",
+      "why": "New Zealand does not appear in their published destination list, and there is no MPI or quarantine content on the site. Suggested twice as a UK pet option.",
+      "checked": "17 October 2026"
+    },
+    {
+      "name": "Jetpets",
+      "why": "Their New Zealand page is Australia-origin only; nothing on their site covers a UK departure. Correct company for someone already in Australia.",
+      "checked": "17 October 2026"
+    },
+    {
+      "name": "Careline Moving & Storage",
+      "why": "Names neither New Zealand nor Australia anywhere on its site except the country dropdown of its quote form. Its international offer is Europe and the UK.",
+      "checked": "17 October 2026"
+    },
+    {
+      "name": "Pet Express Transport Services (Ireland)",
+      "why": "Site would not load on three attempts, so nothing is established. Note the name collision with an unrelated Australian IPATA member.",
+      "checked": "17 October 2026"
+    },
+    {
+      "name": "Pets Abroad",
+      "why": "Their New Zealand and Australia pages carry a visible editorial note reading 'Pets Abroad factual approval required before publication'. Not a source for candidate advice while that stands.",
+      "checked": "17 October 2026"
+    },
+    {
+      "name": "Elliott Premium Moving Specialists",
+      "why": "Australia and New Zealand appear only as footer link labels, with no body copy about either route. FIDI/FAIM accreditation is confirmed, but the route is not.",
+      "checked": "17 October 2026"
+    },
+    {
+      "name": "Biggles Removals",
+      "why": "No UK company of this name was found. The one international removals business trading as Biggles appears South African, and the route it publishes runs South Africa to the UK, not to New Zealand or Australia. A related domain is blocked to crawlers and could not be read. Beware of Biggleswade firms, which are unrelated.",
+      "checked": "17 October 2026"
+    },
+    {
+      "name": "Send My Bag, for Ireland",
+      "why": "Listed for the UK, but no page on their site states that they collect from the Republic of Ireland. Their Ireland page is written for sending things TO Ireland. The country selector offers Ireland but exposes no Ireland-origin route.",
+      "checked": "17 October 2026"
+    },
+    {
+      "name": "Allied Van Lines Canada",
+      "why": "There is no Canadian Allied site or Canadian legal entity. Allied runs Australian, New Zealand and UK sites but no Canadian one; the only Canadian reference on its US site is a claims department for Canada-to-Canada moves. The company as suggested does not exist.",
+      "checked": "17 October 2026"
+    },
+    {
+      "name": "Allied Van Lines (USA)",
+      "why": "Lists New Zealand and Australia as popular destinations but nowhere states that it ships from the United States to either. A destination list is not a route.",
+      "checked": "17 October 2026"
+    },
+    {
+      "name": "Quality Move Management",
+      "why": "Real and FAIM-certified on FIDI's own register, in Toronto, so this one is a maybe rather than a no. Their own website could not be read from here, so no New Zealand route is confirmed yet. Worth opening qmm.com in a browser and rechecking.",
+      "checked": "17 October 2026"
+    },
+    {
+      "name": "Worldwide Animal Travel",
+      "why": "A real Canadian pet mover with IPATA membership confirmed on IPATA's own register and two offices. Their own site could not be read from here, so there is no evidence they publish a New Zealand route. Recheck animaltravel.com in a browser before listing.",
+      "checked": "17 October 2026"
+    },
+    {
+      "name": "Airpets International (USA)",
+      "why": "A real Texas company, confirmed on IPATA's register, and genuinely NOT the same business as the UK Airpets. But it publishes no named route to New Zealand from anywhere, and never mentions MPI.",
+      "checked": "17 October 2026"
+    },
+    {
+      "name": "PetRelocation",
+      "why": "IPATA confirmed and the best New Zealand content of any pet company checked, but it names the United States as an origin only in passing and does not mention Canada at all. Its quarantine wording tells you what to do rather than offering to do it.",
+      "checked": "17 October 2026"
+    },
+    {
+      "name": "Send My Bag, for Canada and the USA",
+      "why": "Same pattern as Ireland. Their site is built around destinations, not origins, and no page says they collect from Canada or the United States. Listed for the UK only.",
+      "checked": "17 October 2026"
+    }
+  ]
+}

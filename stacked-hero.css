@@ -17,8 +17,8 @@
    which token block that page declares. */
 
 .hero{position:relative;display:block;min-height:0!important;height:auto;overflow:hidden;background:#02615D}
-.hero .photo{position:relative!important;inset:auto!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;width:auto!important;height:clamp(190px,26vh,290px)!important;background-size:cover!important;background-repeat:no-repeat!important;transform:none!important;filter:none!important}
-.hero.hub .photo{height:clamp(250px,38vh,400px)!important}
+.hero .photo{position:relative!important;inset:auto!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;width:auto!important;height:clamp(300px,52vh,580px)!important;background-size:cover!important;background-repeat:no-repeat!important;transform:none!important;filter:none!important}
+.hero.hub .photo{height:clamp(360px,62vh,660px)!important}
 .hero .scrim{display:none!important}
 /* shell.css puts the site-wide overlay scrim on .hero .photo::after; stacked
    pages don't want it, and some pages carry their own on .hero itself. */
@@ -32,5 +32,5 @@
 .hero h1{text-shadow:none!important}
 /* long breadcrumbs wrapped mid-label once the crumb sat on the solid band */
 .hero .wf-crumb a,.hero .wf-crumb .here,.hero .crumb a,.hero .crumb .here{white-space:nowrap}
-@media(max-width:700px){.hero .photo{height:clamp(150px,22vh,205px)!important}.hero.hub .photo{height:clamp(190px,30vh,265px)!important}}
+@media(max-width:700px){.hero .photo{height:clamp(230px,36vh,320px)!important}.hero.hub .photo{height:clamp(260px,42vh,360px)!important}}
 @media print{.hero{height:auto!important}.hero .photo{height:52mm!important}}

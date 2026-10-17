@@ -1,0 +1,78 @@
+/* Destination finder — shared styles (see destination-finder.js) */
+.df{border:1px solid #C9DED3;border-radius:18px;box-shadow:inset 0 4px 0 #72A471;padding:clamp(22px,2.6vw,32px);margin:22px 0 0;background:#fff}
+.df-intro{font-size:15.5px;line-height:1.62;color:#555555;margin:0 0 22px;max-width:60ch}
+.df-q{margin-bottom:20px}
+.df-ql{font-family:'Work Sans',sans-serif;font-weight:600;font-size:14.5px;color:#02615D;display:block;margin:0 0 10px}
+.df-opts{display:flex;flex-wrap:wrap;gap:8px}
+.df-opt{min-height:42px;padding:9px 18px;border-radius:999px;border:1.5px solid #C9DED3;background:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#555555;cursor:pointer;transition:all .15s}
+.df-opt:hover{border-color:#02615D;color:#02615D}
+.df-opt.sel{background:#02615D;border-color:#02615D;color:#fff}
+.df-run{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:12px 24px;border-radius:12px;background:#02615D;color:#fff;border:0;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;cursor:pointer;margin-top:8px;transition:background .15s}
+.df-run:hover{background:#014A47}
+.df-run:disabled{opacity:.4;cursor:default}
+.df-out{margin-top:26px;display:grid;gap:14px}
+.df-out[hidden]{display:none}
+.df-res{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;background:#F3F7F4;border:1px solid #D6E1DA;border-radius:14px;padding:18px 20px}
+.df-res.first{border-top:3px solid #72A471}
+.df-rank{font-family:'Work Sans',sans-serif;font-weight:700;font-size:28px;line-height:1;color:#C9DED3;margin-top:4px}
+.df-res.first .df-rank{color:#72A471}
+.df-rplace{font-family:'Work Sans',sans-serif;font-weight:600;font-size:20px;color:#02615D;margin:0 0 2px}
+.df-rsub{font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#2F5E49;margin:0 0 10px}
+.df-rpros{list-style:none;margin:0 0 8px;padding:0;display:grid;gap:4px}
+.df-rpros li{font-size:14px;line-height:1.52;color:#333333;padding-left:16px;position:relative}
+.df-rpros li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:#72A471}
+.df-rcons{font-size:13.5px;line-height:1.5;color:#555555;margin:0 0 10px;border-left:2px solid #C9DED3;padding-left:10px}
+.df-rlink{font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#02615D}
+.df-rbody{grid-column:2}
+.df-note{font-size:13.5px;color:#555555;margin-top:6px;padding-top:14px;border-top:1px solid rgba(2,97,93,.12)}
+.df-head h2{margin:0 0 8px}.df-head p{font-size:16.5px;line-height:1.62;color:#555;margin:0;max-width:66ch}
+@media(max-width:560px){.df-opt{flex:1 1 100%;text-align:left}}
+
+/* ---- one question at a time (9 Oct 2026) ---- */
+.df.df-stepper{max-width:680px;border:1px solid #DCE7E1;border-radius:20px;box-shadow:0 18px 40px -28px rgba(1,49,47,.35);padding:clamp(28px,3.4vw,44px);margin:0}
+.df-stepper .df-intro{font-size:16px;line-height:1.6;color:#566660;margin:0 0 24px}
+.df-known{display:block;margin-top:8px;font-size:15px}
+.df-known strong{color:#02615D;font-family:'Work Sans',sans-serif;font-weight:600}
+.df-change{background:none;border:0;padding:0 0 0 6px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.df-prog{display:flex;align-items:center;gap:16px;margin:0 0 26px}
+.df-prog[hidden]{display:none}
+.df-n{font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;color:#2F5E49;white-space:nowrap}
+.df-bar{flex:1;height:6px;border-radius:99px;background:#E6F1ED;overflow:hidden}
+.df-bar span{display:block;height:100%;background:#02615D;border-radius:99px;transition:width .3s ease}
+.df-stepper .df-q{margin:0}
+.df-stepper .df-q[hidden]{display:none}
+.df-stepper .df-ql{font-weight:600;font-size:clamp(23px,2.3vw,30px);line-height:1.2;letter-spacing:-.015em;color:#01312F;margin:0 0 24px;outline:none}
+.df-stepper .df-opts{display:grid;gap:12px}
+.df-stepper .df-opt{display:flex;align-items:center;gap:16px;width:100%;min-height:62px;padding:14px 20px;border-radius:12px;border:1.5px solid #CFDDD6;background:#fff;text-align:left;font-size:17px;color:#01312F;line-height:1.35}
+.df-stepper .df-opt::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #8FB0A4;background:#fff;box-sizing:border-box}
+.df-stepper .df-opt:hover{border-color:#02615D;background:#F7FAF8;color:#01312F}
+.df-stepper .df-opt:focus-visible{outline:3px solid #02615D;outline-offset:2px}
+.df-stepper .df-opt.sel{background:#E6F1ED;border-color:#02615D;color:#01312F;box-shadow:inset 0 0 0 1px #02615D}
+.df-stepper .df-opt.sel::before{border-color:#02615D;background:#02615D;box-shadow:inset 0 0 0 4px #fff}
+.df-nav{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-top:32px}
+.df-nav[hidden]{display:none}
+.df-next{display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:14px 30px;border:0;border-radius:12px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;cursor:pointer}
+.df-next:hover{background:#014E4B}
+.df-next:disabled{background:#9DB8AE;cursor:default}
+.df-back,.df-redo{background:none;border:0;padding:6px 0;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;color:#02615D;cursor:pointer}
+.df-back[hidden],.df-redo[hidden]{display:none}
+.df-next:focus-visible,.df-back:focus-visible,.df-redo:focus-visible,.df-change:focus-visible{outline:3px solid #02615D;outline-offset:3px}
+.df-stepper.is-done .df-out{margin-top:18px}
+.df-stepper .df-res{padding:22px 24px}
+@media(max-width:560px){.df.df-stepper{padding:24px 20px;border-radius:16px}.df-stepper .df-opt{flex:none}.df-next{width:100%;justify-content:center}}
+.df-stepper .df-run[hidden]{display:none}
+.df-rtitle{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(23px,2.3vw,30px);line-height:1.2;color:#01312F;margin:18px 0 0;outline:none}
+.df-rtitle[hidden]{display:none}
+/* a photo for each suggested place (9 Oct 2026) */
+.df-rimg{grid-column:1/-1;display:block;width:calc(100% + 40px);max-width:none;margin:-18px -20px 6px;height:clamp(140px,18vw,190px);object-fit:cover;border-radius:13px 13px 0 0}
+.df-stepper .df-rimg{width:calc(100% + 48px);margin:-22px -24px 8px}
+.df-res{overflow:hidden}
+.df-res.first{border-top:1px solid #D6E1DA}
+
+/* Save the shortlist to Plan Ethicare (14 Oct 2026) */
+.df-save{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin:6px 0 2px}
+.df-savebtn{min-height:50px;padding:12px 24px;border:0;border-radius:12px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;cursor:pointer}
+.df-savebtn:hover{background:#014E4B}
+.df-savebtn:disabled{background:#A6C84A;color:#01312F;cursor:default}
+.df-savebtn:focus-visible{outline:3px solid #02615D;outline-offset:3px}
+.df-saved a{font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;color:#02615D}

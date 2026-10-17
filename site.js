@@ -1,5 +1,21 @@
 // Ethicare static site — shared behaviour (scroll reveal + collapsibles + carousel).
 // Header navigation lives in nav.js.
+
+/* ----------------------------------------------------------------------------------
+   ONE SWITCH for emailing a candidate their own result (1 Oct 2026).
+
+   The pathway checker and the cost calculator can both email someone the result they
+   just worked out. Both send through /.netlify/functions/send-result, which needs
+   RESEND_API_KEY set in Netlify AND the sending domain verified in Resend. Until that
+   is done a send fails silently, so the offer is hidden rather than made and broken.
+
+   WHEN THE KEY IS SET: change this to true. Both tools then offer "Email me my result"
+   / "Email me my estimate", and /request-a-guide emails the guide (send-guide). Nothing
+   else has to change, and the lead is captured either way — the capture goes to Netlify
+   Forms, which needs no key at all.
+
+   7 Oct 2026: RESEND_API_KEY set in Netlify (Production only, secret). Switched on. */
+window.ETHICARE_EMAIL_LIVE = true;
 (function () {
   // ---------- Mobile nav ----------
   // Lives in nav.js now: one implementation shared by every page that renders
@@ -120,59 +136,6 @@
 
 
 /* ---------------------------------------------------------------------------
-   PROMO BAR — DISABLED 24 Aug 2026 at the client's request.
-   The webinar page itself stays live at /webinar-medical-imaging-australia.
-   To switch the bar back on, change PROMO_ENABLED to true.
-   --------------------------------------------------------------------------- */
-var PROMO_ENABLED = false;
-/* ---------------------------------------------------------------------------
-   PROMO BAR — medical imaging in Australia webinar, Mon 21 September 2026.
-   Edit PROMO below, or delete this whole block, to change or remove it.
-   endsAfter is inclusive: the bar stops rendering the day after the event,
-   so nobody has to remember to take it down.
-   --------------------------------------------------------------------------- */
-(function () {
-  if (!PROMO_ENABLED) return;
-  var PROMO = {
-    id: 'webinar-medical-imaging-au-2026-09-21',
-    tag: 'Free webinar',
-    text: '<b>Medical imaging in Australia</b> &middot; a free webinar on Ahpra registration, the roles and the move. Monday 21 September, 7pm UK &amp; Ireland, 8pm South Africa. <b>Places are limited</b> so everyone can ask questions.',
-    ctaText: 'Register',
-    ctaHref: '/webinar-medical-imaging-australia',
-    endsAfter: '2026-09-21'
-  };
-
-  try {
-    var today = new Date();
-    var end = new Date(PROMO.endsAfter + 'T23:59:59');
-    if (today > end) return;
-    if (localStorage.getItem('ec-promo-dismissed:' + PROMO.id) === '1') return;
-  } catch (e) { /* storage blocked: still show the bar */ }
-
-  var header = document.querySelector('.site-header');
-  if (!header || !header.parentNode) return;
-
-  var bar = document.createElement('aside');
-  bar.className = 'promo-bar';
-  bar.setAttribute('aria-label', 'Announcement');
-  bar.innerHTML =
-    '<div class="pb-in">' +
-      '<span class="pb-tag">' + PROMO.tag + '</span>' +
-      '<p class="pb-txt">' + PROMO.text + '</p>' +
-      '<a class="pb-cta" href="' + PROMO.ctaHref + '">' + PROMO.ctaText + ' <span aria-hidden="true">&rarr;</span></a>' +
-      '<button class="pb-x" type="button" aria-label="Dismiss announcement">&times;</button>' +
-    '</div>';
-
-  header.parentNode.insertBefore(bar, header);
-
-  bar.querySelector('.pb-x').addEventListener('click', function () {
-    bar.remove();
-    try { localStorage.setItem('ec-promo-dismissed:' + PROMO.id, '1'); } catch (e) {}
-  });
-})();
-
-
-/* ---------------------------------------------------------------------------
    ANALYTICS LOADER
    site.js is on every page, so loading analytics.js from here gives site-wide
    coverage without touching 519 files. Deferred and failure-tolerant: if the
@@ -196,4 +159,32 @@ var PROMO_ENABLED = false;
   el.src = base + 'analytics.js';
   el.defer = true;
   document.head.appendChild(el);
+})();
+
+/* "My pack" (7 Oct 2026): the header counter and every "Add to my pack" button live in
+   pack-core.js. Loaded from here and from site.js so every page gets it; whichever runs
+   first loads it, the other sees the flag and stops. */
+(function () {
+  if (window.EthicarePack || window.__ecPackLoading) return;
+  window.__ecPackLoading = true;
+  var s = document.createElement('script'); s.src = '/pack-core.js'; s.async = true;
+  (document.head || document.documentElement).appendChild(s);
+})();
+
+
+/* ---------------------------------------------------------------------------
+   LAST PAGE READ (9 Oct 2026) — for "Pick up where you left off" on the
+   homepage's welcome-back screen. Device only: one key in localStorage holding
+   the path and heading of the last guide, destination, job or tool page read.
+   Nothing is sent anywhere. Cleared by "Not you? Clear my answers".
+   --------------------------------------------------------------------------- */
+(function () {
+  try {
+    var p = location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+    if (!/^\/(guides|destinations|jobs|insights)\/|^\/(plan|pathway-checker|cost-calculator|destination-finder|interview-prep|build-your-cv|cv-checker|take-home-pay|moving-checklist|my-pack|australia|new-zealand)$/.test(p)) return;
+    if (/^\/jobs\/?$/.test(p)) return;
+    var h = document.querySelector('main h1') || document.querySelector('h1');
+    var t = (h ? (h.innerText || h.textContent) : document.title.split(/[|·]/)[0]).replace(/\s+/g, ' ').trim().slice(0, 80);
+    if (t) localStorage.setItem('ethicare_last_v1', JSON.stringify({ path: p, title: t, at: Date.now() }));
+  } catch (e) {}
 })();
