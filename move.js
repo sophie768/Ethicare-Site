@@ -379,7 +379,7 @@
           st.items.push({ title: 'Visas', note: visaNote(),
             links: (forCountries(function (dd, cc) { return [{ label: 'Visa guide', href: '/guides/' + cc + '-visa' }, immi(dd)]; }) || [{ label: 'Visas: New Zealand', href: '/guides/new-zealand-visa' }, { label: 'Visas: Australia', href: '/guides/australia-visa' }]) });
           st.items.push({ title: 'Plan your move', tool: 'checklist', note: 'Shipping, storage, temporary accommodation, the lease, the school place and what has the longest lead time — in the order it needs doing.',
-            links: forCountries(function (dd, cc) { return [{ label: 'Preparing for the move', href: '/guides/' + cc + '-relocation' }]; }) || [{ label: 'Bringing pets and belongings', href: '/guides/nz/bringing-pets-and-belongings' }] });
+            links: forCountries(function (dd, cc) { return [{ label: 'Preparing for the move', href: '/guides/' + cc + '-relocation' }]; }) || [{ label: 'Bringing your pets', href: '/guides/nz/bringing-your-pets' }] });
           if (hasKids() && !hasPartner()) st.items.push({ title: 'Moving as a single parent',
             note: 'Doing this on your own is a different move, not a smaller one. Two things are worth handling early: written consent from anyone else with parental responsibility, which visa applications and border officials can ask to see, and childcare that works around clinical shifts when there is no second adult at home.',
             links: forCountries(function (dd, cc) { return [{ label: 'Moving as a single parent', href: '/guides/' + cc + '-family#single-parent' }, immi(dd)]; }) || [{ label: 'Moving as a single parent', href: '/guides/new-zealand-family#single-parent' }] });

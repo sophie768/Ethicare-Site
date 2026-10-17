@@ -52,7 +52,7 @@
       schoolFeesAU: '/guides/australia-school-fees',
       educationNZ: '/guides/new-zealand-education',
       family: nzOnly ? '/guides/new-zealand-family' : '/guides/australia-family',
-      pets: nzOnly ? '/guides/nz/bringing-pets-and-belongings' : '/guides/australia-pets',
+      pets: nzOnly ? '/guides/nz/bringing-your-pets' : '/guides/australia-pets',
       arrival: nzOnly ? '/guides/new-zealand-relocation' : '/guides/australia-relocation',
       firstMonth: nzOnly ? '/guides/new-zealand-first-month' : '/guides/australia-relocation',
       banking: nzOnly ? '/guides/money-tax-and-banking' : '/guides/moving-to-australia',
