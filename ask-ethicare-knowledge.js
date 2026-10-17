@@ -73,7 +73,7 @@ window.ASK_ETHICARE_KB = {
     nz_education: { t: 'Schools in New Zealand', d: 'How enrolment, zoning and the school year work', u: '/guides/new-zealand-education' },
     au_education: { t: 'Schools in Australia', d: 'Enrolment, the state systems, and what they cost', u: '/guides/australia-education' },
     au_school_fees: { t: 'Will I pay school fees in Australia?', d: 'What your visa decides about state school fees', u: '/guides/australia-school-fees' },
-    nz_pets: { t: 'Bringing pets to New Zealand', d: 'Import rules, lead times and what travels with you', u: '/guides/nz/bringing-pets-and-belongings' },
+    nz_pets: { t: 'Bringing pets to New Zealand', d: 'Import rules, lead times and what travels with you', u: '/guides/nz/bringing-your-pets' },
     au_pets: { t: 'Bringing pets to Australia', d: 'Import permits, quarantine and the real timeline', u: '/guides/australia-pets' },
     au_renting: { t: 'Renting in Australia', d: 'Applications, bond, and the rules in your state', u: '/guides/australia-renting' },
     nz_community: { t: 'Community & belonging in New Zealand', d: 'How people meet people here', u: '/guides/new-zealand-community' },

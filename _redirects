@@ -722,3 +722,9 @@
 /clients	/employers	301!
 /executive-search	/employers	301!
 /about-4	/about-ethicare	301!
+/guides/nz/bringing-pets-and-belongings/belongings	/guides/nz/shipping-your-belongings	301!
+
+# The pets guide became its own page on 17 Oct 2026; belongings moved to
+# /guides/nz/shipping-your-belongings. Pets are not belongings.
+/guides/nz/bringing-pets-and-belongings	/guides/nz/bringing-your-pets	301!
+/guides/nz/bringing-pets-and-belongings.html	/guides/nz/bringing-your-pets	301!

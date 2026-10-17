@@ -80,6 +80,10 @@ strong{color:var(--green)}
 /* trusted partners & community */
 .net-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
 .net{background:#fff;border:1px solid var(--mint);border-radius:14px;padding:26px 24px;display:flex;flex-direction:column}
+.net .net-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.net .ic{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:11px;background:var(--soft);color:var(--teal)}
+.net .ic svg{width:22px;height:22px}
+.net .net-top .tag{margin-bottom:0}
 .net .tag{align-self:flex-start;font-family:var(--display);font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#FFFFFF;background:#2F5E49;border-radius:999px;padding:4px 10px;margin-bottom:8px}
 .net .cat{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49;margin-bottom:8px}
 .net h3{color:var(--green);font-size:17px;margin-bottom:8px}
@@ -461,27 +465,25 @@ a.dl:hover{background:rgba(255,255,255,.13);transform:translateY(-2px)}
 <section class="section" style="background:var(--soft);">
   <div class="wrap">
     <span class="eyebrow">Where to look</span>
-    <h2>Services, organisations and the guides that cover them</h2>
+    <h2>Useful services and support</h2>
+    <p class="lead">A few things people ask us to point them at, and where we stand on each.</p>
     <div class="net-grid">
       <div class="net">
-        <span class="tag">Partner we trust</span>
-        <span class="cat">English &amp; exams</span>
-        <h3>Swoosh English</h3>
-        <p>IELTS and OET preparation built for healthcare professionals. Swoosh English is our endorsed partner for English test preparation.</p>
+        <div class="net-top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v4.5c3.2 2.6 8.8 2.6 12 0V12"/></svg></span><span class="tag">Ethicare partner</span></div>
+        <h3>Preparing for your English test</h3>
+        <p>IELTS and OET preparation built for healthcare professionals, through <strong>Swoosh English</strong> &mdash; our endorsed partner for it.</p>
         <a href="https://swooshenglish.com" target="_blank" rel="noopener" class="lnk">Visit Swoosh English</a>
       </div>
       <div class="net">
-        <span class="tag">Independent</span>
-        <span class="cat">Relocation &amp; shipping</span>
-        <h3>Moving your belongings</h3>
-        <p>How to decide what to ship, container or shared, customs and biosecurity, and what to ask a mover. We don&rsquo;t recommend individual companies; get three quotes.</p>
-        <a href="/guides/nz/bringing-pets-and-belongings#belongings" class="lnk">Shipping your belongings</a>
+        <div class="net-top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17h4V5H2v12h3"/><path d="M20 17h2v-3.3a4 4 0 0 0-1.2-2.9L19 9h-5"/><circle cx="7.5" cy="17.5" r="2.2"/><circle cx="17.5" cy="17.5" r="2.2"/></svg></span></div>
+        <h3>Shipping your belongings</h3>
+        <p>What to take, what to leave, and what to ask a mover. We name no companies &mdash; get three quotes.</p>
+        <a href="/guides/nz/shipping-your-belongings" class="lnk">Shipping your belongings</a>
       </div>
       <div class="net">
-        <span class="tag">Independent</span>
-        <span class="cat">Faith &amp; culture</span>
-        <h3>Your community</h3>
-        <p>Places of worship, cultural associations, specialist grocers and online groups, with the national bodies linked above and the local ones in each destination guide.</p>
+        <div class="net-top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20v-1.8a3.6 3.6 0 0 0-3.6-3.6H5.6A3.6 3.6 0 0 0 2 18.2V20"/><circle cx="9" cy="7.2" r="3.4"/><path d="M22 20v-1.8a3.6 3.6 0 0 0-2.7-3.5"/><path d="M15.5 4a3.4 3.4 0 0 1 0 6.6"/></svg></span></div>
+        <h3>Finding your community</h3>
+        <p>Places of worship, cultural associations, specialist grocers and online groups &mdash; national bodies above, local ones in each destination guide.</p>
         <a href="/guides/new-zealand-community" class="lnk">Finding your people</a>
       </div>
     </div>
