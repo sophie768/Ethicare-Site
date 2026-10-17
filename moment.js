@@ -124,6 +124,10 @@
   function inlineClock(el) {
     var zone = el.getAttribute('data-moment-clock'), label = el.getAttribute('data-moment-label') || '', cmp = el.getAttribute('data-moment-compare') === '1';
     if (!zone || !fmt(zone, {})) { el.hidden = true; return; }
+    /* mount() can run again when the saved answers change; without this the clock would be
+       rebuilt and a second ticker pushed each time. */
+    if (el.getAttribute('data-mo-bound') === zone) return;
+    el.setAttribute('data-mo-bound', zone);
     el.innerHTML = (label ? '<span class="mo-l">' + label + '</span> ' : '') + '<time class="mo-t"></time><span class="mo-d"></span><span class="mo-c"></span>';
     var t = el.querySelector('.mo-t'), d = el.querySelector('.mo-d'), c = el.querySelector('.mo-c');
     function paint(now) {

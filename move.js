@@ -89,6 +89,11 @@
        so the plan link and the printed document carry them too (2 Oct 2026). */
     if (!S.steps || typeof S.steps !== 'object') S.steps = {};
     if (!S.notes || typeof S.notes !== 'object') S.notes = {};
+    /* The visa medical (17 Oct 2026). Three administrative fields only — when the appointment
+       is, how far along it is, and which clinic and receipt. Deliberately NOT part of the
+       summary that "send my plan" posts to us, and there is nowhere here to type a result:
+       the examination itself is between the candidate and the panel physician. */
+    if (!S.med || typeof S.med !== 'object') S.med = { date: '', status: '', ref: '' };
   }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
   var dest = function () { return ctx ? ctx.destMode() : ''; };
@@ -585,6 +590,21 @@
     if (sel.id === 'role') p += '<div class="pt-offer"><p class="pt-offer-k">Ready to be considered for roles?</p>' +
       '<p>Send your CV and we will look out for roles that fit your profession and the place you want to live.</p>' +
       '<a class="pt-btn" href="/apply">Apply and send your CV <i aria-hidden="true">&rarr;</i></a></div>';
+    /* The visa medical sits on the stage that owns Visas. Admin only — see the note in load(). */
+    if (sel.id === 'plan') {
+      var MEDS = [['', 'Not booked yet'], ['booked', 'Booked'], ['done', 'Examination done'], ['sent', 'Sent to immigration']];
+      p += '<h3 class="pt-h3">Your visa medical</h3>' +
+        '<div class="pt-med">' +
+        '<p>Everyone on the application is examined, and it has to be an approved clinic rather than your own doctor. Keep the appointment and the receipt here so they are not scattered across your inbox.</p>' +
+        '<div class="pt-med-row">' +
+        '<label><span>Appointment date</span><input type="date" data-med="date"></label>' +
+        '<label><span>Where it has got to</span><select data-med="status">' +
+        MEDS.map(function (m) { return '<option value="' + m[0] + '">' + m[1] + '</option>'; }).join('') + '</select></label>' +
+        '<label><span>Clinic and receipt reference</span><input type="text" maxlength="60" data-med="ref" placeholder="Clinic name and receipt number"></label>' +
+        '</div>' +
+        '<p class="pt-fine">Saved on this device only, like the rest of your plan, and left out of the copy you can send us. Nothing about the examination itself belongs here &mdash; your results go from the clinic straight to immigration.</p>' +
+        '</div>';
+    }
     p += '<h3 class="pt-h3">Personal notes</h3>' +
       '<label class="sr-only" for="pt-note">Your notes for ' + esc(sel.label) + '</label>' +
       '<textarea class="pt-note" id="pt-note" rows="4" data-note="' + sel.id + '" placeholder="Questions to ask, what you have decided, anything you want to come back to."></textarea>' +
@@ -604,6 +624,7 @@
 
     host.innerHTML = (wantsWelcome() ? welcomeHTML() : '') + '<div class="pt-j">' + rail + '<div class="pt-jmain">' + chips + p + '</div></div>';
     var ta = host.querySelector('[data-note]'); if (ta) ta.value = S.notes[sel.id] || '';
+    host.querySelectorAll('[data-med]').forEach(function (el) { el.value = S.med[el.getAttribute('data-med')] || ''; });
     if (ctx && ctx.decorate) ctx.decorate(host);
     if (ctx && ctx.decorate && nextEl) ctx.decorate(nextEl);
     paintSend();
@@ -620,14 +641,14 @@
     cols.hidden = !canHelp; off.hidden = canHelp;
     var h = $('[data-send-h]'), note = $('[data-send-note]');
     if (canHelp) {
-      if (h) h.textContent = 'Rather we picked this up with you?';
+      if (h) h.textContent = 'Speak to Ethicare';
       if (note) note.textContent = 'Send us what you have so far and we will read it before we speak. Nothing goes anywhere until you press send — and you can see exactly what it contains below.';
       return;
     }
     /* The heading and note above belong to the "we can help" card; this branch hides that card
        and shows its own, so they are left alone. What matters here is that no advertised
        vacancy is never reported as "we do not recruit your profession". */
-    if (h) h.textContent = 'Rather we picked this up with you?';
+    if (h) h.textContent = 'Speak to Ethicare';
     if (note) note.textContent = '';
     var line = $('[data-send-off-line]'); if (!line) return;
     var where = destName();
@@ -1064,6 +1085,15 @@
       var id = ta.getAttribute('data-note');
       load(); S.notes[id] = ta.value; save();
     });
+    /* The visa medical fields. Same store, same device-only promise; never repainted on input. */
+    function medSave(e) {
+      var el = e.target;
+      if (!el || !el.getAttribute || !el.hasAttribute('data-med')) return;
+      var k = el.getAttribute('data-med');
+      load(); S.med[k] = String(el.value || '').slice(0, 60); save();
+    }
+    document.addEventListener('input', medSave);
+    document.addEventListener('change', medSave);
     /* the send-my-plan summary is written at submit time from the same store — see move.html */
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();

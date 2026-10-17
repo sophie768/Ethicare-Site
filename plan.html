@@ -329,6 +329,13 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
 .pt-ns-t{font-size:15.5px;line-height:1.55;color:var(--text);text-wrap:pretty}
 .pt-ns.on .pt-ns-t{color:#6A7872}
 
+/* The visa medical (17 Oct 2026): three administrative fields on the Plan stage. */
+.pt-med>p{font-size:15.5px;line-height:1.65;color:var(--text);margin:0 0 16px;max-width:66ch}
+.pt-med-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.pt-med-row label{display:flex;flex-direction:column;gap:6px}
+.pt-med-row label>span{font-family:var(--head,'Work Sans',sans-serif);font-weight:600;font-size:13px;color:var(--muted)}
+.pt-med-row input,.pt-med-row select{width:100%;padding:11px 13px;border:1.5px solid #C9DED3;border-radius:12px;background:var(--warm,#FCFBF8);font-family:var(--body);font-size:15.5px;color:var(--text)}
+.pt-med-row input:focus-visible,.pt-med-row select:focus-visible{outline:3px solid #C6E084;outline-offset:2px}
 .pt-note{width:100%;min-height:104px;padding:12px 14px;border:1.5px solid #C9DED3;border-radius:12px;background:var(--warm,#FCFBF8);font-family:var(--body);font-size:15.5px;line-height:1.6;color:var(--text);resize:vertical}
 .pt-note:focus{outline:none;border-color:var(--teal);background:#fff}
 
@@ -595,6 +602,9 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
   <div class="shell">
     <div class="pt-next" data-next hidden></div>
     <p id="pt-live" class="sr-only" role="status" aria-live="polite"></p>
+    <span class="eyebrow">Step one</span>
+    <h2>Build your plan</h2>
+    <p class="pt-fine" style="max-width:70ch;margin:6px 0 0">Answer a few questions, work through the stages, and save the guides you want to keep.</p>
     <div class="pt-stages" data-stages style="margin-top:clamp(22px,3vw,34px)"></div>
     <p class="pt-fine" style="margin-top:18px;max-width:70ch">Every stage stays open to you whatever you have ticked off. The order is the order most people need, not a rule.</p>
     <a class="pt-packline" href="/my-pack" data-pt-pack hidden><span class="k">Your guides by email</span><span data-pt-pack-t>Guides you add as you go collect here.</span><span aria-hidden="true">&rarr;</span></a>
@@ -620,7 +630,7 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
   <section class="pt-details">
     <div class="shell">
       <details class="pt-keep" id="keep">
-      <summary><span><span class="pt-keep-sk">Save, share or download your plan</span><span class="pt-keep-sd">Your plan is saved in this browser only. Get your link or a copy to keep it safe.</span></span></summary>
+      <summary><span><span class="pt-keep-sk">Keep your plan</span><span class="pt-keep-sd">It is saved in this browser only. Take a copy, or carry it to another device.</span></span></summary>
       <p class="pt-warn">If you clear your browser data, your plan goes with it. Your link keeps a copy, and anyone who has the link can open what is in it, so keep it to yourself and leave out anything sensitive.</p>
       <!-- Downloading and carrying the plan across belong together: they are the same question
            asked twice (Sophie, 3 Oct 2026). Nothing moves between devices on its own; the link
@@ -655,9 +665,9 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
         </div>
       </div>
       <details class="pt-talk" id="send">
-        <summary><span class="pt-talk-k">Rather we picked this up with you?</span><span class="pt-talk-d">Send us a summary of your plan and we&rsquo;ll read it before we speak.</span></summary>
+        <summary><span class="pt-talk-k">Speak to Ethicare</span><span class="pt-talk-d">Rather we picked this up with you? Send us a summary and we&rsquo;ll read it before we speak.</span></summary>
 
-      <h2 data-send-h>Rather we picked this up with you?</h2>
+      <h2 data-send-h>Speak to Ethicare</h2>
       <p class="note" data-send-note>Send us what you have so far and we will read it before we speak. Nothing goes anywhere until you press send &mdash; and you can see exactly what it contains below.</p>
       <div class="pt-cols" data-send-cols>
         <form class="pt-card pt-f" name="plan-share" method="POST" action="/thank-you" data-netlify="true" data-netlify-honeypot="bot-field" data-plan-form>
@@ -695,7 +705,6 @@ form.pt-card.pt-f{display:grid;gap:20px;align-content:start}
       </div>
       </details>
       <div class="pt-signrow">
-        <a class="pt-btn ghost" href="/apply">Apply and send your CV</a>
         <button class="pt-quiet" type="button" data-clear>Clear my plan from this device</button>
       </div>
       </details>

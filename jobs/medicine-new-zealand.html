@@ -37,6 +37,12 @@
 .gtbl tbody tr+tr th,.gtbl tbody tr+tr td{border-top:1px solid var(--mint,#C9DED3)}
 @media (max-width:520px){.gtbl th[scope=row],.gtbl td{font-size:15px;padding:12px 14px}}
 </style>
+<style id="specintro-local">
+.specintro{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:clamp(32px,4.5vw,68px);align-items:center}
+.specintro .readcol{max-width:560px}
+.specintro .specshot img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:18px}
+@media(max-width:900px){.specintro{grid-template-columns:1fr;gap:28px}.specintro .specshot{order:-1}}
+</style>
 </head>
 <body class="nz">
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -94,8 +100,8 @@
     <div class="copy">
       <nav class="crumb" aria-label="Breadcrumb"><a href="/new-zealand">New Zealand</a><span class="sep">&#8250;</span><a href="/new-zealand#professions">Professions</a><span class="sep">&#8250;</span><span class="here">Medicine</span></nav>
       <span class="eyebrow">Career guide &middot; Medicine &middot; New Zealand</span>
-      <h1>Medicine in New Zealand,<br>from registrar to consultant.</h1>
-      <p class="sub">Consultant and specialist posts, and the registrar and house officer roles that rarely reach a job board.</p>
+      <h1>Medicine in New Zealand,<br>from house officer to SMO.</h1>
+      <p class="sub">SMO and specialist posts, and the registrar and house officer roles that rarely reach a job board.</p>
       <div class="btn-row"><a class="btn btn-primary" href="#specialties">Explore your specialty <span aria-hidden="true">&rarr;</span></a><a class="btn btn-ghost" href="/pathway-checker?profession=specialist-doctor&amp;destination=new-zealand">Check your pathway</a></div>
     </div>
   </div>
@@ -103,29 +109,33 @@
     <div class="in">
       <div class="c"><span class="k">Registration</span><span class="v">Medical Council of New Zealand</span></div>
       <div class="c"><span class="k">What sets the timeline</span><span class="v">Your College&rsquo;s comparability finding</span></div>
-      <div class="c"><span class="k">Not a consultant yet?</span><a class="v" href="/jobs/rmo-registrar-new-zealand">RMO, SHO and registrar posts<span aria-hidden="true">&rarr;</span></a></div>
+      <div class="c"><span class="k">Not an SMO yet?</span><a class="v" href="/jobs/rmo-registrar-new-zealand">RMO, SHO and registrar posts<span aria-hidden="true">&rarr;</span></a></div>
     </div>
   </div>
 </header>
 
 <section class="section" id="specialties" data-screen-label="Medicine NZ &middot; where you fit">
   <div class="wrap">
-    <div class="readcol">
-      <span class="eyebrow">Your specialty</span>
-      <h2>Your specialty, and the pathway that goes with it</h2>
-      <p class="lead" style="margin-top:var(--sp-sm,18px)">Whether you can register, and on which pathway, depends on your qualifications, your training, how recently you have practised and the Medical Council of New Zealand scope that fits them. Doctors seeking specialist (vocational) registration are assessed by their College; the general-scope routes used by most registrars and house officers are not, and run to different timelines. The pathway is what sets the timeline for the whole move.</p>
-      <p style="margin-top:16px;color:var(--muted)">Each specialty we recruit into has its own guide below. For any other, talk to us.</p>
+    <div class="specintro">
+      <div class="readcol">
+        <span class="eyebrow">Your specialty</span>
+        <h2>Your specialty, and the pathway that goes with it</h2>
+        <p class="lead" style="margin-top:var(--sp-sm,18px)">Which pathway you take depends on your qualification, your training and how recently you have practised.</p>
+        <p style="margin-top:14px">If you are going for specialist registration, your College assesses you. The general-scope routes most registrars and house officers take are not assessed that way, and they run to different timelines.</p>
+        <p style="margin-top:14px;color:var(--muted)">Each specialty we recruit into has its own guide below. For any other, talk to us.</p>
+      </div>
+      <div class="specshot"><img src="../assets/clinical/gp-consultation.jpg" alt="A doctor talking with a patient in a consulting room" width="1800" height="1246" loading="lazy" decoding="async"></div>
     </div>
     <div class="pcards" style="margin-top:clamp(30px,3.6vw,44px)">
-      <a class="pcard" href="/jobs/anaesthetist-new-zealand"><div class="body"><div class="top"><h3>Anaesthetists</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>Generalist theatre breadth, and one of the quicker registration routes.</p></div></a>
-      <a class="pcard" href="/jobs/consultant-radiologist-new-zealand"><div class="body"><div class="top"><h3>Consultant radiologists</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>Subspecialty reporting, with comparability assessed by the College.</p></div></a>
-      <a class="pcard" href="/jobs/emergency-medicine-new-zealand"><div class="body"><div class="top"><h3>Emergency medicine</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>Smaller departments, consultants on the floor, retrieval work within reach.</p></div></a>
-      <a class="pcard" href="/jobs/gp-new-zealand"><div class="body"><div class="top"><h3>General practitioners</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>Longer consultations and continuity of care.</p></div></a>
-      <a class="pcard" href="/jobs/obstetrics-gynaecology-new-zealand"><div class="body"><div class="top"><h3>Obstetrics &amp; gynaecology</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>A Lead Maternity Carer model, and mixed obstetric and gynaecological lists.</p></div></a>
-      <a class="pcard" href="/jobs/paediatrician-new-zealand"><div class="body"><div class="top"><h3>Paediatricians</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>General paediatric breadth, and child health that reaches outside the hospital.</p></div></a>
-      <a class="pcard" href="/jobs/psychiatrist-new-zealand"><div class="body"><div class="top"><h3>Psychiatrists</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>Community-first services, and a model of wellbeing you have not practised before.</p></div></a>
-      <a class="pcard" href="/jobs/rmo-registrar-new-zealand"><div class="body"><div class="top"><h3>RMO, SHO &amp; registrar</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>House officer, SHO and registrar posts: general registration, and jobs that are rarely advertised nationally.</p></div></a>
-      <a class="pcard" href="/apply"><div class="body"><div class="top"><h3>Another specialty</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>We recruit consultants across many more specialties than these. Send us your CV.</p></div></a>
+      <a class="pcard" href="/jobs/anaesthetist-new-zealand"><div class="ph"><img src="../assets/clinical/anaesthetist-at-machine.jpg" alt="An anaesthetist at the machine in theatre" style="object-position:center 38%" width="1800" height="1246" loading="lazy" decoding="async"></div><div class="body"><div class="top"><h3>Anaesthetists</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>Generalist theatre breadth, and one of the quicker registration routes.</p></div></a>
+      <a class="pcard" href="/jobs/consultant-radiologist-new-zealand"><div class="ph"><img src="../assets/clinical/imaging-reporting.jpg" alt="A radiologist reporting at an imaging workstation" width="1800" height="1246" loading="lazy" decoding="async"></div><div class="body"><div class="top"><h3>Consultant radiologists</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>Subspecialty reporting, with comparability assessed by the College.</p></div></a>
+      <a class="pcard" href="/jobs/emergency-medicine-new-zealand"><div class="ph"><img src="../assets/clinical/hospital-corridor-trolley-team.jpg" alt="A clinical team moving a patient on a trolley" width="1800" height="1246" loading="lazy" decoding="async"></div><div class="body"><div class="top"><h3>Emergency medicine</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>Smaller departments, senior doctors on the floor, retrieval work within reach.</p></div></a>
+      <a class="pcard" href="/jobs/gp-new-zealand"><div class="ph"><img src="../assets/clinical/gp-writing-notes.jpg" alt="A GP writing notes at a desk" width="1800" height="1246" loading="lazy" decoding="async"></div><div class="body"><div class="top"><h3>General practitioners</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>Longer consultations and continuity of care.</p></div></a>
+      <a class="pcard" href="/jobs/obstetrics-gynaecology-new-zealand"><div class="ph"><img src="../assets/clinical/maternity-team-newborn.jpg" alt="A maternity team with a newborn" width="1800" height="1246" loading="lazy" decoding="async"></div><div class="body"><div class="top"><h3>Obstetrics &amp; gynaecology</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>A Lead Maternity Carer model, and mixed obstetric and gynaecological lists.</p></div></a>
+      <a class="pcard" href="/jobs/paediatrician-new-zealand"><div class="ph"><img src="../assets/clinical/paediatrician-toddler-check.jpg" alt="A paediatrician examining a toddler" width="1800" height="1246" loading="lazy" decoding="async"></div><div class="body"><div class="top"><h3>Paediatricians</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>General paediatric breadth, and child health that reaches outside the hospital.</p></div></a>
+      <a class="pcard" href="/jobs/psychiatrist-new-zealand"><div class="ph"><img src="../assets/clinical/psychiatry-consultation.jpg" alt="A clinician talking with a patient in a consulting room" width="1800" height="1246" loading="lazy" decoding="async"></div><div class="body"><div class="top"><h3>Psychiatrists</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>Community-first services, and a model of wellbeing you have not practised before.</p></div></a>
+      <a class="pcard" href="/jobs/rmo-registrar-new-zealand"><div class="ph"><img src="../assets/clinical/clinician-portrait.jpg" alt="A doctor standing outside the hospital" style="object-position:center 18%" width="1800" height="1246" loading="lazy" decoding="async"></div><div class="body"><div class="top"><h3>RMO, SHO &amp; registrar</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>House officer, SHO and registrar posts: general registration, and jobs that are rarely advertised nationally.</p></div></a>
+      <a class="pcard" href="/apply"><div class="body"><div class="top"><h3>Another specialty</h3><span class="arw" aria-hidden="true">&rarr;</span></div><p>We recruit SMOs across many more specialties than these. Send us your CV.</p></div></a>
     </div>
   </div>
 </section>
@@ -151,11 +161,11 @@
     <div class="readcol">
       <span class="eyebrow">What the grades are called</span>
       <h2>The job titles are different here.</h2>
-      <p class="lead" style="margin-top:var(--sp-sm,18px)">New Zealand adverts use their own names for the same jobs.</p>
+      <p class="lead" style="margin-top:var(--sp-sm,18px)">New Zealand adverts use their own names for the same jobs. The left-hand column uses UK grade names, because they are the ones most widely recognised; if you trained elsewhere, the registration column is the part that matters.</p>
     </div>
     <div class="gtbl-wrap">
       <table class="gtbl">
-        <thead><tr><th scope="col">In the UK</th><th scope="col">In New Zealand</th><th scope="col">Registration you need</th></tr></thead>
+        <thead><tr><th scope="col">The title you may know</th><th scope="col">In New Zealand</th><th scope="col">Registration you need</th></tr></thead>
         <tbody>
           <tr><th scope="row">Consultant</th><td><b>SMO</b> &mdash; senior medical officer</td><td>Vocational scope, in a named specialty</td></tr>
           <tr><th scope="row">Registrar, ST3 and above</th><td><b>Registrar</b>, often advertised alongside <b>SHO</b> posts</td><td>General scope</td></tr>
@@ -174,16 +184,16 @@
     <div class="readcol">
       <span class="eyebrow">The shape of the system</span>
       <h2>Fewer layers between you and the patient</h2>
-      <p class="lead" style="margin-top:var(--sp-sm,18px)">New Zealand is small enough that the same consultant may see a patient in clinic, operate on them, take the call about them at two in the morning and write to their GP afterwards. Sub-specialty depth is thinner than in a large system; generalist breadth is expected, and valued.</p>
+      <p class="lead" style="margin-top:var(--sp-sm,18px)">New Zealand is small enough that the same SMO may see a patient in clinic, operate on them, take the call about them at two in the morning and write to their GP afterwards. Sub-specialty depth is thinner than in a large system; generalist breadth is expected, and valued.</p>
     </div>
-    <div class="tline" style="margin-top:clamp(34px,4vw,50px)">
+    <div class="tline three" style="margin-top:clamp(34px,4vw,50px)">
       <div class="s"><span class="n">Referrals</span><h3>The GP is the front door, and the loop closes with them</h3><p>General practice holds the long-term relationship; patients come to you from a GP you may know by name and return there after discharge.</p><span class="team">General practice &middot; outpatient clinics &middot; shared care</span></div>
-      <div class="s"><span class="n">Acute care</span><h3>Built around distance</h3><p>Smaller departments, consultants on the floor, and air and road retrieval as a routine part of acute care.</p><span class="team">Emergency medicine &middot; anaesthesia &middot; retrieval &middot; nursing</span></div>
+      <div class="s"><span class="n">Acute care</span><h3>Built around distance</h3><p>Smaller departments, senior doctors on the floor, and air and road retrieval as a routine part of acute care.</p><span class="team">Emergency medicine &middot; anaesthesia &middot; retrieval &middot; nursing</span></div>
       <div class="s"><span class="n">On the ward</span><h3>Decisions reach you sooner</h3><p>Fewer registrars between you and the patient, and much of the care after discharge carried by community teams, district nursing and aged residential care.</p><span class="team">Senior medical officers &middot; registrars and RMOs &middot; allied health &middot; community nursing</span></div>
     </div>
     <div class="wpanel" style="margin-top:clamp(34px,4vw,44px)">
-      <span class="k">What surprises most consultants</span>
-      <p><strong>You will do more of your own work.</strong> For many international consultants that broader responsibility is both the attraction and the biggest adjustment of the first year.</p>
+      <span class="k">What surprises most people arriving</span>
+      <p><strong>You will do more of your own work.</strong> For many arriving specialists that broader responsibility is both the attraction and the biggest adjustment of the first year.</p>
       <p>The second surprise is how small the professional community is: in most specialties you will know your counterparts around the country by name within a year or two.</p>
     </div>
   </div>
@@ -199,7 +209,7 @@
           <p class="lead" style="margin-top:var(--sp-sm,18px)">A tertiary post, a regional hospital and a rural generalist role are further apart here than the job titles suggest. Location sets your case mix, your on-call, your sub-specialty support and how far away the nearest scanner is.</p>
         </div>
         <div style="margin-top:clamp(32px,3.6vw,44px)">
-          <div class="gband"><div class="lbl"><span class="k">Hospitals</span><h3>Hospital medicine</h3><p>Most of it happens outside the main centres.</p></div><div class="items"><div class="scard"><h4>Regional &amp; secondary hospitals</h4><p>Broader case mix, less sub-specialty support and clinical decisions that are yours to make. A good number of consultants arrive intending to take a tertiary post and stay in one of these instead.</p></div><div class="scard"><h4>Tertiary centres</h4><p>Sub-specialty work, complex referrals, teaching and research, concentrated in a handful of cities.</p></div><div class="scard"><h4>Public and private</h4><p>Public work is unselected acute medicine, collective-agreement pay and the on-call that comes with it. Private practice is elective lists, more control over your week and income outside the agreement. Many consultants hold both.</p></div></div></div>
+          <div class="gband"><div class="lbl"><span class="k">Hospitals</span><h3>Hospital medicine</h3><p>Most of it happens outside the main centres.</p></div><div class="items"><div class="scard"><h4>Regional &amp; secondary hospitals</h4><p>Broader case mix, less sub-specialty support and clinical decisions that are yours to make. A good number of consultants arrive intending to take a tertiary post and stay in one of these instead.</p></div><div class="scard"><h4>Tertiary centres</h4><p>Sub-specialty work, complex referrals, teaching and research, concentrated in a handful of cities.</p></div><div class="scard"><h4>Public and private</h4><p>Public work is unselected acute medicine, collective-agreement pay and the on-call that comes with it. Private practice is elective lists, more control over your week and income outside the agreement. Many SMOs hold both.</p></div></div></div>
           <div class="gband"><div class="lbl"><span class="k">Community</span><h3>Outside the hospital</h3><p>Careers where the working week looks nothing like a ward round.</p></div><div class="items"><div class="scard"><h4>General practice &amp; community</h4><p>Longer consultations and continuity of care, with a business model attached to the clinical one.</p></div><div class="scard"><h4>Rural generalist</h4><p>Broad scope, autonomy, and distance as a factor in every decision. Best entered with a plan for the professional isolation that comes with it.</p></div><div class="scard"><h4>Retrieval, transport &amp; telehealth</h4><p>Geography makes this core work: air and road retrieval, and telehealth that stands in for a clinic.</p></div><div class="scard"><h4>Aged residential care</h4><p>An increasing share of medicine, mostly outside hospital walls, and one of the quieter routes into a portfolio career.</p></div></div></div>
           <div class="gband"><div class="lbl"><span class="k">Population and portfolio</span><h3>Beyond direct care</h3><p>Clinical careers where the patient is a population, a cohort or a student.</p></div><div class="items"><div class="scard"><h4>M&#257;ori &amp; Pacific health providers</h4><p>Kaupapa M&#257;ori and Pacific organisations delivering care on their own terms, with wh&#257;nau at the centre of the model.</p></div><div class="scard"><h4>Public health &amp; population health</h4><p>Prevention, screening, outbreak and policy work &mdash; a clinical career with the patient defined as a population.</p></div><div class="scard"><h4>Academic, teaching &amp; research</h4><p>Joint appointments with the medical schools, trials work and supervision, usually alongside clinical sessions.</p></div><div class="scard"><h4>Locum &amp; fractional work</h4><p>A way to try the country, and a specialty, before committing your family to either. Sometimes it is the better first step, and we will say so.</p></div></div></div>
         </div>
@@ -232,7 +242,7 @@
     <div class="readcol">
       <span class="eyebrow">Vacancies</span>
       <h2>Current opportunities</h2>
-      <p class="lead" style="margin-top:var(--sp-sm,18px)">Consultant and specialist posts we are recruiting for now. Registrar and house officer posts have <a href="/jobs/rmo-registrar-new-zealand">their own page</a>.</p>
+      <p class="lead" style="margin-top:var(--sp-sm,18px)">SMO and specialist posts we are recruiting for now. Registrar and house officer posts have <a href="/jobs/rmo-registrar-new-zealand">their own page</a>.</p>
     </div>
     <div id="live-roles" data-profession="General Practitioner|Consultant Radiologist|Consultant Physician|Consultant Psychiatrist|Consultant Anaesthetist|Consultant Paediatrician|Ophthalmologist|Radiation Oncologist|Obstetrician &amp; Gynaecologist|Emergency Medicine Specialist" data-country="New Zealand" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px;margin-top:clamp(24px,3vw,32px)"></div>
     <div class="btn-row" style="margin-top:26px"><a class="btn btn-primary" href="/jobs/">View all vacancies</a><a class="btn btn-ghost" href="/register-interest">Register with Ethicare</a></div>

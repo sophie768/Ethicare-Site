@@ -148,6 +148,11 @@
 .tline h3{font-family:var(--display);font-weight:600;font-size:17.5px;line-height:1.28;color:var(--teal);margin:0 0 8px}
 .tline p{font-size:14.5px;line-height:1.65;color:var(--text);margin:0 0 12px}
 .tline .team{display:block;font-size:13px;line-height:1.55;color:var(--muted);border-top:1px solid var(--rule-tint);padding-top:10px}
+/* three-stage variant: fill the row instead of leaving two empty columns */
+.tline.three{grid-template-columns:repeat(3,1fr);gap:0 clamp(24px,3vw,44px)}
+.tline.three .s{padding-right:0}
+.tline.three h3{font-size:19px}
+.tline.three p{font-size:15.5px}
 
 /* narrower variants where a family has only two of something */
 .pcards.two{grid-template-columns:1fr 1fr;max-width:980px}
@@ -203,7 +208,7 @@
 .split{grid-template-columns:1fr}
 .split .h.b{border-left:0;border-top:1px solid var(--rule-tint)}
 .disc{grid-template-columns:repeat(3,1fr)}
-.tline{grid-template-columns:1fr 1fr}
+.tline,.tline.three{grid-template-columns:1fr 1fr}
 .pcards.two{grid-template-columns:1fr}
 .onwardbar a.end{margin-left:0}
 .cband{grid-template-columns:1fr;gap:18px}
@@ -215,7 +220,7 @@
 .disc{grid-template-columns:repeat(2,1fr)}
 .scen5{grid-template-columns:1fr}
 .faq{grid-template-columns:1fr}
-.tline{grid-template-columns:1fr}
+.tline,.tline.three{grid-template-columns:1fr}
 }
 
 /* FRAMED PHOTO (Sep 2026) — hub heroes match the profession pages: white page,

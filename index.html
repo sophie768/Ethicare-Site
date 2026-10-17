@@ -471,31 +471,42 @@ html body .joinb.is-dark .wrapx{max-width:none}
 .wb-eyebrow::before{content:"";width:28px;height:2px;background:#C6E084;border-radius:2px}
 .wb h1{font-family:'Work Sans',sans-serif;font-weight:600;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.08;letter-spacing:-.02em;color:#fff;margin:0 0 14px}
 .wb h1 [data-wb-name]{color:#C6E084}
-.wb-sub{font-family:'Manrope',sans-serif;font-size:1.125rem;line-height:1.55;color:#DCEAE5;max-width:620px;margin:0 auto 34px}
-.wb-card{background:#fff;color:#1F2A27;border-radius:22px;box-shadow:0 30px 60px -28px rgba(0,0,0,.45);padding:28px;display:grid;grid-template-columns:1.1fr 1fr;gap:28px;text-align:left}
-.wb-resume{display:flex;flex-direction:column;justify-content:center;gap:8px;padding:26px 28px;border-radius:16px;background:#F3F7F4;text-decoration:none;color:#1F2A27;transition:background .15s ease}
-.wb-resume:hover{background:#E6F1ED}
-.wb-rl{font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#2F5E49}
-.wb-rt{font-family:'Work Sans',sans-serif;font-weight:600;font-size:1.5rem;line-height:1.2;color:#1F2A27}
-.wb-go{align-self:flex-start;margin-top:10px;display:inline-flex;align-items:center;gap:8px;background:#02615D;color:#fff;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;padding:14px 26px;border-radius:999px}
-.wb-resume:hover .wb-go{background:#014E4B}
-.wb-tiles{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.wb-tiles{grid-template-columns:1fr 1fr}
-.wb-tile{display:flex;align-items:center;gap:14px;padding:16px;border-radius:16px;background:#F3F7F4;text-decoration:none;color:#1F2A27;transition:background .15s ease}
-.wb-tile:hover{background:#E6F1ED}
-.wb-ti{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:#fff;color:#02615D}
-.wb-tile:hover .wb-ti{background:#02615D;color:#fff}
+.wb-sub{font-family:'Manrope',sans-serif;font-size:1.125rem;line-height:1.55;color:#DCEAE5;max-width:620px;margin:0 auto 10px}
+/* 17 Oct 2026: the destination clock moved up here from a grey tile at the foot. It is the one
+   line on the screen that makes the move feel real, so it sits with the greeting. */
+.wb-now{font-family:'Manrope',sans-serif;font-size:1rem;line-height:1.5;color:#CFE0DA;margin:0 auto 34px}
+.wb-now[hidden]{display:none}
+.wb-now .mo-l{font-weight:500;color:#CFE0DA}
+.wb-now .mo-t{font-family:'Work Sans',sans-serif;font-weight:600;color:#C6E084}
+/* 17 Oct 2026: the white card went. It was a box inside a box inside a box, and it made four
+   equal doors out of what should be one clear next step and three smaller ones. */
+.wb-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:20px;text-align:left}
+.wb-resume{display:flex;flex-direction:column;justify-content:center;gap:8px;padding:28px 30px;border-radius:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-left:3px solid #C6E084;text-decoration:none;color:#fff;transition:background .15s ease,border-color .15s ease}
+.wb-resume:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);border-left-color:#C6E084}
+.wb-rl{font-family:'Work Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#C6E084}
+.wb-rt{font-family:'Work Sans',sans-serif;font-weight:600;font-size:1.5rem;line-height:1.2;color:#fff}
+.wb-go{align-self:flex-start;margin-top:12px;display:inline-flex;align-items:center;gap:8px;background:#fff;color:#02615D;font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;padding:14px 26px;border-radius:999px}
+.wb-resume:hover .wb-go{background:#F3F7F4}
+.wb-tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.wb-tile{display:flex;align-items:center;gap:14px;padding:16px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);text-decoration:none;color:#fff;transition:background .15s ease,border-color .15s ease}
+.wb-tile:hover{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.24)}
+.wb-ti{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:11px;background:rgba(255,255,255,.1);color:#C6E084}
+.wb-tile:hover .wb-ti{background:rgba(255,255,255,.18)}
 .wb-tt{display:flex;flex-direction:column;min-width:0}
-.wb-tn{font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;line-height:1.25;color:#1F2A27}
-.wb-td{font-family:'Manrope',sans-serif;font-weight:500;font-size:13.5px;line-height:1.35;color:#566660;margin-top:2px}
+.wb-tn{font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;line-height:1.25;color:#fff}
+.wb-td{font-family:'Manrope',sans-serif;font-weight:500;font-size:13.5px;line-height:1.35;color:#CFE0DA;margin-top:2px}
+.wb .wb-fact{justify-content:center;gap:4px 10px;font-size:14.5px;color:#CFE0DA;max-width:640px;margin:28px auto 0;text-align:center}
+.wb .wb-fact .mo-gt{flex:0 1 auto}
+.wb .wb-fact[hidden]{display:none}
 .wb a:focus-visible,.wb button:focus-visible{outline:3px solid #C6E084;outline-offset:3px}
 .wb-foot{margin:22px 0 0;font-family:'Manrope',sans-serif;font-size:14px;color:#DCEAE5}
 .wb .wb-foot a,.wb .wb-foot button{color:#fff!important;font:inherit;font-weight:600;text-decoration:underline;text-underline-offset:3px;background:none;border:0;padding:0;cursor:pointer}
 @media (max-width:760px){
   .wb{padding:40px 16px 48px}
-  .wb-card{grid-template-columns:1fr;padding:16px;gap:16px}
-  .wb-resume{padding:20px}
+  .wb-grid{grid-template-columns:1fr;gap:12px}
+  .wb-resume{padding:20px 22px}
   .wb-rt{font-size:1.25rem}
+  .wb-now{font-size:.95rem;margin-bottom:26px}
   .wb-tiles{grid-template-columns:1fr;gap:10px}
   .wb-tile{padding:12px}
 }
@@ -561,9 +572,10 @@ html body .joinb.is-dark .wrapx{max-width:none}
 <section class="wb" id="welcome-back" hidden aria-labelledby="wb-h" data-screen-label="Home &middot; welcome back">
   <div class="wb-in">
     <p class="wb-eyebrow" data-moment-greet-line hidden></p>
-    <h1 id="wb-h" data-moment-greet>Welcome back.</h1>
+    <h2 id="wb-h" data-moment-greet>Welcome back.</h2>
     <p class="wb-sub" data-wb-sub>Your answers are saved on this device, so everything below starts from where you are.</p>
-    <div class="wb-card">
+    <p class="wb-now" data-moment-clock="" data-moment-label="" data-moment-compare="1" hidden></p>
+    <div class="wb-grid">
       <a class="wb-resume" href="/you" data-wb-resume>
         <span class="wb-rl" data-wb-rl>Pick up where you left off</span>
         <span class="wb-rt" data-wb-rt>Your page</span>
@@ -575,11 +587,8 @@ html body .joinb.is-dark .wrapx{max-width:none}
         <a class="wb-tile" href="/jobs/" data-wb-roles><span class="wb-ti"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-briefcase"/></svg></span><span class="wb-tt"><span class="wb-tn" data-wb-roles-l>Live roles</span><span class="wb-td" data-wb-note="briefcase">Open now</span></span></a>
         <a class="wb-tile" href="/you"><span class="wb-ti"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#ec-info"/></svg></span><span class="wb-tt"><span class="wb-tn">Your answers</span><span class="wb-td" data-wb-note="info">Guides that fit where you are</span></span></a>
       </div>
-      <div class="wb-moment">
-        <div data-moment-tile></div>
-        <p class="mo-fact" data-moment-fact hidden></p>
-      </div>
     </div>
+    <p class="mo-fact on-dark wb-fact" data-moment-fact hidden></p>
     <p class="wb-foot">Saved on this device only. <a href="/you">Change my answers</a> <span aria-hidden="true">&middot;</span> <button type="button" data-wb-clear>Not you? Clear my answers</button></p>
   </div>
 </section>
@@ -609,8 +618,8 @@ html body .joinb.is-dark .wrapx{max-width:none}
   <div class="wrapx">
     <h2 id="tb-h" class="sr-only">Why Ethicare</h2>
     <ul class="tbi">
-      <li><span class="tbi-ic" aria-hidden="true"><svg width="56" height="56"><use href="#ec-heart"/></svg></span><span class="tbi-k">For every healthcare professional</span><span class="tbi-n">Free tools</span><span class="tbi-d">to plan your move, whether or not your role comes through us.</span></li>
-      <li><span class="tbi-ic" aria-hidden="true"><svg width="56" height="56"><use href="#ec-badge"/></svg></span><span class="tbi-k">Who runs it</span><span class="tbi-n">Expert-led</span><span class="tbi-d">founded by a former NHS Transformation Manager.</span></li>
+      <li><span class="tbi-ic" aria-hidden="true"><svg width="56" height="56"><use href="#ec-heart"/></svg></span><span class="tbi-k">What you get</span><span class="tbi-n">Free tools</span><span class="tbi-d">to plan your move, whether or not your role comes through us.</span></li>
+      <li><span class="tbi-ic" aria-hidden="true"><svg width="56" height="56"><use href="#ec-badge"/></svg></span><span class="tbi-k">Who runs it</span><span class="tbi-n">From inside the NHS</span><span class="tbi-d">founded by a former NHS Transformation Manager.</span></li>
       <li><span class="tbi-ic" aria-hidden="true"><svg width="56" height="56"><use href="#ec-chat"/></svg></span><span class="tbi-k">How we work</span><span class="tbi-n">Personal</span><span class="tbi-d">one person with you from first call to first year.</span></li>
     </ul>
   </div>
@@ -658,7 +667,7 @@ html body .joinb.is-dark .wrapx{max-width:none}
 <section class="trust ed" data-screen-label="Home &middot; trust">
   <div class="wrapx">
     <span class="eyebrow">They were where you are now</span>
-    <p class="lead2" style="margin:16px 0 clamp(28px,3.4vw,44px)">Most arrived never having set foot in either country.</p>
+    <p class="lead2" style="margin:16px 0 clamp(28px,3.4vw,44px)">Most of them arrived never having set foot in either country.</p>
     <div class="story">
       <div class="ph"><img loading="lazy" decoding="async" src="assets/stories/amal-sandra-theatre-clear.jpg" alt="Amal and Sandra, both anaesthetic technicians, in theatre scrubs and caps at work in Wellington" width="1440" height="860"></div>
       <div>
@@ -680,11 +689,6 @@ html body .joinb.is-dark .wrapx{max-width:none}
 
 <section class="whatwedo" data-screen-label="Home &middot; one place">
   <div class="wrapx">
-    <!-- Sophie, 6 Oct 2026: "promote this as a one stop shop for healthcare recruitment to australia
-         and new zealand. at the moment the information is out there, it is just hard to find and
-         scattered across different websites... this tailors the move to you. every move is different.
-         some people will be moving alone, some with a partner, some with kids. ethicare allows you to
-         access all the information in one place and plan at the same time." -->
     <h2>Every move is different.<em class="wd-h2b">Everything you need is here.</em></h2>
     <div class="wd-grid wd-grid-3">
       <a class="wd-card" href="/destination-finder">
@@ -896,13 +900,34 @@ html body .joinb.is-dark .wrapx{max-width:none}
     var name = ctx.first ? ctx.first() : '';
     var prof = (ctx.professionLabel && ctx.professionLabel()) || '', where = (ctx.destLabel && ctx.destLabel()) || '';
     var line = where ? (/[Cc]omparing/.test(where) ? 'You\u2019re weighing up both countries' : 'You\u2019re looking at ' + where) : '';
-    if (prof) line = line ? line + ', as ' + (/^[aeiou]/i.test(prof) ? 'an ' : 'a ') + prof.toLowerCase() : 'You work in ' + prof.toLowerCase();
+    /* 17 Oct 2026: the saved answer is a FIELD ("Medical imaging / radiography", "Social work"),
+       not a job title, so "as a medical imaging / radiography" was never going to read. Say "in"
+       instead, and keep "as a" for the one answer that really is a role. */
+    if (prof && !/^Another/i.test(prof)) {
+      var clause = /physician associate/i.test(prof) ? 'as a ' + prof.toLowerCase() : 'in ' + prof.toLowerCase();
+      line = line ? line + ', ' + clause : 'You work ' + clause;
+    }
     wb.querySelector('[data-wb-sub]').textContent = (name ? name + ', ' : '') + (line ? (name ? line.charAt(0).toLowerCase() + line.slice(1) : line) + '. ' : '') + 'Everything here starts from where you left off.';
-    /* tile notes: progress through the plan, guides already in the pack */
+    /* 17 Oct 2026: the destination clock, inline under the greeting. moment.js paints it and keeps
+       it ticking; all we do is say which zone, which it cannot know without the saved answers. */
+    var nowEl = wb.querySelector('[data-moment-clock]'), dz = ctx.dest ? ctx.dest() : '';
+    if (nowEl) {
+      var Z = dz === 'au' ? ['Australia/Sydney', 'In Sydney right now it’s'] : ['Pacific/Auckland', 'In New Zealand right now it’s'];
+      nowEl.setAttribute('data-moment-clock', Z[0]);
+      nowEl.setAttribute('data-moment-label', Z[1]);
+      nowEl.hidden = false;
+    }
+    /* tile notes: progress through the plan, guides already in the pack. Where there is nothing
+       to report yet, say that plainly — repeating the tile's own name tells the reader nothing. */
     var J = window.ETHICARE_JOURNEY || [], n = ctx.stageNumber ? ctx.stageNumber() : 0;
-    wb.querySelector('[data-wb-note="clipboard"]').textContent = n && J.length ? 'Stage ' + n + ' of ' + J.length : 'Your move, step by step';
+    wb.querySelector('[data-wb-note="clipboard"]').textContent = n && J.length ? 'Stage ' + n + ' of ' + J.length
+      : J.length ? 'Not started · ' + J.length + ' stages' : 'Your move, step by step';
     var pk = []; try { pk = JSON.parse(localStorage.getItem('ethicare_pack_v1') || '[]'); } catch (e) {}
-    wb.querySelector('[data-wb-note="pack"]').textContent = pk && pk.length ? pk.length + (pk.length === 1 ? ' guide' : ' guides') + ' chosen' : 'Guides to download in one email';
+    wb.querySelector('[data-wb-note="pack"]').textContent = pk && pk.length ? pk.length + (pk.length === 1 ? ' guide' : ' guides') + ' chosen' : 'Nothing chosen yet';
+    /* "Your answers" says back what we hold, so the tile is worth a click to correct */
+    var inf = wb.querySelector('[data-wb-note="info"]'), held = [];
+    if (prof) held.push(prof); if (where && !/[Cc]omparing/.test(where)) held.push(where);
+    if (inf) inf.textContent = held.length ? held.join(' · ') : 'Guides that fit where you are';
     /* pick up where you left off: the last page they read, else their next step, else their page */
     var last = null; try { last = JSON.parse(localStorage.getItem(LAST) || 'null'); } catch (e) {}
     var nx = ctx.next ? ctx.next() : null, a = wb.querySelector('[data-wb-resume]');

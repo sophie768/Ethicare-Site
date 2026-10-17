@@ -227,7 +227,7 @@
       anaesthetist: ['medicine-australia', 'Doctors in Australia'], psychiatrist: ['mental-health-australia', 'Mental health in Australia'], gp: ['medicine-australia', 'Doctors in Australia'], 'emergency-medicine': ['medicine-australia', 'Doctors in Australia'],
       mri: ['medical-imaging-australia', 'Medical imaging in Australia'], 'nuclear-medicine': ['nuclear-medicine-australia', 'Nuclear medicine in Australia'],
       'radiation-therapist': ['radiation-therapist-australia', 'Radiation therapists in Australia'], sonographer: ['sonographer-australia', 'Sonographers in Australia'],
-      radiographer: ['radiographer-australia', 'Radiographers in Australia'], psychologist: ['psychologist-australia', 'Psychologists in Australia'],
+      radiographer: ['radiographer-australia', 'Radiographers in Australia'], psychologist: ['mental-health-australia', 'Mental health in Australia'],
       physiotherapist: ['allied-health-australia', 'Allied health in Australia'], 'occupational-therapist': ['allied-health-australia', 'Allied health in Australia'],
       'speech-language-therapist': ['allied-health-australia', 'Allied health in Australia'], dietitian: ['allied-health-australia', 'Allied health in Australia'], 'social-worker': ['allied-health-australia', 'Allied health in Australia'],
       'anaesthetic-technician': ['theatre-perioperative-australia', 'Theatre and perioperative in Australia'], midwife: ['nursing-midwifery-australia', 'Nursing and midwifery in Australia'], 'registered-nurse': ['nursing-midwifery-australia', 'Nursing and midwifery in Australia'] }
